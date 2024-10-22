@@ -1,0 +1,116 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    background-color: #228b22;
+    color: white;
+    padding: 10px;
+}
+
+header p {
+    font-size: 0.9em;
+    color: #333;
+}
+
+/* Table Styles */
+.development-plan-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.development-plan-table th, .development-plan-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.development-plan-table th {
+    background-color: #e3e3e3;
+}
+
+.section-title {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.comments-section {
+    margin: 20px 0;
+}
+
+.comments-section label {
+    font-weight: bold;
+    display: block;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Footer Styles */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.signatures {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.signatures div {
+    text-align: center;
+}
+
+.signatures span {
+    display: block;
+}
+
+.note {
+    text-align: left;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.save-button {
+    display: block;
+    width: 100px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #228b22;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.save-button:hover {
+    background-color: #1e7b1e;
+}

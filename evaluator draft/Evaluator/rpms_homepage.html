@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPMS Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+        }
+
+        /* Sidebar Styling */
+        .sidebar {
+            width: 60px;
+            background-color: #fff;
+            border-right: 1px solid #ddd;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .sidebar img {
+            width: 40px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+        }
+
+        .sidebar a:hover {
+            color: red;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+
+        header {
+            height: 30px;    
+            background-color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+        }
+        header img {
+            max-width: 100%;
+            max-height: 80px; 
+        }
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+        nav a img {
+            height: 25px;
+            margin-right: 5px;
+        }
+        nav a.active {
+            color: white;
+            background-color: #C10001;
+            border-radius: 25px; 
+            padding: 5px 20px;   
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            position: relative;
+            min-height: 200px;
+        }
+
+        .card-header h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .card-header p {
+            font-size: 0.9rem;
+            color: white;
+        }
+
+        .sy-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        /* Card Colors */
+        .blue { background-color: #5cc6f1; }
+        .red { background-color: #f58a8a; }
+        .green { background-color: #98d78e; }
+        .brown { background-color: #b08968; }
+        .purple { background-color: #967bb6; }
+        .maroon { background-color: #b56565; }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="DepED-logo.png" alt="DepED Logo">
+        <a href="#"><img src="home-icon.png" alt="Home"></a>
+        <a href="#"><img src="menu-icon.png" alt="Menu"></a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header / Navigation Links -->
+        <header>
+            <div>
+                <img src="DepEd_01.png" alt="DepED Logo">
+            </div>
+            <nav>
+                <a href="#"><img src="House_01.png" alt="Home">Home</a>
+                <a href="Proficient Form.html" class="active"><img src="Documents.png" alt="Forms">Forms</a>
+                <a href="#"><img src="Folders.png" alt="Records">Records</a>
+                <a href="#"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+                <a href="#"><img src="User_01.png" alt="Profile">Profile</a>
+                <a href="#" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
+            </nav>
+        </header>
+
+        <!-- Cards Section -->
+        <div class="cards-container">
+            <div class="card blue">
+                <div class="card-header">
+                    <h3>Results-Based Performance Management System</h3>
+                    <p>School Year 2023-2024</p>
+                    <div class="sy-circle">SY</div>
+                </div>
+                <div class="card-body">
+                    <p><strong>Due:</strong></p>
+                    <ul>
+                        <li>KRA 1: Content Knowledge and Ped...</li>
+                        <li>KRA 2: Learning Environment and D...</li>
+                        <li>KRA 3: Curriculum and Planning</li>
+                        <li>KRA 4: Curriculum and Planning & A...</li>
+                        <li>PLUS FACTOR</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card red">
+                <div class="card-header">
+                    <h3>Results-Based Performance Management System</h3>
+                    <p>School Year 2022-2023</p>
+                    <div class="sy-circle">SY</div>
+                </div>
+            </div>
+
+            <div class="card green">
+                <div class="card-header">
+                    <h3>Results-Based Performance Management System</h3>
+                    <p>School Year 2021-2022</p>
+                    <div class="sy-circle">SY</div>
+                </div>
+            </div>
+
+            <div class="card brown">
+                <div class="card-header">
+                    <h3>Results-Based Performance Management System</h3>
+                    <p>School Year 2020-2021</p>
+                    <div class="sy-circle">SY</div>
+                </div>
+            </div>
+
+            <div class="card purple">
+                <div class="card-header">
+                    <h3>Results-Based Performance Management System</h3>
+                    <p>School Year 2019-2020</p>
+                    <div class="sy-circle">SY</div>
+                </div>
+            </div>
+
+            <div class="card maroon">
+                <div class="card-header">
+                    <h3>Results-Based Performance Management System</h3>
+                    <p>School Year 2018-2019</p>
+                    <div class="sy-circle">SY</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

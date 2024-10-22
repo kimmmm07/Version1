@@ -1,0 +1,299 @@
+/* Universal styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body styling */
+body {
+    background-color: white; /* Set background to white */
+    padding: 20px;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    z-index: 100;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    width: 90px; /* Adjust logo size */
+    height: auto;
+    margin-right: 10px;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin-left: auto; /* Aligns menu to the right */
+}
+
+.navbar-menu li {
+    margin-right: 15px; /* Space between buttons */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    font-size: 14px; /* Consistent font size for smaller buttons */
+    display: flex;
+    align-items: center; /* Center the icons and text vertically */
+    padding: 6px 10px; /* Consistent padding */
+}
+
+.nav-icon {
+    width: 20px;  /* Smaller icons */
+    height: 20px;
+    margin-right: 6px; /* Adjust icon spacing */
+    display: inline-block;
+}
+
+.logout-btn {
+    text-decoration: none;
+    color: #d00000;
+    font-size: 14px; /* Font size for logout button */
+    font-weight: bold;
+    padding: 6px 10px; /* Padding for button size */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px; /* Spacing from other items */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.forms {
+    color: white;
+    background-color: #d00000;
+    padding: 8px 16px;
+    border-radius: 40px;
+}
+
+.active {
+    font-weight: bold;
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 60px; /* Sidebar width */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; /* Space between top and bottom icons */
+    padding: 10px 0;
+    position: fixed;
+    top: 5%; /* Sidebar stays at the top */
+    left: 0;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    z-index: 50; /* Ensures it's below the navbar */
+}
+
+/* Sidebar icon container */
+.sidebar-icon {
+    margin: 20px 0;
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar-icon img {
+    width: 100%;
+    height: auto;
+}
+
+/* Content wrapper */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 100px; /* Adjust padding for fixed navbar */
+}
+
+/* Breadcrumb styling */
+.breadcrumb {
+    padding: 20px 0;
+    margin-top: 60px; /* Adjust for fixed navbar */
+    background-color: white;
+    margin-left: 100px;
+    width: 70%;
+}
+
+.breadcrumb ul {
+    list-style: none;
+    display: flex;
+}
+
+.breadcrumb ul li {
+    margin-right: 10px;
+    font-size: 16px; /* Adjusted font size for breadcrumbs */
+    font-weight: 500;
+}
+
+/* Styling for all breadcrumb links */
+.breadcrumb ul li a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Keep RPMS link blue */
+.breadcrumb ul li:last-child a {
+    color: #007bff;
+}
+
+/* Change KRA 1 link to black */
+.breadcrumb ul li:first-child a {
+    color: black;
+}
+
+/* Hover effect only for non-KRA 1 links */
+.breadcrumb ul li a:hover {
+    color: #0056b3; /* Hover color for breadcrumb links */
+}
+
+/* Disable hover for KRA 1 */
+.breadcrumb ul li:first-child a:hover {
+    color: black; /* Ensures KRA 1 stays black on hover */
+}
+
+.breadcrumb ul li:after {
+    content: '>';
+    margin-left: 10px;
+    color: #6c757d;
+}
+
+
+
+/* Tabs styling */
+.tabs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd; /* Light gray line for separation */
+    padding-bottom: 1px;
+    margin-left: 100px;
+    width: 80%;
+}
+
+.tab {
+    text-decoration: none; /* Removes the underline */
+    color: inherit; /* Inherits the color from its parent */
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s;
+}
+
+.tab.active {
+    border-bottom: none; /* Remove the blue underline */
+    color: #0033cc; /* Keep the text color for active tab */
+}
+
+.tab:hover {
+    color: #0033cc; /* Text color changes to blue on hover */
+}
+
+.dropdown-container {
+    margin-top: 40px;
+    width: 800px; /* Set a width to the container */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    }
+
+.dropdown-item {
+    width: 300px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.count {
+    font-size: 14px;
+    color: #777;
+}
+
+.dropdown-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+    display: none;
+    padding-top: 10px;
+    margin-left: 20px;
+}
+
+/* Show dropdown content when active */
+.dropdown-item.active .dropdown-content {
+    display: block;
+}
+
+/* Rotate the dropdown arrow when active */
+.dropdown-item.active .dropdown-toggle {
+    transform: rotate(180deg);
+}
+
+.content-item {
+    font-size: 14px;
+    width: 85%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: flex; /* Keep the flex display */
+    align-items: flex-start; /* Align items at the start */
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent element */
+}
+
+.content-item .icon {
+    width: 20px;  /* Adjust icon size */
+    height: 20px; /* Adjust icon size */
+    margin-right: 8px; /* Space between icon and heading */
+}
+
+
+.text-container {
+    display: flex;
+    flex-direction: column; /* Stack the title and posted text vertically */
+}
+
+.rpms {
+    font-size: 10px;
+    color: #777;
+}
+
+.score {
+    font-size: 14px;
+    color: #d00000;
+}

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="rpms_proficient_content5_cs.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-icon">
+            <img src="asset/Menu.png" alt="Menu Icon" />
+        </div>
+        <div class="sidebar-icon">
+            <img src="asset/Home.png" alt="Home Icon" />
+        </div>
+        <div class="sidebar-icon">
+            <img src="asset/Settings.png" alt="Settings Icon" />
+        </div>
+    </div>
+
+     <!-- Main content -->
+     <div class="main-content">
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <img src="asset/image 6.png" alt="DepED Logo" />
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="teacher_home.html" class="nav-link"><img src="asset/House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
+                <li><a href="teacher_evaluation.html" class="nav-link"><img src="asset/Test Passed.png" alt="Evaluation Icon" class="nav-icon"> Evaluation</a></li>
+                <li><a href="teacher_forms.html" class="nav-link forms active"><img src="asset/Documents1.png" alt="Forms Icon" class="nav-icon"> Forms</a></li>
+                <li><a href="teacher_summary.html" class="nav-link"><img src="asset/Chart_Pie.png" alt="Summary Icon" class="nav-icon"> Summary</a></li>
+                <li><a href="teacher_profile.html" class="nav-link"><img src="asset/User_01.png" alt="Profile Icon" class="nav-icon"> Profile</a></li>
+                <li><a href="../../index.html" class="logout-btn"><img src="asset/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Breadcrumbs -->
+        <div class="breadcrumb">
+            <ul>
+                <li><a href="rpms_proficient_stream.html">RPMS</a></li>
+                <li><a href="rpms_proficient_content1.html">PLUS FACTOR</a></li>
+            </ul>
+        </div>
+
+        <!-- Content for KRA objectives -->
+        <div class="content-wrapper">
+            <div class="kra-objectives">
+                <!-- Objective content -->
+                <div class="objective">
+                </div>
+                <!-- Other objectives go here -->
+            </div>
+
+            <!-- Action and comments panel -->
+            <div class="actions-comments-panel">
+                <div class="turn-in-panel">
+                    <h4>Your Work</h4>
+                    
+                    <!-- Display Uploaded Files -->
+                    <div id="fileList"></div> <!-- This is where the uploaded files will appear -->
+                    
+                    <!-- File Upload Section -->
+                    <input type="file" id="fileInput" style="display: none;" multiple />
+                    <button class="btn-primary" id="addCreateBtn">+ Add or Create</button>
+                    
+                    <!-- Turn In Button -->
+                    <button class="btn-secondary" id="turnInBtn" disabled>Turn In</button>
+                </div>
+
+                <!-- Private Comments -->
+                <div class="private-comments">
+                    <div class="private-comments-header">
+                        <img src="asset/User_01.png" alt="private-icon" class="private-icon">
+                        <h4>Private Comments</h4>
+                    </div>
+                
+                    <div class="private-comment-list">
+                        <!-- Dynamically added comments will appear here -->
+                    </div>
+                    
+                    <!-- Comment input area -->
+                    <div class="textarea-icon-container">
+                        <textarea id="privateCommentInput" placeholder="Add Private Comment..."></textarea>
+                        <button id="submitCommentBtn" class="comment-icon">
+                            <img src="asset/Paper_Plane.png" alt="Comment Icon">
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Comment Section
+                <div class="comments-section">
+                    <div class="comments-header">
+                        <img src="asset/Users_Group.png" alt="comment-group-icon" class="comment-group-icon">
+                        <h4>Comments</h4>
+                    </div>
+                    <div class="textarea-icon-container">
+                        <textarea placeholder="Add Comment..."></textarea>
+                        <img src="asset/Paper_Plane.png" alt="Comment Icon" class="comment-icon">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Structure -->
+        <div id="fileModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h4>File Preview</h4>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+
+        <!-- Modal HTML Structure -->
+        <div id="submissionModal" class="modal-2">
+            <div class="modal-content-2">
+                <span class="close" style="cursor:pointer;">&times;</span> <!-- Close button -->
+                <h3>Turn in your work?</h3>
+                <p id="fileCount"></p>
+                
+                <!-- File list preview will go here -->
+                <div id="fileListPreview">
+                    <!-- File details will be dynamically injected here -->
+                </div> 
+                
+                <div class="modal-buttons">
+                    <button id="cancelBtn" class="btn btn-secondary">Cancel</button>
+                    <button id="confirmBtn" class="btn btn-primary">Turn In</button>
+                </div>
+                <!-- Unsubmit Button -->
+                <div class="unsubmit-button">
+                    <button class="btn-primary" id="unsubmitBtn" style="display: none;">Unsubmit</button>
+                </div>
+
+
+            </div>
+            </div>
+        </div>
+
+        <script>
+            // Simulating getting data from teacher_profile.html
+            const teacherProfile = {
+                profilePicture: "asset/User_Circle.png",  // Path to profile picture
+                profileName: "JESSICA SANCHEZ RAMIREZ"    // Name of the user
+            };
+        
+            document.getElementById('submitCommentBtn').addEventListener('click', function() {
+                // Get the value from the textarea
+                const commentText = document.getElementById('privateCommentInput').value;
+                
+                // Get the current time for timestamp
+                const now = new Date();
+                const timestamp = now.toLocaleString(); // You can format this as needed
+                
+                // Create new comment HTML dynamically
+                const commentItem = `
+                    <div class="private-comment-item">
+                        <img src="${teacherProfile.profilePicture}" class="comment-user-icon" alt="User Icon" />
+                        <div>
+                            <div class="comment-header">
+                                <span class="comment-username">${teacherProfile.profileName}</span>
+                                <span class="comment-timestamp">${timestamp}</span>
+                            </div>
+                            <div class="comment-text">${commentText}</div>
+                        </div>
+                    </div>
+                `;
+                
+                // Append the new comment to the comment list
+                document.querySelector('.private-comment-list').insertAdjacentHTML('beforeend', commentItem);
+                
+                // Clear the textarea after submitting
+                document.getElementById('privateCommentInput').value = '';
+            });
+        </script>
+
+
+    </div>
+    <!-- Link to your external JavaScript file -->
+    <script src="rpms_proficient_content5_js.js"></script> 
+    
+</body>
+</html>

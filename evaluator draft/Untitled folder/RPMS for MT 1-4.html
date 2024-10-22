@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPCRF - Teacher I-III</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        header {
+            height: 30px;    
+            background-color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+        }
+        header img {
+            max-width: 100%;
+            max-height: 80px; 
+        }
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+        nav a img {
+            height: 25px;
+            margin-right: 5px;
+        }
+        nav a.active {
+            color: white;
+            background-color: #C10001;
+            border-radius: 25px; 
+            padding: 5px 20px;   
+        }
+        .container {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: white;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        td a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        td a:hover {
+            text-decoration: underline;
+        }
+        .status {
+            font-weight: bold;
+        }
+        .status.submitted {
+            color: green;
+        }
+        .status.pending {
+            color: red;
+        }
+       
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="DepEd_01.png" alt="DepED Logo">
+        </div>
+        <nav>
+            <a href="#"><img src="House_01.png" alt="Home">Home</a>
+            <a href="Proficient Form.html" class="active"><img src="Documents.png" alt="Forms">Forms</a>
+            <a href="#"><img src="Folders.png" alt="Records">Records</a>
+            <a href="#"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+            <a href="#"><img src="User_01.png" alt="Profile">Profile</a>
+            <a href="#" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Results-Based Performance Management System for Master Teacher I - IV</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Grade Level</th>
+                    <th>Rater</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><i class="fas fa-user-circle"></i> Michael Pelps Johnson</td>
+                    <td>Master Teacher IV</td>
+                    <td>Junior High School</td>
+                    <td>Sophia Clarke</td>
+                    <td class="status pending">Pending</td>
+                    <td><a href="#" class="review">Review</a></td>
+                </tr>
+                <tr>
+                    <td><i class="fas fa-user-circle"></i> Ella Smith</td>
+                    <td>Master Teacher I</td>
+                    <td>Junior High School</td>
+                    <td>Sophia Clarke</td>
+                    <td class="status submitted">Submitted</td>
+                    <td><a href="#" class="review">Reviewed</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+   
+</body>
+</html>

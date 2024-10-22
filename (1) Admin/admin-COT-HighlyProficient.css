@@ -1,0 +1,389 @@
+/* General Styles for Admin Dashboard */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+/* Header Background Styles */
+.header-background {
+    width: 100%; 
+    height: 54px; 
+    background-color: #fff; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+/* Header Styles */
+header {
+    width: 100%;
+    padding: 10px 50px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; 
+    top: 0;
+    z-index: 10; 
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    position: relative; 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    position: relative; 
+}
+
+nav ul li {
+    position: absolute; 
+}
+
+nav ul li:nth-child(1) {
+    left: 500px; 
+    top: -2px; 
+}
+
+nav ul li:nth-child(2) {
+    left: 600px; 
+    top: -2px; 
+}
+
+nav ul li:nth-child(3) {
+    left: 700px; 
+    top: -2px;
+}
+
+nav ul li:nth-child(4) {
+    left: 795px; 
+    top: -2px; 
+}
+
+nav ul li:nth-child(5) {
+    left: 900px; 
+    top: -2px; 
+}
+
+nav ul li:nth-child(6) {
+    left: 1000px; 
+    top: -2px; 
+}
+
+nav ul li:nth-child(7) {
+    left: 1150px; 
+    margin-right: 20px; 
+}
+
+nav ul li:nth-child(7) a {
+    left: 1150px;
+    top: -2px; 
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #C10001;
+}
+
+nav ul li:nth-child(7) a:hover {
+    left: 1150px; 
+    top: -2px;
+    color: #A00000; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: normal;
+    font-size: 13px; 
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center; 
+    gap: -3px; 
+    margin-top: 5px;
+    transition: background-color 0.3s;
+    background-color: transparent; 
+}
+
+nav ul li a i {
+    font-size: 1.2em;
+    margin-right: 8px;
+}
+
+nav ul li a.active {
+    width: 100px;
+    height: 30px;
+    top: 3px;
+    background-color: #C10001; 
+    color: #fff;
+    display: flex; 
+    align-items: center; 
+    position: relative; 
+}
+
+.logo img {
+    width: 90px; 
+    height: 50px; 
+    position: absolute;
+    top: -8px; 
+    left: -14px; 
+    z-index: 11; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1000px;
+    margin: -40px auto 80px;
+    background-color: white;
+    padding: 20px 2.5%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h3{
+    color: black;
+    margin-bottom: 15px;
+}
+
+.back-link {
+    text-decoration: none;
+    display: block;
+    margin-top: 60px !important;
+    font-size: 25px;
+    color: black;
+    padding: 20px 5%;
+}
+
+.instructions {
+    margin-top: -20px;
+    margin-bottom: 20px;
+    padding: 10px 2.5%;
+    padding-bottom: 10px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+hr {
+    color: lightgrey;
+}
+
+.form-section {
+    padding: 20px 2.5%;
+    display: grid;
+    grid-template-columns: auto 1fr;  
+    gap: 10px; 
+    align-items: center;  
+    margin-bottom: 30px;  
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+textarea {
+    width: 90%;
+    margin: 5px 2.5%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+.question {
+    font-size: 16px;
+    padding: 10px 2.5%;
+}
+
+.question-container {
+    position: relative;  
+    margin: 20px 0;
+}
+
+.instruction-question-separator {
+    position: relative;  
+    margin-left: -25px;
+    width: 935px;
+}
+
+.rating-scale {
+    display: flex;
+    gap: 5px;
+    justify-content: left;
+    margin: 20px;
+}
+
+.rating-button {
+    width: 120px;   
+    height: 50px;  
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: lightgrey;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rating-button.no {
+    width: 120px;
+}
+
+.rating-button:hover {
+    background-color: white;
+}
+
+.rating-button.active {
+    background-color: lightgreen;
+    color: black;
+}
+label {
+    display: block;
+    font-weight: normal;
+    text-align: left;
+    margin-top: 20px;
+    margin: 10px 2.5%;
+}
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: absolute;  
+    right: 0;  
+    top: 10px;  
+}
+
+button[type="button1"] {
+    background-color: white;
+    border: 1px solid #0A840E;
+    color: #0A840E;
+}
+
+button[type="submit1"] {
+    background-color: #0A840E;
+    color: white;
+}
+
+/* Container for the instruction buttons */
+.instructions-buttons {
+    display: flex;  
+    justify-content: flex-end;  
+    gap: 1px;  
+    margin-top: -20px;  
+    margin-left: 910px;
+    margin-bottom: 30px;
+}
+
+.questions-buttons {
+    display: flex;  
+    justify-content: flex-end; 
+    gap: 1px;  
+    margin-top: -60px;  
+    margin-bottom: 60px;
+}
+
+.add-button {
+    display: flex;  
+    justify-content: flex-end;  
+    font-size: 15px;
+    font-weight: bold;
+    gap: 8px;  
+    margin-top: -5px;  
+    margin-bottom: -10px;
+}
+
+.comment-button {
+    display: flex;  
+    justify-content: flex-end; 
+    gap: 3px;  
+    margin-top: -75px;  
+    margin-bottom: 60px;
+    margin-right: 12px;
+    margin-left: 50px;
+}
+
+.comments-section {
+    margin-top: 10px;  
+    padding: 10px;     
+    background-color: #f9f9f9;  
+    border-radius: 5px;  
+}
+
+.icon-button {
+    border: none; 
+    background: transparent; 
+    cursor: pointer; 
+    padding: 5px;  
+}
+
+.icon-button i {
+    font-size: 16px;  
+    transition: color 0.3s;  
+}
+
+.edit-button i {
+    color: rgb(30, 152, 228);  
+}
+
+.delete-button i {
+    color: #F44336; 
+}
+
+.add-button i {
+    color: black;  
+}
+
+.icon-button:hover i {
+    opacity: 0.8;  
+}
+
+/* Hover effect for the Delete button */
+.delete-button:hover {
+    background: transparent;  
+    border-color: #f1a3a9;  
+}
+
+.question-separator {
+    color: rgb(224, 224, 224);
+    margin-bottom: 20px; 
+}
+
+/* Adjust button appearance for mobile */
+@media (max-width: 600px) {
+    .edit-button, .delete-button {
+        font-size: 12px; 
+        padding: 4px 8px; 
+    }
+}

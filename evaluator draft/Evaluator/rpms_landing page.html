@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPMS Landing with Floating Sidebar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            transition: margin-left 0.3s; /* Smooth movement when sidebar opens */
+        }
+        header {
+            height: 30px;    
+            background-color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+        }
+        header img {
+            max-width: 100%;
+            max-height: 80px; 
+        }
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+        nav a img {
+            height: 25px;
+            margin-right: 5px;
+        }
+        nav a.active {
+            color: white;
+            background-color: #C10001;
+            border-radius: 25px; 
+            padding: 5px 20px;   
+        }
+
+        /* Banner Section */
+        .banner {
+            background-color: #4CAF50;
+            color: white;
+            padding: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .banner-content h1 {
+            font-size: 28px;
+        }
+
+        .banner-content p {
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .customize button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* Tabs Section */
+        .tabs {
+            margin: 20px 30px;
+        }
+
+        .tabs a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 18px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .tabs a.active {
+            border-bottom: 2px solid #007BFF;
+            font-weight: bold;
+        }
+
+        .content {
+            padding: 20px 30px;
+        }
+
+        .upcoming {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .upcoming h2 {
+            margin-bottom: 10px;
+        }
+
+        .upcoming p {
+            color: #888;
+        }
+
+        /* Sidebar Section (Hidden Initially) */
+        .side-nav {
+            position: fixed;
+            left: -350px; /* Initially hidden off-screen */
+            top: 0;
+            height: 100%;
+            width: 300px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        .side-nav.open {
+            left: 0;
+        }
+
+        .logo img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .icon-home, .icon-settings {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+
+        .school-year-list .sy-circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        .sy-2023 { background-color: #00B1F2; color: white; text-align: center; line-height: 35px; font-weight: bold; }
+        .sy-2022 { background-color: #E93A58; color: white; text-align: center; line-height: 35px; font-weight: bold; }
+        .sy-2021 { background-color: #9FBD33; color: white; text-align: center; line-height: 35px; font-weight: bold; }
+        .sy-2020 { background-color: #B38B6D; color: white; text-align: center; line-height: 35px; font-weight: bold; }
+        .sy-2019 { background-color: #9E1D26; color: white; text-align: center; line-height: 35px; font-weight: bold; }
+        .sy-2018 { background-color: #D05A5D; color: white; text-align: center; line-height: 35px; font-weight: bold; }
+
+        .selected {
+            background-color: #E8F4FB;
+            border-radius: 8px;
+        }
+
+        .selected a {
+            font-weight: bold;
+        }
+
+        /* Main Content Movement */
+        .main-content {
+            transition: margin-left 0.3s ease;
+            margin-left: 0;
+        }
+
+        /* Hamburger and Close Icon Styling */
+        .hamburger, .close-btn {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .close-btn {
+            display: block;
+            text-align: right;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+            }
+
+            .banner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .customize button {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Side Navigation -->
+    <div id="sideNav" class="side-nav">
+        <div class="close-btn" onclick="toggleNav()">✖</div> <!-- Close button (X) -->
+        <div class="logo">
+            <img src="DepEd_01.png" alt="DepED Logo">
+        </div>
+        <ul>
+            <li>
+                <a href="#"><i class="icon-home">🏠</i> Home</a>
+            </li>
+            <li>
+                <a href="#"><i class="icon-settings">⚙️</i> Settings</a>
+            </li>
+        </ul>
+        <hr>
+        <ul class="school-year-list">
+            <li><div class="sy-circle sy-2023">SY</div><a href="#">School Year 2023-2024</a></li>
+            <li><div class="sy-circle sy-2022">SY</div><a href="#">School Year 2022-2023</a></li>
+            <li><div class="sy-circle sy-2021">SY</div><a href="#">School Year 2021-2022</a></li>
+            <li><div class="sy-circle sy-2020">SY</div><a href="#">School Year 2020-2021</a></li>
+            <li><div class="sy-circle sy-2019">SY</div><a href="#">School Year 2019-2020</a></li>
+            <li class="selected"><div class="sy-circle sy-2018">SY</div><a href="#">School Year 2018-2019</a></li>
+        </ul>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="header-left">
+            <img src="DepEd_01.png" alt="DepED Logo">
+        </div>
+        <nav>
+            <a href="#"><img src="House_01.png" alt="Home">Home</a>
+            <a href="#"><img src="Documents (1).png" alt="Forms">Forms</a>
+            <a href="#" class="active"><img src="Folders (2).png" alt="Records">Records</a>
+            <a href="#"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+            <a href="#"><img src="User_01.png" alt="Profile">Profile</a>
+            <a href="#" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content">
+        <!-- Main Banner Section -->
+        <main>
+            <div class="banner">
+                <div class="banner-content">
+                    <span class="hamburger" onclick="toggleNav()">&#9776;</span> <!-- Hamburger Menu -->
+                    <h1>Results-Based Performance Management System</h1>
+                    <p>School Year 2018-2019</p>
+                </div>
+                <div class="customize">
+                    <button>Customize</button>
+                </div>
+            </div>
+
+            <!-- Tabs for Stream and Grades -->
+            <div class="tabs">
+                <a href="#" class="active">Stream</a>
+                <a href="#">Grades</a>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="content">
+                <div class="upcoming">
+                    <h2>Upcoming</h2>
+                    <p>Woohoo! No work to do!</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Function to toggle sidebar visibility
+        function toggleNav() {
+            var sideNav = document.getElementById("sideNav");
+            var mainContent = document.getElementById("mainContent");
+
+            if (sideNav.classList.contains("open")) {
+                sideNav.classList.remove("open");
+                mainContent.style.marginLeft = "0";
+            } else {
+                sideNav.classList.add("open");
+                mainContent.style.marginLeft = "300px"; /* Adjust main content when sidebar opens */
+            }
+        }
+    </script>
+
+</body>
+</html>

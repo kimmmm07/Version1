@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Performance Evaluation System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-dashboard-form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header-background"></div>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Assets\DepEdLogo.png.png" alt="DepEd Logo">
+            </div>
+            <ul>
+                <li><a href="admin-dashboard-home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="admin-dashboard-admin.html"><i class="fas fa-user-cog"></i> Admin</a></li>
+                <li><a href="admin-dashboard-form.html" id="form-nav" class="active"><i class="fas fa-file-alt"></i> Form</a></li>
+                <li><a href="admin-dashboard-request.html" id="request-nav"><i class="fas fa-clipboard-list"></i> Request</a></li>
+                <li><a href="admin-dashboard-inbox.html" id="inbox-nav"><i class="fas fa-inbox"></i> Inbox</a></li>
+                <li><a href="admin-dashboard-school.html" id="school-nav"><i class="fas fa-school"></i> School</a></li>
+                <li><a href="admin-dashboard-logout.html" id="logout-nav"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="dashboard-content">
+            <h1>Forms</h1>
+            <button class="create-btn"><i class="fas fa-plus"></i>Create</button>
+    
+            <div class="status-titles">
+                <h2 id="all-status" class="active" onclick="setActiveTab('all')">All</h2> <!-- Default to active -->
+                <h2 id="archived-status" onclick="setActiveTab('archived')">Archived</h2>
+            </div>
+            
+            <div class="horizontal-line"></div>
+    
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search">
+                </div>
+            </div>
+    
+            
+            <!-- Form Categories -->
+            <div class="form-category">
+                <div class="horizontal-background"></div>
+                <h3 class="category-label">Classroom Observation Tools</h3>
+                <a href="admin-COT-Proficient.html" class="form-link">
+                    <div class="form-item">
+                        <i class="fas fa-file-alt"></i>
+                        Rating Sheet for Proficient Teacher
+                        <i class="ellipsis-icon fas fa-ellipsis-h"></i>
+                    </div>
+                </a>
+                <a href="admin-COT-HighlyProficient.html" class="form-link">
+                    <div class="form-item">
+                        <i class="fas fa-file-alt"></i>
+                        Rating Sheet for Highly Proficient Teacher
+                        <i class="ellipsis-icon fas fa-ellipsis-h"></i>
+                    </div>
+                </a>
+            
+                <div class="form-category">
+                    <div class="horizontal-background"></div>
+                    <h3 class="category-label">Individual Performance Commitment and Review Form</h3>
+                    <a href="admin-IPCRF-Proficient-EPart1.html" class="form-link">
+                        <div class="form-item">
+                            <i class="fas fa-file-alt"></i>
+                                IPCRF for Proficient Teacher
+                            <i class="ellipsis-icon fas fa-ellipsis-h"></i>
+                        </div>
+                       
+                    </a> 
+                    
+                    <div class="form-item">
+                        <i class="fas fa-file-alt"></i>
+                        IPCRF for Highly Proficient Teacher
+                        <i class="ellipsis-icon fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
+                
+
+            <div class="form-category">
+                <div class="horizontal-background"></div>
+                <h3 class="category-label">Results-Based Performance Management System</h3>
+                <div class="form-item">
+                    <i class="fas fa-file-alt"></i>
+                    RPMS for Proficient Teacher
+                    <i class="ellipsis-icon fas fa-ellipsis-h"></i>
+                </div>
+                <div class="form-item">
+                    <i class="fas fa-file-alt"></i>
+                    RPMS for Highly Proficient Teacher
+                    <i class="ellipsis-icon fas fa-ellipsis-h"></i>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    

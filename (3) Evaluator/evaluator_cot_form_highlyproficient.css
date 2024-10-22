@@ -1,0 +1,288 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+/* Make the header fixed */
+header {
+    position: fixed;       /* Fixes the header at the top */
+    top: 0;                /* Aligns it to the top of the page */
+    width: 100%;           /* Ensures the header spans the full width of the page */
+    height: 40px;          /* Adjust the height to fit the content */
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;         /* Ensures the header stays above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better separation */
+}
+
+header img {
+    max-width: 100%;
+    max-height: 80px;      /* Adjust the max height for the logo */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+nav a img {
+    height: 25px;
+    margin-right: 5px;
+}
+
+nav a.active {
+    color: white;
+    background-color: #C10001;
+    border-radius: 25px; 
+    padding: 5px 20px;   
+}
+
+/* Ensure the body content is pushed down to account for the fixed header */
+body {
+    padding-top: 100px;     /* Adjust based on the header height */
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: 5px auto;
+    background-color: white;
+    padding: 20px 2.5%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h3{
+    color: black;
+    margin-bottom: 15px;
+}
+
+.back-link {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    padding: 20px 5%;
+}
+
+.instructions {
+    margin-bottom: 20px;
+    padding: 10px 2.5%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+form {
+    margin-top: 10px;
+}
+
+.form-section {
+    padding: 20px 2.5%;
+    display: grid;
+    grid-template-columns: auto 1fr; /* Label column auto-sized, input field takes remaining space */
+    gap: 10px; /* Space between the label and input */
+    align-items: center; /* Aligns labels and inputs vertically in the center */
+    margin-bottom: 30px; /* Adds space after each section */
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Adjust input width for Observer, Quarter, Date to be smaller but consistent */
+input[type="text"],
+input[type="date"] {
+    width: 90%; /* Decrease the width a bit */
+    padding: 8px; /* Smaller padding */
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+select {
+    width: 93%;
+    padding: 8px; /* Smaller padding */
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    width: 90%;
+    margin: 5px 2.5%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.rating-container {
+    display: flex;
+    gap: 5px;
+    justify-content: left;
+    margin: 20px;
+}
+
+.quarter-button {
+    width: 100px;  /* Adjust width to make it more lengthy */
+    height: 50px; /* Adjust height */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: lightgrey;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.quarter-button:hover {
+    background-color: white;
+}
+.quarter-button.selected {
+    background-color: lightskyblue;
+    color: black;
+}
+
+.question-container {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.question {
+    font-size: 16px;
+    padding: 10px 2.5%;
+}
+
+.rating-scale {
+    display: flex;
+    gap: 5px;
+    justify-content: left;
+    margin: 20px;
+}
+
+.rating-button {
+    width: 120px;  /* Adjust width to make it more lengthy */
+    height: 50px; /* Adjust height */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: lightgrey;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rating-button.no {
+    width: 120px;
+}
+
+.rating-button:hover {
+    background-color: white;
+}
+
+.rating-button.active {
+    background-color: lightskyblue;
+    color: black;
+}
+label {
+    display: block;
+    font-weight: normal;
+    text-align: left;
+    margin-top: 20px;
+    margin: 10px 2.5%;
+}
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the button container */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+button[type="back"] {
+    background-color: white;
+    border: 1px solid #082F96;
+    color: #082F96;
+}
+
+button[type="submit"] {
+    background-color: #082F96;
+    color: white;
+}
+
+.average-score-container {
+    background-color: #ffffff; 
+    border: 2px solid lightgrey; 
+    border-radius: 0;
+    padding: 0; 
+    text-align: center; 
+    width: 920px; 
+    height: 100px;
+    margin-left: 25px;
+    margin-bottom: 70px;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.average-score-header {
+    background-color: #109ed1; 
+    color: white;
+    font-size: 18px; 
+    margin: 0; 
+    font-weight: bold; 
+    height: 20px;
+    text-align: left;
+    line-height: 12px;
+    padding: 10px; 
+}
+
+.average-score {
+    width: 697px;
+    height: 105px;
+    padding: 10px;
+    border: none;
+    font-size: 35px; 
+    border-radius: 5px;
+    margin-top: 10px; 
+    margin-right: -580px;
+}
+
+/* Flexbox to align score and rating side by side */
+.score-rating {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    
+}
+
+/* Adjectival Rating */
+.rating {
+    font-size: 35px;
+    margin-bottom: 23px;
+}

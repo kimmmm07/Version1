@@ -1,0 +1,204 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    padding-top: 100px;     /* Adjust based on the header height */
+}
+
+/* Make the header fixed */
+header {
+    position: fixed;       /* Fixes the header at the top */
+    top: 0;                /* Aligns it to the top of the page */
+    width: 100%;           /* Ensures the header spans the full width of the page */
+    height: 40px;          /* Adjust the height to fit the content */
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;         /* Ensures the header stays above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better separation */
+}
+
+header img {
+    max-width: 100%;
+    max-height: 80px;      /* Adjust the max height for the logo */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+nav a img {
+    height: 25px;
+    margin-right: 5px;
+}
+
+nav a.active {
+    color: white;
+    background-color: #C10001;
+    border-radius: 25px; 
+    padding: 5px 20px;   
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 60px; /* Sidebar width */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: 10px; /* Space between top and bottom icons */
+    padding: 10px 0;
+    position: fixed;
+    top: 50px; /* Sidebar stays at the top */
+    left: 0;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Sidebar icon container */
+.sidebar-icon {
+    margin: 20px 0;
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar-icon img {
+    width: 100%;
+} 
+
+/* Header section styling */
+.header-section {
+    position: relative;
+    width: 80%; /* Adjust width */
+    height: 200px; /* Adjust height */
+    margin: 0 auto; /* Center horizontally */
+    border-radius: 50px; /* Apply border-radius to the container */
+    
+}
+
+/* Image styling */
+.header-image {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    object-fit:fill; /* Ensure the image keeps its aspect ratio */
+    border-radius: 50px; /* Apply border-radius to the image */
+    margin-top: 50px;
+}
+
+/* Text overlay styling */
+.text-overlay {
+    position: absolute;
+    top: 60%; /* Adjust this value to move the text overlay */
+    left: 20px; /* Align to the left with some padding */
+    text-align: left; /* Align text to the left */
+    color: white; /* Adjust text color */
+}
+
+/* Header title styling */
+.header-title {
+    font-size: 30px; /* Adjust font size */
+    margin-bottom: 2px; /* Increased margin-bottom for more space between title and subtitle */
+    font-weight: bold; /* Make the title bold */
+    color: white;
+}
+
+/* Header subtitle styling */
+.header-subtitle {
+    font-size: 16px; /* Adjust subtitle font size */
+    font-weight: normal; /* Keep subtitle normal weight or adjust as desired */
+    margin-top: 0; /* Ensure no extra top margin, adjust if needed */
+    margin-bottom: 0; /* Ensure no bottom margin if not needed */
+}
+
+main {
+    padding: 130px;
+    margin-top: -100px;
+}
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+/* Tabs styling */
+.tabs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd; /* Light gray line for separation */
+    width: 78%;
+    margin: 0 auto;
+    padding-bottom: 1px;
+    margin-left: 150px;
+}
+
+.tab {
+    text-decoration: none; /* Removes the underline */
+    color: inherit; /* Inherits the color from its parent */
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-right: 10px;
+    transition: color 0.2s;
+    margin-top: 60px;
+}
+
+.tab.active {
+    font-weight: bold;
+    border-bottom: none; /* Remove the blue underline */
+    color: #0A840E; /* Keep the text color for active tab */
+}
+
+.tab:hover {
+    color: #0A840E; /* Text color changes to blue on hover */
+}
+
+table {
+    width: 105%;
+    border-collapse: collapse;
+}
+table th, table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 16px;
+}
+th {
+    background-color: #f4f4f4;
+}
+.sort {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+.sort select {
+    font-size: 14px;
+    padding: 5px;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+.user-info img {
+    height: 30px;
+    margin-right: 10px;
+}
+.highlight {
+    color: #007bff;
+}

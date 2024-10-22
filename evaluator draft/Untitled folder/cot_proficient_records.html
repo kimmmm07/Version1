@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPMS Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        header {
+            height: 30px;    
+            background-color: white;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+        }
+        header img {
+            max-width: 100%;
+            max-height: 80px; 
+        }
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            display: flex;
+            align-items: center;
+            margin-right: 15px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            padding: 5px 10px;
+        }
+        nav a img {
+            height: 25px;
+            margin-right: 5px;
+        }
+        nav a.active {
+            color: white;
+            background-color: #C10001;
+            border-radius: 25px; 
+            padding: 5px 20px;   
+        }
+        main {
+            padding: 20px 2.5%;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .tabs {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .tabs a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            color: #333;
+        }
+        .tabs a.active {
+            background-color: #0056b3;
+            color: white;
+        }
+        .tabs a.view-summary {
+            margin-left: auto;
+            font-weight: bold;
+        }
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .filters select {
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: white;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table thead {
+            background-color: #f9f9f9;
+        }
+        table th, table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        table th {
+            font-weight: bold;
+            color: #333;
+        }
+        table td .icon {
+            margin-right: 10px;
+        }
+        .view-link {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .view-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="DepEd_01.png" alt="DepED Logo">
+        </div>
+        <nav>
+            <a href="#"><img src="House_01.png" alt="Home">Home</a>
+            <a href="Proficient Form.html"><img src="Documents (1).png" alt="Forms">Forms</a>
+            <a href="cot_proficient_records.html" class="active"><img src="Folders (2).png" alt="Records">Records</a>
+            <a href="#"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+            <a href="#"><img src="User_01.png" alt="Profile">Profile</a>
+            <a href="#" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Records</h1>
+
+        <div class="tabs">
+            <a href="cot_proficient_records.html" class="active">COT</a>
+            <a href="ipcrf_proficient_records.html">IPRCF</a>
+            <a href="rpms_proficient_records.html">RPMS</a>
+            <a href="#" class="view-summary">View Summary</a>
+        </div>
+
+        <div class="filters">
+            <select>
+                <option>Select School Year</option>
+                <option>S.Y. 2023 - 2024</option>
+                <option>S.Y. 2022 - 2023</option>
+                <option>S.Y. 2021 - 2022</option>
+            </select>
+
+            <select name="teacher-type" id="teacherType" onchange="location = this.value;">
+                <option value="#">Select Teacher Type</option>
+                <option value="cot_proficient_records.html">Proficient Teacher</option>
+                <option value="cot_highlyproficient_records.html">Highly Proficient Teacher</option>
+            </select>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Grade Level</th>
+                    <th>Rater</th>
+                    <th>Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="User_Circle.png" alt="User Icon" width="25"> 
+                        Jessica Sanchez Ramirez
+                    </td>
+                    <td>Teacher II</td>
+                    <td>Junior High School</td>
+                    <td>David Patel</td>
+                    <td>Very Satisfactory <a href="#" class="view-link"> | View</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
