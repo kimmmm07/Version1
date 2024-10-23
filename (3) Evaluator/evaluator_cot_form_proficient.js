@@ -38,3 +38,4 @@ document.getElementById('ratingForm').addEventListener('submit', function(e) {
         alert('Please answer all questions before submitting.');
     }
 });
+

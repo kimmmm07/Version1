@@ -81,26 +81,44 @@ h1 {
     font-weight: bold;
 }
 
-.records-section h2 {
-    margin-top: 20px;
-    font-size: 18px;
-    color: black;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
-ul {
-    list-style: none;
-    margin: 10px 0;
-    padding: 0;
-}
-ul li {
-    margin-bottom: 10px;
+.filters select {
+    padding: 10px;
     font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #333;
 }
-ul li a {
-    text-decoration: none;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table thead {
+    background-color: #f9f9f9;
+}
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+table th {
+    font-weight: bold;
+    color: #333;
+}
+table td .icon {
+    margin-right: 10px;
+}
+.view-link {
     color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
 }
-ul li a:hover {
+.view-link:hover {
     text-decoration: underline;
 }

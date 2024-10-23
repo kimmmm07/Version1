@@ -66,7 +66,6 @@ nav a.active {
     top: 50px; /* Sidebar stays at the top */
     left: 0;
     box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
-
 }
 
 /* Sidebar icon container */
@@ -78,70 +77,90 @@ nav a.active {
 
 .sidebar-icon img {
     width: 100%;
-} 
-
-/* Header section styling */
-.header-section {
-    position: relative;
-    width: 80%; /* Adjust width */
-    height: 200px; /* Adjust height */
-    margin: 0 auto; /* Center horizontally */
-    border-radius: 50px; /* Apply border-radius to the container */
-    
 }
 
-/* Image styling */
-.header-image {
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    object-fit:fill; /* Ensure the image keeps its aspect ratio */
-    border-radius: 50px; /* Apply border-radius to the image */
-    margin-top: 50px;
-}
-
-/* Text overlay styling */
-.text-overlay {
-    position: absolute;
-    top: 60%; /* Adjust this value to move the text overlay */
-    left: 20px; /* Align to the left with some padding */
-    text-align: left; /* Align text to the left */
-    color: white; /* Adjust text color */
-}
-
-/* Header title styling */
-.header-title {
-    font-size: 30px; /* Adjust font size */
-    margin-bottom: 2px; /* Increased margin-bottom for more space between title and subtitle */
-    font-weight: bold; /* Make the title bold */
+.forms {
     color: white;
+    background-color: #d00000;
+    padding: 8px 16px;
+    border-radius: 40px;
 }
 
-/* Header subtitle styling */
-.header-subtitle {
-    font-size: 16px; /* Adjust subtitle font size */
-    font-weight: normal; /* Keep subtitle normal weight or adjust as desired */
-    margin-top: 0; /* Ensure no extra top margin, adjust if needed */
-    margin-bottom: 0; /* Ensure no bottom margin if not needed */
+.active {
+    font-weight: bold;
 }
 
-main {
-    padding: 130px;
-    margin-top: -100px;
+/* Content wrapper */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 100px; /* Adjust padding for fixed navbar */
 }
-h1 {
+
+/* Breadcrumb styling */
+.breadcrumb {
     font-size: 24px;
-    color: #333;
+    padding: 20px 0;
+    margin-top: 60px; /* Adjust for fixed navbar */
+    background-color: white;
+    margin-left: 180px;
+    width: 70%;
 }
+
+.breadcrumb ul {
+    list-style: none;
+    display: flex;
+}
+
+.breadcrumb ul li {
+    margin-right: 10px;
+    font-size: 16px; /* Adjusted font size for breadcrumbs */
+    font-weight: 500;
+}
+
+/* Styling for all breadcrumb links */
+.breadcrumb ul li a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Keep RPMS link blue */
+.breadcrumb ul li:last-child a {
+    color: #007bff;
+}
+
+/* Change KRA 1 link to black */
+.breadcrumb ul li:first-child a {
+    color: black;
+}
+
+/* Hover effect only for non-KRA 1 links */
+.breadcrumb ul li a:hover {
+    color: #0056b3; /* Hover color for breadcrumb links */
+}
+
+/* Disable hover for KRA 1 */
+.breadcrumb ul li:first-child a:hover {
+    color: black; /* Ensures KRA 1 stays black on hover */
+}
+
+.breadcrumb ul li:after {
+    content: '>';
+    margin-left: 10px;
+    color: #6c757d;
+}
+
+
+
 /* Tabs styling */
 .tabs {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
     border-bottom: 1px solid #ddd; /* Light gray line for separation */
-    width: 78%;
-    margin: 0 auto;
     padding-bottom: 1px;
-    margin-left: 150px;
+    margin-left: 200px;
+    width: 80%;
 }
 
 .tab {
@@ -153,54 +172,146 @@ h1 {
     font-size: 16px;
     cursor: pointer;
     border-bottom: 2px solid transparent;
-    margin-right: 10px;
     transition: color 0.2s;
-    margin-top: 60px;
 }
 
 .tab.active {
-    font-weight: bold;
     border-bottom: none; /* Remove the blue underline */
-    color: #0A840E; /* Keep the text color for active tab */
+    color: #0033cc; /* Keep the text color for active tab */
 }
 
 .tab:hover {
-    color: #0A840E; /* Text color changes to blue on hover */
+    color: #0033cc; /* Text color changes to blue on hover */
 }
 
-table {
-    width: 105%;
-    border-collapse: collapse;
-}
-table th, table td {
-    padding: 15px;
-    border: 1px solid #ddd;
-    text-align: center;
-    font-size: 16px;
-}
-th {
-    background-color: #f4f4f4;
-}
-.sort {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 16px;
-}
-.sort select {
-    font-size: 14px;
-    padding: 5px;
-}
-.user-info {
-    display: flex;
+.dropdown-container {
+    margin-top: 20px;
+    width: 800px; /* Set a width to the container */
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    justify-content: center;
     align-items: center;
+    margin: 0 auto;
+    }
+
+.dropdown-item {
+    width: 300px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.count {
     font-size: 14px;
+    color: #777;
 }
-.user-info img {
-    height: 30px;
-    margin-right: 10px;
+
+.dropdown-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
 }
-.highlight {
-    color: #007bff;
+
+.dropdown-content {
+    display: none;
+    padding-top: 10px;
+    margin-left: 20px;
+}
+
+/* Show dropdown content when active */
+.dropdown-item.active .dropdown-content {
+    display: block;
+}
+
+/* Rotate the dropdown arrow when active */
+.dropdown-item.active .dropdown-toggle {
+    transform: rotate(180deg);
+}
+
+/* Main content list styling */
+.main-content-list {
+    width: 75%;
+}
+
+.content-item {
+    display: flex;
+    align-items: center; /* Aligns the items vertically */
+    justify-content: space-between; /* Adds space between the text and the 3 dots */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    margin-bottom: 15px;
+    width: 120%;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent element */
+}
+
+.content-item .icon {
+    width: 30px;  
+    height: 30px; 
+    margin-right: 8px; /* Space between icon and text */
+    position: relative;
+    top: -5px; /* Adjust to align with the h4 text */
+}
+
+.text-container {
+    flex-grow: 1; /* Make the text container take up available space */
+}
+
+.menu-dots::after {
+    content: '...'; /* Adds 3 horizontal dots */
+    font-size: 18px;
+    color: #333; /* Adjust color as needed */
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.content-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0; /* Ensure there's no extra margin */
+}
+
+.content-item p {
+    font-size: 12px;
+    color: #ccc;
+    margin-top: 2px;
+}
+
+/* Submission Status */
+.submission-status {
+    display: flex;
+    justify-content: flex-end; /* Align items to the left */
+    align-items: flex-end; /* Align items at the top */
+    margin-top: 20px; /* Optional: Adds space above the status */
+}
+
+.status-item {
+    text-align: center; /* Center align numbers and text */
+    margin-right: 20px; /* Add some space between items */
+}
+
+.status-number {
+    font-size: 24px; /* Larger font size for numbers */
+}
+
+.status-text {
+    color: #ccc;
+    display: block; /* Ensures the text is on a new line */
+    font-size: 12px; /* Font size for the text */
 }
 
 /* Floating menu styles */
@@ -295,5 +406,3 @@ th {
     font-weight: bold;
     margin-right: 10px;
   }
-  
-  

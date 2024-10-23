@@ -81,3 +81,24 @@ function getRating(averageScore) {
     if (averageScore >= 1.500) return "Unsatisfactory";
     return "Poor"; // below 1.499
 }
+
+function toggleDisable() {
+    var radio = document.getElementById('ratingRadio');
+    var label = document.getElementById('ratingLabel');
+    var div = document.getElementById('ratingDiv');
+    
+    if (radio.disabled) {
+        // Enable radio button and make text clickable
+        radio.disabled = false;
+        label.style.color = "black";
+        label.style.pointerEvents = "auto";
+        div.style.backgroundColor = "rgba(255, 255, 255, 0.89)";
+    } else {
+        // Disable radio button and gray out text
+        radio.disabled = true;
+        label.style.color = "gray";
+        label.style.pointerEvents = "none";
+        div.style.backgroundColor = "rgba(245, 245, 245, 0.89)";
+    }
+}
+

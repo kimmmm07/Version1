@@ -53,7 +53,7 @@ nav a.active {
     padding: 5px 20px;   
 }
 
-/* Sidebar styling */
+        /* Sidebar styling */
 .sidebar {
     width: 60px; /* Sidebar width */
     height: 100vh; /* Full viewport height */
@@ -78,7 +78,18 @@ nav a.active {
 
 .sidebar-icon img {
     width: 100%;
-} 
+}
+
+.forms {
+    color: white;
+    background-color: #d00000;
+    padding: 8px 16px;
+    border-radius: 40px;
+}
+
+.active {
+    font-weight: bold;
+}
 
 /* Header section styling */
 .header-section {
@@ -113,7 +124,6 @@ nav a.active {
     font-size: 30px; /* Adjust font size */
     margin-bottom: 2px; /* Increased margin-bottom for more space between title and subtitle */
     font-weight: bold; /* Make the title bold */
-    color: white;
 }
 
 /* Header subtitle styling */
@@ -124,14 +134,6 @@ nav a.active {
     margin-bottom: 0; /* Ensure no bottom margin if not needed */
 }
 
-main {
-    padding: 130px;
-    margin-top: -100px;
-}
-h1 {
-    font-size: 24px;
-    color: #333;
-}
 /* Tabs styling */
 .tabs {
     display: flex;
@@ -159,7 +161,6 @@ h1 {
 }
 
 .tab.active {
-    font-weight: bold;
     border-bottom: none; /* Remove the blue underline */
     color: #0A840E; /* Keep the text color for active tab */
 }
@@ -168,39 +169,128 @@ h1 {
     color: #0A840E; /* Text color changes to blue on hover */
 }
 
-table {
-    width: 105%;
-    border-collapse: collapse;
-}
-table th, table td {
-    padding: 15px;
-    border: 1px solid #ddd;
-    text-align: center;
-    font-size: 16px;
-}
-th {
-    background-color: #f4f4f4;
-}
-.sort {
-    text-align: center;
-    margin-bottom: 15px;
-    font-size: 16px;
-}
-.sort select {
-    font-size: 14px;
-    padding: 5px;
-}
-.user-info {
+/* Main content and upcoming wrapper */
+.content-wrapper {
     display: flex;
-    align-items: center;
+    margin-top: 40px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.upcoming {
+    width: 25%;
+    height: 30%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    padding-left: 30px; /* Moves the content inside the box */
+    margin-left: 120px; /* Moves the entire box to the right */
+    border-radius: 10px;
+}
+
+.upcoming-list {
+    display: flex;
+    flex-direction: column; /* Vertically stack the list items */
+}
+
+.view-all {
+    margin-top: 10px; /* Adds space before "View all" */
+    align-self: flex-end; /* Moves "View all" to the right */
+    color: #1BA2EE; /* This is where the color of "View all" is set */
+}
+
+.upcoming-list .view-all a {
+    margin-top: 10px; /* Adds space before "View all" */
+    align-self: flex-end; /* Moves "View all" to the right */
+    color: #1BA2EE; /* New color set to red */
+}
+
+
+.upcoming h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.upcoming ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.upcoming ul li {
+    margin-bottom: 10px;
+}
+
+.upcoming ul li a {
+    text-decoration: none;
+    color: #333;
     font-size: 14px;
+    font-weight: 500;
 }
-.user-info img {
-    height: 30px;
-    margin-right: 10px;
+
+.upcoming ul li a {
+    text-decoration: none;
+    color: #333; /* Default color */
+    font-size: 14px;
+    font-weight: 500;
 }
-.highlight {
-    color: #007bff;
+
+.upcoming ul li a:hover {
+    color: #0A840E; /* Default hover color */
+}
+
+.upcoming ul li.view-all a:hover {
+    color: inherit; /* Keep the original color for "View All" link on hover */
+}
+
+/* Main content list styling */
+.main-content-list {
+    width: 75%;
+}
+
+.content-item {
+    display: flex;
+    align-items: center; /* Aligns the items vertically */
+    justify-content: space-between; /* Adds space between the text and the 3 dots */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    margin-bottom: 15px;
+    width: 85%;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent element */
+}
+
+.content-item .icon {
+    width: 30px;  
+    height: 30px; 
+    margin-right: 8px; /* Space between icon and text */
+    position: relative;
+    top: -5px; /* Adjust to align with the h4 text */
+}
+
+.text-container {
+    flex-grow: 1; /* Make the text container take up available space */
+}
+
+.menu-dots::after {
+    content: '...'; /* Adds 3 horizontal dots */
+    font-size: 18px;
+    color: #333; /* Adjust color as needed */
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.content-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0; /* Ensure there's no extra margin */
+}
+
+.content-item p {
+    font-size: 12px;
+    color: gray;
+    margin-top: 2px;
 }
 
 /* Floating menu styles */
@@ -295,5 +385,7 @@ th {
     font-weight: bold;
     margin-right: 10px;
   }
-  
-  
+
+
+
+

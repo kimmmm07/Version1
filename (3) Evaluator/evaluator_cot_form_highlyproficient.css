@@ -235,54 +235,9 @@ button[type="submit"] {
     color: white;
 }
 
-.average-score-container {
-    background-color: #ffffff; 
-    border: 2px solid lightgrey; 
-    border-radius: 0;
-    padding: 0; 
-    text-align: center; 
-    width: 920px; 
-    height: 100px;
-    margin-left: 25px;
-    margin-bottom: 70px;
-    margin-top: 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.average-score-header {
-    background-color: #109ed1; 
-    color: white;
+.cot-average {
+    width: 100%;
+    padding: 20px 2.5%;
     font-size: 18px; 
-    margin: 0; 
-    font-weight: bold; 
-    height: 20px;
-    text-align: left;
-    line-height: 12px;
-    padding: 10px; 
-}
-
-.average-score {
-    width: 697px;
-    height: 105px;
-    padding: 10px;
-    border: none;
-    font-size: 35px; 
-    border-radius: 5px;
-    margin-top: 10px; 
-    margin-right: -580px;
-}
-
-/* Flexbox to align score and rating side by side */
-.score-rating {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 10px;
-    
-}
-
-/* Adjectival Rating */
-.rating {
-    font-size: 35px;
-    margin-bottom: 23px;
+    font-weight: bold;
 }
