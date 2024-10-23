@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Work Submission</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23nEy6j5tzbZrD13NQdD5wE3bZ+gV8tZr" crossorigin="anonymous">
+  <link rel="stylesheet" href="rpms_highlyproficient_attachment.css">
+</head>
+<body>
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="sidebar-icon" id="menu-icon">
+            <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
+        </div> 
+        <div class="sidebar-icon">
+            <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
+        </div>
+        <div class="sidebar-icon">
+            <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
+        </div>
+    </div>
+
+    <!-- Floating Menu -->
+    <div class="floating-menu" id="floating-menu">
+        <div class="menu-header">
+            <img src="DepEd_01.png" alt="DepED Logo">
+            <!-- Close button -->
+            <button class="close-btn" onclick="closeMenu()">✖</button>
+        </div>
+        <ul>
+        <li><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
+        <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
+        <!-- Horizontal line between Setting and School Year -->
+        <hr class="menu-divider">
+        <li><a href="rpms_highlyproficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
+        </ul>
+    </div>
+
+    <!-- Header Section -->
+<header>
+    <div>
+        <img src="DepEd_01.png" alt="DepED Logo">
+    </div>
+    <nav>
+        <a href="evaluator_dashboard.html"><img src="House_01.png" alt="Home">Home</a>
+        <a href="highlyproficient_form.html" class="active"><img src="Documents.png" alt="Forms">Forms</a>
+        <a href="rpms_highlyproficient_records.html"><img src="Folders.png" alt="Records">Records</a>
+        <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+        <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
+        <a href="#" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
+    </nav>
+</header>
+
+<main>
+    <section class="content">
+        <h1>KRA 4: Community Linkages and Professional Engagement & Personal Growth and Professional Development</h1>
+  
+        <!-- Student name and status with dropdown -->
+        <div class="student-info">
+          <div class="dropdown">
+            <i class="fas fa-user"></i>
+            <select>
+              <option>Michael Pelps Johnson</option>
+              <option>Student 2</option>
+              <option>Student 3</option>
+            </select>
+            <span>Turned in</span>
+          </div>
+        </div><br>
+  
+        <div class="file-preview">
+          <img src="Group 924.png" alt="Attachment Preview">
+  
+          <!-- Three-dot menu with icons placed at the top right -->
+          <div class="file-actions">
+            <button class="three-dots" id="three-dots-btn">⋮</button>
+            <div class="dropdown-menu" id="dropdown-menu">
+              <button onclick="downloadFile()">
+                <i class="fas fa-download" id="fas fa-download"></i> Download
+              </button>
+              <button onclick="printFile()">
+                <i class="fas fa-print" id="fas fa-print"></i> Print
+              </button>
+            </div>
+          </div>
+        </div>
+  
+      </section>
+  
+      <aside class="sidebar1">
+        <!-- Return button placed in the sidebar -->
+        <div class="sidebar-return">
+          <button id="return-btn" class="return-button">Return</button>
+        </div><br>
+
+        <div class="file-section tab">
+          <h3>Files</h3>
+          <p>Turned in on Aug 10, 11:00PM</p>
+          <img src="Group 924.png" alt="Sample attachment">
+        </div>
+  
+        <div class="grade-section tab">
+          <h3>Grade</h3>
+          <ul>
+            <li>Guided colleagues to strengthen relationships with parents/guardians and the wider school community to maximize their involvement in the educative process. (PPST 6.2.3) <span contenteditable="">__/7</span></li>
+            <li>Contributed actively to professional networks within and between schools to improve knowledge and to enhance practice. (PPST 7.3.3) <span contenteditable="">__/7</span></li>
+            <li>Initiated professional reflections and promote learning opportunities with colleagues to improve practice. (PPST 7.4.3)<span contenteditable="">__/7</span></li>
+          </ul>
+        </div>
+  
+        <div class="total-score tab">
+          <p><b>Total Score: </b><br><br><span contenteditable="">____/21</span></p>
+        </div>
+  
+        <div class="private-comments-section tab">
+          <textarea placeholder="Add private comment..."></textarea>
+          <button class="post-button">Post</button> <!-- Centered Post Button -->
+        </div>
+      </aside>
+    </main>
+  
+  <script>
+    document.getElementById('three-dots-btn').addEventListener('click', function() {
+      const menu = document.getElementById('dropdown-menu');
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    
+    // Floating menu toggle
+    document.getElementById('menu-icon').addEventListener('click', function() {
+    const floatingMenu = document.getElementById('floating-menu');
+    floatingMenu.style.display = floatingMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    function closeMenu() {
+    document.getElementById('floating-menu').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

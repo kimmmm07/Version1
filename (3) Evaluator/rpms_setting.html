@@ -9,16 +9,32 @@
 </head>
 <body>
      <!-- Sidebar -->
-     <div class="sidebar">
-        <div class="sidebar-icon">
+    <div class="sidebar">
+        <div class="sidebar-icon" id="menu-icon">
             <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
-        </div>
+        </div>        
         <div class="sidebar-icon">
             <a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
         </div>
         <div class="sidebar-icon">
             <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
         </div>
+    </div>
+
+    <!-- Floating Menu -->
+    <div class="floating-menu" id="floating-menu">
+        <div class="menu-header">
+            <img src="DepEd_01.png" alt="DepED Logo">
+            <!-- Close button -->
+            <button class="close-btn" onclick="closeMenu()">✖</button>
+        </div>
+        <ul>
+        <li><a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
+        <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
+        <!-- Horizontal line between Setting and School Year -->
+        <hr class="menu-divider">
+        <li><a href="rpms_proficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
+        </ul>
     </div>
 
     <!-- Header Section -->
@@ -86,5 +102,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Floating menu toggle
+        document.getElementById('menu-icon').addEventListener('click', function() {
+        const floatingMenu = document.getElementById('floating-menu');
+        floatingMenu.style.display = floatingMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        function closeMenu() {
+        document.getElementById('floating-menu').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
