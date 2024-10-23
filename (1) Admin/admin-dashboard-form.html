@@ -13,7 +13,7 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="Assets\DepEdLogo.png.png" alt="DepEd Logo">
+                <img src="C:\Users\Mary Joy\source\repos\Performance Evaluation System\Assets\DepEdLogo.png.png" alt="DepEd Logo">
             </div>
             <ul>
                 <li><a href="admin-dashboard-home.html"><i class="fas fa-home"></i> Home</a></li>
@@ -30,7 +30,23 @@
     <main>
         <section class="dashboard-content">
             <h1>Forms</h1>
-            <button class="create-btn"><i class="fas fa-plus"></i>Create</button>
+            <button class="create-btn" onclick="openModal()"><i class="fas fa-plus"></i> Create</button>
+
+            <!-- Modal for form selection (hidden by default) -->
+            <div id="formModal" class="modal">
+                <div class="modal-content">
+                    <h2>Choose form</h2>
+                    <ul class="form-options">
+                        <li><input type="checkbox" id="form1" onchange="redirectToPage('admin-form-cot-create.html')"> Classroom Observation Tools</li>
+                        <li><input type="checkbox" id="form2" onchange="redirectToPage('#')"> Individual Performance Commitment Review Form</li>
+                        <li><input type="checkbox" id="form3" onchange="redirectToPage('#')"> Results-Based Performance Management System</li>
+                    </ul>
+                    <!-- Centered Done button -->
+                    <div class="button-container">
+                        <button class="modal-close-btn" onclick="closeModal()">Done</button>
+                    </div>
+                </div>
+            </div>
     
             <div class="status-titles">
                 <h2 id="all-status" class="active" onclick="setActiveTab('all')">All</h2> <!-- Default to active -->
@@ -46,41 +62,34 @@
                 </div>
             </div>
     
-            
             <!-- Form Categories -->
             <div class="form-category">
                 <div class="horizontal-background"></div>
                 <h3 class="category-label">Classroom Observation Tools</h3>
-                <a href="admin-COT-Proficient.html" class="form-link">
-                    <div class="form-item">
-                        <i class="fas fa-file-alt"></i>
-                        Rating Sheet for Proficient Teacher
-                        <i class="ellipsis-icon fas fa-ellipsis-h"></i>
-                    </div>
-                </a>
-                <a href="admin-COT-HighlyProficient.html" class="form-link">
-                    <div class="form-item">
-                        <i class="fas fa-file-alt"></i>
-                        Rating Sheet for Highly Proficient Teacher
-                        <i class="ellipsis-icon fas fa-ellipsis-h"></i>
-                    </div>
-                </a>
+                <div class="form-item">
+                    <i class="fas fa-file-alt"></i>
+                    <a href="admin-form-view-COT-Proficient.html" class="form-link">Rating Sheet for Proficient Teacher</a> 
+                    <i class="ellipsis-icon fas fa-ellipsis-h"></i>
+                </div>
+                <div class="form-item">
+                    <i class="fas fa-file-alt"></i>
+                    <a href="admin-form-view-COT-HighlyProficient.html" class="form-link">Rating Sheet for Highly Proficient Teacher</a>
+                    <i class="ellipsis-icon fas fa-ellipsis-h"></i>
+                </div>
+            </div>
+
             
                 <div class="form-category">
                     <div class="horizontal-background"></div>
                     <h3 class="category-label">Individual Performance Commitment and Review Form</h3>
-                    <a href="admin-IPCRF-Proficient-EPart1.html" class="form-link">
-                        <div class="form-item">
-                            <i class="fas fa-file-alt"></i>
-                                IPCRF for Proficient Teacher
-                            <i class="ellipsis-icon fas fa-ellipsis-h"></i>
-                        </div>
-                       
-                    </a> 
-                    
                     <div class="form-item">
                         <i class="fas fa-file-alt"></i>
-                        IPCRF for Highly Proficient Teacher
+                        <a href="admin-Part1-IPCRF-Proficient-Encoding.html" class="form-link">IPCRF for Proficient Teacher</a> 
+                        <i class="ellipsis-icon fas fa-ellipsis-h"></i>
+                    </div>
+                    <div class="form-item">
+                        <i class="fas fa-file-alt"></i>
+                        <a href="admin-Part1-IPCRF-HighlyProficient-Encoding.html" class="form-link">IPCRF for Highly Proficient Teacher</a>
                         <i class="ellipsis-icon fas fa-ellipsis-h"></i>
                     </div>
                 </div>
@@ -88,19 +97,23 @@
 
             <div class="form-category">
                 <div class="horizontal-background"></div>
-                <h3 class="category-label">Results-Based Performance Management System</h3>
+                <h3 class="category-label">RPMS for Proficient Teacher</h3>
                 <div class="form-item">
                     <i class="fas fa-file-alt"></i>
-                    RPMS for Proficient Teacher
+                    <a href="admin-RPMS-Proficient-Home.html" class="form-link">Results-Based Performance Management System</a>
                     <i class="ellipsis-icon fas fa-ellipsis-h"></i>
                 </div>
                 <div class="form-item">
                     <i class="fas fa-file-alt"></i>
-                    RPMS for Highly Proficient Teacher
+                    <a href="admin-RPMS-HighlyProficient-Home.html" class="form-link">Results-Based Performance Management System</a>
                     <i class="ellipsis-icon fas fa-ellipsis-h"></i>
                 </div>
             </div>
 
         </section>
     </main>
-    
+
+<script src="admin-dashboard-form.js"></script>
+
+</body>
+</html>
