@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #FFFFFF;
+    background-color: #fafafa;
 }
 
 /* Header Background Styles */
@@ -151,11 +151,12 @@ body {
 
 .container {
     max-width: 1000px;
-    margin: -40px auto 80px;
+    margin: -40px auto;
     background-color: white;
     padding: 20px 2.5%;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
 }
 
 h3{
@@ -163,37 +164,43 @@ h3{
     margin-bottom: 15px;
 }
 
+.back-link-container {
+    display: flex;
+    align-items: center;   /* Vertically align link and icon */
+    gap: 10px;             /* Space between the link and the icon */
+}
+
 .back-link {
     text-decoration: none;
     display: block;
-    margin-top: 60px !important;
     font-size: 25px;
     color: black;
-    padding: 20px 5%;
+    padding: 20px 0;
+    margin-top: 60px !important;
+    margin-left: 66px;
+    cursor: pointer;
 }
+
 
 .instructions {
     margin-top: -20px;
     margin-bottom: 20px;
     padding: 10px 2.5%;
     padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
 }
 
 form {
     margin-top: 10px;
 }
 
-hr {
-    color: lightgrey;
-}
-
 .form-section {
     padding: 20px 2.5%;
     display: grid;
-    grid-template-columns: auto 1fr;  
-    gap: 10px; 
-    align-items: center;  
-    margin-bottom: 30px;  
+    grid-template-columns: auto 1fr; /* Label column auto-sized, input field takes remaining space */
+    gap: 10px; /* Space between the label and input */
+    align-items: center; /* Aligns labels and inputs vertically in the center */
+    margin-bottom: 30px; /* Adds space after each section */
     padding-bottom: 10px;
     border-bottom: 1px solid #ddd;
 }
@@ -206,21 +213,15 @@ textarea {
     border-radius: 5px;
 }
 
+.question-container {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
 
 .question {
     font-size: 16px;
     padding: 10px 2.5%;
-}
-
-.question-container {
-    position: relative;  
-    margin: 20px 0;
-}
-
-.instruction-question-separator {
-    position: relative;  
-    margin-left: -25px;
-    width: 935px;
 }
 
 .rating-scale {
@@ -231,8 +232,8 @@ textarea {
 }
 
 .rating-button {
-    width: 120px;   
-    height: 50px;  
+    width: 120px;  /* Adjust width to make it more lengthy */
+    height: 50px; /* Adjust height */
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
@@ -280,9 +281,6 @@ button {
     display: flex;
     justify-content: center;
     gap: 20px;
-    position: absolute;  
-    right: 0;  
-    top: 10px;  
 }
 
 button[type="button1"] {
@@ -294,96 +292,4 @@ button[type="button1"] {
 button[type="submit1"] {
     background-color: #0A840E;
     color: white;
-}
-
-/* Container for the instruction buttons */
-.instructions-buttons {
-    display: flex;  
-    justify-content: flex-end;  
-    gap: 1px;  
-    margin-top: -20px;  
-    margin-left: 910px;
-    margin-bottom: 30px;
-}
-
-.questions-buttons {
-    display: flex;  
-    justify-content: flex-end; 
-    gap: 1px;  
-    margin-top: -60px;  
-    margin-bottom: 60px;
-}
-
-.add-button {
-    display: flex;  
-    justify-content: flex-end;  
-    font-size: 15px;
-    font-weight: bold;
-    gap: 8px;  
-    margin-top: -5px;  
-    margin-bottom: -10px;
-}
-
-.comment-button {
-    display: flex;  
-    justify-content: flex-end; 
-    gap: 3px;  
-    margin-top: -75px;  
-    margin-bottom: 60px;
-    margin-right: 12px;
-    margin-left: 50px;
-}
-
-.comments-section {
-    margin-top: 10px;  
-    padding: 10px;     
-    background-color: #f9f9f9;  
-    border-radius: 5px;  
-}
-
-.icon-button {
-    border: none; 
-    background: transparent; 
-    cursor: pointer; 
-    padding: 5px;  
-}
-
-.icon-button i {
-    font-size: 16px;  
-    transition: color 0.3s;  
-}
-
-.edit-button i {
-    color: #4CAF50;  
-}
-
-.delete-button i {
-    color: #F44336; 
-}
-
-.add-button i {
-    color: black;  
-}
-
-.icon-button:hover i {
-    opacity: 0.8;  
-}
-
-/* Hover effect for the Delete button */
-.delete-button:hover {
-    background: transparent;  
-    border-color: #f1a3a9;  
-}
-
-.question-separator {
-    color: rgb(224, 224, 224);
-    margin-bottom: 20px; 
-}
-
-/* Adjust button appearance for mobile */
-@media (max-width: 600px) {
-    .edit-button, .delete-button {
-        font-size: 12px; 
-        padding: 4px 8px; 
-    }
 }
