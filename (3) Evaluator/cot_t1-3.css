@@ -94,6 +94,7 @@ td a {
 td a:hover {
     text-decoration: underline;
 }
+
 .status {
     color: green;
     font-weight: bold;
