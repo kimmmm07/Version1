@@ -30,14 +30,14 @@
     <main>
         <section class="dashboard-content">
             <h1>Forms</h1>
-            <button class="create-btn" onclick="openModal()"><i class="fas fa-plus"></i> Create</button>
+            <button class="create-btn" onclick="openModal()"><i class="fas fa-plus"></i> New Form</button>
 
             <!-- Modal for form selection (hidden by default) -->
             <div id="formModal" class="modal">
                 <div class="modal-content">
                     <h2>Choose form</h2>
                     <ul class="form-options">
-                        <li><input type="checkbox" id="form1" onchange="redirectToPage('admin-form-cot-create.html')"> Classroom Observation Tools</li>
+                        <li><input type="checkbox" id="form1" onchange="redirectToPage('#')"> Classroom Observation Tools</li>
                         <li><input type="checkbox" id="form2" onchange="redirectToPage('#')"> Individual Performance Commitment Review Form</li>
                         <li><input type="checkbox" id="form3" onchange="redirectToPage('#')"> Results-Based Performance Management System</li>
                     </ul>
@@ -49,18 +49,11 @@
             </div>
     
             <div class="status-titles">
-                <h2 id="all-status" class="active" onclick="setActiveTab('all')">All</h2> <!-- Default to active -->
-                <h2 id="archived-status" onclick="setActiveTab('archived')">Archived</h2>
+                <h2 id="all-status" class="active" onclick="setActiveTab('all')">All</h2>
             </div>
             
             <div class="horizontal-line"></div>
     
-            <div class="search-container">
-                <div class="search-input-wrapper">
-                    <i class="fas fa-search search-icon"></i>
-                    <input type="text" class="search-input" placeholder="Search">
-                </div>
-            </div>
     
             <!-- Form Categories -->
             <div class="form-category">
@@ -68,12 +61,12 @@
                 <h3 class="category-label">Classroom Observation Tools</h3>
                 <div class="form-item">
                     <i class="fas fa-file-alt"></i>
-                    <a href="admin-form-view-COT-Proficient.html" class="form-link">Rating Sheet for Proficient Teacher</a> 
+                    <a href="admin-form-Proficient-CreateCOT.html" class="form-link">Rating Sheet for Proficient Teacher</a> 
                     <i class="ellipsis-icon fas fa-ellipsis-h"></i>
                 </div>
                 <div class="form-item">
                     <i class="fas fa-file-alt"></i>
-                    <a href="admin-form-view-COT-HighlyProficient.html" class="form-link">Rating Sheet for Highly Proficient Teacher</a>
+                    <a href="admin-form-HighlyProficient-CreateCOT.html" class="form-link">Rating Sheet for Highly Proficient Teacher</a>
                     <i class="ellipsis-icon fas fa-ellipsis-h"></i>
                 </div>
             </div>
@@ -84,12 +77,12 @@
                     <h3 class="category-label">Individual Performance Commitment and Review Form</h3>
                     <div class="form-item">
                         <i class="fas fa-file-alt"></i>
-                        <a href="admin-Part1-IPCRF-Proficient-Encoding.html" class="form-link">IPCRF for Proficient Teacher</a> 
+                        <a href="admin-form-Proficient-CreateIPCRF.html" class="form-link">IPCRF for Proficient Teacher</a> 
                         <i class="ellipsis-icon fas fa-ellipsis-h"></i>
                     </div>
                     <div class="form-item">
                         <i class="fas fa-file-alt"></i>
-                        <a href="admin-Part1-IPCRF-HighlyProficient-Encoding.html" class="form-link">IPCRF for Highly Proficient Teacher</a>
+                        <a href="admin-form-HighlyProficient-CreateIPCRF.html" class="form-link">IPCRF for Highly Proficient Teacher</a>
                         <i class="ellipsis-icon fas fa-ellipsis-h"></i>
                     </div>
                 </div>
@@ -97,15 +90,15 @@
 
             <div class="form-category">
                 <div class="horizontal-background"></div>
-                <h3 class="category-label">RPMS for Proficient Teacher</h3>
+                <h3 class="category-label">Results-Based Performance Management System</h3>
                 <div class="form-item">
                     <i class="fas fa-file-alt"></i>
-                    <a href="admin-RPMS-Proficient-Home.html" class="form-link">Results-Based Performance Management System</a>
+                    <a href="admin-RPMS-Proficient-Home.html" class="form-link">RPMS for Proficient Teacher</a>
                     <i class="ellipsis-icon fas fa-ellipsis-h"></i>
                 </div>
                 <div class="form-item">
                     <i class="fas fa-file-alt"></i>
-                    <a href="admin-RPMS-HighlyProficient-Home.html" class="form-link">Results-Based Performance Management System</a>
+                    <a href="admin-RPMS-HighlyProficient-Home.html" class="form-link">RPMS for Highly Proficient Teacher</a>
                     <i class="ellipsis-icon fas fa-ellipsis-h"></i>
                 </div>
             </div>
