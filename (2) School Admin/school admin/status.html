@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="status_css.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="C:\Users\kimab\Desktop\school admin\assets\image 6.png" alt="DepED Logo" />
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="schooladmin_home.html" class="nav-link"><img src="assets/House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
+            <li><a href="faculty.html" class="nav-link faculty active"><img src="assets/Users_Group.png" alt="Faculty Icon" class="nav-icon"> Faculty</a></li>
+            <li><a href="results.html" class="nav-link"><img src="assets/Check Document.png" alt="Results Icon" class="nav-icon"> Results</a></li>
+            <li><a href="records.html" class="nav-link"><img src="assets/Folders1.png" alt="Records Icon" class="nav-icon"> Records</a></li>
+            <li><a href="../../index.html" class="logout-btn"><img src="assets/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Faculty</h1>
+            <a href="add_people_faculty.html" class="add-btn">+ Add People</a>
+        </header>
+
+        <div class="tabs">
+            <a href="faculty.html" class="tab ">All</a>
+            <a href="status.html" class="tab active">Status</a>
+            <a href="assigned.html" class="tab">Assigned</a>
+            <a href="deactivated.html" class="tab">Deactivated</a>
+            <a href="faculty_view_summary.html" class="view-summary">View Summary</a>
+        </div>
+
+        <div class="filters">
+            <div class="filter-box">
+                <button class="filter all-people">All people <span id="all-count">0</span></button>
+            </div>
+            <div class="search-box">
+                <div class="search-container">
+                    <img src="assets\Search_Magnifying_Glass.png" alt="Search Icon" class="search-icon"> <!-- Add your saved icon here -->
+                    <input type="text" class="search-input" placeholder="Search">
+                </div>
+                <input type="text" class="filter-input" placeholder="Position">
+                <input type="text" class="filter-input" placeholder="Grade Level">
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Grade Level</th>
+                    <th>Department</th>
+                    <th>Rater</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="faculty-list">
+                <!-- Table content will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

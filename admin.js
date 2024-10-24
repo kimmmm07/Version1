@@ -54,3 +54,19 @@ window.addEventListener('load', async function() {
 
 });
 
+// const response = await fetch('https://bnahs.pythonanywhere.com/api/create/admin/',
+//     {
+//         method: 'GET',
+//         credentials: 'include'
+//     }
+// );
+
+// const data = await response.json();
+// if (response.ok) {
+//     console.log("Success Data : ",data);
+// } else {
+//     console.log("Error Data : ",data);
+// }
+
+// const formData = new FormData();
+// formData.append('school_id', '12345');
