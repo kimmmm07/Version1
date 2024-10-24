@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPMS Proficient Kra4</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="rpms_proficient_kra4.css">
+    <link rel="stylesheet" href="rpms_proficient_kra.css">
 </head>
 <body>
     <!-- Sidebar -->
@@ -47,7 +47,7 @@
             <a href="rpms_proficient_records.html"><img src="Folders.png" alt="Records">Records</a>
             <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
             <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
-            <a href="#" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
+            <a href="#" id="logoutLink" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
         </nav>
     </header>
 
@@ -128,20 +128,17 @@
         </div>
     </div>
 
-    <script>
-        document.querySelector('.dots-menu').addEventListener('click', function() {
-            alert("Options menu clicked.");
-        });
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
 
-        // Floating menu toggle
-        document.getElementById('menu-icon').addEventListener('click', function() {
-        const floatingMenu = document.getElementById('floating-menu');
-        floatingMenu.style.display = floatingMenu.style.display === 'block' ? 'none' : 'block';
-        });
-
-        function closeMenu() {
-        document.getElementById('floating-menu').style.display = 'none';
-        }
-    </script>
+    <script src="rpms_proficient_kra4.js"></script>
 </body>
 </html>

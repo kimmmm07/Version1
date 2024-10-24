@@ -19,7 +19,7 @@
         <a href="cot_highlyproficient_records.html"><img src="Folders.png" alt="Records">Records</a>
         <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
         <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
-        <a href="#" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
+        <a href="#" id="logoutLink" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
     </nav>
 </header>
 
@@ -27,8 +27,8 @@
     <h1>Choose form for your evaluation 
         <select id="formType" onchange="navigateToLink()">
             <option value="#">Select Form</option>
-            <option value="proficient_form.html">Proficient Teacher</option> 
-            <option value="highlyproficient_form.html">Highly Proficient Teacher</option> 
+            <option value="proficient_form.html">Proficient Teacher</option>
+            <option value="highlyproficient_form.html">Highly Proficient Teacher</option>
         </select>
     </h1>
 
@@ -195,14 +195,18 @@
     </a>
 </div>
 
-<script>
-    function navigateToLink() {
-        const formType = document.getElementById('formType').value;
-        if (formType !== "#") {
-            window.location.href = formType;
-        }
-    }
-</script>
+<!-- Logout Confirmation Modal -->
+<div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+    <div class="modal-content">
+        <p>Are you sure you want to logout?</p>
+        <div class="modal-buttons">
+            <button class="yes-btn">Yes</button>
+            <button class="no-btn">No</button>
+        </div>
+    </div>
+</div>
+
+<script src="highlyproficient_form.js"></script>
 
 </body>
 </html>
