@@ -110,8 +110,8 @@ h1 {
 .form-details {
     display: flex;
     justify-content: space-around;
-    width: 40%;
-    text-align: center;
+    width: 55%;
+    text-align: flex-end;
 }
 
 .form-details div {
@@ -122,16 +122,16 @@ h1 {
     font-weight: bold;
     display: block;
     font-size: 16px;
+    text-align: center;
+}
+
+.form-details p {
+    text-align: center;
 }
 
 .response-rate {
     font-weight: bold;
     color: #d32f2f;
-}
-
-.ellipsis {
-    font-size: 20px;
-    cursor: pointer;
 }
 
 .form-icon {
