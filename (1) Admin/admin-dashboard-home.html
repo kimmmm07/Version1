@@ -7,13 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="admin-dashboard-home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="header-background"></div>
     <header>
         <nav>
             <div class="logo">
-                <img src="Assets\DepEdLogo.png.png" alt="DepEd Logo">
+                <img src="C:\Users\Mary Joy\source\repos\Performance Evaluation System\Assets\DepEdLogo.png.png" alt="DepEd Logo">
             </div>
             <ul>
                 <li><a href="admin-dashboard-home.html" class="active"><i class="fas fa-home"></i> Home</a></li>
@@ -28,12 +29,102 @@
     </header>
     
     <main>
-        <!-- Main content for Admin Dashboard -->
         <section class="dashboard-content">
-            <h1>Welcome to the Admin Dashboard</h1>
-            <p>
-            </p>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h3>Total number of schools</h3>
+                    <p>6</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Total number of teachers</h3>
+                    <p>451</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Number of evaluations conducted</h3>
+                    <p>105</p>
+                </div>
+                <div class="stat-box">
+                    <h3>Number of pending evaluations</h3>
+                    <p>346</p>
+                </div>
+            </div>
+
+            <div class="chart-container submission-rate-container">
+                <div class="chart-title submission-rate-title">Evaluation Submission Rate</div>
+                <div class="submission-dropdown-container">
+                    <select id="schoolDropdown">
+                        <option value="" disabled selected>School</option>
+                        <option value="school1">Benigno "Ninoy" Aquino High School</option>
+                        <option value="school2">Upper Bicutan National High School</option>
+                        <option value="school3">Taguig National High School</option>
+                        <option value="school1">Signal Village National High School</option>
+                        <option value="school2">President Diosdado Macapagal High School</option>
+                        <option value="school3">Western Bicutan National High School</option>
+                    </select>
+            
+                    <select id="schoolYearDropdown">
+                        <option value="" disabled selected>School Year</option>
+                        <option value="2023-2024">2019-2020</option>
+                        <option value="2024-2025">2020-2021</option>
+                        <option value="2023-2024">2021-2022</option>
+                        <option value="2024-2025">2022-2023</option>
+                        <option value="2023-2024">2023-2024</option>
+                        <option value="2024-2025">2024-2025</option>
+                    </select>
+                </div>
+                <hr class="submission-rate-hr"> 
+                <canvas id="submissionRateChart"></canvas>
+            </div>
+            
+            <br><br><br><br><br><br>
+            
+            <div class="chart-container distribution-chart-container">
+                <div class="chart-title distribution-chart-title">Distribution of Ratings Chart</div>
+                <div class="distribution-dropdown-container">
+                    <select id="distributionSchoolDropdown"
+                    <select class="distribution-school-dropdown">
+                        <option value="" disabled selected>School</option>
+                        <option value="school1">Benigno "Ninoy" Aquino High School</option>
+                        <option value="school2">Upper Bicutan National High School</option>
+                        <option value="school3">Taguig National High School</option>
+                        <option value="school1">Signal Village National High School</option>
+                        <option value="school2">President Diosdado Macapagal High School</option>
+                        <option value="school3">Western Bicutan National High School</option>
+                    </select>
+                    <select id="distributionYearDropdown"
+                    <select class="distribution-year-dropdown">
+                        <option value="" disabled selected>School Year</option>
+                        <option value="2023-2024">2019-2020</option>
+                        <option value="2024-2025">2020-2021</option>
+                        <option value="2023-2024">2021-2022</option>
+                        <option value="2024-2025">2022-2023</option>
+                        <option value="2023-2024">2023-2024</option>
+                        <option value="2024-2025">2024-2025</option>
+                    </select>
+                </div>
+                <hr class="distribution-rate-hr">
+                <canvas id="distributionChart"></canvas>
+            </div>
+            
+                    
+                    
+
+                <div class="pie-charts-container">
+                    <div class="chart-container recommendations-container">
+                        <div class="chart-title">Recommendations Chart</div>
+                        <hr>
+                        <canvas id="recommendationChart"></canvas>
+                    </div>
+                    <div class="chart-container tenure-container">
+                        <div class="chart-title">Tenure Chart</div>
+                        <hr>
+                        <canvas id="tenureChart"></canvas>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
+
+    <script src="admin-dashboard-home.js"></script>
 </body>
 </html>

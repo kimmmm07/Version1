@@ -151,8 +151,254 @@ nav ul li a.active {
     margin-bottom: 20px;
 }
 
-.dashboard-content p {
-    color: #333;
-    font-size: 1rem;
-    margin-top: -10px;
+.submission-rate-hr {
+    border: 1px solid #ccc;
+    margin-top: 25px;
+    margin-bottom: 31px;
+    width: 100%;
+}
+
+.distribution-rate-hr {
+    border: 1px solid #ccc; 
+    margin-bottom: 20px;
+    width: 100%; 
+}
+
+
+/* Chart Titles */
+.chart-title {
+    font-size: 16px;
+    color: #082F96;
+    margin: 30px 0 20px;
+    font-weight: bold;
+    text-align: left; 
+    margin-left: 10px;
+    margin-top: 2px;
+}
+
+/* Unique styling for different chart titles */
+.submission-rate-title {
+    color: #000000;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+.distribution-chart-title {
+    color: #000000;
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* Stats Container */
+.stats-container {
+    display: flex;
+    align-items: center;
+    margin-left: 200px;
+    margin-top: -35px;
+    margin-bottom: 100px;
+    gap: 10px; 
+}
+
+.stat-box {
+    background-color: #082F96;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 170px;
+    height: 53px;
+    text-align: center;
+}
+
+.stat-box h3 {
+    font-size: 9.7px;
+    font-weight: normal;
+    margin-top: 2px;
+}
+
+.stat-box p {
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: -8px;
+}
+
+.chart-container {
+    margin-bottom: 70px; 
+    border: 1px solid lightgrey; 
+    border-radius: 8px; 
+    padding: 20px; 
+    background-color: #ffffff; 
+    width: 800px;
+    height: 500px;
+    flex: 1;
+}
+
+.bar-charts-container {
+    margin-left: -20px;
+    width: 500px;
+}
+
+.pie-charts-container {
+    margin-left: 850px; 
+    margin-top: -1375px;
+    width: 750px;
+    height: 30px;
+
+}
+
+
+/* Unique styles for each chart container */
+.submission-rate-container {
+    background-color: #f9f9f9;
+}
+
+.distribution-chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    position: relative;
+    background-color: #eef2f3;
+    width: 1210px;
+    height: 500px;
+}
+
+.recommendations-container {
+    background-color: #f3eef2;
+    width: 365px;
+    height: 220px;
+}
+
+#recommendationChart {
+    width: 330px !important;
+    height: 170px !important; 
+    margin-top: 10px;
+}
+
+.tenure-container {
+    background-color: #eef3ee;
+    width: 365px;
+    height: 220px;
+    margin-top: -50px;
+}
+
+#tenureChart {
+    width: 330px !important;
+    height: 170px !important; 
+    margin-top: 10px;
+}
+
+.chart-container canvas {
+    height: 10px;
+    width: 10px; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .stats-container {
+        flex-direction: column;
+    }
+
+    .stat-box {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    .charts-container {
+        flex-direction: column; /* Stacking charts */
+    }
+
+    .bar-charts-container, .pie-charts-container {
+        width: 100%; /* Full width for smaller screens */
+    }
+
+    .chart-container {
+        width: 100%; /* Full width for smaller screens */
+    }
+}
+
+
+
+/* Chart Header with Title and Dropdowns */
+.chart-header {
+    position: relative;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 10px;
+}
+
+/* Dropdown Container */
+.submission-dropdown-container {
+    margin-top: -48px;
+    display: flex;
+    gap: 10px; 
+    justify-content: flex-end; 
+}
+
+
+
+
+/* Dropdown Styling */
+#schoolDropdown, #schoolYearDropdown {
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #000000;
+}
+
+#schoolDropdown {
+    width: 120px;
+}
+
+#schoolYearDropdown {
+    width: 120px;
+}
+
+#schoolDropdown:focus,
+#schoolYearDropdown:focus,
+.schoolDropdown:focus,
+.schoolYearDropdown:focus {
+    border-color: #007bff; 
+    outline: none; 
+}
+
+
+.distribution-dropdown-container {
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center; 
+    margin-top: -50px;
+    margin-bottom: 10px;
+    gap: 10px; 
+    width: 100%; 
+}
+
+.distribution-school-dropdown, .distribution-year-dropdown {
+    padding: 5px; 
+    font-size: 14px; 
+    border-radius: 5px; 
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    color: #000000;
+}
+
+/* Optional: Add a unique background for distribution dropdowns */
+.distribution-school-dropdown, .distribution-year-dropdown {
+    background-color: #eef2f3; 
+}
+
+#distributionSchoolDropdown {
+    width: 120px;
+}
+
+#distributionYearDropdown {
+    width: 120px;
+}
+
+#schoolDropdown:focus,
+#schoolYearDropdown:focus,
+.distribution-school-dropdown:focus,
+.distribution-year-dropdown:focus {
+    border-color: #007bff;
+    outline: none; 
 }
