@@ -47,7 +47,7 @@
             <a href="rpms_proficient_records.html"><img src="Folders.png" alt="Records">Records</a>
             <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
             <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
-            <a href="#" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
+            <a href="#" id="logoutLink" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
         </nav>
     </header>
 
@@ -82,16 +82,17 @@
         </main>
     </div>
 
-    <script>
-        // Floating menu toggle
-        document.getElementById('menu-icon').addEventListener('click', function() {
-        const floatingMenu = document.getElementById('floating-menu');
-        floatingMenu.style.display = floatingMenu.style.display === 'block' ? 'none' : 'block';
-        });
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
 
-        function closeMenu() {
-        document.getElementById('floating-menu').style.display = 'none';
-        }
-    </script>
+    <script src="rpms_landing page.js"></script>
 </body>
 </html>

@@ -17,7 +17,7 @@
             <a href="cot_proficient_records.html"><img src="Folders.png" alt="Records">Records</a>
             <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
             <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
-            <a href="#" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
+            <a href="#" id="logoutLink" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
         </nav>
     </header>
     
@@ -161,20 +161,17 @@
         </div>
     </div>
 
-    <script>
-        function showQuarter(quarter) {
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
 
-            document.querySelectorAll('.quarter-content').forEach(function(content) {
-                content.classList.add('hidden');
-            });
-            
-            document.querySelectorAll('.tabs a').forEach(function(tab) {
-                tab.classList.remove('active');
-            });
-            
-            document.getElementById(quarter).classList.remove('hidden');
-            document.querySelector(`[onclick="showQuarter('${quarter}')"]`).classList.add('active');
-        }
-    </script>
+    <script src="cot_t1-3.js"></script>
 </body>
 </html>
