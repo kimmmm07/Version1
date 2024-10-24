@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Instructions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-RPMS-Proficient-Instructions5.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header-background"></div>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="C:\Users\Mary Joy\source\repos\Performance Evaluation System\Assets\DepEdLogo.png.png" alt="DepEd Logo">
+            </div>
+            <ul>
+                <li><a href="admin-dashboard-home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="admin-dashboard-admin.html"><i class="fas fa-user-cog"></i> Admin</a></li>
+                <li><a href="admin-dashboard-form.html" class="active"><i class="fas fa-file-alt"></i> Form</a></li>
+                <li><a href="admin-dashboard-request.html"><i class="fas fa-clipboard-list"></i> Request</a></li>
+                <li><a href="admin-dashboard-inbox.html"><i class="fas fa-inbox"></i> Inbox</a></li>
+                <li><a href="admin-dashboard-school.html"><i class="fas fa-school"></i> School</a></li>
+                <li><a href="admin-dashboard-logout.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content">
+        <!-- Main Banner Section -->
+        <main>
+            <div class="back-link-container">
+                <div class="back-link" onclick="window.location.href='admin-RPMS-Proficient-Landing.html'">
+                    ← Results-Based Performance Management System
+                </div>
+            </div>
+            
+            <div class="tabs">
+                <a href="admin-RPMS-Proficient-Instructions5.html" class="tab active">Instructions</a>
+            </div>
+
+            <hr>
+
+            <!-- Content Section starts here -->
+            <div class="content-section">
+                <button class="edit-btn" onclick="editContent()"><i class="fas fa-edit"></i></button>
+                <h2 contenteditable="false" id="kraTitle">Plus Factor
+                </h2>
+
+
+                <div class="author-time">
+
+                </div>
+                <div class="points" contenteditable="true">28 points</div>
+
+                <!-- Objectives Section -->
+                <div class="objective-section">
+                    <div class="objective-item">
+                        <h3 contenteditable="false" id="objective1">2% | Objective 15 (Performed various related works / activities that contribute to the teaching- learning process.)
+                        </h3>
+                        <p contenteditable="false"><strong>Means of Verification (MOV)</strong></p>
+                        <ul>
+                        <li contenteditable="false">Any one (1) of the following:
+                            <br> - committee involvement;
+                            <br> - involvement as module/learning material writer/ validator;
+                            <br> - involvement as a resource person/speaker/learning facilitator in the RO/SDO/school-initiated TV/radio-based instruction;
+                            <br> - book or journal authorship/co-authorship/ contributorship;
+                            <br> - advisorship/coordinatorship/chairpersonship
+                            <br> - participation in demonstration teaching;
+                            <br> - participation as research presenter in a forum/ conference;
+                            <br> - mentorship of pre-service/in-service teachers;
+                            <br> - conducted research within the rating period;
+                            <br> - Others (please specify) with annotation on how it contributed to the teaching-learning process.                            
+                            </li>
+                    </ul>
+                </div>                
+            </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin-RPMS-Proficient-Instructions5.js"></script>
+</body>
+</html>

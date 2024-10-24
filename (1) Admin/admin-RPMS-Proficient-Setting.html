@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Performance Evaluation System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-RPMS-Proficient-Setting.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-icon">
+                <a href="#"><img src="C:\Users\Mary Joy\source\repos\Performance Evaluation System\Assets\Menu.png" alt="Menu Icon" /></a>
+            </div>
+            <div class="sidebar-icon">
+                <a href="admin-RPMS-Proficient-Home.html"><img src="C:\Users\Mary Joy\source\repos\Performance Evaluation System\Assets\Home.png" alt="Home Icon" /></a>
+            </div>
+            <div class="sidebar-icon active">
+                <a href="admin-RPMS-Proficient-Setting.html"><img src="C:\Users\Mary Joy\source\repos\Performance Evaluation System\Assets\Settings.png" alt="Settings Icon" /></a>
+            </div>
+        </div>
+
+    <div class="header-background"></div>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="C:\Users\Mary Joy\source\repos\Performance Evaluation System\Assets\DepEdLogo.png.png" alt="DepEd Logo">
+            </div>
+            <ul>
+                <li><a href="admin-dashboard-home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="admin-dashboard-admin.html"><i class="fas fa-user-cog"></i> Admin</a></li>
+                <li><a href="admin-dashboard-form.html" id="form-nav" class="active"><i class="fas fa-file-alt"></i> Form</a></li>
+                <li><a href="admin-dashboard-request.html" id="request-nav"><i class="fas fa-clipboard-list"></i> Request</a></li>
+                <li><a href="admin-dashboard-inbox.html" id="inbox-nav"><i class="fas fa-inbox"></i> Inbox</a></li>
+                <li><a href="admin-dashboard-school.html" id="school-nav"><i class="fas fa-school"></i> School</a></li>
+                <li><a href="admin-dashboard-logout.html" id="logout-nav"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="breadcrumbs">
+        <span>RPMS</span> &gt; <a href="admin-RPMS-Proficient-Setting.html"><b>Settings</b></a>
+    </div>
+
+    <div class="container">
+        <div class="settings-container">
+            <h2>Notifications</h2>
+
+            <br>
+            <h3 class="section-title">Email</h3>
+            <div class="toggle">
+                <label for="email-notifications">Allow email notifications</label>
+                <input type="checkbox" id="email-notifications" checked>
+            </div>
+
+            <br>
+            <h3 class="section-title">Comments</h3>
+            <div class="toggle">
+                <label for="comments-posts">Comments on your posts</label>
+                <input type="checkbox" id="comments-posts" checked>
+            </div>
+            <div class="toggle">
+                <label for="comments-mention">Comments that mention you</label>
+                <input type="checkbox" id="comments-mention" checked>
+            </div>
+            <div class="toggle">
+                <label for="private-comments">Private comments on work</label>
+                <input type="checkbox" id="private-comments" checked>
+            </div>
+
+            <br>
+            <h3 class="section-title">RPMS</h3>
+            <div class="toggle">
+                <label for="rpms-work-posts">Work and other posts</label>
+                <input type="checkbox" id="rpms-work-posts" checked>
+            </div>
+            <div class="toggle">
+                <label for="returned-work">Returned work and grades</label>
+                <input type="checkbox" id="returned-work" checked>
+            </div>
+            <div class="toggle">
+                <label for="due-date-reminders">Due-date reminders for your work</label>
+                <input type="checkbox" id="due-date-reminders" checked>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
