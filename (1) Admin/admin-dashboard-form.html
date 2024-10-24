@@ -30,23 +30,6 @@
     <main>
         <section class="dashboard-content">
             <h1>Forms</h1>
-            <button class="create-btn" onclick="openModal()"><i class="fas fa-plus"></i> New Form</button>
-
-            <!-- Modal for form selection (hidden by default) -->
-            <div id="formModal" class="modal">
-                <div class="modal-content">
-                    <h2>Choose form</h2>
-                    <ul class="form-options">
-                        <li><input type="checkbox" id="form1" onchange="redirectToPage('#')"> Classroom Observation Tools</li>
-                        <li><input type="checkbox" id="form2" onchange="redirectToPage('#')"> Individual Performance Commitment Review Form</li>
-                        <li><input type="checkbox" id="form3" onchange="redirectToPage('#')"> Results-Based Performance Management System</li>
-                    </ul>
-                    <!-- Centered Done button -->
-                    <div class="button-container">
-                        <button class="modal-close-btn" onclick="closeModal()">Done</button>
-                    </div>
-                </div>
-            </div>
     
             <div class="status-titles">
                 <h2 id="all-status" class="active" onclick="setActiveTab('all')">All</h2>
