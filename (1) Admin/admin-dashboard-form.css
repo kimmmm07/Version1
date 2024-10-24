@@ -191,19 +191,19 @@ nav ul li a.active {
 /* Dropdown Container */
 .dropdown-container {
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     margin-right: 10px;
+    height: 10px;
 }
 
 /* Style for the dropdown (select element) */
 select {
-    padding: 8px 12px;
+    padding: 8px 8px;
     font-size: 14px;
     border-radius: 10px; /* Adjusted radius to 25px for rounded corners */
     border: 1px solid #ccc;
     background-color: #ffffff; /* Light gray background */
     color: #333; /* Text color */
-    appearance: none;
     cursor: pointer;
 }
 
@@ -212,6 +212,8 @@ select:focus {
     outline: none;
     border-color: #ccc; /* Highlight color when focused */
 }
+
+
 
 /* Search Input Container */
 .search-container {
