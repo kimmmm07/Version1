@@ -67,3 +67,30 @@ new Chart(tenureCtx, {
         maintainAspectRatio: false,
     }
 });
+
+
+const logout = document.getElementById("logout");
+    logout.addEventListener('click', async function (event) {
+        try {
+            
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    
+                },
+                credentials: 'include',
+            });
+    
+            const data = await response.json();
+            if (response.ok) {
+                console.log("Success Data : ", data); 
+                window.location.href = '../../index.html'; 
+            } else {
+                console.log("Error Data : ", data);
+                alert("Login Failed.")
+            }
+        } catch (error) {
+            console.error("Error during fetch:", error);
+        }
+    })

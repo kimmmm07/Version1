@@ -51,8 +51,9 @@ window.addEventListener('load', async function() {
         }   
         return cookieValue;
     }
-
 });
+
+
 
 // const response = await fetch('https://bnahs.pythonanywhere.com/api/create/admin/',
 //     {
@@ -70,3 +71,5 @@ window.addEventListener('load', async function() {
 
 // const formData = new FormData();
 // formData.append('school_id', '12345');
+
+
