@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fafafa;
+    background-color: #fafafa; 
 }
 
 /* Header Background Styles */
@@ -25,9 +25,9 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed; 
+    position: fixed;
     top: 0;
-    z-index: 10; 
+    z-index: 10;
 }
 
 nav {
@@ -51,17 +51,17 @@ nav ul li {
 
 nav ul li:nth-child(1) {
     left: 500px; 
-    top: -2px; 
+    top: -2px;
 }
 
 nav ul li:nth-child(2) {
-    left: 600px; 
+    left: 600px;
     top: -2px; 
 }
 
 nav ul li:nth-child(3) {
-    left: 700px; 
-    top: -2px;
+    left: 700px;
+    top: -2px; 
 }
 
 nav ul li:nth-child(4) {
@@ -76,7 +76,7 @@ nav ul li:nth-child(5) {
 
 nav ul li:nth-child(6) {
     left: 1000px; 
-    top: -2px; 
+    top: -2px;
 }
 
 nav ul li:nth-child(7) {
@@ -85,17 +85,17 @@ nav ul li:nth-child(7) {
 }
 
 nav ul li:nth-child(7) a {
-    left: 1150px;
-    top: -2px; 
+    left: 1150px; 
+    top: -2px;
     padding: 10px 20px;
     font-weight: bold;
     color: #C10001;
 }
 
 nav ul li:nth-child(7) a:hover {
-    left: 1150px; 
+    left: 1150px;
     top: -2px;
-    color: #A00000; 
+    color: #A00000;
 }
 
 nav ul li a {
@@ -107,20 +107,20 @@ nav ul li a {
     border-radius: 20px;
     display: flex;
     align-items: center; 
-    gap: -3px; 
+    gap: -3px;
     margin-top: 5px;
     transition: background-color 0.3s;
     background-color: transparent; 
 }
 
 nav ul li a i {
-    font-size: 1.2em;
+    font-size: 1.2em; 
     margin-right: 8px;
 }
 
 nav ul li a.active {
-    width: 100px;
-    height: 30px;
+    width: 60px;
+    height: 10px;
     top: 3px;
     background-color: #C10001; 
     color: #fff;
@@ -131,23 +131,18 @@ nav ul li a.active {
 
 .logo img {
     width: 90px; 
-    height: 50px; 
+    height: 50px;
     position: absolute;
     top: -8px; 
     left: -14px; 
-    z-index: 11; 
+    z-index: 11;
 }
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* Ensure the body content is pushed down to account for the fixed header */
 body {
-    font-family: Poppins, sans-serif;
-    background-color: #f9f9f9;
+    padding-top: 100px;     /* Adjust based on the header height */
 }
+
 
 .container {
     max-width: 1000px;
@@ -156,7 +151,6 @@ body {
     padding: 20px 2.5%;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 50px;
 }
 
 h3{
@@ -176,11 +170,30 @@ h3{
     font-size: 25px;
     color: black;
     padding: 20px 0;
-    margin-top: 60px !important;
+    margin-top: -40px !important;
     margin-left: 66px;
     cursor: pointer;
 }
 
+.icon-button {
+    background: none;      /* Remove any background */
+    border: none;          /* Remove border */
+    padding: 0;            /* Remove padding */
+    cursor: pointer;
+    display: inline-flex;   /* Ensure the icon aligns inline */
+    align-items: center;    /* Center the icon vertically */
+    margin-top: -40px !important;  /* Adjust margin to align with the text */
+}
+
+.icon-button i {
+    font-size: 24px;
+    color: #0638c0;        /* Adjust the color of the icon */
+    transition: color 0.3s;
+}
+
+.icon-button:hover i {
+    opacity: 0.8;          /* Add a hover effect */
+}
 
 .instructions {
     margin-top: -20px;
@@ -205,12 +218,57 @@ form {
     border-bottom: 1px solid #ddd;
 }
 
+/* Adjust input width for Observer, Quarter, Date to be smaller but consistent */
+input[type="text"],
+input[type="date"] {
+    width: 90%; /* Decrease the width a bit */
+    padding: 8px; /* Smaller padding */
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+select {
+    width: 93%;
+    padding: 8px; /* Smaller padding */
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 textarea {
     width: 90%;
     margin: 5px 2.5%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.rating-container {
+    display: flex;
+    gap: 5px;
+    justify-content: left;
+    margin: 20px;
+}
+
+.quarter-button {
+    width: 100px;  /* Adjust width to make it more lengthy */
+    height: 50px; /* Adjust height */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    color: lightgrey;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.quarter-button:hover {
+    background-color: white;
+}
+.quarter-button.selected {
+    background-color: lightskyblue;
+    color: black;
 }
 
 .question-container {
@@ -245,6 +303,8 @@ textarea {
 
 .rating-button.no {
     width: 120px;
+    border-color: #ddd;
+    color: lightgrey;;
 }
 
 .rating-button:hover {
@@ -252,7 +312,7 @@ textarea {
 }
 
 .rating-button.active {
-    background-color: lightgreen;
+    background-color: lightskyblue;
     color: black;
 }
 label {
@@ -285,11 +345,11 @@ button {
 
 button[type="button1"] {
     background-color: white;
-    border: 1px solid #0A840E;
-    color: #0A840E;
+    border: 1px solid #082F96;
+    color: #082F96;
 }
 
 button[type="submit1"] {
-    background-color: #0A840E;
+    background-color: #082F96;
     color: white;
 }
