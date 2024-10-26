@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('submit', async function(event) {
   event.preventDefault();
   const formData = new FormData();
-  formData.append('name', document.getElementById('name').value);
+  const name = document.getElementById('name').value
+  formData.append('name', name);
   
   formData.append('school_id', document.getElementById('school-id').value);
   
@@ -62,6 +63,7 @@ window.addEventListener('submit', async function(event) {
         formData.append('school_logo', schoolLogoInput.files[0]);
     }
 
+  console.log(formData);
   const response = await fetch('https://bnahs.pythonanywhere.com/api/register/school/',
       {
           method: 'POST',
@@ -77,7 +79,7 @@ window.addEventListener('submit', async function(event) {
   const data = await response.json();
   if (response.ok) {
       console.log("Success Data : ",data);
-      window.location.href = 'index.html'; 
+      window.location.href = 'get-started.html'; 
   } else {
       console.log("Error Data : ",data);
       this.alert("Something went wrong.");
