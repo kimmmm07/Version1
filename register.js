@@ -11,7 +11,7 @@ window.addEventListener('load', async function(event) {
   formData.append('email_address', 'badorkian@gmail.com');
   formData.append('password', 'SecurePassword123');
   formData.append('confirm_password', 'SecurePassword123');
-  formData.append('school_logo', '');
+  formData.append('school_logo','');
   
   const response = await fetch('https://bnahs.pythonanywhere.com/api/register/school/',
       {
