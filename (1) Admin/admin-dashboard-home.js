@@ -51,23 +51,6 @@ new Chart(recommendationCtx, {
     }
 });
 
-// Tenure Chart
-const tenureCtx = document.getElementById('tenureChart').getContext('2d');
-new Chart(tenureCtx, {
-    type: 'pie',
-    data: {
-        labels: ['0-3 years', '3-5 years', '5+ years'],
-        datasets: [{
-            data: [39.11, 28.06, 23.13],
-            backgroundColor: ['#6a41fc', '#ff6384', '#36a2eb'],
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-    }
-});
-
 
 const logout = document.getElementById("logout");
 logout.addEventListener('click', async function (event) {
@@ -166,9 +149,43 @@ window.addEventListener('load', async function() {
     const data4 = await response4.json();
     if (response4.ok) {
         console.log("Success Data : ",data4);
-        // this.document.getElementById("total-pending").textContent = data4.total_pending_evaluation;
     } else {
         console.log("Error Data : ",data4);
+    }
+
+    const response5 = await fetch('https://bnahs.pythonanywhere.com/api/admin/school/teachers/tenure/',
+        {
+            method: 'GET',
+            credentials: 'include'
+        }
+    );
+
+    const data5 = await response5.json();
+    if (response5.ok) {
+        console.log("Success Data : ",data5);
+
+        // Tenure Chart
+        const tenureCtx = document.getElementById('tenureChart').getContext('2d');
+        new Chart(tenureCtx, {
+            type: 'pie',
+            data: {
+                labels: ['0-3 years', '3-5 years', '5+ years'],
+                datasets: [{
+                    data: [
+                        data5["0-3 years"],
+                        data5["3-5 years"],
+                        data5["5+ years"]
+                    ],
+                    backgroundColor: ['#6a41fc', '#ff6384', '#36a2eb'],
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+            }
+        });
+    } else {
+        console.log("Error Data : ",data5);
     }
 });
 
