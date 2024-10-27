@@ -260,7 +260,7 @@ header h1 {
 }
 
 /* Section Styling with White Background and Shadow */
-.kra-breakdown, .recommendation, .performance, .swot-analysis {
+.kra-breakdown, .recommendation, .tenure, .performance {
     background-color: white; /* White background */
     border-radius: 10px; /* Rounded corners */
     padding: 20px;
@@ -280,13 +280,13 @@ header h1 {
     min-height: 300px; /* Set minimum height */
 }
 
-.performance {
+.tenure {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
     min-height: 300px; /* Set minimum height */
 }
 
-.swot-analysis {
+.performance {
     grid-column: 1 / 3;
     grid-row: 3 / 4;
     min-height: 400px; /* Increased height for SWOT analysis */
@@ -323,6 +323,12 @@ header h1 {
     margin-bottom: 10px;
     padding-bottom: 8px; /* Adds spacing below the text before the line */
     border-bottom: 2px solid #ddd; /* Adds a gray divider line */
+}
+
+.analytics-grid h4 {
+    font-size: 12px;
+    font-weight: regular;
+    text-align: center;
 }
 
 /* Adjustments for mobile */
