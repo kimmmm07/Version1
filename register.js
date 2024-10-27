@@ -29,62 +29,73 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-
-window.addEventListener('submit', async function(event) {
-  event.preventDefault();
-  const formData = new FormData();
-  const name = document.getElementById('name').value
-  formData.append('name', name);
-  
-  formData.append('school_id', document.getElementById('school-id').value);
-  
-  formData.append('school_name', document.getElementById('school-name').value);
-  
-  formData.append('school_address', document.getElementById('school-address').value);
-  
-  formData.append('school_type', document.getElementsByClassName('school-type-dropdown')[0].value); 
-  
-  formData.append('contact_number', document.getElementById('contact-info').value);
-  
-  formData.append('email_address', document.getElementById('email').value);
-  
-  formData.append('password', document.getElementById('password').value);
-  
-  formData.append('confirm_password', document.getElementById('confirm-password').value);
-  const password = document.getElementById("password").value;
-  const cpassword = document.getElementById('confirm-password').value;
-  if(password !== cpassword){
-    this.alert("Password doesn't match.");
-    return;
-  }
+document.addEventListener('DOMContentLoaded', function() {
   const form = document.querySelector('form');
-  const schoolLogoInput = form.querySelector('#school-logo');
-    if (schoolLogoInput.files.length > 0) {
+  if (!form) {
+        console.error("Form element not found.");
+        return;
+    }
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const formData = new FormData();
+    
+    const name = String(document.getElementById('name').value);
+    const school_id = String(document.getElementById('school-id').value);
+    const school_name = String(document.getElementById('school-name').value);
+    const school_address = String(document.getElementById('school-address').value);
+    const school_type = String(document.querySelector('.school-type-dropdown').value);
+    const contact_number = String(document.getElementById('contact-info').value);
+    const email = String(document.getElementById('email').value);
+    const password = String(document.getElementById('password').value);
+    const cpassword = String(document.getElementById('confirm-password').value);
+  
+    formData.append('name', name);
+    formData.append('school_id', school_id);
+    formData.append('school_name', school_name);
+    formData.append('school_address', school_address);
+    formData.append('school_type', school_type); 
+    formData.append('contact_number', contact_number);
+    formData.append('email_address', email);
+    formData.append('password', password);
+    formData.append('confirm_password', cpassword);
+  
+    if (password !== cpassword) {
+        window.alert("Password doesn't match.");
+        return;
+    }
+  
+    const schoolLogoInput = document.querySelector('#school-logo');
+    if (schoolLogoInput && schoolLogoInput.files.length > 0) {
         formData.append('school_logo', schoolLogoInput.files[0]);
     }
+  
+    console.log(formData);
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/register/school/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            body: formData,
+            credentials: 'include',
+        });
+  
+        const data = await response.json();
+        if (response.ok) {
+            alert("School Registered.");
+            window.location.href = 'get-started.html';
+        } else {
+            console.log("Error Data:", data);
+            window.alert("Something went wrong.");
+        }
+    } catch (error) {
+        console.error("Fetch error:", error);
+        window.alert("Network error occurred.");
+    }
+  });
+});
 
-  console.log(formData);
-  const response = await fetch('https://bnahs.pythonanywhere.com/api/register/school/',
-      {
-          method: 'POST',
-          headers: {
-              'X-Requested-With': 'XMLHttpRequest',
-          }, 
-          body: formData, 
-          credentials: 'include', 
-      }
-  );
-  
-  
-  const data = await response.json();
-  if (response.ok) {
-      console.log("Success Data : ",data);
-      window.location.href = 'get-started.html'; 
-  } else {
-      console.log("Error Data : ",data);
-      this.alert("Something went wrong.");
-  }
- });
+
 
 
 
