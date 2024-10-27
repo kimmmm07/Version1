@@ -72,7 +72,7 @@ body {
     font-weight: bold;
 }
 
-.logout-btn {
+.logout-btn a {
     text-decoration: none;
     color: #d00000;
     font-size: 14px; /* Font size for logout button */
@@ -196,3 +196,193 @@ th, td {
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif; /* Match font to the rest of your page */
+}
+
+thead {
+    background-color: #f4f4f4; /* Light gray header background */
+    font-weight: bold;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    
+}
+
+
+td {
+    display: flex;
+    align-items: center;
+}
+
+.second-row th{
+    font-weight: lighter; /* You can also use '300' or another value */
+}
+
+
+.user-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+    background-image: url('assets/User_Circle.png'); /* You can replace this with an actual icon */
+    background-size: cover;
+}
+
+.three-dots-btn {
+    background-color: transparent; /* Removes background */
+    border: none; /* Removes border */
+    padding: 6px 10px; /* You can adjust the padding if needed */
+    font-size: 14px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.three-dots-btn img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+tbody tr {
+    transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+    list-style: none;
+    padding: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.dropdown-menu li {
+    padding: 8px 12px;
+    display: flex;           /* Use flexbox to center items */
+    align-items: center;     /* Vertically center the items */
+    justify-content: center; /* Horizontally center the items */
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+    display: flex;           /* Use flexbox to allow centering */
+    width: 100%;            /* Make anchor take the full width */
+}
+
+
+.dropdown-menu li a:hover {
+    background-color: #ddd; /* Hover effect */
+}
+
+/* Display the dropdown when .show class is added */
+.show .dropdown-menu {
+    display: block;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+}
+
+.eye-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px; /* Optional: add space between icon and text */
+}
+
+/* Modal styles */
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    border: #082F96;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 150px;
+    border: 2px solid #082F96;
+}
+
+.modal-content p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: -20px;
+}
+
+.modal-buttons button {
+    width: 120px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.yes-btn {
+    background-color: #082F96;
+    color: white;
+    font-weight: 700;
+}
+
+.no-btn {
+    background-color: #F1F1F1;
+    color: #082F96;
+    border: 1px solid #082F96 !important;
+    font-weight: 700;
+}
+

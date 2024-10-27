@@ -11,15 +11,15 @@
     <!-- Navbar Section -->
     <nav class="navbar">
         <div class="navbar-logo">
-            <img src="C:/Users/kimab/Desktop/school admin/assets/image 6.png" alt="DepED Logo" />
+            <img src="asset/image 6.png" alt="DepED Logo" />
         </div>
         <ul class="navbar-menu">
-            <li><a href="teacher_home.html" class="nav-link"><img src="asset\House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
-            <li><a href="teacher_evaluation.html" class="nav-link"><img src="asset\Test Passed.png" alt="Evaluation Icon" class="nav-icon"> Evaluation</a></li>
-            <li><a href="teacher_forms.html" class="nav-link"><img src="asset\Documents.png" alt="Forms Icon" class="nav-icon"> Forms</a></li>
-            <li><a href="teacher_summary.html" class="nav-link summary active"><img src="asset\Chart_Pie1.png" alt="Summary Icon" class="nav-icon"> Summary</a></li>
-            <li><a href="teacher_profile.html" class="nav-link"><img src="asset\User_01.png" alt="Profile Icon" class="nav-icon"> Profile</a></li>
-            <li><a href="../../index.html" class="logout-btn"><img src="asset\Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout</a></li>
+            <li><a href="teacher_home.html" class="nav-link"><img src="C:\Users\kimab\Desktop\teacher\asset\House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
+            <li><a href="teacher_evaluation.html" class="nav-link"><img src="C:\Users\kimab\Desktop\teacher\asset\Test Passed.png" alt="Evaluation Icon" class="nav-icon"> Evaluation</a></li>
+            <li><a href="teacher_forms.html" class="nav-link"><img src="C:\Users\kimab\Desktop\teacher\asset\Documents.png" alt="Forms Icon" class="nav-icon"> Forms</a></li>
+            <li><a href="teacher_summary.html" class="nav-link summary active"><img src="C:\Users\kimab\Desktop\teacher\asset\Chart_Pie1.png" alt="Summary Icon" class="nav-icon"> Summary</a></li>
+            <li><a href="teacher_profile.html" class="nav-link"><img src="C:\Users\kimab\Desktop\teacher\asset\User_01.png" alt="Profile Icon" class="nav-icon"> Profile</a></li>
+            <li><a href="#" class="logout-btn"><img src="C:\Users\kimab\Desktop\teacher\asset\Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout</a></li>
         </ul>
     </nav>
 
@@ -29,7 +29,7 @@
             <h1>Analytics</h1>
         </header>
         <div class="tabs">
-            <a href="#" class="view-recommendation active">View Recommendation</a>
+            <a href="teacher_summary_view_recommendation.html" class="view-recommendation active">View Summary</a>
         </div>
 
         <!-- New Table Section (KRA Breakdown and Recommendations) -->
@@ -39,11 +39,16 @@
                 <option>A.Y. 2023 - 2024</option>
                 <!-- Additional options can go here -->
             </select>
+        
+            <!-- <div class="report-button">
+                <button onclick="generatePDF()">Generate Form</button>
+            </div>           -->
 
             <table>
                 <thead>
                     <tr>
                         <th>Performance Rating</th>
+                        <th>Final Rating</th>
                         <th>Years of Experience</th>
                         <th>Current Job Title</th>
                         <th>Qualified Rank</th>
@@ -57,10 +62,10 @@
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
-        </div>
     </div>
 </body>
 </html>

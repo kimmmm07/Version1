@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Management</title>
+    <title>Faculty</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="faculty_css.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-logo">
-            <img src="assets\image 6.png" alt="DepED Logo" />
+            <img src="C:\Users\kimab\Desktop\school admin\assets\image 6.png" alt="DepED Logo" />
         </div>
         <ul class="navbar-menu">
-            <li><a href="schooladmin_home.html" class="nav-link"><img src="assets/House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
-            <li><a href="faculty.html" class="nav-link faculty active"><img src="assets/Users_Group.png" alt="Faculty Icon" class="nav-icon"> Faculty</a></li>
-            <li><a href="results.html" class="nav-link"><img src="assets/Check Document.png" alt="Results Icon" class="nav-icon"> Results</a></li>
-            <li><a href="records.html" class="nav-link"><img src="assets/Folders1.png" alt="Records Icon" class="nav-icon"> Records</a></li>
-            <li><a href="../../index.html" class="logout-btn"><img src="assets/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout</a></li>
+            <li><a href="schooladmin_home.html" class="nav-link"><img src="C:/Users/kimab/Desktop/school admin/assets/House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
+            <li><a href="faculty.html" class="nav-link faculty active"><img src="C:/Users/kimab/Desktop/school admin/assets/Users_Group.png" alt="Faculty Icon" class="nav-icon"> Faculty</a></li>
+            <li><a href="results.html" class="nav-link"><img src="C:/Users/kimab/Desktop/school admin/assets/Check Document.png" alt="Results Icon" class="nav-icon"> Results</a></li>
+            <li><a href="records.html" class="nav-link"><img src="C:/Users/kimab/Desktop/school admin/assets/Folders1.png" alt="Records Icon" class="nav-icon"> Records</a></li>
+            <li id="logoutLink" class="logout-btn">
+                <a href="admin-dashboard-logout.html">
+                    <img src="C:/Users/kimab/Desktop/teacher/asset/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout
+                </a>
+            </li>
         </ul>
     </nav>
 
@@ -45,7 +49,7 @@
             </div>
             <div class="search-box">
                 <div class="search-container">
-                    <img src="assets\Search_Magnifying_Glass.png" alt="Search Icon" class="search-icon">
+                    <img src="C:\Users\kimab\Desktop\school admin\assets\Search_Magnifying_Glass.png" alt="Search Icon" class="search-icon">
                     <input type="text" class="search-input" placeholder="Search">
                 </div>
                 <input type="text" class="filter-input" placeholder="Position">
@@ -60,27 +64,76 @@
                     <th>Position</th>
                     <th>Grade Level</th>
                     <th>Job started</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody id="faculty-list">
-                <!-- Table content will be dynamically added here -->
-            </tbody>
+                <tr class="second-row" data-faculty-id="1"> <!-- Add a data attribute for identification -->
+                    <th>
+                        <div class="user-icon"></div>
+                        Jessica Sanchez Ramirez
+                    </th>
+                    <th>Teacher II</th>
+                    <th>Junior High School</th>
+                    <th>8/20/2021</th>
+                    <th>
+                        <button class="manage-btn">Manage <span>&#9662;</span></button>
+                        <div class="dropdown">
+                            <ul class="dropdown-menu">
+                                <li class="deactivate-btn">
+                                    <a href="#">
+                                        <img src="assets/Shutdown.png" alt="Deactivate Icon" class="icon">
+                                        Deactivate
+                                    </a>
+                                </li>                                    
+                                <li class="delete-btn">
+                                    <a href="#" style="color: #A21718;">
+                                        <img src="assets/Trash.png" alt="Delete Icon" class="icon">
+                                        Delete
+                                    </a>
+                                </li>                                    
+                            </ul>
+                        </div>
+                    </th> <!-- Manage button -->
+                </tr>
+            </tbody>            
         </table>
     </div>
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove the active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add the active class to the clicked button
-                    this.classList.add('active');
-                });
-            });
+    <script>// Modal logic
+        const logoutButton = document.getElementById('logoutLink');  // Logout button
+        const logoutModal = document.getElementById('logoutModal');
+        const yesButton = document.querySelector('.yes-btn');
+        const noButton = document.querySelector('.no-btn');
+        
+        // Show modal when logout is clicked
+        logoutButton.addEventListener('click', function(event) {
+            event.preventDefault();  // Prevent default logout behavior
+            logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
         });
-    </script>
+        
+        // Hide modal when "No" is clicked
+        noButton.addEventListener('click', function() {
+            logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
+        });
+        
+        // Redirect when "Yes" is clicked
+        yesButton.addEventListener('click', function() {
+            window.location.href = 'admin-dashboard-logout.html';  // Replace with actual logout URL
+        });
+        </script>
+
+    <script src="faculty_js.js"></script>
+    
 </body>
 </html>
