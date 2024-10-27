@@ -16,7 +16,7 @@ noButton.addEventListener('click', function() {
 
 // Redirect when "Yes" is clicked
 yesButton.addEventListener('click', function() {
-    window.location.href = 'logout_page.html';  // Replace with actual logout URL
+    window.location.href = 'index.html';  // Replace with actual logout URL
 });
 
 
