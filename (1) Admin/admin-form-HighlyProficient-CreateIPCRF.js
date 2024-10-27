@@ -46,3 +46,4 @@ function createFolder() {
 document.querySelector('.create-btn').addEventListener('click', function() {
     document.getElementById('formModal').style.display = 'flex'; // Change to 'block' if necessary
 });
+

@@ -32,9 +32,9 @@
         <section class="dashboard-content">
             <h1>Request</h1>
             <div class="status-titles">
-                <h2 id="all-status" class="active">All</h2> <!-- Default to active -->
-                <h2 id="accepted-status">Accepted</h2>
-                <h2 id="declined-status">Declined</h2>
+                <a href="admin-dashboard-request.html"><h2 id="all-status"  class="active">All</h2></a>
+                <a href="admin-dashboard-request-Accepted.html"><h2 id="accepted-status">Accepted</h2></a>
+                <a href="admin-dashboard-request-Declined.html"><h2 id="declined-status">Declined</h2></a>
             </div>
             <div class="horizontal-line"></div>
             
@@ -102,6 +102,18 @@
         </div>
     </div>
 
-    <script src="admin-dashboard-request.js"></script>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden">
+        <div class="modal-content2">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-dashboard-request.js" type="module"></script>
 </body>
 </html>
