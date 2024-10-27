@@ -24,7 +24,8 @@ window.addEventListener('load', async function() {
                 address: school.school_address,
                 type: school.school_type,
                 id: school.school_id,
-                contact: school.contact_number
+                contact: school.contact_number,
+                school_logo: school.school_logo
             };
         });
 
@@ -68,6 +69,7 @@ window.addEventListener('load', async function() {
                 document.getElementById('modal-type').textContent = data.type;
                 document.getElementById('modal-id').textContent = data.id;
                 document.getElementById('modal-contact').textContent = data.contact;
+                document.getElementById('modal-logo').src = data.school_logo;
 
                 modal.style.display = 'flex';
             }
