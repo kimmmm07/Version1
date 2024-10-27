@@ -107,21 +107,21 @@ ul li a:hover {
 
 /* Modal styles */
 .modal {
-    display: flex;  /* Default to flex but hidden with a class */
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);  /* Semi-transparent background */
-    z-index: 1000;  /* Make sure the modal is above other elements */
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
     justify-content: center;
     align-items: center;
     border: #082F96;
 }
 
 .modal.hidden {
-    display: none;  /* Hidden by default */
+    display: none;
 }
 
 .modal-content {
@@ -131,6 +131,8 @@ ul li a:hover {
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 400px;
+    height: 150px;
+    border: 2px solid #082F96;
 }
 
 .modal-content p {
@@ -143,10 +145,11 @@ ul li a:hover {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: -20px;
 }
 
 .modal-buttons button {
-    width: 100px;
+    width: 120px;
     padding: 10px 20px;
     border: none;
     border-radius: 20px;
@@ -158,10 +161,12 @@ ul li a:hover {
 .yes-btn {
     background-color: #082F96;
     color: white;
+    font-weight: 700;
 }
 
 .no-btn {
     background-color: #F1F1F1;
-    color: black;
-    border: 1px solid #ccc;
+    color: #082F96;
+    border: 1px solid #082F96 !important;
+    font-weight: 700;
 }
