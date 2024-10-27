@@ -170,3 +170,102 @@ header h1 {
     width: 16px; /* Size of the icon */
     height: 16px; /* Size of the icon */
 }
+
+/* Card container */
+.evaluation-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 20px;
+}
+
+/* Card header */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.card-options {
+    display: flex;
+    align-items: center;
+}
+
+.rater-name {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+.profile-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+/* Card body */
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Status section with submission details under the status button */
+.status-section {
+    display: flex;
+    flex-direction: column; /* Stack the status button and submission details */
+    align-items: flex-start; /* Align items to the left */
+}
+
+.status-btn {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    border: 1px solid #0033cc;
+    background-color: white;
+    color: #0033cc;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: default;
+    margin-bottom: 10px; /* Add spacing between button and submission details */
+}
+
+.status-icon {
+    width: 10px;
+    height: 10px;
+    background-color: #0033cc;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.submission-details {
+    font-size: 12px;
+    color: #666;
+}
+
+/* View link styling */
+.view-link {
+    font-size: 14px;
+    color: #0033cc;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.view-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+

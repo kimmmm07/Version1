@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ipcrf_proficient_part3_css.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="asset/image 6.png" alt="DepED Logo" />
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="teacher_home.html" class="nav-link"><img src="C:/Users/kimab/Desktop/teacher/asset/House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
+            <li><a href="teacher_evaluation.html" class="nav-link"><img src="C:/Users/kimab/Desktop/teacher/asset/Test Passed.png" alt="Evaluation Icon" class="nav-icon"> Evaluation</a></li>
+            <li><a href="teacher_forms.html" class="nav-link forms active"><img src="C:/Users/kimab/Desktop/teacher/asset/Documents1.png" alt="Forms Icon" class="nav-icon"> Forms</a></li>
+            <li><a href="teacher_summary.html" class="nav-link"><img src="C:/Users/kimab/Desktop/teacher/asset/Chart_Pie.png" alt="Summary Icon" class="nav-icon"> Summary</a></li>
+            <li><a href="teacher_profile.html" class="nav-link"><img src="C:/Users/kimab/Desktop/teacher/asset/User_01.png" alt="Profile Icon" class="nav-icon"> Profile</a></li>
+            <li><a href="#" class="logout-btn"><img src="C:/Users/kimab/Desktop/teacher/asset/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Development Plans</h1>
+        <div class="custom-hr"></div>
+
+        <!-- Functional Competencies -->
+        <div class="functional-competencies">
+            <h2>A. Functional Competencies</h2>
+            <div class="competency-section">
+                <h3>Strengths</h3>
+                <ul>
+                    <li>Evaluated with colleagues the effectiveness of teaching strategies that promote learner achievement in literacy and numeracy (PPST 1.4.3)</li>
+                    <li>Advised and guided colleagues in the selection, organization, development and use of appropriate teaching and learning resources, including ICT, to address specific learning goals (PPST 4.5.3)</li>
+                    <li>Worked collaboratively with colleagues to review the design, selection, organization, and use of a range of effective diagnostic, formative and summative assessment strategies consistent with curriculum requirements (PPST 5.1.3)</li>
+                </ul>
+            </div>
+
+            <div class="competency-section">
+                <h3>Development Needs</h3>
+                <ul>
+                    <li>Worked with colleagues to model and share effective techniques in the management of classroom structure to engage learners, individually or in groups, in meaningful exploration, discovery, and hands-on activities within a range of physical learning environments (PPST 2.3.3)</li>
+                    <li>Modeled effective applications of content knowledge within and across curriculum teaching areas (PPST 1.3.3)</li>
+                    <li>Exhibited effective and constructive behavior management skills by applying positive and non-violent discipline to ensure learning-focused environments (PPST 2.6.3)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Action Plan -->
+        <div class="action-plan">
+            <h2>Action Plan (Recommended Developmental Intervention)</h2>
+            <form>
+                <label for="learning-objectives">Learning Objectives</label>
+                <textarea id="learning-objectives" name="learning-objectives"></textarea>
+
+                <label for="intervention">Intervention</label>
+                <textarea id="intervention" name="intervention"></textarea>
+
+                <label for="timeliness">Timeliness</label>
+                <textarea id="timeliness" name="timeliness"></textarea>
+
+                <label for="resources-needs">Resources Needs</label>
+                <textarea id="resources-needs" name="resources-needs"></textarea>
+            </form>
+        </div>
+
+        <!-- Functional Competencies -->
+        <div class="behavioral-competencies">
+            <h2>B. Behavioral Competencies</h2>
+            <!-- Strengths Section -->
+        <div class="competency-section">
+            <h3>Strengths</h3>
+            <ul id="strengths-list">
+                <!-- Dynamically added strengths will appear here -->
+            </ul>
+        </div>
+
+        <!-- Development Needs Section -->
+        <div class="competency-section">
+            <h3>Development Needs</h3>
+            <ul id="development-needs-list">
+                <!-- Dynamically added development needs will appear here -->
+            </ul>
+        </div>
+        </div>
+
+        <!-- Action Plan -->
+        <div class="action-plan">
+            <h2>Action Plan (Recommended Developmental Intervention)</h2>
+            <form>
+                <label for="learning-objectives">Learning Objectives</label>
+                <textarea id="learning-objectives" name="learning-objectives"></textarea>
+
+                <label for="intervention">Intervention</label>
+                <textarea id="intervention" name="intervention"></textarea>
+
+                <label for="timeliness">Timeliness</label>
+                <textarea id="timeliness" name="timeliness"></textarea>
+
+                <label for="resources-needs">Resources Needs</label>
+                <textarea id="resources-needs" name="resources-needs"></textarea>
+            </form>
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons-container">
+            <button class="back-btn" onclick="window.history.back();">Back</button>
+            <button class="proceed-btn" onclick="location.href='#'">Save</button>
+        </div>
+    </div>
+
+    <script src="ipcrf_proficient_part3_js.js"></script>
+</body>
+</html>

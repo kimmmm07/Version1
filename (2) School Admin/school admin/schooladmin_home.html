@@ -10,21 +10,24 @@
 <body>
     <nav class="navbar">
         <div class="navbar-logo">
-            <img src="assets/image 6.png" alt="DepED Logo" />
+            <img src="C:/Users/kimab/Desktop/school admin/assets/image 6.png" alt="DepED Logo" />
         </div>
         <ul class="navbar-menu">
-            <li><a href="schooladmin_home.html" class="nav-link home active"><img src="assets/House_011.png" alt="Home Icon" class="nav-icon"> Home</a></li>
-            <li><a href="faculty.html" class="nav-link faculty "><img src="assets/Users_Group1.png" alt="Faculty Icon" class="nav-icon"> Faculty</a></li>
-            <li><a href="results.html" class="nav-link"><img src="assets/Check Document.png" alt="Results Icon" class="nav-icon"> Results</a></li>
-            <li><a href="records.html" class="nav-link"><img src="assets/Folders1.png" alt="Records Icon" class="nav-icon"> Records</a></li>
-            <li><a href="../../index.html" class="logout-btn"><img src="assets/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout</a></li>
+            <li><a href="schooladmin_home.html" class="nav-link home active"><img src="C:/Users/kimab/Desktop/school admin/assets/House_011.png" alt="Home Icon" class="nav-icon"> Home</a></li>
+            <li><a href="faculty.html" class="nav-link faculty "><img src="C:/Users/kimab/Desktop/school admin/assets/Users_Group1.png" alt="Faculty Icon" class="nav-icon"> Faculty</a></li>
+            <li><a href="results.html" class="nav-link"><img src="C:/Users/kimab/Desktop/school admin/assets/Check Document.png" alt="Results Icon" class="nav-icon"> Results</a></li>
+            <li><a href="records.html" class="nav-link"><img src="C:/Users/kimab/Desktop/school admin/assets/Folders1.png" alt="Records Icon" class="nav-icon"> Records</a></li>
+            <li id="logoutLink" class="logout-btn">
+                <a href="admin-dashboard-logout.html">
+                    <img src="C:/Users/kimab/Desktop/teacher/asset/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout
+                </a>
+            </li>
         </ul>
     </nav>
 
     <div class="main-content">
         <!-- Feed Section with user icon and post options -->
         <div class="feed-section">
-            <!-- Post Box -->
             <div class="feed-header">
                 <h3>Feeds</h3>
             </div>
@@ -33,30 +36,30 @@
                     <img src="assets\User_Circle.png" alt="User Icon" class="user-icon">
                     <button id="startPostButton" class="start-post-btn">Start a post</button>
                 </div>                
-                <div class="post-options">
+                <!-- <div class="post-options">
                     <button class="media-btn">
-                        <img src="assets/Vector.png" alt="Media Icon" class="post-icon"> Media
+                        <img src="C:/Users/kimab/Desktop/school admin/assets/Vector.png" alt="Media Icon" class="post-icon"> Media
                     </button>
                     <button class="announcement-btn">
-                        <img src="assets/Megaphone.png" alt="Announcement Icon" class="post-icon"> Announcement
+                        <img src="C:/Users/kimab/Desktop/school admin/assets/Megaphone.png" alt="Announcement Icon" class="post-icon"> Announcement
                     </button>
                     <button class="mention-btn">
-                        <img src="assets/Mention.png" alt="Mention Icon" class="post-icon"> Mention
+                        <img src="C:/Users/kimab/Desktop/school admin/assets/Mention.png" alt="Mention Icon" class="post-icon"> Mention
                     </button>
-                </div>
+                </div> -->
 
-                <!-- Filter Section -->
+                
                 <div class="filter-section">
-                    <hr class="divider" /> <!-- Line Separator -->
+                    <!-- <hr class="divider" />  -->
                     <div class="filter-container">
-                        <span>Filter by:</span>
+                        
                         <!-- Custom Dropdown -->
                             <div class="custom-dropdown">
                                 <div class="dropdown-selected">
-                                    <img src="assets\More_Grid_Small.png" alt="All Icon" class="option-icon" />
-                                    <span>All</span>
+                                    <!-- <img src="#" alt="All Icon" class="option-icon" /> -->
+                         
                                 </div>
-                                <ul class="dropdown-options">
+                                <!-- <ul class="dropdown-options">
                                     <li data-value="all">
                                         <img src="assets\More_Grid_Small.png" alt="All Icon" class="option-icon" /> All
                                     </li>
@@ -69,7 +72,7 @@
                                     <li data-value="announcements">
                                         <img src="assets\Megaphone1.png" alt="Announcements Icon" class="option-icon" /> Announcements
                                     </li>
-                                </ul>
+                                </ul> -->
                             </div>
                     </div>
                 </div>
@@ -104,30 +107,92 @@
     </div>
 </div>
 
-    <!-- Modal for creating a post -->
-    <div id="postModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <textarea id="modalPostContent" placeholder="What's on your mind?"></textarea>
-            <hr class="divider"> <!-- Divider element -->
-            <div class="modal-buttons">
-                <div class="left-buttons">
-                    <button id="emojiButton">
-                        <img src="assets/Happy.png" alt="Emoji" class="button-icon">
-                    </button>
-                    <button id="imageButton">
-                        <img src="assets/Image.png" alt="Add Image" class="button-icon">
-                    </button>
-                </div>
-                <button id="submitModalPost">Post</button>
+    <!-- First Modal (Post Modal) -->
+<div id="postModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <textarea id="modalPostContent" placeholder="What's on your mind?"></textarea>
+
+        <!-- Image Preview Section (Added) -->
+        <div id="postImagePreview" style="display: none;"> <!-- Hidden by default -->
+            <img id="previewImage" class="uploaded-image" alt="Image Preview" />
+            <button id="removeImageBtn">Remove</button> <!-- Button to remove the uploaded image -->
+        </div>
+
+        <hr class="divider"> <!-- Divider element -->
+
+        <div class="modal-buttons">
+            <div class="left-buttons">
+                <button id="emojiButton">
+                    <img src="assets/Happy.png" alt="Emoji" class="button-icon">
+                </button>
+                <button id="imageButton">
+                    <img src="assets/Image.png" alt="Add Image" class="button-icon">
+                </button>
             </div>
+            <button id="submitModalPost">Post</button>
         </div>
     </div>
-    
-    
+</div>
 
+<!-- Image Upload Modal -->
+<div id="imageModal" class="img-modal">
+    <div class="img-modal-content">
+        <span class="close-image-modal">&times;</span>
+        <h3>Upload Media</h3>
+        <div class="centered-content">
+            <!-- Replace with an actual icon for upload (if available) -->
+            <div class="upload-icon">
+                <img src="assets/image 4.png" alt="Upload Icon">
+            </div>                   
 
+            <p style="font-size: 24px; font-weight: bold;">Select files to begin</p>
+            <p>Share images or a single video in your post.</p>
+
+            <!-- Input element for file upload -->
+            <input type="file" id="uploadImage" multiple accept="image/*,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="display: none;"> <!-- Hidden input for single image upload -->
+            <button id="uploadImageButton" onclick="document.getElementById('uploadImage').click();"> <!-- Trigger input on click -->
+                <img src="assets/Share_iOS_Export.png" alt="Upload Icon" class="upload-btn-icon" width="20px" height="20px">
+                Upload from computer
+            </button>
+
+            <p class="file-formats">File formats supported here: JPG, PNG, MP4, GIF, SVG</p>
+        </div>
     </div>
+</div>
+<!-- Logout Confirmation Modal -->
+<div id="logoutModal" class="modal-logout hidden"> <!-- Added 'hidden' class to hide by default -->
+    <div class="modal-content-logout">
+        <p>Are you sure you want to logout?</p>
+        <div class="modal-buttons-logout">
+            <button class="yes-btn">Yes</button>
+            <button class="no-btn">No</button>
+        </div>
+    </div>
+</div>
+    <script>// Modal logic
+        const logoutButton = document.getElementById('logoutLink');  // Logout button
+        const logoutModal = document.getElementById('logoutModal');
+        const yesButton = document.querySelector('.yes-btn');
+        const noButton = document.querySelector('.no-btn');
+        
+        // Show modal when logout is clicked
+        logoutButton.addEventListener('click', function(event) {
+            event.preventDefault();  // Prevent default logout behavior
+            logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
+        });
+        
+        // Hide modal when "No" is clicked
+        noButton.addEventListener('click', function() {
+            logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
+        });
+        
+        // Redirect when "Yes" is clicked
+        yesButton.addEventListener('click', function() {
+            window.location.href = 'admin-dashboard-logout.html';  // Replace with actual logout URL
+        });
+        
+        </script>
 
     <script src="schooladmin_home_js.js"></script>
 </body>

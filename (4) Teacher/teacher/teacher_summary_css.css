@@ -121,6 +121,10 @@ header h1 {
     cursor: pointer;
 }
 
+.view-recommendation:hover {
+    color: #0033cc;
+}
+
 .view-recommendation.active {
     color: #0033cc; /* Changes to blue when clicked (active state) */
 }
@@ -208,6 +212,13 @@ header h1 {
     margin-bottom: 10px;
     padding-bottom: 8px; /* Adds spacing below the text before the line */
     border-bottom: 2px solid #ddd; /* Adds a gray divider line */
+}
+
+.analytics-grid h4 {
+    font-size: 12px;
+    margin-bottom: 10px;
+    padding-bottom: 8px; /* Adds spacing below the text before the line */
+    text-align: center;
 }
 
 /* Adjustments for mobile */

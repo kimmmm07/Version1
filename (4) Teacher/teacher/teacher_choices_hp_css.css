@@ -1,0 +1,366 @@
+/* Universal styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body styling */
+body {
+    background-color: white; /* Set background to white */
+    padding: 20px;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    width: 90px; /* Adjust logo size */
+    height: auto;
+    margin-right: 10px;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin-left: auto; /* Aligns menu to the right */
+}
+
+.navbar-menu li {
+    margin-right: 15px; /* Space between buttons */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    font-size: 14px; /* Consistent font size for smaller buttons */
+    display: flex;
+    align-items: center; /* Center the icons and text vertically */
+    padding: 6px 10px; /* Consistent padding */
+}
+
+.nav-icon {
+    width: 20px;  /* Smaller icons */
+    height: 20px;
+    margin-right: 6px; /* Adjust icon spacing */
+    display: inline-block;
+}
+
+.logout-btn {
+    text-decoration: none;
+    color: #d00000;
+    font-size: 14px; /* Font size for logout button */
+    font-weight: bold;
+    padding: 6px 10px; /* Padding for button size */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px; /* Spacing from other items */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.forms {
+    color: white;
+    background-color: #d00000;
+    padding: 8px 16px;
+    border-radius: 40px;
+}
+
+.active {
+    font-weight: bold;
+}
+
+/* Container styling */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white; /* White background for the content */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    padding: 140px 50px;
+    text-align: left;
+}
+
+.dashboard-content h1 {
+    color: #000000;
+    font-size: 22px;
+    margin-top: -90px;
+    margin-bottom: 20px;
+}
+
+/* Status Titles Container */
+.status-titles {
+    display: flex;
+    justify-content: left; 
+    align-items: center;
+    gap: 50px; 
+    margin-bottom: 5px; 
+}
+
+/* Status Titles */
+.status-titles h2 {
+    font-size: 14px; 
+    color: #000000; 
+    font-weight: normal;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+    cursor: pointer; 
+    transition: color 0.3s; 
+}
+
+.status-titles h2.active {
+    color: #082F96; 
+}
+
+.status-titles h2:hover {
+    color: #555;
+}
+
+/* Horizontal Line */
+.horizontal-line {
+    width: 100%;
+    border-top: 2px solid #BFBDBC; 
+    margin-top: 5px; 
+    margin-bottom: 50px;
+}
+
+/* Search Input Container */
+.search-container {
+    margin-top: 10px; 
+    margin-bottom: 55px;
+    padding-left: 15px; 
+    width: 180px; 
+    position: relative; 
+}
+
+/* Search Input Wrapper */
+.search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid #BFBDBC;
+    border-radius: 20px;
+    padding: 2px 5px; 
+    height: 16px; 
+    background-color: #fff;
+}
+
+/* Search Icon Styles */
+.search-icon {
+    color: #BFBDBC; 
+    font-size: 10px; 
+    margin-right: 3px;
+    margin-left: 2px;
+}
+
+/* Search Input Field Styles */
+.search-input {
+    font-family: 'Poppins', sans-serif; 
+    font-size: 14px;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #333;
+    background-color: transparent; 
+    padding-left: 5px; 
+}
+
+.search-input::placeholder {
+    color: #BFBDBC;
+    opacity: 1; 
+}
+
+/* Title container for h1 and Create button */
+.title-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Grouping the create button */
+.create-btn-group {
+    display: flex;
+    align-items: center;
+}
+
+/* Create button styling */
+.create-btn {
+    font-family: 'Poppins', sans-serif;
+    background-color: #082F96; 
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: normal;
+    width: 100px;
+    height: 25px;
+    margin-top: -68px;
+    margin-bottom: 45px;
+    margin-left: 120px;
+    cursor: pointer;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    gap: 8px; 
+    transition: background-color 0.3s ease;
+}
+
+/* Create button hover effect */
+.create-btn:hover {
+    background-color: #061F6A; 
+}
+
+/* Icon size inside Create button */
+.create-btn i {
+    font-size: 1.2em; 
+    font-weight: normal;
+}
+
+/* Horizontal Background Fill Behind Category Labels */
+.horizontal-background {
+    display: flex;
+    justify-content: center; /* Centers the h3 horizontally */
+    align-items: center; /* Centers the h3 vertically (if needed) */
+    width: 100%;
+    height: 30px; 
+    background-color: rgba(8, 47, 150, 0.27);
+    pointer-events: none; /* Prevents clicks on the background */
+    position: relative;
+    top: 16%; 
+    transform: translateY(-50%); 
+    left: 0; 
+    z-index: 0; 
+}
+
+/* Label Styles for Form Categories */
+.category-label {
+    font-size: 16px; 
+    font-weight: bold;
+    color: #000; 
+    position: relative;
+    padding: 5px 15px;
+    z-index: 1;
+    margin-top: -48px; 
+
+}
+
+/* Ellipsis Icon Styles */
+.ellipsis-icon {
+    font-size: 15px !important;
+    color: #BFBDBC !important;
+    position: absolute; 
+    right: 10px; 
+    cursor: pointer; 
+}
+
+/* Adjust spacing between each label */
+.form-category {
+    position: relative;
+    margin-bottom: 15px; 
+}
+
+/* Form Items Styling */
+.form-item {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #BFBDBC; 
+    border-radius: 8px;
+    margin: 10px 0; 
+    height: 40px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative; 
+}
+
+/* Remove underline and keep default color */
+.form-link {
+    text-decoration: none; /* Removes underline */
+    color: inherit; /* Inherits the color of the parent element */
+}
+
+/* Optional: Prevent color change on hover */
+.form-link:hover {
+    color: inherit; /* Prevents color change on hover */
+}
+
+/* Icon inside Form Items */
+.form-item i {
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: #082F96; 
+}
+
+/* Form Item hover effect */
+.form-item:hover {
+    background-color: #f0f0f0;
+}
+
+/* Status Titles Container */
+.status-titles {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 10px;
+}
+
+.status-titles h2 {
+    font-size: 14px;
+    color: #000000;
+    cursor: pointer;
+}
+
+.status-titles h2.active {
+    color: #082F96;
+}
+
+
+
+/* Button styling */
+.buttons-container .back-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Adjust alignment if needed */
+    margin-top: 70px; /* Increase margin to push down */
+    position: relative;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    background-color: white; 
+    color: #082F96; 
+    border: 1px solid #082F96;
+    font-weight: bold;
+    height: auto; /* Changed height to auto for flexibility */
+    width: auto; /* Changed width to auto for flexibility */
+    min-height: 40px; /* Set a minimum height for better appearance */
+    width: 70px; /* Set a minimum width for better appearance */
+}
