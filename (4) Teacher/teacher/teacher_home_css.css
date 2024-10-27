@@ -58,7 +58,7 @@ body {
     display: inline-block;
 }
 
-.logout-btn {
+.logout-btn a {
     text-decoration: none;
     color: #d00000;
     font-size: 14px; /* Font size for logout button */
@@ -444,4 +444,75 @@ textarea {
 #submitModalPost:hover {
     background-color: #07267b;
 }
+
+/* Modal styles */
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    border: #082F96;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 150px;
+    border: 2px solid #082F96;
+}
+
+.modal-content p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: -20px;
+}
+
+.modal-buttons button {
+    width: 120px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.yes-btn {
+    background-color: #082F96;
+    color: white;
+    font-weight: 700;
+}
+
+.no-btn {
+    background-color: #F1F1F1;
+    color: #082F96;
+    border: 1px solid #082F96 !important;
+    font-weight: 700;
+}
+
+
+
+
+
 
