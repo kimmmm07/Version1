@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Management</title>
+    <title>Summary</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="faculty_view_summary_css.css">
 </head>
@@ -72,19 +72,23 @@
         <div class="analytics-grid">
             <div class="kra-breakdown">
                 <h2>KRA Breakdown</h2>
+                <canvas id="kraChart"></canvas><br>
+                <h4>5 - Outstanding 4 - Very Satisfactory 3 - Satisfactory 2 - Unsatisfactory 1 - Poor   </h4>
                 <!-- Content for KRA Breakdown -->
             </div>
             <div class="recommendation">
                 <h2>Recommendation</h2>
+                <canvas id="recommendationChart"></canvas>
                 <!-- Content for Recommendation -->
             </div>
-            <div class="performance">
+            <div class="tenure">
                 <h2>Tenure</h2>
+                <canvas id="tenureChart"></canvas>
                 <!-- Content for Performance -->
             </div>
-            <div class="swot-analysis">
+            <div class="performance">
                 <h2>Performance through Years</h2>
-                <!-- Content for SWOT -->
+                <canvas id="performanceChart"></canvas>
             </div>
         </div>
         <!-- Logout Confirmation Modal -->
@@ -121,5 +125,7 @@
             window.location.href = 'admin-dashboard-logout.html';  // Replace with actual logout URL
         });
         </script>
+        <script src="summary_content"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>
