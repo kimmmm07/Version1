@@ -139,7 +139,7 @@ h1 {
 }
 
 .form-row input::placeholder, .form-row select option {
-    color: #aaa; /* Placeholder and option text color */
+    color: #181818; /* Placeholder and option text color */
     font-size: 13px; /* Match placeholder font size with input text */
 }
 
