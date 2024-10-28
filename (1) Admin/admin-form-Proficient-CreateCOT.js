@@ -6,9 +6,21 @@ function closeModal() {
 // Hide modal initially when forms are displayed
 document.addEventListener("DOMContentLoaded", closeModal);
 
+const selectedYears = [];  // Array to store selected school years
+
 function createFolder() {
     const selectedYear = document.getElementById('form2').value;
+
     if (selectedYear) {
+        // Check if the selected year has already been created
+        if (selectedYears.includes(selectedYear)) {
+            alert('The selected school year already exists.');
+            return;
+        }
+
+        // Add the selected year to the array
+        selectedYears.push(selectedYear);
+
         const categoryContainer = document.getElementById('categoryContainer');
         const newCategory = document.createElement('div');
         newCategory.className = 'form-category';
@@ -31,7 +43,10 @@ function createFolder() {
 
         // Insert the new category at the top of the categoryContainer
         categoryContainer.insertAdjacentElement('afterbegin', newCategory);
-        
+
+        // Disable the selected year option
+        document.querySelector(`#form2 option[value="${selectedYear}"]`).disabled = true;
+
         // Optional: Add margin to the new category to pull it closer to the divider
         newCategory.style.marginTop = '-10px';  // Adjust this value as needed
 
