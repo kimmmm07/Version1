@@ -1,11 +1,16 @@
-
 // Function to close the modal
 function closeModal() {
     document.getElementById('formModal').style.display = 'none';
 }
 
-// Hide modal initially when forms are displayed
-document.addEventListener("DOMContentLoaded", closeModal);
+// Function to open the modal
+function openModal() {
+    document.getElementById('formModal').style.display = 'flex';
+}
+
+// Event listeners
+document.getElementById('openModalBtn').addEventListener('click', openModal);
+document.getElementById('cancelBtn').addEventListener('click', closeModal);
 
 function createFolder() {
     const selectedYear = document.getElementById('form2').value;
@@ -29,24 +34,14 @@ function createFolder() {
                 </div>
             </a>
         `;
-
-        // Insert the new category at the top of the categoryContainer
         categoryContainer.insertAdjacentElement('afterbegin', newCategory);
-        
-        // Optional: Add margin to the new category to pull it closer to the divider
-        newCategory.style.marginTop = '-10px';  // Adjust this value as needed
-
-        // Close the modal after creating the category
         closeModal();
     } else {
         alert('Please select a school year.');
     }
 }
 
-// Event listener to show the modal when the "Create" button is clicked
-document.querySelector('.create-btn').addEventListener('click', function() {
-    document.getElementById('formModal').style.display = 'flex'; // Change to 'block' if necessary
-});
+document.getElementById('createBtn').addEventListener('click', createFolder);
 
 
 
