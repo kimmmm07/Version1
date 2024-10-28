@@ -476,6 +476,11 @@ nav ul li a.active {
     border-bottom: 1px solid #BFBDBC;
 }
 
+#formModal {
+    display: none;
+}
+
+
 
 
 .form-options li input {
