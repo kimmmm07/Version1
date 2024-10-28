@@ -49,7 +49,7 @@
     <button class="create-folder-btn" id="createFolderBtn">Create Folder</button>
 
     <!-- Modal for form selection (hidden by default) -->
-    <div id="formModal" class="modal">
+    <div id="formModal" class="modal-create">
         <div class="modal-content">
             <h2>Create Folder</h2>
             <ul class="form-options">
@@ -70,6 +70,17 @@
             <div class="button-container">
                 <button class="modal-close-btn" onclick="closeModal()">Cancel</button>
                 <button class="create" onclick="createFolder()">Create</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="logoutModal" class="modal hidden">
+        <div class="modal-content2">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
             </div>
         </div>
     </div>
