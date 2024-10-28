@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="records_rpms_content_css.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="C:\Users\kimab\Desktop\school admin\assets\image 6.png" alt="DepED Logo" />
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="schooladmin_home.html" class="nav-link"><img src="C:/Users/kimab/Desktop/school admin/assets/House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
+            <li><a href="faculty.html" class="nav-link"><img src="C:/Users/kimab/Desktop/school admin/assets/Users_Group1.png" alt="Faculty Icon" class="nav-icon"> Faculty</a></li>
+            <li><a href="results.html" class="nav-link"><img src="C:/Users/kimab/Desktop/school admin/assets/Check Document.png" alt="Results Icon" class="nav-icon"> Results</a></li>
+            <li><a href="records.html" class="nav-link records active"><img src="C:/Users/kimab/Desktop/school admin/assets/Folders.png" alt="Records Icon" class="nav-icon"> Records</a></li>
+            <li id="logoutLink" class="logout-btn">
+                <a href="admin-dashboard-logout.html">
+                    <img src="C:/Users/kimab/Desktop/teacher/asset/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Records</h1>
+        </header>
+
+        <div class="tabs">
+            <a href="records.html" class="tab">COT</a>
+            <a href="records_ipcrf.html" class="tab">IPCRF</a>
+            <a href="records_rpms.html" class="tab active">RPMS</a>
+        </div>
+
+        <div class="records-section">
+            <h2>KRA 1: Content Knowledge and Pedagogy</h2>
+            <ul>
+                <li>📄 <a href="#">meansofverification1.pdf</a></li>
+                <li>📄 <a href="#">meansofverification2.pdf</a></li>
+                <li>📄 <a href="#">meansofverification3.pdf</a></li>
+            </ul>
+
+            <h2>KRA 2: Learning Environment and Diversity</h2>
+            <ul>
+                <li>📄 <a href="#">meansofverification1.pdf</a></li>
+                <li>📄 <a href="#">meansofverification2.pdf</a></li>
+                <li>📄 <a href="#">meansofverification3.pdf</a></li>
+            </ul>
+
+            <h2>KRA 3: Curriculum and Planning</h2>
+            <ul>
+                <li>📄 <a href="#">meansofverification1.pdf</a></li>
+                <li>📄 <a href="#">meansofverification2.pdf</a></li>
+                <li>📄 <a href="#">meansofverification3.pdf</a></li>
+            </ul>
+
+            <h2>KRA 4: Curriculum and Planning & Assessment</h2>
+            <ul>
+                <li>📄 <a href="#">meansofverification1.pdf</a></li>
+                <li>📄 <a href="#">meansofverification2.pdf</a></li>
+                <li>📄 <a href="#">meansofverification3.pdf</a></li>
+            </ul>
+
+            <h2>PLUS FACTOR</h2>
+            <ul>
+                <li>📄 <a href="#">meansofverification1.pdf</a></li>
+                <li>📄 <a href="#">meansofverification2.pdf</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>// Modal logic
+        const logoutButton = document.getElementById('logoutLink');  // Logout button
+        const logoutModal = document.getElementById('logoutModal');
+        const yesButton = document.querySelector('.yes-btn');
+        const noButton = document.querySelector('.no-btn');
+        
+        // Show modal when logout is clicked
+        logoutButton.addEventListener('click', function(event) {
+            event.preventDefault();  // Prevent default logout behavior
+            logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
+        });
+        
+        // Hide modal when "No" is clicked
+        noButton.addEventListener('click', function() {
+            logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
+        });
+        
+        // Redirect when "Yes" is clicked
+        yesButton.addEventListener('click', function() {
+            window.location.href = 'admin-dashboard-logout.html';  // Replace with actual logout URL
+        });
+        </script>
+
+</body>
+</html>
