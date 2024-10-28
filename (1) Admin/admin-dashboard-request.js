@@ -55,7 +55,7 @@ window.addEventListener('load', async function() {
             schoolRowWrapper.appendChild(row);
         }
 
-        // Event delegation for view buttons
+
         schoolRowWrapper.addEventListener('click', (e) => {
             if (e.target.classList.contains('view-icon')) {
                 const row = e.target.closest('.school-row');
@@ -78,15 +78,69 @@ window.addEventListener('load', async function() {
         console.log("Error Data:", data);
     }
     
-    // Close the modal
     closeModal.addEventListener('click', () => {
         modal.style.display = 'none';
     });
     
-    // Close modal on clicking outside the modal content
     window.addEventListener('click', (e) => {
         if (e.target == modal) {
             modal.style.display = 'none';
         }
     });
+
+    document.getElementById("accept-btn").addEventListener('click', async function () {
+        const formData = new FormData();
+        
+        // Make sure to add data to formData before sending the request
+        formData.append('school_id', String(document.getElementById('modal-id').textContent));
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/schools/add/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            body: formData,
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            console.log("Success Data: ", data);
+            alert("Request succeeded");
+            window.location.href = 'admin-dashboard-request.html';
+        } else {
+            console.log("Error Data: ", data);
+            alert("Request denied.");
+        }
+    });
+
+    document.getElementById("decline-btn").addEventListener('click', async function () {
+        const formData = new FormData();
+        
+        // Make sure to add data to formData before sending the request
+        formData.append('school_id', String(document.getElementById('modal-id').textContent));
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/school/reject/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            body: formData,
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            console.log("Success Data: ", data);
+            alert("Request succeeded");
+            window.location.href = 'admin-dashboard-request.html';
+        } else {
+            console.log("Error Data: ", data);
+            alert("Request denied.");
+        }
+    });
+
+
 });

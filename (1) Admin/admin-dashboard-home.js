@@ -1,4 +1,4 @@
-const logoutButton = document.getElementById('logout-nav');  // Logout button
+const logoutButton = document.getElementById('logout-nav');
 const logoutModal = document.getElementById('logoutModal');
 const yesButton = document.querySelector('.yes-btn');
 const noButton = document.querySelector('.no-btn');
@@ -15,8 +15,28 @@ noButton.addEventListener('click', function() {
 });
 
 // Redirect when "Yes" is clicked
-yesButton.addEventListener('click', function() {
-    window.location.href = 'index.html';  // Replace with actual logout URL
+yesButton.addEventListener('click', async function() {
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            window.location.href = '../../get-started.html'; 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
 });
 
 
@@ -76,31 +96,30 @@ new Chart(recommendationCtx, {
 });
 
 
-const logout = document.getElementById("logout");
-logout.addEventListener('click', async function (event) {
-    try {
+// const logout = document.getElementById("logout");
+// logout.addEventListener('click', async function (event) {
+//     try {
         
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
-            method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
+//         const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
+//             method: 'POST',
+//             headers: {
+//                 'X-Requested-With': 'XMLHttpRequest',
                 
-            },
-            credentials: 'include',
-        });
+//             },
+//             credentials: 'include',
+//         });
 
-        const data = await response.json();
-        if (response.ok) {
-            console.log("Success Data : ", data); 
-            window.location.href = '../../index.html'; 
-        } else {
-            console.log("Error Data : ", data);
-            alert("Login Failed.")
-        }
-    } catch (error) {
-        console.error("Error during fetch:", error);
-    }
-});
+//         const data = await response.json();
+//         if (response.ok) {
+//             console.log("Success Data : ", data); 
+//             window.location.href = '../../index.html'; 
+//         } else {
+//             console.log("Error Data : ", data);
+//         }
+//     } catch (error) {
+//         console.error("Error during fetch:", error);
+//     }
+// });
 
 window.addEventListener('load', async function() { 
     const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/schools/count//',
