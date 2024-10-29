@@ -50,41 +50,37 @@ nav ul li {
 }
 
 nav ul li:nth-child(1) {
-    left: 500px; 
-    top: -2px; 
+    left: 600px; 
+    top: -2px;
 }
 
 nav ul li:nth-child(2) {
-    left: 600px; 
+    left: 700px; 
     top: -2px; 
 }
 
 nav ul li:nth-child(3) {
-    left: 700px; 
-    top: -2px;
+    left: 800px; 
+    top: -1px; 
 }
 
 nav ul li:nth-child(4) {
-    left: 795px; 
-    top: -2px; 
+    left: 880px; 
+    top: -2px;
 }
 
 nav ul li:nth-child(5) {
-    left: 900px; 
-    top: -2px; 
+    left: 980px;
+    top: -2px;
 }
+
 
 nav ul li:nth-child(6) {
-    left: 1000px; 
-    top: -2px; 
-}
-
-nav ul li:nth-child(7) {
     left: 1150px; 
     margin-right: 20px; 
 }
 
-nav ul li:nth-child(7) a {
+nav ul li:nth-child(6) a{
     left: 1150px;
     top: -2px; 
     padding: 10px 20px;
@@ -92,7 +88,7 @@ nav ul li:nth-child(7) a {
     color: #C10001;
 }
 
-nav ul li:nth-child(7) a:hover {
+nav ul li:nth-child(6) a:hover {
     left: 1150px; 
     top: -2px;
     color: #A00000; 
@@ -119,7 +115,7 @@ nav ul li a i {
 }
 
 nav ul li a.active {
-    width: 60px;
+    width: 50px;
     height: 10px;
     top: 3px;
     background-color: #C10001; 

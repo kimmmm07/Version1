@@ -50,52 +50,47 @@ nav ul li {
 }
 
 nav ul li:nth-child(1) {
-    left: 500px; 
+    left: 600px; 
     top: -2px;
 }
 
 nav ul li:nth-child(2) {
-    left: 600px;
+    left: 700px; 
     top: -2px; 
 }
 
 nav ul li:nth-child(3) {
-    left: 700px;
+    left: 800px; 
     top: -2px; 
 }
 
 nav ul li:nth-child(4) {
-    left: 795px; 
-    top: -2px; 
+    left: 885px; 
+    top: -1px;
 }
 
 nav ul li:nth-child(5) {
-    left: 900px; 
-    top: -2px; 
-}
-
-nav ul li:nth-child(6) {
-    left: 1000px; 
+    left: 980px;
     top: -2px;
 }
 
-nav ul li:nth-child(7) {
+nav ul li:nth-child(6) {
     left: 1150px; 
     margin-right: 20px; 
 }
 
-nav ul li:nth-child(7) a {
-    left: 1150px; 
-    top: -2px;
+nav ul li:nth-child(6) a{
+    left: 1150px;
+    top: -2px; 
     padding: 10px 20px;
     font-weight: bold;
     color: #C10001;
 }
 
-nav ul li:nth-child(7) a:hover {
-    left: 1150px;
+nav ul li:nth-child(6) a:hover {
+    left: 1150px; 
     top: -2px;
-    color: #A00000;
+    color: #A00000; 
 }
 
 nav ul li a {
@@ -119,7 +114,7 @@ nav ul li a i {
 }
 
 nav ul li a.active {
-    width: 60px;
+    width: 65px;
     height: 10px;
     top: 3px;
     background-color: #C10001; 
@@ -178,12 +173,10 @@ nav ul li a.active {
     padding: 0;
     cursor: pointer;
     transition: color 0.3s;
-    text-decoration: none !important;
 }
 
 .status-titles h2.active {
     color: #082F96; 
-    text-decoration: none !important;
 }
 
 .status-titles a {
@@ -279,12 +272,18 @@ nav ul li a.active {
 }
 
 /* Action Column Styles */
-.school-column.status {
-    color: red; 
+.school-column.action {
+    color: #032F97; 
     font-weight: normal;
     display: flex;
     align-items: center; 
     cursor: pointer; 
+}
+
+.school-column.action .view-icon {
+    margin-right: 5px; 
+    color: #032F97; 
+    font-size: 1em; 
 }
 
 /* Adjustments for smaller screens */
