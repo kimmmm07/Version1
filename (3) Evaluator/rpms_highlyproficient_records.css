@@ -115,6 +115,14 @@ table th {
 table td .icon {
     margin-right: 10px;
 }
+
+td img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
 .view-link {
     color: #0056b3;
     text-decoration: none;
