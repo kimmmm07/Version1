@@ -54,6 +54,10 @@ nav a.active {
     padding: 5px 20px;   
 }
 
+h1 {
+    font-size: 24px;
+}
+
 .container {
     padding: 20px 5%;
 }
