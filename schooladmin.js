@@ -1,9 +1,9 @@
 const loginForm = document.querySelector('form');
 
-window.addEventListener('load', async function() { 
+window.addEventListener('load', async function() {
     loginForm.addEventListener('submit', async function(event) {
         event.preventDefault();
-    
+
         const employeeId = document.querySelector('input[name="employeeid').value;
         const password = document.querySelector('input[name="password"]').value;
     

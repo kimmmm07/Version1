@@ -95,6 +95,13 @@ td a:hover {
     text-decoration: underline;
 }
 
+td img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
 .status {
     color: green;
     font-weight: bold;

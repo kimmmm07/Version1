@@ -35,14 +35,31 @@ window.addEventListener('load', async function () {
         formData.append('middle_name', String(document.getElementById('middle-name').value));
         formData.append('last_name', String(document.getElementById('last-name').value));
         formData.append('email_address', String(document.getElementById('email').value));
-        formData.append('job_started', formattedDate); // Use the formatted date here
+        formData.append('job_started', formattedDate);
         formData.append('position', String(document.getElementById('position').value));
+        const position = String(document.getElementById('position').value);
+        let role;
+
+        if(position.includes('Head Teacher')){
+            role = 'Evaluator';
+        }
+        else if (position.includes('Teacher') || position.includes('Master Teacher')) {
+            role = 'Teacher';
+        } else {
+            role = 'Evaluator';
+        }
+
         formData.append('grade_level', String(document.getElementById('grade-level').value));
-        formData.append('role', String(document.getElementById('role').value));
+        formData.append('role', role);
         formData.append('department', String(document.getElementById('department').value));
         formData.append('password', String(document.getElementById('password').value));
         formData.append('confirm_password', String(document.getElementById('confirm-password').value));
     
+        if(String(document.getElementById('password').value) !== String(document.getElementById('confirm-password').value)){
+            alert("Password doesn't match.");
+            return
+        }
+
         // Make the fetch request
         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/register/people/', {
             method: 'POST',
