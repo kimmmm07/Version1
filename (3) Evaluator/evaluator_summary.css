@@ -62,7 +62,7 @@ nav a.active {
 }
 
 .active {
-    font-weight: bold;
+    font-weight: normal;
 }
 
 /* Container styling */
