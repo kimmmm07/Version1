@@ -19,18 +19,20 @@
         <a href="cot_highlyproficient_records.html"><img src="Folders.png" alt="Records">Records</a>
         <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
         <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
-        <a href="#" id="logoutLink" style="color: red;"><img src="Log_Out.png" alt="Logout">Logout</a>
+        <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
     </nav>
 </header>
 
 <div class="container">
-    <h1>Choose form for your evaluation 
-        <select id="formType" onchange="navigateToLink()">
-            <option value="#">Select Form</option>
-            <option value="proficient_form.html">Proficient Teacher</option>
-            <option value="highlyproficient_form.html">Highly Proficient Teacher</option>
-        </select>
-    </h1>
+    <h1>Choose form for your evaluation</h1>
+    <!-- Divider -->
+    <div class="divider"></div>
+    
+    <select id="formType" onchange="navigateToLink()">
+        <option value="#">Select Form</option>
+        <option value="proficient_form.html">Proficient Teacher</option>
+        <option value="highlyproficient_form.html">Highly Proficient Teacher</option>
+    </select>
 
     <div class="section-title">Classroom Observation Tools</div>
     

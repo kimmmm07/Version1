@@ -69,7 +69,7 @@ body {
 }
 
 .active {
-    font-weight: bold;
+    font-weight: normal;
 }
 
 .logout-btn a {
@@ -243,8 +243,6 @@ td {
 .three-dots-btn {
     background-color: transparent; /* Removes background */
     border: none; /* Removes border */
-    padding: 6px 10px; /* You can adjust the padding if needed */
-    font-size: 14px;
     cursor: pointer;
     display: inline-block;
     text-align: center;
@@ -254,6 +252,8 @@ td {
 .three-dots-btn img {
     display: inline-block;
     vertical-align: middle;
+    height: 35px;
+    width: 30px;
 }
 
 

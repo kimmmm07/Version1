@@ -32,12 +32,13 @@ nav {
 }
 
 nav a {
+    font-size: 15px;
     display: flex;
     align-items: center;
     margin-right: 15px;
     text-decoration: none;
     color: black;
-    font-weight: bold;
+    font-weight: normal;
     padding: 5px 10px;
 }
 
@@ -59,7 +60,7 @@ main {
 
 h1 {
     font-size: 24px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
 }
 .tabs {
     margin-bottom: 15px;
@@ -77,15 +78,16 @@ h1 {
     border-bottom: 2px solid #007bff;
 }
 .tabs a.view-summary {    
-    margin-left: 1050px;
+    margin-left: 1170px;
     font-weight: bold;
 }
 
 .filters {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border-top: 1px solid gray;
+    margin-top: -15px;
 }
 .filters select {
     padding: 10px;

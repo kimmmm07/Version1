@@ -82,7 +82,7 @@ body {
 }
 
 .active {
-    font-weight: bold;
+    font-weight: normal;
 }
 
 /* Container styling */
