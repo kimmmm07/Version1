@@ -21,12 +21,7 @@ function createFolder() {
         newCategory.innerHTML = `
             <div class="horizontal-background"></div>
             <h3 class="category-label">${selectedYear}</h3>
-            <a href="admin-form-view-COT-Proficient.html" class="form-link">
-                <div class="form-item">
-                    <i class="fas fa-file-alt"></i>
-                    Rating Sheet for Proficient Teacher
-                </div>
-            </a>
+            
             <a href="admin-form-view-COT-HighlyProficient.html" class="form-link">
                 <div class="form-item">
                     <i class="fas fa-file-alt"></i>

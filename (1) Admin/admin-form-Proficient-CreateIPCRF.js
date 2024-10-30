@@ -46,12 +46,7 @@ function createFolder() {
                     IPCRF for Proficient Teacher
                 </div>
             </a>
-            <a href="admin-form-HighlyProficient-IPCRF-Parts.html" class="form-link">
-                <div class="form-item">
-                    <i class="fas fa-file-alt"></i>
-                    IPCRF for Highly Proficient Teacher
-                </div>
-            </a>
+        
         `;
 
         // Insert the new category at the top of the categoryContainer
