@@ -1,10 +1,10 @@
 function validateAndShowModal() {
-    const email = document.getElementById("email").value;
+    const emailInput = document.getElementById("email");
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirm-password").value;
 
     // Validate if all fields are filled
-    if (!email || !password || !confirmPassword) {
+    if (!emailInput.value || !password || !confirmPassword) {
         alert("Please fill in all required fields.");
         return false; // Prevent form submission
     }
@@ -14,6 +14,11 @@ function validateAndShowModal() {
         alert("Passwords do not match.");
         return false; // Prevent form submission
     }
+
+    // Update the email link in the modal
+    const emailLink = document.getElementById("emailLink");
+    emailLink.href = `mailto:${emailInput.value}`;
+    emailLink.textContent = emailInput.value;
 
     // Show modal if validation is successful
     document.getElementById("emailModal").style.display = "flex";
