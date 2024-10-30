@@ -62,7 +62,28 @@ nav a.active {
 
 h1 {
     font-size: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+/* Divider styling */
+.divider {
+    border-bottom: 1px solid #ddd; /* Red line divider */
+    margin-top: 10px;  /* Space above the divider */
+    margin-bottom: 20px; /* Space below the divider */
+}
+
+select {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #000000; /* Black border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding to keep size consistent */
+    color: #000000; /* Black text color for inactive filters */
+    font-weight: normal; /* Regular font weight */
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s; /* Transition for text and border */
+    display: flex; /* Flexbox to align text and number */
+    align-items: center; /* Center align items vertically */
+    margin-bottom: 20px;
 }
 
 .section-title {

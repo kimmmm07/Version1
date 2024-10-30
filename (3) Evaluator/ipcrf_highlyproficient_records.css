@@ -78,15 +78,16 @@ h1 {
     border-bottom: 2px solid #007bff;
 }
 .tabs a.view-summary {    
-    margin-left: 1050px;
+    margin-left: 1170px;
     font-weight: bold;
 }
 
 .filters {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
-    border-top: 1px solid gray;;
+    margin-bottom: 30px;
+    border-top: 1px solid gray;
+    margin-top: -15px;
 }
 .filters select {
     padding: 10px;
@@ -131,7 +132,7 @@ td img {
     font-weight: bold;
 }
 .view-link:hover {
-    text-decoration: underline;
+    text-decoration: #007bff;
 }
 
 /* Modal styles */
