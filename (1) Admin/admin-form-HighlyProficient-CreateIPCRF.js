@@ -39,12 +39,7 @@ function createFolder() {
         newCategory.innerHTML = `
             <div class="horizontal-background"></div>
             <h3 class="category-label">${selectedYear} - IPCRF</h3>
-            <a href="admin-form-Proficient-IPCRF-Parts.html" class="form-link">
-                <div class="form-item">
-                    <i class="fas fa-file-alt"></i>
-                    IPCRF for Proficient Teacher
-                </div>
-            </a>
+            
             <a href="admin-form-HighlyProficient-IPCRF-Parts.html" class="form-link">
                 <div class="form-item">
                     <i class="fas fa-file-alt"></i>

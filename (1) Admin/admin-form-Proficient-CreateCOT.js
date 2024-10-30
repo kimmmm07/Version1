@@ -33,12 +33,7 @@ function createFolder() {
                     Rating Sheet for Proficient Teacher
                 </div>
             </a>
-            <a href="admin-form-view-COT-HighlyProficient.html" class="form-link">
-                <div class="form-item">
-                    <i class="fas fa-file-alt"></i>
-                    Rating Sheet for Highly Proficient Teacher
-                </div>
-            </a>
+            
         `;
 
         // Insert the new category at the top of the categoryContainer
