@@ -6,6 +6,8 @@
     <title>Summary</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="teacher_summary_view_recommendation_css.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
 </head>
 <body>
     <!-- Navbar Section -->
@@ -44,9 +46,9 @@
                 <!-- Additional options can go here -->
             </select>
         
-            <!-- <div class="report-button">
-                <button onclick="generatePDF()">Generate Form</button>
-            </div>           -->
+            <div class="report-button">
+                <button onclick="generatePDF()">Generate Report</button>
+            </div>          
 
             <table>
                 <thead>
@@ -81,30 +83,121 @@
             </div>
         </div>
     </div>
+    <script>
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Add header and logo
+            const pageWidth = doc.internal.pageSize.width;
+
+            // Center the main title
+            doc.setFont("Poppins", "bold");
+            doc.setFontSize(16);
+            const titleText = "INDIVIDUAL PERFORMANCE COMMITMENT AND REVIEW FORM (IPCRF)";
+            const titleX = (pageWidth - doc.getTextWidth(titleText)) / 2;
+            doc.text(titleText, titleX, 20);
+
+            // Center the subtitle
+            doc.setFont("Poppins", "normal");
+            doc.setFontSize(12);
+            const subtitleText = "Regular Teachers in Proficient Stage";
+            const subtitleX = (pageWidth - doc.getTextWidth(subtitleText)) / 2;
+            doc.text(subtitleText, subtitleX, 30);
 
 
-<script> 
-// Modal logic
-const logoutButton = document.getElementById('logoutLink');  // Logout button
-const logoutModal = document.getElementById('logoutModal');
-const yesButton = document.querySelector('.yes-btn');
-const noButton = document.querySelector('.no-btn');
+            // Information Table
+            doc.autoTable({
+            startY: 40,
+            body: [
+                ['Name of Employee:', ''],
+                ['Position:', ''],
+                ['Bureau/Center/Service/Division:', ''],
+                ['Rating Period:', ''],
+                ['Name of Rater:', ''],
+                ['Position of Rater:', ''],
+                ['Date of Review:', '']
+            ],
+            theme: 'grid',
+            styles: { fontSize: 10 },
+            columnStyles: {
+                0: { cellWidth: 80 },
+                1: { cellWidth: 110 },
+            },
+            margin: { top: 20 }
+        });
+            // Table Section
+            doc.autoTable({
+                startY: 110,
+                head: [['KRA', 'Weight per KRA', 'Objectives', 'Weight per Objectives', 'Score', 'Adjectival Rating']],
+                body: [
+                    ['KRA1', '28%', 'Objectives 1', '7%', '', ''],
+                    ['', '', 'Objectives 2', '7%', '', ''],
+                    ['', '', 'Objectives 3', '7%', '', ''],
+                    ['', '', 'Objectives 4', '7%', '', ''],
+                    ['KRA2', '28%', 'Objectives 5', '7%', '', ''],
+                    ['', '', 'Objectives 6', '7%', '', ''],
+                    ['', '', 'Objectives 7', '7%', '', ''],
+                    ['', '', 'Objectives 8', '7%', '', ''],
+                    ['KRA3', '21%', 'Objectives 9', '7%', '', ''],
+                    ['', '', 'Objectives 10', '7%', '', ''],
+                    ['', '', 'Objectives 11', '7%', '', ''],
+                    ['KRA4', '21%', 'Objectives 12', '7%', '', ''],
+                    ['', '', 'Objectives 13', '7%', '', ''],
+                    ['', '', 'Objectives 14', '7%', '', ''],
+                    ['PLUS FACTOR', '2%', 'Objectives 15', '2%', '', ''],
+                ],
+                theme: 'grid',
+                styles: { fontSize: 10, halign: 'center' },
+            });
 
-// Show modal when logout is clicked
-logoutButton.addEventListener('click', function(event) {
-    event.preventDefault();  // Prevent default logout behavior
-    logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
-});
+             // Final Performance Section
+             doc.setFontSize(12);
+            doc.setTextColor(0, 128, 0); // Set green color for this section
+            doc.text("FINAL PERFORMANCE RESULTS", 10, doc.autoTable.previous.finalY + 10);
+            doc.setFontSize(10);
+            doc.text("FINAL RATING: __________________", 10, doc.autoTable.previous.finalY + 30);
+            doc.text("ADJECTIVAL RATING: __________________", 10, doc.autoTable.previous.finalY + 40);
 
-// Hide modal when "No" is clicked
-noButton.addEventListener('click', function() {
-    logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
-});
+           // Signature Section
+            doc.setFontSize(10); // Slightly reduce font size
+            doc.setTextColor(0); // Reset to black
 
-// Redirect when "Yes" is clicked
-yesButton.addEventListener('click', function() {
-    window.location.href = '../../index.html';  // Replace with actual logout URL
-});
-</script>
+            const startY = doc.autoTable.previous.finalY + 50; // Adjust Y position
+            const signatureY = startY + 10; // Increase spacing for clarity
+
+            doc.text("Ratee: __________________", 30, signatureY);
+            doc.text("Rater: __________________", 90, signatureY); // Adjust horizontal position
+            doc.text("Approving Authority: __________________", 140, signatureY); // Adjust horizontal position
+
+
+
+            // Save PDF
+            doc.save("IPCRF_Summary_Sheet.pdf");
+        }
+    </script>
+    <script> 
+        // Modal logic
+        const logoutButton = document.getElementById('logoutLink');  // Logout button
+        const logoutModal = document.getElementById('logoutModal');
+        const yesButton = document.querySelector('.yes-btn');
+        const noButton = document.querySelector('.no-btn');
+        
+        // Show modal when logout is clicked
+        logoutButton.addEventListener('click', function(event) {
+            event.preventDefault();  // Prevent default logout behavior
+            logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
+        });
+        
+        // Hide modal when "No" is clicked
+        noButton.addEventListener('click', function() {
+            logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
+        });
+        
+        // Redirect when "Yes" is clicked
+        yesButton.addEventListener('click', function() {
+            window.location.href = '../../index.html';  // Replace with actual logout URL
+        });
+        </script>
 </body>
 </html>

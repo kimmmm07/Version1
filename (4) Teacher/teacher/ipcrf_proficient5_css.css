@@ -45,7 +45,7 @@ body {
 .nav-link {
     text-decoration: none;
     color: black;
-    font-size: 14px; /* Consistent font size for smaller buttons */
+    font-size: 10px; /* Consistent font size for smaller buttons */
     display: flex;
     align-items: center; /* Center the icons and text vertically */
     padding: 6px 10px; /* Consistent padding */
@@ -94,7 +94,7 @@ body {
     font-weight: bold;
     padding: 15px;
     margin-bottom: 20px;
-    font-size: 24px;
+    font-size: 22px;
 }
 table {
     width: 95%;
@@ -120,7 +120,7 @@ td.red-cell {
 input[type="number"] {
     width: 50px;
     padding: 5px;
-    font-size: 14px;
+    font-size: 10px;
     text-align: center;
     border: 1px solid #000;
     border-radius: 4px;
@@ -145,7 +145,7 @@ textarea {
     width: 98%;
     height: 100px;
     padding: 10px;
-    font-size: 14px;
+    font-size: 10px;
 }
 
 .signature-section p {
@@ -216,5 +216,65 @@ table:first-of-type td {
     font-weight: bold;
     margin: 20px 2.5%;
     width: 94%;
-    font-size: 18px;
+    font-size: 10px;
+}
+
+/* Print styles */
+@media print {
+    body {
+        padding: 0; /* Remove padding for printing */
+        background-color: white; /* Ensure background is white for print */
+    }
+
+    /* Hide elements that should not be printed */
+    .navbar, .buttons, .logout-btn, .forms, .signature-section {
+        display: none; /* Hide these elements when printing */
+    }
+
+    /* Adjust table styling for print */
+    table {
+        width: 100%; /* Make tables full width for print */
+        border-collapse: collapse; /* Ensure borders collapse */
+    }
+
+    th, td {
+        padding: 8px; /* Add padding for better readability */
+        border: 1px solid #000; /* Ensure borders are visible */
+    }
+
+    th {
+        background-color: #B8F5A2; /* Keep header background for print */
+    }
+
+    /* Ensure text is readable */
+    h1, h2, h3, p {
+        color: black; /* Ensure text color is black */
+    }
+
+    /* Adjust fonts if necessary */
+    h1 {
+        font-size: 20px; /* Adjust font sizes as needed */
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    /* Remove unnecessary styles */
+    .final-rating, .green-cell, .black-cell {
+        font-weight: normal; /* Reset font weight for print */
+    }
+
+    /* Optionally hide specific elements */
+    .comment-section {
+        display: block; /* Ensure comment sections are visible */
+    }
+
+    /* You can add more print-specific styles as needed */
+}
+
+@layer base { 
+    img {
+        display: initial;
+    }
 }
