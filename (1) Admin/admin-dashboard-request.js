@@ -38,36 +38,39 @@ window.addEventListener('load', async function() {
         console.log("Success Data:", data);
 
         // Create the userData object
-        const userData = {};
+        const userData = [];
 
-        // Loop through each school in the data and populate userData
+        // Loop through each school in the data and populate userData as an array
         data.schools.forEach(school => {
-            userData[school.name] = {
-                email: school.email_address,
-                school: school.school_name,
-                address: school.school_address,
-                type: school.school_type,
-                id: school.school_id,
-                contact: school.contact_number,
-                school_logo: school.school_logo
-            };
+            if (school.is_verified == true && school.is_accepted == false){
+                userData.push({
+                    name: school.name,
+                    email: school.email_address,
+                    school: school.school_name,
+                    address: school.school_address,
+                    type: school.school_type,
+                    id: school.school_id,
+                    contact: school.contact_number,
+                    school_logo: school.school_logo
+                });
+            }
         });
-
+        
         console.log("Formatted userData:", userData);
-
+        
         // Populate HTML with the data
         const schoolRowWrapper = document.querySelector('.school-row-wrapper');
-
+        
         // Remove existing example rows if any
         document.querySelectorAll('.school-row:not(.header)').forEach(row => row.remove());
-
-        // Loop through userData and create rows
-        for (const [name, details] of Object.entries(userData)) {
+        
+        // Loop through userData array and create rows
+        userData.forEach(details => {
             const row = document.createElement('div');
             row.classList.add('school-row');
-
+        
             row.innerHTML = `
-                <div class="school-column">${name}</div>
+                <div class="school-column">${details.name}</div>
                 <div class="school-column school">${details.school}</div>
                 <div class="school-column">${details.address}</div>
                 <div class="school-column">${details.id}</div>
@@ -75,18 +78,21 @@ window.addEventListener('load', async function() {
                     <i class="fas fa-eye view-icon"></i> View
                 </div>
             `;
-
+        
+            // Attach school data to the row for easy access in modal
+            row.schoolData = details;
+        
             schoolRowWrapper.appendChild(row);
-        }
-
-
+        });
+        
+        // Add event listener for View icon click
         schoolRowWrapper.addEventListener('click', (e) => {
             if (e.target.classList.contains('view-icon')) {
                 const row = e.target.closest('.school-row');
-                const name = row.querySelector('.school-column').textContent.trim();
-                const data = userData[name];
-
-                document.getElementById('modal-name').textContent = name;
+                const data = row.schoolData;  // Access the row's attached school data
+        
+                // Populate modal fields with the specific school's data
+                document.getElementById('modal-name').textContent = data.name;
                 document.getElementById('modal-email').textContent = data.email;
                 document.getElementById('modal-school').textContent = data.school;
                 document.getElementById('modal-address').textContent = data.address;
@@ -94,9 +100,10 @@ window.addEventListener('load', async function() {
                 document.getElementById('modal-id').textContent = data.id;
                 document.getElementById('modal-contact').textContent = data.contact;
                 document.getElementById('modal-logo').src = data.school_logo;
-
+        
+                // Display modal
                 modal.style.display = 'flex';
-            }
+            }   
         });
     } else {
         console.log("Error Data:", data);

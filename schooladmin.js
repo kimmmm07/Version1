@@ -13,6 +13,9 @@ window.addEventListener('load', async function() {
         const formData = new FormData();
         formData.append('employee_id', employeeId); 
         formData.append('password', password); 
+        const rememberMeCheckbox = document.querySelector('input[name="remember-me"]');
+        const rememberMe = rememberMeCheckbox.checked ? true : false;
+        formData.append('remember_me', String(rememberMe));
     
         try {
             const response = await fetch('https://bnahs.pythonanywhere.com/api/login_school/', {
