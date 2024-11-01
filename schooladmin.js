@@ -5,17 +5,21 @@ window.addEventListener('load', async function() {
         event.preventDefault();
 
         const employeeId = document.querySelector('input[name="employeeid').value;
-        const password = document.querySelector('input[name="password"]').value;
+        const password = document.querySelector('input[name="password"]').value; 
+        const rememberMeCheckbox = document.querySelector('input[name="remember-me"]');
+        const rememberMe = rememberMeCheckbox.checked ? true : false;
     
         console.log('Employee ID:', employeeId);
         console.log('Password:', password);
+        console.log("Remember:", rememberMe);
     
         const formData = new FormData();
         formData.append('employee_id', employeeId); 
-        formData.append('password', password); 
-        const rememberMeCheckbox = document.querySelector('input[name="remember-me"]');
-        const rememberMe = rememberMeCheckbox.checked ? true : false;
-        formData.append('remember_me', String(rememberMe));
+        formData.append('password', password);
+        formData.append('remember_me', rememberMe);
+        for (const [key, value] of formData.entries()) {
+            console.log(key, value);
+        }
     
         try {
             const response = await fetch('https://bnahs.pythonanywhere.com/api/login_school/', {

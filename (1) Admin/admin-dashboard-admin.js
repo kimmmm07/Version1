@@ -25,31 +25,38 @@ yesButton.addEventListener('click', function() {
 
 
 window.addEventListener('load', async function() { 
-  const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/schools/',
-      {
-          method: 'GET',
-          credentials: 'include'
-      }
-  );
+  // Fetch school data
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/schools/', {
+        method: 'GET',
+        credentials: 'include'
+    });
 
-  const data = await response.json();
-  if (response.ok) {
-      console.log("Success Data : ",data);
-  } else {
-      console.log("Error Data : ",data);
-  }
+    const data = await response.json();
+    if (response.ok) {
+        console.log("Success Data:", data);
 
-  const response1 = await fetch('https://bnahs.pythonanywhere.com/api/admin/schools/search/',
-      {
-          method: 'GET',
-          credentials: 'include'
-      }
-  );
+        const schoolRowWrapper = document.querySelector('.school-row-wrapper');
 
-  const data1 = await response1.json();
-  if (response1.ok) {
-      console.log("Success Data : ",data1);
-  } else {
-      console.log("Error Data : ",data1);
-  }
+        // Remove existing rows except for the header
+        document.querySelectorAll('.school-row:not(.header)').forEach(row => row.remove());
+
+        // Loop through schools and create rows if they meet the criteria
+        data.schools.forEach(school => {
+            if (school.is_verified && school.is_accepted) {
+                const row = document.createElement('div');
+                row.classList.add('school-row');
+                row.innerHTML = `
+                    <div class="school-column">${school.name}</div>
+                    <div class="school-column school">${school.school_name}</div>
+                    <div class="school-column">${school.school_address}</div>
+                    <div class="school-column">${school.school_id}</div>
+                `;
+                schoolRowWrapper.appendChild(row);
+            }
+        });
+    } else {
+        console.log("Error Data:", data);
+    }
+
+
 });
