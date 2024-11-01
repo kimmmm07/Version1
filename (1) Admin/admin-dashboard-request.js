@@ -36,7 +36,7 @@ window.addEventListener('load', async function() {
 
     if (response.ok) {
         console.log("Success Data:", data);
-
+        const baseURL = 'https://bnahs.pythonanywhere.com';
         // Create the userData object
         const userData = [];
 
@@ -51,7 +51,7 @@ window.addEventListener('load', async function() {
                     type: school.school_type,
                     id: school.school_id,
                     contact: school.contact_number,
-                    school_logo: school.school_logo
+                    school_logo: baseURL + school.school_logo
                 });
             }
         });
