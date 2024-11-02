@@ -35,7 +35,7 @@ window.addEventListener('load', async function() {
             const data = await response.json();
             if (response.ok) {
                 console.log("Success Data : ", data); 
-                window.location.href = '(2) School Admin/school admin/schooladmin_home.html'; 
+                window.location.href = 'SchoolAdmin/school admin/schooladmin_home.html'; 
             } else {
                 console.log("Error Data : ", data);
                 alert("Login Failed.")
