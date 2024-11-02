@@ -1,0 +1,401 @@
+/* General Styles for Admin Dashboard */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+/* Header Background Styles */
+.header-background {
+    width: 100%; 
+    height: 54px; 
+    background-color: #fff; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+/* Header Styles */
+header {
+    width: 100%;
+    padding: 10px 50px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; 
+    top: 0;
+    z-index: 10; 
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    position: relative; 
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    margin: 0;
+    position: relative; 
+}
+
+nav ul li {
+    position: absolute; 
+}
+
+nav ul li:nth-child(1) {
+    left: 600px; 
+    top: -2px;
+}
+
+nav ul li:nth-child(2) {
+    left: 700px; 
+    top: -2px; 
+}
+
+nav ul li:nth-child(3) {
+    left: 800px; 
+    top: -1px; 
+}
+
+nav ul li:nth-child(4) {
+    left: 880px; 
+    top: -2px;
+}
+
+nav ul li:nth-child(5) {
+    left: 980px;
+    top: -2px;
+}
+
+
+nav ul li:nth-child(6) {
+    left: 1150px; 
+    margin-right: 20px; 
+}
+
+nav ul li:nth-child(6) a{
+    left: 1150px;
+    top: -2px; 
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #C10001;
+}
+
+nav ul li:nth-child(6) a:hover {
+    left: 1150px; 
+    top: -2px;
+    color: #A00000; 
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: normal;
+    font-size: 13px; 
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center; 
+    gap: -3px; 
+    margin-top: 5px;
+    transition: background-color 0.3s;
+    background-color: transparent; 
+}
+
+nav ul li a i {
+    font-size: 1.2em;
+    margin-right: 8px;
+}
+
+nav ul li a.active {
+    width: 90px;
+    height: 30px;
+    top: 3px;
+    background-color: #C10001; 
+    color: #fff;
+    display: flex; 
+    align-items: center; 
+    position: relative; 
+}
+
+.logo img {
+    width: 90px; 
+    height: 50px; 
+    position: absolute;
+    top: -8px; 
+    left: -14px; 
+    z-index: 11; 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.custom-hr {
+    border: none; 
+    height: 2px; 
+    width: 1080px;
+    background-color: #ccc; 
+    margin-top: -20px;
+    margin-bottom: 30px;
+    margin-left: 109px;
+}
+
+.instructions {
+    font-size: 15px;
+    margin-bottom: 80px;
+    margin-left: 120px;
+    text-align: justify;
+    width: 1000px;
+    overflow: hidden;
+}
+
+.rating-section {
+    margin-top: 20px;
+}
+
+h1 {
+    text-align: left;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    margin-left: 120px;
+    font-size: 24px;
+}
+
+h2 {
+    margin-bottom: 10px;
+    color: #000;
+}
+
+hr {
+    border: none; 
+    height: 2px; 
+    width: 1080px;
+    background-color: #ccc; 
+    margin-top: -20px;
+    margin-bottom: 30px;
+    margin-left: -90px;
+
+}
+
+.ratings {
+    text-align: center;
+    margin-bottom: 20px; 
+    margin-left: 40px;
+    font-size: 13px;
+}
+
+.objective {
+    font-size: 14px;
+    margin-left: 200px; 
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.objective-container {
+    border: 2px solid rgb(151, 151, 151); /* Change color as needed */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Space inside the box */
+    width: 1070px;
+    font-size: 14px;
+    margin-left: 120px; 
+    margin-top: 50px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9; /* Light background color */
+}
+
+.rating-options {
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    margin-top: 10px;
+    margin-left: 50px; 
+}
+
+
+/* Set a fixed width for labels to align radio buttons */
+.rating-options label {
+    display: flex; 
+    text-align: left;
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+.rating-options div {
+    width: 820px; 
+    background-color: #f9f9f9; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    transition: background-color 0.3s; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+}
+
+.rating-options div:hover {
+    background-color: #e1f5fe; 
+}
+
+label {
+    font-size: 14px;
+    display: flex; 
+    align-items: left; 
+}
+
+.checkbox-gap {
+    margin-right: 10px;
+}
+
+/* Ensure all radio buttons are aligned */
+.rating-options input[type="radio"] {
+    margin-right: 10px; 
+    vertical-align: middle; 
+}
+
+/* Button styling */
+.buttons-container {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 863px; 
+    margin-top: 90px;
+    margin-left: 120px;
+}
+
+.back-btn, .proceed-btn {
+    background-color: #0f942e; 
+    color: white; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+.proceed-btn {
+    margin-right: 0;
+    height: 35px; 
+    width: 103px; 
+    text-align: center; 
+}
+
+.back-btn{
+    background-color: white; 
+    color: #28a745; 
+    border: 1px solid #28a745;
+    font-weight: bold;
+    line-height: 15px;
+    height: 35px;
+    width: 103px;
+}
+
+.proceed-btn:hover {
+    background-color: #218838;
+}
+
+.back-btn {
+    margin-left: 0;
+}
+
+.proceed-btn {
+    margin-right: 0;
+}
+
+
+
+
+/* Modal styles */
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    border: #082F96;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content2 {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 200px;
+    border: 2px solid #082F96;
+}
+
+.modal-content2 p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: -20px;
+}
+
+.modal-buttons button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 40px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.yes-btn {
+    background-color: #082F96;
+    color: white;
+    font-weight: 700;
+}
+
+.no-btn {
+    background-color: white;
+    color: #082F96;
+    border: 1px solid #082F96 !important;
+    font-weight: 700;
+}

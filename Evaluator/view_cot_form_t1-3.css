@@ -1,0 +1,335 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    padding-top: 100px;     /* Adjust based on the header height */
+}
+
+/* Make the header fixed */
+header {
+    position: fixed;       /* Fixes the header at the top */
+    top: 0;                /* Aligns it to the top of the page */
+    width: 100%;           /* Ensures the header spans the full width of the page */
+    height: 40px;          /* Adjust the height to fit the content */
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;         /* Ensures the header stays above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better separation */
+}
+
+header img {
+    max-width: 90%;
+    max-height: 80px;      /* Adjust the max height for the logo */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+    padding: 5px 10px;
+}
+
+nav a img {
+    height: 20px;
+    margin-right: 5px;
+}
+
+nav a.active {
+    color: white;
+    background-color: #C10001;
+    border-radius: 25px; 
+    padding: 5px 20px;   
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px auto; 
+    background-color: #B8F5A2;
+    padding: 5px;
+    max-width: 300px; 
+    text-align: center; 
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.info-section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.info-block {
+    width: 45%;
+    margin: 10px 2.5%;
+}
+
+.input-field {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+select {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.observation-section {
+    margin: 20px 2.5%;
+}
+
+.directions {
+    margin: 20px 2.5%;
+}
+
+h4 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+ol {
+    margin-left: 20px;
+}
+
+.rating-section table {
+    width: 95%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin: 20px 2.5%;
+}
+
+.rating-section td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.rating-section th {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    background-color: #0A840E;
+    color: white;
+}
+
+.rating-section .checked {
+    background-color: #B8F5A2;
+    color: white;
+    position: relative;
+}
+
+.rating-section .checked::before {
+    content: "\2714"; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    color: black;
+}
+
+.comments-section {
+    margin: 20px 2.5%;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.signatures {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 2.5%;
+}
+
+.signature-block {
+    width: 40%;
+    text-align: center;
+    font-size: 12px;
+    border-top: 1px solid #000;
+    padding-top: 10px;
+}
+
+.buttons {
+    text-align: center;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.back { 
+    background-color: #0A840E;
+    border-radius: 25px;
+    padding: 5px 20px;   
+    color: white;
+}
+
+/* Modal styles */
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    border: #082F96;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 150px;
+    border: 2px solid #082F96;
+}
+
+.modal-content p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: -20px;
+}
+
+.modal-buttons button {
+    width: 120px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.yes-btn {
+    background-color: #082F96;
+    color: white;
+    font-weight: 700;
+}
+
+.no-btn {
+    background-color: #FFFFFF;
+    color: #082F96;
+    border: 1px solid #082F96 !important;
+    font-weight: 700;
+}
+
+/* Make sure the container has relative positioning */
+.container {
+    position: relative;
+    padding: 20px;
+    border: 1px solid #ccc; /* Example styling */
+}
+
+/* Action buttons inside the container positioned in the upper-right corner */
+.action-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;  /* Spacing between the buttons */
+}
+
+/* Style for the buttons */
+.action {
+    background-color: #007BFF;  /* Blue background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;  /* Space between icon and text */
+}
+
+.action i {
+    font-size: 16px;  /* Icon size */
+}
+
+/* Hover effect for buttons */
+.action:hover {
+    background-color: #0056b3;  /* Darker blue on hover */
+}
+
+/* Print-specific CSS to hide buttons and nav when printing */
+@media print {
+    header, .action-buttons {
+        display: none !important;  /* Hide header and action buttons when printing */
+    }
+}
+

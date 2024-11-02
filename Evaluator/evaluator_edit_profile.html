@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="evaluator_edit_profile.css">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="DepEd_01.png" alt="DepED Logo">
+        </div>
+        <nav>
+            <a href="evaluator_dashboard.html"><img src="House_01.png" alt="Home">Home</a>
+            <a href="proficient_form.html"><img src="Documents (1).png" alt="Forms">Forms</a>
+            <a href="cot_proficient_records.html"><img src="Folders.png" alt="Records">Records</a>
+            <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+            <a href="evaluator_profile.html" class="active"><img src="User_01 (2).png" alt="Profile">Profile</a>
+            <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
+        </nav>
+    </header>
+    <div class="container">
+    <!-- Edit Profile Form -->
+    <section class="edit-profile-section">
+        <h2>Edit Profile</h2>
+            <div class="profile-container">
+                <div class="profile-image" onclick="document.getElementById('imageUpload').click();">
+                    <img id="profileImage" src="User_Circle.png" alt="Profile Image">
+                    <div class="overlay">Update Photo</div> <!-- Hover text -->
+                    <input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)">
+                </div>
+            </div>
+            <form class="profile-form">
+                <!-- First Name, Middle Name, Last Name in one row -->
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="First Name" required>
+                        <img src="Circle_Warning.png" class="required-icon" alt="Required Icon">
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Middle Name" required>
+                        <img src="Circle_Warning.png" class="required-icon" alt="Required Icon">
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Last Name" required>
+                        <img src="Circle_Warning.png" class="required-icon" alt="Required Icon">
+                    </div>
+                </div>
+
+                <!-- Full-width Job Title -->
+                <div class="form-group full-width">
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Job Title" required>
+                        <img src="Circle_Warning.png" class="required-icon" alt="Required Icon">
+                    </div>
+                </div>
+
+                <!-- Full-width Department -->
+                <div class="form-group full-width">
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Department" required>
+                        <img src="Circle_Warning.png" class="required-icon" alt="Required Icon">
+                    </div>
+                </div>
+
+                <!-- Full-width Password -->
+                <div class="form-group full-width">
+                    <div class="input-wrapper">
+                        <input type="password" placeholder="Password" required>
+                        <img src="Circle_Warning.png" class="required-icon" alt="Required Icon">
+                    </div>
+                </div>
+
+                <!-- Full-width Confirm Password -->
+                <div class="form-group full-width">
+                    <div class="input-wrapper">
+                        <input type="password" placeholder="Confirm Password" required>
+                        <img src="Circle_Warning.png" class="required-icon" alt="Required Icon">
+                    </div>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="button" class="cancel-btn" onclick="window.history.back();">Cancel</button>
+                    <button type="submit" class="update-btn">Update</button>
+                </div>                
+            </form>
+        </div>
+    </section>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="evaluator_edit_profile.js"></script>
+</body>
+</html>

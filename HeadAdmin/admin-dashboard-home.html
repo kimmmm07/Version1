@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Performance Evaluation System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-dashboard-home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="header-background"></div>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Assets\DepEdLogo.png.png" alt="DepEd Logo">
+            </div>
+            <ul>
+                <li><a href="admin-dashboard-home.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="admin-dashboard-admin.html"><i class="fas fa-user-cog"></i> Admin</a></li>
+                <li><a href="admin-dashboard-form.html"><i class="fas fa-file-alt"></i> Form</a></li>
+                <li><a href="admin-dashboard-request.html"><i class="fas fa-clipboard-list"></i> Request</a></li>
+                <li><a href="admin-dashboard-school.html"><i class="fas fa-school"></i> School</a></li>
+                <li><a href="" id="logout-nav"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="dashboard-content">
+            <div class="stats-container">
+                <div class="stat-box">
+                    <h3>Total number of schools</h3>
+                    <p id="total-school"></p>
+                </div>
+                <div class="stat-box">
+                    <h3>Total number of teachers</h3>
+                    <p id="total-teacher"></p>
+                </div>
+                <div class="stat-box">
+                    <h3>Number of evaluations conducted</h3>
+                    <p id="evaluation-conducted"></p>
+                </div>
+                <div class="stat-box">
+                    <h3>Number of pending evaluations</h3>
+                    <p id="total-pending"></p>
+                </div>
+            </div>
+
+            <div class="chart-container submission-rate-container">
+                <div class="chart-title submission-rate-title">Evaluation Submission Rate</div>
+                <div class="submission-dropdown-container">
+                    <select id="schoolDropdown">
+                        <option value="" disabled selected>School</option>
+                        <option value="school1">Benigno "Ninoy" Aquino High School</option>
+                        <option value="school2">Upper Bicutan National High School</option>
+                        <option value="school3">Taguig National High School</option>
+                        <option value="school1">Signal Village National High School</option>
+                        <option value="school2">President Diosdado Macapagal High School</option>
+                        <option value="school3">Western Bicutan National High School</option>
+                    </select>
+            
+                    <select id="schoolYearDropdown">
+                        <option value="" disabled selected>School Year</option>
+                        <option value="2023-2024">2019-2020</option>
+                        <option value="2024-2025">2020-2021</option>
+                        <option value="2023-2024">2021-2022</option>
+                        <option value="2024-2025">2022-2023</option>
+                        <option value="2023-2024">2023-2024</option>
+                        <option value="2024-2025">2024-2025</option>
+                    </select>
+                </div>
+                <hr class="submission-rate-hr"> 
+                <canvas id="submissionRateChart"></canvas>
+            </div>
+            
+            <br><br><br><br><br><br>
+            
+            <div class="chart-container distribution-chart-container">
+                <div class="chart-title distribution-chart-title">Distribution of Ratings Chart</div>
+                <div class="distribution-dropdown-container">
+                    <select id="distributionSchoolDropdown"
+                    <select class="distribution-school-dropdown">
+                        <option value="" disabled selected>School</option>
+                        <option value="school1">Benigno "Ninoy" Aquino High School</option>
+                        <option value="school2">Upper Bicutan National High School</option>
+                        <option value="school3">Taguig National High School</option>
+                        <option value="school1">Signal Village National High School</option>
+                        <option value="school2">President Diosdado Macapagal High School</option>
+                        <option value="school3">Western Bicutan National High School</option>
+                    </select>
+                    <select id="distributionYearDropdown"
+                    <select class="distribution-year-dropdown">
+                        <option value="" disabled selected>School Year</option>
+                        <option value="2023-2024">2019-2020</option>
+                        <option value="2024-2025">2020-2021</option>
+                        <option value="2023-2024">2021-2022</option>
+                        <option value="2024-2025">2022-2023</option>
+                        <option value="2023-2024">2023-2024</option>
+                        <option value="2024-2025">2024-2025</option>
+                    </select>
+                </div>
+                <hr class="distribution-rate-hr">
+                <canvas id="distributionChart"></canvas>
+            </div>
+            
+                    
+                    
+
+                <div class="pie-charts-container">
+                    <div class="chart-container recommendations-container">
+                        <div class="chart-title">Recommendations Chart</div>
+                        <hr>
+                        <canvas id="recommendationChart"></canvas>
+                    </div>
+                    <div class="chart-container tenure-container">
+                        <div class="chart-title">Tenure Chart</div>
+                        <hr>
+                        <canvas id="tenureChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden">
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-dashboard-home.js" type="module"></script>
+</body>
+</html>

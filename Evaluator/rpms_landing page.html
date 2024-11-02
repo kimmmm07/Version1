@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPMS Landing</title>
+    <link rel="stylesheet" href="rpms_landing page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+     <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-icon" id="menu-icon">
+            <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
+        </div>        
+        <div class="sidebar-icon">
+            <a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
+        </div>
+        <div class="sidebar-icon">
+            <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
+        </div>
+    </div>
+
+    <!-- Floating Menu -->
+    <div class="floating-menu" id="floating-menu">
+        <div class="menu-header">
+            <img src="DepEd_01.png" alt="DepED Logo">
+            <!-- Close button -->
+            <button class="close-btn" onclick="closeMenu()">✖</button>
+        </div>
+        <ul>
+        <li><a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
+        <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
+        <!-- Horizontal line between Setting and School Year -->
+        <hr class="menu-divider">
+        <li><a href="rpms_proficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
+        </ul>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div>
+            <img src="DepEd_01.png" alt="DepED Logo">
+        </div>
+        <nav>
+            <a href="evaluator_dashboard.html"><img src="House_01.png" alt="Home">Home</a>
+            <a href="proficient_form.html" class="active"><img src="Documents.png" alt="Forms">Forms</a>
+            <a href="rpms_proficient_records.html"><img src="Folders.png" alt="Records">Records</a>
+            <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+            <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
+            <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content">
+        <!-- Main Banner Section -->
+        <main>
+            
+    <!-- Header section with an image and text overlay -->
+    <div class="header-section">
+        <img src="Group 922.png" alt="Green Background" class="header-image">
+        <div class="text-overlay">
+            <h1 class="header-title">Results-Based Performance Management System</h1>
+            <p class="header-subtitle">School Year 2023-2024</p>
+        </div>
+    </div><br>
+
+    <div class="tabs">
+        <a href="rpms_proficient_stream.html" class="tab active"><b>Stream</b></a>
+        <a href="rpms_proficient_results.html" class="tab">Grades</a>
+    </div>
+
+    <div class="content-wrapper">
+        <!-- Upcoming section -->
+        <div class="upcoming">
+            <h3>Upcoming</h3>
+            <ul class="upcoming-list">
+                <li><a href="#">Woohoo! No work to do!</a></li>
+            </ul>
+            
+        </div>
+        </main>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="rpms_landing page.js"></script>
+</body>
+</html>

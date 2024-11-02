@@ -1,0 +1,381 @@
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    padding-top: 100px;     /* Adjust based on the header height */
+}
+
+/* Make the header fixed */
+header {
+    position: fixed;       /* Fixes the header at the top */
+    top: 0;                /* Aligns it to the top of the page */
+    width: 100%;           /* Ensures the header spans the full width of the page */
+    height: 60px;          /* Adjust the height to fit the content */
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;         /* Ensures the header stays above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better separation */
+}
+
+header img {
+    max-width: 90%;
+    max-height: 80px;      /* Adjust the max height for the logo */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+    padding: 5px 10px;
+}
+
+nav a img {
+    height: 20px;
+    margin-right: 5px;
+}
+
+nav a.active {
+    color: white;
+    background-color: #C10001;
+    border-radius: 25px; 
+    padding: 5px 20px;   
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 5%;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.form-container {
+    background-color: #B8F5A2;
+    padding: 20px;
+    border-radius: 8px;
+    border: 0.2px solid #28a745;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-bottom: 60px; 
+    margin-top: 100px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.custom-hr {
+    border: none; 
+    height: 2px; 
+    width: 1080px;
+    background-color: #ccc; 
+    margin-top: -20px;
+    margin-bottom: 20px;
+    margin-left: 235px;
+}
+
+.instructions {
+    font-size: 18px;
+    margin-bottom: 20px;
+    margin-left: 250px;
+    text-align: justify;
+    width: 1000px;
+    overflow: hidden;
+}
+
+.performance-indicators {
+    font-weight: normal;
+    font-size: 16px;
+    margin-left: 250px;
+}
+
+
+.ipcrf-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ipcrf-table th {
+    background-color: #B8F5A2;
+    color: #000000;
+    text-align: center; 
+    vertical-align: middle; 
+}
+
+.ipcrf-table th, .ipcrf-table td {
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: center; 
+    vertical-align: middle; 
+}
+
+.rating-section {
+    margin-top: 20px;
+}
+
+
+h2 {
+    margin-bottom: 10px;
+    color: #4CAF50;
+}
+
+h3 {
+    margin-bottom: 10px;
+    font-size: 15px;
+    width: 950px;
+    overflow: hidden;
+}
+
+hr {
+    border: none; 
+    height: 2px; 
+    width: 1080px;
+    background-color: #ccc; 
+    margin-top: -20px;
+    margin-bottom: 30px;
+    margin-left: -90px;
+
+}
+
+.ratings {
+    text-align: center;
+    margin-bottom: 20px; 
+    margin-left: 40px;
+    font-size: 13px;
+}
+
+.objective {
+    font-size: 14px;
+    margin-left: 325px; 
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.rating-options {
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    margin-top: 10px;
+    margin-left: 50px; 
+}
+
+.plus-factor-objective {
+    margin-left: 35px; 
+}
+
+.plus-factor-objective .ratings {
+    margin-left: 0; 
+}
+
+/* Set a fixed width for labels to align radio buttons */
+.rating-options label {
+    display: flex; 
+    text-align: left;
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+.rating-options div {
+    width: 850px; 
+    background-color: white; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    margin-left: -60px;
+    transition: background-color 0.3s; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+}
+
+.rating-options div:hover {
+    background-color: #e1f5fe; 
+}
+
+label {
+    font-size: 13px;
+    display: flex; 
+    align-items: left; 
+}
+
+/* Ensure all radio buttons are aligned */
+.rating-options input[type="radio"] {
+    margin-right: 10px; 
+    vertical-align: middle; 
+}
+
+.average-score-container {
+    background-color: #ffffff; 
+    border: 2px solid lightgrey; 
+    border-radius: 0;
+    padding: 0; 
+    text-align: center; 
+    width: 850px; 
+    height: 170px;
+    margin-left: 25px;
+    margin-bottom: 70px;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.average-score-header {
+    background-color: #28a745; 
+    color: white;
+    font-size: 14px; 
+    margin: 0; 
+    font-weight: bold; 
+    height: 30px;
+    text-align: left;
+    line-height: 12px;
+    padding: 10px; 
+}
+
+.average-score {
+    width: 697px;
+    height: 105px;
+    padding: 10px;
+    border: none;
+    font-size: 35px; 
+    border-radius: 5px;
+    background-color: #ffffff; 
+    margin-top: 10px; 
+}
+
+
+/* Button styling */
+.buttons-container {
+    display: flex;
+    justify-content: flex-start; 
+    gap: 642px; 
+    margin-left: 25px;
+}
+
+.back-btn, .proceed-btn {
+    background-color: #0f942e; 
+    color: white; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+.proceed-btn {
+    margin-right: 0;
+    height: 35px; 
+    width: 103px; 
+    text-align: center; 
+}
+
+.back-btn{
+    background-color: white; 
+    color: #28a745; 
+    border: 1px solid #28a745;
+    font-weight: bold;
+    line-height: 15px;
+    height: 35px;
+    width: 103px;
+}
+
+.proceed-btn:hover {
+    background-color: #218838;
+}
+
+.back-btn {
+    margin-left: 0;
+}
+
+/* Modal styles */
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    border: #082F96;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 150px;
+    border: 2px solid #082F96;
+}
+
+.modal-content p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: -20px;
+}
+
+.modal-buttons button {
+    width: 120px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.yes-btn {
+    background-color: #082F96;
+    color: white;
+    font-weight: 700;
+}
+
+.no-btn {
+    background-color: #FFFFFF;
+    color: #082F96;
+    border: 1px solid #082F96 !important;
+    font-weight: 700;
+}

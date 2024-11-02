@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Teacher Rating Sheet</title>
+    <link rel="stylesheet" href="cot_mt1-4.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+            <img src="DepEd_01.png" alt="DepED Logo">
+        </div>
+        <nav>
+            <a href="evaluator_dashboard.html"><img src="House_01.png" alt="Home">Home</a>
+            <a href="highlyproficient_form.html" class="active"><img src="Documents.png" alt="Forms">Forms</a>
+            <a href="cot_highlyproficient_records.html"><img src="Folders.png" alt="Records">Records</a>
+            <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+            <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
+            <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <h1>Rating Sheet for Master Teacher I - IV</h1><br>
+        <div class="tabs">
+            <a onclick="showQuarter('quarter1')" id="tab1" class="active">Quarter 1</a>
+            <a onclick="showQuarter('quarter2')" id="tab2">Quarter 2</a>
+            <a onclick="showQuarter('quarter3')" id="tab3">Quarter 3</a>
+            <a onclick="showQuarter('quarter4')" id="tab4">Quarter 4</a>
+        </div>
+
+        <br>
+        <div id="quarter1" class="quarter-content">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Subject</th>
+                        <th>Grade Level</th>
+                        <th>Rater</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="User_Circle.png" alt="User Icon" width="25"> Michael Pelps Johnson</td>
+                        <td>Master Teacher IV</td>
+                        <td>English</td>
+                        <td>Grade 9</td>
+                        <td>Sophia Clarke</td>
+                        <td></td>
+                        <td>
+                            <a href="evaluator_cot_form_highlyproficient.html" id="observe1" class="button">Observe</a> | 
+                            <a href="#" id="view1" class="disabled">View</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><img src="User_Circle.png" alt="User Icon" width="25"> Ella Smith</td>
+                        <td>Master Teacher I</td>
+                        <td>English</td>
+                        <td>Grade 9</td>
+                        <td>Sophia Clarke</td>
+                        <td></td>
+                        <td><span class="status">Observed</span> | <a href="view_cot_form_mt1-4.html">View</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="quarter2" class="quarter-content hidden">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Subject</th>
+                        <th>Grade Level</th>
+                        <th>Rater</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="User_Circle.png" alt="User Icon" width="25"> Michael Pelps Johnson</td>
+                        <td>Master Teacher IV</td>
+                        <td>English</td>
+                        <td>Grade 9</td>
+                        <td>Sophia Clarke</td>
+                        <td></td>
+                        <td>
+                            <a href="evaluator_cot_form_highlyproficient.html" id="observe2" class="button">Observe</a> | 
+                            <a href="#" id="view2" class="disabled">View</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="quarter3" class="quarter-content hidden">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Subject</th>
+                        <th>Grade Level</th>
+                        <th>Rater</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="User_Circle.png" alt="User Icon" width="25"> Michael Pelps Johnson</td>
+                        <td>Master Teacher IV</td>
+                        <td>English</td>
+                        <td>Grade 9</td>
+                        <td>Sophia Clarke</td>
+                        <td></td>
+                        <td>
+                            <a href="evaluator_cot_form_highlyproficient.html" id="observe3" class="button">Observe</a> | 
+                            <a href="#" id="view3" class="disabled">View</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="quarter4" class="quarter-content hidden">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Subject</th>
+                        <th>Grade Level</th>
+                        <th>Rater</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="User_Circle.png" alt="User Icon" width="25"> Michael Pelps Johnson</td>
+                        <td>Master Teacher IV</td>
+                        <td>English</td>
+                        <td>Grade 9</td>
+                        <td>Sophia Clarke</td>
+                        <td></td>
+                        <td>
+                            <a href="evaluator_cot_form_highlyproficient.html" id="observe4" class="button">Observe</a> | 
+                            <a href="#" id="view4" class="disabled">View</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="cot_mt1-4.js"></script>
+</body>
+</html>

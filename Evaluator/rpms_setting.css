@@ -1,0 +1,332 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    padding-top: 100px;     /* Adjust based on the header height */
+}
+
+/* Make the header fixed */
+header {
+    position: fixed;       /* Fixes the header at the top */
+    top: 0;                /* Aligns it to the top of the page */
+    width: 100%;           /* Ensures the header spans the full width of the page */
+    height: 40px;          /* Adjust the height to fit the content */
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;         /* Ensures the header stays above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better separation */
+}
+
+header img {
+    max-width: 90%;
+    max-height: 80px;      /* Adjust the max height for the logo */
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav a {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+    padding: 5px 10px;
+}
+
+nav a img {
+    height: 20px;
+    margin-right: 5px;
+}
+
+nav a.active {
+    color: white;
+    background-color: #C10001;
+    border-radius: 25px; 
+    padding: 5px 20px;   
+}
+
+        /* Sidebar styling */
+.sidebar {
+    width: 60px; /* Sidebar width */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: 10px; /* Space between top and bottom icons */
+    padding: 10px 0;
+    position: fixed;
+    top: 50px; /* Sidebar stays at the top */
+    left: 0;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Sidebar icon container */
+.sidebar-icon {
+    margin: 20px 0;
+    width: 30px;
+    height: 30px;
+}
+
+.sidebar-icon img {
+    width: 100%;
+}
+
+.settings-container {
+    width: 80%;
+    max-width: 1000px;
+    background-color: white;
+    margin: 20px 0;
+    margin-left: 20%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumbs {
+    padding: 20px 10%;
+    color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.breadcrumbs span {
+    margin-right: 5px;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.toggle label {
+    font-size: 16px;
+}
+
+.toggle input[type="checkbox"] {
+    position: relative;
+    width: 50px;
+    height: 25px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #c6c6c6;
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.toggle input[type="checkbox"]:checked {
+    background: #4CAF50;
+}
+
+.toggle input[type="checkbox"]:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 21px;
+    height: 21px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggle input[type="checkbox"]:checked:before {
+    transform: translateX(25px);
+}
+
+@media (max-width: 768px) {
+    .settings-container {
+        width: 90%;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+}
+
+/* Floating menu styles */
+.floating-menu {
+    display: none; /* Ensure the menu is displayed */
+    position: fixed;
+    top: 50px;
+    left: 0px;
+    width: 300px;
+    height: 1000px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1000;
+  }
+  
+.menu-header {
+    display: flex;
+    justify-content: space-between; /* Space items evenly */
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+  
+  /* Logo styles */
+.menu-header img {
+    width: 50px;
+    margin-right: 10px;
+}
+  
+  /* Close button styles */
+.close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+}
+  
+.close-btn:hover {
+    color: red; /* Change color on hover for effect */
+}
+  
+.floating-menu ul {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+  
+.floating-menu li {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+  
+.floating-menu li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+  }
+  
+.floating-menu li img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  
+.floating-menu li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Divider line between Setting and School Year */
+.menu-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+  }
+  
+  /* Circle with "SY" inside */
+.sy-circle {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: lightskyblue;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+/* Modal styles */
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    border: #082F96;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 150px;
+    border: 2px solid #082F96;
+}
+
+.modal-content p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: -20px;
+}
+
+.modal-buttons button {
+    width: 120px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.yes-btn {
+    background-color: #082F96;
+    color: white;
+    font-weight: 700;
+}
+
+.no-btn {
+    background-color: #FFFFFF;
+    color: #082F96;
+    border: 1px solid #082F96 !important;
+    font-weight: 700;
+}

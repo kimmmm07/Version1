@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Instructions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-RPMS-HighlyProficient-Instructions4.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header-background"></div>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="C:\Users\Mary Joy\source\repos\Performance Evaluation System\Assets\DepEdLogo.png.png" alt="DepEd Logo">
+            </div>
+            <ul>
+                <li><a href="admin-dashboard-home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="admin-dashboard-admin.html"><i class="fas fa-user-cog"></i> Admin</a></li>
+                <li><a href="admin-dashboard-form.html" id="form-nav" class="active"><i class="fas fa-file-alt"></i> Form</a></li>
+                <li><a href="admin-dashboard-request.html" id="request-nav"><i class="fas fa-clipboard-list"></i> Request</a></li>
+                <li><a href="admin-dashboard-school.html" id="school-nav"><i class="fas fa-school"></i> School</a></li>
+                <li><a href="admin-dashboard-logout.html" id="logout-nav"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content">
+        <!-- Main Banner Section -->
+        <main>
+            <div class="back-link-container">
+                <div class="back-link" onclick="window.location.href='admin-RPMS-HighlyProficient-Landing.html'">
+                    ← Results-Based Performance Management System
+                </div>
+            </div>
+            
+            <div class="tabs">
+                <a href="admin-RPMS-Proficient-Instructions4.html" class="tab active">Instructions</a>
+            </div>
+
+            <hr>
+
+            <!-- Content Section starts here -->
+            <div class="content-section">
+                <button class="edit-btn" onclick="editContent()"><i class="fas fa-edit"></i></button>
+                <h2 contenteditable="false" id="kraTitle">KRA 4: Curriculum and Planning & Assessment and Reporting
+                </h2>
+
+
+                <div class="author-time">
+
+                </div>
+                <div class="points" contenteditable="true">21 points</div>
+
+                <!-- Objectives Section -->
+                <div class="objective-section">
+                    <div class="objective-item">
+                        <h3 contenteditable="false" id="objective1">7% | Objective 12 (Guided colleagues to strengthen relationships with parents/guardians and the wider school community to maximize their involvement in the educative process.)
+                        </h3>
+                        <p contenteditable="false"><strong>Means of Verification (MOV)</strong></p>
+                        <ul>
+                        <li contenteditable="false">Any one (1) of the following:
+                            <br> - Proof/s of attendance in coaching and mentoring sessions/meetings/LAC sessions/FGDs/other collegial discussions that highlights the objective
+                            <br> - Minutes/notes of coaching and mentoring sessions/meetings/FGDs/other collegial discussions that highlights the objective
+                            <br> - Reflection notes of teachers on the coaching and mentoring sessions/meetings/FGDs/other collegial discussions that highlights the objective with proof/s of attendance
+                            <br> - Performance Monitoring and Coaching Form (PMCF), with annotations highlighting the objective                           
+                            </li>
+                    </ul>
+                </div>
+                <div class="objective-item">
+                    <h3 contenteditable="false">7% | Objective 13 (Contributed actively to professional networks within and between schools to improve knowledge and to enhance practice.)
+                    </h3>
+                    <p contenteditable="false"><strong>Means of Verification (MOV)</strong></p>
+                    <ul>
+                        <li contenteditable="false">1. Approved activity/project proposal for a webinar, retool
+                            <br> 2. Approved activity/project proposal for benchmarking or innovation with accomplishment report
+                            <br> 3. Certificate as contributor to LRMDS
+                            <br> 4. Certificate of completion in a course/training
+                            <br> 5. Certificate of recognition/speakership in webinar, retooling, upskilling, and other training/seminar/workshop
+                            <br> 6. Any proof of participation in school LAC sessions (online/face-to-face) certified by the LAC Coordinator
+                            <br> 7. Others (Please specify and provide annotations)                                                    
+                            </li>
+                    </ul>
+                </div>
+                <div class="objective-item">
+                    <h3 contenteditable="false">7% | Objective 14 ( Initiated professional reflections and promote learning opportunities with colleagues to improve practice.)
+                    </h3>
+                    <p contenteditable="false"><strong>Means of Verification (MOV)</strong></p>
+                    <ul>
+                        <li contenteditable="false">1. Proof/s of attendance in coaching and mentoring sessions/meetings/LAC sessions/FGDs/other collegial discussions that highlights the objective
+                            <br> 2. Approved LAC/FGD Plan
+                            <br> 3. Training matric of LAC sessions highlighting the teacher’s role, with proof of attendance
+                            <br> 4. Minutes of LAC sessions/FGDs highlighting the teacher’s role with proof of attendance   
+                            <br> 5. Performance Monitoring and Coaching Form (PMCF)
+                            <br> 6. Personal notes/reflections of collegues on regional/ division/ school-led INSETs and/or other trainings supervised/ conducted by teacher
+                            <br> 7. Others (Please specify and provide annotations)                                     
+                            </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </main>
+    </div>
+
+
+    <div id="logoutModal" class="modal hidden">
+        <div class="modal-content2">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="admin-RPMS-Proficient-Instructions4.js"></script>
+</body>
+</html>

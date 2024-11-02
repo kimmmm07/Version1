@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proficient Evaluation Forms</title>
+    <link rel="stylesheet" href="proficient_form.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head> 
+<body>
+
+<header>
+    <div>
+        <img src="DepEd_01.png" alt="DepED Logo">
+    </div>
+    <nav>
+        <a href="evaluator_dashboard.html"><img src="House_01.png" alt="Home">Home</a>
+        <a href="proficient_form.html" class="active"><img src="Documents.png" alt="Forms">Forms</a>
+        <a href="cot_proficient_records.html"><img src="Folders.png" alt="Records">Records</a>
+        <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+        <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
+        <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Choose form for your evaluation</h1>
+
+    <div class="divider"></div>
+
+    <select id="formType" onchange="navigateToLink()">
+        <option value="#">Select Form</option>
+        <option value="proficient_form.html">Proficient Teacher</option>
+        <option value="highlyproficient_form.html">Highly Proficient Teacher</option>
+    </select>
+
+    <div class="section-title">Classroom Observation Tools</div>
+    
+    <a href="cot_t1-3.html" style="text-decoration: none;">
+        <div class="form-card">
+            <div>
+                <h3><img class="form-icon" src="File_Document.png" alt="Icon">Rating Sheet for Proficient Teacher</h3>
+            </div>
+            <div class="form-details">
+                <div>
+                    <span>0</span>
+                    <p>Conducted Reviews</p>
+                </div>
+                <div>
+                    <span>0</span>
+                    <p>Fully responded reviews</p>
+                </div>
+                <div>
+                    <span>0</span>
+                    <p>Needs attention</p>
+                </div>
+                <div class="response-rate">
+                    <span>0%</span>
+                    <p>Response rate</p>
+                </div>
+            </div>
+
+        </div>
+    </a>
+
+    <div class="form-card disabled">
+        <div>
+            <h3><img class="form-icon" src="File_Document.png" alt="Icon">Rating Sheet for Highly Proficient Teacher</h3>
+        </div>
+        <div class="form-details">
+            <div>
+                <span>0</span>
+                <p>Conducted Reviews</p>
+            </div>
+            <div>
+                <span>0</span>
+                <p>Fully responded reviews</p>
+            </div>
+            <div>
+                <span>0</span>
+                <p>Needs attention</p>
+            </div>
+            <div class="response-rate">
+                <span>0%</span>
+                <p>Response rate</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">Individual Performance Commitment and Review Form</div>
+    
+    <a href="ipcrf_t1-3.html" style="text-decoration: none;">
+        <div class="form-card">
+            <div>
+                <h3><img class="form-icon" src="Table.png" alt="Icon">IPCRF for Rating Sheet for Proficient Teacher</h3>
+            </div>
+            <div class="form-details">
+                <div>
+                    <span>0</span>
+                    <p>Conducted Reviews</p>
+                </div>
+                <div>
+                    <span>0</span>
+                    <p>Fully responded reviews</p>
+                </div>
+                <div>
+                    <span>0</span>
+                    <p>Needs attention</p>
+                </div>
+                <div class="response-rate">
+                    <span>0%</span>
+                    <p>Response rate</p>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <div class="form-card disabled">
+        <div>
+            <h3><img class="form-icon" src="Table.png" alt="Icon">IPCRF for Highly Proficient Teacher</h3>
+        </div>
+        <div class="form-details">
+            <div>
+                <span>0</span>
+                <p>Conducted Reviews</p>
+            </div>
+            <div>
+                <span>0</span>
+                <p>Fully responded reviews</p>
+            </div>
+            <div>
+                <span>0</span>
+                <p>Needs attention</p>
+            </div>
+            <div class="response-rate">
+                <span>0%</span>
+                <p>Response rate</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">Results-Based Performance Management System</div>
+    
+    <a href="rpms_t1-3.html" style="text-decoration: none;">
+        <div class="form-card">
+            <div>
+                <h3><img class="form-icon" src="Folder_Open.png" alt="Icon">RPMS for Proficient Teacher</h3>
+            </div>
+            <div class="form-details">
+                <div>
+                    <span>0</span>
+                    <p>Conducted Reviews</p>
+                </div>
+                <div>
+                    <span>0</span>
+                    <p>Fully responded reviews</p>
+                </div>
+                <div>
+                    <span>0</span>
+                    <p>Needs attention</p>
+                </div>
+                <div class="response-rate">
+                    <span>0%</span>
+                    <p>Response rate</p>
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <div class="form-card disabled">
+        <div>
+            <h3><img class="form-icon" src="Folder_Open.png" alt="Icon">RPMS for Highly Proficient Teacher</h3>
+        </div>
+        <div class="form-details">
+            <div>
+                <span>0</span>
+                <p>Conducted Reviews</p>
+            </div>
+            <div>
+                <span>0</span>
+                <p>Fully responded reviews</p>
+            </div>
+            <div>
+                <span>0</span>
+                <p>Needs attention</p>
+            </div>
+            <div class="response-rate">
+                <span>0%</span>
+                <p>Response rate</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Logout Confirmation Modal -->
+<div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+    <div class="modal-content">
+        <p>Are you sure you want to logout?</p>
+        <div class="modal-buttons">
+            <button class="yes-btn">Yes</button>
+            <button class="no-btn">No</button>
+        </div>
+    </div>
+</div>
+
+<script src="proficient_form.js"></script>
+
+</body>
+</html>
