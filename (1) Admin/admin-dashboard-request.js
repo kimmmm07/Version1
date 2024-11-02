@@ -42,7 +42,7 @@ window.addEventListener('load', async function() {
 
         // Loop through each school in the data and populate userData as an array
         data.schools.forEach(school => {
-            if (school.is_verified == true && school.is_accepted == false){
+            if (school.is_verified == true && school.is_accepted == false && school.is_declined == false){
                 userData.push({
                     name: school.name,
                     email: school.email_address,
