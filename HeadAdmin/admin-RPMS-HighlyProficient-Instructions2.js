@@ -15,8 +15,28 @@ noButton.addEventListener('click', function() {
 });
 
 // Redirect when "Yes" is clicked
-yesButton.addEventListener('click', function() {
-    window.location.href = 'index.html';  // Replace with actual logout URL
+yesButton.addEventListener('click', async function() {
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            window.location.href = '../../get-started.html'; 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
 });
  
 
