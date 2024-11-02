@@ -28,7 +28,7 @@ window.addEventListener('load', async function() {
             const data = await response.json();
             if (response.ok) {
                 console.log("Success Data : ", data); 
-                window.location.href = '(3) Evaluator/evaluator_dashboard.html'; 
+                window.location.href = 'Evaluator/evaluator_dashboard.html'; 
             } else {
                 console.log("Error Data : ", data);
                 alert("Login Failed.")
@@ -38,7 +38,7 @@ window.addEventListener('load', async function() {
         }
     });
     
-    function getCookie(name) {
+    function getCookie(name) {      
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
             const cookies = document.cookie.split(';');
