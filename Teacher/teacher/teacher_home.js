@@ -38,3 +38,22 @@ yesButton.addEventListener('click', async function() {
     console.error("Error during fetch:", error);
 }
 });
+
+window.addEventListener('load', async function () {
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/user/feeds/',
+        {
+            method: 'GET',
+            credentials: 'include'
+        }
+    );
+    
+    const data = await response.json();
+    if (response.ok) {
+        console.log("Success Data : ",data);
+        
+
+    } else {
+        console.log("Error Data : ",data);
+    }
+      
+});

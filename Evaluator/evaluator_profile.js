@@ -20,6 +20,38 @@ document.getElementById("cancel-overlay").addEventListener("click", function() {
     document.getElementById("education-overlay").style.display = "none";
 });
 
+window.addEventListener('load', async function () {
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/profile/',
+        {
+            method: 'GET',
+            credentials: 'include'
+        }
+    );
+    
+    const data = await response.json();
+    if (response.ok) {
+        console.log("Success Data : ",data);
+        const evaluatorData = data.evaluator;
+
+        // Populate the profile details
+        document.getElementById('name').textContent = `${evaluatorData.first_name} ${evaluatorData.middle_name} ${evaluatorData.last_name}`;
+        document.getElementById('position').textContent = evaluatorData.position;
+        document.getElementById('email-address').textContent = evaluatorData.email_address;
+        document.getElementById('email-address').href = `mailto:${evaluatorData.email_address}`;
+        document.getElementById('contact-no').textContent = evaluatorData.contact_number || "No contact number";    
+
+        // Populate the information section
+        document.getElementById('emp-id').textContent = evaluatorData.employee_id;
+        document.getElementById('dept').textContent = evaluatorData.department;
+        document.getElementById('job-started').textContent = new Date(evaluatorData.job_started).toLocaleDateString("en-US", { month: 'long', day: 'numeric', year: 'numeric' });
+
+    } else {
+        console.log("Error Data : ",data);
+    }
+     
+
+});
+
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');
