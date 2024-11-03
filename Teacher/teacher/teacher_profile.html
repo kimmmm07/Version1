@@ -30,8 +30,8 @@
     <div class="profile-container">
         <div class="profile-header">
             <img src="asset/User_Circle.png" alt="Profile Picture" class="profile-picture" id="mainProfilePicture">
-            <h2 class="profile-name">JESSICA SANCHEZ RAMIREZ</h2>
-            <p class="profile-role">Teacher 1</p>
+            <h2 class="profile-name" id="name">JESSICA SANCHEZ RAMIREZ</h2>
+            <p class="profile-role" id="position">Teacher 1</p>
             <button class="edit-profile-btn" onclick="window.location.href='teacher_profile_edit_profile.html'">Edit Profile</button>
 
         </div>
@@ -40,22 +40,22 @@
         <div class="information-box">
             <h3>Information</h3>
             <p><strong>Employee ID</strong></p>
-            <p class="clickable">20-ABC12813</p>
+            <p class="clickable" id="emp-id">20-ABC12813</p>
 
             <p><strong>Department</strong></p>
-            <p class="clickable">Junior High School</p>
+            <p class="clickable" id="dept">Junior High School</p>
 
             <p><strong>Job Started</strong></p>
-            <p class="clickable">August 20, 2021</p>
+            <p class="clickable" id="job-started">August 20, 2021</p>
         </div>
 
         <div class="contact-box">
             <h3>Contact</h3>
             <p><strong>Email</strong></p>
-            <p class="clickable">ramirezjessica@deped.gov.ph</p>
+            <p class="clickable" id="email-address">ramirezjessica@deped.gov.ph</p>
 
             <p><strong>Phone</strong></p>
-            <p class="clickable">09521478611</p>
+            <p class="clickable" id="contact-no">09521478611</p>
         </div>
     </div>
 </div>
@@ -87,6 +87,36 @@ logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' clas
 // Hide modal when "No" is clicked
 noButton.addEventListener('click', function() {
 logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
+});
+
+window.addEventListener('load', async function () {
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/profile/',
+        {
+            method: 'GET',
+            credentials: 'include'
+        }
+    );
+    
+    const data = await response.json();
+    if (response.ok) {
+        console.log("Success Data : ",data);
+        const teacherData = data.user;
+
+        // Populate the profile details
+        document.getElementById('name').textContent = `${teacherData.first_name} ${teacherData.middle_name} ${teacherData.last_name}`;
+        document.getElementById('position').textContent = teacherData.position;
+        document.getElementById('email-address').textContent = teacherData.email_address;
+        document.getElementById('contact-no').textContent = teacherData.contact_number || "No contact number";    
+
+        // Populate the information section
+        document.getElementById('emp-id').textContent = teacherData.employee_id;
+        document.getElementById('dept').textContent = teacherData.department;
+        document.getElementById('job-started').textContent = new Date(teacherData.job_started).toLocaleDateString("en-US", { month: 'long', day: 'numeric', year: 'numeric' });
+
+    } else {
+        console.log("Error Data : ",data);
+    }
+      
 });
 
 // Redirect when "Yes" is clicked

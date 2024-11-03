@@ -48,6 +48,23 @@ window.addEventListener("click", function(event) {
     }
 });
 
+window.addEventListener('load', async function () {
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/school/feeds/',
+        {
+            method: 'GET',
+            credentials: 'include'
+        }
+    );
+    
+    const data = await response.json();
+    if (response.ok) {
+        console.log("Success Data : ",data);
+    } else {
+        console.log("Error Data : ",data);
+    }
+     
+});
+
 // // Get the announcement and mention buttons
 // const announcementButton = document.querySelector('.announcement-btn');
 // const mentionButton = document.querySelector('.mention-btn');
@@ -70,7 +87,7 @@ window.onload = function() {
 
 
 // Handle submitting the post from the modal
-submitModalPostBtn.addEventListener("click", function() {
+submitModalPostBtn.addEventListener("click", async function() {
     const modalPostContent = document.getElementById('modalPostContent').value;
     
     // Collect image sources from the preview
@@ -80,7 +97,7 @@ submitModalPostBtn.addEventListener("click", function() {
         const postId = posts.length; // Use the current length as the post ID
         const post = {
             content: modalPostContent,
-            imageSrc: imageSrcs, // Store the image URLs in an array
+            imageSrc: imageSrcs, 
             likes: 0,
             comments: [],
             id: postId,
@@ -96,6 +113,49 @@ submitModalPostBtn.addEventListener("click", function() {
             })
         };
         posts.push(post);
+        console.log(post);
+        const formData = new FormData();
+        formData.append('content', String(post.content));
+        imageSrcs.forEach((imageSrc, index) => {
+            // Create the key name for each image
+            const keyName = `content_file_${index}`;
+            
+            // If imageSrc is a URL, fetch it as a Blob; otherwise, if it's already a Blob or File, append directly
+            if (typeof imageSrc === 'string') {
+                // Fetch the image as a Blob for uploading
+                fetch(imageSrc)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        formData.append(keyName, blob, `image_${index}.jpg`); // Provide a filename
+                    })
+                    .catch(error => console.error("Error fetching image:", error));
+            } else {
+                // If imageSrc is already a File/Blob (like from a file input), directly append it
+                formData.append(keyName, imageSrc);
+            }
+        });
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/',
+            {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                }, 
+                body: formData, 
+                credentials: 'include', 
+            }
+        );
+        
+        
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ",data);
+        } else {
+            console.log("Error Data : ",data);
+        }
+        
+
+
         commentsVisibility[postId] = false; // Initialize visibility for the new post
         renderPosts();
         modal.style.display = "none"; // Close the modal
