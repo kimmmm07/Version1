@@ -236,3 +236,14 @@ window.addEventListener('click', (e) => {
         closeModal();
     }
 });
+
+
+// Floating menu toggle
+document.getElementById('menu-icon').addEventListener('click', function() {
+    const floatingMenu = document.getElementById('floating-menu');
+    floatingMenu.style.display = floatingMenu.style.display === 'block' ? 'none' : 'block';
+    });
+    
+    function closeMenu() {
+    document.getElementById('floating-menu').style.display = 'none';
+    }
