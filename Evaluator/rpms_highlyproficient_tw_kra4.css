@@ -321,7 +321,6 @@ nav a.active {
     justify-content: space-between; /* Space items evenly */
     align-items: center;
     padding: 10px;
-    border-bottom: 1px solid #ddd;
 }
   
   /* Logo styles */
@@ -330,7 +329,7 @@ nav a.active {
     margin-right: 10px;
 }
   
-  /* Close button styles */
+   /* Close button styles */
 .close-btn {
     background-color: transparent;
     border: none;
@@ -338,6 +337,8 @@ nav a.active {
     cursor: pointer;
     color: #333;
     padding: 5px;
+    margin-left: 250px;
+    margin-top: 20px;
 }
   
 .close-btn:hover {
