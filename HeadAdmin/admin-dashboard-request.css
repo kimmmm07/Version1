@@ -327,18 +327,16 @@ nav ul li a.active {
 }
 
 .school-logo {
-    width: 100px;
+    width: 50px;
+    height: auto; 
     margin-bottom: 20px;
     display: block;
     text-align: center;
+    margin-left: 40%;
 }
 
 .modal-content p {
     border-bottom: 1px solid gray;
-}
-
-.school-logo {
-    text-align: center;
 }
 
 /* Close Button */

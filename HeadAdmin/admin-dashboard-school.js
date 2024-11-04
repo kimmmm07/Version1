@@ -51,40 +51,29 @@ window.addEventListener('load', async function() {
         console.log("Success Data:", data);
     
         // Reference the container where you want to append each school row
-        const schoolContainer = document.querySelector('.dashboard-content');
+        const schoolContainer = document.querySelector('.school-logo-container'); // Use the correct container
         const baseURL = 'https://bnahs.pythonanywhere.com';
     
-        // Clear previous rows if any (optional)
-        schoolContainer.innerHTML = `
-            <h1>Admin</h1>
-            <h2 class="section-title">All</h2>
-            <div class="horizontal-line"></div>
-            <div class="search-container">
-                <div class="search-input-wrapper">
-                    <i class="fas fa-search search-icon"></i>
-                    <input type="text" class="search-input" placeholder="Search">
-                </div>
-            </div>`;
-    
+        // Clear previous logos
+        schoolContainer.innerHTML = '';
+
         // Iterate over each school and create a row
         data.schools.forEach((school) => {
             // Create a new div for each school row
             const schoolRow = document.createElement('div');
-            schoolRow.classList.add('school-row');
-    
-            // Set the inner HTML for each school row
+            schoolRow.classList.add('school-logo'); // Just a single class
+
+            // Set the inner HTML for each school logo
             schoolRow.innerHTML = `
-                <div class="school-logo-container">
-                    <img src="${baseURL}${school.school_logo}" alt="School Logo">
-                    <p class="school-name">${school.school_name}</p>
-                </div>`;
-    
+                <img src="${baseURL}${school.school_logo}" alt="School Logo">
+                <p class="school-name">${school.school_name}</p>
+            `;
+
             // Append the created row to the container
             schoolContainer.appendChild(schoolRow);
         });
     } else {
         console.log("Error Data:", data);
     }
-    
- });
+});
 

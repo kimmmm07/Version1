@@ -199,7 +199,7 @@ createBtn.addEventListener('click', () => {
                         <li></li>
                     </ul>
                     <div class="card-icon-bottom">
-                        <img src="C:\\Users\\Mary Joy\\source\\repos\\Performance Evaluation System\\Assets\\Name.png" alt="User Icon">
+                        <img src="Assets\\Name.png" alt="User Icon">
                     </div>
                 </div>
             </div>
