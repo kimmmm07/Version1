@@ -70,18 +70,75 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-window.addEventListener('load', async function () {
-    const response = await fetch('https://bnahs.pythonanywhere.com/api/school/faculties/',
-        {
-            method: 'GET',
-            credentials: 'include'
-        }
-    );
-    
-    const data = await response.json();
-    if (response.ok) {
-        console.log("Success Data : ",data);
-    } else {
-        console.log("Error Data : ",data);
-    }
-})
+        window.addEventListener('load', async function () {
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/school/faculties/', {
+                method: 'GET',
+                credentials: 'include'
+            });
+        
+            const data = await response.json();
+            if (response.ok) {
+                console.log("Success Data : ", data);
+        
+                // Extract the people array from the data
+                const people = data.people;
+        
+                // Select the table body where rows will be appended
+                const facultyList = document.getElementById('faculty-list');
+        
+                // Loop through the people array and filter by role
+                people.forEach(person => {
+                    if (person.role === 'Teacher' || person.role === 'Evaluator') {
+                        
+                        // Create a new table row
+                        const row = document.createElement('tr');
+                        row.classList.add('second-row');
+                        row.setAttribute('data-faculty-id', person.employee_id);
+        
+                        // Extract full name
+                        const fullName = `${person.first_name} ${person.middle_name} ${person.last_name}`;
+        
+                        // Format job started date
+                        const jobStartedDate = person.job_started 
+                            ? new Date(person.job_started).toLocaleDateString("en-US", { month: 'numeric', day: 'numeric', year: 'numeric' }) 
+                            : 'N/A';
+        
+                        // Populate row with data
+                        row.innerHTML = `
+                            <th>
+                                <div class="user-icon"></div>
+                                ${fullName}
+                            </th>
+                            <th>${person.position || 'N/A'}</th>
+                            <th>${person.grade_level || 'N/A'}</th>
+                            <th>${jobStartedDate}</th>
+                            <th>
+                                <button class="manage-btn">Manage <span>&#9662;</span></button>
+                                <div class="dropdown">
+                                    <ul class="dropdown-menu">
+                                        <li class="deactivate-btn">
+                                            <a href="#">
+                                                <img src="assets/Shutdown.png" alt="Deactivate Icon" class="icon">
+                                                Deactivate
+                                            </a>
+                                        </li>
+                                        <li class="delete-btn">
+                                            <a href="#" style="color: #A21718;">
+                                                <img src="assets/Trash.png" alt="Delete Icon" class="icon">
+                                                Delete
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </th>
+                        `;
+        
+                        // Append the row to the table body
+                        facultyList.appendChild(row);
+                    }
+                });
+            } else {
+                console.log("Error Data : ", data);
+            }
+        });
+        
