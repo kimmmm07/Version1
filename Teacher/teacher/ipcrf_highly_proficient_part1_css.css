@@ -98,10 +98,9 @@ body {
 h1 {
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 30px;
     font-size: 24px;
 }
-
 
 .custom-hr {
     border: none; 
@@ -163,12 +162,6 @@ h3 {
     font-size: 15px;
     width: 950px;
     overflow: hidden;
-}
-
-p {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 20px;
 }
 
 hr {
@@ -285,8 +278,23 @@ label {
     border-radius: 5px;
     background-color: #ffffff; 
     margin-top: 10px; 
+    margin-right: -580px;
 }
 
+/* Adjectival Rating */
+.rating {
+    font-size: 35px;
+    margin-bottom: 23px;
+}
+
+/* Flexbox to align score and rating side by side */
+.score-rating {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    
+}
 
 /* Button styling */
 .buttons-container {
@@ -335,6 +343,8 @@ label {
 .back-btn {
     margin-left: 0;
 }
+
+
 
 /* Modal styles */
 .modal {

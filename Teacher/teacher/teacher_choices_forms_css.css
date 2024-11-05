@@ -279,6 +279,11 @@ body {
     margin-bottom: 15px; 
 }
 
+.form-item .custom-icon  {
+    color: #28a745; /* Replace with your desired color */
+}
+
+
 /* Form Items Styling */
 .form-item {
     display: flex;

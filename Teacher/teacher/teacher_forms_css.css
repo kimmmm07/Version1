@@ -101,7 +101,7 @@ header {
 }
 
 header h1 {
-    font-size: 28px;
+    font-size: 20px;
     font-weight: 600;
     color: #333;
     margin-right: 20px; /* Adjusts spacing between the title and the button */
@@ -119,10 +119,11 @@ header h1 {
     margin-bottom: 30px; /* Spacing between sections */
 }
 
+
 h2 {
     background-color: #c4d1e0; /* Light blue background for headers */
     padding: 10px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: black;
     border-radius: 5px;
@@ -190,6 +191,7 @@ a {
     display: flex;
     gap: 10px;
     margin-bottom: 10px; /* Space between filter buttons and search inputs */
+    height: 40px;
 }
 
 .filter {

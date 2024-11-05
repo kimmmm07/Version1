@@ -82,6 +82,13 @@ body {
     font-weight: normal;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+}
+
 .form-container {
     background-color: #B8F5A2;
     padding: 20px;
@@ -98,7 +105,7 @@ body {
 h1 {
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 30px;
     font-size: 24px;
 }
 
@@ -205,12 +212,6 @@ hr {
     margin-left: 0; 
 }
 
-p {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 20px;
-}
-
 /* Set a fixed width for labels to align radio buttons */
 .rating-options label {
     display: flex; 
@@ -284,8 +285,23 @@ label {
     border-radius: 5px;
     background-color: #ffffff; 
     margin-top: 10px; 
+    margin-right: -580px;
 }
 
+/* Flexbox to align score and rating side by side */
+.score-rating {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    
+}
+
+/* Adjectival Rating */
+.rating {
+    font-size: 35px;
+    margin-bottom: 23px;
+}
 
 /* Button styling */
 .buttons-container {
@@ -334,6 +350,7 @@ label {
 .back-btn {
     margin-left: 0;
 }
+
 
 /* Modal styles */
 .modal {
