@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', async function(event) {
     event.preventDefault();
 
-    const emailInput = document.getElementById("email");
+    const emailInput = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirm-password").value;
 
-    if (!emailInput.value || !password || !confirmPassword) {
+    if (!emailInput || !password || !confirmPassword) {
         alert("Please fill in all required fields.");
         return false; 
     }
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return false; 
     }
     const formData = new FormData();
-    formData.append('email', String(email));
+    formData.append('email', String(emailInput));
     formData.append('new_password', String(password));
     formData.append('confirm_password', String(confirmPassword));
 
