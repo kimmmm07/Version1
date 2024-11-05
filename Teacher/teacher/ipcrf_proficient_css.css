@@ -85,7 +85,7 @@ body {
 
 /* Form container styling */
 .form-container {
-    background-color: #eaf7e8;
+    background-color: #B8F5A2;
     padding: 20px;
     border-radius: 10px;
     max-width: 800px;
@@ -127,7 +127,7 @@ select {
 }
 
 .ipcrf-table th {
-    background-color: #d0f0c0;
+    background-color: #B8F5A2;
     color: #4a4a4a;
     text-align: center; /* Center text in table headers as well */
     vertical-align: middle; /* Vertically center the text in the header */
@@ -197,13 +197,16 @@ select {
 
 .modal-content {
     background-color: white;
-    padding: 20px;
+    padding: 40px 20px; /* Adds equal padding at the top and bottom */
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    height: 150px;
+    width: 450px;
+    height: auto; /* Set to auto for better flexibility */
     border: 2px solid #082F96;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
 }
 
 .modal-content p {
@@ -236,13 +239,8 @@ select {
 }
 
 .no-btn {
-    background-color: #F1F1F1;
+    background-color: #FFFFFF;
     color: #082F96;
     border: 1px solid #082F96 !important;
     font-weight: 700;
 }
-
-
-
-
-
