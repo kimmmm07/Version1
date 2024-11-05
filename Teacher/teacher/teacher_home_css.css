@@ -14,6 +14,7 @@ body {
 
 /* Navbar styling */
 .navbar {
+    margin-top: -20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -88,7 +89,7 @@ body {
     margin-top: 20px;
 }
 
-/* Feed Section */
+/* Feed Section */ 
 .feed-section {
     width: 68%;
     overflow-y: auto; /* Make the feed section scrollable */
