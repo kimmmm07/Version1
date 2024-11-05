@@ -13,15 +13,32 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="sidebar-icon">
-            <a href="#"><img src="Assets\Menu.png" alt="Menu Icon" /></a>
+            <a href="#" onclick="toggleFloatingMenu()"><img src="Assets/Menu.png" alt="Menu Icon" /></a>
         </div>
+        
         <div class="sidebar-icon active">
-            <a href="admin-RPMS-Proficient-Home.html"><img src="Assets\Home.png" alt="Home Icon" /></a>
+            <a href="admin-RPMS-HighlyProficient-Home.html"><img src="Assets\Home.png" alt="Home Icon" /></a>
         </div>
         <div class="sidebar-icon">
-            <a href="admin-RPMS-Proficient-Setting.html"><img src="Assets\Settings.png" alt="Settings Icon" /></a>
+            <a href="admin-RPMS-HighlyProficient-Setting.html"><img src="Assets\Settings.png" alt="Settings Icon" /></a>
         </div>
     </div>
+
+        <!-- Floating Menu -->
+        <div class="floating-menu" id="floating-menu">
+            <div class="menu-header">
+                
+                <!-- Close button -->
+                <button class="close-btn" onclick="closeMenu()">✖</button>
+            </div>
+            <ul>
+            <li><a href="admin-RPMS-HighlyProficient-Home.html"><img src="Assets\Home.png" alt="Home Icon"/> Home</a></li>
+            <li><a href="admin-RPMS-HighlyProficient-Setting.html"><img src="Assets\Settings.png" alt="Settings Icon"/> Setting</a></li>
+            <!-- Horizontal line between Setting and School Year -->
+            <hr class="menu-divider">
+            <li><a href="admin-RPMS-HighlyProficient-Landing.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
+            </ul>
+        </div>
     
     <div class="header-background"></div>
     <header>

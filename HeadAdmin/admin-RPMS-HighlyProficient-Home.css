@@ -296,7 +296,8 @@ nav ul li a.active {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Adjust columns as needed */
     gap: 20px;
-    margin-top: 70px;
+    margin-top: 64px;
+    margin-left: 45px;
     padding: 20px 7%;
 }
 
@@ -406,7 +407,7 @@ nav ul li a.active {
 .create-folder-btn {
     position: fixed;
     bottom: 20px; /* Adjusts the distance from the bottom */
-    left: 55%;
+    left: 720px;
     transform: translateX(-50%);
     background-color: #082F96;
     color: white;
