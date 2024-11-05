@@ -85,7 +85,7 @@ body {
 
 /* Form container styling */
 .form-container {
-    background-color: #eaf7e8;
+    background-color: #B8F5A2;
     padding: 20px;
     border-radius: 10px;
     max-width: 800px;
@@ -127,7 +127,7 @@ select {
 }
 
 .ipcrf-table th {
-    background-color: #d0f0c0;
+    background-color: #a3eb80;
     color: #4a4a4a;
     text-align: center; /* Center text in table headers as well */
     vertical-align: middle; /* Vertically center the text in the header */
