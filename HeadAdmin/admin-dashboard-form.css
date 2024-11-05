@@ -363,6 +363,10 @@ select:focus {
     position: relative; 
 }
 
+.form-item .custom-icon  {
+    color: #28a745; /* Replace with your desired color */
+}
+
 /* Remove underline and keep default color */
 .form-link {
     text-decoration: none; /* Removes underline */
