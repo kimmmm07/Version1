@@ -133,8 +133,7 @@ select {
 .ipcrf-table th {
     text-align: center; /* Center text in table headers as well */
     vertical-align: middle; /* Vertically center the text in the header */
-    background-color: #34b4f0; /* Dark blue background for table headers */
-    color: white; /* White text in table headers */
+    background-color: #6dd4fa; /* Dark blue background for table headers */
 }
 
 /* Button styling */
