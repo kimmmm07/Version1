@@ -321,19 +321,34 @@ nav ul li a.active {
     background-color: #fff;
     padding: 20px 3%;
     border-radius: 10px;
-    width: 600px;
+    width: 80%; /* Adjust to desired width */
+    max-width: 500px; /* Limit max width */
     position: relative;
     text-align: flex-start;
 }
 
+.modal-body {
+    max-height: 500px; /* Control height if needed */
+    overflow-y: auto; /* Enable scrolling if content overflows */
+    margin-bottom: 15px;
+}
+
+.modal-body p {
+    margin: 10px 0; /* Space between paragraphs */
+    font-size: 15px;
+}
+
 .school-logo {
-    width: 50px;
+    width: 80px; /* or any desired width */
+    max-width: 500px; /* maximum width */
     height: auto; 
-    margin-bottom: 20px;
+    object-fit: contain;
+    margin-bottom: 15px;
     display: block;
     text-align: center;
-    margin-left: 40%;
+    margin-left: 42%;
 }
+
 
 .modal-content p {
     border-bottom: 1px solid gray;
@@ -348,11 +363,7 @@ nav ul li a.active {
     cursor: pointer;
 }
 
-/* School Logo */
-.school-logo {
-    width: 100px;
-    margin-bottom: 20px;
-}
+
 
 /* Modal Actions */
 .modal-actions {
