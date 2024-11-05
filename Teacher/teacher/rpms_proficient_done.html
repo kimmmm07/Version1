@@ -10,15 +10,30 @@
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
+        <div class="sidebar-icon" id="menu-icon">
+            <a href="#"><img src="asset/Menu.png" alt="Menu Icon" /></a>
+        </div> 
         <div class="sidebar-icon">
-            <img src="asset/Menu.png" alt="Menu Icon" />
+            <a href="rpms_proficient.html"><img src="asset/Home.png" alt="Home Icon" /></a>
         </div>
         <div class="sidebar-icon">
-            <img src="asset/Home.png" alt="Home Icon" />
+            <a href="rpms_setting.html"><img src="asset/Settings.png" alt="Settings Icon" /></a>
         </div>
-        <div class="sidebar-icon">
-            <img src="asset/Settings.png" alt="Settings Icon" />
+    </div>
+
+    <!-- Floating Menu -->
+    <div class="floating-menu" id="floating-menu">
+        <div class="menu-header">
+            <!-- Close button -->
+            <button class="close-btn" onclick="closeMenu()">✖</button>
         </div>
+        <ul>
+        <li><a href="rpms_proficient.html"><img src="asset/Home.png" alt="Home Icon"/> Home</a></li>
+        <li><a href="rpms_setting.html"><img src="asset/Settings.png" alt="Settings Icon"/> Setting</a></li>
+        <!-- Horizontal line between Setting and School Year -->
+        <hr class="menu-divider">
+        <li><a href="rpms_proficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
+        </ul>
     </div>
 
      <!-- Main content -->
@@ -186,62 +201,7 @@
     </div>
 
 
-<script> 
-// Modal logic
-const logoutButton = document.getElementById('logoutLink');  // Logout button
-const logoutModal = document.getElementById('logoutModal');
-const yesButton = document.querySelector('.yes-btn');
-const noButton = document.querySelector('.no-btn');
-
-// Show modal when logout is clicked
-logoutButton.addEventListener('click', function(event) {
-    event.preventDefault();  // Prevent default logout behavior
-    logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
-});
-
-// Hide modal when "No" is clicked
-noButton.addEventListener('click', function() {
-    logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
-});
-
-// Redirect when "Yes" is clicked
-yesButton.addEventListener('click', async function() {
-    try {
-        
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
-            method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                
-            },
-            credentials: 'include',
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-            console.log("Success Data : ", data); 
-            window.location.href = '../../get-started.html'; 
-        } else {
-            console.log("Error Data : ", data);
-        }
-    } catch (error) {
-        console.error("Error during fetch:", error);
-    }
-});
-</script>
-    
-            <script>
-            // Get all dropdown headers
-            const dropdownHeaders = document.querySelectorAll('.dropdown-header');
-    
-            dropdownHeaders.forEach(function(header) {
-                header.addEventListener('click', function() {
-                    // Toggle the active class on the parent dropdown item
-                    const parentItem = header.parentElement;
-                    parentItem.classList.toggle('active');
-                });
-            });
-            </script>
+<script src="rpms_proficient_done.js"> </script>
 
         </body>
     </html>

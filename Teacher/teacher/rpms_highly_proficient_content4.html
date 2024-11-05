@@ -10,15 +10,30 @@
 <body>
     <!-- Sidebar -->
     <div class="sidebar">
+        <div class="sidebar-icon" id="menu-icon">
+            <a href="#"><img src="asset/Menu.png" alt="Menu Icon" /></a>
+        </div> 
         <div class="sidebar-icon">
-            <img src="asset/Menu.png" alt="Menu Icon" />
+            <a href="rpms_highly_proficient.html"><img src="asset/Home.png" alt="Home Icon" /></a>
         </div>
         <div class="sidebar-icon">
-            <img src="asset/Home.png" alt="Home Icon" />
+            <a href="rpms_setting.html"><img src="asset/Settings.png" alt="Settings Icon" /></a>
         </div>
-        <div class="sidebar-icon">
-            <img src="asset/Settings.png" alt="Settings Icon" />
+    </div>
+
+    <!-- Floating Menu -->
+    <div class="floating-menu" id="floating-menu">
+        <div class="menu-header">
+            <!-- Close button -->
+            <button class="close-btn" onclick="closeMenu()">✖</button>
         </div>
+        <ul>
+        <li><a href="rpms_highly_proficient.html"><img src="asset/Home.png" alt="Home Icon"/> Home</a></li>
+        <li><a href="rpms_setting.html"><img src="asset/Settings.png" alt="Settings Icon"/> Setting</a></li>
+        <!-- Horizontal line between Setting and School Year -->
+        <hr class="menu-divider">
+        <li><a href="rpms_highly_proficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
+        </ul>
     </div>
 
      <!-- Main content -->

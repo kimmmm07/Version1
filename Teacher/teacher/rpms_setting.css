@@ -1,20 +1,13 @@
-/* Universal styling */
-* {
-    box-sizing: border-box;
+body {
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
-
-/* Body styling */
-body {
-    background-color: white; /* Set background to white */
-    padding: 20px;
+    background-color: white;
+    padding-top: 100px;     /* Adjust based on the header height */
 }
 
 /* Navbar styling */
 .navbar {
-    margin-top: -20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -89,7 +82,7 @@ body {
     font-weight: normal;
 }
 
-/* Sidebar styling */
+        /* Sidebar styling */
 .sidebar {
     width: 60px; /* Sidebar width */
     height: 100vh; /* Full viewport height */
@@ -116,6 +109,96 @@ body {
     width: 100%;
 }
 
+.settings-container {
+    width: 80%;
+    max-width: 1000px;
+    background-color: white;
+    margin: 20px 0;
+    margin-left: 20%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.breadcrumbs {
+    padding: 20px 10%;
+    color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.breadcrumbs span {
+    margin-right: 5px;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.toggle label {
+    font-size: 16px;
+}
+
+.toggle input[type="checkbox"] {
+    position: relative;
+    width: 50px;
+    height: 25px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #c6c6c6;
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.toggle input[type="checkbox"]:checked {
+    background: #4CAF50;
+}
+
+.toggle input[type="checkbox"]:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 21px;
+    height: 21px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggle input[type="checkbox"]:checked:before {
+    transform: translateX(25px);
+}
+
+@media (max-width: 768px) {
+    .settings-container {
+        width: 90%;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+}
 
 /* Floating menu styles */
 .floating-menu {
@@ -211,186 +294,6 @@ body {
     margin-right: 10px;
   }
 
-/* Content wrapper */
-.content-wrapper {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 100px; /* Adjust padding for fixed navbar */
-}
-
-/* Breadcrumb styling */
-.breadcrumb {
-    padding: 20px 0;
-    margin-top: 60px; /* Adjust for fixed navbar */
-    background-color: white;
-    margin-left: 100px;
-    width: 70%;
-}
-
-.breadcrumb ul {
-    list-style: none;
-    display: flex;
-}
-
-.breadcrumb ul li {
-    margin-right: 10px;
-    font-size: 16px; /* Adjusted font size for breadcrumbs */
-    font-weight: 500;
-}
-
-/* Styling for all breadcrumb links */
-.breadcrumb ul li a {
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-/* Keep RPMS link blue */
-.breadcrumb ul li:last-child a {
-    color: #007bff;
-}
-
-/* Change KRA 1 link to black */
-.breadcrumb ul li:first-child a {
-    color: black;
-}
-
-/* Hover effect only for non-KRA 1 links */
-.breadcrumb ul li a:hover {
-    color: #0056b3; /* Hover color for breadcrumb links */
-}
-
-/* Disable hover for KRA 1 */
-.breadcrumb ul li:first-child a:hover {
-    color: black; /* Ensures KRA 1 stays black on hover */
-}
-
-.breadcrumb ul li:after {
-    content: '>';
-    margin-left: 10px;
-    color: #6c757d;
-}
-
-.breadcrumb ul li:last-child:after {
-    content: ''; /* No separator after the last item */
-}
-
-
-
-/* Tabs styling */
-.tabs {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #ddd; /* Light gray line for separation */
-    padding-bottom: 1px;
-    margin-left: 100px;
-    width: 80%;
-}
-
-.tab {
-    text-decoration: none; /* Removes the underline */
-    color: inherit; /* Inherits the color from its parent */
-    background-color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    transition: color 0.2s;
-}
-
-.tab.active {
-    border-bottom: none; /* Remove the blue underline */
-    color: #0033cc; /* Keep the text color for active tab */
-}
-
-.tab:hover {
-    color: #0033cc; /* Text color changes to blue on hover */
-}
-
-.dropdown-container {
-    margin-top: 40px;
-    width: 800px; /* Set a width to the container */
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    }
-
-.dropdown-item {
-    width: 300px;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
-    width: 100%;
-}
-
-.dropdown-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
-
-.count {
-    font-size: 14px;
-    color: #777;
-}
-
-.dropdown-toggle {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    transform: rotate(0deg);
-    transition: transform 0.3s ease;
-}
-
-.dropdown-content {
-    display: none;
-    padding-top: 10px;
-    margin-left: 20px;
-}
-
-/* Show dropdown content when active */
-.dropdown-item.active .dropdown-content {
-    display: block;
-}
-
-/* Rotate the dropdown arrow when active */
-.dropdown-item.active .dropdown-toggle {
-    transform: rotate(180deg);
-}
-
-.content-item {
-    font-size: 14px;
-    width: 85%;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    display: flex; /* Keep the flex display */
-    align-items: flex-start; /* Align items at the start */
-    text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Inherit color from parent element */
-}
-
-.content-item .icon {
-    width: 20px;  /* Adjust icon size */
-    height: 20px; /* Adjust icon size */
-    margin-right: 8px; /* Space between icon and heading */
-}
-
-.text-container {
-    display: flex;
-    flex-direction: column; /* Stack the title and posted text vertically */
-}
-
-.rpms {
-    font-size: 10px;
-    color: #777;
-}
-
 /* Modal styles */
 .modal {
     display: flex;
@@ -451,12 +354,8 @@ body {
 }
 
 .no-btn {
-    background-color: #F1F1F1;
+    background-color: #FFFFFF;
     color: #082F96;
     border: 1px solid #082F96 !important;
     font-weight: 700;
 }
-
-
-
-

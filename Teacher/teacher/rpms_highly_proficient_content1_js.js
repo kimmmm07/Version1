@@ -1,3 +1,13 @@
+// Floating menu toggle
+document.getElementById('menu-icon').addEventListener('click', function() {
+const floatingMenu = document.getElementById('floating-menu');
+floatingMenu.style.display = floatingMenu.style.display === 'block' ? 'none' : 'block';
+});
+
+function closeMenu() {
+document.getElementById('floating-menu').style.display = 'none';
+}
+
 const fileInput = document.getElementById('fileInput');
 const addCreateBtn = document.getElementById('addCreateBtn');
 const turnInBtn = document.getElementById('turnInBtn');
@@ -266,3 +276,4 @@ submitCommentBtn.addEventListener('click', function () {
         privateCommentInput.value = '';
     }
 });
+
