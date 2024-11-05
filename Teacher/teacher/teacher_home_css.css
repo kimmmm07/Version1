@@ -466,12 +466,12 @@ textarea {
 
 .modal-content {
     background-color: white;
-    padding: 20px;
+    padding: 50px 20px; /* Adds equal padding at the top and bottom */
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    height: 150px;
+    width: 450px;
+    height: 200px;
     border: 2px solid #082F96;
 }
 
@@ -482,6 +482,7 @@ textarea {
 }
 
 .modal-buttons {
+    padding-bottom: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -505,14 +506,8 @@ textarea {
 }
 
 .no-btn {
-    background-color: #F1F1F1;
+    background-color: #FFFFFF;
     color: #082F96;
     border: 1px solid #082F96 !important;
     font-weight: 700;
 }
-
-
-
-
-
-
