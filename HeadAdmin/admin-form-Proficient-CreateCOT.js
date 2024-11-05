@@ -29,7 +29,7 @@ function createFolder() {
             <h3 class="category-label">${selectedYear}</h3>
             <a href="admin-form-view-COT-Proficient.html" class="form-link">
                 <div class="form-item">
-                    <i class="fas fa-file-alt"></i>
+                    <i class="fas fa-file-alt custom-icon"></i>
                     Rating Sheet for Proficient Teacher
                 </div>
             </a>

@@ -25,16 +25,19 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
+    position: fixed; 
     top: 0;
-    z-index: 10;
+    z-index: 10; 
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    height: 33px;
 }
 
 nav {
     display: flex;
     align-items: center;
     margin-right: 20px;
-    position: relative; 
+    margin-top: -33px;
+    position: relative;
 }
 
 nav ul {
@@ -70,7 +73,7 @@ nav ul li:nth-child(4) {
 }
 
 nav ul li:nth-child(5) {
-    left: 986px;
+    left: 982px;
     top: -2px;
 }
 

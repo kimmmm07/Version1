@@ -28,13 +28,16 @@ header {
     position: fixed; 
     top: 0;
     z-index: 10; 
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
+    height: 33px;
 }
 
 nav {
     display: flex;
     align-items: center;
     margin-right: 20px;
-    position: relative; 
+    margin-top: -33px;
+    position: relative;
 }
 
 nav ul {
@@ -343,7 +346,7 @@ nav ul li a.active {
 .form-item .custom-icon  {
     color: #28a745; /* Replace with your desired color */
 }
-
+ 
 
 /* Remove underline and keep default color */
 .form-link {
