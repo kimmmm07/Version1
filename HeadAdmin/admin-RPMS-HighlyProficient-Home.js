@@ -238,12 +238,13 @@ window.addEventListener('click', (e) => {
 });
 
 
-// Floating menu toggle
-document.getElementById('menu-icon').addEventListener('click', function() {
+// Toggle the floating menu display
+function toggleFloatingMenu() {
     const floatingMenu = document.getElementById('floating-menu');
-    floatingMenu.style.display = floatingMenu.style.display === 'block' ? 'none' : 'block';
-    });
-    
-    function closeMenu() {
+    floatingMenu.style.display = (floatingMenu.style.display === 'block') ? 'none' : 'block';
+}
+
+// Close the floating menu
+function closeMenu() {
     document.getElementById('floating-menu').style.display = 'none';
-    }
+}

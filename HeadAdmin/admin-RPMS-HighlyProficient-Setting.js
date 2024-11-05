@@ -38,4 +38,15 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
- 
+
+
+// Toggle the floating menu display
+function toggleFloatingMenu() {
+    const floatingMenu = document.getElementById('floating-menu');
+    floatingMenu.style.display = (floatingMenu.style.display === 'block') ? 'none' : 'block';
+}
+
+// Close the floating menu
+function closeMenu() {
+    document.getElementById('floating-menu').style.display = 'none';
+}
