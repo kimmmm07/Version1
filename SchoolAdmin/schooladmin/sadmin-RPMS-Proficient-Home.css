@@ -146,8 +146,9 @@ nav ul li a.active {
 }
 
 .logo img {
-    width: 90px; 
-    height: 50px; 
+    width: 90px; /* Adjust logo size */
+    height: auto;
+    margin-right: 10px;
     position: absolute;
     top: -8px; 
     left: px; 
