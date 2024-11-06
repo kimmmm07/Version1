@@ -108,11 +108,14 @@ td img {
     vertical-align: middle;
 }
 
+
+
 .status {
     color: green;
     font-weight: bold;
 }
 .button {
+    font-size: 14px;
     padding: 5px 15px;
     background-color: #082F96;
     color: white;
@@ -122,6 +125,12 @@ td img {
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
+    width: 50px !important;
+    margin-left: -10px;
+}
+
+.button a{
+    font-size: 10px;
 }
 .button:hover {
     background-color: #0056b3;
