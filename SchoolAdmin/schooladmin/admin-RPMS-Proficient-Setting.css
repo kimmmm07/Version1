@@ -1,0 +1,393 @@
+/* Universal styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body styling */
+body {
+    background-color: white; /* Set background to white */
+    padding: 20px;
+}
+/* Navbar styling */
+.navbar {
+    margin-top: -25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 10px 20px;
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    width: 90px; /* Adjust logo size */
+    height: auto;
+    margin-right: 10px;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin-left: auto; /* Aligns menu to the right */
+}
+
+.navbar-menu li {
+    margin-right: 15px; /* Space between buttons */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    font-size: 14px; /* Consistent font size for smaller buttons */
+    display: flex;
+    align-items: center; /* Center the icons and text vertically */
+    padding: 6px 10px; /* Consistent padding */
+}
+
+.nav-icon {
+    width: 20px;  /* Smaller icons */
+    height: 20px;
+    margin-right: 6px; /* Adjust icon spacing */
+    display: inline-block;
+}
+
+.logout-btn a {
+    text-decoration: none;
+    color: #d00000;
+    font-size: 14px; /* Font size for logout button */
+    font-weight: bold;
+    padding: 6px 10px; /* Padding for button size */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px; /* Spacing from other items */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.form {
+    color: white;
+    background-color: #d00000;
+    padding: 8px 16px;
+    border-radius: 40px;
+}
+
+.active {
+    font-weight: normal;
+}
+
+
+/* Sidebar styling */
+.sidebar {
+    width: 60px; /* Sidebar width */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: 10px; /* Space between top and bottom icons */
+    padding: 10px 0;
+    position: fixed;
+    top: 50px; /* Sidebar stays at the top */
+    left: 0;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);    
+}
+        
+/* Sidebar icon container */
+.sidebar-icon {
+    margin: 20px 0;
+    width: 30px;
+    height: 30px;
+}
+        
+/* Regular state for sidebar icons */
+.sidebar-icon img {
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+/* Active state for the sidebar icon */
+.sidebar-icon.active {
+    width: 100%;
+    background-color: rgba(93, 181, 230, 0.5); /* Light blue background color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 2px 18px; 
+}
+
+.sidebar-icon.active img {
+    filter: brightness(1.2); /* Slightly brighten the icon */
+}
+
+.sidebar-icon:hover img {
+    filter: brightness(1.1);
+    transform: scale(1.15);
+}
+
+/* Floating menu styles */
+.floating-menu {
+    display: none; /* Ensure the menu is displayed */
+    position: fixed;
+    top: 40px;
+    left: 0px;
+    width: 300px;
+    height: 1000px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    z-index: 1;
+  }
+  
+.menu-header {
+    display: flex;
+    justify-content: space-between; /* Space items evenly */
+    align-items: center;
+    padding: 10px;
+}
+  
+  /* Logo styles */
+.menu-header img {
+    width: 50px;
+    margin-right: 10px;
+}
+  
+  /* Close button styles */
+.close-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #333;
+    padding: 5px;
+    margin-left: 250px;
+    margin-top: 20px;
+}
+  
+.close-btn:hover {
+    color: red; /* Change color on hover for effect */
+}
+  
+.floating-menu ul {
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+}
+  
+.floating-menu li {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+  
+.floating-menu li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+  }
+  
+.floating-menu li img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  
+.floating-menu li:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Divider line between Setting and School Year */
+.menu-divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+  }
+  
+  /* Circle with "SY" inside */
+.sy-circle {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: lightskyblue;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+
+.settings-container {
+    width: 80%;
+    max-width: 1000px;
+    height: 700px;
+    background-color: white;
+    margin: 20px 0;
+    margin-left: 20%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin-left: 180px;
+}
+
+.breadcrumbs {
+    padding: 20px 10%;
+    color: black;
+    font-size: 26px;
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
+.breadcrumbs span {
+    margin-right: 5px;
+}
+
+.breadcrumbs a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+.settings-container h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+}
+
+.settings-container h3 {
+    font-size: 18px;
+    margin-left: 30px;
+}
+
+.section-title {
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.toggle label {
+    font-size: 15px;
+    margin-left: 30px;
+}
+
+.toggle input[type="checkbox"] {
+    position: relative;
+    width: 50px;
+    height: 25px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: #c6c6c6;
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.toggle input[type="checkbox"]:checked {
+    background: #4CAF50;
+}
+
+.toggle input[type="checkbox"]:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 21px;
+    height: 21px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.toggle input[type="checkbox"]:checked:before {
+    transform: translateX(25px);
+}
+
+@media (max-width: 768px) {
+    .settings-container {
+        width: 90%;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+}
+
+
+
+/* Modal styles */
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    border: #082F96;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content2 {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 150px;
+    border: 2px solid #082F96;
+}
+
+.modal-content2 p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: -20px;
+}
+
+.modal-buttons button {
+    width: 120px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.yes-btn {
+    background-color: #082F96;
+    color: white;
+    font-weight: 700;
+}
+
+.no-btn {
+    background-color: white;
+    color: #082F96;
+    border: 1px solid #082F96 !important;
+    font-weight: 700;
+} 

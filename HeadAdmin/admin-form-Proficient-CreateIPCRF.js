@@ -62,7 +62,7 @@ function createFolder() {
             <h3 class="category-label">${selectedYear} - IPCRF</h3>
             <a href="admin-form-Proficient-IPCRF-Parts.html" class="form-link">
                 <div class="form-item">
-                    <i class="fas fa-file-alt custom-icon"></i>
+                    <i class="fas fa-th-large custom-icon"></i>
                     IPCRF for Proficient Teacher
                 </div>
             </a>

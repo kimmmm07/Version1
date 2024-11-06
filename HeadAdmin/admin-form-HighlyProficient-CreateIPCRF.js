@@ -62,7 +62,7 @@ function createFolder() {
             
             <a href="admin-form-HighlyProficient-IPCRF-Parts.html" class="form-link">
                 <div class="form-item">
-                    <i class="fas fa-file-alt"></i>
+                    <i class="fas fa-th-large"></i>
                     IPCRF for Highly Proficient Teacher
                 </div>
             </a>
