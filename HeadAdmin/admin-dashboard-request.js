@@ -166,32 +166,33 @@ window.addEventListener('load', async function() {
         }
     });
 
-    document.getElementById("decline-btn").addEventListener('click', async function () {
-        const formData = new FormData();
+    // document.getElementById("decline-btn").addEventListener('click', async function () {
+    //     const formData = new FormData();
         
-        // Make sure to add data to formData before sending the request
-        formData.append('school_id', String(document.getElementById('modal-id').textContent));
+    //     // Make sure to add data to formData before sending the request
+    //     formData.append('school_id', String(document.getElementById('modal-id').textContent));
 
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/school/reject/', {
-            method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-            },
-            body: formData,
-            credentials: 'include',
-        });
+    //     const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/school/reject/', {
+    //         method: 'POST',
+    //         headers: {
+    //             'X-Requested-With': 'XMLHttpRequest',
+    //         },
+    //         body: formData,
+    //         credentials: 'include',
+    //     });
 
-        const data = await response.json();
+    //     const data = await response.json();
 
-        if (response.ok) {
-            console.log("Success Data: ", data);
-            alert("Request succeeded");
-            window.location.href = 'admin-dashboard-request.html';
-        } else {
-            console.log("Error Data: ", data);
-            alert("Request denied.");
-        }
-    });
+    //     if (response.ok) {
+    //         console.log("Success Data: ", data);
+    //         alert("Request succeeded");
+    //         window.location.href = 'admin-dashboard-request.html';
+    //     } else {
+    //         console.log("Error Data: ", data);
+    //         alert("Request denied.");
+    //     }
+        
+    // });
 
 
 });
