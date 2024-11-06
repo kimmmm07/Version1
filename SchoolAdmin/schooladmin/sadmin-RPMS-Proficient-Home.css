@@ -451,6 +451,10 @@ nav ul li a.active {
     border-radius: 50px;
     font-size: 15px;
     cursor: pointer;
+    height: 40px;
+    width: 145px;
+    align-items: center;
+    justify-items: center;
 }
 
 .create-folder-btn:hover {
