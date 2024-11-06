@@ -71,26 +71,31 @@ nav ul li img {
 nav ul li:nth-child(1) {
     left: 750px; 
     top: -7px;
+    font-size: 14px; /* Consistent font size for smaller buttons */
 }
 
 nav ul li:nth-child(2) {
     left: 850px; 
     top: -7px; 
+    font-size: 14px; /* Consistent font size for smaller buttons */
 }
 
 nav ul li:nth-child(3) {
     left: 970px; 
     top: -2px; 
+    font-size: 14px; /* Consistent font size for smaller buttons */
 }
 
 nav ul li:nth-child(4) {
     left: 1080px; 
     top: -7px;
+    font-size: 14px; /* Consistent font size for smaller buttons */
 }
 
 nav ul li:nth-child(5) {
     left: 1180px;
     top: -7px;
+    font-size: 14px; /* Consistent font size for smaller buttons */
 }
 
 
@@ -103,9 +108,14 @@ nav ul li:nth-child(6) {
 nav ul li:nth-child(6) a{
     left: 1150px;
     top: -6px; 
-    padding: 10px 20px;
+    padding: 6px 10px; /* Padding for button size */
     font-weight: bold;
     color: #C10001;
+    font-size: 14px; /* Font size for logout button */
+    display: flex;
+    align-items: center;
+    margin-left: 15px; /* Spacing from other items */
+    transition: color 0.3s; /* Smooth transition for color change */
 }
 
 nav ul li:nth-child(6) a:hover {
@@ -143,6 +153,8 @@ nav ul li a.active {
     display: flex; 
     align-items: center; 
     position: relative; 
+    padding: 8px 16px;
+    border-radius: 40px;
 }
 
 .logo img {
