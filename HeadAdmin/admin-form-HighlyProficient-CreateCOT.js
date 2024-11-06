@@ -1,7 +1,7 @@
 // // Function to close the modal
-// function closeModal() {
-//     document.getElementById('formModal').style.display = 'none';
-// }
+function closeModal() {
+    document.getElementById('formModal').style.display = 'none';
+}
 
 // // Function to open the modal
 // function openModal() {
