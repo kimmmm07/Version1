@@ -11,8 +11,8 @@ body {
     background-color: white; /* Set background to white */
     padding: 20px;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
+
+
 /* Header Background Styles */
 .header-background {
     width: 100%; 
@@ -22,12 +22,8 @@ body {
     z-index: 2; /* Higher than floating menu */
     top: 0;
     left: 0;
-}
+} 
 
-=======
->>>>>>> c8c188388021f852ea3a751dfcc3c77c88e17906
-=======
->>>>>>> a6c1570a76975b79425d26331bfc68154ad11333
 /* Header Styles */
 header {
     left: 0;
@@ -75,73 +71,38 @@ nav ul li img {
 }
 
 nav ul li:nth-child(1) {
-    left: 750px; 
+    left: 650px; 
     top: -7px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     font-size: 14px; /* Consistent font size for smaller buttons */
->>>>>>> c8c188388021f852ea3a751dfcc3c77c88e17906
-=======
-    font-size: 14px; /* Consistent font size for smaller buttons */
->>>>>>> a6c1570a76975b79425d26331bfc68154ad11333
 }
 
 nav ul li:nth-child(2) {
-    left: 850px; 
+    left: 750px; 
     top: -7px; 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     font-size: 14px; /* Consistent font size for smaller buttons */
->>>>>>> c8c188388021f852ea3a751dfcc3c77c88e17906
-=======
-    font-size: 14px; /* Consistent font size for smaller buttons */
->>>>>>> a6c1570a76975b79425d26331bfc68154ad11333
 }
 
 nav ul li:nth-child(3) {
-    left: 970px; 
+    left: 870px; 
     top: -2px; 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     font-size: 14px; /* Consistent font size for smaller buttons */
->>>>>>> c8c188388021f852ea3a751dfcc3c77c88e17906
-=======
-    font-size: 14px; /* Consistent font size for smaller buttons */
->>>>>>> a6c1570a76975b79425d26331bfc68154ad11333
 }
 
 nav ul li:nth-child(4) {
-    left: 1080px; 
+    left: 980px; 
     top: -7px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     font-size: 14px; /* Consistent font size for smaller buttons */
->>>>>>> c8c188388021f852ea3a751dfcc3c77c88e17906
-=======
-    font-size: 14px; /* Consistent font size for smaller buttons */
->>>>>>> a6c1570a76975b79425d26331bfc68154ad11333
 }
 
 nav ul li:nth-child(5) {
-    left: 1180px;
+    left: 1080px;
     top: -7px;
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     font-size: 14px; /* Consistent font size for smaller buttons */
->>>>>>> c8c188388021f852ea3a751dfcc3c77c88e17906
-=======
-    font-size: 14px; /* Consistent font size for smaller buttons */
->>>>>>> a6c1570a76975b79425d26331bfc68154ad11333
 }
 
 
 nav ul li:nth-child(6) {
-    left: 1280px; 
+    left: 1210px; 
     top: -7px; 
     margin-right: 20px; 
 }
@@ -149,19 +110,21 @@ nav ul li:nth-child(6) {
 nav ul li:nth-child(6) a{
     left: 1150px;
     top: -6px; 
-    padding: 10px 20px;
+    padding: 6px 10px; /* Padding for button size */
     font-weight: bold;
     color: #C10001;
+    font-size: 14px; /* Font size for logout button */
+    display: flex;
+    align-items: center;
+    margin-left: 15px; /* Spacing from other items */
+    transition: color 0.3s; /* Smooth transition for color change */
 }
 
 nav ul li:nth-child(6) a:hover {
     left: 1150px; 
     top: -3px;
     color: #A00000; 
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-
 nav ul li a {
     text-decoration: none;
     color: #333;
@@ -203,10 +166,6 @@ nav ul li a.active {
     z-index: 11; 
 }
 
-=======
-=======
->>>>>>> a6c1570a76975b79425d26331bfc68154ad11333
-}
 
 nav ul li a {
     text-decoration: none;
@@ -251,10 +210,6 @@ nav ul li a.active {
     z-index: 11; 
 }
 
-<<<<<<< HEAD
->>>>>>> c8c188388021f852ea3a751dfcc3c77c88e17906
-=======
->>>>>>> a6c1570a76975b79425d26331bfc68154ad11333
 /* Sidebar styling */
 .sidebar {
     width: 60px; /* Sidebar width */
