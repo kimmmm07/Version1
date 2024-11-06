@@ -92,7 +92,7 @@ body {
 /* Profile container */
 .profile-container {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 80px auto;
     padding: 20px;
     background-color: white;
     border-radius: 20px;
