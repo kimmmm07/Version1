@@ -38,15 +38,13 @@
                     <tr>
                         <th>Name</th>
                         <th>Position</th>
-                        <th>Subject</th>
                         <th>Grade Level</th>
-                        <th>Rater</th>
                         <th>Date</th>
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody id="teacherTableBody">
+                    <!-- <tr>
                         <td><img src="User_Circle.png" alt="User Icon" width="25"> Jessica Sanchez Ramirez</td>
                         <td>Teacher II</td>
                         <td>Science</td>
@@ -66,7 +64,7 @@
                         <td>David Patel</td>
                         <td></td>
                         <td><span class="status">Observed</span> | <a href="view_cot_form_t1-3.html">View</a></td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -174,5 +172,69 @@
     </div>
 
     <script src="cot_t1-3.js"></script>
+    <script>
+        // Define observeTeacher function in the global scope
+        function observeTeacher(teacher) {
+            // Handle the teacher data
+            console.log("Observing teacher:", teacher);
+            
+            // Example: Redirect to another page with query params
+            const url = new URL('evaluator_cot_form_proficient.html', window.location.origin);
+            url.searchParams.set('employee_id', teacher.employee_id);
+            window.location.href = url;
+        }
+
+        window.addEventListener('load', async function () {
+            try {
+                const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/teachers/', {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    console.log("Success Data: ", data);
+                    populateTable(data.teachers);
+                } else {
+                    console.log("Error Data: ", data);
+                }
+            } catch (error) {
+                console.error("Fetch Error:", error);
+            }
+        });
+
+        function populateTable(teachers) {
+            const tableBody = document.getElementById('teacherTableBody');
+            
+            teachers.forEach(teacher => {
+                const row = document.createElement('tr');
+
+                // Check if teacher is evaluated
+                if (!teacher.is_evaluated) {
+                    row.innerHTML = `
+                        <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.first_name} ${teacher.middle_name} ${teacher.last_name}</td>
+                        <td>${teacher.position}</td>
+                        <td>${teacher.grade_level}</td>
+                        <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
+                        <td>
+                            <a href="#" class="button" onclick='observeTeacher(${JSON.stringify(teacher)})'>Observe</a> | 
+                            <a href="#" class="disabled">View</a>
+                        </td>
+                    `;
+                } else {
+                    row.innerHTML = `
+                        <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.first_name} ${teacher.middle_name} ${teacher.last_name}</td>
+                        <td>${teacher.position}</td>
+                        <td>${teacher.grade_level}</td>
+                        <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
+                        <td><span class="status">Observed</span> | <a href="view_cot_form_t1-3.html">View</a></td>
+                    `;
+                }
+
+                // Append the row to the table body
+                tableBody.appendChild(row);
+            });
+        }
+    </script>
 </body>
 </html>

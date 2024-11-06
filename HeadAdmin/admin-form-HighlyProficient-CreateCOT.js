@@ -8,28 +8,48 @@ function openModal() {
     document.getElementById('formModal').style.display = 'flex';
 }
 
+
 // Event listeners
 document.getElementById('openModalBtn').addEventListener('click', openModal);
 document.getElementById('cancelBtn').addEventListener('click', closeModal);
 
-function createFolder() {
-    const selectedYear = document.getElementById('form2').value;
+async function createFolder() {
+    const selectedYear = String(document.getElementById('form2').value);
     if (selectedYear) {
-        const categoryContainer = document.getElementById('categoryContainer');
-        const newCategory = document.createElement('div');
-        newCategory.className = 'form-category';
-        newCategory.innerHTML = `
-            <div class="horizontal-background"></div>
-            <h3 class="category-label">${selectedYear}</h3>
+        const formData = new FormData();
+        formData.append('school_year', selectedYear);
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/school/evaluator/create/cot/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            body: formData,
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            console.log("Success Data: ", data);
+        } else {
+            console.log("Error Data: ", data);
+        }
+
+        // const categoryContainer = document.getElementById('categoryContainer');
+        // const newCategory = document.createElement('div');
+        // newCategory.className = 'form-category';
+        // newCategory.innerHTML = `
+        //     <div class="horizontal-background"></div>
+        //     <h3 class="category-label">${selectedYear}</h3>
             
-            <a href="admin-form-view-COT-HighlyProficient.html" class="form-link">
-                <div class="form-item">
-                    <i class="fas fa-file-alt"></i>
-                    Rating Sheet for Highly Proficient Teacher
-                </div>
-            </a>
-        `;
-        categoryContainer.insertAdjacentElement('afterbegin', newCategory);
+        //     <a href="admin-form-view-COT-HighlyProficient.html" class="form-link">
+        //         <div class="form-item">
+        //             <i class="fas fa-file-alt"></i>
+        //             Rating Sheet for Highly Proficient Teacher
+        //         </div>
+        //     </a>
+        // `;
+        // categoryContainer.insertAdjacentElement('afterbegin', newCategory);
         closeModal();
     } else {
         alert('Please select a school year.');
