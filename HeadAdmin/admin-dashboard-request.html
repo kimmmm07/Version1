@@ -92,6 +92,23 @@
         </div>
     </div>
 
+    <!-- New Decline Confirmation Modal -->
+    <div id="decline-modal-overlay" class="decline-modal-overlay">
+        <div class="decline-modal-content">
+            <span class="close-decline-button">&times;</span>
+            <label for="declineReason"><strong> Choose reason for declining:</strong></label>
+            <select class="selection" id="declineReason" onchange="handleSelection(this)">
+                <option value="" disabled selected>Select a reason</option>
+                <option value="Incorrect Information">Incorrect Information</option>
+                <option value="Not using authorize email">Not using authorize email</option>
+            </select>
+            <div class="decline-modal-actions">
+                <button class="confirm-decline-btn">Yes, Decline</button>
+                <button class="cancel-decline-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden">
@@ -105,6 +122,42 @@
     </div>
 
     <script src="admin-dashboard-request.js" type="module"></script>
+    <script>
+       // Get elements
+    const declineModalOverlay = document.getElementById('decline-modal-overlay');
+    const declineButton = document.querySelector('.decline-btn');
+    const closeDeclineButton = document.querySelector('.close-decline-button');
+    const cancelDeclineButton = document.querySelector('.cancel-decline-btn');
+    const confirmDeclineButton = document.querySelector('.confirm-decline-btn');
+
+    // Open decline confirmation modal
+    declineButton.addEventListener('click', () => {
+        declineModalOverlay.style.display = 'flex'; // Show the modal
+    });
+
+    // Close decline confirmation modal
+    closeDeclineButton.addEventListener('click', () => {
+        declineModalOverlay.style.display = 'none';
+    });
+
+    cancelDeclineButton.addEventListener('click', () => {
+        declineModalOverlay.style.display = 'none';
+    });
+
+    // Confirm decline action
+    confirmDeclineButton.addEventListener('click', () => {
+        declineModalOverlay.style.display = 'none';
+        // Add any additional actions for confirming decline here
+    });
+    </script>
+
+<script>
+    function handleSelection(selectElement) {
+      const selectedReason = selectElement.value;
+      // Additional handling logic can go here if needed
+      console.log("Selected reason:", selectedReason);
+    }
+  </script>
 </body>
 </html>
  
