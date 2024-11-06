@@ -34,6 +34,8 @@ yesButton.addEventListener('click', async function() {
         } else {
             console.log("Error Data : ", data);
         }
+
+        
     } catch (error) {
         console.error("Error during fetch:", error);
     }

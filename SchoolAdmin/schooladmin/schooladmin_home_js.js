@@ -63,6 +63,24 @@ window.addEventListener('load', async function () {
         console.log("Error Data : ",data);
     }
      
+    const formData = new FormData();
+    formData.append('action_id', 'e9a7fdea-c6d0-40d8-8324-47aa18c60074')
+    const response1 = await fetch('https://bnahs.pythonanywhere.com/api/user/get/owner/action_id/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            body: formData,
+            credentials: 'include',
+        });
+
+        const data1 = await response1.json();
+        if (response1.ok) {
+            console.log("Success Data : ", data1); 
+        } else {
+            console.log("Error Data : ", data1);
+        }
 });
 
 // // Get the announcement and mention buttons
