@@ -174,14 +174,11 @@
     <script src="cot_t1-3.js"></script>
     <script>
         // Define observeTeacher function in the global scope
-        function observeTeacher(teacher) {
+        function observeTeacher() {
             // Handle the teacher data
             console.log("Observing teacher:", teacher);
             
-            // Example: Redirect to another page with query params
-            const url = new URL('evaluator_cot_form_proficient.html', window.location.origin);
-            url.searchParams.set('employee_id', teacher.employee_id);
-            window.location.href = url;
+            window.location.href = 'evaluator_cot_form_proficient.html';
         }
 
         window.addEventListener('load', async function () {
@@ -217,7 +214,7 @@
                         <td>${teacher.grade_level}</td>
                         <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
                         <td>
-                            <a href="#" class="button" onclick='observeTeacher(${JSON.stringify(teacher)})'>Observe</a> | 
+                            <a href="evaluator_cot_form_proficient.html" class="button">Observe</a> | 
                             <a href="#" class="disabled">View</a>
                         </td>
                     `;
