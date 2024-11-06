@@ -38,20 +38,20 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
- 
+
 
 
 // Function to open modal
 function openModal() {
-    document.getElementById('formModal').classList.add('show');
+    document.getElementById('formModal').style.display = 'flex';
 }
 
+// Function to close modal
 function closeModal() {
-    document.getElementById('formModal').classList.remove('show');
+    document.getElementById('formModal').style.display = 'none';
     form1.value = ''; // Reset input fields
     form2.selectedIndex = 0; // Reset dropdown
 }
-
 
 // Hide modal initially when forms are displayed
 document.addEventListener("DOMContentLoaded", closeModal);
@@ -80,7 +80,7 @@ const colorPairs = [
     { background: "#1ABC9C", text: "#FFFFFF" },
     { background: "#34495E", text: "#FFFFFF" },
     { background: "#E67E22", text: "#FFFFFF" },
-    { background: "#16A085", text: "#FFFFFF" },
+    { background: "#16A085", text: "#FFFFFF" }, 
     { background: "#8E44AD", text: "#FFFFFF" },
     { background: "#2980B9", text: "#FFFFFF" },
     { background: "#D35400", text: "#FFFFFF" },
@@ -177,7 +177,7 @@ createBtn.addEventListener('click', () => {
 
         // Create new folder card
         const newCard = document.createElement('a');
-        newCard.href = "admin-RPMS-HighlyProficient-Landing.html"; // Redirect to this page when clicked
+        newCard.href = "sadmin-RPMS-Proficient-Landing.html"; // Redirect to this page when clicked
         newCard.classList.add('card-link');
 
         newCard.innerHTML = `
@@ -248,3 +248,4 @@ function toggleFloatingMenu() {
 function closeMenu() {
     document.getElementById('floating-menu').style.display = 'none';
 }
+ 
