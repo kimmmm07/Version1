@@ -40,7 +40,7 @@
 
         <!-- New Table Section (KRA Breakdown and Recommendations) -->
         <div class="teacher-summary">
-            <h2>"Name"</h2>
+            <h2 id="name-id"></h2>
             <select>
                 <option>A.Y. 2023 - 2024</option>
                 <!-- Additional options can go here -->
@@ -217,6 +217,31 @@
     } catch (error) {
         console.error("Error during fetch:", error);
     }
+
+
+});
+
+window.addEventListener('load', async function () {
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/profile/',
+        {
+            method: 'GET',
+            credentials: 'include'
+        }
+    );
+    
+    const data = await response.json();
+    if (response.ok) {
+        console.log("Success Data : ",data);
+        const teacherData = data.user;
+
+        // Populate the profile details
+        document.getElementById('name-id').textContent = `${teacherData.first_name} ${teacherData.middle_name} ${teacherData.last_name}`;
+
+
+    } else {
+        console.log("Error Data : ",data);
+    }
+      
 });
         </script>
 </body>
