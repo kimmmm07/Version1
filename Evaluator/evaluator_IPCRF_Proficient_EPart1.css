@@ -266,6 +266,21 @@ label {
     margin-right: -580px;
 }
 
+/* Adjectival Rating */
+.rating {
+    font-size: 35px;
+    margin-bottom: 23px;
+}
+
+/* Flexbox to align score and rating side by side */
+.score-rating {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    
+}
+
 
 /* Button styling */
 .buttons-container {
