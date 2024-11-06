@@ -44,6 +44,8 @@ yesButton.addEventListener('click', async function() {
     } else {
         console.log("Error Data : ",data);
     }
-    
-    
 });
+
+// window.addEventListener('load', async function () {
+    
+// });
