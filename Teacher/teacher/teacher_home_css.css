@@ -97,6 +97,7 @@ body {
 
 /* Feed Section */ 
 .feed-section {
+    margin: 50px auto;
     width: 68%;
     overflow-y: auto; /* Make the feed section scrollable */
     padding: 20px;
@@ -302,6 +303,7 @@ body {
 
 /* Notification Section */
 .notification-section {
+    margin-top: 50px;
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
