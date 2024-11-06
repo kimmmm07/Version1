@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Performance Evaluation System</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="admin-RPMS-Proficient-Home.css">
+    <link rel="stylesheet" href="sadmin-RPMS-Proficient-Home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -17,10 +17,10 @@
         </div>
         
         <div class="sidebar-icon active">
-            <a href="admin-RPMS-HighlyProficient-Home.html"><img src="assets\Home.png" alt="Home Icon" /></a>
+            <a href="sadmin-RPMS-Proficient-Home.html"><img src="assets\Home.png" alt="Home Icon" /></a>
         </div>
         <div class="sidebar-icon">
-            <a href="admin-RPMS-HighlyProficient-Setting.html"><img src="assets\Settings.png" alt="Settings Icon" /></a>
+            <a href="sadmin-RPMS-Proficient-Setting.html"><img src="assets\Settings.png" alt="Settings Icon" /></a>
         </div>
     </div>
 
@@ -32,32 +32,29 @@
                 <button class="close-btn" onclick="closeMenu()">✖</button>
             </div>
             <ul>
-            <li><a href="admin-RPMS-HighlyProficient-Home.html"><img src="assets\Home.png" alt="Home Icon"/> Home</a></li>
-            <li><a href="admin-RPMS-HighlyProficient-Setting.html"><img src="assets\Settings.png" alt="Settings Icon"/> Setting</a></li>
+            <li><a href="sadmin-RPMS-Proficient-Home.html"><img src="assets\Home.png" alt="Home Icon"/> Home</a></li>
+            <li><a href="sadmin-RPMS-Proficient-Setting.html"><img src="assets\Settings.png" alt="Settings Icon"/> Setting</a></li>
             <!-- Horizontal line between Setting and School Year -->
             <hr class="menu-divider">
-            <li><a href="admin-RPMS-HighlyProficient-Landing.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
+            <li><a href="sadmin-RPMS-Proficient-Landing.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
             </ul>
         </div>
     
-        <div class="header-background"></div>
-        <nav class="navbar">
-            <div class="navbar-logo">
-                <img src="assets/image 6.png" alt="DepED Logo" />
-            </div>
-            <ul class="navbar-menu">
-                <li><a href="schooladmin_home.html" class="nav-link home"><img src="assets/House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
-                <li><a href="faculty.html" class="nav-link faculty "><img src="assets/Users_Group1.png" alt="Faculty Icon" class="nav-icon"> Faculty</a></li>
-                <li><a href="sadmin_form.html" class="nav-link form active"><img src="assets/File_Document.png" alt="Faculty Icon" class="nav-icon"> Form</a></li>
-                <li><a href="results.html" class="nav-link"><img src="assets/Check Document.png" alt="Results Icon" class="nav-icon"> Results</a></li>
-                <li><a href="records.html" class="nav-link"><img src="assets/Folders1.png" alt="Records Icon" class="nav-icon"> Records</a></li>
-                <li id="logoutLink" class="logout-btn">
-                    <a href="../../index.html">
-                        <img src="assets/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="assets/image 6.png" alt="DepEd Logo">
+                </div>
+                <ul>
+                    <li><a href="schooladmin_home.html"><img src="assets/House_01.png"> Home</a></li>
+                    <li><a href="faculty.html"><img src="assets/Users_Group1.png"> Faculty</a></li>
+                    <li><a href="sadmin_form.html" id="form-nav" class="active"><img src="assets/File_Document.png"> Form</a></li>
+                    <li><a href="results.html" id="request-nav"><img src="assets/Check Document.png"> Results</a></li>
+                    <li><a href="records.html" id="records"><img src="assets/Folders1.png"> Records</a></li>
+                    <li><a href="#" id="logout-nav"><img src="assets/Log_Out.png"> Logout</a></li>
+                </ul>
+            </nav>
+        </header>
 
     <section class="cards-section">
         <!-- Dynamic cards will be inserted here -->
@@ -72,7 +69,7 @@
             <h2>Create Folder</h2>
             <ul class="form-options">
                 <li><input type="text" id="form1" placeholder="Folder Name (required)"></li>
-                <li>
+                <li> 
                     <select id="form2">
                         <option value="" disabled selected>Select School Year</option>
                         <option value="School Year 2023-2024">School Year 2023-2024</option>
@@ -103,7 +100,7 @@
         </div>
     </div>
 
-    <script src="admin-RPMS-Proficient-Home.js"></script>
+    <script src="sadmin-RPMS-Proficient-Home.js"></script>
 
 </body>
 </html>
