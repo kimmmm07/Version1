@@ -69,48 +69,58 @@ nav ul li img {
 }
 
 nav ul li:nth-child(1) {
-    left: 600px; 
-    top: -5px;
+    left: 650px; 
+    top: -7px;
+    font-size: 14px; /* Consistent font size for smaller buttons */
 }
 
 nav ul li:nth-child(2) {
-    left: 700px; 
-    top: -5px; 
+    left: 750px; 
+    top: -7px; 
+    font-size: 14px; /* Consistent font size for smaller buttons */
 }
 
 nav ul li:nth-child(3) {
-    left: 820px; 
+    left: 870px; 
     top: -2px; 
+    font-size: 14px; /* Consistent font size for smaller buttons */
 }
 
 nav ul li:nth-child(4) {
-    left: 920px; 
-    top: -5px;
+    left: 980px; 
+    top: -7px;
+    font-size: 14px; /* Consistent font size for smaller buttons */
 }
 
 nav ul li:nth-child(5) {
-    left: 1020px;
-    top: -5px;
+    left: 1080px;
+    top: -7px;
+    font-size: 14px; /* Consistent font size for smaller buttons */
 }
 
 
 nav ul li:nth-child(6) {
-    left: 1130px; 
-    top: -5px; 
+    left: 1210px; 
+    top: -7px; 
     margin-right: 20px; 
 }
 
 nav ul li:nth-child(6) a{
     left: 1150px;
-    top: -5px; 
-    padding: 10px 20px;
+    top: -6px; 
+    padding: 6px 10px; /* Padding for button size */
     font-weight: bold;
     color: #C10001;
+    font-size: 14px; /* Font size for logout button */
+    display: flex;
+    align-items: center;
+    margin-left: 15px; /* Spacing from other items */
+    transition: color 0.3s; /* Smooth transition for color change */
 }
 
 nav ul li:nth-child(6) a:hover {
     left: 1150px; 
-    top: -2px;
+    top: -3px;
     color: #A00000; 
 }
 
@@ -136,18 +146,21 @@ nav ul li a i {
 
 nav ul li a.active {
     width: 100px;
-    height: 26px;
-    top: 3px;
+    height: 35px;
+    top: -3px;
     background-color: #C10001; 
     color: #fff;
     display: flex; 
     align-items: center; 
     position: relative; 
+    padding: 8px 16px;
+    border-radius: 40px;
 }
 
 .logo img {
-    width: 90px; 
-    height: 50px; 
+    width: 90px; /* Adjust logo size */
+    height: auto;
+    margin-right: 10px;
     position: absolute;
     top: -8px; 
     left: px; 
