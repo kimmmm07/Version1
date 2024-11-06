@@ -434,6 +434,10 @@ body {
     border-bottom: 1px solid #BFBDBC;
 }
 
+.modal.show {
+    display: flex;
+}
+
 
 
 .form-options li input {

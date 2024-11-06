@@ -43,15 +43,15 @@ yesButton.addEventListener('click', async function() {
 
 // Function to open modal
 function openModal() {
-    document.getElementById('formModal').style.display = 'flex';
+    document.getElementById('formModal').classList.add('show');
 }
 
-// Function to close modal
 function closeModal() {
-    document.getElementById('formModal').style.display = 'none';
+    document.getElementById('formModal').classList.remove('show');
     form1.value = ''; // Reset input fields
     form2.selectedIndex = 0; // Reset dropdown
 }
+
 
 // Hide modal initially when forms are displayed
 document.addEventListener("DOMContentLoaded", closeModal);
