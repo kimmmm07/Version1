@@ -461,6 +461,11 @@ body {
     color: #555;
 }
 
+#form1{
+    width: 460px;
+    height: 43px;
+}
+
 /* Center the Done button */
 .button-container {
     display: flex;
