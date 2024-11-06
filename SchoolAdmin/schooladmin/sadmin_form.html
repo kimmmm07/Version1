@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Performance Evaluation System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sadmin_form.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="header-background"></div>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="assets/image 6.png" alt="DepED Logo" />
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="schooladmin_home.html" class="nav-link home"><img src="assets/House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
+            <li><a href="faculty.html" class="nav-link faculty "><img src="assets/Users_Group1.png" alt="Faculty Icon" class="nav-icon"> Faculty</a></li>
+            <li><a href="sadmin_form.html" class="nav-link form active"><img src="assets/File_Document.png" alt="Faculty Icon" class="nav-icon"> Form</a></li>
+            <li><a href="results.html" class="nav-link"><img src="assets/Check Document.png" alt="Results Icon" class="nav-icon"> Results</a></li>
+            <li><a href="records.html" class="nav-link"><img src="assets/Folders1.png" alt="Records Icon" class="nav-icon"> Records</a></li>
+            <li id="logoutLink" class="logout-btn">
+                <a href="../../index.html">
+                    <img src="assets/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout
+                </a>
+            </li>
+        </ul>
+    </nav>
+    
+    <main>
+        <section class="dashboard-content">
+            <h1>Forms</h1>
+    
+            <div class="status-titles">
+                <h2 id="all-status" class="active" onclick="setActiveTab('all')">All</h2>
+            </div>
+            
+            <div class="horizontal-line"></div>
+            
+            <!-- Dropdown for selecting school year -->
+            <!-- <div class="dropdown-container">
+                <label for="school-year-select"></label>
+                <select id="school-year-select">
+                    <option value="" disabled selected>Select School Year</option>
+                    <option value="School Year 2023-2024">School Year 2023-2024</option>
+                    <option value="School Year 2024-2025">School Year 2024-2025</option>
+                    <option value="School Year 2025-2026">School Year 2025-2026</option>
+                    <option value="School Year 2026-2027">School Year 2026-2027</option>
+                    <option value="School Year 2027-2028">School Year 2027-2028</option>
+                    <option value="School Year 2028-2029">School Year 2028-2029</option>
+                    <option value="School Year 2029-2030">School Year 2029-2030</option>
+                </select>
+            </div> -->
+            
+            <!-- Form Categories -->
+
+            <div class="form-category">
+                <div class="horizontal-background"></div>
+                <h3 class="category-label">Results-Based Performance Management System</h3>
+                <div class="form-item">
+                    <i class="fas fa-folder custom-icon"></i>
+                    <a href="admin-RPMS-Proficient-Home.html" class="form-link">RPMS for Proficient Teacher</a>
+                </div>
+                <div class="form-item">
+                    <i class="fas fa-folder"></i>
+                    <a href="admin-RPMS-HighlyProficient-Home.html" class="form-link">RPMS for Highly Proficient Teacher</a>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden">
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+    
+
+<script src="sadmin_form.js" type="module"></script>
+
+</body>
+</html>
