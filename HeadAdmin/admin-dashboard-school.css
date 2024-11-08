@@ -234,7 +234,28 @@ nav ul li a.active {
     gap: 40px;
     margin-top: 25px; 
     margin-left: 40px;
+    gap: 40px;
     justify-content: flex-start;
+}
+
+/* Style for the School Row */
+.school-row {
+    display: flex;
+    align-items: center;
+}
+
+/* School Column Styling */
+.school-column {
+    padding: 10px;
+    flex: 1;
+}
+
+/* School Logo and Name Container */
+.school-column.school {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 50px;
 }
 
 .school-logo-container img {
@@ -242,14 +263,18 @@ nav ul li a.active {
     height: auto;
 }
 
+/* School Name Styling with Overflow Handling */
 .school-name {
-    font-size: 10px; 
-    color: #333; 
-    text-align: center; /* Center align under logos */
+    font-size: 10px;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
     margin-top: 5px; 
-    font-weight: bold; 
+    overflow-wrap: break-word;
+    max-width: 100px;           
 }
 
+/* 
 .school-name1 {
     font-size: 9px; 
     color: #333;
@@ -257,7 +282,7 @@ nav ul li a.active {
     margin-left: 25px;
     margin-top: -10px;
     font-weight: bold;
-}
+} */
 
 
 
