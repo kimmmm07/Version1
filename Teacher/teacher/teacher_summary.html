@@ -57,13 +57,23 @@
                 <canvas id="recommendationChart"></canvas>
             </div>
             <!-- Performance Line Chart -->
-            <div class="performance">
-                <h2>Performance through years</h2>
-                <canvas id="performanceChart"></canvas>
-            </div>
-            <!-- SWOT Analysis -->
             <div class="swot-analysis">
                 <h2>S.W.O.T. Analysis Result</h2>
+                <div id="swot-content">
+                    <h3>Strengths</h3>
+                    <p id="strengths"></p>
+                    <br>
+                    <h3>Weakness</h3>
+                    <p id="weakness"></p>
+                    <br>
+                    <h3>Opportunities</h3>
+                    <p id="opportunities"></p>
+                    <br>
+                    <h3>Threats</h3>
+                    <p id="threats"></p>
+                </div>
+            </div>
+
             </div>
         </div>
         
@@ -82,10 +92,39 @@
 
     <script> 
         // Modal logic
-        const logoutButton = document.getElementById('logoutLink');  // Logout button
-        const logoutModal = document.getElementById('logoutModal');
-        const yesButton = document.querySelector('.yes-btn');
-        const noButton = document.querySelector('.no-btn');
+        const swotData = {
+        'jessica': {
+            strengths: "Strong content knowledge across curriculum areas and uses multiple languages effectively. Promotes respect.",
+            weakness: "Needs to improve in fostering critical thinking and numeracy achievement.",
+            opportunities: "Professional development in literacy, numeracy, and cultural sensitivity.",
+            threats: "Meeting the diverse needs of students and addressing pressures for critical thinking."
+        },
+        'john': {
+            strengths: "Excellent rapport with students, manages classroom discipline well.",
+            weakness: "Lacks in utilizing technological tools for enhanced learning.",
+            opportunities: "Technological upskilling and participation in global educational seminars.",
+            threats: "Keeping up with fast-paced technological changes in the education system."
+        },
+        'maria': {
+            strengths: "Creative teaching methods and active community engagement.",
+            weakness: "Needs improvement in time management and setting clear objectives.",
+            opportunities: "Leadership training and collaboration with international teaching networks.",
+            threats: "Balancing personal development with teaching responsibilities."
+        }
+    };
+
+
+    const swot = swotData['john'];
+
+    document.getElementById('strengths').textContent = swot.strengths;
+    document.getElementById('weakness').textContent = swot.weakness;
+    document.getElementById('opportunities').textContent = swot.opportunities;
+    document.getElementById('threats').textContent = swot.threats;
+
+    const logoutButton = document.getElementById('logoutLink');  // Logout button
+    const logoutModal = document.getElementById('logoutModal');
+    const yesButton = document.querySelector('.yes-btn');
+    const noButton = document.querySelector('.no-btn');
         
         // Show modal when logout is clicked
         logoutButton.addEventListener('click', function(event) {
