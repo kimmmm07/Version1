@@ -182,6 +182,14 @@ hr {
     margin-left: 50px; 
 }
 
+.rating-answered {
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    margin-top: 10px;
+    margin-left: 50px; 
+}
+
 .plus-factor-objective {
     margin-left: 35px; 
 }
@@ -198,7 +206,30 @@ hr {
     justify-content: space-between; 
 }
 
+.rating-answered label {
+    display: flex; 
+    text-align: left;
+    align-items: center; 
+    justify-content: space-between; 
+}
+
+
+
 .rating-options div {
+    width: 850px; 
+    background-color: white; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    margin-left: -60px;
+    transition: background-color 0.3s; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+}
+
+.rating-answered div {
     width: 850px; 
     background-color: white; 
     border: 1px solid #ccc; 
@@ -216,6 +247,10 @@ hr {
     background-color: #e1f5fe; 
 }
 
+.rating-answered div:hover {
+    background-color: #e1f5fe; 
+}
+
 label {
     font-size: 13px;
     display: flex; 
@@ -224,6 +259,11 @@ label {
 
 /* Ensure all radio buttons are aligned */
 .rating-options input[type="radio"] {
+    margin-right: 10px; 
+    vertical-align: middle; 
+}
+
+.rating-answered input[type="radio"] {
     margin-right: 10px; 
     vertical-align: middle; 
 }
