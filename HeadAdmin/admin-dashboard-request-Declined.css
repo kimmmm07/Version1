@@ -242,11 +242,11 @@ nav ul li a.active {
 /* School Row Styles */
 .school-row {
     display: flex;
-    padding: 10px;
+    padding: 10px 0;
     border-bottom: 1px solid #BFBDBC; 
     font-size: 14px;
     color: #333;
-    align-items: center;
+    align-items: left;
 }
 
 /* School Row Wrapper Styles */
@@ -270,8 +270,18 @@ nav ul li a.active {
 }
 
 /* Adjustments for School Column to Handle Longer Names */
+.school-column.name {
+    flex: 1.6; 
+}
+
+/* Adjustments for School Column to Handle Longer Names */
 .school-column.school {
     flex: 2; 
+}
+
+/* Adjustments for School Column to Handle Longer Names */
+.school-column.reason {
+    flex: 2.5; 
 }
 
 /* Action Column Styles */
@@ -302,86 +312,6 @@ nav ul li a.active {
     .school-column {
         padding: 10px 5px;
     }
-}
-
-
-/* Modal Overlay */
-.modal-overlay {
-    display: none; /* Hidden by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 20;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Modal Content */
-.modal-content {
-    background-color: #fff;
-    padding: 20px 3%;
-    border-radius: 10px;
-    width: 600px;
-    position: relative;
-    text-align: flex-start;
-}
-
-.school-logo {
-    width: 100px;
-    margin-bottom: 20px;
-    display: block;
-    text-align: center;
-}
-
-.modal-content p {
-    border-bottom: 1px solid gray;
-}
-
-.school-logo {
-    text-align: center;
-}
-
-/* Close Button */
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-/* School Logo */
-.school-logo {
-    width: 100px;
-    margin-bottom: 20px;
-}
-
-/* Modal Actions */
-.modal-actions {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.accept-btn, .decline-btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.accept-btn {
-    background-color: green;
-    color: white;
-}
-
-.decline-btn {
-    background-color: red;
-    color: white;
 }
 
 
