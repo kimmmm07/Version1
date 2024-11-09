@@ -67,7 +67,6 @@ window.addEventListener('load', async function () {
                      <div class="school-column">${school.school_id}</div>
                      <div class="school-column status">Declined</div>
                      <div class="school-column status"></div>
-                     <div class="school-column reason">${school.reason}</div>
                  `;
                  schoolRowWrapper.appendChild(row);
              }
