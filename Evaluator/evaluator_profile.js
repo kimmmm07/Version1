@@ -7,18 +7,6 @@ function previewImage(event) {
     };
     reader.readAsDataURL(file);
 }
-// JavaScript to toggle overlay visibility
-document.getElementById("edit-education").addEventListener("click", function() {
-    document.getElementById("education-overlay").style.display = "flex";
-});
-
-document.getElementById("close-overlay").addEventListener("click", function() {
-    document.getElementById("education-overlay").style.display = "none";
-});
-
-document.getElementById("cancel-overlay").addEventListener("click", function() {
-    document.getElementById("education-overlay").style.display = "none";
-});
 
 window.addEventListener('load', async function () {
     const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/profile/',
