@@ -259,7 +259,8 @@ h1 {
     flex-direction: column;
     justify-content: center; /* Center-align labels vertically with the chart */
     text-align: left;
-    margin-top: 40px;
+    margin-left: 180px; /* Space between chart and labels */
+    margin-top: -130px;
 }
 
 /* Make the bullet color and size match the chart's color */
@@ -300,7 +301,6 @@ h1 {
 .tenure-labels li:nth-child(3)::before {
     background-color: #ff6384;  /* Color for Termination */
 }
-
 
 .performance {
     grid-column: 1 / 3;

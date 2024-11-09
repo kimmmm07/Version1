@@ -99,7 +99,7 @@ const ctx3 = document.getElementById('tenureChart').getContext('2d');
 const tenureChart = new Chart(ctx3, {
     type: 'doughnut',
     data: {
-        labels: ['0-3 years', '3-5 years', '5+ years'],
+        labels: ['0-3 years', '5+ years', '3-5 years'],
         datasets: [{
             label: 'Tenure',
             data: [39.11, 28.03, 23.13],
