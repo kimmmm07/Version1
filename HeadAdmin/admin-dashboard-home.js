@@ -79,19 +79,34 @@ new Chart(distributionChartCtx, {
 });
 
 // Recommendations Chart
-const recommendationCtx = document.getElementById('recommendationChart').getContext('2d');
-new Chart(recommendationCtx, {
+// Recommendation Pie Chart
+var ctxRecommendation = document.getElementById('recommendationChart').getContext('2d');
+var recommendationChart = new Chart(ctxRecommendation, {
     type: 'pie',
     data: {
         labels: ['Promotion', 'Termination', 'Retention'],
         datasets: [{
-            data: [39.11, 28.06, 23.13],
-            backgroundColor: ['#6a41fc', '#ff6384', '#36a2eb'],
+            data: [39.11, 28.02, 23.13],
+            backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56'],
+            borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)', 'rgba(255, 206, 86, 1)'],
+            borderWidth: 1
         }]
     },
     options: {
+        plugins: {
+            legend: {
+                display: false // Hides the default legend
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return context.label + ': ' + context.raw + '%'; // Adds percentage in tooltip
+                    }
+                }
+            }
+        },
         responsive: true,
-        maintainAspectRatio: false,
+        maintainAspectRatio: true, // Ensures the pie chart keeps its size ratio
     }
 });
 
