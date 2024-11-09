@@ -98,23 +98,30 @@
         <div class="decline-modal-content">
             <span class="close-decline-button">&times;</span>
             <form action="">
-                <label for="declineReason"><strong> Choose reason for declining:</strong></label>
+                <label for="declineReason"><strong>Choose reason for declining:</strong></label>
                 <select class="selection" id="declineReason" onchange="handleSelection(this)">
                     <option value="" disabled selected>Select a reason</option>
                     <option value="Incorrect Information">Incorrect Information</option>
                     <option value="Not using authorize email">Not using authorize email</option>
                     <option value="Not associated with DepEd">Not associated with DepEd</option>
                     <option value="The school already exists">The school already exists</option>
+                    <option value="Other">Other</option>
                 </select>
+    
+                <!-- Text area for 'Other' option -->
+                <div id="otherTextContainer" style="display: none; margin-top: 10px;">
+                    <label for="otherText"><strong>Specify your reason:</strong></label>
+                    <textarea id="otherText" rows="3" placeholder="Enter your reason here..." style="width: 100%;"></textarea>
+                </div>
+    
                 <div class="decline-modal-actions">
-                    <button class="cancel-decline-btn">Cancel</button>
-                    <button id="confirm-decline-btn" class="confirm-decline-btn">Yes, Decline</button>
-                    
+                    <button type="button" class="cancel-decline-btn">Cancel</button>
+                    <button type="submit" id="confirm-decline-btn" class="confirm-decline-btn">Yes, Decline</button>
                 </div>
             </form>
-            
         </div>
     </div>
+    
 
 
     <!-- Logout Confirmation Modal -->
@@ -192,11 +199,21 @@
 
 <script>
     function handleSelection(selectElement) {
-      const selectedReason = selectElement.value;
-      // Additional handling logic can go here if needed
-      console.log("Selected reason:", selectedReason);
+        const selectedReason = selectElement.value;
+        const otherTextContainer = document.getElementById("otherTextContainer");
+
+        // Show the text area if "Other" is selected, hide it otherwise
+        if (selectedReason === "Other") {
+            otherTextContainer.style.display = "block";
+        } else {
+            otherTextContainer.style.display = "none";
+        }
+
+        // Log the selected reason for debugging purposes
+        console.log("Selected reason:", selectedReason);
     }
-  </script>
+</script>
+
 </body>
 </html>
  
