@@ -268,30 +268,38 @@ label {
     vertical-align: middle; 
 }
 
+/* Container for both ratings */
+.ratings-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    width: fit-content; /* Adjust to fit the content */
+    margin: 40px; /* Center the container */
+    padding: 50px 0;
+}
+
+/* Styling for each adjectival rating box */
 .average-score-container {
-    background-color: #ffffff; 
-    border: 2px solid lightgrey; 
+    background-color: #ffffff;
+    border: 2px solid lightgrey;
     border-radius: 0;
-    padding: 0; 
-    text-align: center; 
-    width: 850px; 
+    width: 400px; /* Set a fixed width to avoid stretching */
     height: 170px;
-    margin-left: 25px;
-    margin-bottom: 70px;
-    margin-top: 50px;
+    padding: 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Header for the rating sections */
 .average-score-header {
-    background-color: #28a745; 
+    background-color: #28a745;
     color: white;
-    font-size: 14px; 
-    margin: 0; 
-    font-weight: bold; 
+    font-size: 14px;
+    font-weight: bold;
     height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
     text-align: left;
-    line-height: 12px;
-    padding: 10px; 
 }
 
 .average-score {
@@ -301,62 +309,9 @@ label {
     border: none;
     font-size: 35px; 
     border-radius: 5px;
-    background-color: #ffffff; 
+
     margin-top: 10px; 
     margin-right: -580px;
-}
-
-.average-score-container-teacher {
-    background-color: #ffffff; 
-    border: 2px solid lightgrey; 
-    border-radius: 0;
-    padding: 0; 
-    text-align: center; 
-    width: 850px; 
-    height: 170px;
-    margin-left: 25px;
-    margin-bottom: 70px;
-    margin-top: 50px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.average-score-header-teacher {
-    background-color: #28a745; 
-    color: white;
-    font-size: 14px; 
-    margin: 0; 
-    font-weight: bold; 
-    height: 30px;
-    text-align: left;
-    line-height: 12px;
-    padding: 10px; 
-}
-
-.average-score-teacher {
-    width: 697px;
-    height: 105px;
-    padding: 10px;
-    border: none;
-    font-size: 35px; 
-    border-radius: 5px;
-    background-color: #ffffff; 
-    margin-top: 10px; 
-    margin-right: -580px;
-}
-
-/* Adjectival Rating */
-.rating-teacher {
-    font-size: 35px;
-    margin-bottom: 23px;
-}
-
-/* Flexbox to align score and rating side by side */
-.score-rating-teacher {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 10px;
-    
 }
 
 /* Adjectival Rating */
@@ -373,7 +328,6 @@ label {
     margin-top: 10px;
     
 }
-
 
 /* Button styling */
 .buttons-container {
