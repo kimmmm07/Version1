@@ -76,8 +76,13 @@ nav a.active {
     margin-left: auto;
     margin-right: auto; 
     margin-bottom: 60px; 
-    margin-top: 100px; 
+    margin-top: 50px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wform {
+    margin-top: 100px;
+    margin-left: -7.4%;
 }
 
 h1 {
@@ -277,6 +282,29 @@ label {
     width: fit-content; /* Adjust to fit the content */
     margin: 40px; /* Center the container */
     padding: 50px 0;
+}
+
+/* Styling for each adjectival rating box */
+.TAverage-score-container {
+    background-color: #ffffff;
+    border: 2px solid lightgrey;
+    border-radius: 0;
+    width: 400px; /* Set a fixed width to avoid stretching */
+    height: 170px;
+    padding: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Header for the rating sections */
+.TAverage-score-header {
+    background-color: rgb(146, 146, 146);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px;
+    text-align: left;
 }
 
 /* Styling for each adjectival rating box */
