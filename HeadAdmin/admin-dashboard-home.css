@@ -328,10 +328,64 @@ nav ul li a.active {
     margin-top: -50px;
 }
 
+.tenure-content {
+    display: flex;
+    align-items: center; /* Vertically centers the chart and labels */
+}
+
 #tenureChart {
-    width: 330px !important;
-    height: 170px !important; 
-    margin-top: 10px;
+    max-width: 150px;
+    max-height: 150px;
+    margin-right: 20px; /* Space between chart and labels */
+    margin-top: 20px;
+}
+
+.tenure-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center-align labels vertically with the chart */
+    text-align: left;
+    margin-left: 180px; /* Space between chart and labels */
+    margin-top: -120px;
+}
+
+/* Make the bullet color and size match the chart's color */
+.tenure-labels ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+}
+
+.tenure-labels li {
+    position: relative; /* For absolute positioning of custom bullet */
+    font-size: 14px; /* Adjust font size if needed */
+    padding-left: 20px; /* Space for custom bullet */
+    margin-bottom: 8px; /* Space between each label */
+}
+
+/* Create a custom bullet */
+.tenure-labels li::before {
+    content: ''; /* Creates a bullet */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 10px; /* Adjust bullet size */
+    height: 10px; /* Adjust bullet size */
+    background-color: #FF5733; /* Replace with the chart color for Promotion */
+    border-radius: 50%; /* Makes the bullet circular */
+    transform: translateY(-50%); /* Center bullet vertically */
+}
+
+/* Example for different colors based on the chart color */
+.tenure-labels li:nth-child(1)::before {
+    background-color: #6a41fc;  /* Color for Promotion */
+}
+
+.tenure-labels li:nth-child(2)::before {
+    background-color: #36a2eb;  /* Color for Retention */
+}
+
+.tenure-labels li:nth-child(3)::before {
+    background-color:  #ff6384;  /* Color for Termination */
 }
 
 .chart-container canvas {

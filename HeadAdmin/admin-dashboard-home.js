@@ -78,7 +78,6 @@ new Chart(distributionChartCtx, {
     }
 });
 
-// Recommendations Chart
 // Recommendation Pie Chart
 var ctxRecommendation = document.getElementById('recommendationChart').getContext('2d');
 var recommendationChart = new Chart(ctxRecommendation, {
@@ -222,26 +221,35 @@ window.addEventListener('load', async function() {
     if (response5.ok) {
         console.log("Success Data : ",data5);
 
-        // Tenure Chart
-        const tenureCtx = document.getElementById('tenureChart').getContext('2d');
-        new Chart(tenureCtx, {
-            type: 'pie',
-            data: {
-                labels: ['0-3 years', '3-5 years', '5+ years'],
-                datasets: [{
-                    data: [
-                        data5["0-3 years"],
-                        data5["3-5 years"],
-                        data5["5+ years"]
-                    ],
-                    backgroundColor: ['#6a41fc', '#ff6384', '#36a2eb'],
-                }]
+        //Tenure Chart
+    const ctx3 = document.getElementById('tenureChart').getContext('2d');
+    const tenureChart = new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+            labels: ['0-3 years', '5+ years', '3-5 years'],
+            datasets: [{
+                label: 'Tenure',
+                data: [39.11, 28.03, 23.13],
+                backgroundColor: ['#6a41fc', '#ff6384', '#36a2eb']
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false // Hides the default legend
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.raw + '%'; // Adds percentage in tooltip
+                        }
+                    }
+                }
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-            }
-        });
+            responsive: true,
+            maintainAspectRatio: true, // Ensures the pie chart keeps its size ratio
+        }
+    });
     } else {
         console.log("Error Data : ",data5);
     }

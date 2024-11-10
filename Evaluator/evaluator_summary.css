@@ -291,11 +291,11 @@ h1 {
 
 /* Example for different colors based on the chart color */
 .tenure-labels li:nth-child(1)::before {
-    background-color: #36a2eb;  /* Color for Promotion */
+    background-color: #6a41fc;  /* Color for Promotion */
 }
 
 .tenure-labels li:nth-child(2)::before {
-    background-color: #ffce56;  /* Color for Retention */
+    background-color: #36a2eb;  /* Color for Retention */
 }
 
 .tenure-labels li:nth-child(3)::before {
