@@ -306,6 +306,59 @@ label {
     margin-right: -580px;
 }
 
+.average-score-container-teacher {
+    background-color: #ffffff; 
+    border: 2px solid lightgrey; 
+    border-radius: 0;
+    padding: 0; 
+    text-align: center; 
+    width: 850px; 
+    height: 170px;
+    margin-left: 25px;
+    margin-bottom: 70px;
+    margin-top: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.average-score-header-teacher {
+    background-color: #28a745; 
+    color: white;
+    font-size: 14px; 
+    margin: 0; 
+    font-weight: bold; 
+    height: 30px;
+    text-align: left;
+    line-height: 12px;
+    padding: 10px; 
+}
+
+.average-score-teacher {
+    width: 697px;
+    height: 105px;
+    padding: 10px;
+    border: none;
+    font-size: 35px; 
+    border-radius: 5px;
+    background-color: #ffffff; 
+    margin-top: 10px; 
+    margin-right: -580px;
+}
+
+/* Adjectival Rating */
+.rating-teacher {
+    font-size: 35px;
+    margin-bottom: 23px;
+}
+
+/* Flexbox to align score and rating side by side */
+.score-rating-teacher {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    
+}
+
 /* Adjectival Rating */
 .rating {
     font-size: 35px;
