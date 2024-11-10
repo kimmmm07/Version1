@@ -197,8 +197,8 @@ hr {
     width: 200%; /* Ensure full width for each option */
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Space between each option */
-    padding: 10px 0; /* Optional: Adds some spacing between options */
+    gap: -20px; /* Space between each option */
+    padding: 10px 0px; /* Optional: Adds some spacing between options */
 }
 
 .rating-wrapper.error {
