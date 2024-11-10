@@ -185,7 +185,27 @@ hr {
     align-items: flex-start; 
     margin-top: 10px;
     margin-left: 50px; 
+    box-sizing: border-box;
+    position: relative;
 }
+
+/* Style for the inner wrapper with red border */
+.rating-wrapper {
+    border: 2px solid transparent; /* Default border, changes on error */
+    background-color: transparent; /* Default background */
+    transition: border-color 0.3s, background-color 0.3s;
+    width: 200%; /* Ensure full width for each option */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between each option */
+    padding: 10px 0; /* Optional: Adds some spacing between options */
+}
+
+.rating-wrapper.error {
+    border-color: red; /* Red border on error */
+    background-color: #ffe6e6; /* Light red background on error */
+}
+
 
 .rating-answered {
     display: flex; 

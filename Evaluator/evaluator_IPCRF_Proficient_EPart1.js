@@ -122,3 +122,123 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+        const requiredFields = [
+            "efficiency1", "efficiency2", "efficiency3",
+            "efficiency4", "efficiency5", "efficiency6",
+            "efficiency7", "efficiency8", "quality9",
+            "efficiency9", "efficiency10", "quality11",
+            "timeliness11", "quality12", "timeliness12",
+            "quality13", "timeliness13",
+            "quality14", "efficiency14", "timeliness14",
+            "quality15", "efficiency15", "timeliness15"
+        ];
+    
+        const saveButton = document.querySelector("#saveButton");
+
+        function validateForm() {
+            let isValid = true;
+    
+            requiredFields.forEach((name) => {
+                const selectedOption = document.querySelector(`input[name="${name}"]:checked`);
+                const ratingWrapper = document.querySelector(`input[name="${name}"]`).closest('.ratings, .rating-options').querySelector('.rating-wrapper');
+    
+                if (!selectedOption) {
+                    isValid = false;
+    
+                    // Add error class to show red border and background
+                    if (ratingWrapper) {
+                        ratingWrapper.classList.add("error");
+                    }
+                } else {
+                    // Remove error class if answered
+                    if (ratingWrapper) {
+                        ratingWrapper.classList.remove("error");
+                    }
+                }
+            });
+    
+            if (!isValid) {
+                alert("Please answer all sections before saving.");
+            }
+    
+            return isValid;
+        }
+    
+        saveButton.addEventListener("click", function () {
+            const isFormValid = validateForm();
+            if (isFormValid) {
+                location.href = 'teacher_forms.html';
+            }
+        });
+    });
+
+
+
+
+
+    // document.addEventListener("DOMContentLoaded", function () {
+    //     const requiredFields = [
+    //         "efficiency1", "efficiency2", "efficiency3",
+    //         "efficiency4", "efficiency5", "efficiency6",
+    //         "efficiency7", "efficiency8", "quality9",
+    //         "efficiency9", "efficiency10", "quality11",
+    //         "timeliness11", "quality12", "timeliness12",
+    //         "quality13", "timeliness13",
+    //         "quality14", "efficiency14", "timeliness14",
+    //         "quality15", "efficiency15", "timeliness15"
+    //     ];
+    
+    //     const saveButton = document.querySelector("#saveButton");
+    
+    //     // Function to validate the form
+    //     function validateForm() {
+    //         let isValid = true;
+    
+    //         // Loop through each required field to check if an option is selected
+    //         requiredFields.forEach((name) => {
+    //         const selectedOption = document.querySelector(`input[name="${name}"]:checked`);
+    //         const ratingContainer = document.querySelector(`input[name="${name}"]`).closest('.ratings, .rating-options');
+    
+    
+    //         if (!selectedOption) {
+    //             isValid = false;
+    
+    //             // Highlight the .rating-options section in red
+    //             if (ratingContainer) {
+    //                 ratingContainer.style.border = "2px solid red";
+    //                 ratingContainer.style.padding = "60px";
+    //                 ratingContainer.style.borderRadius = "5px";
+    //             }
+    //         } else {
+    //             // Reset the border if answered
+    //             if (ratingContainer) {
+    //                 ratingContainer.style.border = "";
+    //                 ratingContainer.style.padding = "";
+    //             }
+    //         }
+    //     });
+    
+    
+    
+    
+    //         // If any required field is not filled, show alert
+    //         if (!isValid) {
+    //             alert("Please answer all sections before saving.");
+    //         }
+    
+    //         return isValid;
+    //     }
+    
+    //     // Add click event listener to the "Save" button
+    //     saveButton.addEventListener("click", function () {
+    //         const isFormValid = validateForm();
+    
+    //         // If the form is valid, proceed to the next page
+    //         if (isFormValid) {
+    //             location.href = 'teacher_forms.html';
+    //         }
+    //     });
+    // });
