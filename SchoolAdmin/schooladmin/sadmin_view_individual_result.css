@@ -91,34 +91,23 @@ body {
     margin-left: 15px; /* Spacing from other items */
     transition: color 0.3s; /* Smooth transition for color change */
 }
-
 /* Container styling */
 .container {
     width: 100%;
     max-width: 1200px;
-    margin: 80px auto;
+    margin: 0 auto;
     background-color: white; /* Set background to white */
-    padding: 20px;
+    padding: 20px 2.5%;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Header styling */
-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-header h1 {
+h1 {
     font-size: 28px;
     font-weight: 600;
     color: #333;
     margin-right: 20px; /* Adjusts spacing between the title and the button */
 }
-
-
 
 /* Tabs styling */
 .tabs {
@@ -131,7 +120,7 @@ header h1 {
 
 .view-individual {
     margin-left: auto;
-    color: black; /* Default color is black */
+    color: #082F96; /* Default color is black */
     font-weight: 500;
     text-decoration: none;
     padding: 10px;
@@ -142,11 +131,7 @@ header h1 {
     color: #0033cc; /* Changes to blue when clicked (active state) */
 }
 
-.view-individual:hover {
-    color: #0033cc;;
-}
-
-/* Filters styling */
+/* Filter buttons styling */
 .filters {
     display: flex;
     flex-direction: column; /* Stack filter buttons and search inputs vertically */
@@ -159,8 +144,6 @@ header h1 {
     margin-bottom: 10px; /* Space between filter buttons and search inputs */
 }
 
-
-/* Filter buttons styling */
 .filter {
     background-color: #ffffff; /* White background */
     border: 1px solid #000000; /* Black border */
@@ -174,52 +157,142 @@ header h1 {
     align-items: center; /* Center align items vertically */
 }
 
-
-
-/* Table styling */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-    margin-top: 20px;
-    font-family: 'Poppins', sans-serif; /* Match font to the rest of your page */
+/* Active filter styling */
+.filter.active {
+    border-color: #0033cc; /* Blue border for active filter */
+    color: #0033cc; /* Blue text color for active filter */
+    background-color: #ffffff; /* Keep the background white */
 }
 
-thead {
-    background-color: #f4f4f4; /* Light gray header background */
-    font-weight: bold;
+/* Analytics Grid styling */
+.analytics-grid {
+    display: grid;
+    grid-template-columns: 3fr 1.5fr; /* Adjust column width ratio */
+    grid-template-rows: auto auto; /* Set rows to automatically adjust to content */
+    gap: 30px; /* Increase gap between grid items */
 }
 
-th, td {
-    padding: 15px;
+/* Section Styling with White Background and Shadow */
+.kra-breakdown, .recommendation, .performance, .swot-analysis {
+    background-color: white; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    min-height: 300px; /* Set a minimum height for the containers */
+}
+
+.kra-breakdown {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    min-height: 600px; /* Increased height for KRA Breakdown */
+}
+
+.recommendation {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    min-height: 300px; /* Set minimum height */
+}
+
+.recommendation-content {
+    display: flex;
+    align-items: center; /* Vertically centers the chart and labels */
+}
+
+#recommendationChart {
+    max-width: 150px;
+    max-height: 150px;
+    margin-right: 20px; /* Space between chart and labels */
+    margin-top: 40px;
+}
+
+.recommendation-labels {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center-align labels vertically with the chart */
     text-align: left;
-    border-bottom: 1px solid #ddd;
-    
+    margin-top: 40px;
 }
 
-.second-row th{
-    font-weight: lighter; /* You can also use '300' or another value */
+/* Make the bullet color and size match the chart's color */
+.recommendation-labels ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
 }
 
-
-.user-icon {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-    vertical-align: middle;
-    background-image: url('assets/User_Circle.png'); /* You can replace this with an actual icon */
-    background-size: cover;
+.recommendation-labels li {
+    position: relative; /* For absolute positioning of custom bullet */
+    font-size: 14px; /* Adjust font size if needed */
+    padding-left: 20px; /* Space for custom bullet */
+    margin-bottom: 8px; /* Space between each label */
 }
 
-
-tbody tr {
-    transition: background-color 0.2s;
+/* Create a custom bullet */
+.recommendation-labels li::before {
+    content: ''; /* Creates a bullet */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 10px; /* Adjust bullet size */
+    height: 10px; /* Adjust bullet size */
+    background-color: #FF5733; /* Replace with the chart color for Promotion */
+    border-radius: 50%; /* Makes the bullet circular */
+    transform: translateY(-50%); /* Center bullet vertically */
 }
 
-tbody tr:hover {
-    background-color: #f9f9f9;
+/* Example for different colors based on the chart color */
+.recommendation-labels li:nth-child(1)::before {
+    background-color: #36a2eb;  /* Color for Promotion */
+}
+
+.recommendation-labels li:nth-child(2)::before {
+    background-color: #ffce56;  /* Color for Retention */
+}
+
+.recommendation-labels li:nth-child(3)::before {
+    background-color: #ff6384;  /* Color for Termination */
+}
+
+.performance {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    min-height: 300px; /* Set minimum height */
+}
+
+.swot-analysis{
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    min-height: 400px; /* Increased height for SWOT analysis */
+}
+.swot-content p{
+    text-align: left;
+}
+
+.swot-analysis h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Section Titles with Dividers */
+.analytics-grid h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 8px; /* Adds spacing below the text before the line */
+    border-bottom: 2px solid #ddd; /* Adds a gray divider line */
+}
+
+.analytics-grid h4 {
+    font-size: 12px;
+    margin-bottom: 10px;
+    padding-bottom: 8px; /* Adds spacing below the text before the line */
+    text-align: center;
+}
+
+/* Adjustments for mobile */
+@media (max-width: 768px) {
+    .analytics-grid {
+        grid-template-columns: 1fr; /* Make it a single column on small screens */
+    }
 }
 
 /* Modal styles */
@@ -246,10 +319,9 @@ tbody tr:hover {
     padding: 20px;
     border-radius: 20px;
     text-align: center;
-    align-content: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     width: 400px;
-    height: 180px;
+    height: 150px;
     border: 2px solid #082F96;
 }
 
@@ -283,7 +355,7 @@ tbody tr:hover {
 }
 
 .no-btn {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     color: #082F96;
     border: 1px solid #082F96 !important;
     font-weight: 700;
