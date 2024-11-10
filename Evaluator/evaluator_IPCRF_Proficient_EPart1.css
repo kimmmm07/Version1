@@ -99,13 +99,13 @@ h1 {
     background-color: #ccc; 
     margin-top: -20px;
     margin-bottom: 20px;
-    margin-left: 235px;
+    margin-left: 335px;
 }
 
 .instructions {
     font-size: 18px;
     margin-bottom: 20px;
-    margin-left: 250px;
+    margin-left: 350px;
     text-align: justify;
     width: 1000px;
     overflow: hidden;
@@ -114,7 +114,7 @@ h1 {
 .performance-indicators {
     font-weight: normal;
     font-size: 16px;
-    margin-left: 250px;
+    margin-left: 350px;
 }
 
 
@@ -174,7 +174,7 @@ hr {
 
 .objective {
     font-size: 14px;
-    margin-left: 325px; 
+    margin-left: 425px; 
     margin-top: 50px;
     margin-bottom: 10px;
 }
@@ -224,7 +224,6 @@ hr {
     margin: 20px -85px; /* Consistent margin */
 }
 
-
 .rating-wrapper.error {
     border-color: red; /* Red border on error */
     background-color: #ffe6e6; /* Light red background on error */
@@ -261,8 +260,6 @@ hr {
     align-items: center; 
     justify-content: space-between; 
 }
-
-
 
 .rating-options div {
     width: 850px; 
