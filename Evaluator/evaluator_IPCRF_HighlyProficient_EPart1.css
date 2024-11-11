@@ -92,14 +92,14 @@ h1 {
     width: 1080px;
     background-color: #ccc; 
     margin-top: -20px;
-    margin-bottom: 30px;
-    margin-left: 235px;
+    margin-bottom: 20px;
+    margin-left: 240px !important;
 }
 
 .instructions {
     font-size: 18px;
     margin-bottom: 20px;
-    margin-left: 250px;
+    margin-left: 260px;
     text-align: justify;
     width: 1000px;
     overflow: hidden;
@@ -108,7 +108,7 @@ h1 {
 .performance-indicators {
     font-weight: normal;
     font-size: 16px;
-    margin-left: 250px;
+    margin-left: 260px;
 }
 
 
@@ -142,6 +142,7 @@ h2 {
 }
 
 h3 {
+    text-align: start;
     margin-bottom: 10px;
     font-size: 15px;
     width: 950px;
@@ -197,7 +198,28 @@ hr {
     justify-content: space-between; 
 }
 
+.rating-answered label {
+    display: flex; 
+    text-align: left;
+    align-items: center; 
+    justify-content: space-between; 
+}
+
 .rating-options div {
+    width: 850px; 
+    background-color: white; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+    margin-left: -60px;
+    transition: background-color 0.3s; 
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+}
+
+.rating-answered div {
     width: 850px; 
     background-color: white; 
     border: 1px solid #ccc; 
@@ -215,6 +237,15 @@ hr {
     background-color: #e1f5fe; 
 }
 
+.rating-answered div:hover {
+    background-color: #e1f5fe; 
+}
+
+.rating-wrapper:hover {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
 label {
     font-size: 13px;
     display: flex; 
@@ -225,6 +256,78 @@ label {
 .rating-options input[type="radio"] {
     margin-right: 10px; 
     vertical-align: middle; 
+}
+
+.rating-answered input[type="radio"] {
+    margin-right: 10px; 
+    vertical-align: middle; 
+}
+/* Style the rating wrapper with equal margins and set consistent width */
+.rating-wrapper {
+    border: none !important;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    width: 200%; /* Consistent width for the wrapper */
+    margin-top: -50px;
+    margin: 20px auto; /* Equal top, bottom, left, and right margin */
+    display: flex;
+    flex-direction: column;
+    gap: -20px; /* Space between each option */
+    padding: 10px 0px; /* Optional: Adds some spacing between options */
+}
+
+/* Style for individual rating options inside the wrapper */
+.rating-options div, .rating-answered div {
+    width: 700px; /* Slightly smaller width to fit inside the wrapper */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    transition: background-color 0.3s;
+    margin: 0 -50px; /* Center the divs horizontally */
+}
+
+
+/* Plus Factor adjustments for uniform appearance */
+.plus-factor-objective .rating-wrapper {
+    width: 900px; /* Same width for plus factor rating wrapper */
+    margin: 20px -85px; /* Consistent margin */
+}
+
+/* Plus Factor adjustments for uniform appearance */
+.kras-objective .rating-wrapper {
+    width: 900px; /* Same width for plus factor rating wrapper */
+    margin: 20px -150px; /* Consistent margin */
+}
+
+.rating-wrapper.error {
+    border-color: red; /* Red border on error */
+    background-color: #ffe6e6; /* Light red background on error */
+    padding: 20px 7%;
+}
+
+.rating-answered {
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    margin-top: 10px;
+    margin-left: 50px; 
+}
+
+.plus-factor-objective {
+    margin-left: 0px; 
+}
+
+.kras1-objective {
+    margin-left: 0px; 
+}
+
+.kras2-objective {
+    margin-left: -35px; 
+}
+
+.plus-factor-objective .ratings {
+    margin-left: 0; 
 }
 
 /* Container for both ratings */
