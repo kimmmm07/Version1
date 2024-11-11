@@ -148,6 +148,7 @@ h2 {
 }
 
 h3 {
+    text-align: start;
     margin-bottom: 10px;
     font-size: 15px;
     width: 950px;
@@ -224,6 +225,12 @@ hr {
     margin: 20px -85px; /* Consistent margin */
 }
 
+/* Plus Factor adjustments for uniform appearance */
+.kras-objective .rating-wrapper {
+    width: 900px; /* Same width for plus factor rating wrapper */
+    margin: 20px -85px; /* Consistent margin */
+}
+
 .rating-wrapper.error {
     border-color: red; /* Red border on error */
     background-color: #ffe6e6; /* Light red background on error */
@@ -239,7 +246,15 @@ hr {
 }
 
 .plus-factor-objective {
-    margin-left: 35px; 
+    margin-left: 0px; 
+}
+
+.kras1-objective {
+    margin-left: 0px; 
+}
+
+.kras2-objective {
+    margin-left: -35px; 
 }
 
 .plus-factor-objective .ratings {
