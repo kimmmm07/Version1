@@ -338,6 +338,7 @@ label {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    margin-left: 1px !important;
     gap: 20px;
     width: fit-content; /* Adjust to fit the content */
     margin: 40px; /* Center the container */
@@ -353,6 +354,7 @@ label {
     height: 170px;
     padding: 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
 }
 
 /* Header for the rating sections */
@@ -422,7 +424,7 @@ label {
     display: flex;
     justify-content: flex-start; 
     gap: 642px; 
-    margin-left: 25px;
+    margin-left: -20px;
 }
 
 .back-btn, .proceed-btn {
