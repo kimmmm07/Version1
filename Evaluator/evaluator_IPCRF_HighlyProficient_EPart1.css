@@ -137,12 +137,13 @@ h1 {
 
 
 h2 {
+    text-align: left;
     margin-bottom: 10px;
     color: #16abe0;
 }
 
 h3 {
-    text-align: start;
+    text-align: left;
     margin-bottom: 10px;
     font-size: 15px;
     width: 950px;
@@ -420,8 +421,8 @@ label {
 .buttons-container {
     display: flex;
     justify-content: flex-start; 
-    gap: 612px; 
-    margin-left: -55px;
+    gap: 630px; 
+    margin-left: -65px;
 }
 
 .back-btn, .proceed-btn {
