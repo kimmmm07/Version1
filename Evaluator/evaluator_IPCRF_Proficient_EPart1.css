@@ -99,13 +99,13 @@ h1 {
     background-color: #ccc; 
     margin-top: -20px;
     margin-bottom: 20px;
-    margin-left: 335px;
+    margin-left: 240px !important;
 }
 
 .instructions {
     font-size: 18px;
     margin-bottom: 20px;
-    margin-left: 350px;
+    margin-left: 260px;
     text-align: justify;
     width: 1000px;
     overflow: hidden;
@@ -114,7 +114,7 @@ h1 {
 .performance-indicators {
     font-weight: normal;
     font-size: 16px;
-    margin-left: 350px;
+    margin-left: 260px;
 }
 
 
@@ -175,7 +175,7 @@ hr {
 
 .objective {
     font-size: 14px;
-    margin-left: 425px; 
+    margin-left: 330px; 
     margin-top: 50px;
     margin-bottom: 10px;
 }
