@@ -338,7 +338,7 @@ label {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-left: 1px !important;
+    margin-left: -12px !important;
     gap: 20px;
     width: fit-content; /* Adjust to fit the content */
     margin: 40px; /* Center the container */
@@ -350,11 +350,11 @@ label {
     background-color: #ffffff;
     border: 2px solid lightgrey;
     border-radius: 0;
-    width: 400px; /* Set a fixed width to avoid stretching */
+    width: 410px; /* Set a fixed width to avoid stretching */
     height: 170px;
     padding: 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    
+    margin-right: 3px;
 }
 
 /* Header for the rating sections */
@@ -374,7 +374,7 @@ label {
     background-color: #ffffff;
     border: 2px solid lightgrey;
     border-radius: 0;
-    width: 400px; /* Set a fixed width to avoid stretching */
+    width: 410px; /* Set a fixed width to avoid stretching */
     height: 170px;
     padding: 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -423,8 +423,8 @@ label {
 .buttons-container {
     display: flex;
     justify-content: flex-start; 
-    gap: 642px; 
-    margin-left: -20px;
+    gap: 630px; 
+    margin-left: -10px;
 }
 
 .back-btn, .proceed-btn {
