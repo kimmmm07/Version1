@@ -148,7 +148,7 @@ h2 {
 }
 
 h3 {
-    text-align: start;
+    text-align: flex-start;
     margin-bottom: 10px;
     font-size: 15px;
     width: 950px;
