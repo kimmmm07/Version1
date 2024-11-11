@@ -310,8 +310,8 @@ hr {
 }
 
 .rating-wrapper:hover {
-    background-color: transparent !important; /* Removes background color on hover */
-    border-color: transparent !important; /* Removes border color on hover */
+    background-color: transparent !important;
+    border-color: transparent !important;
 }
 
 
