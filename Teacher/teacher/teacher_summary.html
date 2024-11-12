@@ -176,6 +176,115 @@
         console.error("Error during fetch:", error);
     }
 });
+
+async function getKRABreakdown(){
+    
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/kba/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+            // body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+        } else {
+            console.log("Error Data : ", data);
+            // alert("Login Failed.")
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getKRABreakdown();
+
+
+async function getRecommendations(){
+    
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/recommendations/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+            // body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+        } else {
+            console.log("Error Data : ", data);
+            // alert("Login Failed.")
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+getRecommendations();
+
+
+
+async function getSwot(){
+    
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/swot/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+            // body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+        } else {
+            console.log("Error Data : ", data);
+            // alert("Login Failed.")
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+getSwot();
+
+async function getPerformance(){
+    
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/performance/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+            // body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+        } else {
+            console.log("Error Data : ", data);
+            // alert("Login Failed.")
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+getPerformance();
+
         </script>
     <script src="teacher_individual_summary_js.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
