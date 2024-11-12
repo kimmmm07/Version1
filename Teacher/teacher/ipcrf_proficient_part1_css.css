@@ -123,13 +123,13 @@ h1 {
     background-color: #ccc; 
     margin-top: -20px;
     margin-bottom: 30px;
-    margin-left: 109px;
+    margin-left: 210px;
 }
 
 .instructions {
     font-size: 18px;
     margin-bottom: 20px;
-    margin-left: 120px;
+    margin-left: 250px;
     text-align: justify;
     width: 1000px;
     overflow: hidden;
@@ -138,7 +138,7 @@ h1 {
 .performance-indicators {
     font-weight: normal;
     font-size: 16px;
-    margin-left: 120px;
+    margin-left: 250px;
 }
 
 
@@ -167,11 +167,13 @@ h1 {
 
 
 h2 {
+    text-align: left;
     margin-bottom: 10px;
     color: #4CAF50;
 }
 
 h3 {
+    text-align: left;
     margin-bottom: 10px;
     font-size: 15px;
     width: 950px;
@@ -198,7 +200,7 @@ hr {
 
 .objective {
     font-size: 14px;
-    margin-left: 200px; 
+    margin-left: 300px; 
     margin-top: 50px;
     margin-bottom: 10px;
 }
@@ -211,8 +213,60 @@ hr {
     margin-left: 50px; 
 }
 
+/* Style the rating wrapper with equal margins and set consistent width */
+.rating-wrapper {
+    border: none !important;
+    background-color: transparent;
+    transition: background-color 0.3s;
+    width: 200%; /* Consistent width for the wrapper */
+    margin-top: -50px;
+    margin: 20px auto; /* Equal top, bottom, left, and right margin */
+    display: flex;
+    flex-direction: column;
+    gap: -20px; /* Space between each option */
+    padding: 10px 0px; /* Optional: Adds some spacing between options */
+}
+
+/* Style for individual rating options inside the wrapper */
+.rating-options div {
+    width: 700px; /* Slightly smaller width to fit inside the wrapper */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    transition: background-color 0.3s;
+    margin: 0 -50px; /* Center the divs horizontally */
+}
+
+
+/* Plus Factor adjustments for uniform appearance */
+.plus-factor-objective .rating-wrapper {
+    width: 900px; /* Same width for plus factor rating wrapper */
+    margin: 20px -85px; /* Consistent margin */
+}
+
+/* Plus Factor adjustments for uniform appearance */
+.kras-objective .rating-wrapper {
+    width: 900px; /* Same width for plus factor rating wrapper */
+    margin: 20px -85px; /* Consistent margin */
+}
+
+.rating-wrapper.error {
+    border-color: red; /* Red border on error */
+    background-color: #ffe6e6; /* Light red background on error */
+    padding: 20px 7%;
+}
+
 .plus-factor-objective {
-    margin-left: 35px; 
+    margin-left: 0px; 
+}
+
+.kras1-objective {
+    margin-left: 0px; 
+}
+
+.kras2-objective {
+    margin-left: -40px; 
 }
 
 .plus-factor-objective .ratings {
@@ -265,7 +319,7 @@ label {
     text-align: center; 
     width: 850px; 
     height: 170px;
-    margin-left: 25px;
+    margin-left: -15px;
     margin-bottom: 70px;
     margin-top: 50px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -315,7 +369,7 @@ label {
     display: flex;
     justify-content: flex-start; 
     gap: 642px; 
-    margin-left: 25px;
+    margin-left: -15px;
 }
 
 .back-btn, .proceed-btn {
