@@ -35,21 +35,21 @@ async function createFolder() {
             console.log("Error Data: ", data);
         }
 
-        // const categoryContainer = document.getElementById('categoryContainer');
-        // const newCategory = document.createElement('div');
-        // newCategory.className = 'form-category';
-        // newCategory.innerHTML = `
-        //     <div class="horizontal-background"></div>
-        //     <h3 class="category-label">${selectedYear}</h3>
+        const categoryContainer = document.getElementById('categoryContainer');
+        const newCategory = document.createElement('div');
+        newCategory.className = 'form-category';
+        newCategory.innerHTML = `
+            <div class="horizontal-background"></div>
+            <h3 class="category-label">${selectedYear}</h3>
             
-        //     <a href="admin-form-HighlyProficient-COT-Quarters.html" class="form-link">
-        //         <div class="form-item">
-        //             <i class="fas fa-file-alt"></i>
-        //             Rating Sheet for Highly Proficient Teacher
-        //         </div>
-        //     </a>
-        // `;
-        // categoryContainer.insertAdjacentElement('afterbegin', newCategory);
+            <a href="admin-form-HighlyProficient-COT-Quarters.html" class="form-link">
+                <div class="form-item">
+                    <i class="fas fa-file-alt"></i>
+                    Rating Sheet for Highly Proficient Teacher
+                </div>
+            </a>
+        `;
+        categoryContainer.insertAdjacentElement('afterbegin', newCategory);
         closeModal();
     } else {
         alert('Please select a school year.');
