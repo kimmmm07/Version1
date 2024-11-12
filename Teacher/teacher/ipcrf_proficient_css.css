@@ -13,7 +13,7 @@ body {
 }
 
 /* Navbar styling */
-.navbar {
+.navbar { 
     left: 0;
     position: fixed;       /* Fixes the header at the top */
     top: 0;                /* Aligns it to the top of the page */
@@ -89,18 +89,37 @@ body {
     font-weight: normal;
 }
 
-/* Form container styling */
 .form-container {
     background-color: #B8F5A2;
     padding: 20px;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: 80px auto;
+    border-radius: 8px;
+    border: 0.2px solid #28a745;
+    max-width: 950px;
+    margin-left: auto;
+    margin-right: auto; 
+    margin-bottom: 60px; 
+    margin-top: 80px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h2, h3 {
+h2 {
     text-align: center;
-    color: #4a4a4a;
+    color: #000000; /* Dark blue text */
+    margin-top: 20px;
+}
+
+h3 {
+    text-align: center;
+    color: #000000; /* Dark blue text */
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+p {
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .form-details {
@@ -122,29 +141,30 @@ select {
 .ipcrf-table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-}
-
-.ipcrf-table th, .ipcrf-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center; /* Center text horizontally */
-    vertical-align: middle; /* Center text vertically */
 }
 
 .ipcrf-table th {
     background-color: #B8F5A2;
-    color: #4a4a4a;
-    text-align: center; /* Center text in table headers as well */
-    vertical-align: middle; /* Vertically center the text in the header */
+    color: #000000;
+    text-align: center; 
+    vertical-align: middle; 
+}
+
+.ipcrf-table th, .ipcrf-table td {
+    border: 1px solid #000000;
+    padding: 10px;
+    text-align: center; 
+    vertical-align: middle; 
 }
 
 
 /* Button styling */
 .buttons-container {
     display: flex;
-    justify-content: space-between; /* Align buttons to opposite sides */
+    justify-content: flex-start; /* Align buttons to opposite sides */
     margin-top: 20px;
+    margin-left: 170px;
+    gap: 770px;
 }
 
 .proceed-btn {
@@ -166,6 +186,7 @@ select {
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
