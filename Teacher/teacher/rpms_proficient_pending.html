@@ -32,7 +32,7 @@
         <li><a href="rpms_setting.html"><img src="asset/Settings.png" alt="Settings Icon"/> Setting</a></li>
         <!-- Horizontal line between Setting and School Year -->
         <hr class="menu-divider">
-        <li><a href="rpms_proficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
+        <li><a href="rpms_proficient_stream.html"><span class="sy-circle" id="schoolYear">SY</span> School Year 2023–2024</a></li>
         </ul>
     </div>
 
@@ -66,8 +66,8 @@
 
         
         <div class="tabs">
-            <a href="rpms_proficient_pending.html" class="tab active">Pending</a>
-            <a href="rpms_proficient_done.html" class="tab">Done</a>
+            <a href="rpms_proficient_pending.html" class="tab active" id="pending">Pending</a>
+            <a href="rpms_proficient_done.html" class="tab" id="done">Done</a>
         </div>
 
         <div class="dropdown-container">
@@ -83,7 +83,7 @@
                     <img src="asset/Clipboard.png" alt="Icon" class="icon" />
                     <div class="text-container"> <!-- New container for text -->
                         <h4>KRA 1: Content Knowledge and Pedagogy</h4>
-                    <div class="rpms">
+                    <div class="rpms" id="rpmsSchoolYear">
                         <p>Results-Based Performance Management System School Year 2023-2024</p>
                     </div>
                     </div>
@@ -95,7 +95,7 @@
                         <img src="asset/Clipboard.png" alt="Icon" class="icon" />
                         <div class="text-container"> <!-- New container for text -->
                             <h4>KRA 2: Learning Environment and Diversity</h4>
-                        <div class="rpms">
+                        <div class="rpms" id="rpmsSchoolYear">
                             <p>Results-Based Performance Management System School Year 2023-2024</p>
                         </div>
                         </div>
@@ -105,7 +105,7 @@
                     <div class="content-item">
                         <a href="rpms_proficient_content3.html" class="content-item"> <!-- KRA 1 -->
                             <img src="asset/Clipboard.png" alt="Icon" class="icon" />
-                            <div class="text-container"> <!-- New container for text -->
+                            <div class="text-container" id="rpmsSchoolYear"> <!-- New container for text -->
                                 <h4>KRA 3: Curriculum and Planning</h4>
                             <div class="rpms">
                                 <p>Results-Based Performance Management System School Year 2023-2024</p>
@@ -117,7 +117,7 @@
                         <div class="content-item">
                             <a href="rpms_proficient_content4.html" class="content-item"> <!-- KRA 1 -->
                                 <img src="asset/Clipboard.png" alt="Icon" class="icon" />
-                                <div class="text-container"> <!-- New container for text -->
+                                <div class="text-container" id="rpmsSchoolYear"> <!-- New container for text -->
                                     <h4>KRA 4: Curriculum and Planning & Assesment</h4>
                                 <div class="rpms">
                                     <p>Results-Based Performance Management System School Year 2023-2024</p>
@@ -129,7 +129,7 @@
                             <div class="content-item">
                                 <a href="rpms_proficient_content5.html" class="content-item"> <!-- KRA 1 -->
                                     <img src="asset/Clipboard.png" alt="Icon" class="icon" />
-                                    <div class="text-container"> <!-- New container for text -->
+                                    <div class="text-container" id="rpmsSchoolYear"> <!-- New container for text -->
                                         <h4>PLUS FACTOR</h4>
                                     <div class="rpms">
                                         <p>Results-Based Performance Management System School Year 2023-2024</p>
@@ -147,7 +147,7 @@
                 <span class="count"></span>
                 <button class="dropdown-toggle">&#9662;</button>
             </div>
-            <div class="dropdown-content">
+            <div class="dropdown-content" id="thisWeekContent">
                 <!-- Add any tasks or details for 'This week' here -->
             </div>
         </div>
@@ -158,7 +158,7 @@
                 <span class="count"></span>
                 <button class="dropdown-toggle">&#9662;</button>
             </div>
-            <div class="dropdown-content">
+            <div class="dropdown-content" id="nextWeekContent">
                 <!-- Add any tasks or details for 'Next week' here -->
             </div>
         </div>
@@ -169,7 +169,7 @@
                 <span class="count"></span>
                 <button class="dropdown-toggle">&#9662;</button>
             </div>
-            <div class="dropdown-content">
+            <div class="dropdown-content" id="laterContent">
                 <!-- Add any tasks or details for 'Later' here -->
             </div>
         </div>
