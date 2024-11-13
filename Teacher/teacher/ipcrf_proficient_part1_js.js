@@ -1,3 +1,13 @@
+
+let averageScore = 0;
+let plusFactor = 0;
+let totalScore = 0;
+let ipcrf_content = undefined;
+
+
+
+
+
 document.querySelectorAll('input[type="radio"]').forEach((input) => {
     input.addEventListener('change', calculateAverageScore);
 });
@@ -50,13 +60,13 @@ function calculateAverageScore() {
     let plusFactorScore = quality15 + timeliness15 + efficiency15;
 
     // Average Score calculation
-    let averageScore = totalKraScore;
+    averageScore = totalKraScore; // TODO : IPASA TO SA BACKEND
 
     // Plus Factor calculation
-    let plusFactor = (plusFactorScore / 3) * 0.02;
+    plusFactor = (plusFactorScore / 3) * 0.02; // TODO : IPASA TO SA BACKEND
 
     // Final Total Score
-    let totalScore = averageScore + plusFactor;
+    totalScore = averageScore + plusFactor; // TODO : IPASA TO SA BACKEND
 
     // Display the result in the "average-score" label
     document.getElementById('average-score').innerText = totalScore.toFixed(3); // Show three decimal places
@@ -97,6 +107,44 @@ async function getIPCRF(){
             // body: formData,
         });
 
+        ipcrf_content = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", ipcrf_content);  
+        } else {
+            console.log("Error Data : ", ipcrf_content);
+            // alert("Login Failed.")
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getIPCRF();
+
+
+
+async function updateIPCRF1(){
+    const formData = new FormData();
+    // formData.append('employee_id', employeeId); 
+    // formData.append('password', password); 
+
+    formData.append('ipcrf_id', ipcrf_content['ipcrf']['connection_to_other']); // TODO: Get from IPCRF
+    formData.append('average_score', averageScore); 
+    formData.append('plus_factor', plusFactor); 
+    formData.append('total_score', totalScore);
+    formData.append('content', JSON.stringify(ipcrf_content['ipcrf']['content_for_teacher']));
+
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/update/ipcrf/part1/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },  
+            credentials: 'include',
+            body: formData,
+        });
+
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
@@ -108,6 +156,3 @@ async function getIPCRF(){
         console.error("Error during fetch:", error);
     }
 }
-
-
-getIPCRF();

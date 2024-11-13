@@ -1,3 +1,7 @@
+
+let tenure_data = [ 32.11 , 23.13 , 28.02]; 
+let recommendations = [39.11, 28.02, 23.13];
+
 // Function to update charts based on selected filters
 document.getElementById('choose-year-filter').addEventListener('change', updateCharts);
 document.getElementById('choose-proficiency').addEventListener('change', updateCharts);
@@ -71,7 +75,7 @@ var recommendationChart = new Chart(ctxRecommendation, {
     data: {
         labels: ['Promotion', 'Termination', 'Retention'],
         datasets: [{
-            data: [39.11, 28.02, 23.13],
+            data: recommendations,
             backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56'],
             borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)', 'rgba(255, 206, 86, 1)'],
             borderWidth: 1
@@ -103,7 +107,7 @@ const tenureChart = new Chart(ctx3, {
         labels: ['0-3 years', '5+ years', '3-5 years'],
         datasets: [{
             label: 'Tenure',
-            data: [39.11, 28.03, 23.13],
+            data: tenure_data,
             backgroundColor: ['#6a41fc', '#ff6384', '#36a2eb']
         }]
     },
@@ -193,3 +197,104 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+async function fetchTenure() {
+    
+    
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/teachers/tenure/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            tenure_data[0] = data["0-3 years"];
+            tenure_data[1] = data["3-5 years"];
+            tenure_data[2] = data["5+ years"];  
+            tenureChart.data.datasets[0].data = tenure_data;
+            tenureChart.update();
+            
+        } else {
+            console.log("Error Data : ", data); 
+        }
+
+        // Do something with the data
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+
+async function fetchRecommendation() {
+    
+    
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/teachers/recommendations/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            recommendationChart.data.datasets[0].data = [ data['promotion'] , data['termination'] , data['retention'] ];
+            recommendationChart.update();
+            
+        } else {
+            console.log("Error Data : ", data); 
+        }
+
+        // Do something with the data
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+
+
+async function fetchAnnualRatings() {
+    
+    
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/teachers/performance/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            // recommendationChart.data.datasets[0].data = [ data['promotion'] , data['termination'] , data['retention'] ];
+            // recommendationChart.update();
+            
+        } else {
+            console.log("Error Data : ", data); 
+        }
+
+        // Do something with the data
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+}
+
+
+
+fetchTenure();
+fetchRecommendation();
+fetchAnnualRatings();

@@ -756,7 +756,10 @@
 <!-- Back and Proceed buttons -->
 <div class="buttons-container">
     <a href="ipcrf_proficient.html" class="back-btn">Back</a>
-    <button type="button" class="proceed-btn" id="saveButton" onclick="validateForm()">Save</button>
+    <button type="button" class="proceed-btn" id="saveButton" 
+    onclick="updateIPCRF1()"
+    
+    >Save</button>
 </div>
 
 
@@ -868,6 +871,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // If the form is valid, proceed to the next page
         if (isFormValid) {
+            updateIPCRF1();
             location.href = 'teacher_forms.html';
         }
     });

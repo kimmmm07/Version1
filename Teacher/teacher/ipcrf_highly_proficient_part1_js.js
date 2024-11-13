@@ -1,3 +1,11 @@
+
+let averageScore = 0;
+let plusFactor = 0;
+let totalScore = 0;
+let ipcrf_content = undefined;
+
+
+
 document.querySelectorAll('input[type="radio"]').forEach((input) => {
     input.addEventListener('change', calculateAverageScore);
 });
@@ -80,4 +88,70 @@ function getRating(averageScore) {
     if (averageScore >= 2.500) return "Satisfactory";
     if (averageScore >= 1.500) return "Unsatisfactory";
     return "Poor"; // below 1.499
+}
+
+
+async function getIPCRF(){
+    const formData = new FormData();
+    // formData.append('employee_id', employeeId); 
+    // formData.append('password', password); 
+
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/ipcrf/part1/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+            // body: formData,
+        });
+
+        ipcrf_content = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", ipcrf_content);  
+        } else {
+            console.log("Error Data : ", ipcrf_content);
+            // alert("Login Failed.")
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getIPCRF();
+
+
+
+async function updateIPCRF1(){
+    const formData = new FormData();
+    // formData.append('employee_id', employeeId); 
+    // formData.append('password', password); 
+
+    formData.append('ipcrf_id', ipcrf_content['ipcrf']['connection_to_other']); // TODO: Get from IPCRF
+    formData.append('average_score', averageScore); 
+    formData.append('plus_factor', plusFactor); 
+    formData.append('total_score', totalScore);
+    formData.append('content', JSON.stringify(ipcrf_content['ipcrf']['content_for_teacher']));
+
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/update/ipcrf/part1/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },  
+            credentials: 'include',
+            body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+        } else {
+            console.log("Error Data : ", data);
+            // alert("Login Failed.")
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
 }
