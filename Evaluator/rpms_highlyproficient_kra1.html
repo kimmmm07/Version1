@@ -9,33 +9,32 @@
 </head>
 <body>
      <!-- Sidebar -->
-     <div class="sidebar">
-        <div class="sidebar-icon" id="menu-icon">
-            <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
-        </div> 
-        <div class="sidebar-icon">
-            <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
-        </div>
-        <div class="sidebar-icon">
-            <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
-        </div>
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-icon" id="menu-icon">
+        <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
+    </div> 
+    <div class="sidebar-icon" id="home-icon">
+        <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
     </div>
+    <div class="sidebar-icon" id="settings-icon">
+        <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
+    </div>
+</div>
 
-    <!-- Floating Menu -->
-    <div class="floating-menu" id="floating-menu">
-        <div class="menu-header">
-
-            <!-- Close button -->
-            <button class="close-btn" onclick="closeMenu()">✖</button>
-        </div>
-        <ul>
-        <li><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
-        <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
+<!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+    <div class="menu-header">
+        <!-- Close button -->
+        <button class="close-btn" onclick="closeMenu()" id="close-btn">✖</button>
+    </div>
+    <ul>
+        <li><a href="rpms_highlyproficient_homepage.html" id="home-link-floating-menu"><img src="Home.png" alt="Home Icon"/> Home</a></li>
+        <li><a href="rpms_setting.html" id="settings-link-floating-menu"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
         <!-- Horizontal line between Setting and School Year -->
-        <hr class="menu-divider">
-        <li><a href="rpms_highlyproficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
-        </ul>
-    </div>
+        <hr class="menu-divider" id="menu-divider">
+        <li><a href="rpms_highlyproficient_stream.html" id="school-year-link"><span class="sy-circle" id="sy-circle">SY</span> School Year 2023–2024</a></li>
+    </ul>
+</div>
 
     <!-- Header Section -->
     <header>
@@ -52,36 +51,37 @@
         </nav>
     </header>
 
-    <div class="container">
-        <div class="breadcrumb">
+    <div class="container" id="container">
+        <div class="breadcrumb" id="breadcrumb">
             <span><b>Results-Based Performance Management System (RPMS)</b></span>
         </div>
-
+    
         <br>
-        <div class="tabs">
-            <a href="rpms_highlyproficient_kra1.html" class="tab active">Instructions</a>
-            <a href="rpms_highlyproficient_tw_kra1.html" class="tab">Teacher work</a>
+        <div class="tabs" id="tabs">
+            <a href="rpms_highlyproficient_kra1.html" class="tab active" id="instructions-tab">Instructions</a>
+            <a href="rpms_highlyproficient_tw_kra1.html" class="tab" id="teacher-work-tab">Teacher work</a>
+        </div>
+    
+        <br>
+        <div class="kra-header" id="kra-header">
+            <div class="kra-icon" id="kra-icon">
+                <img src="Clipboard.png" alt="Clipboard Icon" id="kra-icon-img">
+            </div>
+            <div class="kra-details" id="kra-details">
+                <h2 id="kra-title">KRA 1: Content Knowledge and Pedagogy</h2>
+                <p class="posted-by" id="posted-by">John Doe • 6:01PM</p>
+                <p class="points" id="points">28 points</p>
+            </div>
+            <div class="dots-menu" id="dots-menu">
+                <span id="dots">...</span>
+            </div>
         </div>
 
-        <br>
-        <div class="kra-header">
-            <div class="kra-icon">
-                <img src="Clipboard.png" alt="Clipboard Icon">
-            </div>
-            <div class="kra-details">
-                <h2>KRA 1: Content Knowledge and Pedagogy</h2>
-                <p class="posted-by">John Doe • 6:01PM</p>
-                <p class="points">28 points</p>
-            </div>
-            <div class="dots-menu">
-                <span>...</span>
-            </div>
-        </div>
-
-        <div class="kra-content">
-            <div class="objective">
+        <div class="kra-content" id="kra-content">
+            <!-- Objective 1 -->
+            <div class="objective" id="objective-1">
                 <p><strong>7% | Objective 1</strong> Modeled effective applications of content knowledge within and across curriculum teaching areas. (PPST 1.1.3)</p>
-                <ul>
+                <ul id="objective-1-list">
                     <li><strong>Means of Verification (MOV)</strong></li>
                     <li>Classroom Observation Tool (COT) rating sheet/s or inter-observer agreement form/s done through onsite/face-to-face/in-person classroom observation.
                         If onsite/ face-to-face/ in-person classes are not implemented,
@@ -92,9 +92,10 @@
                 </ul>
             </div>
 
-            <div class="objective">
-                <p><strong>7% | Objective 2</strong> Evaluated with colleagues the effectiveness of teaching strategies that promote learner achievement in literacy and numeracy (PPST 1.4.3)</p>
-                <ul>
+            <!-- Objective 2 -->
+        <div class="objective" id="objective-2">
+            <p><strong>7% | Objective 2</strong> Evaluated with colleagues the effectiveness of teaching strategies that promote learner achievement in literacy and numeracy (PPST 1.4.3)</p>
+            <ul id="objective-2-list">
                     <li><strong>Means of Verification (MOV)</strong></li>
                     <li>1. Proof/s of attendance in coaching and mentoring sessions/meetings/LAC sessions / FGDs / other collegial discussions that highlights the objective
                         <br> 2. Minutes/Notes of coaching and mentoring sessions/meetings / FGDs / other collegial discussions that highlights the objective
@@ -104,9 +105,10 @@
                 </ul>
             </div>
 
-            <div class="objective">
-                <p><strong>7% | Objective 3</strong> Developed and applied effective teaching strategies to promote critical and creative thinking, as well as other higher-order thinking skills. (PPST 1.5.3)</p>
-                <ul>
+            <!-- Objective 3 -->
+        <div class="objective" id="objective-3">
+            <p><strong>7% | Objective 3</strong> Developed and applied effective teaching strategies to promote critical and creative thinking, as well as other higher-order thinking skills. (PPST 1.5.3)</p>
+            <ul id="objective-3-list">
                     <li><strong>Means of Verification (MOV)</strong></li>
                     <li>Classroom Observation Tool (COT) rating sheet/s or inter-observer agreement form/s done through onsite/face-to-face/in-person classroom observation.
                         If onsite/ face-to-face/ in-person classes are not implemented,
@@ -117,9 +119,10 @@
                 </ul>
             </div>
 
-            <div class="objective">
-                <p><strong>7% | Objective 4</strong> Modeled and supported colleagues in the proficient use of Mother Tongue, Filipino and English to improve teaching and learning, as well as to develop the learners’ pride of their language, heritage and culture. (PPST 1.6.3)</p>
-                <ul>
+            <!-- Objective 4 -->
+        <div class="objective" id="objective-4">
+            <p><strong>7% | Objective 4</strong> Modeled and supported colleagues in the proficient use of Mother Tongue, Filipino and English to improve teaching and learning, as well as to develop the learners’ pride of their language, heritage and culture. (PPST 1.6.3)</p>
+            <ul id="objective-4-list">
                     <li><strong>Means of Verification (MOV)</strong></li>
                     <li>Classroom Observation Tool (COT) rating sheet/s or inter-observer agreement form/s done through onsite/face-to-face/in-person classroom observation.
                         If onsite/ face-to-face/ in-person classes are not implemented,
@@ -130,11 +133,11 @@
             </div>
         </div>
 
-        <div class="comments-section">
-            <h4>Comments</h4>
-            <div class="add-comment">
-                <input type="text" placeholder="Add comments" />
-                <button type="submit"><img src="Paper_Plane.png" alt="Send Icon"></button>
+        <div class="comments-section" id="comments-section">
+            <h4 id="comments-heading">Comments</h4>
+            <div class="add-comment" id="add-comment">
+                <input type="text" placeholder="Add comments" id="comment-input" />
+                <button type="submit" id="comment-submit"><img src="Paper_Plane.png" alt="Send Icon"></button>
             </div>
         </div>
     </div>

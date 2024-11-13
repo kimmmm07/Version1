@@ -8,34 +8,33 @@
     <link rel="stylesheet" href="rpms_highlyproficient_homepage.css">
 <body>
     
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-icon" id="menu-icon">
-            <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
-        </div> 
-        <div class="sidebar-icon">
-            <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
-        </div>
-        <div class="sidebar-icon">
-            <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
-        </div>
-    </div>
-
-    <!-- Floating Menu -->
-    <div class="floating-menu" id="floating-menu">
-        <div class="menu-header">
-            
-            <!-- Close button -->
-            <button class="close-btn" onclick="closeMenu()">✖</button>
-        </div>
-        <ul>
-        <li><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
-        <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
-        <!-- Horizontal line between Setting and School Year -->
-        <hr class="menu-divider">
-        <li><a href="rpms_highlyproficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
-        </ul>
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-icon" id="menu-icon">
+        <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
     </div> 
+    <div class="sidebar-icon" id="home-icon">
+        <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
+    </div>
+    <div class="sidebar-icon" id="settings-icon">
+        <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
+    </div>
+</div>
+
+<!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+    <div class="menu-header">
+        <!-- Close button -->
+        <button class="close-btn" onclick="closeMenu()" id="close-btn">✖</button>
+    </div>
+    <ul>
+        <li><a href="rpms_highlyproficient_homepage.html" id="home-link"><img src="Home.png" alt="Home Icon"/> Home</a></li>
+        <li><a href="rpms_setting.html" id="settings-link"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
+        <!-- Horizontal line between Setting and School Year -->
+        <hr class="menu-divider" id="menu-divider">
+        <li><a href="rpms_highlyproficient_stream.html" id="school-year-link"><span class="sy-circle" id="sy-circle">SY</span> School Year 2023–2024</a></li>
+    </ul>
+</div> 
 
     <!-- Header Section -->
     <header>
@@ -52,29 +51,29 @@
         </nav>
     </header>
 
-    <section class="cards-section">
-        <a href="rpms_highlyproficient_stream.html" class="card-link"> <!-- Wrap card with an anchor tag -->
-            <div class="card">
-                <div class="card-header blue">
-                    <div class="header-content">
+    <section class="cards-section" id="cards-section">
+        <a href="rpms_highlyproficient_stream.html" class="card-link" id="card-link">
+            <div class="card" id="card">
+                <div class="card-header blue" id="card-header">
+                    <div class="header-content" id="header-content">
                         Results-Based Performance Management System
-                        <span class="subheader">School Year 2023-2024</span>
+                        <span class="subheader" id="subheader">School Year 2023-2024</span>
                     </div>
-                    <div class="header-icon">
-                        <img src="Group 267.png" alt="SY Icon">
+                    <div class="header-icon" id="header-icon">
+                        <img src="Group 267.png" alt="SY Icon" id="sy-icon">
                     </div>
                 </div>
-                <div class="card-body">
-                    <p></p>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
+                <div class="card-body" id="card-body">
+                    <p id="card-body-text"></p>
+                    <ul id="card-body-list">
+                        <li id="list-item-1"></li>
+                        <li id="list-item-2"></li>
+                        <li id="list-item-3"></li>
+                        <li id="list-item-4"></li>
+                        <li id="list-item-5"></li>
                     </ul>
-                    <div class="card-icon-bottom">
-                        <img src="Name.png" alt="User Icon">
+                    <div class="card-icon-bottom" id="card-icon-bottom">
+                        <img src="Name.png" alt="User Icon" id="user-icon">
                     </div>
                 </div>
             </div>
