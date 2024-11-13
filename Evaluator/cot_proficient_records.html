@@ -33,19 +33,28 @@
         </div><br>
 
         <div class="filters">
-            <select name="school-year">
+            <select id="schoolYearSelect" name="school-year">
                 <option>Select School Year</option>
                 <option>S.Y. 2023 - 2024</option>
                 <option>S.Y. 2022 - 2023</option>
                 <option>S.Y. 2021 - 2022</option>
             </select>
         
-            <select name="teacher-type">
+            <select id="teacherTypeSelect" name="teacher-type">
                 <option value="#">Select Teacher Type</option>
                 <option value="ipcrf_proficient_records.html">Proficient Teacher</option>
                 <option value="ipcrf_highlyproficient_records.html">Highly Proficient Teacher</option>
             </select>
         </div>
+
+        <select id="selectQuarter" name="teacher-type">
+            <option value="#">Select Quarter</option>
+            <option value="evaluator_cot_form_proficient.html">Quarter 1</option>
+            <option value="evaluator_cot_form_proficient.html">Quarter 2</option>
+            <option value="evaluator_cot_form_proficient.html">Quarter 3</option>
+            <option value="evaluator_cot_form_proficient.html">Quarter 4</option>
+        </select>
+    </div>
 
         <table>
             <thead>
@@ -77,8 +86,8 @@
         <div class="modal-content">
             <p>Are you sure you want to logout?</p>
             <div class="modal-buttons">
-                <button class="yes-btn">Yes</button>
-                <button class="no-btn">No</button>
+                <button id="yesButton" class="yes-btn">Yes</button>
+                <button id="noButton" class="no-btn">No</button>
             </div>
         </div>
     </div>
