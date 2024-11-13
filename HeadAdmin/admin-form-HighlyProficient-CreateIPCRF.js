@@ -76,7 +76,7 @@ async function createFolder() {
         } else {
             console.log("Error Data : ",data);
         }
-        
+
         const categoryContainer = document.getElementById('categoryContainer');
         const newCategory = document.createElement('div');
         newCategory.className = 'form-category';
@@ -99,6 +99,7 @@ async function createFolder() {
         newCategory.style.marginTop = '-10px';  // Adjust this value as needed
 
         // Close the modal after creating the category
+        alert('Form created succesfully.');
         closeModal();
     } else {
         alert('Please select a school year.');
