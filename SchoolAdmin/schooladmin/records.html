@@ -39,16 +39,24 @@
 
         <div class="filters">
             <div class="filter-box">
-                <select class="filter" id="school-year-filter">
+                <select class="filter" id="schoolYearSelect" name="school-year">
                     <option>A.Y. 2023 - 2024</option>
                     <option>A.Y. 2022 - 2023</option>
                     <option>A.Y. 2021 - 2022</option>
                     <!-- Add more options here if necessary -->
                 </select>
-                <select class="filter" id="teacher-status-filter">
+                <select class="filter" id="teacherTypeSelect" name="teacher-type" onchange="filterRecords()">
                     <option>Proficient Teacher</option>
                     <option>Highly Proficient Teacher</option>
                     <!-- Add more options here if necessary -->
+                </select>
+
+                <select class="filter" id="selectQuarter" name="quarter">
+                    <option value="">Select Quarter</option>
+                    <option value="1">Quarter 1</option>
+                    <option value="2">Quarter 2</option>
+                    <option value="3">Quarter 3</option>
+                    <option value="4">Quarter 4</option>
                 </select>
             </div>
         </div>

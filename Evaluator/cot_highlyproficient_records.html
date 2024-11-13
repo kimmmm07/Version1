@@ -46,6 +46,14 @@
                 <option value="cot_proficient_records.html">Proficient Teacher</option>
                 <option value="cot_highlyproficient_records.html">Highly Proficient Teacher</option>
             </select>
+
+            <select id="selectQuarter" name="teacher-type">
+                <option value="#">Select Quarter</option>
+                <option value="#">Quarter 1</option>
+                <option value="#">Quarter 2</option>
+                <option value="#">Quarter 3</option>
+                <option value="#">Quarter 4</option>
+            </select>
         </div>
 
         <table>
@@ -117,5 +125,13 @@
 
 
 <script src="evaluator_dashboard.js"></script>
+<script>
+    function navigateToPage() {
+        const selectedValue = document.getElementById("teacherTypeSelect").value;
+        if (selectedValue !== "#") {
+            window.location.href = selectedValue;
+        }
+    }
+    </script>
 </body>
 </html>
