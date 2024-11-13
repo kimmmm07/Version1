@@ -24,31 +24,30 @@
     </header>
 
     <main>
-        <h1>Records</h1><br>
-
+        <h1 id="records-title">Records</h1><br>
+    
         <div class="tabs">
-            <a href="cot_proficient_records.html">COT</a>
-            <a href="ipcrf_proficient_records.html" class="active">IPRCF</a>
-            <a href="rpms_proficient_records.html">RPMS</a>
+            <a href="cot_proficient_records.html" id="tab-cot">COT</a>
+            <a href="ipcrf_proficient_records.html" class="active" id="tab-ipcrf">IPRCF</a>
+            <a href="rpms_proficient_records.html" id="tab-rpms">RPMS</a>
         </div><br>
-
-        
+    
         <div class="filters">
-            <select name="school-year">
+            <select name="school-year" id="school-year-filter">
                 <option>Select School Year</option>
-                <option>S.Y. 2023 - 2024</option>
-                <option>S.Y. 2022 - 2023</option>
-                <option>S.Y. 2021 - 2022</option>
+                <option value="2023-2024">S.Y. 2023 - 2024</option>
+                <option value="2022-2023">S.Y. 2022 - 2023</option>
+                <option value="2021-2022">S.Y. 2021 - 2022</option>
             </select>
-        
-            <select name="teacher-type">
+    
+            <select name="teacher-type" id="teacher-type-filter">
                 <option value="#">Select Teacher Type</option>
                 <option value="ipcrf_proficient_records.html">Proficient Teacher</option>
                 <option value="ipcrf_highlyproficient_records.html">Highly Proficient Teacher</option>
             </select>
         </div>
-
-        <table>
+    
+        <table id="records-table">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -58,20 +57,21 @@
                     <th>Result</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
+            <tbody id="records-tbody">
+                <tr id="record1">
                     <td>
-                        <img src="User_Circle.png" alt="User Icon" width="25"> 
-                        Jessica Sanchez Ramirez
+                        <img src="User_Circle.png" alt="User Icon" width="25" id="user-icon1"> 
+                        <span id="teacher-name1">Jessica Sanchez Ramirez</span>
                     </td>
-                    <td>Teacher II</td>
-                    <td>Junior High School</td>
-                    <td>David Patel</td>
-                    <td>Very Satisfactory <a href="#" class="view-link"> | View</a></td>
+                    <td id="teacher-position1">Teacher II</td>
+                    <td id="teacher-grade-level1">Junior High School</td>
+                    <td id="rater-name1">David Patel</td>
+                    <td id="result1">Very Satisfactory <a href="#" class="view-link" id="view-link1"> | View</a></td>
                 </tr>
             </tbody>
         </table>
     </main>
+    
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->

@@ -23,9 +23,9 @@
         </nav>
     </header>
     <div class="container">
-        <h1>Individual Performance Commitment and Review Form for Teacher I - III</h1>
-
-        <table>
+        <h1 id="ipcrf-title">Individual Performance Commitment and Review Form for Teacher I - III</h1>
+    
+        <table id="ipcrf-table">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -36,26 +36,33 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td><img src="User_Circle.png" alt="User Icon"> Jessica Sanchez Ramirez</td>
-                    <td>Teacher II</td>
-                    <td>Junior High School</td>
-                    <td>David Patel</td>
-                    <td class="status pending">Pending</td>
-                    <td><a href="evaluator_IPCRF_Proficient_EPart1.html" class="review">Review</a></td>
+            <tbody id="ipcrf-tbody">
+                <tr id="record1">
+                    <td>
+                        <img src="User_Circle.png" alt="User Icon" id="user-icon1"> 
+                        <span id="teacher-name1">Jessica Sanchez Ramirez</span>
+                    </td>
+                    <td id="teacher-position1">Teacher II</td>
+                    <td id="teacher-grade-level1">Junior High School</td>
+                    <td id="rater-name1">David Patel</td>
+                    <td id="status1" class="status pending">Pending</td>
+                    <td><a href="evaluator_IPCRF_Proficient_EPart1.html" class="review" id="review-link1">Review</a></td>
                 </tr>
-                <tr></tr>
-                    <td><img src="User_Circle.png" alt="User Icon"> Ethan Miller</td>
-                    <td>Teacher III</td>
-                    <td>Junior High School</td>
-                    <td>David Patel</td>
-                    <td class="status submitted">Submitted</td>
-                    <td><a href="#" class="review">Reviewed</a></td>
+                <tr id="record2">
+                    <td>
+                        <img src="User_Circle.png" alt="User Icon" id="user-icon2"> 
+                        <span id="teacher-name2">Ethan Miller</span>
+                    </td>
+                    <td id="teacher-position2">Teacher III</td>
+                    <td id="teacher-grade-level2">Junior High School</td>
+                    <td id="rater-name2">David Patel</td>
+                    <td id="status2" class="status submitted">Submitted</td>
+                    <td><a href="#" class="review" id="review-link2">Reviewed</a></td>
                 </tr>
             </tbody>
         </table>
     </div>
+    
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
