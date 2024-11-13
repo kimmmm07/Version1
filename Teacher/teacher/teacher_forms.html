@@ -141,11 +141,37 @@ yesButton.addEventListener('click', async function() {
 
     <script>
         // Automatically set default forms to Proficient on page load
-        window.onload = function() {
+        let data;
+        window.onload = async function() { 
+            try {
+                const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/form/', {
+                    method: 'GET',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                    credentials: 'include',
+                    // body: formData,
+                });
+        
+                data = await response.json();
+                if (response.ok) {
+                    console.log("Success Data : ", data);  
+                } else {
+                    console.log("Error Data : ", data);
+                    // alert("Login Failed.")
+                }
+            } catch (error) {
+                console.error("Error during fetch:", error);
+            } 
             // Trigger the default behavior for "Proficient Teacher"
             var chooseFormFilter = document.getElementById('choose-form-filter');
-            chooseFormFilter.value = 'proficient'; // Set the default option
-            enableProficientForms();
+            if (data.Proficient){
+                chooseFormFilter.value = 'proficient'; // Set the default option
+                enableProficientForms();
+            } else {
+                chooseFormFilter.value = 'highly-proficient'; // Set the default option 
+                enableHighlyProficientForms();
+            }
         };
 
         // Function to enable Proficient forms and disable Highly Proficient ones
@@ -164,6 +190,25 @@ yesButton.addEventListener('click', async function() {
             ipcrfHighlyProficient.classList.remove('enabled');
             rpmsHighlyProficient.classList.add('disabled');
             rpmsHighlyProficient.classList.remove('enabled');
+        }
+
+
+        function enableHighlyProficientForms() {
+            // Enable Highly Proficient forms and disable Proficient ones
+            var ipcrfProficient = document.getElementById('ipcrf-proficient');
+            var ipcrfHighlyProficient = document.getElementById('ipcrf-highly-proficient');
+            var rpmsProficient = document.getElementById('rpms-proficient');
+            var rpmsHighlyProficient = document.getElementById('rpms-highly-proficient');
+
+            ipcrfHighlyProficient.classList.remove('disabled');
+            ipcrfHighlyProficient.classList.add('enabled');
+            rpmsHighlyProficient.classList.remove('disabled');
+            rpmsHighlyProficient.classList.add('enabled');
+
+            ipcrfProficient.classList.add('disabled');
+            ipcrfProficient.classList.remove('enabled');
+            rpmsProficient.classList.add('disabled');
+            rpmsProficient.classList.remove('enabled');
         }
 
         // Function to enable or disable the corresponding forms based on the dropdown value
