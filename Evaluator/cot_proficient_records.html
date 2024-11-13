@@ -33,27 +33,32 @@
         </div><br>
 
         <div class="filters">
+            <!-- Select School Year -->
             <select id="schoolYearSelect" name="school-year">
-                <option>Select School Year</option>
-                <option>S.Y. 2023 - 2024</option>
-                <option>S.Y. 2022 - 2023</option>
-                <option>S.Y. 2021 - 2022</option>
+                <option value="">Select School Year</option>
+                <option value="2023-2024">S.Y. 2023 - 2024</option>
+                <option value="2022-2023">S.Y. 2022 - 2023</option>
+                <option value="2021-2022">S.Y. 2021 - 2022</option>
             </select>
         
-            <select id="teacherTypeSelect" name="teacher-type">
-                <option value="#">Select Teacher Type</option>
-                <option value="ipcrf_proficient_records.html">Proficient Teacher</option>
-                <option value="ipcrf_highlyproficient_records.html">Highly Proficient Teacher</option>
+            <!-- Select Teacher Type -->
+            <select id="teacherTypeSelect" name="teacher-type" onchange="filterRecords()">
+                <option value="">Select Teacher Type</option>
+                <option value="proficient">Proficient Teacher</option>
+                <option value="highly-proficient">Highly Proficient Teacher</option>
+            </select>
+        
+            <!-- Select Quarter -->
+            <select id="selectQuarter" name="quarter">
+                <option value="">Select Quarter</option>
+                <option value="1">Quarter 1</option>
+                <option value="2">Quarter 2</option>
+                <option value="3">Quarter 3</option>
+                <option value="4">Quarter 4</option>
             </select>
         </div>
 
-        <select id="selectQuarter" name="teacher-type">
-            <option value="#">Select Quarter</option>
-            <option value="evaluator_cot_form_proficient.html">Quarter 1</option>
-            <option value="evaluator_cot_form_proficient.html">Quarter 2</option>
-            <option value="evaluator_cot_form_proficient.html">Quarter 3</option>
-            <option value="evaluator_cot_form_proficient.html">Quarter 4</option>
-        </select>
+       
     </div>
 
         <table>
@@ -122,5 +127,23 @@
     
     </script>
     <script src="cot_proficient_records.js"></script>
+
+    <!-- <script> //not functional
+        function filterRecords() {
+            const teacherType = document.getElementById("teacherTypeSelect").value;
+        
+            // Hide all records by default
+            document.getElementById("proficient-records").style.display = "none";
+            document.getElementById("highly-proficient-records").style.display = "none";
+        
+            // Show the relevant section based on the selected type
+            if (teacherType === "proficient") {
+                document.getElementById("proficient-records").style.display = "block";
+            } else if (teacherType === "highly-proficient") {
+                document.getElementById("highly-proficient-records").style.display = "block";
+            }
+        }
+        </script> -->
+
 </body>
 </html>

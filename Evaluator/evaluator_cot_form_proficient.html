@@ -50,7 +50,7 @@
     <br><br><br>
     <div class="container">
         <br><br>
-        <div class="instructions">
+        <div class="instructions" id="instructions">
             <h3>DIRECTIONS FOR THE EVALUATOR:</h3>
             <ol>
                 <li>Rate each item on the checklist according to how well the teacher performed during the classroom observation.</li>
@@ -61,7 +61,7 @@
         </div>
 
         <form id="ratingForm">
-            <div class="question-container">
+            <div class="question-container" id="question1">
                 <div class="question">1. Applied knowledge of content within and across curriculum teaching areas. <span style="color: red;">*</span></div>
                 <div class="rating-scale">
                     <button class="rating-button" type="button" onclick="selectRating(this, 'q1')">3</button>
@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <div class="question-container">
+            <div class="question-container" id="question2">
                 <div class="question">2. Used a range of teaching strategies that enhance learner achievement in literacy and numeracy skills. <span style="color: red;">*</span></div>
                 <div class="rating-scale">
                     <button class="rating-button" type="button" onclick="selectRating(this, 'q2')" value="1">3</button>
@@ -85,7 +85,7 @@
                 </div>
             </div>
 
-            <div class="question-container">
+            <div class="question-container" id="question3">
                 <div class="question">3. Applied a range of teaching strategies to develop critical and creative thinking, as well as other higher-order thinking skills. <span style="color: red;">*</span></div>
                 <div class="rating-scale">
                     <button class="rating-button" type="button" onclick="selectRating(this, 'q3')" value="1">3</button>
@@ -97,7 +97,7 @@
                 </div>
             </div>
 
-            <div class="question-container">
+            <div class="question-container" id="question4">
                 <div class="question">4. Displayed proficient use of Mother Tongue, Filipino and English to facilitate teaching and learning. <span style="color: red;">*</span></div>
                 <div class="rating-scale">
                     <button class="rating-button" type="button" onclick="selectRating(this, 'q4')" value="1">3</button>
@@ -109,7 +109,7 @@
                 </div>
             </div>
 
-            <div class="question-container">
+            <div class="question-container" id="question5">
                 <div class="question">5. Established safe and secure learning environment to enhance learning through the consistent implementation of policies, guidelines, and procedures. <span style="color: red;">*</span></div>
                 <div class="rating-scale">
                     <button class="rating-button" type="button" onclick="selectRating(this, 'q5')" value="1">3</button>
@@ -121,7 +121,7 @@
                 </div>
             </div>
 
-            <div class="question-container">
+            <div class="question-container" id="question6">
                 <div class="question">6. Maintained learning environment that promotes fairness, respect and care to encourage learning. <span style="color: red;">*</span></div>
                 <div class="rating-scale">
                     <button class="rating-button" type="button" onclick="selectRating(this, 'q6')" value="1">3</button>
@@ -133,7 +133,7 @@
                 </div>
             </div>
 
-            <div class="question-container">
+            <div class="question-container" id="question7">
                 <div class="question">7. Collaborated with colleagues, parents, and other stakeholders in the teaching and learning process. <span style="color: red;">*</span></div>
                 <div class="rating-scale">
                     <button class="rating-button" type="button" onclick="selectRating(this, 'q7')" value="1">3</button>
@@ -145,7 +145,7 @@
                 </div>
             </div>
 
-            <div class="question-container">
+            <div class="question-container" id="question8">
                 <div class="question">8. Implemented continuous professional growth and development. <span style="color: red;">*</span></div>
                 <div class="rating-scale">
                     <button class="rating-button" type="button" onclick="selectRating(this, 'q8')" value="1">3</button>
@@ -157,7 +157,7 @@
                 </div>
             </div>
 
-            <div class="question-container">
+            <div class="question-container" id="question9">
                 <div class="question">9. Integrated 21st-century skills in teaching and learning. <span style="color: red;">*</span></div>
                 <div class="rating-scale">
                     <button class="rating-button" type="button" onclick="selectRating(this, 'q9')" value="1">3</button>
@@ -180,7 +180,7 @@
             <div class="form-buttons">
                 <div class="button-container">
                     <button type="back" id="backBtn">Back</button>
-                    <button type="submit">Submit</button>
+                    <button type="submit" id="SubmitBtn">Submit</button>
                 </div>
             </div>
         </form>
@@ -191,8 +191,8 @@
         <div class="modal-content">
             <p>Are you sure you want to logout?</p>
             <div class="modal-buttons">
-                <button class="yes-btn">Yes</button>
-                <button class="no-btn">No</button>
+                <button id="yesButton" class="yes-btn">Yes</button>
+                <button id="noButton" class="no-btn">No</button>    
             </div>
         </div>
     </div>
