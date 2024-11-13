@@ -66,8 +66,8 @@
 
         
         <div class="tabs">
-            <a href="rpms_proficient_pending.html" class="tab">Pending</a>
-            <a href="rpms_proficient_done.html" class="tab active">Done</a>
+            <a href="rpms_proficient_pending.html" class="tab" id="pending">Pending</a>
+            <a href="rpms_proficient_done.html" class="tab active" id="done">Done</a>
         </div>
 
         <div class="dropdown-container">
@@ -86,7 +86,7 @@
                         <div class="rpms">
                             <p>Results-Based Performance Management System School Year 2023-2024</p>
                         </div>
-                        <div class="score">
+                        <div class="score" id="kra1Score">
                             <p>Score:  /28</p>
                         </div>
                         </div>
@@ -101,7 +101,7 @@
                             <div class="rpms">
                                 <p>Results-Based Performance Management System School Year 2023-2024</p>
                             </div>
-                            <div class="score">
+                            <div class="score" id="kra2Score">
                                 <p>Score:  /28</p>
                             </div>
                             </div>
@@ -116,7 +116,7 @@
                                 <div class="rpms">
                                     <p>Results-Based Performance Management System School Year 2023-2024</p>
                                 </div>
-                                <div class="score">
+                                <div class="score" id="kra3Score">
                                     <p>Score:  /21</p>
                                 </div>
                                 </div>
@@ -131,7 +131,7 @@
                                     <div class="rpms">
                                         <p>Results-Based Performance Management System School Year 2023-2024</p>
                                     </div>
-                                    <div class="score">
+                                    <div class="score" id="kra4Score">
                                         <p>Score:  /21</p>
                                     </div>
                                     </div>
@@ -146,7 +146,7 @@
                                         <div class="rpms">
                                             <p>Results-Based Performance Management System School Year 2023-2024</p>
                                         </div>
-                                        <div class="score">
+                                        <div class="score" id="plusFactorScore">
                                             <p>Score:  /2</p>
                                         </div>
                                         </div>
@@ -162,7 +162,7 @@
                     <span class="count"></span>
                     <button class="dropdown-toggle">&#9662;</button>
                 </div>
-                <div class="dropdown-content">
+                <div class="dropdown-content" id="thisWeekContent">
                     <!-- Add any tasks or details for 'This week' here -->
                 </div>
             </div>
@@ -173,7 +173,7 @@
                     <span class="count"></span>
                     <button class="dropdown-toggle">&#9662;</button>
                 </div>
-                <div class="dropdown-content">
+                <div class="dropdown-content" id="nextWeekContent">
                     <!-- Add any tasks or details for 'Next week' here -->
                 </div>
             </div>
@@ -184,7 +184,7 @@
                     <span class="count"></span>
                     <button class="dropdown-toggle">&#9662;</button>
                 </div>
-                <div class="dropdown-content">
+                <div class="dropdown-content" id="laterContent">
                     <!-- Add any tasks or details for 'Later' here -->
                 </div>
             </div>
