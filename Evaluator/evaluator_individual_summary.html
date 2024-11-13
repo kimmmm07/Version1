@@ -24,16 +24,16 @@
         </nav>
     </header>
     
-    <div class="container">
+    <div class="container" id="analytics-container">
         <h1>Analytics</h1>
 
-        <div class="tabs">
-            <a class="view-individual" id="view-individual">View Individual Result</a>
+        <div class="tabs" id="tabs-section">
+            <a class="view-individual" id="view-individual-link">View Individual Result</a>
         </div>
 
         <!-- Filters Section -->
-        <div class="filters">
-            <div class="filter-box">
+        <div class="filters" id="filters-section">
+            <div class="filter-box" id="filter-box">
                 <!-- Name Dropdown -->
                 <select class="filter" id="choose-name-filter">
                     <option value="jessica">Jessica Sanchez Ramirez</option>
@@ -49,46 +49,46 @@
         </div>
 
         <!-- Analytics Grid -->
-        <div class="analytics-grid">
+        <div class="analytics-grid" id="analytics-grid">
             <!-- KRA Breakdown Chart -->
-            <div class="kra-breakdown">
-                <h2>KRA Breakdown</h2>
-                <canvas id="kraChart"></canvas><br>
-                <h4>5 - Outstanding 4 - Very Satisfactory 3 - Satisfactory 2 - Unsatisfactory 1 - Poor   </h4>
+            <div class="kra-breakdown" id="kra-breakdown">
+                <h2 id="kra-title">KRA Breakdown</h2>
+                <canvas id="kraChart" class="analytics-chart"></canvas><br>
+                <h4 id="kra-legend">5 - Outstanding 4 - Very Satisfactory 3 - Satisfactory 2 - Unsatisfactory 1 - Poor</h4>
             </div>
             <!-- Recommendation Pie Chart -->
-            <div class="recommendation">
+            <div class="recommendation" id="recommendation">
                 <h2>Recommendation</h2>
-                <div class="recommendation-content">
-                    <canvas id="recommendationChart" width="150" height="150"></canvas>
-                    <div class="recommendation-labels">
+                <div class="recommendation-content" id="recommendation-content">
+                    <canvas id="recommendationChart" width="150" height="150" class="analytics-chart"></canvas>
+                    <div class="recommendation-labels" id="recommendation-labels">
                         <ul>
-                            <li> Promotion: 39.11%</li>
-                            <li> Retention: 23.13%</li>
-                            <li> Termination: 28.02%</li>
+                            <li id="promotion">Promotion: 39.11%</li>
+                            <li id="retention">Retention: 23.13%</li>
+                            <li id="termination">Termination: 28.02%</li>
                         </ul>
                     </div>
                 </div>
             </div>
             <!-- Performance Line Chart -->
-            <div class="performance">
-                <h2>Performance through years</h2>
-                <canvas id="performanceChart"></canvas>
+            <div class="performance" id="performance">
+                <h2 id="performance-title">Performance through years</h2>
+                <canvas id="performanceChart" class="analytics-chart"></canvas>
             </div>
             <!-- SWOT Analysis -->
-            <div class="swot-analysis">
+            <div class="swot-analysis" id="swot-analysis">
                 <h2>S.W.O.T. Analysis Result</h2>
                 <div id="swot-content">
-                    <h3>Strengths</h3>
+                    <h3 id="strengths-title">Strengths</h3>
                     <p id="strengths"></p>
-
-                    <h3>Weakness</h3>
+    
+                    <h3 id="weakness-title">Weakness</h3>
                     <p id="weakness"></p>
-
-                    <h3>Opportunities</h3>
+    
+                    <h3 id="opportunities-title">Opportunities</h3>
                     <p id="opportunities"></p>
-
-                    <h3>Threats</h3>
+    
+                    <h3 id="threats-title">Threats</h3>
                     <p id="threats"></p>
                 </div>
             </div>
@@ -100,13 +100,13 @@
         <div class="modal-content">
             <p>Are you sure you want to logout?</p>
             <div class="modal-buttons">
-                <button class="yes-btn">Yes</button>
-                <button class="no-btn">No</button>
+                <button id="yesButton" class="yes-btn">Yes</button>
+                <button id="noButton" class="no-btn">No</button>    
             </div>
         </div>
     </div>
 
     <!-- Include JS File -->
-    <script src="evaluator_Individual_summary.js"></script>
+    <script src="evaluator_individual_summary.js"></script>
 </body>
 </html>
