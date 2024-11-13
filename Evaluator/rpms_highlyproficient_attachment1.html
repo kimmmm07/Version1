@@ -9,33 +9,31 @@
   <link rel="stylesheet" href="rpms_highlyproficient_attachment.css">
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <div class="sidebar-icon" id="menu-icon">
-          <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
-      </div> 
-      <div class="sidebar-icon">
-          <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
-      </div>
-      <div class="sidebar-icon">
-          <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
-      </div>
+<!-- Sidebar -->
+<div class="sidebar">
+  <div class="sidebar-icon" id="menu-icon">
+      <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
   </div>
+  <div class="sidebar-icon" id="home-icon">
+      <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
+  </div>
+  <div class="sidebar-icon" id="settings-icon">
+      <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
+  </div>
+</div>
 
-  <!-- Floating Menu -->
-  <div class="floating-menu" id="floating-menu">
-    <div class="menu-header">
-        
-        <!-- Close button -->
-        <button class="close-btn" onclick="closeMenu()">✖</button>
-    </div>
-    <ul>
-    <li><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
-    <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
-    <!-- Horizontal line between Setting and School Year -->
-    <hr class="menu-divider">
-    <li><a href="rpms_highlyproficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
-    </ul>
+<!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+  <div class="menu-header">
+      <!-- Close button -->
+      <button class="close-btn" onclick="closeMenu()" id="close-menu-btn">✖</button>
+  </div>
+  <ul>
+      <li id="menu-home"><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
+      <li id="menu-settings"><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
+      <hr class="menu-divider">
+      <li id="menu-school-year"><a href="rpms_highlyproficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
+  </ul>
 </div>
 
   <!-- Header Section -->
@@ -54,73 +52,72 @@
 </header>
 
 <main>
-    <section class="content">
-        <h1>KRA 1: Content Knowledge and Pedagogy</h1>
-  
-        <!-- Student name and status with dropdown -->
-        <div class="student-info">
-          <div class="dropdown">
-            <i class="fas fa-user"></i>
-            <select>
-              <option>Michael Pelps Johnson</option>
-              <option>Student 2</option>
-              <option>Student 3</option>
-            </select>
-            <span>Turned in</span>
-          </div>
-        </div><br>
-  
-        <div class="file-preview">
-          <img src="Group 924.png" alt="Attachment Preview">
-  
-          <!-- Three-dot menu with icons placed at the top right -->
-          <div class="file-actions">
-            <button class="three-dots" id="three-dots-btn">⋮</button>
-            <div class="dropdown-menu" id="dropdown-menu">
-              <button onclick="downloadFile()">
-                <i class="fas fa-download" id="fas fa-download"></i> Download
-              </button>
-              <button onclick="printFile()">
-                <i class="fas fa-print" id="fas fa-print"></i> Print
-              </button>
-            </div>
-          </div>
-        </div>
-  
-      </section>
-  
-      <aside class="sidebar1">
-        <!-- Return button placed in the sidebar -->
-        <div class="sidebar-return">
-          <button id="return-btn" class="return-button">Return</button>
-        </div><br>
+  <section class="content" id="content-section">
+      <h1 id="kra-title">KRA 1: Content Knowledge and Pedagogy</h1>
 
-        <div class="file-section tab">
+      <!-- Student name and status with dropdown -->
+      <div class="student-info" id="student-info">
+          <div class="dropdown">
+              <i class="fas fa-user" id="user-icon"></i>
+              <select id="student-select">
+                  <option>Michael Pelps Johnson</option>
+                  <option>Student 2</option>
+                  <option>Student 3</option>
+              </select>
+              <span id="status-text">Turned in</span>
+          </div>
+      </div><br>
+
+      <div class="file-preview" id="file-preview">
+          <img src="Group 924.png" alt="Attachment Preview" id="attachment-preview">
+
+          <!-- Three-dot menu with icons placed at the top right -->
+          <div class="file-actions" id="file-actions">
+              <button class="three-dots" id="three-dots-btn">⋮</button>
+              <div class="dropdown-menu" id="dropdown-menu">
+                  <button onclick="downloadFile()" id="download-btn">
+                      <i class="fas fa-download"></i> Download
+                  </button>
+                  <button onclick="printFile()" id="print-btn">
+                      <i class="fas fa-print"></i> Print
+                  </button>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <aside class="sidebar1" id="details-sidebar">
+      <!-- Return button placed in the sidebar -->
+      <div class="sidebar-return" id="sidebar-return">
+          <button id="return-btn" class="return-button">Return</button>
+      </div><br>
+
+      <div class="file-section tab" id="file-section">
           <h3>Files</h3>
           <p>Turned in on Aug 10, 11:00PM</p>
-          <img src="Group 924.png" alt="Sample attachment">
-        </div>
-  
-        <div class="grade-section tab">
+          <img src="Group 924.png" alt="Sample attachment" id="sample-attachment">
+      </div>
+
+      <div class="grade-section tab" id="grade-section">
           <h3>Grade</h3>
           <ul>
-            <li>Modeled effective applications of content knowledge within and across curriculum teaching areas. (PPST 1.1.3) <span contenteditable="">__/7</span></li>
-            <li>Evaluated with colleagues the effectiveness of teaching strategies that promote learner achievement in literacy and numeracy (PPST 1.4.3) <span contenteditable="">__/7</span></li>
-            <li>Developed and applied effective teaching strategies to promote critical and creative thinking, as well as other higher-order thinking skills. (PPST 1.5.3) <span contenteditable="">__/7</span></li>
-            <li>Modeled and supported colleagues in the proficient use of Mother Tongue, Filipino and English to improve teaching and learning, as well as to develop the learners’ pride of their language, heritage and culture. (PPST 1.6.3) <span contenteditable="">__/7</span></li>
+              <li>Modeled effective applications of content knowledge within and across curriculum teaching areas. (PPST 1.1.3) <span contenteditable="" id="grade-item-1">__/7</span></li>
+              <li>Evaluated with colleagues the effectiveness of teaching strategies that promote learner achievement in literacy and numeracy (PPST 1.4.3) <span contenteditable="" id="grade-item-2">__/7</span></li>
+              <li>Developed and applied effective teaching strategies to promote critical and creative thinking, as well as other higher-order thinking skills. (PPST 1.5.3) <span contenteditable="" id="grade-item-3">__/7</span></li>
+              <li>Modeled and supported colleagues in the proficient use of Mother Tongue, Filipino, and English to improve teaching and learning, as well as to develop the learners’ pride of their language, heritage, and culture. (PPST 1.6.3) <span contenteditable="" id="grade-item-4">__/7</span></li>
           </ul>
-        </div>
-  
-        <div class="total-score tab">
-          <p><b>Total Score: </b><br><br><span contenteditable="">____/28</span></p>
-        </div>
-  
-        <div class="private-comments-section tab">
-          <textarea placeholder="Add private comment..."></textarea>
-          <button class="post-button">Post</button> <!-- Centered Post Button -->
-        </div>
-      </aside>
-    </main>
+      </div>
+
+      <div class="total-score tab" id="total-score">
+          <p><b>Total Score: </b><br><br><span contenteditable="" id="total-score-value">____/28</span></p>
+      </div>
+
+      <div class="private-comments-section tab" id="private-comments">
+          <textarea placeholder="Add private comment..." id="comment-textarea"></textarea>
+          <button class="post-button" id="post-comment-btn">Post</button> <!-- Centered Post Button -->
+      </div>
+  </aside>
+</main>
   
   <!-- Logout Confirmation Modal -->
   <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->

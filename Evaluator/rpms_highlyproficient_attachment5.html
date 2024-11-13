@@ -9,33 +9,32 @@
   <link rel="stylesheet" href="rpms_highlyproficient_attachment.css">
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <div class="sidebar-icon" id="menu-icon">
-          <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
-      </div> 
-      <div class="sidebar-icon">
-          <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
-      </div>
-      <div class="sidebar-icon">
-          <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
-      </div>
+    <!-- Sidebar --> 
+<div class="sidebar">
+  <div class="sidebar-icon" id="menu-icon">
+    <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
+  </div> 
+  <div class="sidebar-icon">
+    <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
   </div>
+  <div class="sidebar-icon">
+    <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
+  </div>
+</div>
 
-  <!-- Floating Menu -->
-  <div class="floating-menu" id="floating-menu">
-    <div class="menu-header">
-        
-        <!-- Close button -->
-        <button class="close-btn" onclick="closeMenu()">✖</button>
-    </div>
-    <ul>
+<!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+  <div class="menu-header">
+    <!-- Close button -->
+    <button class="close-btn" onclick="closeMenu()">✖</button>
+  </div>
+  <ul>
     <li><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
     <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
     <!-- Horizontal line between Setting and School Year -->
     <hr class="menu-divider">
     <li><a href="rpms_highlyproficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
-    </ul>
+  </ul>
 </div>
 
   <!-- Header Section -->
@@ -54,70 +53,69 @@
 </header>
 
 <main>
-    <section class="content">
-        <h1>PLUS FACTOR</h1>
-  
-        <!-- Student name and status with dropdown -->
-        <div class="student-info">
-          <div class="dropdown">
-            <i class="fas fa-user"></i>
-            <select>
-              <option>Michael Pelps Johnson</option>
-              <option>Student 2</option>
-              <option>Student 3</option>
-            </select>
-            <span>Turned in</span>
-          </div>
-        </div><br>
-  
-        <div class="file-preview">
-          <img src="Group 924.png" alt="Attachment Preview">
-  
-          <!-- Three-dot menu with icons placed at the top right -->
-          <div class="file-actions">
-            <button class="three-dots" id="three-dots-btn">⋮</button>
-            <div class="dropdown-menu" id="dropdown-menu">
-              <button onclick="downloadFile()">
-                <i class="fas fa-download" id="fas fa-download"></i> Download
-              </button>
-              <button onclick="printFile()">
-                <i class="fas fa-print" id="fas fa-print"></i> Print
-              </button>
-            </div>
-          </div>
-        </div>
-  
-      </section>
-  
-      <aside class="sidebar1">
-        <!-- Return button placed in the sidebar -->
-        <div class="sidebar-return">
-          <button id="return-btn" class="return-button">Return</button>
-        </div><br>
+  <section class="content">
+    <h1>PLUS FACTOR</h1>
 
-        <div class="file-section tab">
-          <h3>Files</h3>
-          <p>Turned in on Aug 10, 11:00PM</p>
-          <img src="Group 924.png" alt="Sample attachment">
+    <!-- Student name and status with dropdown -->
+    <div class="student-info">
+      <div class="dropdown">
+        <i class="fas fa-user"></i>
+        <select>
+          <option>Michael Pelps Johnson</option>
+          <option>Student 2</option>
+          <option>Student 3</option>
+        </select>
+        <span>Turned in</span>
+      </div>
+    </div><br>
+
+    <div class="file-preview">
+      <img src="Group 924.png" alt="Attachment Preview">
+
+      <!-- Three-dot menu with icons placed at the top right -->
+      <div class="file-actions">
+        <button class="three-dots" id="three-dots-btn">⋮</button>
+        <div class="dropdown-menu" id="dropdown-menu">
+          <button onclick="downloadFile()">
+            <i class="fas fa-download" id="fas fa-download"></i> Download
+          </button>
+          <button onclick="printFile()">
+            <i class="fas fa-print" id="fas fa-print"></i> Print
+          </button>
         </div>
-  
-        <div class="grade-section tab">
-          <h3>Grade</h3>
-          <ul>
-            <li>Performed various related works/ activities that contribute to the teaching-learning process. <span contenteditable="">__/2</span></li>
-          </ul>
-        </div>
-  
-        <div class="total-score tab">
-          <p><b>Total Score: </b><br><br><span contenteditable="">____/2</span></p>
-        </div>
-  
-        <div class="private-comments-section tab">
-          <textarea placeholder="Add private comment..."></textarea>
-          <button class="post-button">Post</button> <!-- Centered Post Button -->
-        </div>
-      </aside>
-    </main>
+      </div>
+    </div>
+  </section>
+
+  <aside class="sidebar1">
+    <!-- Return button placed in the sidebar -->
+    <div class="sidebar-return">
+      <button id="return-btn" class="return-button">Return</button>
+    </div><br>
+
+    <div class="file-section tab">
+      <h3>Files</h3>
+      <p>Turned in on Aug 10, 11:00PM</p>
+      <img src="Group 924.png" alt="Sample attachment">
+    </div>
+
+    <div class="grade-section tab">
+      <h3>Grade</h3>
+      <ul>
+        <li>Performed various related works/ activities that contribute to the teaching-learning process. <span contenteditable="">__/2</span></li>
+      </ul>
+    </div>
+
+    <div class="total-score tab">
+      <p><b>Total Score: </b><br><br><span contenteditable="">____/2</span></p>
+    </div>
+
+    <div class="private-comments-section tab">
+      <textarea placeholder="Add private comment..."></textarea>
+      <button class="post-button">Post</button> <!-- Centered Post Button -->
+    </div>
+  </aside>
+</main>
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->

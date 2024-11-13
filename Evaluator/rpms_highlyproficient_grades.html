@@ -8,34 +8,35 @@
     <link rel="stylesheet" href="rpms_highlyproficient_grades.css">
 </head>
 <body>
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-icon" id="menu-icon">
-            <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
-        </div> 
-        <div class="sidebar-icon">
-            <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
-        </div>
-        <div class="sidebar-icon">
-            <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
-        </div>
+    <!-- Sidebar --> 
+<div class="sidebar">
+    <div class="sidebar-icon" id="menu-icon">
+        <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
+    </div> 
+    <div class="sidebar-icon">
+        <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
     </div>
+    <div class="sidebar-icon">
+        <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
+    </div>
+</div>
 
-    <!-- Floating Menu -->
-    <div class="floating-menu" id="floating-menu">
-        <div class="menu-header">
-            
-            <!-- Close button -->
-            <button class="close-btn" onclick="closeMenu()">✖</button>
-        </div>
-        <ul>
+<!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+    <div class="menu-header">
+        <!-- Close button -->
+        <button class="close-btn" onclick="closeMenu()">✖</button>
+    </div>
+    <ul>
         <li><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
         <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
         <!-- Horizontal line between Setting and School Year -->
         <hr class="menu-divider">
         <li><a href="rpms_highlyproficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
-        </ul>
-    </div>
+    </ul>
+</div>
+
+
 
     <!-- Header Section -->
     <header>
@@ -52,19 +53,20 @@
         </nav>
     </header>
 
-    <!-- Header section with an image and text overlay -->
-    <div class="header-section">
-        <img src="Group 922.png" alt="Green Background" class="header-image">
-        <div class="text-overlay">
-            <h1 class="header-title">Results-Based Performance Management System</h1>
-            <p class="header-subtitle">School Year 2023-2024</p>
-        </div>
-    </div><br>
-
-    <div class="tabs">
-        <a href="rpms_highlyproficient_stream.html" class="tab" >Stream</a>
-        <a href="rpms_highlyproficient_grades.html" class="tab active">Grades</a>
+<!-- Header section with an image and text overlay -->
+<div class="header-section">
+    <img src="Group 922.png" alt="Green Background" class="header-image">
+    <div class="text-overlay">
+        <h1 class="header-title" id="header-title">Results-Based Performance Management System</h1>
+        <p class="header-subtitle" id="header-subtitle">School Year 2023-2024</p>
     </div>
+</div><br>
+
+
+<div class="tabs">
+    <a href="rpms_highlyproficient_stream.html" class="tab">Stream</a>
+    <a href="rpms_highlyproficient_grades.html" class="tab active">Grades</a>
+</div>
 
 <main>
     <table>
@@ -72,7 +74,7 @@
             <th rowspan="2">
                 <div class="sort">
                     Sort by: 
-                    <select>
+                    <select id="sort-select">
                         <option>Last name</option>
                     </select>
                 </div>
@@ -84,23 +86,23 @@
             <th rowspan="1">KRA 1: Content Knowledge and...</th>
         </tr>
         <tr>
-            <th>___ out of 2</th>
-            <th>___ out of 21</th>
-            <th>___ out of 21</th>
-            <th>___ out of 28</th>
-            <th>___ out of 28</th>
+            <th><input type="text" id="plus-factor-score" value="___ out of 2" /></th>
+            <th><input type="text" id="kra4-score" value="___ out of 21" /></th>
+            <th><input type="text" id="kra3-score" value="___ out of 21" /></th>
+            <th><input type="text" id="kra2-score" value="___ out of 28" /></th>
+            <th><input type="text" id="kra1-score" value="___ out of 28" /></th>
         </tr>
         <tr>
-            <td class="user-info">
-                <img src="User_Circle.png" alt="User Icon">
-                Michael Pelps Johnson
+            <td class="user-info" id="user-info">
+                <img src="User_Circle.png" alt="User Icon" />
+                <span id="user-name">Michael Pelps Johnson</span>
             </td>
-            <td class="highlight">/2</td>
-            <td class="highlight">/21</td>
-            <td class="highlight">/21</td>
-            <td class="highlight">/28</td>
-            <td class="highlight">/28</td>
-            <td class="highlight">/100</td>
+            <td class="highlight"><span id="plus-factor">/2</span></td>
+            <td class="highlight"><span id="kra4">/21</span></td>
+            <td class="highlight"><span id="kra3">/21</span></td>
+            <td class="highlight"><span id="kra2">/28</span></td>
+            <td class="highlight"><span id="kra1">/28</span></td>
+            <td class="highlight"><span id="total-score">/100</span></td>
         </tr>
     </table>
 </main>
