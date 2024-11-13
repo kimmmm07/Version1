@@ -9,32 +9,33 @@
 </head>
 <body>
          <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-icon" id="menu-icon">
-            <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
-        </div> 
-        <div class="sidebar-icon">
-            <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
-        </div>
-        <div class="sidebar-icon">
-            <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
-        </div>
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-icon" id="menu-icon">
+        <a href="#"><img src="Menu.png" alt="Menu Icon" id="menu-icon-img" /></a>
+    </div> 
+    <div class="sidebar-icon" id="home-icon">
+        <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" id="home-icon-img" /></a>
     </div>
+    <div class="sidebar-icon" id="settings-icon">
+        <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" id="settings-icon-img" /></a>
+    </div>
+</div>
 
-    <!-- Floating Menu -->
-    <div class="floating-menu" id="floating-menu">
-        <div class="menu-header">
-            <!-- Close button -->
-            <button class="close-btn" onclick="closeMenu()">✖</button>
-        </div>
-        <ul>
-        <li><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
-        <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
-        <!-- Horizontal line between Setting and School Year -->
-        <hr class="menu-divider">
-        <li><a href="rpms_highlyproficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
-        </ul>
+<!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+    <div class="menu-header" id="floating-menu-header">
+        <!-- Close button -->
+        <button class="close-btn" onclick="closeMenu()" id="close-menu-btn">✖</button>
     </div>
+    <ul id="floating-menu-list">
+        <li><a href="rpms_highlyproficient_homepage.html" id="floating-home-link"><img src="Home.png" alt="Home Icon" id="floating-home-icon"/> Home</a></li>
+        <li><a href="rpms_setting.html" id="floating-settings-link"><img src="Settings.png" alt="Settings Icon" id="floating-settings-icon"/> Setting</a></li>
+        <!-- Horizontal line between Setting and School Year -->
+        <hr class="menu-divider" id="menu-divider">
+        <li><a href="rpms_highlyproficient_stream.html" id="school-year-link"><span class="sy-circle" id="school-year-circle">SY</span> School Year 2023–2024</a></li>
+    </ul>
+</div>
+
 
     <!-- Header Section -->
     <header>
@@ -52,157 +53,156 @@
     </header>
 
      <!-- Main content -->
-     <div class="main-content">
-        <!-- Breadcrumbs -->
-        <div class="breadcrumb">
-            <ul>
-                <li><a href="#">RPMS</a></li>
-                <li><a href="#">To Review</a></li>
-            </ul>
-        </div>
+<div class="main-content" id="main-content">
+    <!-- Breadcrumbs -->
+    <div class="breadcrumb" id="breadcrumb">
+        <ul id="breadcrumb-list">
+            <li><a href="#" id="rpms-breadcrumb-link">RPMS</a></li>
+            <li><a href="#" id="to-review-breadcrumb-link">To Review</a></li>
+        </ul>
+    </div>
 
-        
-        <div class="tabs">
-            <a href="rpms_highlyproficient_review.html" class="tab active">Review</a>
-            <a href="#" class="tab">Reviewed</a>
-        </div>
+    <div class="tabs" id="tabs">
+        <a href="rpms_highlyproficient_review.html" class="tab active" id="review-tab">Review</a>
+        <a href="#" class="tab" id="reviewed-tab">Reviewed</a>
+    </div>
 
-        <div class="dropdown-container">
-            <div class="dropdown-item">
-                <div class="dropdown-header">
-                    <span>No due date</span>
-                    <span class="count"></span>
-                    <button class="dropdown-toggle">&#9662;</button>
-                </div>
+    <div class="dropdown-container" id="dropdown-container">
+        <div class="dropdown-item" id="no-due-date-dropdown">
+            <div class="dropdown-header" id="no-due-date-header">
+                <span id="no-due-date-span">No due date</span>
+                <span class="count" id="no-due-date-count"></span>
+                <button class="dropdown-toggle" id="no-due-date-toggle">&#9662;</button>
             </div>
+        </div>
         
-            <div class="dropdown-item">
-                <div class="dropdown-header">
-                    <span>Work in progress</span>
-                    <span class="count"></span>
-                    <button class="dropdown-toggle">&#9662;</button>
-                </div>
-                <div class="dropdown-content">
-                    <div class="main-content-list">
-                        <a href="rpms_highlyproficient_tw_kra1.html" class="content-item"> <!-- KRA 1 -->
-                            <img src="Clipboard.png" alt="Icon" class="icon" />
-                            <div class="text-container"> <!-- New container for text -->
-                                <h4>KRA 1: Content Knowledge and Pedagogy</h4>
-                                <p class="posted">Results-Based Performance Management System</p>
+        <div class="dropdown-item" id="work-in-progress-dropdown">
+            <div class="dropdown-header" id="work-in-progress-header">
+                <span id="work-in-progress-span">Work in progress</span>
+                <span class="count" id="work-in-progress-count"></span>
+                <button class="dropdown-toggle" id="work-in-progress-toggle">&#9662;</button>
+            </div>
+            <div class="dropdown-content" id="work-in-progress-content">
+                <div class="main-content-list" id="work-in-progress-list">
+                    <a href="rpms_highlyproficient_tw_kra1.html" class="content-item" id="kra1-link">
+                        <img src="Clipboard.png" alt="Icon" class="icon" id="kra1-icon"/>
+                        <div class="text-container" id="kra1-text-container">
+                            <h4 id="kra1-title">KRA 1: Content Knowledge and Pedagogy</h4>
+                            <p class="posted" id="kra1-posted">Results-Based Performance Management System</p>
+                        </div>
+                        <div class="submission-status" id="kra1-status">
+                            <div class="status-item" id="kra1-turned-in">
+                                <strong class="status-number" id="kra1-turned-in-number">0</strong>
+                                <span class="status-text" id="kra1-turned-in-text">Turned In</span>
                             </div>
-                            <div class="submission-status">
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Turned In</span>
-                                </div>
-                                <span class="divider-line1"></span>
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Assigned</span>
-                                </div>
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Graded</span>
-                                </div>
-                            </div>    
-                            <div class="menu-dots"></div> <!-- Added for the 3 horizontal dots -->
-                        </a>
+                            <span class="divider-line1" id="kra1-divider"></span>
+                            <div class="status-item" id="kra1-assigned">
+                                <strong class="status-number" id="kra1-assigned-number">0</strong>
+                                <span class="status-text" id="kra1-assigned-text">Assigned</span>
+                            </div>
+                            <div class="status-item" id="kra1-graded">
+                                <strong class="status-number" id="kra1-graded-number">0</strong>
+                                <span class="status-text" id="kra1-graded-text">Graded</span>
+                            </div>
+                        </div>
+                        <div class="menu-dots" id="kra1-dots"></div>
+                    </a>
                     
-                        <a href="rpms_highlyproficient_tw_kra2.html" class="content-item"> <!-- KRA 2 -->
-                            <img src="Clipboard.png" alt="Icon" class="icon" />
-                            <div class="text-container">
-                                <h4>KRA 2: Learning Environment & Diversity of Learners</h4>
-                                <p class="posted">Results-Based Performance Management System</p>
+                    <a href="rpms_highlyproficient_tw_kra2.html" class="content-item" id="kra2-link">
+                        <img src="Clipboard.png" alt="Icon" class="icon" id="kra2-icon"/>
+                        <div class="text-container" id="kra2-text-container">
+                            <h4 id="kra2-title">KRA 2: Learning Environment & Diversity of Learners</h4>
+                            <p class="posted" id="kra2-posted">Results-Based Performance Management System</p>
+                        </div>
+                        <div class="submission-status" id="kra2-status">
+                            <div class="status-item" id="kra2-turned-in">
+                                <strong class="status-number" id="kra2-turned-in-number">0</strong>
+                                <span class="status-text" id="kra2-turned-in-text">Turned In</span>
                             </div>
-                            <div class="submission-status">
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Turned In</span>
-                                </div>
-                                <span class="divider-line1"></span>
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Assigned</span>
-                                </div>
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Graded</span>
-                                </div>
-                            </div>    
-                            <div class="menu-dots"></div> <!-- Added for the 3 horizontal dots -->
-                        </a>
+                            <span class="divider-line1" id="kra2-divider"></span>
+                            <div class="status-item" id="kra2-assigned">
+                                <strong class="status-number" id="kra2-assigned-number">0</strong>
+                                <span class="status-text" id="kra2-assigned-text">Assigned</span>
+                            </div>
+                            <div class="status-item" id="kra2-graded">
+                                <strong class="status-number" id="kra2-graded-number">0</strong>
+                                <span class="status-text" id="kra2-graded-text">Graded</span>
+                            </div>
+                        </div>
+                        <div class="menu-dots" id="kra2-dots"></div>
+                    </a>
                     
-                        <a href="rpms_highlyproficient_tw_kra3.html" class="content-item"> <!-- KRA 3 -->
-                            <img src="Clipboard.png" alt="Icon" class="icon" />
-                            <div class="text-container">
-                                <h4>KRA 3: Curriculum & Planning & Assessment and Reporting</h4>
-                                <p class="posted">Results-Based Performance Management System</p>
+                    <a href="rpms_highlyproficient_tw_kra3.html" class="content-item" id="kra3-link">
+                        <img src="Clipboard.png" alt="Icon" class="icon" id="kra3-icon"/>
+                        <div class="text-container" id="kra3-text-container">
+                            <h4 id="kra3-title">KRA 3: Curriculum & Planning & Assessment and Reporting</h4>
+                            <p class="posted" id="kra3-posted">Results-Based Performance Management System</p>
+                        </div>
+                        <div class="submission-status" id="kra3-status">
+                            <div class="status-item" id="kra3-turned-in">
+                                <strong class="status-number" id="kra3-turned-in-number">0</strong>
+                                <span class="status-text" id="kra3-turned-in-text">Turned In</span>
                             </div>
-                            <div class="submission-status">
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Turned In</span>
-                                </div>
-                                <span class="divider-line1"></span>
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Assigned</span>
-                                </div>
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Graded</span>
-                                </div>
-                            </div>    
-                            <div class="menu-dots"></div> <!-- Added for the 3 horizontal dots -->
-                        </a>
+                            <span class="divider-line1" id="kra3-divider"></span>
+                            <div class="status-item" id="kra3-assigned">
+                                <strong class="status-number" id="kra3-assigned-number">0</strong>
+                                <span class="status-text" id="kra3-assigned-text">Assigned</span>
+                            </div>
+                            <div class="status-item" id="kra3-graded">
+                                <strong class="status-number" id="kra3-graded-number">0</strong>
+                                <span class="status-text" id="kra3-graded-text">Graded</span>
+                            </div>
+                        </div>
+                        <div class="menu-dots" id="kra3-dots"></div>
+                    </a>
                     
-                        <a href="rpms_highlyproficient_tw_kra4.html" class="content-item"> <!-- KRA 4 -->
-                            <img src="Clipboard.png" alt="Icon" class="icon" />
-                            <div class="text-container">
-                                <h4>KRA 4: Community Linkages and Professional Engagement & Personal Growth and Professional Development</h4>
-                                <p class="posted">Results-Based Performance Management System</p>
+                    <a href="rpms_highlyproficient_tw_kra4.html" class="content-item" id="kra4-link">
+                        <img src="Clipboard.png" alt="Icon" class="icon" id="kra4-icon"/>
+                        <div class="text-container" id="kra4-text-container">
+                            <h4 id="kra4-title">KRA 4: Support to Students' Personal Growth & Development</h4>
+                            <p class="posted" id="kra4-posted">Results-Based Performance Management System</p>
+                        </div>
+                        <div class="submission-status" id="kra4-status">
+                            <div class="status-item" id="kra4-turned-in">
+                                <strong class="status-number" id="kra4-turned-in-number">0</strong>
+                                <span class="status-text" id="kra4-turned-in-text">Turned In</span>
                             </div>
-                            <div class="submission-status">
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Turned In</span>
-                                </div>
-                                <span class="divider-line1"></span>
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Assigned</span>
-                                </div>
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Graded</span>
-                                </div>
-                            </div>    
-                            <div class="menu-dots"></div> <!-- Added for the 3 horizontal dots -->
-                        </a>
+                            <span class="divider-line1" id="kra4-divider"></span>
+                            <div class="status-item" id="kra4-assigned">
+                                <strong class="status-number" id="kra4-assigned-number">0</strong>
+                                <span class="status-text" id="kra4-assigned-text">Assigned</span>
+                            </div>
+                            <div class="status-item" id="kra4-graded">
+                                <strong class="status-number" id="kra4-graded-number">0</strong>
+                                <span class="status-text" id="kra4-graded-text">Graded</span>
+                            </div>
+                        </div>
+                        <div class="menu-dots" id="kra4-dots"></div>
+                    </a>
                     
-                        <a href="rpms_highlyproficient_tw_plusfactor.html" class="content-item"> <!-- PLUS FACTOR -->
-                            <img src="Clipboard.png" alt="Icon" class="icon" />
-                            <div class="text-container">
-                                <h4>PLUS FACTOR</h4>
-                                <p class="posted">Results-Based Performance Management System</p>
+                    <a href="rpms_highlyproficient_tw_plusfactor.html" class="content-item" id="plusfactor-link">
+                        <img src="Clipboard.png" alt="Icon" class="icon" id="plusfactor-icon"/>
+                        <div class="text-container" id="plusfactor-text-container">
+                            <h4 id="plusfactor-title">Plus Factor: Innovation, Personal Accomplishments & Community Engagement</h4>
+                            <p class="posted" id="plusfactor-posted">Results-Based Performance Management System</p>
+                        </div>
+                        <div class="submission-status" id="plusfactor-status">
+                            <div class="status-item" id="plusfactor-turned-in">
+                                <strong class="status-number" id="plusfactor-turned-in-number">0</strong>
+                                <span class="status-text" id="plusfactor-turned-in-text">Turned In</span>
                             </div>
-                            <div class="submission-status">
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Turned In</span>
-                                </div>
-                                <span class="divider-line1"></span>
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Assigned</span>
-                                </div>
-                                <div class="status-item">
-                                    <strong class="status-number">0</strong>
-                                    <span class="status-text">Graded</span>
-                                </div>
-                            </div>    
-                            <div class="menu-dots"></div> <!-- Added for the 3 horizontal dots -->
-                        </a>
+                            <span class="divider-line1" id="plusfactor-divider"></span>
+                            <div class="status-item" id="plusfactor-assigned">
+                                <strong class="status-number" id="plusfactor-assigned-number">0</strong>
+                                <span class="status-text" id="plusfactor-assigned-text">Assigned</span>
+                            </div>
+                            <div class="status-item" id="plusfactor-graded">
+                                <strong class="status-number" id="plusfactor-graded-number">0</strong>
+                                <span class="status-text" id="plusfactor-graded-text">Graded</span>
+                            </div>
+                        </div>
+                        <div class="menu-dots" id="plusfactor-dots"></div>
+                    </a>
                     </div>                     
                 </div>
             </div>

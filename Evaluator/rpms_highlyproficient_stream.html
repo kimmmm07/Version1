@@ -9,32 +9,32 @@
 </head>
 <body>
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-icon" id="menu-icon">
-            <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
-        </div> 
-        <div class="sidebar-icon">
-            <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
-        </div>
-        <div class="sidebar-icon">
-            <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
-        </div>
+<div class="sidebar">
+    <div class="sidebar-icon" id="menu-icon">
+        <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
+    </div> 
+    <div class="sidebar-icon">
+        <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" id="home-icon"/></a>
     </div>
+    <div class="sidebar-icon">
+        <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" id="settings-icon"/></a>
+    </div>
+</div>
 
-    <!-- Floating Menu -->
-    <div class="floating-menu" id="floating-menu">
-        <div class="menu-header">
-            <!-- Close button -->
-            <button class="close-btn" onclick="closeMenu()">✖</button>
-        </div>
-        <ul>
+<!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+    <div class="menu-header">
+        <!-- Close button -->
+        <button class="close-btn" onclick="closeMenu()">✖</button>
+    </div>
+    <ul>
         <li><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
         <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
         <!-- Horizontal line between Setting and School Year -->
         <hr class="menu-divider">
         <li><a href="rpms_highlyproficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
-        </ul>
-    </div>
+    </ul>
+</div>
 
     <!-- Header Section -->
     <header>
@@ -52,78 +52,79 @@
     </header>
 
     <!-- Header section with an image and text overlay -->
-    <div class="header-section">
-        <img src="Group 922.png" alt="Green Background" class="header-image">
-        <div class="text-overlay">
-            <h1 class="header-title">Results-Based Performance Management System</h1>
-            <p class="header-subtitle">School Year 2023-2024</p>
-        </div>
-    </div><br>
-
-    <div class="tabs">
-        <a href="rpms_highlyproficient_stream.html" class="tab active">Stream</a>
-        <a href="rpms_highlyproficient_grades.html" class="tab">Grades</a>
+<div class="header-section">
+    <img src="Group 922.png" alt="Green Background" class="header-image" id="header-image">
+    <div class="text-overlay">
+        <h1 class="header-title" id="header-title">Results-Based Performance Management System</h1>
+        <p class="header-subtitle" id="header-subtitle">School Year 2023-2024</p>
     </div>
+</div><br>
 
-    <div class="content-wrapper">
-        <!-- Upcoming section -->
-        <div class="upcoming">
-            <h3>Upcoming</h3>
-            <ul class="upcoming-list">
-                <li><a href="rpms_highlyproficient_kra1.html">KRA 1: Content Knowledge and Pedagogy</a></li>
-                <li><a href="rpms_highlyproficient_kra2.html">KRA 2: Learning Environment and Diversity</a></li>
-                <li><a href="rpms_highlyproficient_kra3.html">KRA 3: Curriculum & Planning & Assessment and Reporting</a></li>
-                <li class="view-all"><a href="rpms_highlyproficient_review.html">View all</a></li>
-            </ul>
-            
-        </div>
+<div class="tabs" id="tabs">
+    <a href="rpms_highlyproficient_stream.html" class="tab active" id="stream-tab">Stream</a>
+    <a href="rpms_highlyproficient_grades.html" class="tab" id="grades-tab">Grades</a>
+</div>
+
+<div class="content-wrapper" id="content-wrapper">
+    <!-- Upcoming section -->
+    <div class="upcoming" id="upcoming">
+        <h3>Upcoming</h3>
+        <ul class="upcoming-list" id="upcoming-list">
+            <li><a href="rpms_highlyproficient_kra1.html" id="kra1-upcoming">KRA 1: Content Knowledge and Pedagogy</a></li>
+            <li><a href="rpms_highlyproficient_kra2.html" id="kra2-upcoming">KRA 2: Learning Environment and Diversity</a></li>
+            <li><a href="rpms_highlyproficient_kra3.html" id="kra3-upcoming">KRA 3: Curriculum & Planning & Assessment and Reporting</a></li>
+            <li><a href="rpms_highlyproficient_kra4.html" id="kra4-upcoming">KRA 4: Community Linkages</a></li>
+            <li><a href="rpms_highlyproficient_plusfactor.html" id="plusfactor-upcoming">Plus Factor: Innovation, Personal Accomplishments & Community Engagement</a></li>
+            <li class="view-all"><a href="rpms_highlyproficient_review.html" id="view-all">View all</a></li>
+        </ul>
+    </div>
     
         <!-- Main Content section -->
-        <div class="main-content-list">
-            <a href="rpms_highlyproficient_kra1.html" class="content-item"> <!-- KRA 1 -->
-                <img src="Clipboard.png" alt="Icon" class="icon" />
-                <div class="text-container"> <!-- New container for text -->
-                    <h4>KRA 1: Content Knowledge and Pedagogy</h4>
-                    <p class="posted">Posted 6:01 PM</p>
-                </div>
-                <div class="menu-dots"></div> <!-- Added for the 3 horizontal dots -->
-            </a>
+    <div class="main-content-list" id="main-content-list">
+        <a href="rpms_highlyproficient_kra1.html" class="content-item" id="kra1-link">
+            <img src="Clipboard.png" alt="Icon" class="icon" id="kra1-icon"/>
+            <div class="text-container" id="kra1-text-container">
+                <h4 id="kra1-title">KRA 1: Content Knowledge and Pedagogy</h4>
+                <p class="posted" id="kra1-posted">Posted 6:01 PM</p>
+            </div>
+            <div class="menu-dots" id="kra1-dots"></div>
+        </a>
+
+        <a href="rpms_highlyproficient_kra2.html" class="content-item" id="kra2-link">
+            <img src="Clipboard.png" alt="Icon" class="icon" id="kra2-icon"/>
+            <div class="text-container" id="kra2-text-container">
+                <h4 id="kra2-title">KRA 2: Learning Environment & Diversity of Learners</h4>
+                <p class="posted" id="kra2-posted">Posted 6:01 PM</p>
+            </div>
+            <div class="menu-dots" id="kra2-dots"></div>
+        </a>
+
+        <a href="rpms_highlyproficient_kra3.html" class="content-item" id="kra3-link">
+            <img src="Clipboard.png" alt="Icon" class="icon" id="kra3-icon"/>
+            <div class="text-container" id="kra3-text-container">
+                <h4 id="kra3-title">KRA 3: Curriculum & Planning & Assessment and Reporting</h4>
+                <p class="posted" id="kra3-posted">Posted 6:01 PM</p>
+            </div>
+            <div class="menu-dots" id="kra3-dots"></div>
+        </a>
         
-            <a href="rpms_highlyproficient_kra2.html" class="content-item"> <!-- KRA 2 -->
-                <img src="Clipboard.png" alt="Icon" class="icon" />
-                <div class="text-container">
-                    <h4>KRA2: Learning Environment & Diversity of Learners</h4>
-                    <p class="posted">Posted 6:01 PM</p>
-                </div>
-                <div class="menu-dots"></div> <!-- Added for the 3 horizontal dots -->
-            </a>
-        
-            <a href="rpms_highlyproficient_kra3.html" class="content-item"> <!-- KRA 3 -->
-                <img src="Clipboard.png" alt="Icon" class="icon" />
-                <div class="text-container">
-                    <h4>KRA 3: Curriculum & Planning & Assessment and Reporting</h4>
-                    <p class="posted">Posted 6:01 PM</p>
-                </div>
-                <div class="menu-dots"></div> <!-- Added for the 3 horizontal dots -->
-            </a>
-        
-            <a href="rpms_highlyproficient_kra4.html" class="content-item"> <!-- KRA 4 -->
-                <img src="Clipboard.png" alt="Icon" class="icon" />
-                <div class="text-container">
-                    <h4>KRA 4: Community Linkages and Professional Engagement & Personal Growth and Professional Development</h4>
-                    <p class="posted">Posted 6:01 PM</p>
-                </div>
-                <div class="menu-dots"></div> <!-- Added for the 3 horizontal dots -->
-            </a>
-        
-            <a href="rpms_highlyproficient_plusfactor.html" class="content-item"> <!-- PLUS FACTOR -->
-                <img src="Clipboard.png" alt="Icon" class="icon" />
-                <div class="text-container">
-                    <h4>PLUS FACTOR</h4>
-                    <p class="posted">Posted 6:01 PM</p>
-                </div>
-                <div class="menu-dots"></div> <!-- Added for the 3 horizontal dots -->
-            </a>
+        <a href="rpms_highlyproficient_kra4.html" class="content-item" id="kra4-link">
+            <img src="Clipboard.png" alt="Icon" class="icon" id="kra4-icon"/>
+            <div class="text-container" id="kra4-text-container">
+                <h4 id="kra4-title">KRA 4: Community Linkages and Professional Engagement</h4>
+                <p class="posted" id="kra4-posted">Posted 6:01 PM</p>
+            </div>
+            <div class="menu-dots" id="kra4-dots"></div>
+        </a>
+
+        <a href="rpms_highlyproficient_plusfactor.html" class="content-item" id="plusfactor-link">
+            <img src="Clipboard.png" alt="Icon" class="icon" id="plusfactor-icon"/>
+            <div class="text-container" id="plusfactor-text-container">
+                <h4 id="plusfactor-title">Plus Factor: Innovation, Personal Accomplishments & Community Engagement</h4>
+                <p class="posted" id="plusfactor-posted">Posted 6:01 PM</p>
+            </div>
+            <div class="menu-dots" id="plusfactor-dots"></div>
+        </a>
         </div>        
     </div>
     </div>

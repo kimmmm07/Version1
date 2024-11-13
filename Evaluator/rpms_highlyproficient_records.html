@@ -22,54 +22,57 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Records</h1><br>
-
-        <div class="tabs">
-            <a href="cot_highlyproficient_records.html">COT</a>
-            <a href="ipcrf_highlyproficient_records.html">IPRCF</a>
-            <a href="rpms_highlyproficient_records.html" class="active">RPMS</a>
+    <main id="main">
+        <h1 id="page-title">Records</h1><br>
+    
+        <div class="tabs" id="tabs">
+            <a href="cot_highlyproficient_records.html" id="cot-tab">COT</a>
+            <a href="ipcrf_highlyproficient_records.html" id="ipcrf-tab">IPRCF</a>
+            <a href="rpms_highlyproficient_records.html" class="active" id="rpms-tab">RPMS</a>
         </div><br>
-
-        <div class="filters">
-            <select name="school-year">
-                <option>Select School Year</option>
-                <option>S.Y. 2023 - 2024</option>
-                <option>S.Y. 2022 - 2023</option>
-                <option>S.Y. 2021 - 2022</option>
+    
+        <div class="filters" id="filters">
+            <select name="school-year" id="school-year-select">
+                <option id="select-school-year">Select School Year</option>
+                <option id="sy-2023-2024">S.Y. 2023 - 2024</option>
+                <option id="sy-2022-2023">S.Y. 2022 - 2023</option>
+                <option id="sy-2021-2022">S.Y. 2021 - 2022</option>
             </select>
         
-            <select name="teacher-type">
-                <option value="#">Select Teacher Type</option>
-                <option value="rpms_proficient_records.html">Proficient Teacher</option>
-                <option value="rpms_highlyproficient_records.html">Highly Proficient Teacher</option>
+            <select name="teacher-type" id="teacher-type-select">
+                <option value="#" id="select-teacher-type">Select Teacher Type</option>
+                <option value="rpms_proficient_records.html" id="proficient-teacher">Proficient Teacher</option>
+                <option value="rpms_highlyproficient_records.html" id="highlyproficient-teacher">Highly Proficient Teacher</option>
             </select>
         </div>
-
-        <table>
+    
+        <table id="teacher-records-table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Grade Level</th>
-                    <th>Rater</th>
-                    <th>Action</th>
+                    <th id="name-column">Name</th>
+                    <th id="position-column">Position</th>
+                    <th id="grade-level-column">Grade Level</th>
+                    <th id="rater-column">Rater</th>
+                    <th id="action-column">Action</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <img src="User_Circle.png" alt="User Icon" width="25"> 
+            <tbody id="table-body">
+                <tr id="teacher-row">
+                    <td id="teacher-name">
+                        <img src="User_Circle.png" alt="User Icon" width="25" id="user-icon"> 
                         Michael Pelps Johnson
                     </td>
-                    <td>Master Teacher IV</td>
-                    <td>Junior High School</td>
-                    <td>Sophia Clarke</td>
-                    <td> <a href="rpms_highlyproficient_records_view.html" class="view-link">View</a></td>
+                    <td id="teacher-position">Master Teacher IV</td>
+                    <td id="teacher-grade-level">Junior High School</td>
+                    <td id="teacher-rater">Sophia Clarke</td>
+                    <td id="view-action">
+                        <a href="rpms_highlyproficient_records_view.html" class="view-link" id="view-link">View</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </main>
+    
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
