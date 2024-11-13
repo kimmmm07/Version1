@@ -9,121 +9,123 @@
 </head>
 <body>
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-icon" id="menu-icon">
-            <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
-        </div> 
-        <div class="sidebar-icon">
-            <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
-        </div>
-        <div class="sidebar-icon">
-            <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
-        </div>
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-icon" id="menu-icon">
+        <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
+    </div> 
+    <div class="sidebar-icon" id="home-icon">
+        <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
     </div>
+    <div class="sidebar-icon" id="settings-icon">
+        <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
+    </div>
+</div>
 
-    <!-- Floating Menu -->
-    <div class="floating-menu" id="floating-menu">
-        <div class="menu-header">
-            <!-- Close button -->
-            <button class="close-btn" onclick="closeMenu()">✖</button>
-        </div>
-        <ul>
-        <li><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
-        <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
+<!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+    <div class="menu-header" id="menu-header">
+        <!-- Close button -->
+        <button class="close-btn" id="close-btn" onclick="closeMenu()">✖</button>
+    </div>
+    <ul id="floating-menu-list">
+        <li><a href="rpms_highlyproficient_homepage.html" id="home-link"><img src="Home.png" alt="Home Icon"/> Home</a></li>
+        <li><a href="rpms_setting.html" id="settings-link"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
         <!-- Horizontal line between Setting and School Year -->
-        <hr class="menu-divider">
-        <li><a href="rpms_highlyproficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
-        </ul>
+        <hr class="menu-divider" id="menu-divider">
+        <li><a href="rpms_highlyproficient_stream.html" id="school-year-link"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
+    </ul>
+</div>
+
+<!-- Header Section -->
+<header id="header">
+    <div id="deped-logo">
+        <img src="DepEd_01.png" alt="DepED Logo">
+    </div>
+    <nav id="nav">
+        <a href="evaluator_dashboard.html" id="home-nav"><img src="House_01.png" alt="Home">Home</a>
+        <a href="highlyproficient_form.html" class="active" id="forms-nav"><img src="Documents.png" alt="Forms">Forms</a>
+        <a href="rpms_highlyproficient_records.html" id="records-nav"><img src="Folders.png" alt="Records">Records</a>
+        <a href="evaluator_summary.html" id="summary-nav"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+        <a href="evaluator_profile.html" id="profile-nav"><img src="User_01.png" alt="Profile">Profile</a>
+        <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
+    </nav>
+</header>
+
+<!-- Container -->
+<div class="container" id="container">
+    <div class="breadcrumb" id="breadcrumb">
+        <span><b>Results-Based Performance Management System (RPMS)</b></span>
     </div>
 
-    <!-- Header Section -->
-    <header>
-        <div>
-            <img src="DepEd_01.png" alt="DepED Logo">
-        </div>
-        <nav>
-            <a href="evaluator_dashboard.html"><img src="House_01.png" alt="Home">Home</a>
-            <a href="highlyproficient_form.html" class="active"><img src="Documents.png" alt="Forms">Forms</a>
-            <a href="rpms_highlyproficient_records.html"><img src="Folders.png" alt="Records">Records</a>
-            <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
-            <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
-            <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
-        </nav>
-    </header>
+    <br>
+    <div class="tabs" id="tabs">
+        <a href="rpms_highlyproficient_plusfactor.html" class="tab" id="instructions-tab">Instructions</a>
+        <a href="rpms_highlyproficient_tw_plusfactor.html" class="tab active" id="teacher-work-tab">Teacher work</a>
+    </div>
+    
+    <br>
+    <div class="top-bar" id="top-bar">
+        <button id="return-button">Return</button>
+        <span class="points" id="points">__ points</span>
+    </div>
 
-    <div class="container">
-        <div class="breadcrumb">
-            <span><b>Results-Based Performance Management System (RPMS)</b></span>
-        </div>
+    <br>
+    <div class="content" id="content">
+        <div class="left-section" id="left-section">
+            <h2 id="teacher-work-heading">Teacher Work</h2>
+            <label><input type="checkbox" id="all-teachers-checkbox"> All teachers</label>
+            <br><br>
+            <label for="status" id="sort-label">Sort by status:</label>
+            <select id="status">
+                <option value="all">All</option>
+                <option value="turned-in">Turned In</option>
+            </select>
 
-        <br>
-        <div class="tabs">
-            <a href="rpms_highlyproficient_plusfactor.html" class="tab">Instructions</a>
-            <a href="rpms_highlyproficient_tw_plusfactor.html" class="tab active">Teacher work</a>
-        </div>
-        
-        <br>
-        <div class="top-bar">
-            <button>Return</button>
-            <span class="points">__ points</span>
-        </div>
+            <br><br>
+            <label><input type="checkbox" id="turned-in-checkbox"><b> Turned in</b></label>
 
-        <br>
-        <div class="content">
-            <div class="left-section">
-                <h2>Teacher Work</h2>
-                <label><input type="checkbox"> All teachers</label>
-                <br><br>
-                <label for="status">Sort by status:</label>
-                <select id="status">
-                    <option value="all">All</option>
-                    <option value="turned-in">Turned In</option>
-                </select>
-
-                <br><br>
-                <label><input type="checkbox"><b> Turned in</b></label>
-
-                <br><br>
-                <div class="name-points-container">
-                    <label><input type="checkbox"> Michael Pelps Johnson</label>
-                    <span class="divider-line"></span>
-                    <span class="points-with-border">__ / 28</span>
-                </div>
-                <br>
+            <br><br>
+            <div class="name-points-container" id="name-points-container">
+                <label><input type="checkbox" id="teacher-checkbox"> Michael Pelps Johnson</label>
+                <span class="divider-line" id="divider-line"></span>
+                <span class="points-with-border" id="points-with-border">__ / 28</span>
             </div>
+            <br>
+        </div>
 
-            <div class="right-section">
-                <h2>Plus Factor</h2>
-                
-                <div class="submission-status">
-                    <div class="status-item">
-                        <strong class="status-number">1</strong>
-                        <span class="status-text">Turned In</span>
-                    </div>
-                    <span class="divider-line1"></span>
-                    <div class="status-item">
-                        <strong class="status-number">0</strong>
-                        <span class="status-text">Assigned</span>
-                    </div>
-                </div>                
-                
-                <br>
-                <div class="toggle-container" id="toggleContainer" onclick="toggleStatus()">
-                    <div class="toggle-circle" id="toggleCircle"></div>
+        <div class="right-section" id="right-section">
+            <h2 id="plus-factor-heading">Plus Factor</h2>
+            
+            <div class="submission-status" id="submission-status">
+                <div class="status-item" id="status-item-1">
+                    <strong class="status-number" id="status-number-1">1</strong>
+                    <span class="status-text" id="status-text-1">Turned In</span>
                 </div>
-                <span id="toggleText">Accepting submissions</span>
-                <br>
-                <div class="teacher-submission">
-                    <h3>Michael Pelps Johnson</h3>
-                    <a href="rpms_highlyproficient_attachment5.html" >
-                        <img src="Image_01.png" alt="Submitted Attachment" width="100" class="submitted-image">
-                    </a>
-                    <p class="attachment-text">1 attachment</p>
-                    <p class="turned-in">turned in</p>
-                </div>                               
+                <span class="divider-line1" id="divider-line1"></span>
+                <div class="status-item" id="status-item-2">
+                    <strong class="status-number" id="status-number-2">0</strong>
+                    <span class="status-text" id="status-text-2">Assigned</span>
+                </div>
+            </div>                
+            
+            <br>
+            <div class="toggle-container" id="toggleContainer" onclick="toggleStatus()">
+                <div class="toggle-circle" id="toggleCircle"></div>
             </div>
+            <span id="toggleText">Accepting submissions</span>
+            <br>
+            <div class="teacher-submission" id="teacher-submission">
+                <h3 id="teacher-name">Michael Pelps Johnson</h3>
+                <a href="rpms_highlyproficient_attachment5.html" id="attachment-link">
+                    <img src="Image_01.png" alt="Submitted Attachment" width="100" class="submitted-image" id="submitted-image">
+                </a>
+                <p class="attachment-text" id="attachment-text">1 attachment</p>
+                <p class="turned-in" id="turned-in-text">turned in</p>
+            </div>                               
         </div>
     </div>
+</div>
+
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
