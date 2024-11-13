@@ -83,7 +83,31 @@ function createFolder() {
 }
 
 // Event listener to show the modal when the "Create" button is clicked
-document.querySelector('.create-btn').addEventListener('click', function() {
-    document.getElementById('formModal').style.display = 'flex'; // Change to 'block' if necessary
+document.querySelector('.create-btn').addEventListener('click', async function() {
+    document.getElementById('formModal').style.display = 'flex';
+    const formData = new FormData();
+    formData.append('position', 'Proficient');
+
+
+
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/forms/ipcrf/create/',
+        {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            }, 
+            body: formData, 
+            credentials: 'include', 
+        }
+    );
+
+
+    const data = await response.json();
+    if (response.ok) {
+        console.log("Success Data : ",data);
+    } else {
+        console.log("Error Data : ",data);
+    }
+ 
 });
 
