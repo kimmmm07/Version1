@@ -23,7 +23,7 @@
     </header>
     
     <div class="container">
-        <h1>Rating Sheet for Teacher I - III</h1><br>
+        <h1 id="ratingSheetTitle">Rating Sheet for Teacher I - III</h1><br>
         <div class="tabs">
             <a onclick="showQuarter('quarter1')" id="tab1" class="active">Quarter 1</a>
             <a onclick="showQuarter('quarter2')" id="tab2">Quarter 2</a>
@@ -33,7 +33,7 @@
 
         <br>
         <div id="quarter1" class="quarter-content">
-            <table>
+            <table id="quarter1Table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -43,7 +43,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody id="teacherTableBody">
+                <tbody id="teacherTableBodyQuarter1">
                     <!-- <tr>
                         <td><img src="User_Circle.png" alt="User Icon" width="25"> Jessica Sanchez Ramirez</td>
                         <td>Teacher II</td>
@@ -70,7 +70,7 @@
         </div>
 
         <div id="quarter2" class="quarter-content hidden">
-            <table>
+            <table id="quarter2Table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -82,7 +82,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="teacherTableBodyQuarter2">
                     <tr>
                         <td><img src="User_Circle.png" alt="User Icon" width="25"> Jessica Sanchez Ramirez</td>
                         <td>Teacher II</td>
@@ -100,7 +100,7 @@
         </div>
 
         <div id="quarter3" class="quarter-content hidden">
-            <table>
+            <table id="quarter3Table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -112,7 +112,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="teacherTableBodyQuarter3">
                     <tr>
                         <td><img src="User_Circle.png" alt="User Icon" width="25"> Jessica Sanchez Ramirez</td>
                         <td>Teacher II</td>
@@ -130,7 +130,7 @@
         </div>
 
         <div id="quarter4" class="quarter-content hidden">
-            <table>
+            <table id="quarter4Table">
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -142,7 +142,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="teacherTableBodyQuarter4">
                     <tr>
                         <td><img src="User_Circle.png" alt="User Icon" width="25"> Jessica Sanchez Ramirez</td>
                         <td>Teacher II</td>
