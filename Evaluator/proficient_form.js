@@ -1,3 +1,44 @@
+// Form Type selection
+const formTypeSelect = document.getElementById("formType");
+
+// Form card elements
+const formCardProficient = document.getElementById("form-card-proficient");
+const formCardHighlyProficient = document.getElementById("form-card-highlyproficient");
+const formCardIpcrfProficient = document.getElementById("form-card-ipcrf-proficient");
+const formCardIpcrfHighlyProficient = document.getElementById("form-card-ipcrf-highlyproficient");
+const formCardRpmsProficient = document.getElementById("form-card-rpms-proficient");
+const formCardRpmsHighlyProficient = document.getElementById("form-card-rpms-highlyproficient");
+
+// Form Details
+const reviewsProficient = document.getElementById("reviews-proficient");
+const reviewsHighlyProficient = document.getElementById("reviews-highlyproficient");
+const reviewsIpcrfProficient = document.getElementById("reviews-ipcrf-proficient");
+const reviewsIpcrfHighlyProficient = document.getElementById("reviews-ipcrf-highlyproficient");
+const reviewsRpmsProficient = document.getElementById("reviews-rpms-proficient");
+const reviewsRpmsHighlyProficient = document.getElementById("reviews-rpms-highlyproficient");
+
+// Response Rates
+const responseRateProficient = document.getElementById("response-rate-proficient");
+const responseRateHighlyProficient = document.getElementById("response-rate-highlyproficient");
+const responseRateIpcrfProficient = document.getElementById("response-rate-ipcrf-proficient");
+const responseRateIpcrfHighlyProficient = document.getElementById("response-rate-ipcrf-highlyproficient");
+const responseRateRpmsProficient = document.getElementById("response-rate-rpms-proficient");
+const responseRateRpmsHighlyProficient = document.getElementById("response-rate-rpms-highlyproficient");
+
+// Function to navigate to the selected form
+function navigateToLink() {
+    const selectedForm = formTypeSelect.value;
+    if (selectedForm !== "#") {
+        window.location.href = selectedForm;
+    }
+}
+
+
+
+
+
+
+
 // Save the selected form type and navigate to the link
 function navigateToLink() {
     const formType = document.getElementById('formType').value;
