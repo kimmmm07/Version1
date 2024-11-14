@@ -62,3 +62,67 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+const conductedReviewsProficient = document.getElementById('conducted-reviews-proficient');
+const fullResponseCountProficient = document.getElementById('full-response-count-proficient');
+const attentionCountProficient = document.getElementById('attention-count-proficient');
+const responsePercentageProficient = document.getElementById('response-percentage-proficient');
+
+const conductedReviewsHighlyProficient = document.getElementById('conducted-reviews-highlyproficient');
+const fullResponseCountHighlyProficient = document.getElementById('full-response-count-highlyproficient');
+const attentionCountHighlyProficient = document.getElementById('attention-count-highlyproficient');
+const responsePercentageHighlyProficient = document.getElementById('response-percentage-highlyproficient');
+
+const conductedReviewsIpcrfProficient = document.getElementById('conducted-reviews-ipcrf-proficient');
+const fullResponseCountIpcrfProficient = document.getElementById('full-response-count-ipcrf-proficient');
+const attentionCountIpcrfProficient = document.getElementById('attention-count-ipcrf-proficient');
+const responsePercentageIpcrfProficient = document.getElementById('response-percentage-ipcrf-proficient');
+
+const conductedReviewsIpcrfHighlyProficient = document.getElementById('conducted-reviews-ipcrf-highlyproficient');
+const fullResponseCountIpcrfHighlyProficient = document.getElementById('full-response-count-ipcrf-highlyproficient');
+const attentionCountIpcrfHighlyProficient = document.getElementById('attention-count-ipcrf-highlyproficient');
+const responsePercentageIpcrfHighlyProficient = document.getElementById('response-percentage-ipcrf-highlyproficient');
+
+const conductedReviewsRpmsProficient = document.getElementById('conducted-reviews-rpms-proficient');
+const fullResponseCountRpmsProficient = document.getElementById('full-response-count-rpms-proficient');
+const attentionCountRpmsProficient = document.getElementById('attention-count-rpms-proficient');
+const responsePercentageRpmsProficient = document.getElementById('response-percentage-rpms-proficient');
+
+const conductedReviewsRpmsHighlyProficient = document.getElementById('conducted-reviews-rpms-highlyproficient');
+const fullResponseCountRpmsHighlyProficient = document.getElementById('full-response-count-rpms-highlyproficient');
+const attentionCountRpmsHighlyProficient = document.getElementById('attention-count-rpms-highlyproficient');
+const responsePercentageRpmsHighlyProficient = document.getElementById('response-percentage-rpms-highlyproficient');
+
+async function getFORMS(){ 
+
+    
+
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/forms/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include', 
+        });
+
+        ipcrf_content = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", ipcrf_content);
+
+            conductedReviewsProficient.textContent = ipcrf_content.number_of_conducted_cot_proficient;
+            fullResponseCountProficient.textContent = ipcrf_content.number_of_evaluated_cot_proficient;
+            attentionCountProficient.textContent = ipcrf_content.number_of_pending_cot_proficient;
+
+
+        } else {
+            console.log("Error Data : ", ipcrf_content);
+            // alert("Login Failed.")
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getFORMS();
