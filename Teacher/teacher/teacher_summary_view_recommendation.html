@@ -320,6 +320,36 @@ window.addEventListener('load', async function () {
     }
       
 });
+
+
+
+async function getRecommendations(){
+    
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/recommendations/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+            // body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+        } else {
+            console.log("Error Data : ", data);
+            // alert("Login Failed.")
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+getRecommendations();
+
+
         </script>
 </body>
 </html>
