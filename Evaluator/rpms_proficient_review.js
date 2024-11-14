@@ -1,3 +1,9 @@
+
+
+
+
+
+
 // Get all dropdown headers
 const dropdownHeaders = document.querySelectorAll('.dropdown-header');
 
@@ -61,3 +67,16 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+// Update the status counts dynamically (Example for KRA 1)
+function updateStatusCounts() {
+    document.getElementById('statusNumberTurnedIn1').innerText = '5'; 
+    document.getElementById('statusNumberAssigned1').innerText = '3'; 
+    document.getElementById('statusNumberGraded1').innerText = '2'; 
+    // add other KRAs here.
+}
+
+// Call updateStatusCounts on page load
+document.addEventListener('DOMContentLoaded', updateStatusCounts);

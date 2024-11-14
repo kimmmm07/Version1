@@ -12,16 +12,6 @@ const homeLink = document.getElementById("home-link");
 const settingsLink = document.getElementById("settings-link");
 const schoolYearLink = document.getElementById("school-year-link");
 
-// Header elements
-const depedLogoContainer = document.getElementById("deped-logo-container");
-const depedLogo = document.getElementById("deped-logo");
-const mainNav = document.getElementById("main-nav");
-const homeNavLink = document.getElementById("home-nav-link");
-const formsNavLink = document.getElementById("forms-nav-link");
-const recordsNavLink = document.getElementById("records-nav-link");
-const summaryNavLink = document.getElementById("summary-nav-link");
-const profileNavLink = document.getElementById("profile-nav-link");
-const logoutLink = document.getElementById("logoutLink");
 
 // Container and content elements
 const container = document.getElementById("container");

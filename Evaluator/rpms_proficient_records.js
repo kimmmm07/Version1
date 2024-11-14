@@ -1,3 +1,43 @@
+// Main Content Elements
+const mainContent = document.getElementById("main-content");
+const recordsHeading = document.getElementById("records-heading");
+
+// Tabs
+const tabs = document.getElementById("tabs");
+const cotTab = document.getElementById("cot-tab");
+const ipcrfTab = document.getElementById("ipcrf-tab");
+const rpmsTab = document.getElementById("rpms-tab");
+
+// Filters
+const filters = document.getElementById("filters");
+const schoolYearSelect = document.getElementById("school-year-select");
+const teacherTypeSelect = document.getElementById("teacher-type-select");
+
+// Table and Records
+const recordsTable = document.getElementById("records-table");
+const recordsBody = document.getElementById("records-body");
+
+// Teacher Record
+const teacherRecord1 = document.getElementById("teacher-record-1");
+const teacherName = document.getElementById("teacher-name");
+const teacherPosition = document.getElementById("teacher-position");
+const teacherGradeLevel = document.getElementById("teacher-grade-level");
+const teacherRater = document.getElementById("teacher-rater");
+const teacherAction = document.getElementById("teacher-action");
+const viewRecordLink = document.getElementById("view-record-link");
+
+// School Year Options
+const sy2023_2024 = document.getElementById("sy2023-2024");
+const sy2022_2023 = document.getElementById("sy2022-2023");
+const sy2021_2022 = document.getElementById("sy2021_2022");
+
+// Teacher Type Options
+const proficientTeacher = document.getElementById("proficient-teacher");
+const highlyProficientTeacher = document.getElementById("highly-proficient-teacher");
+
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const schoolYearDropdown = document.querySelector('select[name="school-year"]');
     const teacherTypeDropdown = document.querySelector('select[name="teacher-type"]');

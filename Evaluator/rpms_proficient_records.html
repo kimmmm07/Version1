@@ -22,14 +22,29 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Records</h1><br>
-
-        <div class="tabs">
-            <a href="cot_proficient_records.html">COT</a>
-            <a href="ipcrf_proficient_records.html">IPRCF</a>
-            <a href="rpms_proficient_records.html" class="active">RPMS</a>
+    <main id="main-content">
+        <h1 id="records-heading">Records</h1><br>
+    
+        <div class="tabs" id="tabs">
+            <a href="cot_proficient_records.html" id="cot-tab">COT</a>
+            <a href="ipcrf_proficient_records.html" id="ipcrf-tab">IPRCF</a>
+            <a href="rpms_proficient_records.html" class="active" id="rpms-tab">RPMS</a>
         </div><br>
+<<<<<<< HEAD
+    
+        <div class="filters" id="filters">
+            <select name="school-year" id="school-year-select">
+                <option id="select-school-year">Select School Year</option>
+                <option id="sy2023-2024">S.Y. 2023 - 2024</option>
+                <option id="sy2022-2023">S.Y. 2022 - 2023</option>
+                <option id="sy2021-2022">S.Y. 2021 - 2022</option>
+            </select>
+    
+            <select name="teacher-type" id="teacher-type-select">
+                <option id="select-teacher-type">Select Teacher Type</option>
+                <option value="rpms_proficient_records.html" id="proficient-teacher">Proficient Teacher</option>
+                <option value="rpms_highlyproficient_records.html" id="highly-proficient-teacher">Highly Proficient Teacher</option>
+=======
 
         <div class="filters">
             <select name="school-year">
@@ -43,20 +58,32 @@
                 <option>Select Teacher Type</option>
                 <option value="rpms_proficient_records.html">Proficient Teacher</option>
                 <option value="rpms_highlyproficient_records.html">Highly Proficient Teacher</option>
+>>>>>>> cca494077ba2f45966dbd959bfa37630ab6261ac
             </select>
         </div>
-        
-
-        <table>
+    
+        <table id="records-table">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Grade Level</th>
-                    <th>Rater</th>
-                    <th>Action</th>
+                    <th id="name-heading">Name</th>
+                    <th id="position-heading">Position</th>
+                    <th id="grade-level-heading">Grade Level</th>
+                    <th id="rater-heading">Rater</th>
+                    <th id="action-heading">Action</th>
                 </tr>
             </thead>
+<<<<<<< HEAD
+            <tbody id="records-body">
+                <tr id="teacher-record-1">
+                    <td id="teacher-name">
+                        <img src="User_Circle.png" alt="User Icon" width="25" id="user-icon"> 
+                        Jessica Sanchez Ramirez
+                    </td>
+                    <td id="teacher-position">Teacher II</td>
+                    <td id="teacher-grade-level">Junior High School</td>
+                    <td id="teacher-rater">David Patel</td>
+                    <td id="teacher-action"><a href="rpms_proficient_records_view.html" class="view-link" id="view-record-link">View</a></td>
+=======
             <tbody>
                 <tr>
                     <td>
@@ -67,10 +94,12 @@
                     <td>Junior High School</td>
                     <td>David Patel</td>
                     <td><a href="rpms_proficient_records_view.html" class="view-link">View</a></td>
+>>>>>>> cca494077ba2f45966dbd959bfa37630ab6261ac
                 </tr>
             </tbody>
         </table>
     </main>
+    
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->

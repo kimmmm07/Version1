@@ -10,15 +10,6 @@ const closeBtn = document.getElementById('close-btn');
 const floatingMenuList = document.getElementById('floating-menu-list');
 const schoolYearLink = document.getElementById('school-year-link');
 
-// Header elements
-const depEdLogo = document.getElementById('dep-ed-logo');
-const headerNav = document.getElementById('main-nav');
-const homeNavLink = document.getElementById('home-nav-link');
-const formsNavLink = document.getElementById('forms-nav-link');
-const recordsNavLink = document.getElementById('records-nav-link');
-const summaryNavLink = document.getElementById('summary-nav-link');
-const profileNavLink = document.getElementById('profile-nav-link');
-const logoutNavLink = document.getElementById('logout-nav-link');
 
 // Main content
 const kraTitle = document.getElementById('kra-title');
