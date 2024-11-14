@@ -323,3 +323,76 @@ h1 {
     border: 1px solid #082F96 !important;
     font-weight: 700;
 }
+
+
+.error-message {
+    color: red;
+    font-size: 11px;
+    display: none;
+    margin-top: -10px;
+    margin-left: 85%;
+}
+
+.error-message1 {
+    color: red;
+    font-size: 11px;
+    display: none;
+    margin-top: 1px;
+    margin-left: 82%;
+}
+
+.error-message-js {
+    color: red;
+    font-size: 11px;
+    display: none;
+    margin-top: 1px;
+    margin-left: 79%;
+}
+
+.error-message-pos {
+    color: red;
+    font-size: 11px;
+    display: none;
+    margin-top: 1px;
+    margin-left: 84%;
+}
+
+.error-message-dept {
+    color: red;
+    font-size: 11px;
+    display: none;
+    margin-top: 1px;
+    margin-left: 81%;
+}
+
+.error-message-id {
+    color: red;
+    font-size: 11px;
+    display: none;
+    margin-top: -10px;
+    margin-left: 81%;
+}
+
+.error-message-gl {
+    color: red;
+    font-size: 11px;
+    display: none;
+    margin-top: -10px;
+    margin-left: 81%;
+}
+
+.error-message-pass {
+    color: red;
+    font-size: 11px;
+    display: none;
+    margin-top: -10px;
+    margin-left: 45%;
+}
+
+.error-message-match{
+    color: red;
+    font-size: 11px;
+    display: none;
+    margin-top: -10px;
+    margin-left: 79%;
+}
