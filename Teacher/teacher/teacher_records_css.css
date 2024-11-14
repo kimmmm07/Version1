@@ -1,0 +1,400 @@
+/* Universal styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body styling */
+body {
+    background-color: white; /* Set background to white */
+    padding: 20px;
+}
+
+/* Navbar styling */
+.navbar {
+    left: 0;
+    position: fixed;       /* Fixes the header at the top */
+    top: 0;                /* Aligns it to the top of the page */
+    width: 100%;           /* Ensures the header spans the full width of the page */
+    height: 48px;          /* Adjust the height to fit the content */
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;         /* Ensures the header stays above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better separation */
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo img {
+    width: 90px; /* Adjust logo size */
+    height: auto;
+    margin-right: 10px;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin-left: auto; /* Aligns menu to the right */
+}
+
+.navbar-menu li {
+    margin-right: 15px; /* Space between buttons */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    font-size: 14px; /* Reduced font size for smaller buttons */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center the icons and text vertically */
+    padding: 6px 10px; /* Reduced padding for smaller button size */
+}
+
+.nav-icon {
+    width: 20px;  /* Smaller icons */
+    height: 20px;
+    margin-right: 6px; /* Adjust icon spacing */
+    display: inline-block;
+}
+
+.records {
+    color: white;
+    background-color: #d00000;
+    padding: 6px 12px; /* Reduced padding to make the red button smaller */
+    border-radius: 40px; /* Keep the rounded corners */
+    font-size: 14px; /* Match the font size with other links */
+    display: flex;
+    align-items: center;
+}
+
+.active {
+    font-weight: normal;
+}
+
+.logout-btn a {
+    text-decoration: none;
+    color: #d00000;
+    font-size: 14px; /* Font size for logout button */
+    font-weight: bold;
+    padding: 6px 10px; /* Padding for button size */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px; /* Spacing from other items */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+nav ul li a i {
+    font-size: 1.2em; 
+    margin-right: 8px;
+}
+
+/* Container styling */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto;
+    background-color: white; /* Set background to white */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-right: 20px; /* Adjusts spacing between the title and the button */
+}
+
+
+/* Tabs styling */
+.tabs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd; /* Light gray line for separation */
+    padding-bottom: 1px;
+}
+
+.tab {
+    text-decoration: none; /* Removes the underline */
+    color: inherit; /* Inherits the color from its parent */
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-right: 10px;
+    transition: color 0.2s;
+}
+
+.tab.active {
+    border-bottom: none; /* Remove the blue underline */
+    color: #0033cc; /* Keep the text color for active tab */
+}
+
+.tab:hover {
+    color: #0033cc; /* Text color changes to blue on hover */
+}
+
+
+/* Filters styling */
+.filters {
+    display: flex;
+    flex-direction: column; /* Stack filter buttons and search inputs vertically */
+    margin-bottom: 20px;
+}
+
+.filter-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px; /* Space between filter buttons and search inputs */
+}
+
+
+/* Filter buttons styling */
+.filter {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #000000; /* Black border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding to keep size consistent */
+    color: #000000; /* Black text color for inactive filters */
+    font-weight: normal; /* Regular font weight */
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s; /* Transition for text and border */
+    display: flex; /* Flexbox to align text and number */
+    align-items: center; /* Center align items vertically */
+}
+
+/* Style for the active filter button */
+.filter.active {
+    border-color: #0033cc; /* Blue border for active filter */
+    color: #0033cc; /* Blue text color for active filter */
+    background-color: #ffffff; /* Keep the background white */
+}
+
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+thead {
+    background-color: white; /* Set table header background to white */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif; /* Match font to the rest of your page */
+}
+
+thead {
+    background-color: #f4f4f4; /* Light gray header background */
+    font-weight: bold;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    
+}
+
+
+td {
+    display: flex;
+    align-items: center;
+}
+
+.second-row th{
+    font-weight: lighter; /* You can also use '300' or another value */
+}
+
+
+.user-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+    background-image: url('assets/User_Circle.png'); /* You can replace this with an actual icon */
+    background-size: cover;
+}
+
+.three-dots-btn {
+    background-color: transparent; /* Removes background */
+    border: none; /* Removes border */
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.three-dots-btn img {
+    display: inline-block;
+    vertical-align: middle;
+    height: 35px;
+    width: 30px;
+}
+
+
+tbody tr {
+    transition: background-color 0.2s;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    z-index: 1;
+    list-style: none;
+    padding: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.dropdown-menu li {
+    padding: 8px 12px;
+    display: flex;           /* Use flexbox to center items */
+    align-items: center;     /* Vertically center the items */
+    justify-content: center; /* Horizontally center the items */
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
+    display: flex;           /* Use flexbox to allow centering */
+    width: 100%;            /* Make anchor take the full width */
+}
+
+
+.dropdown-menu li a:hover {
+    background-color: #ddd; /* Hover effect */
+}
+
+/* Display the dropdown when .show class is added */
+.show .dropdown-menu {
+    display: block;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 7px;
+}
+
+.eye-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px; /* Optional: add space between icon and text */
+}
+
+/* Modal styles */
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    border: #082F96;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    align-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 180px;
+    border: 2px solid #082F96;
+}
+
+.modal-content p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: -20px;
+}
+
+.modal-buttons button {
+    width: 120px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.yes-btn {
+    background-color: #082F96;
+    color: white;
+    font-weight: 700;
+}
+
+.no-btn {
+    background-color: #ffffff;
+    color: #082F96;
+    border: 1px solid #082F96 !important;
+    font-weight: 700;
+}
