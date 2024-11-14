@@ -1,3 +1,30 @@
+
+// Form Type selection
+const formTypeSelect = document.getElementById("formType");
+
+
+// Form Details
+const reviewsProficient = document.getElementById("reviews-proficient");
+const reviewsHighlyProficient = document.getElementById("reviews-highlyproficient");
+const reviewsIpcrfProficient = document.getElementById("reviews-ipcrf-proficient");
+const reviewsIpcrfHighlyProficient = document.getElementById("reviews-ipcrf-highlyproficient");
+const reviewsRpmsProficient = document.getElementById("reviews-rpms-proficient");
+const reviewsRpmsHighlyProficient = document.getElementById("reviews-rpms-highlyproficient");
+
+
+
+// Function to navigate to the selected form
+function navigateToLink() {
+    const selectedForm = formTypeSelect.value;
+    if (selectedForm !== "#") {
+        window.location.href = selectedForm;
+    }
+}
+
+
+
+
+
 // Container and title
 const container = document.querySelector('.container');
 const evaluationTitle = document.getElementById('evaluation-title');
@@ -58,6 +85,7 @@ const fullResponseCountRpmsHighlyProficient = document.getElementById('full-resp
 const attentionCountRpmsHighlyProficient = document.getElementById('attention-count-rpms-highlyproficient');
 const responseRateRpmsHighlyProficient = document.getElementById('response-rate-rpms-highlyproficient');
 const responsePercentageRpmsHighlyProficient = document.getElementById('response-percentage-rpms-highlyproficient');
+
 
 
 // Save the selected form type and navigate to the link
