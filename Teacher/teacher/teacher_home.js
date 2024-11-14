@@ -1,3 +1,8 @@
+let feeds = undefined;
+
+
+
+
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');
 const yesButton = document.querySelector('.yes-btn');
@@ -47,13 +52,12 @@ window.addEventListener('load', async function () {
         }
     );
     
-    const data = await response.json();
+    feeds = await response.json();
     if (response.ok) {
-        console.log("Success Data : ",data);
-        
+        console.log("Success Data : ",feeds);
 
     } else {
-        console.log("Error Data : ",data);
+        console.log("Error Data : ",feeds);
     }
       
 });
