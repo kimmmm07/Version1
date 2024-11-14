@@ -25,54 +25,54 @@
         </nav>
     </header>
 
-    <div class="container">
-        <!-- Action buttons positioned in the upper-right corner of the container -->
+    <div class="container" id="rpmsContainer">
+        <!-- Action buttons -->
         <div class="action-buttons">
             <button id="downloadPdf" class="action"><i class="fas fa-file-pdf"></i> Download PDF</button>
             <button id="printForm" class="action"><i class="fas fa-print"></i> Print Form</button>
         </div>
-
+    
         <br>
-        <img src="deped.png" alt="DepEd Logo" class="logo">
-        <h1>COT – RPMS</h1>
-        <h2>Master Teacher I – IV</h2>
-        <h3>Rating Sheet</h3>
-
-        <section class="info-section">
+        <img src="deped.png" alt="DepEd Logo" class="logo" id="depedLogo">
+        <h1 id="formTitle">COT – RPMS</h1>
+        <h2 id="teacherLevel">Master Teacher I – IV</h2>
+        <h3 id="ratingSheetTitle">Rating Sheet</h3>
+    
+        <section class="info-section" id="infoSection">
             <div class="info-block">
                 <label>OBSERVER:</label>
-                <div class="input-field">Sophia Clarke</div>
+                <div class="input-field" id="observerName">Sophia Clarke</div>
             </div>
             <div class="info-block">
                 <label>DATE:</label>
-                <div class="input-field">September 05, 2023</div>
+                <div class="input-field" id="observationDate">September 05, 2023</div>
             </div>
             <div class="info-block">
                 <label>TEACHER OBSERVED:</label>
-                <div class="input-field">Ella Smith</div>
+                <div class="input-field" id="teacherObserved">Ella Smith</div>
             </div>
             <div class="info-block">
                 <label>QUARTER:</label>
-                <div class="input-field">Quarter 1</div>
+                <div class="input-field" id="observationQuarter">Quarter 1</div>
             </div>
             <div class="info-block">
                 <label>SUBJECT & GRADE LEVEL TAUGHT:</label>
-                <div class="input-field">Science, Grade 8</div>
+                <div class="input-field" id="subjectGradeLevel">Science, Grade 8</div>
             </div>
             <div class="info-block">
                 <label>SCHOOL YEAR:</label>
-                <div class="input-field">2023-2024</div>
+                <div class="input-field" id="schoolYear">2023-2024</div>
             </div>
-            <div class="observation-section">
+            <div class="observation-section" id="observationSection">
                 <label><b>Observation:</b></label>
-                <label><input type="checkbox" checked> 1</label>
-                <label><input type="checkbox"> 2</label>
-                <label><input type="checkbox"> 3</label>
-                <label><input type="checkbox"> 4</label>
+                <label><input type="checkbox" id="observation1" checked> 1</label>
+                <label><input type="checkbox" id="observation2"> 2</label>
+                <label><input type="checkbox" id="observation3"> 3</label>
+                <label><input type="checkbox" id="observation4"> 4</label>
             </div>
         </section>
-
-        <section class="directions">
+    
+        <section class="directions" id="directionsSection">
             <h4>DIRECTION FOR THE OBSERVERS:</h4>
             <ol>
                 <li>Rate each item on the checklist according to how well the teacher performed during the classroom observation. Mark the appropriate column with a (✔) symbol.</li>
@@ -80,9 +80,9 @@
                 <li>For schools with only one observer, this form will serve as the final rating sheet.</li>
             </ol>
         </section>
-
-        <section class="rating-section">
-            <table>
+    
+        <section class="rating-section" id="ratingSection">
+            <table id="ratingTable">
                 <thead>
                     <tr>
                         <th>INDICATORS</th>
@@ -95,102 +95,102 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr id="indicator1Row">
                         <td>1. Modeled effective applications of content knowledge within and across curriculum teaching areas.</td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td class="checked"></td>
+                        <td class="checked" id="indicator1Rating7"></td>
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <tr id="indicator2Row">
                         <td>2. Developed and applied effective teaching strategies to promote critical and creative thinking, as well as other higher-order thinking skills.</td>
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td class="checked" id="indicator2Rating8"></td>
                         <td></td>
-                        <td class="checked"></td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <tr id="indicator3Row">
                         <td>3. Modeled and supported colleagues in the proficient use of Mother Tongues, Filipino, and English to improve teaching and learning, as well as to develop the learners’ pride of their language, heritage, and culture.</td>
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td class="checked" id="indicator3Rating7"></td>
                         <td></td>
-                        <td class="checked"></td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <tr id="indicator4Row">
                         <td>4. Exhibited effective strategies that ensure safe and secure learning environments to enhance learning through the consistent implementation of policies, guidelines, and procedures.</td>
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td class="checked" id="indicator4Rating8"></td>
                         <td></td>
-                        <td class="checked"></td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <tr id="indicator5Row">
                         <td>5. Exhibited effective practices to foster learning environments that promote fairness, respect, and care to encourage learning.</td>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td class="checked"></td>
+                        <td class="checked" id="indicator5Rating8"></td>
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <tr id="indicator6Row">
                         <td>6. Exhibited a learner-centered culture that promotes success by using effective teaching strategies that respond to their linguistic, cultural, socio-economic, and religious backgrounds.</td>
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td class="checked" id="indicator6Rating8"></td>
                         <td></td>
-                        <td class="checked"></td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <tr id="indicator7Row">
                         <td>7. Developed and applied teaching strategies to address effectively the needs of learners from indigenous groups.</td>
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td class="checked" id="indicator7Rating8"></td>
                         <td></td>
-                        <td class="checked"></td>
                         <td></td>
                     </tr>
-                    <tr>
+                    <tr id="indicator8Row">
                         <td>8. Used effective strategies for providing timely, accurate, and constructive feedback to encourage learners to reflect on and improve their own learning.</td>
                         <td></td>
                         <td></td>
                         <td></td>
+                        <td class="checked" id="indicator8Rating8"></td>
                         <td></td>
-                        <td class="checked"></td>
                         <td></td>
                     </tr>
                 </tbody>
             </table>
         </section>
-
-        <section class="comments-section">
+    
+        <section class="comments-section" id="commentsSection">
             <label><b>OTHER COMMENTS:</b></label>
-            <textarea></textarea>
+            <textarea id="additionalComments"></textarea>
             <p><b>*NO </b>stands for <b>Not Observed</b> which automatically gets a rating of 3.</p>
         </section>
-      
-        <br><br><br>
-        <section class="signatures">
-            <div class="signature-block">
+    
+        <section class="signatures" id="signaturesSection">
+            <div class="signature-block" id="observerSignature">
                 <label>Signature over Printed Name of the Observer</label>
             </div>
-            <div class="signature-block">
+            <div class="signature-block" id="teacherSignature">
                 <label>Signature over Printed Name of the Teacher</label>
             </div>
         </section>
-
-        <section class="buttons">
-            <a href="cot_mt1-4.html"><button class="back">Back</button></a>
+    
+        <section class="buttons" id="buttonsSection">
+            <a href="cot_mt1-4.html"><button class="back" id="backButton">Back</button></a>
         </section>
     </div>
+    
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->

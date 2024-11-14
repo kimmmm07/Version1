@@ -1,3 +1,57 @@
+// Main Container
+const rpmsContainer = document.getElementById("rpmsContainer");
+
+// Action Buttons
+const downloadPdfButton = document.getElementById("downloadPdf");
+const printFormButton = document.getElementById("printForm");
+
+// Title and Section Headers
+const formTitle = document.getElementById("formTitle");
+const teacherLevel = document.getElementById("teacherLevel");
+const ratingSheetTitle = document.getElementById("ratingSheetTitle");
+
+// Info Section Elements
+const observerName = document.getElementById("observerName");
+const observationDate = document.getElementById("observationDate");
+const teacherObserved = document.getElementById("teacherObserved");
+const observationQuarter = document.getElementById("observationQuarter");
+const subjectGradeLevel = document.getElementById("subjectGradeLevel");
+const schoolYear = document.getElementById("schoolYear");
+
+// Observation Section Checkboxes
+const observation1 = document.getElementById("observation1");
+const observation2 = document.getElementById("observation2");
+const observation3 = document.getElementById("observation3");
+const observation4 = document.getElementById("observation4");
+
+// Rating Table
+const ratingTable = document.getElementById("ratingTable");
+
+// Example: Accessing specific ratings
+const indicator1Rating7 = document.getElementById("indicator1Rating7");
+const indicator2Rating8 = document.getElementById("indicator2Rating8");
+const indicator3Rating7 = document.getElementById("indicator3Rating7");
+const indicator4Rating8 = document.getElementById("indicator4Rating8");
+const indicator5Rating8 = document.getElementById("indicator5Rating8");
+const indicator6Rating8 = document.getElementById("indicator6Rating8");
+const indicator7Rating8 = document.getElementById("indicator7Rating8");
+const indicator8Rating8 = document.getElementById("indicator8Rating8");
+
+// Comments Section
+const additionalComments = document.getElementById("additionalComments");
+
+// Signatures Section
+const observerSignature = document.getElementById("observerSignature");
+const teacherSignature = document.getElementById("teacherSignature");
+
+// Back Button
+const backButton = document.getElementById("backButton");
+
+
+
+
+
+
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');

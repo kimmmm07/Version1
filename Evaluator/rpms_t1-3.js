@@ -1,3 +1,36 @@
+// Container and Title
+const rpmsContainer = document.getElementById("rpmsContainer");
+const rpmsTitle = document.getElementById("rpmsTitle");
+
+// Table and Rows
+const teacherTable = document.getElementById("teacherTable");
+
+// Teacher 1 Elements
+const teacher1Row = document.getElementById("teacher1Row");
+const teacher1Name = document.getElementById("teacher1Name");
+const teacher1Position = document.getElementById("teacher1Position");
+const teacher1GradeLevel = document.getElementById("teacher1GradeLevel");
+const teacher1Rater = document.getElementById("teacher1Rater");
+const teacher1Status = document.getElementById("teacher1Status");
+const teacher1Action = document.getElementById("teacher1Action");
+
+// Teacher 2 Elements
+const teacher2Row = document.getElementById("teacher2Row");
+const teacher2Name = document.getElementById("teacher2Name");
+const teacher2Position = document.getElementById("teacher2Position");
+const teacher2GradeLevel = document.getElementById("teacher2GradeLevel");
+const teacher2Rater = document.getElementById("teacher2Rater");
+const teacher2Status = document.getElementById("teacher2Status");
+const teacher2Action = document.getElementById("teacher2Action");
+
+// Example of updating teacher status
+teacher1Status.textContent = "Approved";
+teacher2Action.href = ""; 
+
+
+
+
+
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');
