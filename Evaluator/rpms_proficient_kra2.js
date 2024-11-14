@@ -1,3 +1,43 @@
+// Sidebar elements
+const sidebar = document.getElementById("sidebar");
+const menuIcon = document.getElementById("menu-icon");
+const homeIcon = document.getElementById("home-icon");
+const settingsIcon = document.getElementById("settings-icon");
+
+// Floating Menu elements
+const floatingMenu = document.getElementById("floating-menu");
+const closeBtn = document.getElementById("close-btn");
+const floatingMenuList = document.getElementById("floating-menu-list");
+const homeLink = document.getElementById("home-link");
+const settingsLink = document.getElementById("settings-link");
+const schoolYearLink = document.getElementById("school-year-link");
+
+// Container and content elements
+const container = document.getElementById("container");
+const breadcrumb = document.getElementById("breadcrumb");
+const tabs = document.getElementById("tabs");
+const kraHeader = document.getElementById("kra-header");
+const kraIcon = document.getElementById("kra-icon");
+const kraTitle = document.getElementById("kra-title");
+const kraDetails = document.getElementById("kra-details");
+const dotsMenu = document.getElementById("dots-menu");
+const dotsSpan = document.getElementById("dots-span");
+
+// KRA objectives
+const kraContent = document.getElementById("kra-content");
+const objective5 = document.getElementById("objective-5");
+const objective6 = document.getElementById("objective-6");
+const objective7 = document.getElementById("objective-7");
+const objective8 = document.getElementById("objective-8");
+
+// Comments section
+const commentsSection = document.getElementById("comments-section");
+const addComment = document.getElementById("add-comment");
+const commentInput = document.getElementById("comment-input");
+const sendCommentBtn = document.getElementById("send-comment-btn");
+
+
+
 document.querySelector('.dots-menu').addEventListener('click', function() {
     alert("Options menu clicked.");
 });

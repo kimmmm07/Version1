@@ -9,78 +9,74 @@
 </head>
 <body>
     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-icon" id="menu-icon">
-            <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
-        </div>        
-        <div class="sidebar-icon">
-            <a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
-        </div>
-        <div class="sidebar-icon">
-            <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
-        </div>
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-icon" id="menu-icon">
+        <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
+    </div>        
+    <div class="sidebar-icon" id="home-icon">
+        <a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
     </div>
+    <div class="sidebar-icon" id="settings-icon">
+        <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
+    </div>
+</div>
 
-    <!-- Floating Menu -->
-    <div class="floating-menu" id="floating-menu">
-        <div class="menu-header">
-
-            <!-- Close button -->
-            <button class="close-btn" onclick="closeMenu()">✖</button>
-        </div>
-        <ul>
+<!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+    <div class="menu-header">
+        <button class="close-btn" id="close-btn">✖</button>
+    </div>
+    <ul>
         <li><a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
         <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
-        <!-- Horizontal line between Setting and School Year -->
         <hr class="menu-divider">
         <li><a href="rpms_proficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
-        </ul>
-    </div>
-  
-    <header>
-        <div>
-            <img src="DepEd_01.png" alt="DepED Logo">
-        </div>
-        <nav>
-            <a href="evaluator_dashboard.html"><img src="House_01.png" alt="Home">Home</a>
-            <a href="proficient_form.html" class="active"><img src="Documents.png" alt="Forms">Forms</a>
-            <a href="rpms_proficient_records.html"><img src="Folders.png" alt="Records">Records</a>
-            <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
-            <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
-            <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
-        </nav>
-    </header>
+    </ul>
+</div>
 
-    <!-- Header section with an image and text overlay -->
-    <div class="header-section">
-        <img src="Group 922.png" alt="Green Background" class="header-image">
-        <div class="text-overlay">
-            <h1 class="header-title">Results-Based Performance Management System</h1>
-            <p class="header-subtitle">School Year 2023-2024</p>
-        </div>
-    </div><br>
-
-    <div class="tabs">
-        <a href="rpms_proficient_stream.html" class="tab" >Stream</a>
-        <a href="rpms_proficient_grades.html" class="tab active">Grades</a>
+<header>
+    <div>
+        <img src="DepEd_01.png" alt="DepED Logo" id="deped-logo">
     </div>
+    <nav id="header-nav">
+        <a href="evaluator_dashboard.html" id="home-link"><img src="House_01.png" alt="Home">Home</a>
+        <a href="proficient_form.html" class="active" id="forms-link"><img src="Documents.png" alt="Forms">Forms</a>
+        <a href="rpms_proficient_records.html" id="records-link"><img src="Folders.png" alt="Records">Records</a>
+        <a href="evaluator_summary.html" id="summary-link"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+        <a href="evaluator_profile.html" id="profile-link"><img src="User_01.png" alt="Profile">Profile</a>
+        <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
+    </nav>
+</header>
+
+<div class="header-section" id="header-section">
+    <img src="Group 922.png" alt="Green Background" class="header-image" id="header-image">
+    <div class="text-overlay" id="text-overlay">
+        <h1 class="header-title" id="header-title">Results-Based Performance Management System</h1>
+        <p class="header-subtitle" id="header-subtitle">School Year 2023-2024</p>
+    </div>
+</div>
+
+<div class="tabs" id="tabs">
+    <a href="rpms_proficient_stream.html" class="tab" id="stream-tab">Stream</a>
+    <a href="rpms_proficient_grades.html" class="tab active" id="grades-tab">Grades</a>
+</div>
 
 <main>
-    <table>
+    <table id="grades-table">
         <tr>
             <th rowspan="2">
-                <div class="sort">
+                <div class="sort" id="sort-by">
                     Sort by: 
-                    <select>
+                    <select id="sort-select">
                         <option>Last name</option>
                     </select>
                 </div>
             </th>
-            <th rowspan="1">PLUS FACTOR</th>
-            <th rowspan="1">KRA 4: Curriculum and...</th>
-            <th rowspan="1">KRA 3: Curriculum and...</th>
-            <th rowspan="1">KRA 2: Learning...</th>
-            <th rowspan="1">KRA 1: Content Knowledge and...</th>
+            <th rowspan="1" id="plus-factor">PLUS FACTOR</th>
+            <th rowspan="1" id="kra-4">KRA 4: Curriculum and...</th>
+            <th rowspan="1" id="kra-3">KRA 3: Curriculum and...</th>
+            <th rowspan="1" id="kra-2">KRA 2: Learning...</th>
+            <th rowspan="1" id="kra-1">KRA 1: Content Knowledge and...</th>
         </tr>
         <tr>
             <th>___ out of 2</th>
@@ -90,19 +86,20 @@
             <th>___ out of 28</th>
         </tr>
         <tr>
-            <td class="user-info">
-                <img src="User_Circle.png" alt="User Icon">
+            <td class="user-info" id="user-info">
+                <img src="User_Circle.png" alt="User Icon" id="user-icon">
                 Jessica Sanchez Ramirez
             </td>
-            <td class="highlight">/2</td>
-            <td class="highlight">/21</td>
-            <td class="highlight">/21</td>
-            <td class="highlight">/28</td>
-            <td class="highlight">/28</td>
-            <td class="highlight">/100</td>
+            <td class="highlight" id="plus-factor-value">/2</td>
+            <td class="highlight" id="kra-4-value">/21</td>
+            <td class="highlight" id="kra-3-value">/21</td>
+            <td class="highlight" id="kra-2-value">/28</td>
+            <td class="highlight" id="kra-1-value">/28</td>
+            <td class="highlight" id="total-value">/100</td>
         </tr>
     </table>
 </main>
+
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->

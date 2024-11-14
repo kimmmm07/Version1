@@ -22,40 +22,42 @@
             <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
         </nav>
     </header>
-    <div class="container">
-        <h1>Results-Based Performance Management System for Master Teacher I - IV</h1><br>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Grade Level</th>
-                    <th>Rater</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><img src="User_Circle.png" alt="User Icon"> Michael Pelps Johnson</td>
-                    <td>Master Teacher IV</td>
-                    <td>Junior High School</td>
-                    <td>Sophia Clarke</td>
-                    <td class="status pending">Pending</td>
-                    <td><a href="rpms_highlyproficient_homepage.html" class="review">Review</a></td>
-                </tr>
-                <tr>
-                    <td><img src="User_Circle.png" alt="User Icon"> Ella Smith</td>
-                    <td>Master Teacher I</td>
-                    <td>Junior High School</td>
-                    <td>Sophia Clarke</td>
-                    <td class="status submitted">Submitted</td>
-                    <td><a href="#" class="review">Reviewed</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <div class="container" id="container">
+    <h1 id="page-title">Results-Based Performance Management System for Master Teacher I - IV</h1>
+    <br>
+
+    <table id="performance-table">
+        <thead id="table-header">
+            <tr>
+                <th id="name-header">Name</th>
+                <th id="position-header">Position</th>
+                <th id="grade-level-header">Grade Level</th>
+                <th id="rater-header">Rater</th>
+                <th id="status-header">Status</th>
+                <th id="action-header">Action</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <tr id="row-michael">
+                <td id="name-michael"><img src="User_Circle.png" alt="User Icon"> Michael Pelps Johnson</td>
+                <td id="position-michael">Master Teacher IV</td>
+                <td id="grade-level-michael">Junior High School</td>
+                <td id="rater-michael">Sophia Clarke</td>
+                <td class="status pending" id="status-michael">Pending</td>
+                <td id="action-michael"><a href="rpms_highlyproficient_homepage.html" class="review" id="review-michael">Review</a></td>
+            </tr>
+            <tr id="row-ella">
+                <td id="name-ella"><img src="User_Circle.png" alt="User Icon"> Ella Smith</td>
+                <td id="position-ella">Master Teacher I</td>
+                <td id="grade-level-ella">Junior High School</td>
+                <td id="rater-ella">Sophia Clarke</td>
+                <td class="status submitted" id="status-ella">Submitted</td>
+                <td id="action-ella"><a href="#" class="review" id="review-ella">Reviewed</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->

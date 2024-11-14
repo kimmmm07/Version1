@@ -8,33 +8,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-     <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-icon" id="menu-icon">
-            <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
-        </div>        
-        <div class="sidebar-icon">
-            <a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
-        </div>
-        <div class="sidebar-icon">
-            <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
-        </div>
+    <!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-icon" id="menu-icon">
+        <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
+    </div>        
+    <div class="sidebar-icon" id="home-icon">
+        <a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
     </div>
+    <div class="sidebar-icon" id="settings-icon">
+        <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
+    </div>
+</div>
 
-    <!-- Floating Menu -->
-    <div class="floating-menu" id="floating-menu">
-        <div class="menu-header">
-            <!-- Close button -->
-            <button class="close-btn" onclick="closeMenu()">✖</button>
-        </div>
-        <ul>
+<!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+    <div class="menu-header">
+        <!-- Close button -->
+        <button class="close-btn" id="close-btn" onclick="closeMenu()">✖</button>
+    </div>
+    <ul>
         <li><a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
         <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
         <!-- Horizontal line between Setting and School Year -->
         <hr class="menu-divider">
-        <li><a href="rpms_proficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
-        </ul>
-    </div>
+        <li><a href="rpms_proficient_stream.html"><span class="sy-circle" id="sy-circle">SY</span> School Year 2023–2024</a></li>
+    </ul>
+</div>
 
     <!-- Header Section -->
     <header>
@@ -51,36 +51,37 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
-    <div id="mainContent" class="main-content">
-        <!-- Main Banner Section -->
-        <main>
-            
-    <!-- Header section with an image and text overlay -->
-    <div class="header-section">
-        <img src="Group 922.png" alt="Green Background" class="header-image">
-        <div class="text-overlay">
-            <h1 class="header-title">Results-Based Performance Management System</h1>
-            <p class="header-subtitle">School Year 2023-2024</p>
+<!-- Main Content -->
+<div id="mainContent" class="main-content">
+    <!-- Main Banner Section -->
+    <main id="main-section">
+        
+        <!-- Header section with an image and text overlay -->
+        <div class="header-section" id="header-section">
+            <img src="Group 922.png" alt="Green Background" class="header-image" id="header-image">
+            <div class="text-overlay" id="text-overlay">
+                <h1 class="header-title" id="header-title">Results-Based Performance Management System</h1>
+                <p class="header-subtitle" id="header-subtitle">School Year 2023-2024</p>
+            </div>
         </div>
-    </div><br>
+        <br>
 
-    <div class="tabs">
-        <a href="rpms_proficient_stream.html" class="tab active"><b>Stream</b></a>
-        <a href="rpms_proficient_results.html" class="tab">Grades</a>
-    </div>
-
-    <div class="content-wrapper">
-        <!-- Upcoming section -->
-        <div class="upcoming">
-            <h3>Upcoming</h3>
-            <ul class="upcoming-list">
-                <li><a href="#">Woohoo! No work to do!</a></li>
-            </ul>
-            
+        <div class="tabs" id="tabs">
+            <a href="rpms_proficient_stream.html" class="tab active" id="stream-tab"><b>Stream</b></a>
+            <a href="rpms_proficient_results.html" class="tab" id="grades-tab">Grades</a>
         </div>
+
+        <div class="content-wrapper" id="content-wrapper">
+            <!-- Upcoming section -->
+            <div class="upcoming" id="upcoming-section">
+                <h3 id="upcoming-title">Upcoming</h3>
+                <ul class="upcoming-list" id="upcoming-list">
+                    <li><a href="#" id="upcoming-item">Woohoo! No work to do!</a></li>
+                </ul>
+            </div>
         </main>
     </div>
+
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->

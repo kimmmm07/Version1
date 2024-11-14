@@ -1,3 +1,66 @@
+// Sidebar and Menu elements
+const menuIcon = document.getElementById('menu-icon');
+const floatingMenu = document.getElementById('floating-menu');
+const closeBtn = document.getElementById('close-btn');
+
+// Header and Navigation elements
+const homeLink = document.getElementById('home-link');
+const formsLink = document.getElementById('forms-link');
+const recordsLink = document.getElementById('records-link');
+const summaryLink = document.getElementById('summary-link');
+const profileLink = document.getElementById('profile-link');
+const logoutLink = document.getElementById('logoutLink');
+const depedLogo = document.getElementById('deped-logo');
+
+// Header Section elements
+const headerSection = document.getElementById('header-section');
+const headerTitle = document.getElementById('header-title');
+const headerSubtitle = document.getElementById('header-subtitle');
+
+// Tab elements
+const streamTab = document.getElementById('stream-tab');
+const gradesTab = document.getElementById('grades-tab');
+
+// Grades Table elements
+const gradesTable = document.getElementById('grades-table');
+const sortBy = document.getElementById('sort-by');
+const sortSelect = document.getElementById('sort-select');
+
+// User Info and Grade values
+const userInfo = document.getElementById('user-info');
+const plusFactor = document.getElementById('plus-factor');
+const kra4 = document.getElementById('kra-4');
+const kra3 = document.getElementById('kra-3');
+const kra2 = document.getElementById('kra-2');
+const kra1 = document.getElementById('kra-1');
+
+// Values in the table
+const plusFactorValue = document.getElementById('plus-factor-value');
+const kra4Value = document.getElementById('kra-4-value');
+const kra3Value = document.getElementById('kra-3-value');
+const kra2Value = document.getElementById('kra-2-value');
+const kra1Value = document.getElementById('kra-1-value');
+const totalValue = document.getElementById('total-value');
+
+// Event listeners for sidebar menu actions
+menuIcon.addEventListener('click', () => {
+  floatingMenu.style.display = 'block';
+});
+
+closeBtn.addEventListener('click', () => {
+  floatingMenu.style.display = 'none';
+});
+
+// Example event listener for tab switch (Grades/Stream)
+gradesTab.addEventListener('click', () => {
+  console.log("Grades tab clicked");
+});
+
+
+
+
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');

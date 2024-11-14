@@ -10,115 +10,116 @@
 </head>
 <body>
   <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="sidebar-icon" id="menu-icon">
-        <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
-    </div>
-    <div class="sidebar-icon">
-        <a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
-    </div>
-    <div class="sidebar-icon">
-        <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
-    </div>
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-icon" id="menu-icon">
+      <a href="#"><img src="Menu.png" alt="Menu Icon" id="menu-icon-img" /></a>
   </div>
+  <div class="sidebar-icon" id="home-icon">
+      <a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon" id="home-icon-img" /></a>
+  </div>
+  <div class="sidebar-icon" id="settings-icon">
+      <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" id="settings-icon-img" /></a>
+  </div>
+</div>
 
-  <!-- Floating Menu -->
-  <div class="floating-menu" id="floating-menu">
-    <div class="menu-header">
-        <!-- Close button -->
-        <button class="close-btn" onclick="closeMenu()">✖</button>
-    </div>
-    <ul>
-      <li><a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
-      <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
-      <!-- Horizontal line between Setting and School Year -->
-      <hr class="menu-divider">
-      <li><a href="rpms_proficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
-    </ul>
+<!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+  <div class="menu-header" id="floating-menu-header">
+      <!-- Close button -->
+      <button class="close-btn" id="close-menu-btn" onclick="closeMenu()">✖</button>
   </div>
-<header>
-    <div>
-        <img src="DepEd_01.png" alt="DepED Logo">
-    </div>
-    <nav>
-        <a href="evaluator_dashboard.html"><img src="House_01.png" alt="Home">Home</a>
-        <a href="proficient_form.html" class="active"><img src="Documents.png" alt="Forms">Forms</a>
-        <a href="rpms_proficient_records.html"><img src="Folders.png" alt="Records">Records</a>
-        <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
-        <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
-        <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
-    </nav>
+  <ul id="floating-menu-list">
+      <li id="home-link"><a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon" id="home-link-img"/> Home</a></li>
+      <li id="settings-link"><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" id="settings-link-img"/> Setting</a></li>
+      <!-- Horizontal line between Setting and School Year -->
+      <hr class="menu-divider" id="menu-divider">
+      <li id="school-year-link"><a href="rpms_proficient_stream.html"><span class="sy-circle" id="school-year-circle">SY</span> School Year 2023–2024</a></li>
+  </ul>
+</div>
+
+<header id="header">
+  <div id="dep-ed-logo">
+      <img src="DepEd_01.png" alt="DepED Logo" id="dep-ed-logo-img">
+  </div>
+  <nav id="main-nav">
+      <a href="evaluator_dashboard.html" id="home-nav-link"><img src="House_01.png" alt="Home" id="home-nav-img">Home</a>
+      <a href="proficient_form.html" class="active" id="forms-nav-link"><img src="Documents.png" alt="Forms" id="forms-nav-img">Forms</a>
+      <a href="rpms_proficient_records.html" id="records-nav-link"><img src="Folders.png" alt="Records" id="records-nav-img">Records</a>
+      <a href="evaluator_summary.html" id="summary-nav-link"><img src="Chart_Pie.png" alt="Summary" id="summary-nav-img">Summary</a>
+      <a href="evaluator_profile.html" id="profile-nav-link"><img src="User_01.png" alt="Profile" id="profile-nav-img">Profile</a>
+      <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;" id="logout-nav-link"><img src="Log_Out.png" alt="Logout" id="logout-nav-img">Logout</a>
+  </nav>
 </header>
 
-<main>
-    <section class="content">
-        <h1>KRA 1: Content Knowledge and Pedagogy</h1>
-  
-        <!-- Student name and status with dropdown -->
-        <div class="student-info">
-          <div class="dropdown">
-            <i class="fas fa-user"></i>
-            <select>
-              <option>Jessica Sanchez Ramirez</option>
-              <option>Student 2</option>
-              <option>Student 3</option>
-            </select>
-            <span>Turned in</span>
+<main id="main-content">
+  <section class="content" id="kra-content">
+      <h1 id="kra-title">KRA 1: Content Knowledge and Pedagogy</h1>
+
+      <!-- Teacher name and status with dropdown -->
+      <div class="teacher-info" id="teacher-info">
+          <div class="dropdown" id="teacher-dropdown">
+              <i class="fas fa-user" id="user-icon"></i>
+              <select id="teacher-dropdown-select">
+                  <option id="teacher-1">Jessica Sanchez Ramirez</option>
+                  <option id="teacher-2">Teacher 2</option>
+                  <option id="teacher-3">Teacher 3</option>
+              </select>
+              <span id="turn-in-status">Turned in</span>
           </div>
-        </div><br>
-  
-        <div class="file-preview">
-          <img src="Group 924.png" alt="Attachment Preview">
-  
+      </div><br>
+
+      <div class="file-preview" id="file-preview">
+          <img src="Group 924.png" alt="Attachment Preview" id="file-preview-img">
+
           <!-- Three-dot menu with icons placed at the top right -->
-          <div class="file-actions">
-            <button class="three-dots" id="three-dots-btn">⋮</button>
-            <div class="dropdown-menu" id="dropdown-menu">
-              <button onclick="downloadFile()">
-                <i class="fas fa-download" id="fas fa-download"></i> Download
-              </button>
-              <button onclick="printFile()">
-                <i class="fas fa-print" id="fas fa-print"></i> Print
-              </button>
-            </div>
+          <div class="file-actions" id="file-actions">
+              <button class="three-dots" id="three-dots-btn">⋮</button>
+              <div class="dropdown-menu" id="dropdown-menu">
+                  <button id="download-btn" onclick="downloadFile()">
+                      <i class="fas fa-download" id="fas-fa-download"></i> Download
+                  </button>
+                  <button id="print-btn" onclick="printFile()">
+                      <i class="fas fa-print" id="fas-fa-print"></i> Print
+                  </button>
+              </div>
           </div>
-        </div>
-  
-      </section>
-  
-      <aside class="sidebar1">
-        <!-- Return button placed in the sidebar -->
-        <div class="sidebar-return">
+      </div>
+  </section>
+
+  <aside class="sidebar1" id="sidebar1">
+      <!-- Return button placed in the sidebar -->
+      <div class="sidebar-return" id="sidebar-return">
           <button id="return-btn" class="return-button">Return</button>
-        </div><br>
+      </div><br>
 
-        <div class="file-section tab">
-          <h3>Files</h3>
-          <p>Turned in on Aug 10, 11:00PM</p>
-          <img src="Group 924.png" alt="Sample attachment">
-        </div>
-  
-        <div class="grade-section tab">
-          <h3>Grade</h3>
-          <ul>
-            <li>Applied knowledge of content within and across curriculum teaching areas (PPST 1.1.2) <span contenteditable="">__/7</span></li>
-            <li>Used a range of teaching strategies that enhance learner achievement in literacy and numeracy skills (PPST 1.4.2) <span contenteditable="">__/7</span></li>
-            <li>Applied a range of teaching strategies to develop critical and creative thinking, as well as other higher-order thinking skills (PPST 1.5.2) <span contenteditable="">__/7</span></li>
-            <li>Displayed proficient use of Mother Tongue, Filipino and English to facilitate teaching and learning (PPST 1.6.2) <span contenteditable="">__/7</span></li>
+      <div class="file-section tab" id="file-section">
+          <h3 id="file-section-title">Files</h3>
+          <p id="file-upload-time">Turned in on Aug 10, 11:00PM</p>
+          <img src="Group 924.png" alt="Sample attachment" id="file-sample-attachment">
+      </div>
+
+      <div class="grade-section tab" id="grade-section">
+          <h3 id="grade-section-title">Grade</h3>
+          <ul id="grade-list">
+              <li id="grade-item-1">Applied knowledge of content within and across curriculum teaching areas (PPST 1.1.2) <span contenteditable="" id="grade-1">__/7</span></li>
+              <li id="grade-item-2">Used a range of teaching strategies that enhance learner achievement in literacy and numeracy skills (PPST 1.4.2) <span contenteditable="" id="grade-2">__/7</span></li>
+              <li id="grade-item-3">Applied a range of teaching strategies to develop critical and creative thinking, as well as other higher-order thinking skills (PPST 1.5.2) <span contenteditable="" id="grade-3">__/7</span></li>
+              <li id="grade-item-4">Displayed proficient use of Mother Tongue, Filipino and English to facilitate teaching and learning (PPST 1.6.2) <span contenteditable="" id="grade-4">__/7</span></li>
           </ul>
-        </div>
-  
-        <div class="total-score tab">
-          <p><b>Total Score: </b><br><br><span contenteditable="">____/28</span></p>
-        </div>
-  
-        <div class="private-comments-section tab">
-          <textarea placeholder="Add private comment..."></textarea>
-          <button class="post-button">Post</button> <!-- Centered Post Button -->
-        </div>
-      </aside>
-    </main>
+      </div>
 
+      <div class="total-score tab" id="total-score-section">
+          <p id="total-score-title"><b>Total Score: </b><br><br><span contenteditable="" id="total-score">____/28</span></p>
+      </div>
+
+      <div class="private-comments-section tab" id="private-comments-section">
+          <textarea id="private-comments-textarea" placeholder="Add private comment..."></textarea>
+          <button class="post-button" id="post-button">Post</button> <!-- Centered Post Button -->
+      </div>
+  </aside>
+</main>
+
+ 
     
   <!-- Logout Confirmation Modal -->
   <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->

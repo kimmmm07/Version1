@@ -1,3 +1,56 @@
+// Sidebar elements
+const sidebar = document.getElementById("sidebar");
+const menuIcon = document.getElementById("menu-icon");
+const homeIcon = document.getElementById("home-icon");
+const settingsIcon = document.getElementById("settings-icon");
+
+// Floating Menu elements
+const floatingMenu = document.getElementById("floating-menu");
+const closeBtn = document.getElementById("close-btn");
+const floatingMenuList = document.getElementById("floating-menu-list");
+const homeLink = document.getElementById("home-link");
+const settingsLink = document.getElementById("settings-link");
+const schoolYearLink = document.getElementById("school-year-link");
+
+// Header elements
+const depedLogoContainer = document.getElementById("deped-logo-container");
+const depedLogo = document.getElementById("deped-logo");
+const mainNav = document.getElementById("main-nav");
+const homeNavLink = document.getElementById("home-nav-link");
+const formsNavLink = document.getElementById("forms-nav-link");
+const recordsNavLink = document.getElementById("records-nav-link");
+const summaryNavLink = document.getElementById("summary-nav-link");
+const profileNavLink = document.getElementById("profile-nav-link");
+const logoutLink = document.getElementById("logoutLink");
+
+// Container and content elements
+const container = document.getElementById("container");
+const breadcrumb = document.getElementById("breadcrumb");
+const tabs = document.getElementById("tabs");
+const kraHeader = document.getElementById("kra-header");
+const kraIcon = document.getElementById("kra-icon");
+const kraTitle = document.getElementById("kra-title");
+const kraDetails = document.getElementById("kra-details");
+const dotsMenu = document.getElementById("dots-menu");
+const dotsSpan = document.getElementById("dots-span");
+
+// KRA objectives
+const kraContent = document.getElementById("kra-content");
+const objective9 = document.getElementById("objective-9");
+const objective10 = document.getElementById("objective-10");
+const objective11 = document.getElementById("objective-11");
+
+// Comments section
+const commentsSection = document.getElementById("comments-section");
+const commentsHeading = document.getElementById("comments-heading");
+const addComment = document.getElementById("add-comment");
+const commentInput = document.getElementById("comment-input");
+const sendCommentBtn = document.getElementById("send-comment-btn");
+
+
+
+
+
 document.querySelector('.dots-menu').addEventListener('click', function() {
     alert("Options menu clicked.");
 });
