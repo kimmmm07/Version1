@@ -1,3 +1,169 @@
+// KRA 1: Content Knowledge and Pedagogy - Efficiency Ratings
+const efficiency1_5 = document.getElementById("efficiency1_5_option");
+const efficiency1_3 = document.getElementById("efficiency1_3_option");
+const efficiency1_1 = document.getElementById("efficiency1_1_option");
+
+// KRA 2: Evaluated with colleagues - Quality Ratings
+const quality2_5 = document.getElementById("quality2_5_option");
+const quality2_4 = document.getElementById("quality2_4_option");
+const quality2_3 = document.getElementById("quality2_3_option");
+const quality2_2 = document.getElementById("quality2_2_option");
+const quality2_1 = document.getElementById("quality2_1_option");
+
+// KRA 2: Evaluated with colleagues - Timeliness Ratings
+const timeliness2_5 = document.getElementById("timeliness2_5_option");
+const timeliness2_4 = document.getElementById("timeliness2_4_option");
+const timeliness2_3 = document.getElementById("timeliness2_3_option");
+const timeliness2_2 = document.getElementById("timeliness2_2_option");
+const timeliness2_1 = document.getElementById("timeliness2_1_option");
+
+// KRA 3: Developed and applied effective teaching strategies - Efficiency Ratings
+const efficiency3_5 = document.getElementById("efficiency3_5_option");
+const efficiency3_3 = document.getElementById("efficiency3_3_option");
+const efficiency3_1 = document.getElementById("efficiency3_1_option");
+
+// KRA 4: Modeled and supported colleagues - Efficiency Ratings
+const quality4_5 = document.getElementById("quality4_5_option");
+const quality4_3 = document.getElementById("quality4_3_option");
+const quality4_1 = document.getElementById("quality4_1_option");
+
+// KRA 2: Learning Environment & Diversity of Learners - Efficiency Ratings for Objective 5
+const efficiency5_5 = document.getElementById("efficiency5_5_option");
+const efficiency5_3 = document.getElementById("efficiency5_3_option");
+const efficiency5_1 = document.getElementById("efficiency5_1_option");
+
+// KRA 2: Learning Environment & Diversity of Learners - Efficiency Ratings for Objective 6
+const efficiency6_5 = document.getElementById("efficiency6_5_option");
+const efficiency6_3 = document.getElementById("efficiency6_3_option");
+const efficiency6_1 = document.getElementById("efficiency6_1_option");
+
+// KRA 2: Learning Environment & Diversity of Learners - Efficiency Ratings for Objective 7
+const efficiency7_5 = document.getElementById("efficiency7_5_option");
+const efficiency7_3 = document.getElementById("efficiency7_3_option");
+const efficiency7_1 = document.getElementById("efficiency7_1_option");
+
+// KRA 2: Learning Environment & Diversity of Learners - Quality Ratings for Objective 8
+const quality8_5 = document.getElementById("quality8_5_option");
+const quality8_4 = document.getElementById("quality8_4_option");
+const quality8_3 = document.getElementById("quality8_3_option");
+const quality8_2 = document.getElementById("quality8_2_option");
+const quality8_1 = document.getElementById("quality8_1_option");
+
+// KRA 3: Curriculum and Planning & Assessment and Reporting - Quality Ratings for Objective 9
+const quality9_5 = document.getElementById("quality9_5_option");
+const quality9_4 = document.getElementById("quality9_4_option");
+const quality9_3 = document.getElementById("quality9_3_option");
+const quality9_2 = document.getElementById("quality9_2_option");
+const quality9_1 = document.getElementById("quality9_1_option");
+
+// KRA 3: Curriculum and Planning & Assessment and Reporting - Timeliness Ratings for Objective 9
+const timeliness9_5 = document.getElementById("timeliness9_5_option");
+const timeliness9_4 = document.getElementById("timeliness9_4_option");
+const timeliness9_3 = document.getElementById("timeliness9_3_option");
+const timeliness9_2 = document.getElementById("timeliness9_2_option");
+const timeliness9_1 = document.getElementById("timeliness9_1_option");
+
+// KRA 3: Curriculum and Planning & Assessment and Reporting - Efficiency Ratings for Objective 10
+const efficiency10_5 = document.getElementById("efficiency10_5_option");
+const efficiency10_3 = document.getElementById("efficiency10_3_option");
+const efficiency10_1 = document.getElementById("efficiency10_1_option");
+
+// KRA 3: Curriculum and Planning & Assessment and Reporting - Quality Ratings for Objective 11
+const quality11_5 = document.getElementById("quality11_5_option");
+const quality11_4 = document.getElementById("quality11_4_option");
+const quality11_3 = document.getElementById("quality11_3_option");
+const quality11_2 = document.getElementById("quality11_2_option");
+const quality11_1 = document.getElementById("quality11_1_option");
+
+// KRA 3: Curriculum and Planning & Assessment and Reporting - Timeliness Ratings for Objective 11
+const timeliness11_5 = document.getElementById("timeliness11_5_option");
+const timeliness11_4 = document.getElementById("timeliness11_4_option");
+const timeliness11_3 = document.getElementById("timeliness11_3_option");
+const timeliness11_2 = document.getElementById("timeliness11_2_option");
+const timeliness11_1 = document.getElementById("timeliness11_1_option");
+
+// KRA 4, Objective 12 Variables
+const quality12_5 = document.getElementById('Quality12_5');
+const quality12_5_option = document.getElementById('quality12_5_option');
+const quality12_4_option = document.getElementById('quality12_4_option');
+const quality12_3_option = document.getElementById('quality12_3_option');
+const quality12_2_option = document.getElementById('quality12_2_option');
+const quality12_1_option = document.getElementById('quality12_1_option');
+
+const timeliness12_5 = document.getElementById('Timeliness12_5');
+const timeliness12_5_option = document.getElementById('timeliness12_5_option');
+const timeliness12_4_option = document.getElementById('timeliness12_4_option');
+const timeliness12_3_option = document.getElementById('timeliness12_3_option');
+const timeliness12_2_option = document.getElementById('timeliness12_2_option');
+const timeliness12_1_option = document.getElementById('timeliness12_1_option');
+
+// KRA 4, Objective 13 Variables
+const quality13_5 = document.getElementById('Quality13_5');
+const quality13_5_option = document.getElementById('quality13_5_option');
+const quality13_4_option = document.getElementById('quality13_4_option');
+const quality13_3_option = document.getElementById('quality13_3_option');
+const quality13_2_option = document.getElementById('quality13_2_option');
+const quality13_1_option = document.getElementById('quality13_1_option');
+
+const timeliness13_5 = document.getElementById('Timeliness13_5');
+const timeliness13_5_option = document.getElementById('timeliness13_5_option');
+const timeliness13_4_option = document.getElementById('timeliness13_4_option');
+const timeliness13_3_option = document.getElementById('timeliness13_3_option');
+const timeliness13_2_option = document.getElementById('timeliness13_2_option');
+const timeliness13_1_option = document.getElementById('timeliness13_1_option');
+
+// KRA 4, Objective 14 Variables
+const quality14_5 = document.getElementById('Quality14_5');
+const quality14_5_option = document.getElementById('quality14_5_option');
+const quality14_4_option = document.getElementById('quality14_4_option');
+const quality14_3_option = document.getElementById('quality14_3_option');
+const quality14_2_option = document.getElementById('quality14_2_option');
+const quality14_1_option = document.getElementById('quality14_1_option');
+
+const efficiency14_5 = document.getElementById('Efficiency14_5');
+const efficiency14_5_option = document.getElementById('efficiency14_5_option');
+const efficiency14_4_option = document.getElementById('efficiency14_4_option');
+const efficiency14_3_option = document.getElementById('efficiency14_3_option');
+const efficiency14_2_option = document.getElementById('efficiency14_2_option');
+const efficiency14_1_option = document.getElementById('efficiency14_1_option');
+
+const timeliness14_5 = document.getElementById('Timeliness14_5');
+const timeliness14_5_option = document.getElementById('timeliness14_5_option');
+const timeliness14_4_option = document.getElementById('timeliness14_4_option');
+const timeliness14_3_option = document.getElementById('timeliness14_3_option');
+const timeliness14_2_option = document.getElementById('timeliness14_2_option');
+const timeliness14_1_option = document.getElementById('timeliness14_1_option');
+
+// PLUS FACTOR Variables
+const quality15_5 = document.getElementById('Quality15_5');
+const quality15_5_option = document.getElementById('quality15_5_option');
+const quality15_4_option = document.getElementById('quality15_4_option');
+const quality15_3_option = document.getElementById('quality15_3_option');
+const quality15_2_option = document.getElementById('quality15_2_option');
+const quality15_1_option = document.getElementById('quality15_1_option');
+
+const efficiency15_5 = document.getElementById('Efficiency15_5');
+const efficiency15_5_option = document.getElementById('efficiency15_5_option');
+const efficiency15_4_option = document.getElementById('efficiency15_4_option');
+const efficiency15_3_option = document.getElementById('efficiency15_3_option');
+const efficiency15_2_option = document.getElementById('efficiency15_2_option');
+const efficiency15_1_option = document.getElementById('efficiency15_1_option');
+
+const timeliness15_5 = document.getElementById('Timeliness15_5');
+const timeliness15_5_option = document.getElementById('timeliness15_5_option');
+const timeliness15_4_option = document.getElementById('timeliness15_4_option');
+const timeliness15_3_option = document.getElementById('timeliness15_3_option');
+const timeliness15_2_option = document.getElementById('timeliness15_2_option');
+const timeliness15_1_option = document.getElementById('timeliness15_1_option');
+
+// Teacher's and Evaluator's Adjectival Rating Variables
+const teacherAverageScore = document.getElementById('teacher-average-score');
+const teacherRating = document.getElementById('teacher-rating');
+
+const averageScore = document.getElementById('average-score');
+const evaluatorRating = document.getElementById('rating');
+
+
 document.querySelectorAll('input[type="radio"]').forEach((input) => {
     input.addEventListener('change', calculateAverageScore);
 });
