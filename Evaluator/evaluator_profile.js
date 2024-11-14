@@ -1,3 +1,31 @@
+// Profile Section
+const profileSection = document.querySelector('.profile-section');
+
+// Profile Image
+const profileImage = document.getElementById('profileImage');
+const imageUpload = document.getElementById('imageUpload');
+const overlay = document.querySelector('.profile-image .overlay');
+
+// Profile Details
+const profileDetails = document.querySelector('.profile-details');
+const name = document.getElementById('name');
+const position = document.getElementById('position');
+const editProfileButton = profileDetails.querySelector('button');
+
+// Information Section
+const infoSection = document.querySelector('.info-section');
+const infoBoxes = document.querySelectorAll('.info-box');
+
+// Information Box for Employee Data
+const empIdLink = document.getElementById('emp-id');
+const deptLink = document.getElementById('dept');
+const jobStartedLink = document.getElementById('job-started');
+
+// Contact Information Box
+const emailAddressLink = document.getElementById('email-address');
+const contactNoLink = document.getElementById('contact-no');
+
+
 function previewImage(event) {
     const file = event.target.files[0];
     const reader = new FileReader();

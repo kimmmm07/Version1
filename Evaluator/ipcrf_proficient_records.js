@@ -1,3 +1,31 @@
+// Main container and title
+const mainContainer = document.querySelector('main');
+const recordsTitle = document.getElementById('records-title');
+
+// Tabs for different records
+const tabCOT = document.getElementById('tab-cot');
+const tabIPCRF = document.getElementById('tab-ipcrf');
+const tabRPMS = document.getElementById('tab-rpms');
+
+// Filters
+const schoolYearFilter = document.getElementById('school-year-filter');
+const teacherTypeFilter = document.getElementById('teacher-type-filter');
+
+// Table and tbody
+const recordsTable = document.getElementById('records-table');
+const recordsTbody = document.getElementById('records-tbody');
+
+// Record 1
+const record1 = document.getElementById('record1');
+const userIcon1 = document.getElementById('user-icon1');
+const teacherName1 = document.getElementById('teacher-name1');
+const teacherPosition1 = document.getElementById('teacher-position1');
+const teacherGradeLevel1 = document.getElementById('teacher-grade-level1');
+const raterName1 = document.getElementById('rater-name1');
+const result1 = document.getElementById('result1');
+const viewLink1 = document.getElementById('view-link1');
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const schoolYearDropdown = document.querySelector('select[name="school-year"]');
     const teacherTypeDropdown = document.querySelector('select[name="teacher-type"]');

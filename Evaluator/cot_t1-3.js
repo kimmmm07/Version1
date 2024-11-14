@@ -1,3 +1,44 @@
+// Title
+const ratingSheetTitle = document.getElementById("ratingSheetTitle");
+
+// Tabs
+const tab1 = document.getElementById("tab1");
+const tab2 = document.getElementById("tab2");
+const tab3 = document.getElementById("tab3");
+const tab4 = document.getElementById("tab4");
+
+// Quarter sections
+const quarter1Content = document.getElementById("quarter1");
+const quarter2Content = document.getElementById("quarter2");
+const quarter3Content = document.getElementById("quarter3");
+const quarter4Content = document.getElementById("quarter4");
+
+// Tables for each quarter
+const quarter1Table = document.getElementById("quarter1Table");
+const quarter2Table = document.getElementById("quarter2Table");
+const quarter3Table = document.getElementById("quarter3Table");
+const quarter4Table = document.getElementById("quarter4Table");
+
+// Table bodies for each quarter (for adding rows dynamically)
+const teacherTableBodyQuarter1 = document.getElementById("teacherTableBodyQuarter1");
+const teacherTableBodyQuarter2 = document.getElementById("teacherTableBodyQuarter2");
+const teacherTableBodyQuarter3 = document.getElementById("teacherTableBodyQuarter3");
+const teacherTableBodyQuarter4 = document.getElementById("teacherTableBodyQuarter4");
+
+// Individual table rows for each quarter
+const teacherRowQuarter2 = document.getElementById("teacherRowQuarter2");
+const teacherRowQuarter3 = document.getElementById("teacherRowQuarter3");
+const teacherRowQuarter4 = document.getElementById("teacherRowQuarter4");
+
+// Action links within the table rows for each quarter
+const observeLinkQuarter2 = document.getElementById("observeLinkQuarter2");
+const viewLinkQuarter2 = document.getElementById("viewLinkQuarter2");
+const observeLinkQuarter3 = document.getElementById("observeLinkQuarter3");
+const viewLinkQuarter3 = document.getElementById("viewLinkQuarter3");
+const observeLinkQuarter4 = document.getElementById("observeLinkQuarter4");
+const viewLinkQuarter4 = document.getElementById("viewLinkQuarter4");
+
+
 function showQuarter(quarter) {
 
 document.querySelectorAll('.quarter-content').forEach(function(content) {

@@ -1,3 +1,61 @@
+// Edit Profile Section
+const editProfileSection = document.getElementById('edit-profile');
+const editProfileTitle = document.getElementById('edit-profile-title');
+
+// Profile Image Section
+const profileContainer = document.getElementById('profile-container');
+const profileImageContainer = document.getElementById('profile-image-container');
+const profileImage = document.getElementById('profileImage');
+const profileImageOverlay = document.getElementById('profile-image');
+const imageUpload = document.getElementById('imageUpload');
+
+// Profile Form
+const profileForm = document.getElementById('profile-form');
+
+// Name Inputs
+const nameGroup = document.getElementById('name-group');
+const firstNameWrapper = document.getElementById('first-name-wrapper');
+const firstName = document.getElementById('first-name');
+const firstNameWarning = document.getElementById('first-name-warning');
+
+const middleNameWrapper = document.getElementById('middle-name-wrapper');
+const middleName = document.getElementById('middle-name');
+const middleNameWarning = document.getElementById('middle-name-warning');
+
+const lastNameWrapper = document.getElementById('last-name-wrapper');
+const lastName = document.getElementById('last-name');
+const lastNameWarning = document.getElementById('last-name-warning');
+
+// Job Title
+const jobTitleGroup = document.getElementById('job-title-group');
+const jobTitleWrapper = document.getElementById('job-title-wrapper');
+const jobTitle = document.getElementById('job-title');
+const jobTitleWarning = document.getElementById('job-title-warning');
+
+// Department
+const departmentGroup = document.getElementById('department-group');
+const departmentWrapper = document.getElementById('department-wrapper');
+const department = document.getElementById('department');
+const departmentWarning = document.getElementById('department-warning');
+
+// Password
+const passwordGroup = document.getElementById('password-group');
+const passwordWrapper = document.getElementById('password-wrapper');
+const password = document.getElementById('password');
+const passwordWarning = document.getElementById('password-warning');
+
+// Confirm Password
+const confirmPasswordGroup = document.getElementById('confirm-password-group');
+const confirmPasswordWrapper = document.getElementById('confirm-password-wrapper');
+const confirmPassword = document.getElementById('confirm-password');
+const confirmPasswordWarning = document.getElementById('confirm-password-warning');
+
+// Form Buttons
+const formButtons = document.getElementById('form-buttons');
+const cancelButton = document.getElementById('cancel-btn');
+const updateButton = document.getElementById('update-btn');
+
+
 function previewImage(event) {
     const file = event.target.files[0];
     const reader = new FileReader();

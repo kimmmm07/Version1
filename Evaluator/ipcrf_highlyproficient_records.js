@@ -1,3 +1,31 @@
+// Tabs
+const cotTab = document.getElementById('cot-tab');
+const ipcrfTab = document.getElementById('ipcrf-tab');
+const rpmsTab = document.getElementById('rpms-tab');
+
+// Filters
+const schoolYearSelect = document.getElementById('school-year');
+const teacherTypeSelect = document.getElementById('teacher-type');
+const quarterSelect = document.getElementById('selectQuarter');
+
+// Table elements
+const recordsTbody = document.getElementById('records-tbody');
+const record1 = document.getElementById('record1');
+
+// Specific record details
+const teacherName = document.getElementById('teacher-name');
+const teacherPosition = document.getElementById('teacher-position');
+const teacherGradeLevel = document.getElementById('teacher-grade-level');
+const raterName = document.getElementById('rater-name');
+const evaluationResult = document.getElementById('evaluation-result');
+
+// Links
+const viewRecordLink = document.getElementById('view-record');
+
+// User Icon
+const userIcon = document.getElementById('user-icon');
+
+
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');

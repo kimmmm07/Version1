@@ -1,3 +1,49 @@
+// Main Content Section
+const contentSection = document.getElementById('content-section');
+const kraTitle = document.getElementById('kra-title');
+
+// Student Info and Dropdown
+const studentInfo = document.getElementById('student-info');
+const studentSelect = document.getElementById('student-select');
+const statusText = document.getElementById('status-text');
+
+// File Preview and Actions
+const filePreview = document.getElementById('file-preview');
+const attachmentPreview = document.getElementById('attachment-preview');
+const fileActions = document.getElementById('file-actions');
+const threeDotsBtn = document.getElementById('three-dots-btn');
+const dropdownMenu = document.getElementById('dropdown-menu');
+const downloadBtn = document.getElementById('download-btn');
+const printBtn = document.getElementById('print-btn');
+
+// Sidebar Section
+const detailsSidebar = document.getElementById('details-sidebar');
+
+// Return Button in Sidebar
+const sidebarReturn = document.getElementById('sidebar-return');
+const returnBtn = document.getElementById('return-btn');
+
+// File Section in Sidebar
+const fileSection = document.getElementById('file-section');
+const sampleAttachment = document.getElementById('sample-attachment');
+
+// Grade Section in Sidebar
+const gradeSection = document.getElementById('grade-section');
+const gradeItem1 = document.getElementById('grade-item-1');
+const gradeItem2 = document.getElementById('grade-item-2');
+const gradeItem3 = document.getElementById('grade-item-3');
+const gradeItem4 = document.getElementById('grade-item-4');
+
+// Total Score in Sidebar
+const totalScore = document.getElementById('total-score');
+const totalScoreValue = document.getElementById('total-score-value');
+
+// Private Comments Section in Sidebar
+const privateCommentsSection = document.getElementById('private-comments');
+const commentTextarea = document.getElementById('comment-textarea');
+const postCommentBtn = document.getElementById('post-comment-btn');
+
+
 document.getElementById('three-dots-btn').addEventListener('click', function() {
   const menu = document.getElementById('dropdown-menu');
   menu.style.display = menu.style.display === 'block' ? 'none' : 'block';

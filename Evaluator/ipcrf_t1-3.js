@@ -1,3 +1,32 @@
+// Container and title
+const container = document.querySelector('.container');
+const ipcrfTitle = document.getElementById('ipcrf-title');
+
+// Table and tbody
+const ipcrfTable = document.getElementById('ipcrf-table');
+const ipcrfTbody = document.getElementById('ipcrf-tbody');
+
+// Record 1
+const record1 = document.getElementById('record1');
+const userIcon1 = document.getElementById('user-icon1');
+const teacherName1 = document.getElementById('teacher-name1');
+const teacherPosition1 = document.getElementById('teacher-position1');
+const teacherGradeLevel1 = document.getElementById('teacher-grade-level1');
+const raterName1 = document.getElementById('rater-name1');
+const status1 = document.getElementById('status1');
+const reviewLink1 = document.getElementById('review-link1');
+
+// Record 2
+const record2 = document.getElementById('record2');
+const userIcon2 = document.getElementById('user-icon2');
+const teacherName2 = document.getElementById('teacher-name2');
+const teacherPosition2 = document.getElementById('teacher-position2');
+const teacherGradeLevel2 = document.getElementById('teacher-grade-level2');
+const raterName2 = document.getElementById('rater-name2');
+const status2 = document.getElementById('status2');
+const reviewLink2 = document.getElementById('review-link2');
+
+
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');
