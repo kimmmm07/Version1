@@ -1,3 +1,44 @@
+// Sidebar
+const sidebar = document.getElementById("sidebar");
+const menuIcon = document.getElementById("menu-icon");
+const homeIcon = document.getElementById("home-icon");
+const settingsIcon = document.getElementById("settings-icon");
+
+// Floating Menu
+const floatingMenu = document.getElementById("floating-menu");
+const closeBtn = document.getElementById("close-btn");
+const menuDivider = document.getElementById("menu-divider");
+const syCircle = document.getElementById("sy-circle");
+
+
+// Main Content
+const mainContent = document.getElementById("mainContent");
+const mainSection = document.getElementById("main-section");
+const headerImage = document.getElementById("header-image");
+const textOverlay = document.getElementById("text-overlay");
+const headerTitle = document.getElementById("header-title");
+const headerSubtitle = document.getElementById("header-subtitle");
+const tabs = document.getElementById("tabs");
+const streamTab = document.getElementById("stream-tab");
+const gradesTab = document.getElementById("grades-tab");
+const contentWrapper = document.getElementById("content-wrapper");
+const upcomingSection = document.getElementById("upcoming-section");
+const upcomingTitle = document.getElementById("upcoming-title");
+const upcomingList = document.getElementById("upcoming-list");
+const upcomingItem = document.getElementById("upcoming-item");
+
+// Interactions 
+function closeMenu() {
+    floatingMenu.style.display = "none";
+}
+
+menuIcon.addEventListener("click", function() {
+    floatingMenu.style.display = "block";
+});
+
+
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
