@@ -34,3 +34,4 @@ function evaluateAllCompetencies() {
 window.onload = function() {
     evaluateAllCompetencies();
 };
+
