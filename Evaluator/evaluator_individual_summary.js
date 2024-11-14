@@ -1,3 +1,60 @@
+// Analytics Container
+const analyticsContainer = document.getElementById('analytics-container');
+
+// Tabs Section
+const tabsSection = document.getElementById('tabs-section');
+const viewIndividualLink = document.getElementById('view-individual-link');
+
+// Filters Section
+const filtersSection = document.getElementById('filters-section');
+const filterBox = document.getElementById('filter-box');
+
+// Name Filter Dropdown
+const chooseNameFilter = document.getElementById('choose-name-filter');
+
+// Year Filter Dropdown
+const chooseYearFilter = document.getElementById('choose-year-filter');
+
+// Analytics Grid
+const analyticsGrid = document.getElementById('analytics-grid');
+
+// KRA Breakdown Section
+const kraBreakdown = document.getElementById('kra-breakdown');
+const kraTitle = document.getElementById('kra-title');
+const kraChart = document.getElementById('kraChart');
+const kraLegend = document.getElementById('kra-legend');
+
+// Recommendation Section
+const recommendation = document.getElementById('recommendation');
+const recommendationContent = document.getElementById('recommendation-content');
+const recommendationChart = document.getElementById('recommendationChart');
+const recommendationLabels = document.getElementById('recommendation-labels');
+const promotionLabel = document.getElementById('promotion');
+const retentionLabel = document.getElementById('retention');
+const terminationLabel = document.getElementById('termination');
+
+// Performance Section
+const performance = document.getElementById('performance');
+const performanceTitle = document.getElementById('performance-title');
+const performanceChart = document.getElementById('performanceChart');
+
+// SWOT Analysis Section
+const swotAnalysis = document.getElementById('swot-analysis');
+const swotContent = document.getElementById('swot-content');
+
+// SWOT Analysis Titles
+const strengthsTitle = document.getElementById('strengths-title');
+const weaknessTitle = document.getElementById('weakness-title');
+const opportunitiesTitle = document.getElementById('opportunities-title');
+const threatsTitle = document.getElementById('threats-title');
+
+// SWOT Analysis Content
+const strengths = document.getElementById('strengths');
+const weakness = document.getElementById('weakness');
+const opportunities = document.getElementById('opportunities');
+const threats = document.getElementById('threats');
+
+
 window.onload = function() {
     // Example SWOT data for different individuals
     const swotData = {

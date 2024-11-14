@@ -1,3 +1,44 @@
+// Container Section
+const container = document.querySelector('#container');
+
+// Breadcrumb
+const breadcrumb = document.querySelector('#breadcrumb');
+
+// Tabs
+const tabs = document.querySelector('#tabs');
+const instructionsTab = document.querySelector('#instructions-tab');
+const teacherWorkTab = document.querySelector('#teacher-work-tab');
+
+// KRA Header Section
+const kraHeader = document.querySelector('#kra-header');
+const kraIcon = document.querySelector('#kra-icon');
+const kraIconImg = document.querySelector('#kra-icon-img');
+const kraDetails = document.querySelector('#kra-details');
+const kraTitle = document.querySelector('#kra-title');
+const postedBy = document.querySelector('#posted-by');
+const points = document.querySelector('#points');
+const dotsMenu = document.querySelector('#dots-menu');
+const dots = document.querySelector('#dots');
+
+// KRA Content (Objectives)
+const kraContent = document.querySelector('#kra-content');
+const objective1 = document.querySelector('#objective-1');
+const objective1List = document.querySelector('#objective-1-list');
+const objective2 = document.querySelector('#objective-2');
+const objective2List = document.querySelector('#objective-2-list');
+const objective3 = document.querySelector('#objective-3');
+const objective3List = document.querySelector('#objective-3-list');
+const objective4 = document.querySelector('#objective-4');
+const objective4List = document.querySelector('#objective-4-list');
+
+// Comments Section
+const commentsSection = document.querySelector('#comments-section');
+const commentsHeading = document.querySelector('#comments-heading');
+const addComment = document.querySelector('#add-comment');
+const commentInput = document.querySelector('#comment-input');
+const commentSubmit = document.querySelector('#comment-submit');
+
+
 document.querySelector('.dots-menu').addEventListener('click', function() {
     alert("Options menu clicked.");
 });

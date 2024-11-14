@@ -1,3 +1,45 @@
+// Main Content
+const main = document.getElementById("main");
+
+// Page Title
+const pageTitle = document.getElementById("page-title");
+
+// Tabs
+const tabs = document.getElementById("tabs");
+const cotTab = document.getElementById("cot-tab");
+const ipcrfTab = document.getElementById("ipcrf-tab");
+const rpmsTab = document.getElementById("rpms-tab");
+
+// Filters
+const filters = document.getElementById("filters");
+const schoolYearSelect = document.getElementById("school-year-select");
+const selectSchoolYear = document.getElementById("select-school-year");
+const sy20232024 = document.getElementById("sy-2023-2024");
+const sy20222023 = document.getElementById("sy-2022-2023");
+const sy20212022 = document.getElementById("sy-2021-2022");
+
+const teacherTypeSelect = document.getElementById("teacher-type-select");
+const selectTeacherType = document.getElementById("select-teacher-type");
+const proficientTeacher = document.getElementById("proficient-teacher");
+const highlyProficientTeacher = document.getElementById("highlyproficient-teacher");
+
+// Teacher Records Table
+const teacherRecordsTable = document.getElementById("teacher-records-table");
+const tableBody = document.getElementById("table-body");
+
+// Teacher Row
+const teacherRow = document.getElementById("teacher-row");
+const teacherName = document.getElementById("teacher-name");
+const teacherPosition = document.getElementById("teacher-position");
+const teacherGradeLevel = document.getElementById("teacher-grade-level");
+const teacherRater = document.getElementById("teacher-rater");
+const viewAction = document.getElementById("view-action");
+const viewLink = document.getElementById("view-link");
+
+// User Icon
+const userIcon = document.getElementById("user-icon");
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const schoolYearDropdown = document.querySelector('select[name="school-year"]');
     const teacherTypeDropdown = document.querySelector('select[name="teacher-type"]');

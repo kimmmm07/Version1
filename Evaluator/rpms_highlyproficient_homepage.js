@@ -1,3 +1,32 @@
+// Cards Section
+const cardsSection = document.querySelector('#cards-section');
+
+// Card Link
+const cardLink = document.querySelector('#card-link');
+
+// Card Elements
+const card = document.querySelector('#card');
+const cardHeader = document.querySelector('#card-header');
+const headerContent = document.querySelector('#header-content');
+const subheader = document.querySelector('#subheader');
+const headerIcon = document.querySelector('#header-icon');
+const syIcon = document.querySelector('#sy-icon');
+
+// Card Body
+const cardBody = document.querySelector('#card-body');
+const cardBodyText = document.querySelector('#card-body-text');
+const cardBodyList = document.querySelector('#card-body-list');
+const listItem1 = document.querySelector('#list-item-1');
+const listItem2 = document.querySelector('#list-item-2');
+const listItem3 = document.querySelector('#list-item-3');
+const listItem4 = document.querySelector('#list-item-4');
+const listItem5 = document.querySelector('#list-item-5');
+
+// Card Icon Bottom
+const cardIconBottom = document.querySelector('#card-icon-bottom');
+const userIcon = document.querySelector('#user-icon');
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
