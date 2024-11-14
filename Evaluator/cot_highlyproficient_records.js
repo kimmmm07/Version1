@@ -74,3 +74,7 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+//dropdowns
+const schoolYear = String(document.getElementById('schoolYearSelect').value);
+const schoolYear = String(document.getElementById('teacherTypeSelect').value);
