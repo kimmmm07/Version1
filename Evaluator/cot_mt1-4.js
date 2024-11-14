@@ -27,6 +27,9 @@ if (urlParams.get('status') === 'observed') {
     });
 }
 
+
+
+
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');

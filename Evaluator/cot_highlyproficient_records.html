@@ -43,8 +43,8 @@
         
             <select id="teacherTypeSelect" name="teacher-type">
                 <option value="#" disabled selected>Select Teacher Type</option>
-                <option value="Proficient Teacher">Proficient Teacher</option>
-                <option value="Highly Proficient Teacher">Highly Proficient Teacher</option>
+                <option value="Proficient">Proficient Teacher</option>
+                <option value="Highly Proficient">Highly Proficient Teacher</option>
             </select>
 
             <select id="selectQuarter" name="Quarter">
@@ -132,6 +132,23 @@
             window.location.href = selectedValue;
         }
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('schoolYearSelect').addEventListener('change', function() {
+            const schoolYear = String(this.value);
+            console.log("Selected School Year:", schoolYear);
+        });
+
+        document.getElementById('teacherTypeSelect').addEventListener('change', function() {  //proficient or highly proficient
+            const teacherType = String(this.value);
+            console.log("Selected Teacher Type:", teacherType);
+        });
+
+        document.getElementById('selectQuarter').addEventListener('change', function() {  
+            const quarter = String(this.value);
+            console.log("Selected Quarter:", quarter);
+        });
+    });
     </script>
 </body>
 </html>

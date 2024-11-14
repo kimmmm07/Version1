@@ -76,6 +76,22 @@ yesButton.addEventListener('click', async function() {
 });
 
 //dropdowns
-const schoolYear = String(document.getElementById('schoolYearSelect').value);
-const teacherType = String(document.getElementById('teacherTypeSelect').value); //proficient or highly proficient
-const quarter = String(document.getElementById('selectQuarter').value);
+// document.addEventListener('DOMContentLoaded', function() {
+//     document.getElementById('schoolYearSelect').addEventListener('change', function() {
+//         const schoolYear = String(this.value);
+//         console.log("Selected School Year:", schoolYear);
+//     });
+
+//     document.getElementById('teacherTypeSelect').addEventListener('change', function() {  //proficient or highly proficient
+//         const teacherType = String(this.value);
+//         console.log("Selected Teacher Type:", teacherType);
+//     });
+
+//     document.getElementById('selectQuarter').addEventListener('change', function() {  
+//         const quarter = String(this.value);
+//         console.log("Selected Quarter:", quarter);
+//     });
+// });
+
+
+

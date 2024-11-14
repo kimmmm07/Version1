@@ -35,22 +35,22 @@
         <div class="filters">
             <!-- Select School Year -->
             <select id="schoolYearSelect" name="school-year">
-                <option value="">Select School Year</option>
+                <option value="" disabled selected>Select School Year</option>
                 <option value="2023-2024">S.Y. 2023 - 2024</option>
                 <option value="2022-2023">S.Y. 2022 - 2023</option>
                 <option value="2021-2022">S.Y. 2021 - 2022</option>
             </select>
         
             <!-- Select Teacher Type -->
-            <select id="teacherTypeSelect" name="teacher-type" onchange="filterRecords()">
-                <option value="">Select Teacher Type</option>
-                <option value="proficient">Proficient Teacher</option>
-                <option value="highly-proficient">Highly Proficient Teacher</option>
+            <select id="teacherTypeSelect" name="teacher-type">
+                <option value="" disabled selected>Select Teacher Type</option>
+                <option value="Proficient">Proficient Teacher</option>
+                <option value="Highly Proficient">Highly Proficient Teacher</option>
             </select>
         
             <!-- Select Quarter -->
             <select id="selectQuarter" name="quarter">
-                <option value="">Select Quarter</option>
+                <option value="" disabled selected>Select Quarter</option>
                 <option value="1">Quarter 1</option>
                 <option value="2">Quarter 2</option>
                 <option value="3">Quarter 3</option>
@@ -144,6 +144,25 @@
             }
         }
         </script> -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('schoolYearSelect').addEventListener('change', function() {
+                const schoolYear = String(this.value);
+                console.log("Selected School Year:", schoolYear);
+            });
+
+            document.getElementById('teacherTypeSelect').addEventListener('change', function() {  //proficient or highly proficient
+                const teacherType = String(this.value);
+                console.log("Selected Teacher Type:", teacherType);
+            });
+
+            document.getElementById('selectQuarter').addEventListener('change', function() {  
+                const quarter = String(this.value);
+                console.log("Selected Quarter:", quarter);
+            });
+        });
+    </script>
 
 </body>
 </html>
