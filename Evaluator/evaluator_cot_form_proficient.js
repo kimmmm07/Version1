@@ -29,16 +29,53 @@ document.getElementById('backBtn').addEventListener('click', function() {
     window.history.back();
 });
 
+
+
+
+//submitting form for proficient
 document.getElementById('ratingForm').addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent form submission by default
+    e.preventDefault(); 
+
     if (validateForm()) {
+        const forms = {};
+        
+        //All questions
+        const questions = document.querySelectorAll('.question-container');
+
+        questions.forEach((questionContainer, index) => {
+            const questionText = questionContainer.querySelector('.question').textContent.trim();
+            const selectedButton = questionContainer.querySelector('.rating-button.active');
+            
+            // added to forms object
+            if (selectedButton) {
+                forms[index + 1] = {
+                    question: questionText,
+                    selectedRating: selectedButton.textContent
+                };
+            }
+        });
+
+        const department = String(document.getElementById('department').value); //subject selected
+        const comment = String(document.getElementById('comments').value);
+        console.log(department);
+        console.log(comment);
+        console.log(forms);  //display forms
         alert('Form submitted successfully!');
-        // Add logic for form submission here (e.g., AJAX request)
     } else {
         alert('Please answer all questions before submitting.');
     }
 });
 
+
+
+
+
+
+
+
+
+
+//logout func
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');

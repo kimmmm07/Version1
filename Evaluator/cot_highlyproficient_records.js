@@ -77,4 +77,5 @@ yesButton.addEventListener('click', async function() {
 
 //dropdowns
 const schoolYear = String(document.getElementById('schoolYearSelect').value);
-const schoolYear = String(document.getElementById('teacherTypeSelect').value);
+const teacherType = String(document.getElementById('teacherTypeSelect').value); //proficient or highly proficient
+const quarter = String(document.getElementById('selectQuarter').value);
