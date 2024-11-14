@@ -1,3 +1,54 @@
+// Department Dropdown
+const departmentSelect = document.getElementById('department');
+
+// Rating buttons for each question
+const ratingButtonsQ1 = document.querySelectorAll('#question1 .rating-button');
+const ratingButtonsQ2 = document.querySelectorAll('#question2 .rating-button');
+const ratingButtonsQ3 = document.querySelectorAll('#question3 .rating-button');
+const ratingButtonsQ4 = document.querySelectorAll('#question4 .rating-button');
+const ratingButtonsQ5 = document.querySelectorAll('#question5 .rating-button');
+const ratingButtonsQ6 = document.querySelectorAll('#question6 .rating-button');
+const ratingButtonsQ7 = document.querySelectorAll('#question7 .rating-button');
+const ratingButtonsQ8 = document.querySelectorAll('#question8 .rating-button');
+const ratingButtonsQ9 = document.querySelectorAll('#question9 .rating-button');
+
+// Comment textarea
+const commentsTextarea = document.getElementById('comments');
+
+// Form buttons
+const backButton = document.getElementById('backBtn');
+const submitButton = document.getElementById('SubmitBtn');
+
+// Instructions container
+const instructionsContainer = document.getElementById('instructions');
+
+// Form ID for submission
+const ratingForm = document.getElementById('ratingForm');
+
+// Example of assigning event listeners
+// For the "Back" button
+backButton.addEventListener('click', function() {
+    window.history.back();
+});
+
+// For the "Submit" button
+submitButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    // Handle form submission logic here
+    alert('Form submitted!');
+});
+
+// Example of handling rating button selection
+function selectRating(button, questionId) {
+    // Deselect previous selections for the given question
+    const ratingButtons = document.querySelectorAll(`#${questionId} .rating-button`);
+    ratingButtons.forEach(btn => btn.classList.remove('selected'));
+
+    // Add the "selected" class to the clicked button
+    button.classList.add('selected');
+}
+
+
 function selectRating(button, question) {
     // Get all buttons in the same question group
     const buttons = button.parentNode.querySelectorAll('.rating-button');
