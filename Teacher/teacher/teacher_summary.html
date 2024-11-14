@@ -25,38 +25,39 @@
             </li>
         </ul>
     </nav>
-    <div class="container">
-        <header>
-            <h1>Analytics</h1>
+    <div class="container" id="container">
+        <header id="header">
+            <h1 id="page-title">Analytics</h1>
         </header>
-
-        <div class="tabs">
-            <a href="teacher_summary_view_recommendation.html" class="view-recommendation">View Summary</a>
+    
+        <div class="tabs" id="tabs">
+            <a href="teacher_summary_view_recommendation.html" class="view-recommendation" id="view-summary-link">View Summary</a>
         </div>
-
+    
         <!-- Filters Section -->
-        <div class="filters">
-            <div class="filter-box">
+        <div class="filters" id="filters">
+            <div class="filter-box" id="filter-box">
                 <select class="filter" id="choose-year-filter">
-                    <option value="proficient">A.Y. 2023 - 2024</option>
+                    <option value="proficient" id="year-option">A.Y. 2023 - 2024</option>
                 </select>
             </div>
         </div>
-
+    
         <!-- Analytics Grid -->
-        <div class="analytics-grid">
+        <div class="analytics-grid" id="analytics-grid">
             <!-- KRA Breakdown Chart -->
-            <div class="kra-breakdown">
-                <h2>KRA Breakdown</h2>
+            <div class="kra-breakdown" id="kra-breakdown">
+                <h2 id="kra-title">KRA Breakdown</h2>
                 <canvas id="kraChart"></canvas><br>
-                <h4>5 - Outstanding 4 - Very Satisfactory 3 - Satisfactory 2 - Unsatisfactory 1 - Poor   </h4>
+                <h4 id="kra-description">5 - Outstanding 4 - Very Satisfactory 3 - Satisfactory 2 - Unsatisfactory 1 - Poor</h4>
             </div>
+    
             <!-- Recommendation Pie Chart -->
-            <div class="recommendation">
-                <h2>Recommendation</h2>
-                <div class="recommendation-content">
+            <div class="recommendation" id="recommendation">
+                <h2 id="recommendation-title">Recommendation</h2>
+                <div class="recommendation-content" id="recommendation-content">
                     <canvas id="recommendationChart" width="150" height="150"></canvas>
-                    <div class="recommendation-labels">
+                    <div class="recommendation-labels" id="recommendation-labels">
                         <ul>
                             <li id="promotionLabel"> Promotion: 39.11%</li>
                             <li id="retentionLabel"> Retention: 23.13%</li>
@@ -65,34 +66,34 @@
                     </div>
                 </div>
             </div>
-
+    
             <!-- Performance Line Chart -->
-            <div class="performance">
-                <h2>Performance through years</h2>
+            <div class="performance" id="performance">
+                <h2 id="performance-title">Performance through years</h2>
                 <canvas id="performanceChart"></canvas>
             </div>
-            <!-- Performance Line Chart -->
-            <div class="swot-analysis">
-                <h2>S.W.O.T. Analysis Result</h2>
+    
+            <!-- SWOT Analysis -->
+            <div class="swot-analysis" id="swot-analysis">
+                <h2 id="swot-title">S.W.O.T. Analysis Result</h2>
                 <div id="swot-content">
-                    <h3>Strengths</h3>
+                    <h3 id="strengths-title">Strengths</h3>
                     <p id="strengths"></p>
                     <br>
-                    <h3>Weakness</h3>
+                    <h3 id="weakness-title">Weakness</h3>
                     <p id="weakness"></p>
                     <br>
-                    <h3>Opportunities</h3>
+                    <h3 id="opportunities-title">Opportunities</h3>
                     <p id="opportunities"></p>
                     <br>
-                    <h3>Threats</h3>
+                    <h3 id="threats-title">Threats</h3>
                     <p id="threats"></p>
                 </div>
             </div>
-
-            </div>
+    
         </div>
-        
     </div>
+    
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
