@@ -89,6 +89,11 @@ body {
     font-weight: normal;
 }
 
+nav ul li a i {
+    font-size: 1.2em; 
+    margin-right: 8px;
+}
+
 .main-content {
     display: flex;
     justify-content: space-between;

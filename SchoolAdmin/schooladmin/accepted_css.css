@@ -1,4 +1,3 @@
-/* Universal styling */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,6 +10,7 @@ body {
     background-color: white; /* Set background to white */
     padding: 20px;
 }
+
 /* Navbar styling */
 .navbar {
     left: 0;
@@ -51,10 +51,10 @@ body {
 .nav-link {
     text-decoration: none;
     color: black;
-    font-size: 14px; /* Consistent font size for smaller buttons */
-    display: flex;
+    font-size: 14px; /* Reduced font size for smaller buttons */
+    display: flex; /* Use flexbox for alignment */
     align-items: center; /* Center the icons and text vertically */
-    padding: 6px 10px; /* Consistent padding */
+    padding: 6px 10px; /* Reduced padding for smaller button size */
 }
 
 .nav-icon {
@@ -62,6 +62,20 @@ body {
     height: 20px;
     margin-right: 6px; /* Adjust icon spacing */
     display: inline-block;
+}
+
+.request {
+    color: white;
+    background-color: #d00000;
+    padding: 6px 12px; /* Reduced padding to make the red button smaller */
+    border-radius: 40px; /* Keep the rounded corners */
+    font-size: 14px; /* Match the font size with other links */
+    display: flex;
+    align-items: center;
+}
+
+.active {
+    font-weight: normal;
 }
 
 .logout-btn a {
@@ -75,17 +89,6 @@ body {
     align-items: center;
     margin-left: 15px; /* Spacing from other items */
     transition: color 0.3s; /* Smooth transition for color change */
-}
-
-.form {
-    color: white;
-    background-color: #d00000;
-    padding: 8px 16px;
-    border-radius: 40px;
-}
-
-.active {
-    font-weight: normal;
 }
 
 nav ul li a i {
@@ -102,14 +105,22 @@ nav ul li a i {
 .dashboard-content h1 {
     color: #000000;
     font-size: 22px;
-    margin-top: -50px;
+    margin-top: -20px;
     margin-bottom: 40px;
+}
+
+/* Search Input Container */
+.search-container {
+    margin-top: -5px; 
+    padding-left: 15px;
+    width: 180px;
+    position: relative; 
 }
 
 /* Status Titles Container */
 .status-titles {
     display: flex;
-    justify-content: left; 
+    justify-content: left;
     align-items: center;
     gap: 50px; 
     margin-bottom: 5px; 
@@ -117,23 +128,24 @@ nav ul li a i {
 
 /* Status Titles */
 .status-titles h2 {
-    font-size: 14px; 
+    font-size: 14px;
     color: #000000; 
     font-weight: normal;
-    margin: 0;
+    margin: 0; 
     text-align: center;
     padding: 0;
-    cursor: pointer; 
-    transition: color 0.3s; 
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
 .status-titles h2.active {
     color: #082F96; 
 }
 
-.status-titles h2:hover {
-    color: #555;
+.status-titles a {
+    text-decoration: none; /* Para alisin ang underline */
 }
+
 
 /* Horizontal Line */
 .horizontal-line {
@@ -141,42 +153,6 @@ nav ul li a i {
     border-top: 2px solid #BFBDBC; 
     margin-top: 5px; 
     margin-bottom: 10px;
-}
-
-/* Dropdown Container */
-.dropdown-container {
-    margin-top: 10px;
-    margin-bottom: 40px;
-    margin-right: 10px;
-    height: 10px;
-}
-
-/* Style for the dropdown (select element) */
-select {
-    padding: 8px 8px;
-    font-size: 14px;
-    border-radius: 10px; /* Adjusted radius to 25px for rounded corners */
-    border: 1px solid #ccc;
-    background-color: #ffffff; /* Light gray background */
-    color: #333; /* Text color */
-    cursor: pointer;
-}
-
-/* Optional: Add a custom arrow for the dropdown */
-select:focus {
-    outline: none;
-    border-color: #ccc; /* Highlight color when focused */
-}
-
-
-
-/* Search Input Container */
-.search-container {
-    margin-top: 10px; 
-    margin-bottom: 25px;
-    padding-left: 15px; 
-    width: 180px; 
-    position: relative; 
 }
 
 /* Search Input Wrapper */
@@ -193,7 +169,7 @@ select:focus {
 
 /* Search Icon Styles */
 .search-icon {
-    color: #BFBDBC; 
+    color: #BFBDBC;
     font-size: 10px; 
     margin-right: 3px;
     margin-left: 2px;
@@ -205,7 +181,7 @@ select:focus {
     font-size: 14px;
     border: none;
     outline: none;
-    width: 100%;
+    width: 100%; 
     color: #333;
     background-color: transparent; 
     padding-left: 5px; 
@@ -216,154 +192,156 @@ select:focus {
     opacity: 1; 
 }
 
-/* Title container for h1 and Create button */
-.title-container {
-    display: flex;
-    justify-content: space-between; 
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-/* Grouping the create button */
-.create-btn-group {
-    display: flex;
-    align-items: center;
-}
-
-/* Create button styling */
-.create-btn {
-    font-family: 'Poppins', sans-serif;
-    background-color: #082F96; 
-    color: white;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: normal;
-    width: 100px;
-    height: 25px;
-    margin-top: -68px;
-    margin-bottom: 45px;
-    margin-left: 120px;
-    cursor: pointer;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    gap: 8px; 
-    transition: background-color 0.3s ease;
-}
-
-/* Create button hover effect */
-.create-btn:hover {
-    background-color: #061F6A; 
-}
-
-/* Icon size inside Create button */
-.create-btn i {
-    font-size: 1.2em; 
-    font-weight: normal;
-}
-
-/* Horizontal Background Fill Behind Category Labels */
-.horizontal-background {
+/* School List Container */
+.school-list {
+    margin-top: 20px; 
+    padding-left: 15px;
     width: 100%;
-    height: 30px; 
-    background-color: rgba(8, 47, 150, 0.27);
-    position: absolute; 
-    top: 16%; 
-    transform: translateY(-50%); 
-    left: 0; 
-    z-index: 0; 
 }
 
-/* Label Styles for Form Categories */
-.category-label {
-    font-size: 16px; 
+/* School Row Styles */
+.school-row {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #BFBDBC; 
+    font-size: 14px;
+    color: #333;
+    align-items: center;
+}
+
+/* School Row Wrapper Styles */
+.school-row-wrapper {
+    width: 98%; 
+    margin-right: 50px;
+}
+
+/* Header Row Styles */
+.school-row.header {
     font-weight: bold;
-    color: #000; 
-    position: relative;
-    padding: 5px 15px;
-    z-index: 1; 
-    display: inline-block; 
+    background-color: #F8F8F8; 
+    height: 25px;
 }
 
-/* Adjust spacing between each label */
-.form-category {
-    position: relative;
-    margin-bottom: 15px; 
-    margin-top: 30px;
+/* Column Styles */
+.school-column {
+    flex: 1; 
+    padding: 5px;
+    text-align: left;
 }
 
-/* Ellipsis Icon Styles */
-.ellipsis-icon {
-    font-size: 15px !important;
-    color: #BFBDBC !important;
-    position: absolute; 
-    right: 10px; 
+/* Adjustments for School Column to Handle Longer Names */
+.school-column.school {
+    flex: 2; 
+}
+
+/* Action Column Styles */
+.school-column.action {
+    color: #032F97; 
+    font-weight: normal;
+    display: flex;
+    align-items: center; 
     cursor: pointer; 
 }
 
-/* Form Items Styling */
-.form-item {
-    display: flex;
+.school-column.action .view-icon {
+    margin-right: 5px; 
+    color: #032F97; 
+    font-size: 1em; 
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .school-list {
+        padding-left: 5px;
+    }
+
+    .school-row {
+        flex-direction: column;
+    }
+
+    .school-column {
+        padding: 10px 5px;
+    }
+}
+
+
+/* Modal Overlay */
+.modal-overlay {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 20;
+    justify-content: center;
     align-items: center;
-    margin-top: 5px;
-    padding: 10px;
-    border: 1px solid #BFBDBC; 
-    border-radius: 8px;
-    margin: 10px 0; 
-    height: 40px;
+}
+
+/* Modal Content */
+.modal-content {
     background-color: #fff;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+    padding: 20px 3%;
+    border-radius: 10px;
+    width: 600px;
+    position: relative;
+    text-align: flex-start;
+}
+
+.school-logo {
+    width: 100px;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+}
+
+.modal-content p {
+    border-bottom: 1px solid gray;
+}
+
+.school-logo {
+    text-align: center;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    position: relative; 
 }
 
-.form-item .custom-icon  {
-    color: #28a745; /* Replace with your desired color */
+/* School Logo */
+.school-logo {
+    width: 100px;
+    margin-bottom: 20px;
 }
 
-/* Remove underline and keep default color */
-.form-link {
-    text-decoration: none; /* Removes underline */
-    color: inherit; /* Inherits the color of the parent element */
-}
-
-/* Optional: Prevent color change on hover */
-.form-link:hover {
-    color: inherit; /* Prevents color change on hover */
-}
-
-/* Icon inside Form Items */
-.form-item i {
-    font-size: 1.2em;
-    margin-right: 10px;
-    color: #082F96; 
-}
-
-/* Form Item hover effect */
-.form-item:hover {
-    background-color: #f0f0f0;
-}
-
-/* Status Titles Container */
-.status-titles {
+/* Modal Actions */
+.modal-actions {
+    margin-top: 20px;
     display: flex;
-    justify-content: left;
-    align-items: center;
-    gap: 50px;
-    margin-bottom: 10px;
+    justify-content: center;
+    gap: 10px;
 }
 
-.status-titles h2 {
-    font-size: 14px;
-    color: #000000;
+.accept-btn, .decline-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-.status-titles h2.active {
-    color: #082F96;
+.accept-btn {
+    background-color: green;
+    color: white;
+}
+
+.decline-btn {
+    background-color: red;
+    color: white;
 }
 
 
@@ -387,7 +365,7 @@ select:focus {
     display: none;
 }
 
-.modal-content {
+.modal-content2 {
     background-color: white;
     padding: 20px;
     border-radius: 20px;
@@ -398,7 +376,7 @@ select:focus {
     border: 2px solid #082F96;
 }
 
-.modal-content p {
+.modal-content2 p {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 20px;

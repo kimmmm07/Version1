@@ -91,6 +91,11 @@ body {
     margin-left: 15px; /* Spacing from other items */
     transition: color 0.3s; /* Smooth transition for color change */
 }
+
+nav ul li a i {
+    font-size: 1.2em; 
+    margin-right: 8px;
+}
 /* Container styling */
 .container {
     width: 100%;

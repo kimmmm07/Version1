@@ -5,22 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Performance Evaluation System</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="sadmin-RPMS-Proficient-Home.css">
+    <link rel="stylesheet" href="sadmin-RPMS-HighlyProficient-Home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 </head>
 <body>
 
     <!-- Sidebar -->
     <div class="sidebar">
         <div class="sidebar-icon">
-            <a href="#" onclick="toggleFloatingMenu()"><img src="Assets/Menu.png" alt="Menu Icon" /></a>
+            <a href="#" onclick="toggleFloatingMenu()"><img src="assets/Menu.png" alt="Menu Icon" /></a>
         </div>
         
         <div class="sidebar-icon active">
-            <a href="sadmin-RPMS-HighlyProficient-Home.html"><img src="Assets\Home.png" alt="Home Icon" /></a>
+            <a href="sadmin-RPMS-Proficient-Home.html"><img src="assets\Home.png" alt="Home Icon" /></a>
         </div>
         <div class="sidebar-icon">
-            <a href="sadmin-RPMS-HighlyProficient-Setting.html"><img src="Assets\Settings.png" alt="Settings Icon" /></a>
+            <a href="sadmin-RPMS-Proficient-Setting.html"><img src="assets\Settings.png" alt="Settings Icon" /></a>
         </div>
     </div>
 
@@ -32,32 +33,14 @@
                 <button class="close-btn" onclick="closeMenu()">✖</button>
             </div>
             <ul>
-            <li><a href="sadmin-RPMS-HighlyProficient-Home.html"><img src="Assets\Home.png" alt="Home Icon"/> Home</a></li>
-            <li><a href="sadmin-RPMS-HighlyProficient-Setting.html"><img src="Assets\Settings.png" alt="Settings Icon"/> Setting</a></li>
+            <li><a href="sadmin-RPMS-Proficient-Home.html"><img src="assets\Home.png" alt="Home Icon"/> Home</a></li>
+            <li><a href="sadmin-RPMS-Proficient-Setting.html"><img src="assets\Settings.png" alt="Settings Icon"/> Setting</a></li>
             <!-- Horizontal line between Setting and School Year -->
             <hr class="menu-divider">
-            <li><a href="sadmin-RPMS-HighlyProficient-Landing.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
+            <li><a href="sadmin-RPMS-Proficient-Landing.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
             </ul>
         </div>
     
-
-    <div class="header-background"></div>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="assets/image 6.png" alt="DepEd Logo">
-            </div>
-            <ul>
-                <li><a href="schooladmin_home.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="faculty.html"><i class="fas fa-user-cog"></i> Admin</a></li>
-                <li><a href="sadmin_form.html" id="form-nav" class="active"><i class="fas fa-file-alt"></i> Form</a></li>
-                <li><a href="results.html" id="request-nav"><i class="fas fa-clipboard-list"></i> Request</a></li>
-                <li><a href="records.html" id="school-nav"><i class="fas fa-school"></i> School</a></li>
-                <li><a href="admin-dashboard-logout.html" id="logout-nav"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
-        </nav>
-    </header>
-
         <header>
             <nav>
                 <div class="logo">
@@ -66,6 +49,7 @@
                 <ul>
                     <li><a href="schooladmin_home.html"><img src="assets/House_01.png"> Home</a></li>
                     <li><a href="faculty.html"><img src="assets/Users_Group1.png"> Faculty</a></li>
+                    <li><a href="request.html" class="nav-link"><i class="fas fa-clipboard-list"></i>Request</a></li>
                     <li><a href="sadmin_form.html" id="form-nav" class="active"><img src="assets/File_Document.png"> Form</a></li>
                     <li><a href="results.html" id="request-nav"><img src="assets/Check Document.png"> Results</a></li>
                     <li><a href="records.html" id="records"><img src="assets/Folders1.png"> Records</a></li>
@@ -73,7 +57,6 @@
                 </ul>
             </nav>
         </header>
-
 
     <section class="cards-section">
         <!-- Dynamic cards will be inserted here -->
@@ -88,7 +71,7 @@
             <h2>Create Folder</h2>
             <ul class="form-options">
                 <li><input type="text" id="form1" placeholder="Folder Name (required)"></li>
-                <li>
+                <li> 
                     <select id="form2">
                         <option value="" disabled selected>Select School Year</option>
                         <option value="School Year 2023-2024">School Year 2023-2024</option>

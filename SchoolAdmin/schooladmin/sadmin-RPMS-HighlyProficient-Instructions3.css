@@ -64,6 +64,11 @@ body {
     display: inline-block;
 }
 
+nav ul li a i {
+    font-size: 1.2em; 
+    margin-right: 8px;
+}
+
 .logout-btn a {
     text-decoration: none;
     color: #d00000;
