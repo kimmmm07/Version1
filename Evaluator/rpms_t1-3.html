@@ -22,10 +22,10 @@
             <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
         </nav>
     </header>
-    <div class="container">
-        <h1>Results-Based Performance Management System for Teacher I - III</h1><br>
-
-        <table>
+    <div class="container" id="rpmsContainer">
+        <h1 id="rpmsTitle">Results-Based Performance Management System for Teacher I - III</h1><br>
+    
+        <table id="teacherTable">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -37,25 +37,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><img src="User_Circle.png" alt="User Icon"> Jessica Sanchez Ramirez</td>
-                    <td>Teacher II</td>
-                    <td>Junior High School</td>
-                    <td>David Patel</td>
-                    <td class="status pending">Pending</td>
-                    <td><a href="rpms_proficient_homepage.html" class="review">Review</a></td>
+                <tr id="teacher1Row">
+                    <td id="teacher1Name"><img src="User_Circle.png" alt="User Icon"> Jessica Sanchez Ramirez</td>
+                    <td id="teacher1Position">Teacher II</td>
+                    <td id="teacher1GradeLevel">Junior High School</td>
+                    <td id="teacher1Rater">David Patel</td>
+                    <td id="teacher1Status" class="status pending">Pending</td>
+                    <td><a href="rpms_proficient_homepage.html" id="teacher1Action" class="review">Review</a></td>
                 </tr>
-                <tr></tr>
-                    <td><img src="User_Circle.png" alt="User Icon"> Ethan Miller</td>
-                    <td>Teacher III</td>
-                    <td>Junior High School</td>
-                    <td>David Patel</td>
-                    <td class="status submitted">Submitted</td>
-                    <td><a href="#" class="review">Reviewed</a></td>
+                <tr id="teacher2Row">
+                    <td id="teacher2Name"><img src="User_Circle.png" alt="User Icon"> Ethan Miller</td>
+                    <td id="teacher2Position">Teacher III</td>
+                    <td id="teacher2GradeLevel">Junior High School</td>
+                    <td id="teacher2Rater">David Patel</td>
+                    <td id="teacher2Status" class="status submitted">Submitted</td>
+                    <td><a href="#" id="teacher2Action" class="review">Reviewed</a></td>
                 </tr>
             </tbody>
         </table>
     </div>
+    
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->

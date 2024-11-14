@@ -1,3 +1,40 @@
+// Sidebar Icon Elements
+const menuIcon = document.getElementById("menu-icon");
+
+// Floating Menu Elements
+const floatingMenu = document.getElementById("floating-menu");
+const closeBtn = document.querySelector(".close-btn"); 
+
+// Header Section
+const logoutLink = document.getElementById("logoutLink");
+
+// Breadcrumbs
+const breadcrumbs = document.querySelector(".breadcrumbs");
+
+// Notification Settings
+const emailNotifications = document.getElementById("email-notifications");
+const commentsPosts = document.getElementById("comments-posts");
+const commentsMention = document.getElementById("comments-mention");
+const privateComments = document.getElementById("private-comments");
+const rpmsWorkPosts = document.getElementById("rpms-work-posts");
+const returnedWork = document.getElementById("returned-work");
+const invitations = document.getElementById("invitations");
+const dueDateReminders = document.getElementById("due-date-reminders");
+
+// Toggling notification settings
+emailNotifications.addEventListener("change", () => {
+    console.log(`Email notifications: ${emailNotifications.checked ? "Enabled" : "Disabled"}`);
+});
+
+commentsPosts.addEventListener("change", () => {
+    console.log(`Comments on your posts: ${commentsPosts.checked ? "Enabled" : "Disabled"}`);
+});
+
+
+
+
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');

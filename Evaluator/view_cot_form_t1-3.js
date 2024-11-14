@@ -1,3 +1,54 @@
+// Main Container
+const rpmsContainer2 = document.getElementById("rpmsContainer2");
+
+// Action Buttons
+const downloadPdfButton2 = document.getElementById("downloadPdf");
+const printFormButton2 = document.getElementById("printForm");
+
+// Title and Section Headers
+const formTitle2 = document.getElementById("formTitle2");
+const teacherLevel2 = document.getElementById("teacherLevel2");
+const ratingSheetTitle2 = document.getElementById("ratingSheetTitle2");
+
+// Info Section Elements
+const observerName2 = document.getElementById("observerName2");
+const observationDate2 = document.getElementById("observationDate2");
+const teacherObserved2 = document.getElementById("teacherObserved2");
+const observationQuarter2 = document.getElementById("observationQuarter2");
+const subjectGradeLevel2 = document.getElementById("subjectGradeLevel2");
+const schoolYear2 = document.getElementById("schoolYear2");
+
+// Observation Section Checkboxes
+const observation1 = document.getElementById("observation1");
+const observation2 = document.getElementById("observation2");
+const observation3 = document.getElementById("observation3");
+const observation4 = document.getElementById("observation4");
+
+// Rating Table
+const ratingTable2 = document.getElementById("ratingTable2");
+
+// Example: Accessing specific ratings
+const indicator1Rating3 = document.getElementById("indicator1Rating3");
+const indicator2Rating7 = document.getElementById("indicator2Rating7");
+const indicator3Rating7 = document.getElementById("indicator3Rating7");
+const indicator4Rating7 = document.getElementById("indicator4Rating7");
+const indicator5Rating7 = document.getElementById("indicator5Rating7");
+const indicator6Rating7 = document.getElementById("indicator6Rating7");
+const indicator7Rating5 = document.getElementById("indicator7Rating5");
+
+// Comments Section
+const comments2 = document.getElementById("comments2");
+
+// Signatures Section
+const teacherSignature2 = document.getElementById("teacherSignature2");
+const observerSignature2 = document.getElementById("observerSignature2");
+
+// Back Button
+const backButton2 = document.getElementById("backButton2");
+
+
+
+
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');
