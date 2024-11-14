@@ -49,3 +49,31 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+let folders = undefined;
+async function getFolders(){
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folders/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        folders = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", folders);  
+        } else {
+            console.log("Error Data : ", folders);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getFolders();
