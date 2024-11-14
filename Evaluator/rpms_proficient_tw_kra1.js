@@ -1,3 +1,40 @@
+// Sidebar Icon Elements
+const menuIcon = document.getElementById("menu-icon");
+
+// Floating Menu Elements
+const floatingMenu = document.getElementById("floating-menu");
+const closeBtn = document.querySelector(".close-btn"); 
+
+// Header Section
+const logoutLink = document.getElementById("logoutLink");
+
+// Breadcrumb and Tabs
+const kra1Point = document.getElementById("kra1Point"); 
+const statusDropdown = document.getElementById("status");
+
+// Content Section
+const nameCheckbox = document.getElementById("name"); 
+
+// Right Section (KRA 1: Content Knowledge and Pedagogy)
+const statusNumberTurnedIn = document.getElementById("statusNumberTurnedIn");
+const statusNumberAssigned = document.getElementById("statusNumberAssigned");
+const toggleContainer = document.getElementById("toggleContainer");
+const toggleCircle = document.getElementById("toggleCircle");
+const toggleText = document.getElementById("toggleText");
+const teacherName = document.getElementById("name"); 
+const attachmentKra1 = document.getElementById("attachmentKra1");
+
+// Event listener examples for testing interactions
+toggleContainer.addEventListener("click", () => {
+    console.log("Toggle clicked!");
+});
+
+nameCheckbox.addEventListener("change", () => {
+    console.log(`Checkbox for ${teacherName.textContent} changed: ${nameCheckbox.checked}`);
+});
+
+
+
 function toggleStatus() {
     const toggleContainer = document.getElementById('toggleContainer');
     const toggleCircle = document.getElementById('toggleCircle');

@@ -1,29 +1,75 @@
-// Sidebar icons
-const menuIcon = document.getElementById('menu-icon');
-const homeIcon = document.getElementById('home-icon');
-const settingsIcon = document.getElementById('settings-icon');
+// Sidebar Elements
+const menuIcon = document.getElementById("menu-icon");
+const homeIcon = document.getElementById("home-icon");
+const settingsIcon = document.getElementById("settings-icon");
 
-// Floating menu
-const floatingMenu = document.getElementById('floating-menu');
-const closeButton = document.getElementById('close-btn');
-const schoolYearLink = document.getElementById('floating-school-year-link');
+// Floating Menu Elements
+const floatingMenu = document.getElementById("floating-menu");
+const closeBtn = document.getElementById("close-btn");
+const floatingHomeLink = document.getElementById("floating-home-link");
+const floatingSettingsLink = document.getElementById("floating-settings-link");
+const floatingSchoolYearLink = document.getElementById("floating-school-year-link");
+const schoolYearText = document.getElementById("schoolYear");
 
-// Header section
-const headerLogo = document.getElementById('header-logo');
-const headerImage = document.getElementById('header-image');
-const textOverlay = document.getElementById('text-overlay');
+
+// Header Section with Image and Text Overlay
+const headerSection = document.getElementById("header-section");
+const headerImage = document.getElementById("header-image");
+const textOverlay = document.getElementById("text-overlay");
+const headerTitle = document.getElementById("header-title");
+const schoolYearSubtitle = document.getElementById("schoolYear-subtitle");
 
 // Tabs
-const streamTab = document.getElementById('stream-tab');
-const gradesTab = document.getElementById('grades-tab');
+const streamTab = document.getElementById("stream-tab");
+const gradesTab = document.getElementById("grades-tab");
 
-// Content items
-const upcomingList = document.getElementById('upcomingList');
-const kra1Item = document.getElementById('kra1-item');
-const kra2Item = document.getElementById('kra2-item');
-const kra3Item = document.getElementById('kra3-item');
-const kra4Item = document.getElementById('kra4-item');
-const plusFactorItem = document.getElementById('plus-factor-item');
+// Content Wrapper Elements
+const contentWrapper = document.getElementById("content-wrapper");
+const upcomingSection = document.getElementById("upcoming");
+const upcomingTitle = document.getElementById("upcoming-title");
+const upcomingList = document.getElementById("upcomingList");
+const kra1Link = document.getElementById("kra1-link");
+const kra2Link = document.getElementById("kra2-link");
+const kra3Link = document.getElementById("kra3-link");
+const viewAllLink = document.getElementById("view-all-link");
+
+// Main Content List Elements
+const mainContentList = document.getElementById("main-content-list");
+const kra1Item = document.getElementById("kra1-item");
+const kra1Icon = document.getElementById("kra1-icon");
+const kra1TextContainer = document.getElementById("kra1-text-container");
+const kra1Title = document.getElementById("kra1-title");
+const kra1Posted = document.getElementById("kra1-posted");
+const kra1MenuDots = document.getElementById("kra1-menu-dots");
+
+const kra2Item = document.getElementById("kra2-item");
+const kra2Icon = document.getElementById("kra2-icon");
+const kra2TextContainer = document.getElementById("kra2-text-container");
+const kra2Title = document.getElementById("kra2-title");
+const kra2Posted = document.getElementById("kra2-posted");
+const kra2MenuDots = document.getElementById("kra2-menu-dots");
+
+const kra3Item = document.getElementById("kra3-item");
+const kra3Icon = document.getElementById("kra3-icon");
+const kra3TextContainer = document.getElementById("kra3-text-container");
+const kra3Title = document.getElementById("kra3-title");
+const kra3Posted = document.getElementById("kra3-posted");
+const kra3MenuDots = document.getElementById("kra3-menu-dots");
+
+const kra4Item = document.getElementById("kra4-item");
+const kra4Icon = document.getElementById("kra4-icon");
+const kra4TextContainer = document.getElementById("kra4-text-container");
+const kra4Title = document.getElementById("kra4-title");
+const kra4Posted = document.getElementById("kra4-posted");
+const kra4MenuDots = document.getElementById("kra4-menu-dots");
+
+const plusFactorItem = document.getElementById("plus-factor-item");
+const plusFactorIcon = document.getElementById("plus-factor-icon");
+const plusFactorTextContainer = document.getElementById("plus-factor-text-container");
+const plusFactorTitle = document.getElementById("plus-factor-title");
+const plusFactorPosted = document.getElementById("plus-factor-posted");
+const plusFactorMenuDots = document.getElementById("plus-factor-menu-dots");
+
 
 // Event listeners
 closeButton.addEventListener('click', () => {

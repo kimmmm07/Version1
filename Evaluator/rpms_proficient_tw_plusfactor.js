@@ -1,3 +1,43 @@
+// Sidebar Icon Elements
+const menuIcon = document.getElementById("menu-icon");
+
+// Floating Menu Elements
+const floatingMenu = document.getElementById("floating-menu");
+const closeBtn = document.querySelector(".close-btn"); 
+
+// Header Section
+const logoutLink = document.getElementById("logoutLink");
+
+// Breadcrumb and Tabs
+const plusFactorPoint = document.getElementById("plusFactorPoint"); 
+const statusDropdown = document.getElementById("status");
+
+// Content Section
+const turnedInCheckbox = document.getElementById("turnedIn"); 
+const nameCheckbox = document.getElementById("name"); 
+
+// Right Section (Plus Factor)
+const statusNumberTurnedIn = document.getElementById("statusNumberTurnedIn");
+const statusNumberAssigned = document.getElementById("statusNumberAssigned");
+const toggleContainer = document.getElementById("toggleContainer");
+const toggleCircle = document.getElementById("toggleCircle");
+const toggleText = document.getElementById("toggleText");
+const attachmentPlusFactor = document.getElementById("attachmentPlusFactor");
+
+// Event listener examples for testing interactions
+toggleContainer.addEventListener("click", () => {
+    console.log("Toggle clicked!");
+});
+
+nameCheckbox.addEventListener("change", () => {
+    console.log(`Checkbox for "Jessica Sanchez Ramirez" changed: ${nameCheckbox.checked}`);
+});
+
+
+
+
+
+
 function toggleStatus() {
     const toggleContainer = document.getElementById('toggleContainer');
     const toggleCircle = document.getElementById('toggleCircle');

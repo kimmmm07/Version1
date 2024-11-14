@@ -1,3 +1,40 @@
+// Sidebar Icon Elements
+const menuIcon = document.getElementById("menu-icon");
+
+// Floating Menu Elements
+const floatingMenu = document.getElementById("floating-menu");
+const closeBtn = document.querySelector(".close-btn"); 
+
+// Header Section
+const logoutLink = document.getElementById("logoutLink");
+
+// Breadcrumb and Tabs
+const kra2Point = document.getElementById("kra2Point");
+const statusDropdown = document.getElementById("status");
+
+// Content Section
+const nameCheckbox = document.getElementById("name"); 
+
+// Right Section (KRA 2: Learning Environment and Diversity of Learners)
+const statusNumberTurnedIn = document.getElementById("statusNumberTurnedIn");
+const statusNumberAssigned = document.getElementById("statusNumberAssigned");
+const toggleContainer = document.getElementById("toggleContainer");
+const toggleCircle = document.getElementById("toggleCircle");
+const toggleText = document.getElementById("toggleText");
+const teacherName = document.getElementById("name"); s
+const attachmentKra2 = document.getElementById("attachmentKra2");
+
+// Event listener examples for testing interactions
+toggleContainer.addEventListener("click", () => {
+    console.log("Toggle clicked!");
+});
+
+nameCheckbox.addEventListener("change", () => {
+    console.log(`Checkbox for ${teacherName.textContent} changed: ${nameCheckbox.checked}`);
+});
+
+
+
 function toggleStatus() {
     const toggleContainer = document.getElementById('toggleContainer');
     const toggleCircle = document.getElementById('toggleCircle');
@@ -22,7 +59,7 @@ document.getElementById('floating-menu').style.display = 'none';
 }
 
 // Modal logic
-const logoutButton = document.getElementById('logoutLink');  // Logout button
+const logoutButton = document.getElementById('logoutLink');  
 const logoutModal = document.getElementById('logoutModal');
 const yesButton = document.querySelector('.yes-btn');
 const noButton = document.querySelector('.no-btn');
