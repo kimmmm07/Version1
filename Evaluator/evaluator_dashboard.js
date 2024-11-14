@@ -1,3 +1,46 @@
+// Feed Container and Posts
+const feedContainer = document.getElementById('feed-container');
+const feeds = document.getElementById('feeds');
+
+// Individual Feed Posts
+const feedPost1 = document.getElementById('feed-post-1');
+const feedPost2 = document.getElementById('feed-post-2');
+
+// Profile Images in the Posts
+const profilePic1 = feedPost1.querySelector('.profile-pic img');
+const profilePic2 = feedPost2.querySelector('.profile-pic img');
+
+// User Names in the Posts
+const userName1 = feedPost1.querySelector('.user');
+const userName2 = feedPost2.querySelector('.user');
+
+// Date in the Posts
+const date1 = feedPost1.querySelector('.date');
+const date2 = feedPost2.querySelector('.date');
+
+// Post Content
+const postContent1 = feedPost1.querySelector('.text');
+const postContent2 = feedPost2.querySelector('.text');
+
+// Like Buttons
+const likeButton1 = document.getElementById('like-btn-1');
+const likeButton2 = document.getElementById('like-btn-2');
+
+// Comment Buttons
+const commentButton1 = document.getElementById('comment-btn-1');
+const commentButton2 = document.getElementById('comment-btn-2');
+
+// Comment Inputs
+const commentInput1 = document.getElementById('comment-input-1');
+const commentInput2 = document.getElementById('comment-input-2');
+
+// Notifications Section
+const notifications = document.getElementById('notifications');
+
+// To Do Section
+const todo = document.getElementById('todo');
+
+
 function toggleLike(button) {
     button.classList.toggle('active');
 }

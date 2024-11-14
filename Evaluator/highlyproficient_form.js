@@ -1,3 +1,64 @@
+// Container and Heading
+const container = document.querySelector('.container');
+const heading = container.querySelector('h1');
+
+// Form Type Dropdown
+const formTypeSelect = document.getElementById('formType');
+
+// Proficient Teacher Form
+const proficientTeacherForm = document.getElementById('proficient-teacher-form');
+const proficientFormIcon = document.getElementById('proficient-form-icon');
+const proficientConductedReviews = document.getElementById('proficient-conducted-reviews');
+const proficientFullyRespondedReviews = document.getElementById('proficient-fully-responded-reviews');
+const proficientNeedsAttention = document.getElementById('proficient-needs-attention');
+const proficientResponseRate = document.getElementById('proficient-response-rate');
+
+// Highly Proficient Teacher Form
+const highlyProficientTeacherForm = document.getElementById('highly-proficient-teacher-form');
+const highlyProficientFormIcon = document.getElementById('highly-proficient-form-icon');
+const highlyProficientConductedReviews = document.getElementById('highly-proficient-conducted-reviews');
+const highlyProficientFullyRespondedReviews = document.getElementById('highly-proficient-fully-responded-reviews');
+const highlyProficientNeedsAttention = document.getElementById('highly-proficient-needs-attention');
+const highlyProficientResponseRate = document.getElementById('highly-proficient-response-rate');
+
+// IPCRF Proficient Form
+const ipcrfProficientForm = document.getElementById('ipcrf-proficient-form');
+const ipcrfProficientFormIcon = document.getElementById('ipcrf-proficient-form-icon');
+const ipcrfProficientConductedReviews = document.getElementById('ipcrf-proficient-conducted-reviews');
+const ipcrfProficientFullyRespondedReviews = document.getElementById('ipcrf-proficient-fully-responded-reviews');
+const ipcrfProficientNeedsAttention = document.getElementById('ipcrf-proficient-needs-attention');
+const ipcrfProficientResponseRate = document.getElementById('ipcrf-proficient-response-rate');
+
+// IPCRF Highly Proficient Form
+const ipcrfHighlyProficientForm = document.getElementById('ipcrf-highly-proficient-form');
+const ipcrfHighlyProficientFormIcon = document.getElementById('ipcrf-highly-proficient-form-icon');
+const ipcrfHighlyProficientConductedReviews = document.getElementById('ipcrf-highly-proficient-conducted-reviews');
+const ipcrfHighlyProficientFullyRespondedReviews = document.getElementById('ipcrf-highly-proficient-fully-responded-reviews');
+const ipcrfHighlyProficientNeedsAttention = document.getElementById('ipcrf-highly-proficient-needs-attention');
+const ipcrfHighlyProficientResponseRate = document.getElementById('ipcrf-highly-proficient-response-rate');
+
+// RPMS Proficient Form
+const rpmsProficientForm = document.getElementById('rpms-proficient-form');
+const rpmsProficientFormIcon = document.getElementById('rpms-proficient-form-icon');
+const rpmsProficientConductedReviews = document.getElementById('rpms-proficient-conducted-reviews');
+const rpmsProficientFullyRespondedReviews = document.getElementById('rpms-proficient-fully-responded-reviews');
+const rpmsProficientNeedsAttention = document.getElementById('rpms-proficient-needs-attention');
+const rpmsProficientResponseRate = document.getElementById('rpms-proficient-response-rate');
+
+// RPMS Highly Proficient Form
+const rpmsHighlyProficientForm = document.getElementById('rpms-highly-proficient-form');
+const rpmsHighlyProficientFormIcon = document.getElementById('rpms-highly-proficient-form-icon');
+const rpmsHighlyProficientConductedReviews = document.getElementById('rpms-highly-proficient-conducted-reviews');
+const rpmsHighlyProficientFullyRespondedReviews = document.getElementById('rpms-highly-proficient-fully-responded-reviews');
+const rpmsHighlyProficientNeedsAttention = document.getElementById('rpms-highly-proficient-needs-attention');
+const rpmsHighlyProficientResponseRate = document.getElementById('rpms-highly-proficient-response-rate');
+
+// Section Titles
+const classroomObservationToolsTitle = document.querySelector('.section-title');
+const individualPerformanceReviewTitle = document.querySelectorAll('.section-title')[1];
+const resultsBasedPerformanceTitle = document.querySelectorAll('.section-title')[2];
+
+
 // Save the selected form type and navigate to the link
 function navigateToLink() {
     const formType = document.getElementById('formType').value;

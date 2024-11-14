@@ -26,19 +26,19 @@
         </nav>
     </header>
     
-    <main>
-        <section class="dashboard-content">
-            <h1>Forms</h1>
-    
-            <div class="status-titles">
+    <main id="main-content">
+        <section class="dashboard-content" id="dashboard-content">
+            <h1 id="forms-title">Forms</h1>
+        
+            <div class="status-titles" id="status-titles">
                 <h2 id="all-status" class="active" onclick="setActiveTab('all')">All</h2>
             </div>
             
-            <div class="horizontal-line"></div>
+            <div class="horizontal-line" id="horizontal-line"></div>
             
             <!-- Dropdown for selecting school year -->
-            <div class="dropdown-container">
-                <label for="school-year-select"></label>
+            <div class="dropdown-container" id="dropdown-container">
+                <label for="school-year-select" id="school-year-label"></label>
                 <select id="school-year-select">
                     <option value="" disabled selected>Select School Year</option>
                     <option value="School Year 2023-2024">School Year 2023-2024</option>
@@ -52,23 +52,21 @@
             </div>
             
             <!-- Form Categories -->
-            
-
-            <div class="form-category">
-                <div class="horizontal-background"></div>
-                <h3 class="category-label">Results-Based Performance Management System</h3>
-                <div class="form-item">
-                    <i class="fas fa-folder custom-icon"></i>
+            <div class="form-category" id="form-category">
+                <div class="horizontal-background" id="horizontal-background"></div>
+                <h3 class="category-label" id="category-label">Results-Based Performance Management System</h3>
+                <div class="form-item" id="form-item-1">
+                    <i class="fas fa-folder custom-icon" id="folder-icon-1"></i>
                     <a id="rpmsProficient" href="rpms_proficient.html" class="form-link">RPMS for Proficient Teacher</a>
                 </div>
-                <div class="form-item">
-                    <i class="fas fa-folder"></i>
+                <div class="form-item" id="form-item-2">
+                    <i class="fas fa-folder" id="folder-icon-2"></i>
                     <a id="rpmsHighlyProficient" href="rpms_highly_proficient.html" class="form-link">RPMS for Highly Proficient Teacher</a>
                 </div>
             </div>
-
+    
         </section>
-    </main>
+    </main>    
 
 
     <!-- Logout Confirmation Modal -->
