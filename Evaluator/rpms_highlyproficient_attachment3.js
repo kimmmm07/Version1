@@ -27,6 +27,11 @@ const returnBtn = sidebarReturn.querySelector('#return-btn');
 const fileSection = detailsSidebar.querySelector('.file-section');
 const sampleAttachment = fileSection.querySelector('img');
 
+// Report Table Scores
+const kra9Score = document.getElementById("kra9Score");
+const kra10Score = document.getElementById("kra10Score");
+const kra11Score = document.getElementById("kra11core");
+
 // Grade Section in Sidebar
 const gradeSection = detailsSidebar.querySelector('.grade-section');
 const gradeItems = gradeSection.querySelectorAll('li');

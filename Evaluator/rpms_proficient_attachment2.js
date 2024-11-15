@@ -36,6 +36,11 @@ const gradeSection = document.getElementById('grade-section');
 const totalScoreSection = document.getElementById('total-score-section');
 const privateCommentsSection = document.getElementById('private-comments-section');
 
+const kra5Score = document.getElementById("kra5Score");
+const kra6Score = document.getElementById("kra6Score");
+const kra7Score = document.getElementById("kra7Score");
+const kra8Score = document.getElementById("kra8Score");
+
 // Grade items and score
 const gradeList = document.getElementById('grade-list');
 const gradeItem1 = document.getElementById('grade-item-1');

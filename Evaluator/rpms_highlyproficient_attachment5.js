@@ -27,6 +27,9 @@ const returnBtn = sidebarReturn.querySelector('#return-btn');
 const fileSection = detailsSidebar.querySelector('.file-section');
 const sampleAttachment = fileSection.querySelector('img');
 
+// Report Table Scores
+const plusFactorScore = document.getElementById("plusFactorScore");
+
 // Grade Section in Sidebar
 const gradeSection = detailsSidebar.querySelector('.grade-section');
 const gradeItem = gradeSection.querySelector('li');

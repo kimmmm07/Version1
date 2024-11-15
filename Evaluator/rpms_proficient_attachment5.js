@@ -36,6 +36,9 @@ const gradeSection = document.getElementById('grade-section');
 const totalScoreSection = document.getElementById('total-score-section');
 const privateCommentsSection = document.getElementById('private-comments-section');
 
+// Report Table Scores
+const plusFactorScore = document.getElementById("plusFactorScore");
+
 // Grade items and score
 const gradeList = document.getElementById('grade-list');
 const gradeItem1 = document.getElementById('grade-item-1');
