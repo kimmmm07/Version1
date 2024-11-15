@@ -197,7 +197,7 @@
     
     <div class="form-actions">
         <a href="actors_registration.html" class="cancel-btn">Cancel</a>
-        <a class="register-btn" onclick="registerPeople()">Register</a>
+        <a class="register-btn" onclick="validateForm()">Register</a>
     </div>
 
         
@@ -449,13 +449,13 @@ async function registerPeople () {
 
         // Validate Password with 12+ characters, uppercase, lowercase, number, and special character
         const password = document.getElementById("password");
-        //const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{12,}$/;
-        //if (!passwordPattern.test(password.value)) {
-        //    showError("password-error", "Password must be at least 12 characters and contain a special character.");
-        //    isValid = false;
-        //} else {
-        //    clearError("password-error");
-        //}
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{12,}$/;
+        if (!passwordPattern.test(password.value)) {
+            showError("password-error", "Password must be at least 12 characters and contain a special character.");
+            isValid = false;
+        } else {
+            clearError("password-error");
+        }
 
         // Validate Confirm Password
         const confirmPassword = document.getElementById("confirm-password");
@@ -469,7 +469,7 @@ async function registerPeople () {
         // If all fields are valid, submit the form
         if (isValid) {
             registerPeople();
-            document.getElementById("add-people-form").submit();
+            //document.getElementById("add-people-form").submit();
         }
     }
     
