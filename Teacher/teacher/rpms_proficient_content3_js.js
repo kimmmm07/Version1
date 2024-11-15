@@ -74,6 +74,8 @@ let uploadedFiles = [];
 // Flag to check if files have been submitted
 let isSubmitted = false;
 
+let submittedFiles = []; // Files fetched from the API
+
 // Trigger file upload dialog when "Add or Create" is clicked
 addCreateBtn.addEventListener('click', () => {
     fileInput.click();
@@ -82,6 +84,7 @@ addCreateBtn.addEventListener('click', () => {
 // Handle file selection
 fileInput.addEventListener('change', () => {
     const newFiles = Array.from(fileInput.files); // Get selected files
+    console.log(newFiles);
 
     // Add new files to the uploaded files array
     uploadedFiles = uploadedFiles.concat(newFiles);
@@ -103,65 +106,72 @@ fileInput.addEventListener('change', () => {
 function renderFileList() {
     fileList.innerHTML = ''; // Clear current list
 
-    uploadedFiles.forEach((file, index) => {
+    // Combine submitted files and uploaded files
+    const allFiles = [...submittedFiles, ...uploadedFiles];
+
+    allFiles.forEach((file, index) => {
         const fileDiv = document.createElement('div');
         fileDiv.classList.add('file-preview');
 
-        // Create an image element for the file type icon
+        // Create an icon for the file type
         const icon = document.createElement('img');
-        icon.classList.add('file-icon'); // Add class for styling
+        icon.classList.add('file-icon');
 
-        // Set the icon based on file type
-        if (file.type.startsWith('image/')) {
+        if (file.type === "submitted") {
+            icon.src = 'file-placeholder.png'; // Placeholder for submitted files
+        } else if (file.type.startsWith('image/')) {
             icon.src = URL.createObjectURL(file);
             icon.classList.add('file-thumb');
-            icon.onload = () => URL.revokeObjectURL(icon.src); // Clean up memory
-        } else if (file.type.startsWith('application/pdf')) {
-            icon.src = 'asset/pdf.png'; // Use the PDF icon
-        } else if (file.type.startsWith('application/msword') || file.type.startsWith('application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
-            icon.src = 'asset/doc.png'; // Use the Word icon
-        } else if (file.type.startsWith('application/vnd.ms-excel') || file.type.startsWith('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {
-            icon.src = 'asset/xls.png'; // Use the Excel icon
+            icon.onload = () => URL.revokeObjectURL(icon.src);
         } else {
-            // Default placeholder for other file types
-            icon.src = 'file-placeholder.png'; // You can create a generic file icon
+            icon.src = 'file-placeholder.png'; // Placeholder for unsupported types
         }
 
-        // Set the size of the icon (example: 50x50)
         icon.style.width = '20px';
         icon.style.height = '20px';
-
-        fileDiv.appendChild(icon); // Add the icon to the file preview
+        fileDiv.appendChild(icon);
 
         // Display file name
         const fileName = document.createElement('div');
         fileName.classList.add('file-name');
         fileName.textContent = file.name;
 
-        // Make the file name clickable to show in modal
-        fileName.style.cursor = 'pointer'; // Change cursor to pointer
-        fileName.addEventListener('click', () => {
-            const fileURL = URL.createObjectURL(file); // Create a URL for the file
-            showModal(fileURL, file.type); // Show modal with the file
-        });
-
-        // Create remove button
-        const removeBtn = document.createElement('span');
-        removeBtn.classList.add('remove-file');
-        removeBtn.textContent = 'X';
-        removeBtn.addEventListener('click', () => {
-            uploadedFiles.splice(index, 1); // Remove file from array
-            renderFileList(); // Re-render the file list
-        });
+        if (file.type === "submitted") {
+            // Open submitted file in a new tab
+            fileName.style.cursor = 'pointer';
+            fileName.addEventListener('click', () => {
+                window.open(file.file, '_blank');
+            });
+        } else {
+            // Open uploaded file in modal
+            fileName.style.cursor = 'pointer';
+            fileName.addEventListener('click', () => {
+                const fileURL = URL.createObjectURL(file);
+                showModal(fileURL, file.type);
+            });
+        }
 
         fileDiv.appendChild(fileName);
-        fileDiv.appendChild(removeBtn);
+
+        // Add a remove button for uploaded files only
+        if (file.type !== "submitted") {
+            const removeBtn = document.createElement('span');
+            removeBtn.classList.add('remove-file');
+            removeBtn.textContent = 'X';
+            removeBtn.addEventListener('click', () => {
+                uploadedFiles.splice(index - submittedFiles.length, 1); // Adjust index
+                renderFileList();
+            });
+            fileDiv.appendChild(removeBtn);
+        }
+
         fileList.appendChild(fileDiv);
     });
 
     // Disable the "Turn In" button if no files remain
     turnInBtn.disabled = uploadedFiles.length === 0;
 }
+
 
 // Function to show the modal
 function showModal(fileURL, fileType) {
@@ -242,46 +252,58 @@ let unsubmitted_attachments = [];
 
 
 async function getAttachments() {
-
-
-    // Use fetch to send the data
     try {
-
-        // Create a FormData object
         const formData = new FormData();
-
-        // const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
         const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
-
-        formData.append('class_work_id', class_work_id); // Include the classowrk ID
+        formData.append('class_work_id', class_work_id);
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folder/classwork/attachments/', {
             method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                
-            },
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
             credentials: 'include',
             body: formData
         });
 
-        // Check the response status
         if (response.ok) {
             const responseData = await response.json();
-            console.log('Files successfully uploaded:', responseData);
-            
+            console.log('Fetched attachments:', responseData);
+
             submitted_attachments = responseData.submitted;
             unsubmitted_attachments = responseData.unsumitted;
+            if(submitted_attachments){
+                isSubmitted = true;
+                submittedFiles = responseData.submitted.map(item => ({
+                    name: item.title || item.file.split('/').pop(),
+                    type: "submitted", // Indicate it's a submitted file
+                    file: "https://bnahs.pythonanywhere.com/api"+item.file, 
+                    attachmentId: item.attachment_id, // Unique ID
+                }));
+                // Hide the Add or Create button and Turn In button
+                addCreateBtn.style.display = 'none'; // Keep space occupied
+                turnInBtn.style.display = 'none';     // Keep space occupied
 
+                // Disable all remove buttons in the file list
+                const removeButtons = document.querySelectorAll('.remove-file');
+                removeButtons.forEach(button => {
+                    button.style.display = 'none'; // Hide each remove button
+                });
 
-        } else {
-            console.error('Failed to upload files:', response.statusText);
-        }
+                // Show unsubmit button
+                unsubmitBtn.style.display = 'block';
+
+                // Close the modal
+                submissionModal.style.display = 'none'; // Close submission modal
+            }
+    
+                renderFileList(); // Render the file list after fetching
+            }
+            else {
+            console.error('Failed to fetch attachments:', response.statusText);
+            }
     } catch (error) {
         console.error('Error during fetch:', error);
     }
 }
-
 
 getAttachments();
 
@@ -298,8 +320,8 @@ async function sendFilesToBackend() {
         // Create a FormData object
         const formData = new FormData();
 
-        // const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
-        const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
+        const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
+        // const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
 
         formData.append('class_work_id', class_work_id); // Include the classowrk ID
         // Append each file to the FormData object
