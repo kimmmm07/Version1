@@ -1,3 +1,41 @@
+// Breadcrumb Links
+const rpmsLink = document.getElementById('rpmsLink');
+const kraLink = document.getElementById('kraLink');
+
+// Content Wrapper
+const contentWrapper = document.getElementById('contentWrapper');
+
+// KRA Objectives and Individual Objectives
+const kraObjective12 = document.getElementById('kraObjective12');
+const objective12 = document.getElementById('Objective12');
+const kraObjective13 = document.getElementById('kraObjective13');
+const objective13 = document.getElementById('Objective13');
+const kraObjective14 = document.getElementById('kraObjective14');
+const objective14 = document.getElementById('Objective14');
+
+// Action and Comments Panel
+const actionsCommentsPanel = document.getElementById('actionsCommentsPanel');
+const turnInPanel = document.getElementById('turnInPanel');
+
+// Private Comments
+const privateComments = document.getElementById('privateComments');
+const privateCommentsHeader = document.getElementById('privateCommentsHeader');
+const privateIcon = document.getElementById('privateIcon');
+const privateCommentsTitle = document.getElementById('privateCommentsTitle');
+const privateCommentList = document.getElementById('privateCommentList');
+
+// Modal Structure
+const modalContent = document.getElementById('modalContent');
+const fileModalCloseBtn = document.getElementById('fileModalCloseBtn');
+const fileModalTitle = document.getElementById('fileModalTitle');
+
+// Submission Modal
+const submissionModalContent = document.getElementById('submissionModalContent');
+const submissionModalCloseBtn = document.getElementById('submissionModalCloseBtn');
+const submissionModalTitle = document.getElementById('submissionModalTitle');
+const modalButtons = document.getElementById('modalButtons');
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
