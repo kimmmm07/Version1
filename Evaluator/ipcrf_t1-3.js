@@ -88,3 +88,78 @@ document.querySelectorAll('#ipcrf-tbody tr').forEach(row => {
         reviewLink.href = 'evaluator_IPCRF_Proficient_EPart1.html';
     }
 });
+
+
+
+
+
+function clickToRate( employee_id ){
+    sessionStorage.setItem('teacher_id', employee_id);
+    window.location.href = 'evaluator_IPCRF_Proficient_EPart1.html';
+}
+
+
+function addRecord(record) {
+    console.log(record)
+    const teacher = record['teacher'];
+    const ipcrf = record['ipcrf_form'];
+
+    console.log(teacher);
+    console.log(ipcrf);
+
+    const tbody = document.getElementById("ipcrf-tbody");
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+        <td>
+            <img src="User_Circle.png" alt="User Icon"> 
+            <span>${teacher.fullname}</span>
+        </td>
+        <td>${teacher.position}</td>
+        <td>${teacher.grade_level}</td>
+        <td>${ipcrf.rater ?? "Waiting To Be Rated"}</td>
+        <td class="status ${ipcrf.status.toLowerCase()}">${ipcrf.status}</td>
+        <td><a onclick="clickToRate(${teacher.employee_id})" class="review">Review</a></td>
+    `;
+    tbody.appendChild(tr);
+}
+
+
+async function getIPCRFTakers(){
+    try{
+
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/all/ipcrf/part1/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+
+        const data = await response.json();
+        if(response.ok){
+            console.log("Success Data : ", data);
+            data.ipcrf_forms_data_proficient.forEach(record => {
+                addRecord(record);
+            });
+        } else {
+            console.log("Error Data : ", data);
+        }
+
+    } catch(err){
+        console.log(err);
+    }
+}
+
+
+
+
+
+
+
+
+getIPCRFTakers();
+
+
