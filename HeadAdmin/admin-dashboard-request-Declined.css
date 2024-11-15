@@ -286,16 +286,17 @@ nav ul li a.active {
 
 /* Action Column Styles */
 .school-column.action {
-    color: #032F97; 
+    color: red; 
     font-weight: normal;
     display: flex;
     align-items: center; 
     cursor: pointer; 
+    text-transform: none;
 }
 
-.school-column.action .view-icon {
+.school-column.action .delete-icon {
     margin-right: 5px; 
-    color: #032F97; 
+    color: red; 
     font-size: 1em; 
 }
 
