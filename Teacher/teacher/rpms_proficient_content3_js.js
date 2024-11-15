@@ -275,7 +275,7 @@ async function getAttachments() {
                 submittedFiles = responseData.submitted.map(item => ({
                     name: item.title || item.file.split('/').pop(),
                     type: "submitted", // Indicate it's a submitted file
-                    file: "https://bnahs.pythonanywhere.com/api"+item.file, 
+                    file: "https://bnahs.pythonanywhere.com/"+item.file, 
                     attachmentId: item.attachment_id, // Unique ID
                 }));
                 // Hide the Add or Create button and Turn In button
