@@ -57,7 +57,7 @@ async function createFolder() {
 
         const formData = new FormData();
         formData.append('position', 'Proficient');
-
+        formData.append('school_year', String(document.getElementById('form2').value));
 
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/forms/ipcrf/create/',
@@ -107,6 +107,55 @@ async function createFolder() {
         alert('Please select a school year.');
     }
 }
+
+selectedYears = []
+
+async function populateFolders() {
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/forms/ipcrf/get/proficient', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+        });
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data: ", data); 
+            data.school_years.forEach(school_year => {
+                selectedYears.push(school_year);
+
+                const categoryContainer = document.getElementById('categoryContainer');
+                const newCategory = document.createElement('div');
+                newCategory.className = 'form-category';
+                newCategory.innerHTML = `
+                    <div class="horizontal-background"></div>
+                    <h3 class="category-label">${school_year} - IPCRF</h3>
+                    <a href="admin-form-Proficient-IPCRF-Parts.html" class="form-link">
+                        <div class="form-item">
+                            <i class="fas fa-th-large custom-icon"></i>
+                            IPCRF for Proficient Teacher
+                        </div>
+                    </a>
+                
+                `;
+
+                // Insert the new category at the top of the categoryContainer
+                categoryContainer.insertAdjacentElement('afterbegin', newCategory);
+            });
+        } else {
+            console.log("Error Data: ", data);
+        }
+    } catch (error) {
+        console.error('Error fetching folders:', error);
+    }
+};
+
+
+populateFolders();
+
+
+
 
 // Event listener to show the modal when the "Create" button is clicked
 document.querySelector('.create-btn').addEventListener('click', async function() {
