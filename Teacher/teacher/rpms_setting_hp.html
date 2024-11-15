@@ -56,23 +56,23 @@
     </nav>
 
 
-    <div class="breadcrumbs">
-        <span>RPMS</span> &gt; <a href="#"><b>Settings</b></a>
+    <div class="breadcrumbs" id="breadcrumbs">
+        <span>RPMS</span> &gt; <a href="#" id="settingsLink"><b>Settings</b></a>
     </div>
-
-    <div class="container">
-        <div class="settings-container">
+    
+    <div class="container" id="settingsContainer">
+        <div class="settings-container" id="notificationsSettings">
             <h2>Notifications</h2>
-
+    
             <br>
-            <h3 class="section-title">Email</h3>
+            <h3 class="section-title" id="emailSection">Email</h3>
             <div class="toggle">
                 <label for="email-notifications">Allow email notifications</label>
                 <input type="checkbox" id="email-notifications" checked>
             </div>
-
+    
             <br>
-            <h3 class="section-title">Comments</h3>
+            <h3 class="section-title" id="commentsSection">Comments</h3>
             <div class="toggle">
                 <label for="comments-posts">Comments on your posts</label>
                 <input type="checkbox" id="comments-posts" checked>
@@ -85,9 +85,9 @@
                 <label for="private-comments">Private comments on work</label>
                 <input type="checkbox" id="private-comments" checked>
             </div>
-
+    
             <br>
-            <h3 class="section-title">RPMS</h3>
+            <h3 class="section-title" id="rpmsSection">RPMS</h3>
             <div class="toggle">
                 <label for="rpms-work-posts">Work and other posts</label>
                 <input type="checkbox" id="rpms-work-posts" checked>
@@ -105,7 +105,7 @@
                 <input type="checkbox" id="due-date-reminders" checked>
             </div>
         </div>
-    </div>
+    </div>    
 
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->

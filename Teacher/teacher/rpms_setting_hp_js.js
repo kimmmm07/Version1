@@ -1,3 +1,29 @@
+// Breadcrumbs
+const breadcrumbs = document.getElementById('breadcrumbs');
+const settingsLink = document.getElementById('settingsLink');
+
+// Settings container
+const settingsContainer = document.getElementById('settingsContainer');
+const notificationsSettings = document.getElementById('notificationsSettings');
+
+// Email section
+const emailSection = document.getElementById('emailSection');
+const emailNotificationsCheckbox = document.getElementById('email-notifications');
+
+// Comments section
+const commentsSection = document.getElementById('commentsSection');
+const commentsPostsCheckbox = document.getElementById('comments-posts');
+const commentsMentionCheckbox = document.getElementById('comments-mention');
+const privateCommentsCheckbox = document.getElementById('private-comments');
+
+// RPMS section
+const rpmsSection = document.getElementById('rpmsSection');
+const rpmsWorkPostsCheckbox = document.getElementById('rpms-work-posts');
+const returnedWorkCheckbox = document.getElementById('returned-work');
+const invitationsCheckbox = document.getElementById('invitations');
+const dueDateRemindersCheckbox = document.getElementById('due-date-reminders');
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
