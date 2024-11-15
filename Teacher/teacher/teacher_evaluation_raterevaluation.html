@@ -27,24 +27,25 @@
         </ul>
     </nav>
 
-    <div class="container">
+    <div class="container" id="evaluationContainer">
         <header>
             <h1>Evaluation</h1>
         </header>
-
+    
         <div class="tabs">
-            <a href="teacher_evaluation.html" class="tab" id="allReviews">All Reviews</a>
-            <a href="teacher_evaluation_raterevaluation.html" class="tab active" id="raterEvaluation">Rater Evaluation</a>
-            <a href="teacher_evaluation_myresponses.html" class="tab" id="mtResponse">My Responses</a>
+            <a href="teacher_evaluation.html" class="tab" id="allReviewsTab">All Reviews</a>
+            <a href="teacher_evaluation_raterevaluation.html" class="tab active" id="raterEvaluationTab">Rater Evaluation</a>
+            <a href="teacher_evaluation_myresponses.html" class="tab" id="myResponsesTab">My Responses</a>
         </div>
-        <div class="search-box"></div>
-            <div class="search-container">
-                <img src="asset\Search_Magnifying_Glass.png" alt="Search Icon" class="search-icon">
+    
+        <div class="search-box" id="searchBox">
+            <div class="search-container" id="searchContainer">
+                <img src="asset/Search_Magnifying_Glass.png" alt="Search Icon" class="search-icon" id="searchIcon">
                 <input id="searchInput" type="text" class="search-input" placeholder="Search">
             </div>
         </div>
-
     </div>
+    
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
         <div class="modal-content">
@@ -58,6 +59,21 @@
 
 
 <script> 
+// Main Container
+const evaluationContainer = document.getElementById("evaluationContainer");
+
+// Tabs
+const allReviewsTab = document.getElementById("allReviewsTab");
+const raterEvaluationTab = document.getElementById("raterEvaluationTab");
+const myResponsesTab = document.getElementById("myResponsesTab");
+
+// Search Box and Search Elements
+const searchBox = document.getElementById("searchBox");
+const searchContainer = document.getElementById("searchContainer");
+const searchIcon = document.getElementById("searchIcon");
+const searchInput = document.getElementById("searchInput");
+
+
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');

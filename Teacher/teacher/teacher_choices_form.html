@@ -30,39 +30,39 @@
     </nav>
 
     <main>
-        <div class="container">
-        <section class="dashboard-content">
-            <h1>Forms</h1>
-            <div class="horizontal-line"></div>
+        <div class="container" id="formContainer">
+            <section class="dashboard-content" id="dashboardContent">
+                <h1>Forms</h1>
+                <div class="horizontal-line" id="horizontalLine"></div>
     
-    
-            <!-- Form Categories -->
-                <div class="form-category">
-                    <div class="horizontal-background"></div>
-                    <h3 class="category-label">Individual Performance Commitment and Review Form</h3>
-                    <div class="form-item">
-                        <i class="fas fa-file-alt custom-icon"></i>
+                <!-- Form Categories -->
+                <div class="form-category" id="formCategory">
+                    <div class="horizontal-background" id="horizontalBackground"></div>
+                    <h3 class="category-label" id="categoryLabel">Individual Performance Commitment and Review Form</h3>
+                    
+                    <div class="form-item" id="formItem1">
+                        <i class="fas fa-file-alt custom-icon" id="fileIcon1"></i>
                         <a href="ipcrf_proficient.html" class="form-link" id="ipcrfProficientPart1">IPCRF Part 1</a> 
                     </div>
-
-                    <div class="form-item">
-                        <i class="fas fa-file-alt custom-icon"></i>
+    
+                    <div class="form-item" id="formItem2">
+                        <i class="fas fa-file-alt custom-icon" id="fileIcon2"></i>
                         <a href="ipcrf_proficient_part2.html" class="form-link" id="ipcrfProficientPart2">IPCRF Part 2</a> 
                     </div>
-
-                    <div class="form-item">
-                        <i class="fas fa-file-alt custom-icon"></i>
+    
+                    <div class="form-item" id="formItem3">
+                        <i class="fas fa-file-alt custom-icon" id="fileIcon3"></i>
                         <a href="ipcrf_proficient_part3.html" class="form-link" id="ipcrfProficientPart3">IPCRF Part 3</a>
                     </div>
                 </div>
-
-                <div class="buttons-container">
-                    <a href="teacher_forms.html" class="back-btn">Back</a>
+    
+                <div class="buttons-container" id="buttonsContainer">
+                    <a href="teacher_forms.html" class="back-btn" id="backButton">Back</a>
                 </div>
-            </div>
-
-        </section>
+            </section>
+        </div>
     </main>
+    
 </div>
 <!-- Logout Confirmation Modal -->
 <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
@@ -76,7 +76,44 @@
 </div>
 
 
-<script> 
+<script>
+// Main container
+const formContainer = document.getElementById("formContainer");
+
+// Dashboard content section
+const dashboardContent = document.getElementById("dashboardContent");
+
+// Horizontal line divider
+const horizontalLine = document.getElementById("horizontalLine");
+
+// Form category section
+const formCategory = document.getElementById("formCategory");
+
+// Horizontal background for styling
+const horizontalBackground = document.getElementById("horizontalBackground");
+
+// Category label
+const categoryLabel = document.getElementById("categoryLabel");
+
+// Form items for IPCRF Parts
+const formItem1 = document.getElementById("formItem1");
+const formItem2 = document.getElementById("formItem2");
+const formItem3 = document.getElementById("formItem3");
+
+// File icons within form items
+const fileIcon1 = document.getElementById("fileIcon1");
+const fileIcon2 = document.getElementById("fileIcon2");
+const fileIcon3 = document.getElementById("fileIcon3");
+
+// Form links for IPCRF Parts
+const ipcrfProficientPart1 = document.getElementById("ipcrfProficientPart1");
+const ipcrfProficientPart2 = document.getElementById("ipcrfProficientPart2");
+const ipcrfProficientPart3 = document.getElementById("ipcrfProficientPart3");
+
+// Back button
+const backButton = document.getElementById("backButton");
+
+
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');

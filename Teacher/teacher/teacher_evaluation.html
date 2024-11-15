@@ -27,85 +27,94 @@
         </ul>
     </nav>
 
-    <div class="container">
+    <div class="container" id="container">
         <header>
             <h1>Evaluation</h1>
         </header>
-
-        <div class="tabs">
-            <a href="teacher_evaluation.html" class="tab active">All Reviews</a>
-            <a href="teacher_evaluation_raterevaluation.html" class="tab">Rater Evaluation</a>
-            <a href="teacher_evaluation_myresponses.html" class="tab">My Responses</a>
+    
+        <div class="tabs" id="tabs">
+            <a href="teacher_evaluation.html" class="tab active" id="allReviewsTab">All Reviews</a>
+            <a href="teacher_evaluation_raterevaluation.html" class="tab" id="raterEvaluationTab">Rater Evaluation</a>
+            <a href="teacher_evaluation_myresponses.html" class="tab" id="myResponsesTab">My Responses</a>
         </div>
-        <div class="search-box">
-            <div class="search-container">
-                <img src="asset\Search_Magnifying_Glass.png" alt="Search Icon" class="search-icon">
+        
+        <div class="search-box" id="searchBox">
+            <div class="search-container" id="searchContainer">
+                <img src="asset\Search_Magnifying_Glass.png" alt="Search Icon" class="search-icon" id="searchIcon">
                 <input id="searchInput" type="text" class="search-input" placeholder="Search">
             </div>
         </div>
-
-        <div class="evaluation-card">
-            <div class="card-header">
-                <span class="card-title">Individual Performance Commitment and Review Form</span>
-                <div class="card-options">
-                    <span id="raterName" class="rater-name">David Patel</span>
-                    <img id="profilePhoto" src="asset/User_Circle.png" alt="Profile Icon" class="profile-icon">
+    
+        <!-- Evaluation Card 1: IPCRF -->
+        <div class="evaluation-card" id="ipcrfCard">
+            <div class="card-header" id="ipcrfCardHeader">
+                <span class="card-title" id="ipcrfTitle">Individual Performance Commitment and Review Form</span>
+                <div class="card-options" id="ipcrfCardOptions">
+                    <span id="ipcrfRaterName" class="rater-name">David Patel</span>
+                    <img id="ipcrfProfilePhoto" src="asset/User_Circle.png" alt="Profile Icon" class="profile-icon">
                 </div>
             </div>
-            <div class="card-body">
-                <div class="status-section">
-                    <button class="status-btn" id="status"><span class="status-icon"></span> Completed</button>
-                    <div class="submission-details">
-                        <p id="dateSubmitted">Date Submitted: May 2024</p>
-                        <p id="raterName">Rater: David Patel</p>
+            <div class="card-body" id="ipcrfCardBody">
+                <div class="status-section" id="ipcrfStatusSection">
+                    <button class="status-btn" id="ipcrfStatusBtn"><span class="status-icon"></span> Completed</button>
+                    <div class="submission-details" id="ipcrfSubmissionDetails">
+                        <p id="ipcrfDateSubmitted">Date Submitted: May 2024</p>
+                        <p id="ipcrfRater">Rater: David Patel</p>
                     </div>
                 </div>
-                <a href="#" class="view-link"><img src="asset/Eye.png" alt="View Icon" class="view-icon"> View</a>
+                <a href="#" class="view-link" id="ipcrfViewLink">
+                    <img src="asset/Eye.png" alt="View Icon" class="view-icon" id="ipcrfViewIcon"> View
+                </a>
             </div>
         </div>  
         
-        <div class="evaluation-card">
-            <div class="card-header">
-                <span class="card-title">Results-Based Performance Management System</span>
-                <div class="card-options">
-                    <span id="raterName" class="rater-name">David Patel</span>
-                    <img id="profilePhoto" src="asset/User_Circle.png" alt="Profile Icon" class="profile-icon">
+        <!-- Evaluation Card 2: RPMS -->
+        <div class="evaluation-card" id="rpmsCard">
+            <div class="card-header" id="rpmsCardHeader">
+                <span class="card-title" id="rpmsTitle">Results-Based Performance Management System</span>
+                <div class="card-options" id="rpmsCardOptions">
+                    <span id="rpmsRaterName" class="rater-name">David Patel</span>
+                    <img id="rpmsProfilePhoto" src="asset/User_Circle.png" alt="Profile Icon" class="profile-icon">
                 </div>
             </div>
-            <div class="card-body">
-                <div class="status-section">
-                    <button class="status-btn"><span class="status-icon"></span> Completed</button>
-                    <div class="submission-details">
-                        <p id="dateSubmitted">Date Submitted: May 2024</p>
-                        <p id="raterName">Rater: David Patel</p>
+            <div class="card-body" id="rpmsCardBody">
+                <div class="status-section" id="rpmsStatusSection">
+                    <button class="status-btn" id="rpmsStatusBtn"><span class="status-icon"></span> Completed</button>
+                    <div class="submission-details" id="rpmsSubmissionDetails">
+                        <p id="rpmsDateSubmitted">Date Submitted: May 2024</p>
+                        <p id="rpmsRater">Rater: David Patel</p>
                     </div>
                 </div>
-                <a href="#" class="view-link"><img src="asset/Eye.png" alt="View Icon" class="view-icon"> View</a>
+                <a href="#" class="view-link" id="rpmsViewLink">
+                    <img src="asset/Eye.png" alt="View Icon" class="view-icon" id="rpmsViewIcon"> View
+                </a>
             </div>
         </div>   
         
-        <div class="evaluation-card">
-            <div class="card-header">
-                <span class="card-title">Classroom Observation Tool Form</span>
-                <div class="card-options">
-                    <span id="raterName" class="rater-name">David Patel</span>
-                    <img id="profilePhoto" src="asset/User_Circle.png" alt="Profile Icon" class="profile-icon">
+        <!-- Evaluation Card 3: COT -->
+        <div class="evaluation-card" id="cotCard">
+            <div class="card-header" id="cotCardHeader">
+                <span class="card-title" id="cotTitle">Classroom Observation Tool Form</span>
+                <div class="card-options" id="cotCardOptions">
+                    <span id="cotRaterName" class="rater-name">David Patel</span>
+                    <img id="cotProfilePhoto" src="asset/User_Circle.png" alt="Profile Icon" class="profile-icon">
                 </div>
             </div>
-            <div class="card-body">
-                <div class="status-section">
-                    <button class="status-btn"><span class="status-icon"></span> Completed</button>
-                    <div class="submission-details">
-                        <p id="dateSubmitted">Date Submitted: May 2024</p>
-                        <p id="raterName">Rater: David Patel</p>
+            <div class="card-body" id="cotCardBody">
+                <div class="status-section" id="cotStatusSection">
+                    <button class="status-btn" id="cotStatusBtn"><span class="status-icon"></span> Completed</button>
+                    <div class="submission-details" id="cotSubmissionDetails">
+                        <p id="cotDateSubmitted">Date Submitted: May 2024</p>
+                        <p id="cotRater">Rater: David Patel</p>
                     </div>
                 </div>
-                <a href="#" class="view-link"><img src="asset/Eye.png" alt="View Icon" class="view-icon"> View</a>
+                <a href="#" class="view-link" id="cotViewLink">
+                    <img src="asset/Eye.png" alt="View Icon" class="view-icon" id="cotViewIcon"> View
+                </a>
             </div>
-        </div>    
-        
-        
+        </div>  
     </div>
+    
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
         <div class="modal-content">
@@ -119,6 +128,67 @@
 
 
 <script> 
+// Main container and tabs
+const container = document.getElementById('container');
+const allReviewsTab = document.getElementById('allReviewsTab');
+const raterEvaluationTab = document.getElementById('raterEvaluationTab');
+const myResponsesTab = document.getElementById('myResponsesTab');
+
+// Search box and input
+const searchBox = document.getElementById('searchBox');
+const searchContainer = document.getElementById('searchContainer');
+const searchIcon = document.getElementById('searchIcon');
+const searchInput = document.getElementById('searchInput');
+
+// IPCRF Card elements
+const ipcrfCard = document.getElementById('ipcrfCard');
+const ipcrfCardHeader = document.getElementById('ipcrfCardHeader');
+const ipcrfTitle = document.getElementById('ipcrfTitle');
+const ipcrfCardOptions = document.getElementById('ipcrfCardOptions');
+const ipcrfRaterName = document.getElementById('ipcrfRaterName');
+const ipcrfProfilePhoto = document.getElementById('ipcrfProfilePhoto');
+const ipcrfCardBody = document.getElementById('ipcrfCardBody');
+const ipcrfStatusSection = document.getElementById('ipcrfStatusSection');
+const ipcrfStatusBtn = document.getElementById('ipcrfStatusBtn');
+const ipcrfSubmissionDetails = document.getElementById('ipcrfSubmissionDetails');
+const ipcrfDateSubmitted = document.getElementById('ipcrfDateSubmitted');
+const ipcrfRater = document.getElementById('ipcrfRater');
+const ipcrfViewLink = document.getElementById('ipcrfViewLink');
+const ipcrfViewIcon = document.getElementById('ipcrfViewIcon');
+
+// RPMS Card elements
+const rpmsCard = document.getElementById('rpmsCard');
+const rpmsCardHeader = document.getElementById('rpmsCardHeader');
+const rpmsTitle = document.getElementById('rpmsTitle');
+const rpmsCardOptions = document.getElementById('rpmsCardOptions');
+const rpmsRaterName = document.getElementById('rpmsRaterName');
+const rpmsProfilePhoto = document.getElementById('rpmsProfilePhoto');
+const rpmsCardBody = document.getElementById('rpmsCardBody');
+const rpmsStatusSection = document.getElementById('rpmsStatusSection');
+const rpmsStatusBtn = document.getElementById('rpmsStatusBtn');
+const rpmsSubmissionDetails = document.getElementById('rpmsSubmissionDetails');
+const rpmsDateSubmitted = document.getElementById('rpmsDateSubmitted');
+const rpmsRater = document.getElementById('rpmsRater');
+const rpmsViewLink = document.getElementById('rpmsViewLink');
+const rpmsViewIcon = document.getElementById('rpmsViewIcon');
+
+// COT Card elements
+const cotCard = document.getElementById('cotCard');
+const cotCardHeader = document.getElementById('cotCardHeader');
+const cotTitle = document.getElementById('cotTitle');
+const cotCardOptions = document.getElementById('cotCardOptions');
+const cotRaterName = document.getElementById('cotRaterName');
+const cotProfilePhoto = document.getElementById('cotProfilePhoto');
+const cotCardBody = document.getElementById('cotCardBody');
+const cotStatusSection = document.getElementById('cotStatusSection');
+const cotStatusBtn = document.getElementById('cotStatusBtn');
+const cotSubmissionDetails = document.getElementById('cotSubmissionDetails');
+const cotDateSubmitted = document.getElementById('cotDateSubmitted');
+const cotRater = document.getElementById('cotRater');
+const cotViewLink = document.getElementById('cotViewLink');
+const cotViewIcon = document.getElementById('cotViewIcon');
+
+
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');

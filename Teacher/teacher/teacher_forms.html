@@ -28,17 +28,17 @@
     </nav>
 
     <!-- Main container -->
-    <div class="container">
-        <header>
+    <div class="container" id="container">
+        <header id="header">
             <h1>Choose form for your evaluation</h1>
         </header>
 
         <!-- Divider -->
-        <div class="divider"></div>
+        <div class="divider" id="divider"></div>
 
         <!-- Filters Section -->
-        <div class="filters">
-            <div class="filter-box">
+        <div class="filters" id="filters">
+            <div class="filter-box" id="filterBox">
                 <select class="filter" id="choose-form-filter">
                     <option value="proficient">Proficient Teacher</option>
                     <option value="highly-proficient">Highly Proficient Teacher</option>
@@ -47,9 +47,9 @@
         </div>
 
         <!-- IPCRF Section -->
-        <div class="form-section">
+        <div class="form-section" id="ipcrfSection">
             <h2>Individual Performance Commitment and Review Form</h2>
-            <ul>
+            <ul id="ipcrfList">
                 <li>
                     <a id="ipcrf-proficient" href="teacher_choices_form.html" class="disabled">
                         <img class="icon" src="asset\Table.png" alt="IPCRF Icon">
@@ -66,9 +66,9 @@
         </div>
 
         <!-- RPMS Section -->
-        <div class="form-section">
+        <div class="form-section" id="rpmsSection">
             <h2>Results-Based Performance Management System</h2>
-            <ul>
+            <ul id="rpmsList">
                 <li>
                     <a id="rpms-proficient" href="rpms_proficient.html" class="disabled">
                         <img class="icon" src="asset\Folder_Open.png" alt="RPMS Icon">
@@ -84,6 +84,7 @@
             </ul>
         </div>
     </div>
+
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
         <div class="modal-content">
@@ -97,6 +98,31 @@
 
 
 <script> 
+// Main container and header
+const container = document.getElementById('container');
+const header = document.getElementById('header');
+
+// Divider
+const divider = document.getElementById('divider');
+
+// Filters Section
+const filters = document.getElementById('filters');
+const filterBox = document.getElementById('filterBox');
+const chooseFormFilter = document.getElementById('choose-form-filter');
+
+// IPCRF Section
+const ipcrfSection = document.getElementById('ipcrfSection');
+const ipcrfList = document.getElementById('ipcrfList');
+const ipcrfProficient = document.getElementById('ipcrf-proficient');
+const ipcrfHighlyProficient = document.getElementById('ipcrf-highly-proficient');
+
+// RPMS Section
+const rpmsSection = document.getElementById('rpmsSection');
+const rpmsList = document.getElementById('rpmsList');
+const rpmsProficient = document.getElementById('rpms-proficient');
+const rpmsHighlyProficient = document.getElementById('rpms-highly-proficient');
+
+
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');

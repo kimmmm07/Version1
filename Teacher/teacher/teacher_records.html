@@ -31,31 +31,29 @@
         </nav>
     </header>
 
-    <div class="container">
-        <header>
+    <div class="container" id="container">
+        <header id="header">
             <h1>Records</h1>
         </header>
-
-        <div class="tabs">
-            <a href="teacher_records.html" class="tab active">COT</a>
-            <a href="teacher_records_ipcrf.html" class="tab">IPCRF</a>
-            <a href="teacher_records_rpms.html" class="tab">RPMS</a>
+    
+        <div class="tabs" id="tabs">
+            <a href="teacher_records.html" class="tab active" id="cot-tab">COT</a>
+            <a href="teacher_records_ipcrf.html" class="tab" id="ipcrf-tab">IPCRF</a>
+            <a href="teacher_records_rpms.html" class="tab" id="rpms-tab">RPMS</a>
         </div>
-
-        <div class="filters">
-            <div class="filter-box">
+    
+        <div class="filters" id="filters">
+            <div class="filter-box" id="filter-box">
                 <select class="filter" id="schoolYearSelect" name="school-year">
                     <option>A.Y. 2023 - 2024</option>
                     <option>A.Y. 2022 - 2023</option>
                     <option>A.Y. 2021 - 2022</option>
-                    <!-- Add more options here if necessary -->
                 </select>
                 <select class="filter" id="teacherTypeSelect" name="teacher-type" onchange="filterRecords()">
                     <option>Proficient Teacher</option>
                     <option>Highly Proficient Teacher</option>
-                    <!-- Add more options here if necessary -->
                 </select>
-
+    
                 <select class="filter" id="selectQuarter" name="quarter">
                     <option value="">Select Quarter</option>
                     <option value="1">Quarter 1</option>
@@ -65,10 +63,10 @@
                 </select>
             </div>
         </div>
-
-        <table>
+    
+        <table id="recordsTable">
             <thead>
-                <tr>
+                <tr id="tableHeader">
                     <th>Name</th>
                     <th>Position</th>
                     <th>Grade Level</th>
@@ -80,9 +78,9 @@
                 </tr>
             </thead>
             <tbody id="faculty-list">
-                <tr class="second-row" data-faculty-id="1"> <!-- Add a data attribute for identification -->
+                <tr class="second-row" data-faculty-id="1">
                     <th>
-                        <div class="user-icon"></div>
+                        <div class="user-icon" id="userIcon"></div>
                         Jessica Sanchez Ramirez
                     </th>
                     <th>Teacher II</th>
@@ -91,33 +89,34 @@
                     <th>David Patel</th>
                     <th></th>
                     <th style="color: #032F97; text-align: center;">
-                        <a href="records_cot_view.html" style="text-decoration: none; color: inherit;">
-                            <img src="asset/Eye.png" class="eye-icon"> View
+                        <a href="records_cot_view.html" style="text-decoration: none; color: inherit;" id="viewLink">
+                            <img src="asset/Eye.png" class="eye-icon" id="eyeIcon"> View
                         </a>
-                    </th>                    
+                    </th>
                     <th>
-                        <button class="three-dots-btn"><img src="asset/More.png"></button>
-                        <div class="dropdown">
-                            <ul class="dropdown-menu">
+                        <button class="three-dots-btn" id="threeDotsBtn"><img src="asset/More.png"></button>
+                        <div class="dropdown" id="dropdownMenu">
+                            <ul class="dropdown-menu" id="dropdownOptions">
                                 <li class="deactivate-btn">
                                     <a href="#" style="color: #A21718;">
-                                        <img src="asset/Trash.png" alt="Deactivate Icon" class="icon">
+                                        <img src="asset/Trash.png" alt="Deactivate Icon" class="icon" id="deactivateIcon">
                                         Delete
                                     </a>
                                 </li>                                    
-                                <li class="download-bt">
+                                <li class="download-btn">
                                     <a href="#" style="color: #0D6EFD;">
-                                        <img src="asset/Download.png" alt="Delete Icon" class="icon">
+                                        <img src="asset/Download.png" alt="Delete Icon" class="icon" id="downloadIcon">
                                         Download
                                     </a>
                                 </li>                                    
                             </ul>
                         </div>
-                    </th> <!-- Three dots -->
+                    </th>
                 </tr>
             </tbody>  
         </table>     
-    </div>
+    </div>    
+
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
         <div class="modal-content">
@@ -130,6 +129,41 @@
     </div>
 
     <script>
+
+        // Main container and header
+        const container = document.getElementById('container');
+        const header = document.getElementById('header');
+
+        // Tabs
+        const cotTab = document.getElementById('cot-tab');
+        const ipcrfTab = document.getElementById('ipcrf-tab');
+        const rpmsTab = document.getElementById('rpms-tab');
+
+        // Filters
+        const filters = document.getElementById('filters');
+        const filterBox = document.getElementById('filter-box');
+        const schoolYearSelect = document.getElementById('schoolYearSelect');
+        const teacherTypeSelect = document.getElementById('teacherTypeSelect');
+        const selectQuarter = document.getElementById('selectQuarter');
+
+        // Table and rows
+        const recordsTable = document.getElementById('recordsTable');
+        const tableHeader = document.getElementById('tableHeader');
+        const facultyList = document.getElementById('faculty-list');
+
+        // Individual row elements
+        const userIcon = document.getElementById('userIcon');
+        const viewLink = document.getElementById('viewLink');
+        const eyeIcon = document.getElementById('eyeIcon');
+
+        // Dropdown menu and buttons
+        const threeDotsBtn = document.getElementById('threeDotsBtn');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        const dropdownOptions = document.getElementById('dropdownOptions');
+        const deactivateIcon = document.getElementById('deactivateIcon');
+        const downloadIcon = document.getElementById('downloadIcon');
+
+
         document.addEventListener('DOMContentLoaded', function() {
             // Filter button functionality
             const filterButtons = document.querySelectorAll('.filter');

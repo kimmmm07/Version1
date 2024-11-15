@@ -1,7 +1,25 @@
+// Main content and feed section
+const mainContent = document.getElementById('mainContent');
+const feedSection = document.getElementById('feedSection');
+const feedHeader = document.getElementById('feedHeader');
+const feed = document.getElementById('feed');
+
+// Right sidebar
+const rightSidebar = document.getElementById('rightSidebar');
+
+// Notification section
+const notificationSection = document.getElementById('notificationSection');
+const notificationHeader = document.getElementById('notificationHeader');
+const notificationList = document.getElementById('notificationList');
+
+// To-Do section
+const toDoSection = document.getElementById('toDoSection');
+const toDoHeader = document.getElementById('toDoHeader');
+const toDoList = document.getElementById('toDoList');
+
+
+
 let feeds = undefined;
-
-
-
 
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');

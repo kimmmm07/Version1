@@ -27,38 +27,38 @@
         </ul>
     </nav>
 
-    <div class="profile-container">
-        <div class="profile-header">
+    <div class="profile-container" id="profileContainer">
+        <div class="profile-header" id="profileHeader">
             <img src="asset/User_Circle.png" alt="Profile Picture" class="profile-picture" id="mainProfilePicture">
             <h2 class="profile-name" id="name"></h2>
             <p class="profile-role" id="position"></p>
-            <button class="edit-profile-btn" onclick="window.location.href='teacher_profile_edit_profile.html'">Edit Profile</button>
-
+            <button class="edit-profile-btn" id="editProfileBtn" onclick="window.location.href='teacher_profile_edit_profile.html'">Edit Profile</button>
         </div>
-
-    <div class="profile-content">
-        <div class="information-box">
-            <h3>Information</h3>
-            <p><strong>Employee ID</strong></p>
-            <p class="clickable" id="emp-id"></p>
-
-            <p><strong>Department</strong></p>
-            <p class="clickable" id="dept"></p>
-
-            <p><strong>Job Started</strong></p>
-            <p class="clickable" id="job-started"></p>
-        </div>
-
-        <div class="contact-box">
-            <h3>Contact</h3>
-            <p><strong>Email</strong></p>
-            <p class="clickable" id="email-address"></p>
-
-            <p><strong>Phone</strong></p>
-            <p class="clickable" id="contact-no"></p>
+    
+        <div class="profile-content" id="profileContent">
+            <div class="information-box" id="informationBox">
+                <h3>Information</h3>
+                <p><strong>Employee ID</strong></p>
+                <p class="clickable" id="emp-id"></p>
+    
+                <p><strong>Department</strong></p>
+                <p class="clickable" id="dept"></p>
+    
+                <p><strong>Job Started</strong></p>
+                <p class="clickable" id="job-started"></p>
+            </div>
+    
+            <div class="contact-box" id="contactBox">
+                <h3>Contact</h3>
+                <p><strong>Email</strong></p>
+                <p class="clickable" id="email-address"></p>
+    
+                <p><strong>Phone</strong></p>
+                <p class="clickable" id="contact-no"></p>
+            </div>
         </div>
     </div>
-</div>
+    
 <!-- Logout Confirmation Modal -->
 <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
     <div class="modal-content">
@@ -72,6 +72,31 @@
 
 
 <script> 
+// Profile container and header
+const profileContainer = document.getElementById('profileContainer');
+const profileHeader = document.getElementById('profileHeader');
+
+// Profile picture and basic info
+const mainProfilePicture = document.getElementById('mainProfilePicture');
+const name = document.getElementById('name');
+const position = document.getElementById('position');
+const editProfileBtn = document.getElementById('editProfileBtn');
+
+// Profile content sections
+const profileContent = document.getElementById('profileContent');
+const informationBox = document.getElementById('informationBox');
+const contactBox = document.getElementById('contactBox');
+
+// Information box details
+const empId = document.getElementById('emp-id');
+const dept = document.getElementById('dept');
+const jobStarted = document.getElementById('job-started');
+
+// Contact box details
+const emailAddress = document.getElementById('email-address');
+const contactNo = document.getElementById('contact-no');
+
+
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');
