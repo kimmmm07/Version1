@@ -1,3 +1,144 @@
+// KRA 1: Content Knowledge and Pedagogy
+const efficiency1_5 = document.getElementById('Efficiency1_5');
+const efficiency1_3 = document.getElementById('Efficiency1_3');
+const efficiency1_1 = document.getElementById('Efficiency1_1');
+
+const efficiency2_5 = document.getElementById('Efficiency2_5');
+const efficiency2_3 = document.getElementById('Efficiency2_3');
+const efficiency2_1 = document.getElementById('Efficiency2_1');
+
+const efficiency3_5 = document.getElementById('Efficiency3_5');
+const efficiency3_3 = document.getElementById('Efficiency3_3');
+const efficiency3_1 = document.getElementById('Efficiency3_1');
+
+const efficiency4_5 = document.getElementById('Efficiency4_5');
+const efficiency4_3 = document.getElementById('Efficiency4_3');
+const efficiency4_1 = document.getElementById('Efficiency4_1');
+
+// KRA 2: Learning Environment & Diversity of Learners
+const efficiency5_5 = document.getElementById('Efficiency5_5');
+const efficiency5_3 = document.getElementById('Efficiency5_3');
+const efficiency5_1 = document.getElementById('Efficiency5_1');
+
+const efficiency6_5 = document.getElementById('Efficiency6_5');
+const efficiency6_3 = document.getElementById('Efficiency6_3');
+const efficiency6_1 = document.getElementById('Efficiency6_1');
+
+const efficiency7_5 = document.getElementById('Efficiency7_5');
+const efficiency7_3 = document.getElementById('Efficiency7_3');
+const efficiency7_1 = document.getElementById('Efficiency7_1');
+
+const efficiency8_5 = document.getElementById('Efficiency8_5');
+const efficiency8_3 = document.getElementById('Efficiency8_3');
+const efficiency8_1 = document.getElementById('Efficiency8_1');
+
+// KRA 3: Curriculum and Planning & Assessment and Reporting
+const quality9_5 = document.getElementById('Quality9_5');
+const quality9_4 = document.getElementById('Quality9_4');
+const quality9_3 = document.getElementById('Quality9_3');
+const quality9_2 = document.getElementById('Quality9_2');
+const quality9_1 = document.getElementById('Quality9_1');
+
+const efficiency9_5 = document.getElementById('Efficiency9_5');
+const efficiency9_4 = document.getElementById('Efficiency9_4');
+const efficiency9_3 = document.getElementById('Efficiency9_3');
+const efficiency9_2 = document.getElementById('Efficiency9_2');
+const efficiency9_1 = document.getElementById('Efficiency9_1');
+
+// KRA 4: Community Linkages and Professional Engagement & Personal Growth and Professional Development
+const quality12_5 = document.getElementById('Quality12_5');
+const quality12_4 = document.getElementById('Quality12_4');
+const quality12_3 = document.getElementById('Quality12_3');
+const quality12_2 = document.getElementById('Quality12_2');
+const quality12_1 = document.getElementById('Quality12_1');
+
+const timeliness12_5 = document.getElementById('Timeliness12_5');
+const timeliness12_4 = document.getElementById('Timeliness12_4');
+const timeliness12_3 = document.getElementById('Timeliness12_3');
+const timeliness12_2 = document.getElementById('Timeliness12_2');
+const timeliness12_1 = document.getElementById('Timeliness12_1');
+
+// KRA 3: Utilized assessment data
+const quality11_5 = document.getElementById('Quality11_5');
+const quality11_4 = document.getElementById('Quality11_4');
+const quality11_3 = document.getElementById('Quality11_3');
+const quality11_2 = document.getElementById('Quality11_2');
+const quality11_1 = document.getElementById('Quality11_1');
+
+const timeliness11_5 = document.getElementById('Timeliness11_5');
+const timeliness11_4 = document.getElementById('Timeliness11_4');
+const timeliness11_3 = document.getElementById('Timeliness11_3');
+const timeliness11_2 = document.getElementById('Timeliness11_2');
+const timeliness11_1 = document.getElementById('Timeliness11_1');
+
+// KRA 4: Participated in professional networks
+const quality13_5 = document.getElementById('Quality13_5');
+const quality13_4 = document.getElementById('Quality13_4');
+const quality13_3 = document.getElementById('Quality13_3');
+const quality13_2 = document.getElementById('Quality13_2');
+const quality13_1 = document.getElementById('Quality13_1');
+
+const timeliness13_5 = document.getElementById('Timeliness13_5');
+const timeliness13_4 = document.getElementById('Timeliness13_4');
+const timeliness13_3 = document.getElementById('Timeliness13_3');
+const timeliness13_2 = document.getElementById('Timeliness13_2');
+const timeliness13_1 = document.getElementById('Timeliness13_1');
+
+// KRA 4: Developed personal improvement plan
+const quality14_5 = document.getElementById('Quality14_5');
+const quality14_4 = document.getElementById('Quality14_4');
+const quality14_3 = document.getElementById('Quality14_3');
+const quality14_2 = document.getElementById('Quality14_2');
+const quality14_1 = document.getElementById('Quality14_1');
+
+const efficiency14_5 = document.getElementById('Efficiency14_5');
+const efficiency14_4 = document.getElementById('Efficiency14_4');
+const efficiency14_3 = document.getElementById('Efficiency14_3');
+const efficiency14_2 = document.getElementById('Efficiency14_2');
+const efficiency14_1 = document.getElementById('Efficiency14_1');
+
+const timeliness14_5 = document.getElementById('Timeliness14_5');
+const timeliness14_4 = document.getElementById('Timeliness14_4');
+const timeliness14_3 = document.getElementById('Timeliness14_3');
+const timeliness14_2 = document.getElementById('Timeliness14_2');
+const timeliness14_1 = document.getElementById('Timeliness14_1');
+
+
+// PLUS FACTOR
+
+// Quality
+const quality15_5 = document.getElementById('Quality15_5');
+const quality15_4 = document.getElementById('Quality15_4');
+const quality15_3 = document.getElementById('Quality15_3');
+const quality15_2 = document.getElementById('Quality15_2');
+const quality15_1 = document.getElementById('Quality15_1');
+
+// Efficiency
+const efficiency15_5 = document.getElementById('Efficiency15_5');
+const efficiency15_4 = document.getElementById('Efficiency15_4');
+const efficiency15_3 = document.getElementById('Efficiency15_3');
+const efficiency15_2 = document.getElementById('Efficiency15_2');
+const efficiency15_1 = document.getElementById('Efficiency15_1');
+
+// Timeliness
+const timeliness15_5 = document.getElementById('Timeliness15_5');
+const timeliness15_4 = document.getElementById('Timeliness15_4');
+const timeliness15_3 = document.getElementById('Timeliness15_3');
+const timeliness15_2 = document.getElementById('Timeliness15_2');
+const timeliness15_1 = document.getElementById('Timeliness15_1');
+
+// Average Score Section
+const rating = document.getElementById('rating');
+
+// Buttons
+const backButton = document.querySelector('.back-btn');
+const saveButton = document.getElementById('saveButton');
+
+// Function to update the IPCRF (example)
+function updateIPCRF1() {
+    // Add functionality here to save the data or calculate the score based on selected values
+    console.log('IPCRF data saved!');
+}
 
 let averageScore = 0;
 let plusFactor = 0;

@@ -1,3 +1,26 @@
+// Functional Competencies Sections
+const fcStrengths = document.getElementById('fcStrengths');
+const fcDevelopmentNeeds = document.getElementById('fcDevelopmentNeeds');
+
+// Behavioral Competencies Sections
+const bcStrengths = document.getElementById('bcStrengths');
+const bcDevelopmentNeeds = document.getElementById('bcDevelopmentNeeds');
+
+// Dynamically added list items in Behavioral Competencies
+const strengthsList = document.getElementById('strengths-list');
+const developmentNeedsList = document.getElementById('development-needs-list');
+
+// Action Plan Textareas
+const learningObjectives = document.getElementById('learning-objectives');
+const intervention = document.getElementById('intervention');
+const timeliness = document.getElementById('timeliness');
+const resourcesNeeds = document.getElementById('resources-needs');
+
+// Buttons
+const backButton = document.querySelector('.back-btn');
+const proceedButton = document.querySelector('.proceed-btn');
+
+
 // Function to handle the logic for each competency
 function evaluateCompetency(competencyCount, competencyName, threshold) {
     if (competencyCount >= threshold) {

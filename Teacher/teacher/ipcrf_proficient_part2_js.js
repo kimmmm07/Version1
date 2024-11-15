@@ -1,3 +1,32 @@
+// Self-Management Objective Form
+const selfManagementForm = document.getElementById('self-management-form');
+const obj1Checkboxes = document.querySelectorAll('#Obj1');
+
+// Professionalism and Ethics Objective Form
+const professionalismEthicsForm = document.getElementById('professionalism-ethics-form');
+const obj2Checkboxes = document.querySelectorAll('#Obj2');
+
+// Results Focus Objective Form
+const resultsFocusForm = document.getElementById('results-focus-form');
+const obj3Checkboxes = document.querySelectorAll('#Obj3');
+
+// Teamwork Objective Form
+const teamworkForm = document.getElementById('teamwork-form');
+const obj4Checkboxes = document.querySelectorAll('#Obj4');
+
+// Service Orientation Objective Form
+const serviceOrientationForm = document.getElementById('service-orientation-form');
+const obj5Checkboxes = document.querySelectorAll('#Obj5');
+
+// Innovation Objective Form
+const innovationForm = document.getElementById('innovation-form');
+const obj6Checkboxes = document.querySelectorAll('#Obj6');
+
+// Buttons
+const backButton = document.querySelector('.back-btn');
+const proceedButton = document.querySelector('.proceed-btn');
+
+
 
 let ipcrf_content = undefined;
 // TODO : REMOVE THE 4 , 5 WHEN THE LOGIC IN FRONT END IS FIX 

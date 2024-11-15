@@ -1,3 +1,45 @@
+// Container for the entire section
+const container = document.querySelector('.container');
+
+// Functional Competencies Section
+const functionalCompetencies = container.querySelector('.functional-competencies');
+const fcStrengthsSection = functionalCompetencies.querySelector('#fcStrengths');
+const fcDevelopmentNeedsSection = functionalCompetencies.querySelector('#fcDevelopmentNeeds');
+
+// Strengths and Development Needs in Functional Competencies
+const fcStrengthsList = fcStrengthsSection.querySelector('ul');
+const fcDevelopmentNeedsList = fcDevelopmentNeedsSection.querySelector('ul');
+
+// Action Plan for Functional Competencies
+const actionPlanFc = container.querySelector('.action-plan');
+const learningObjectivesFc = actionPlanFc.querySelector('#learning-objectives');
+const interventionFc = actionPlanFc.querySelector('#intervention');
+const timelinessFc = actionPlanFc.querySelector('#timeliness');
+const resourcesNeedsFc = actionPlanFc.querySelector('#resources-needs');
+
+// Behavioral Competencies Section
+const behavioralCompetencies = container.querySelector('.behavioral-competencies');
+const bcStrengthsSection = behavioralCompetencies.querySelector('#bcStrengths');
+const bcDevelopmentNeedsSection = behavioralCompetencies.querySelector('#bcDevelopmentNeeds');
+
+// Strengths and Development Needs in Behavioral Competencies
+const bcStrengthsList = bcStrengthsSection.querySelector('ul');
+const bcDevelopmentNeedsList = bcDevelopmentNeedsSection.querySelector('ul');
+
+// Action Plan for Behavioral Competencies
+const actionPlanBc = container.querySelector('.action-plan');
+const learningObjectivesBc = actionPlanBc.querySelector('#learning-objectives');
+const interventionBc = actionPlanBc.querySelector('#intervention');
+const timelinessBc = actionPlanBc.querySelector('#timeliness');
+const resourcesNeedsBc = actionPlanBc.querySelector('#resources-needs');
+
+// Buttons Section
+const buttonsContainer = container.querySelector('.buttons-container');
+const backButton = buttonsContainer.querySelector('.back-btn');
+const proceedButton = buttonsContainer.querySelector('.proceed-btn');
+
+
+
 // Function to handle the logic for each competency
 function evaluateCompetency(formId, competencyName, threshold) {
     const form = document.getElementById(formId);
