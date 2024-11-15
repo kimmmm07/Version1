@@ -437,6 +437,7 @@ nav ul li a i {
 /* Main content list styling */
 .main-content-list {
     width: 75%;
+    height: 70px;
 }
 
 .content-item {
@@ -485,7 +486,7 @@ nav ul li a i {
 /* Ensure this section takes up available space */
 .text-container {
     flex-grow: 1; /* Allow the text container to grow */
-    margin-right: 40px; /* Space for the due date icon */
+    margin-right: 40px; /* Space for the due date icon */ 
 }
 
 .menu-dots::after {

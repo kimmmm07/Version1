@@ -486,6 +486,7 @@ nav ul li a i {
 .text-container {
     flex-grow: 1; /* Allow the text container to grow */
     margin-right: 40px; /* Space for the due date icon */
+    height: 40px;
 }
 
 .menu-dots::after {
