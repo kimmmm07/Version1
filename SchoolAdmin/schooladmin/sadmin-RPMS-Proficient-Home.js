@@ -160,8 +160,11 @@ function assignRandomColor(folderElement) {
     }
 }
 
+
+
+
 // Handle folder creation
-createBtn.addEventListener('click', () => {
+createBtn.addEventListener('click', async () => {
     const folderName = form1.value.trim();
     const schoolYear = form2.value;
 
@@ -176,6 +179,32 @@ createBtn.addEventListener('click', () => {
             alert('A folder for this school year already exists. Please select a different year.');
             return; // Exit if a folder for the school year already exists
         }
+
+        try{
+            const formData = new FormData();
+            formData.append('folderName', folderName);
+            formData.append('schoolYear', schoolYear);
+            
+            const response = await fetch('/createFolder', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ folderName, schoolYear }),
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                return true;
+            } else {
+                console.error('Error creating folder:', data.error);
+                return false;
+            }
+        } catch(e){
+            console.error("Error creating folder:", e);
+        }
+        
 
         // Create new folder card
         const newCard = document.createElement('a');
