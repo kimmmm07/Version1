@@ -1,3 +1,34 @@
+// Card Section
+const cardsSection = document.getElementById('cardsSection');
+
+// Card Link
+const cardLink = document.getElementById('cardLink');
+
+// Card and its components
+const card = document.getElementById('card');
+const cardHeader = document.getElementById('cardHeader');
+const headerContent = document.getElementById('headerContent');
+const schoolYear = document.getElementById('schoolYear');
+const headerIcon = document.getElementById('headerIcon');
+const schoolYearIcon = document.getElementById('schoolYearIcon');
+
+// Card Body
+const cardBody = document.getElementById('cardBody');
+const cardBodyText = document.getElementById('cardBodyText');
+const cardBodyList = document.getElementById('cardBodyList');
+
+// List Items
+const listItem1 = document.getElementById('listItem1');
+const listItem2 = document.getElementById('listItem2');
+const listItem3 = document.getElementById('listItem3');
+const listItem4 = document.getElementById('listItem4');
+const listItem5 = document.getElementById('listItem5');
+
+// Card Icon Bottom
+const cardIconBottom = document.getElementById('cardIconBottom');
+const userIcon = document.getElementById('userIcon');
+
+
 // Floating menu toggle
 
 
