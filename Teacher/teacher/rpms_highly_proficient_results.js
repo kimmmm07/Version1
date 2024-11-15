@@ -1,3 +1,31 @@
+// Header Section
+const headerImage = document.querySelector('.header-image');
+const headerTitle = document.querySelectorAll('.header-title'); // There are two h1 elements with the class 'header-title'
+const headerSubtitle = document.getElementById('schoolYear'); // School Year subtitle in the header
+
+// Tabs
+const streamTab = document.querySelector('.tabs a[href="rpms_highly_proficient_stream.html"]');
+const resultsTab = document.querySelector('.tabs a[href="rpms_highly_proficient_results.html"]');
+
+// Container Section
+const studentName = document.getElementById('name');
+const academicYear = document.getElementById('schoolYear'); // Academic year under student name
+
+// Report Table
+const reportTable = document.querySelector('.report-table');
+const rows = reportTable.querySelectorAll('.row');
+const titleCells = rows[0].querySelectorAll('.cell.title'); // Title cells for each KRA and Plus Factor
+const scoreCells = rows[2].querySelectorAll('.cell.score'); // Score cells for each KRA and Plus Factor
+
+// Individual KRA and Plus Factor Scores
+const plusFactorScore = document.getElementById('plusFactorScore');
+const kra4Score = document.getElementById('kra4Score');
+const kra3Score = document.getElementById('kra3Score');
+const kra2Score = document.getElementById('kra2Score');
+const kra1Score = document.getElementById('kra1Score');
+const totalScore = document.getElementById('totalScore');
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');

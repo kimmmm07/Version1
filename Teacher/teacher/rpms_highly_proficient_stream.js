@@ -1,3 +1,26 @@
+// Header Section
+const headerImage = document.querySelector('.header-image');
+const headerTitles = document.querySelectorAll('.header-title'); // Two h1 elements with the class 'header-title'
+const headerSubtitle = document.getElementById('schoolYear'); // School year subtitle
+
+// Tabs Section
+const streamTab = document.querySelector('.tabs a[href="rpms_highly_proficient_stream.html"]');
+const resultsTab = document.querySelector('.tabs a[href="rpms_highly_proficient_results.html"]');
+
+// Upcoming Section
+const upcomingSection = document.querySelector('.upcoming');
+const upcomingList = document.querySelector('.upcoming-list');
+const viewAllLink = upcomingList.querySelector('.view-all a');
+
+// Main Content Section
+const mainContentList = document.querySelector('.main-content-list');
+const kra1Content = mainContentList.querySelector('a[href="rpms_highly_proficient_content1.html"]'); // KRA 1 link
+const kra2Content = mainContentList.querySelector('a[href="rpms_highly_proficient_content2.html"]'); // KRA 2 link
+const kra3Content = mainContentList.querySelector('a[href="rpms_highly_proficient_content3.html"]'); // KRA 3 link
+const kra4Content = mainContentList.querySelector('a[href="rpms_highly_proficient_content4.html"]'); // KRA 4 link
+const plusFactorContent = mainContentList.querySelector('a[href="rpms_highly_proficient_content5.html"]'); // PLUS FACTOR link
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
