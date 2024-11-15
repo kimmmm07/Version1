@@ -26,16 +26,32 @@ const obj6Checkboxes = document.querySelectorAll('#Obj6');
 const backButton = document.querySelector('.back-btn');
 const proceedButton = document.querySelector('.proceed-btn');
 
+ 
+// Function to get values of selected checkboxes
+function getSelectedCheckboxValues(element) {
+    const selectedValues = [];
+    element.forEach(checkbox => {
+        if (checkbox.checked) {
+            selectedValues.push(checkbox.value);
+        }
+    });
+    return selectedValues;
+}
+
+// Example usage
+// const selectedValues = getSelectedCheckboxValues();
+// console.log(selectedValues); // Logs an array of selected checkbox values
+
 
 
 let ipcrf_content = undefined;
 // TODO : REMOVE THE 4 , 5 WHEN THE LOGIC IN FRONT END IS FIX 
-let self_management_selected = [4, 5];
-let professional_ethics_selected = [4, 5];
-let results_focus_selected = [4, 5];
-let teamwork_selected = [4, 5];
-let service_orientation_selected = [4, 5];
-let innovation_selected = [4, 5];
+let self_management_selected = [];
+let professional_ethics_selected = [];
+let results_focus_selected = [];
+let teamwork_selected = [];
+let service_orientation_selected = [];
+let innovation_selected = [];
 
 
 function saveCompetencies() {
@@ -94,12 +110,12 @@ async function updateIPCRF2(){
 
     try {
         let content = ipcrf_content['ipcrf']['content_for_teacher'];
-        content['1']["Selected"] = self_management_selected;
-        content['2']["Selected"] = professional_ethics_selected;
-        content['3']["Selected"] = results_focus_selected;
-        content['4']["Selected"] = teamwork_selected;
-        content['5']["Selected"] = service_orientation_selected;
-        content['6']["Selected"] = innovation_selected;
+        content['1']["Selected"] = getSelectedCheckboxValues(obj1Checkboxes);
+        content['2']["Selected"] = getSelectedCheckboxValues(obj2Checkboxes);
+        content['3']["Selected"] = getSelectedCheckboxValues(obj3Checkboxes);
+        content['4']["Selected"] = getSelectedCheckboxValues(obj4Checkboxes);
+        content['5']["Selected"] = getSelectedCheckboxValues(obj5Checkboxes);
+        content['6']["Selected"] = getSelectedCheckboxValues(obj6Checkboxes);
         formData.append('ipcrf_id', ipcrf_content['ipcrf']['connection_to_other']); // TODO: Get from IPCRF
         formData.append('content', JSON.stringify(content) );
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/update/ipcrf/part2/', {
