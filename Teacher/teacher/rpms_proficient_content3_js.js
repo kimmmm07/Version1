@@ -234,10 +234,154 @@ cancelBtn.addEventListener('click', function () {
     submissionModal.style.display = 'none'; // Close the modal on cancel
 });
 
+
+
+
+let submitted_attachments = [];
+let unsubmitted_attachments = [];
+
+
+async function getAttachments() {
+
+
+    // Use fetch to send the data
+    try {
+
+        // Create a FormData object
+        const formData = new FormData();
+
+        // const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
+        const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
+
+        formData.append('class_work_id', class_work_id); // Include the classowrk ID
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folder/classwork/attachments/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData
+        });
+
+        // Check the response status
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log('Files successfully uploaded:', responseData);
+            
+            submitted_attachments = responseData.submitted;
+            unsubmitted_attachments = responseData.unsumitted;
+
+
+        } else {
+            console.error('Failed to upload files:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error during fetch:', error);
+    }
+}
+
+
+getAttachments();
+
+
+
+
+// Function to send files to backend
+async function sendFilesToBackend() {
+
+
+    // Use fetch to send the data
+    try {
+
+        // Create a FormData object
+        const formData = new FormData();
+
+        // const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
+        const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
+
+        formData.append('class_work_id', class_work_id); // Include the classowrk ID
+        // Append each file to the FormData object
+        uploadedFiles.forEach((file, index) => {
+            formData.append(`file${index}`, file);
+        });
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/rpms/folder/classwork/turnin/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData
+        });
+
+        // Check the response status
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log('Files successfully uploaded:', responseData);
+        } else {
+            console.error('Failed to upload files:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error during fetch:', error);
+    }
+}
+
+
+
+async function unSubmitAttachment() {
+    
+    // Use fetch to send the data
+    try {
+
+        // Create a FormData object
+        const formData = new FormData();
+
+        // const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
+        const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
+
+        formData.append('class_work_id', class_work_id); // Include the classowrk ID
+        // Append each file to the FormData object
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/rpms/folder/classwork/unsubmit/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData
+        });
+
+        // Check the response status
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log('Files successfully uploaded:', responseData);
+        } else {
+            console.error('Failed to upload files:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error during fetch:', error);
+    }
+}
+
+
+
+
+
+
+
+
+
+
 // Confirm Turn In Action
 confirmBtn.addEventListener('click', function () {
     // Set submitted flag to true
     isSubmitted = true;
+
+    sendFilesToBackend();
 
     // Hide the Add or Create button and Turn In button
     addCreateBtn.style.display = 'none'; // Keep space occupied
@@ -260,6 +404,9 @@ confirmBtn.addEventListener('click', function () {
 unsubmitBtn.addEventListener('click', function () {
     // Set submitted flag to false
     isSubmitted = false;
+
+    unSubmitAttachment();
+
 
     // Show Add or Create button and Turn In button again
     addCreateBtn.style.display = 'block'; // Maintain position
