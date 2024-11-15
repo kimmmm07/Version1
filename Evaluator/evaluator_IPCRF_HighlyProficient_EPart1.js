@@ -1,3 +1,5 @@
+const Efficiency1 = document.getElementById("Efficiency1_5");
+
 // KRA 1: Content Knowledge and Pedagogy - Efficiency Ratings
 const efficiency1_5 = document.getElementById("efficiency1_5_option");
 const efficiency1_3 = document.getElementById("efficiency1_3_option");
