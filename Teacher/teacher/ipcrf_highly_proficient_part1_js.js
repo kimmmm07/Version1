@@ -1,3 +1,151 @@
+// KRA 1 - Objective 1
+const efficiency1_5 = document.getElementById('Efficiency1_5');
+const efficiency1_3 = document.getElementById('Efficiency1_3');
+const efficiency1_1 = document.getElementById('Efficiency1_1');
+
+// KRA 1 - Objective 2
+const quality2_5 = document.getElementById('Quality2_5');
+const quality2_4 = document.getElementById('Quality2_4');
+const quality2_3 = document.getElementById('Quality2_3');
+const quality2_2 = document.getElementById('Quality2_2');
+const quality2_1 = document.getElementById('Quality2_1');
+
+const timeliness2_5 = document.getElementById('Timeliness2_5');
+const timeliness2_4 = document.getElementById('Timeliness2_4');
+const timeliness2_3 = document.getElementById('Timeliness2_3');
+const timeliness2_2 = document.getElementById('Timeliness2_2');
+const timeliness2_1 = document.getElementById('Timeliness2_1');
+
+// KRA 2 - Objective 3
+const efficiency3_5 = document.getElementById('Efficiency3_5');
+const efficiency3_3 = document.getElementById('Efficiency3_3');
+const efficiency3_1 = document.getElementById('Efficiency3_1');
+
+// KRA 2 - Objective 4
+const efficiency4_5 = document.getElementById('Efficiency4_5');
+const efficiency4_3 = document.getElementById('Efficiency4_3');
+const efficiency4_1 = document.getElementById('Efficiency4_1');
+
+// KRA 2 - Objective 5
+const efficiency5_5 = document.getElementById('Efficiency5_5');
+const efficiency5_3 = document.getElementById('Efficiency5_3');
+const efficiency5_1 = document.getElementById('Efficiency5_1');
+
+// KRA 2 - Objective 6
+const efficiency6_5 = document.getElementById('Efficiency6_5');
+const efficiency6_3 = document.getElementById('Efficiency6_3');
+const efficiency6_1 = document.getElementById('Efficiency6_1');
+
+// KRA 2 - Objective 7
+const efficiency7_5 = document.getElementById('Efficiency7_5');
+const efficiency7_3 = document.getElementById('Efficiency7_3');
+const efficiency7_1 = document.getElementById('Efficiency7_1');
+
+// KRA 2 - Objective 8
+const quality8_5 = document.getElementById('Quality8_5');
+const quality8_4 = document.getElementById('Quality8_4');
+const quality8_3 = document.getElementById('Quality8_3');
+const quality8_2 = document.getElementById('Quality8_2');
+const quality8_1 = document.getElementById('Quality8_1');
+
+// KRA 3 - Objective 9
+const quality9_1 = document.getElementById('Quality9_1');
+const quality9_2 = document.getElementById('Quality9_2');
+const quality9_3 = document.getElementById('Quality9_3');
+const quality9_4 = document.getElementById('Quality9_4');
+const quality9_5 = document.getElementById('Quality9_5');
+
+const timeliness9_1 = document.getElementById('Timeliness9_1');
+const timeliness9_2 = document.getElementById('Timeliness9_2');
+const timeliness9_3 = document.getElementById('Timeliness9_3');
+const timeliness9_4 = document.getElementById('Timeliness9_4');
+const timeliness9_5 = document.getElementById('Timeliness9_5');
+
+// KRA 4 - Objective 10
+const efficiency10_1 = document.getElementById('Efficiency10_1');
+const efficiency10_3 = document.getElementById('Efficiency10_3');
+const efficiency10_5 = document.getElementById('Efficiency10_5');
+
+// KRA 3 - Objective 11
+const quality11_1 = document.getElementById('Quality11_1');
+const quality11_2 = document.getElementById('Quality11_2');
+const quality11_3 = document.getElementById('Quality11_3');
+const quality11_4 = document.getElementById('Quality11_4');
+const quality11_5 = document.getElementById('Quality11_5');
+
+const timeliness11_1 = document.getElementById('Timeliness11_1');
+const timeliness11_2 = document.getElementById('Timeliness11_2');
+const timeliness11_3 = document.getElementById('Timeliness11_3');
+const timeliness11_4 = document.getElementById('Timeliness11_4');
+const timeliness11_5 = document.getElementById('Timeliness11_5');
+
+// KRA 4 - Objective 12
+const quality12_1 = document.getElementById('Quality12_1');
+const quality12_2 = document.getElementById('Quality12_2');
+const quality12_3 = document.getElementById('Quality12_3');
+const quality12_4 = document.getElementById('Quality12_4');
+const quality12_5 = document.getElementById('Quality12_5');
+
+const timeliness12_1 = document.getElementById('Timeliness12_1');
+const timeliness12_2 = document.getElementById('Timeliness12_2');
+const timeliness12_3 = document.getElementById('Timeliness12_3');
+const timeliness12_4 = document.getElementById('Timeliness12_4');
+const timeliness12_5 = document.getElementById('Timeliness12_5');
+
+// KRA 4 - Objective 13
+const quality13_1 = document.getElementById('Quality13_1');
+const quality13_2 = document.getElementById('Quality13_2');
+const quality13_3 = document.getElementById('Quality13_3');
+const quality13_4 = document.getElementById('Quality13_4');
+const quality13_5 = document.getElementById('Quality13_5');
+
+const timeliness13_1 = document.getElementById('Timeliness13_1');
+const timeliness13_2 = document.getElementById('Timeliness13_2');
+const timeliness13_3 = document.getElementById('Timeliness13_3');
+const timeliness13_4 = document.getElementById('Timeliness13_4');
+const timeliness13_5 = document.getElementById('Timeliness13_5');
+
+// KRA 4 - Objective 14
+const quality14_1 = document.getElementById('Quality14_1');
+const quality14_2 = document.getElementById('Quality14_2');
+const quality14_3 = document.getElementById('Quality14_3');
+const quality14_4 = document.getElementById('Quality14_4');
+const quality14_5 = document.getElementById('Quality14_5');
+
+const efficiency14_1 = document.getElementById('Efficiency14_1');
+const efficiency14_2 = document.getElementById('Efficiency14_2');
+const efficiency14_3 = document.getElementById('Efficiency14_3');
+const efficiency14_4 = document.getElementById('Efficiency14_4');
+const efficiency14_5 = document.getElementById('Efficiency14_5');
+
+// Plus Factor Form Elements
+const quality15_5 = document.getElementById('Quality15_5');
+const quality15_4 = document.getElementById('Quality15_4');
+const quality15_3 = document.getElementById('Quality15_3');
+const quality15_2 = document.getElementById('Quality15_2');
+const quality15_1 = document.getElementById('Quality15_1');
+
+const efficiency15_5 = document.getElementById('Efficiency15_5');
+const efficiency15_4 = document.getElementById('Efficiency15_4');
+const efficiency15_3 = document.getElementById('Efficiency15_3');
+const efficiency15_2 = document.getElementById('Efficiency15_2');
+const efficiency15_1 = document.getElementById('Efficiency15_1');
+
+const timeliness15_5 = document.getElementById('Timeliness15_5');
+const timeliness15_4 = document.getElementById('Timeliness15_4');
+const timeliness15_3 = document.getElementById('Timeliness15_3');
+const timeliness15_2 = document.getElementById('Timeliness15_2');
+const timeliness15_1 = document.getElementById('Timeliness15_1');
+
+// Average Score Elements
+const averageScoreLabel = document.getElementById('average-score');
+const ratingDiv = document.getElementById('rating');
+
+// Buttons
+const backBtn = document.querySelector('.back-btn');
+const saveButton = document.getElementById('saveButton');
+
+
 
 let averageScore = 0;
 let plusFactor = 0;

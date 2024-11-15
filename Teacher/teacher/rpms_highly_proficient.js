@@ -1,3 +1,28 @@
+// Cards Section
+const cardsSection = document.querySelector('.cards-section');
+
+// Card Link
+const cardLink = cardsSection.querySelector('.card-link'); // The anchor tag that wraps the card
+
+// Card Elements
+const card = cardsSection.querySelector('.card');
+const cardHeader = card.querySelector('.card-header'); // The card header
+const cardBody = card.querySelector('.card-body'); // The card body
+
+// Header Content
+const headerContent = cardHeader.querySelector('.header-content'); // The content inside the card header (e.g., text)
+const headerSubheader = cardHeader.querySelector('.subheader'); // The subheader with the school year
+const headerIcon = cardHeader.querySelector('.header-icon img'); // The image inside the header
+
+// Card Body Content
+const cardText = cardBody.querySelector('p'); // The paragraph inside the card body (empty in this case)
+const cardList = cardBody.querySelector('ul'); // The unordered list inside the card body
+const cardListItems = cardList.querySelectorAll('li'); // All list items inside the unordered list
+
+// Card Icon Bottom
+const cardIconBottom = cardBody.querySelector('.card-icon-bottom img'); // The image at the bottom of the card body (user icon)
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');

@@ -1,3 +1,36 @@
+// Breadcrumb Links
+const rpmsLink = document.querySelector('.breadcrumb ul li a:nth-child(1)');
+const toDoLink = document.querySelector('.breadcrumb ul li a:nth-child(2)');
+
+// Tabs
+const pendingTab = document.getElementById('pending');
+const doneTab = document.getElementById('done');
+
+// Dropdown Container
+const dropdownContainer = document.querySelector('.dropdown-container');
+
+// Dropdown Items
+const noDueDateItem = document.querySelector('.dropdown-item:nth-child(1)');
+const thisWeekItem = document.querySelector('.dropdown-item:nth-child(2)');
+const nextWeekItem = document.querySelector('.dropdown-item:nth-child(3)');
+const laterItem = document.querySelector('.dropdown-item:nth-child(4)');
+
+// Content for KRA Objectives and PLUS FACTOR
+const kra1Content = document.querySelector('.content-item:nth-child(1)'); // KRA 1
+const kra2Content = document.querySelector('.content-item:nth-child(2)'); // KRA 2
+const kra3Content = document.querySelector('.content-item:nth-child(3)'); // KRA 3
+const kra4Content = document.querySelector('.content-item:nth-child(4)'); // KRA 4
+const plusFactorContent = document.querySelector('.content-item:nth-child(5)'); // PLUS FACTOR
+
+// School Year Element
+const schoolYear = document.querySelectorAll('#schoolYear');
+
+// Dropdown Content for Time Frames
+const thisWeekContent = document.getElementById('thisWeekContent');
+const nextWeekContent = document.getElementById('nextWeekContent');
+const laterContent = document.getElementById('laterContent');
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
