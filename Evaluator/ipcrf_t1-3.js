@@ -68,3 +68,23 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+document.querySelectorAll('#ipcrf-tbody tr').forEach(row => {
+    const isReviewed = row.getAttribute('data-reviewed') === 'true';
+    const statusCell = row.querySelector('.status');
+    const reviewLink = row.querySelector('.review');
+
+    if (isReviewed) {
+        statusCell.textContent = 'Submitted';
+        statusCell.style.color = 'green';  // Set color to green for Submitted
+        reviewLink.textContent = 'Reviewed';
+        reviewLink.style.color = 'gray';
+        reviewLink.href = '#';
+    } else {
+        statusCell.textContent = 'Pending';
+        statusCell.style.color = 'red';  // Set color to red for Pending
+        reviewLink.textContent = 'Review';
+        reviewLink.style.color = '';
+        reviewLink.href = 'evaluator_IPCRF_Proficient_EPart1.html';
+    }
+});
