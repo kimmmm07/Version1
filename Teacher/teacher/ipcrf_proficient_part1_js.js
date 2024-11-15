@@ -59,6 +59,11 @@ const timeliness12_2 = document.getElementById('Timeliness12_2');
 const timeliness12_1 = document.getElementById('Timeliness12_1');
 
 // KRA 3: Utilized assessment data
+const efficiency10_5 = document.getElementById('Efficiency10_5');
+const efficiency10_3 = document.getElementById('Efficiency10_3');
+const efficiency10_1 = document.getElementById('Efficiency10_1');
+
+
 const quality11_5 = document.getElementById('Quality11_5');
 const quality11_4 = document.getElementById('Quality11_4');
 const quality11_3 = document.getElementById('Quality11_3');
@@ -232,7 +237,17 @@ function getRating(averageScore) {
 
 
 
-
+function getRateEfficiency10(){
+    if (efficiency10_5.checked) {
+        return 5;
+    } else if (efficiency10_3.checked) {
+        return 3;
+    } else if (efficiency10_1.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
 
 
 function getRateEfficiency1() {
@@ -597,26 +612,39 @@ async function updateIPCRF1(){
             
         let teacher_content = ipcrf_content['ipcrf']['content_for_teacher']
         
-        // teacher_content['Content Knowledge and Pedagogy']['1']['EFFICIENCY']['Rate'] = getRateEfficiency1();
-        // teacher_content['Content Knowledge and Pedagogy']['1']['TIMELINES']['Rate'] = getRatetimeliness1();
-        // teacher_content['Content Knowledge and Pedagogy']['1']['QUALITY']['Rate'] = getRateQuality1();
+        teacher_content['Content Knowledge and Pedagogy']['1']['EFFICIENCY']['Rate'] = getRateEfficiency1();
+        teacher_content['Content Knowledge and Pedagogy']['2']['EFFICIENCY']['Rate'] = getRateEfficiency2();
+        teacher_content['Content Knowledge and Pedagogy']['3']['EFFICIENCY']['Rate'] = getRateEfficiency3();
+        teacher_content['Content Knowledge and Pedagogy']['4']['EFFICIENCY']['Rate'] = getRateEfficiency4();
 
-        // teacher_content['Content Knowledge and Pedagogy']['2']['EFFICIENCY']['Rate'] = getRateEfficiency2();
-        // teacher_content['Content Knowledge and Pedagogy']['2']['TIMELINES']['Rate'] = getRatetimeliness1();
-        // teacher_content['Content Knowledge and Pedagogy']['2']['QUALITY']['Rate'] = getRateQuality1();
+        teacher_content['Learning Environment & Diversity of Learners']['5']['EFFICIENCY']['Rate'] = getRateEfficiency5();
+        teacher_content['Learning Environment & Diversity of Learners']['6']['EFFICIENCY']['Rate'] = getRateEfficiency6();
+        teacher_content['Learning Environment & Diversity of Learners']['7']['EFFICIENCY']['Rate'] = getRateEfficiency7();
+        teacher_content['Learning Environment & Diversity of Learners']['8']['EFFICIENCY']['Rate'] = getRateEfficiency8();
 
-        // teacher_content['Content Knowledge and Pedagogy']['3']['EFFICIENCY']['Rate'] = getRateEfficiency3();
-        // teacher_content['Content Knowledge and Pedagogy']['3']['TIMELINES']['Rate'] = getRatetimeliness1();
-        // teacher_content['Content Knowledge and Pedagogy']['3']['QUALITY']['Rate'] = getRateQuality1();
+        teacher_content['Curriculum and Planning & Assessment and Reporting']['9']['EFFICIENCY']['Rate'] = getRateEfficiency9();
+        teacher_content['Curriculum and Planning & Assessment and Reporting']['9']['QUALITY']['Rate'] = getRateQuality9();
+        
+        teacher_content['Curriculum and Planning & Assessment and Reporting']['10']['EFFICIENCY']['Rate'] = getRateEfficiency10();
+
+        teacher_content['Curriculum and Planning & Assessment and Reporting']['11']['QUALITY']['Rate'] = getRateQuality11();
+        teacher_content['Curriculum and Planning & Assessment and Reporting']['11']['TIMELINES']['Rate'] = getRateTimeliness11();
+
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['QUALITY']['Rate'] = getRateQuality12();
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['TIMELINES']['Rate'] = getRateTimeliness12();
+
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['QUALITY']['Rate'] = getRateQuality13();
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['TIMELINES']['Rate'] = getRateTimeliness13();
+
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['QUALITY']['Rate'] = getRateQuality14();
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['TIMELINES']['Rate'] = getRateTimeliness14();
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['EFFICIENCY']['Rate'] = getRateEfficiency14();
+
+        teacher_content['PLUS FACTOR']['15']['EFFICIENCY']['Rate'] = getRateEfficiency15();
+        teacher_content['PLUS FACTOR']['15']['TIMELINES']['Rate'] = getRatetimeliness15();
+        teacher_content['PLUS FACTOR']['15']['QUALITY']['Rate'] = getRateQuality15();
 
 
-        // teacher_content['PLUS FACTOR']['15']['EFFICIENCY']['Rate'] = getRateEfficiency15();
-        // teacher_content['PLUS FACTOR']['15']['TIMELINES']['Rate'] = getRatetimeliness15();
-        // teacher_content['PLUS FACTOR']['15']['QUALITY']['Rate'] = getRateQuality15();
-
-
-
-                    
         const formData = new FormData();
         // formData.append('employee_id', employeeId); 
         // formData.append('password', password); 
@@ -649,3 +677,5 @@ async function updateIPCRF1(){
         console.error("Error during fetch:", error);
     }
 }
+
+
