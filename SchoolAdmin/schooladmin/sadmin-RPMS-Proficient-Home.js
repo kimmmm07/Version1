@@ -163,6 +163,41 @@ function assignRandomColor(folderElement) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+let folders = undefined;
+
+async function getRPMSFolder() {
+    try{
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/forms/rpms/folders/proficient', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include', 
+        });
+        folders = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ",folders);
+        } else {
+            console.log("Error Data : ",folders);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+getRPMSFolder();
+
 // Handle folder creation
 createBtn.addEventListener('click', async () => {
     const folderName = form1.value.trim();
@@ -182,24 +217,27 @@ createBtn.addEventListener('click', async () => {
 
         try{
             const formData = new FormData();
-            formData.append('folderName', folderName);
-            formData.append('schoolYear', schoolYear);
-            
-            const response = await fetch('/createFolder', {
+            formData.append('folder_name', folderName);
+            formData.append('school_year', schoolYear);
+            formData.append('position_rpms', 'Proficient');
+            formData.append('background_color', '#3498DB');
+            formData.append('color', '#FFFFFF');
+
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/school/forms/rpms/folders/create/', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest',
                 },
-                body: JSON.stringify({ folderName, schoolYear }),
+                credentials: 'include',
+                body: formData,
             });
-    
             const data = await response.json();
+     
     
             if (response.ok) {
-                return true;
+                console.log('Folder created successfully:', data);
             } else {
-                console.error('Error creating folder:', data.error);
-                return false;
+                console.error('Error creating folder:', data.error); 
             }
         } catch(e){
             console.error("Error creating folder:", e);
@@ -208,7 +246,7 @@ createBtn.addEventListener('click', async () => {
 
         // Create new folder card
         const newCard = document.createElement('a');
-        newCard.href = "admin-RPMS-Proficient-Landing.html"; // Redirect to this page when clicked
+        newCard.href = "sadmin-RPMS-Proficient-Landing.html"; // Redirect to this page when clicked
         newCard.classList.add('card-link');
 
         newCard.innerHTML = `
@@ -249,6 +287,24 @@ createBtn.addEventListener('click', async () => {
         alert('Please fill in both Folder Name and School Year.');
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Function to delete a folder
 function deleteFolder(button) {
