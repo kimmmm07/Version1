@@ -197,7 +197,7 @@
     
     <div class="form-actions">
         <a href="actors_registration.html" class="cancel-btn">Cancel</a>
-        <a href="#" class="register-btn" onclick="validateForm()">Register</a>
+        <a class="register-btn" onclick="registerPeople()">Register</a>
     </div>
 
         
@@ -263,53 +263,6 @@
         }
     
         getSchools();
-    
-        async function registerPeople(){
-            const formData = new FormData();
-            formData.append('role', 'Teacher');
-            formData.append('employee_id', employeeId.value);
-            formData.append('first_name', firstName.value);
-            formData.append('middle_name', middleName.value);
-            formData.append('last_name', lastName.value);
-            formData.append('email_address', email.value);
-            formData.append('job_started', jobStarted.value);
-            formData.append('position', position.value); 
-            formData.append('grade_level', gradeLevel.value);
-            formData.append('department', department.value); 
-            formData.append('school_id', school.value);
-            formData.append('password', password.value);
-            formData.append('confirm_password', confirmPassword.value);
-    
-            if (password !== cpassword) {
-                window.alert("Password doesn't match.");
-                return;
-            } 
-        
-            console.log(formData);
-            try {
-                const response = await fetch('https://bnahs.pythonanywhere.com/api/register/people/', {
-                    method: 'POST',
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest',
-                    },
-                    body: formData,
-                    credentials: 'include',
-                });
-        
-                const data = await response.json();
-                if (response.ok) {
-                    alert("School Registered.");
-                    window.location.href = 'get-started.html';
-                } else {
-                    console.log("Error Data:", data);
-                    window.alert("Something went wrong.");
-                }
-            } catch (error) {
-                console.error("Fetch error:", error);
-                window.alert("Network error occurred.");
-            }
-        }
-    
 
         function showError(id, message) {
         const errorElement = document.getElementById(id);
@@ -322,6 +275,89 @@
         errorElement.innerText = "";
         errorElement.style.display = "none";
     }
+
+
+
+
+
+
+
+
+
+
+    
+async function registerPeople () {
+    
+
+    const formData = new FormData();
+
+    // Format the date to "August 20, 2024"
+    const jobStartedInput = document.getElementById('job-started').value;
+    let formattedDate = '';
+    if (jobStartedInput) {
+        const date = new Date(jobStartedInput);
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        formattedDate = date.toLocaleDateString('en-US', options);
+    }
+
+    // Manually append each form field to formData, casting each value to a string
+    formData.append('employee_id', String(document.getElementById('employee-id').value));
+    formData.append('school_id', String(school.value));
+    formData.append('first_name', String(document.getElementById('first-name').value));
+    formData.append('middle_name', String(document.getElementById('middle-name').value));
+    formData.append('last_name', String(document.getElementById('last-name').value));
+    formData.append('email_address', String(document.getElementById('email').value));
+    formData.append('job_started', formattedDate);
+    formData.append('position', String(document.getElementById('position').value));
+    const position = String(document.getElementById('position').value);
+    let role = "Teacher";
+
+    formData.append('grade_level', String(document.getElementById('grade-level').value));
+    formData.append('role', role);
+    formData.append('department', String(document.getElementById('department').value));
+    formData.append('password', String(document.getElementById('password').value));
+    formData.append('confirm_password', String(document.getElementById('confirm-password').value));
+
+    if(String(document.getElementById('password').value) !== String(document.getElementById('confirm-password').value)){
+        alert("Password doesn't match.");
+        return
+    }
+
+    console.log(formData);
+
+    // Make the fetch request
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/school/register/people/', {
+        method: 'POST',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: formData,
+        credentials: 'include',
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+        console.log("Success Data: ", data);
+        alert("Registration succeeded");
+        ///window.location.href = 'faculty.html'; 
+    } else {
+        console.log("Error Data: ", data);
+        alert("Registration failed");
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
 
     function validateForm() {
         let isValid = true;
@@ -413,13 +449,13 @@
 
         // Validate Password with 12+ characters, uppercase, lowercase, number, and special character
         const password = document.getElementById("password");
-        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{12,}$/;
-        if (!passwordPattern.test(password.value)) {
-            showError("password-error", "Password must be at least 12 characters and contain a special character.");
-            isValid = false;
-        } else {
-            clearError("password-error");
-        }
+        //const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{12,}$/;
+        //if (!passwordPattern.test(password.value)) {
+        //    showError("password-error", "Password must be at least 12 characters and contain a special character.");
+        //    isValid = false;
+        //} else {
+        //    clearError("password-error");
+        //}
 
         // Validate Confirm Password
         const confirmPassword = document.getElementById("confirm-password");
@@ -432,6 +468,7 @@
 
         // If all fields are valid, submit the form
         if (isValid) {
+            registerPeople();
             document.getElementById("add-people-form").submit();
         }
     }
@@ -445,16 +482,16 @@
     
     
     // Modal logic
-        const logoutButton = document.getElementById('logoutLink');  // Logout button
+        //const logoutButton = document.getElementById('logoutLink');  // Logout button
         const logoutModal = document.getElementById('logoutModal');
         const yesButton = document.querySelector('.yes-btn');
         const noButton = document.querySelector('.no-btn');
         
         // Show modal when logout is clicked
-        logoutButton.addEventListener('click', function(event) {
-            event.preventDefault();  // Prevent default logout behavior
-            logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
-        });
+        //logoutButton.addEventListener('click', function(event) {
+        //    event.preventDefault();  // Prevent default logout behavior
+        //    logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
+        //});
         
         // Hide modal when "No" is clicked
         noButton.addEventListener('click', function() {
@@ -486,7 +523,14 @@
     }
 });
 
+
+
+
+
+
+
+
 </script>
-    <script src="add-people.js" type="module"></script>
+    <script src="add-people.js"></script>
 </body>
 </html>
