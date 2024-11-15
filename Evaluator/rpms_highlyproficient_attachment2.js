@@ -27,6 +27,12 @@ const returnBtn = document.getElementById('return-btn');
 const fileSection = document.getElementById('file-section');
 const sampleAttachment = document.getElementById('sample-attachment');
 
+// Report Table Scores
+const kra5Score = document.getElementById("kra5Score");
+const kra6Score = document.getElementById("kra6Score");
+const kra7Score = document.getElementById("kra7Score");
+const kra8Score = document.getElementById("kra8Score");
+
 // Grade Section in Sidebar
 const gradeSection = document.getElementById('grade-section');
 const gradeItem1 = document.getElementById('grade-item-1');

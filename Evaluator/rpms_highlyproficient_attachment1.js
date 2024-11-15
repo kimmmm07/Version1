@@ -29,10 +29,11 @@ const sampleAttachment = document.getElementById('sample-attachment');
 
 // Grade Section in Sidebar
 const gradeSection = document.getElementById('grade-section');
-const gradeItem1 = document.getElementById('grade-item-1');
-const gradeItem2 = document.getElementById('grade-item-2');
-const gradeItem3 = document.getElementById('grade-item-3');
-const gradeItem4 = document.getElementById('grade-item-4');
+const plusFactorScore = document.getElementById("plusFactorScore");
+const kra4Score = document.getElementById("kra4Score");
+const kra3Score = document.getElementById("kra3Score");
+const kra2Score = document.getElementById("kra2Score");
+const kra1Score = document.getElementById("kra1Score");
 
 // Total Score in Sidebar
 const totalScore = document.getElementById('total-score');
