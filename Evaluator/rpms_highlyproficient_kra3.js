@@ -21,13 +21,12 @@ const dotsMenu = document.querySelector('#dots-menu');
 const dots = document.querySelector('#dots');
 
 // KRA Content (Objectives)
-const kraContent = document.querySelector('#kra-content');
-const objective9 = document.querySelector('#objective-9');
-const objective9List = document.querySelector('#objective-9-list');
-const objective10 = document.querySelector('#objective-10');
-const objective10List = document.querySelector('#objective-10-list');
-const objective11 = document.querySelector('#objective-11');
-const objective11List = document.querySelector('#objective-11-list');
+const kraObjective9 = document.getElementById('kraObjective9');
+const objective9 = document.getElementById('Objective9');
+const kraObjective10 = document.getElementById('kraObjective10');
+const objective10 = document.getElementById('Objective10');
+const kraObjective11 = document.getElementById('kraObjective11');
+const objective11 = document.getElementById('Objective11');
 
 // Comments Section
 const commentsSection = document.querySelector('#comments-section');

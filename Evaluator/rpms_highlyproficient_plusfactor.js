@@ -22,8 +22,8 @@ const dots = document.querySelector('#dots');
 
 // KRA Content (Objective 15)
 const kraContent = document.querySelector('#kra-content');
-const objective15 = document.querySelector('#objective-15');
-const objective15List = document.querySelector('#objective-15-list');
+const kraObjective15 = document.getElementById('kraObjective15');
+const objective15 = document.getElementById('Objective15');
 
 // Comments Section
 const commentsSection = document.querySelector('#comments-section');
