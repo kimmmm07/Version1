@@ -289,7 +289,10 @@ createBtn.addEventListener('click', async () => {
 });
 
 
-
+function onclickOpenFolder(rpms_folder_id){
+    // GAMITON MO PARA PAG CHANGE SCREEN SA PAG MAOPEN ANG RPMS
+    sessionStorage.setItem("rpms_folder_id", rpms_folder_id);
+}
 
 
 
