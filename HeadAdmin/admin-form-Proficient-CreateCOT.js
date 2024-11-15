@@ -8,18 +8,75 @@ document.addEventListener("DOMContentLoaded", closeModal);
 
 const selectedYears = [];  // Array to store selected school years
 
-function createFolder() {
-    const selectedYear = document.getElementById('form2').value;
+// function createFolder() {
+//     const selectedYear = document.getElementById('form2').value;
 
+//     if (selectedYear) {
+//         // Check if the selected year has already been created
+//         if (selectedYears.includes(selectedYear)) {
+//             alert('The selected school year already exists.');
+//             return;
+//         }
+
+//         // Add the selected year to the array
+//         selectedYears.push(selectedYear);
+
+//         const categoryContainer = document.getElementById('categoryContainer');
+//         const newCategory = document.createElement('div');
+//         newCategory.className = 'form-category';
+//         newCategory.innerHTML = `
+//             <div class="horizontal-background"></div>
+//             <h3 class="category-label">${selectedYear}</h3>
+//             <a href="admin-form-Proficient-COT-Quarters.html" class="form-link">
+//                 <div class="form-item">
+//                     <i class="fas fa-file-alt custom-icon"></i>
+//                     Rating Sheet for Proficient Teacher
+//                 </div>
+//             </a>
+            
+//         `;
+
+//         // Insert the new category at the top of the categoryContainer
+//         categoryContainer.insertAdjacentElement('afterbegin', newCategory);
+
+//         // Disable the selected year option
+//         document.querySelector(`#form2 option[value="${selectedYear}"]`).disabled = true;
+
+//         // Optional: Add margin to the new category to pull it closer to the divider
+//         newCategory.style.marginTop = '-10px';  // Adjust this value as needed
+
+//         // Close the modal after creating the category
+//         closeModal();
+//     } else {
+//         alert('Please select a school year.');
+//     }
+// }
+
+// Event listener to show the modal when the "Create" button is clicked
+
+async function createFolder() {
+    const selectedYear = String(document.getElementById('form2').value);
     if (selectedYear) {
-        // Check if the selected year has already been created
-        if (selectedYears.includes(selectedYear)) {
-            alert('The selected school year already exists.');
-            return;
-        }
+        const formData = new FormData();
+        formData.append('school_year', selectedYear);
+        formData.append('type_proficient', 'Proficient');
 
-        // Add the selected year to the array
-        selectedYears.push(selectedYear);
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/school/evaluator/create/cot/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            body: formData,
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            console.log("Success Data: ", data);
+        } else {
+            console.log("Error Data: ", data);
+        }
 
         const categoryContainer = document.getElementById('categoryContainer');
         const newCategory = document.createElement('div');
@@ -27,32 +84,25 @@ function createFolder() {
         newCategory.innerHTML = `
             <div class="horizontal-background"></div>
             <h3 class="category-label">${selectedYear}</h3>
-            <a href="admin-form-Proficient-COT-Quarters.html" class="form-link">
+            
+            <a href="admin-form-HighlyProficient-COT-Quarters.html" class="form-link">
                 <div class="form-item">
-                    <i class="fas fa-file-alt custom-icon"></i>
-                    Rating Sheet for Proficient Teacher
+                    <i class="fas fa-file-alt"></i>
+                    Rating Sheet for Highly Proficient Teacher
                 </div>
             </a>
-            
         `;
-
-        // Insert the new category at the top of the categoryContainer
         categoryContainer.insertAdjacentElement('afterbegin', newCategory);
-
-        // Disable the selected year option
-        document.querySelector(`#form2 option[value="${selectedYear}"]`).disabled = true;
-
-        // Optional: Add margin to the new category to pull it closer to the divider
-        newCategory.style.marginTop = '-10px';  // Adjust this value as needed
-
-        // Close the modal after creating the category
         closeModal();
     } else {
         alert('Please select a school year.');
     }
 }
 
-// Event listener to show the modal when the "Create" button is clicked
+// document.getElementById('createBtn').addEventListener('click', createFolder);
+
+
+
 document.querySelector('.create-btn').addEventListener('click', function() {
     document.getElementById('formModal').style.display = 'flex'; // Change to 'block' if necessary
 });
