@@ -101,7 +101,49 @@ async function createFolder() {
 
 // document.getElementById('createBtn').addEventListener('click', createFolder);
 
+async function populateFolders() {
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/school/evaluator/get/cot/proficient', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+        });
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data: ", data); 
+            data.school_years.forEach(school_year => {
+                selectedYears.push(school_year);
 
+                const categoryContainer = document.getElementById('categoryContainer');
+                const newCategory = document.createElement('div');
+                newCategory.className = 'form-category';
+                newCategory.innerHTML = `
+                    <div class="horizontal-background"></div>
+                    <h3 class="category-label">${school_year}</h3>
+                    <a href="admin-form-Proficient-COT-Quarters.html" class="form-link">
+                        <div class="form-item">
+                            <i class="fas fa-file-alt custom-icon"></i>
+                            Rating Sheet for Proficient Teacher
+                        </div>
+                    </a>
+                    
+                `;
+
+                // Insert the new category at the top of the categoryContainer
+                categoryContainer.insertAdjacentElement('afterbegin', newCategory);
+            });
+        } else {
+            console.log("Error Data: ", data);
+        }
+    } catch (error) {
+        console.error('Error fetching folders:', error);
+    }
+};
+
+
+populateFolders();
 
 document.querySelector('.create-btn').addEventListener('click', function() {
     document.getElementById('formModal').style.display = 'flex'; // Change to 'block' if necessary
