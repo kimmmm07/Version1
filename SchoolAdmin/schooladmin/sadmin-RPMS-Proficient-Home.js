@@ -178,7 +178,7 @@ let folders = undefined;
 async function getRPMSFolder() {
     try{
 
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/forms/rpms/folders/proficient', {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/forms/rpms/folders/proficient', {
             method: 'GET',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
