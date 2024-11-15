@@ -131,11 +131,14 @@ h1 {
     padding-bottom: 1px;
     margin-left: 70px;
     gap: 10px;
+    margin-top: 20px;
 }
 
 hr {
     border: 1px solid #ddd; 
     width: 1200px;
+    margin-top: 10px;
+    margin-left: 70px;
 }
         
 .tab {
