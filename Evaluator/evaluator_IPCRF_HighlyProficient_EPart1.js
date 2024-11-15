@@ -1,4 +1,26 @@
 const Efficiency1 = document.getElementById("Efficiency1_5");
+const Quality2 = document.getElementById("Quality2_5");
+const Timeliness2 = document.getElementById("Timeliness2_5");
+const Efficiency3 = document.getElementById("Efficiency3_5");
+const Quality4 = document.getElementById("Quality4_5");
+const Efficiency5 = document.getElementById("Efficiency5_5");
+const Efficiency6 = document.getElementById("Efficiency6_5");
+const Efficiency7 = document.getElementById("Efficiency7_5");
+const Quality8 = document.getElementById("Quality8_5");
+const Quality9 = document.getElementById("Quality9_5");
+const Timeliness9 = document.getElementById("Timeliness9_5");
+const Efficiency10 = document.getElementById("Efficiency10_5");
+const Quality11 = document.getElementById("Quality11_5");
+const Timeliness11 = document.getElementById("Timeliness11_5");
+const Quality12 = document.getElementById("Quality12_5");
+const Timeliness12 = document.getElementById("Timeliness12_5");
+const Quality13 = document.getElementById("Quality13_5");
+const Timeliness13 = document.getElementById("Timeliness13_5");
+const Quality14 = document.getElementById("Quality14_5");
+const Efficiency14 = document.getElementById("Efficiency14_5");
+const Quality15 = document.getElementById("Quality15_5");
+const Efficiency15 = document.getElementById("Efficiency15_5");
+const Timeliness15 = document.getElementById("Timeliness15_5");
 
 // KRA 1: Content Knowledge and Pedagogy - Efficiency Ratings
 const efficiency1_5 = document.getElementById("efficiency1_5_option");
