@@ -256,7 +256,7 @@ createBtn.addEventListener('click', async () => {
                         ${folderName}
                         <span class="subheader">${schoolYear}</span>
                     </div>
-                    <button class="delete-btn" onclick="deleteFolder(this)">&#10006;</button>
+                    
                     <div class="header-icon sy-icon">SY</div>
                 </div>
                 <div class="card-body">
