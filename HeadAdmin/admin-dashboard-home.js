@@ -146,7 +146,7 @@ window.addEventListener('load', async function() {
     const data = await response.json();
     if (response.ok) {
         console.log("Success Data : ",data);
-        this.document.getElementById("total-school").textContent = data.total_schools;
+        this.document.getElementById("total-school").textContent = data.total_accepted_schools;
     } else {
         console.log("Error Data : ",data);
     }
