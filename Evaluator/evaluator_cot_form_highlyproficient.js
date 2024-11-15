@@ -28,6 +28,79 @@ const ratingButtonsQ6 = document.querySelectorAll("#question6 .rating-button");
 const ratingButtonsQ7 = document.querySelectorAll("#question7 .rating-button");
 const ratingButtonsQ8 = document.querySelectorAll("#question8 .rating-button");
 
+
+// Variables for Question 1 rating buttons
+const q1Rating4 = document.getElementById('q1-rating-4');
+const q1Rating5 = document.getElementById('q1-rating-5');
+const q1Rating6 = document.getElementById('q1-rating-6');
+const q1Rating7 = document.getElementById('q1-rating-7');
+const q1Rating8 = document.getElementById('q1-rating-8');
+const q1RatingNo = document.getElementById('q1-rating-no');
+
+// Variables for Question 2 rating buttons
+const q2Rating4 = document.getElementById('q2-rating-4');
+const q2Rating5 = document.getElementById('q2-rating-5');
+const q2Rating6 = document.getElementById('q2-rating-6');
+const q2Rating7 = document.getElementById('q2-rating-7');
+const q2Rating8 = document.getElementById('q2-rating-8');
+const q2RatingNo = document.getElementById('q2-rating-no');
+
+// Variables for Question 3 rating buttons
+const q3Rating3 = document.getElementById('q3-rating-3');
+const q3Rating4 = document.getElementById('q3-rating-4');
+const q3Rating5 = document.getElementById('q3-rating-5');
+const q3Rating6 = document.getElementById('q3-rating-6');
+const q3Rating7 = document.getElementById('q3-rating-7');
+const q3RatingNo = document.getElementById('q3-rating-no');
+
+// Variables for Question 4 rating buttons
+const q4Rating4 = document.getElementById('q4-rating-4');
+const q4Rating5 = document.getElementById('q4-rating-5');
+const q4Rating6 = document.getElementById('q4-rating-6');
+const q4Rating7 = document.getElementById('q4-rating-7');
+const q4Rating8 = document.getElementById('q4-rating-8');
+const q4RatingNo = document.getElementById('q4-rating-no');
+
+// Variables for Question 5 rating buttons
+const q5Rating4 = document.getElementById('q5-rating-4');
+const q5Rating5 = document.getElementById('q5-rating-5');
+const q5Rating6 = document.getElementById('q5-rating-6');
+const q5Rating7 = document.getElementById('q5-rating-7');
+const q5Rating8 = document.getElementById('q5-rating-8');
+const q5RatingNo = document.getElementById('q5-rating-no');
+
+// Variables for Question 6 rating buttons
+const q6Rating4 = document.getElementById('q6-rating-4');
+const q6Rating5 = document.getElementById('q6-rating-5');
+const q6Rating6 = document.getElementById('q6-rating-6');
+const q6Rating7 = document.getElementById('q6-rating-7');
+const q6Rating8 = document.getElementById('q6-rating-8');
+const q6RatingNo = document.getElementById('q6-rating-no');
+
+// Variables for Question 7 rating buttons
+const q7Rating4 = document.getElementById('q7-rating-4');
+const q7Rating5 = document.getElementById('q7-rating-5');
+const q7Rating6 = document.getElementById('q7-rating-6');
+const q7Rating7 = document.getElementById('q7-rating-7');
+const q7Rating8 = document.getElementById('q7-rating-8');
+const q7RatingNo = document.getElementById('q7-rating-no');
+
+// Variables for Question 8 rating buttons
+const q8Rating4 = document.getElementById('q8-rating-4');
+const q8Rating5 = document.getElementById('q8-rating-5');
+const q8Rating6 = document.getElementById('q8-rating-6');
+const q8Rating7 = document.getElementById('q8-rating-7');
+const q8Rating8 = document.getElementById('q8-rating-8');
+const q8RatingNo = document.getElementById('q8-rating-no');
+
+// Function to handle rating selection
+function selectRating(button, questionId, rating) {
+    console.log(`Question ${questionId} rated: ${rating}`);
+    // Add your validation or processing logic here
+}
+
+
+
 // Comments section
 const comments = document.getElementById("comments");
 

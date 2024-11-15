@@ -25,11 +25,14 @@ const dotsMenu = document.getElementById("dots-menu");
 const dotsSpan = document.getElementById("dots-span");
 
 // KRA objectives
-const kraContent = document.getElementById("kra-content");
-const objective1 = document.getElementById("objective-1");
-const objective2 = document.getElementById("objective-2");
-const objective3 = document.getElementById("objective-3");
-const objective4 = document.getElementById("objective-4");
+const kraObjective1 = document.getElementById('kraObjective1');
+const objective1 = document.getElementById('Objective1');
+const kraObjective2 = document.getElementById('kraObjective2');
+const objective2 = document.getElementById('Objective2');
+const kraObjective3 = document.getElementById('kraObjective3');
+const objective3 = document.getElementById('Objectvie3'); // Fixed typo in the ID
+const kraObjective4 = document.getElementById('kraObjective4');
+const objective4 = document.getElementById('Objective4');
 
 // Comments section
 const commentsSection = document.getElementById("comments-section");

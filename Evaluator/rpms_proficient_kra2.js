@@ -24,11 +24,14 @@ const dotsMenu = document.getElementById("dots-menu");
 const dotsSpan = document.getElementById("dots-span");
 
 // KRA objectives
-const kraContent = document.getElementById("kra-content");
-const objective5 = document.getElementById("objective-5");
-const objective6 = document.getElementById("objective-6");
-const objective7 = document.getElementById("objective-7");
-const objective8 = document.getElementById("objective-8");
+const kraObjective5 = document.getElementById('kraObjective5');
+const objective5 = document.getElementById('Objective5');
+const kraObjective6 = document.getElementById('kraObjective6');
+const objective6 = document.getElementById('Objective6');
+const kraObjective7 = document.getElementById('kraObjective7');
+const objective7 = document.getElementById('Objective7');
+const kraObjective8 = document.getElementById('kraObjective8');
+const objective8 = document.getElementById('Objective8');
 
 // Comments section
 const commentsSection = document.getElementById("comments-section");
