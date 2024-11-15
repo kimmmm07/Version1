@@ -125,6 +125,13 @@ td img {
     vertical-align: middle;
 }
 
+.eye-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px; /* Optional: add space between icon and text */
+}
+
 .view-link {
     color: #0056b3;
     text-decoration: none;
