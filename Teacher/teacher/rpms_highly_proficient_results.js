@@ -17,13 +17,27 @@ const rows = reportTable.querySelectorAll('.row');
 const titleCells = rows[0].querySelectorAll('.cell.title'); // Title cells for each KRA and Plus Factor
 const scoreCells = rows[2].querySelectorAll('.cell.score'); // Score cells for each KRA and Plus Factor
 
-// Individual KRA and Plus Factor Scores
-const plusFactorScore = document.getElementById('plusFactorScore');
-const kra4Score = document.getElementById('kra4Score');
-const kra3Score = document.getElementById('kra3Score');
-const kra2Score = document.getElementById('kra2Score');
-const kra1Score = document.getElementById('kra1Score');
-const totalScore = document.getElementById('totalScore');
+// Report Table Titles
+const plusFactorTitle = document.getElementById("plusFactorTitle");
+const kra4Title = document.getElementById("kra4Title");
+const kra3Title = document.getElementById("kra3Title");
+const kra2Title = document.getElementById("kra2Title");
+const kra1Title = document.getElementById("kra1Title");
+
+// Report Table "Out Of"
+const plusFactorOutOf = document.getElementById("plusFactorOutOf");
+const kra4OutOf = document.getElementById("kra4OutOf");
+const kra3OutOf = document.getElementById("kra3OutOf");
+const kra2OutOf = document.getElementById("kra2OutOf");
+const kra1OutOf = document.getElementById("kra1OutOf");
+
+// Report Table Scores
+const plusFactorScore = document.getElementById("plusFactorScore");
+const kra4Score = document.getElementById("kra4Score");
+const kra3Score = document.getElementById("kra3Score");
+const kra2Score = document.getElementById("kra2Score");
+const kra1Score = document.getElementById("kra1Score");
+const totalScore = document.getElementById("totalScore");
 
 
 // Floating menu toggle
