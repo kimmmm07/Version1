@@ -169,6 +169,11 @@ document.querySelectorAll('input[type="radio"]').forEach((input) => {
     input.addEventListener('change', calculateAverageScore);
 });
 
+
+let plusFactor = 0;
+let averageScore = 0;
+let totalScore = 0;
+
 function calculateAverageScore() {
     // Capture values from all KRAs
     const efficiency1 = getValue('efficiency1');
@@ -217,21 +222,419 @@ function calculateAverageScore() {
     let plusFactorScore = quality15 + timeliness15 + efficiency15;
 
     // Average Score calculation
-    let averageScore = totalKraScore;
+    averageScore = totalKraScore;
 
     // Plus Factor calculation
-    let plusFactor = (plusFactorScore / 3) * 0.02;
+    plusFactor = (plusFactorScore / 3) * 0.02;
 
     // Final Total Score
-    let totalScore = averageScore + plusFactor;
+    totalScore = averageScore + plusFactor;
 
     // Display the result in the "average-score" label
-    document.getElementById('average-score').innerText = totalScore.toFixed(3); // Show three decimal places
+    document.getElementById('evaluator-average-score').innerText = totalScore.toFixed(3); // Show three decimal places
 
     // Determine the adjectival rating based on the average score
     let rating = getRating(totalScore);
-    document.getElementById('rating').innerText = rating; // Display the rating
+    document.getElementById('evaluator-rating').innerText = rating; // Display the rating
 }
+
+
+
+
+
+
+function getRateEfficiency1() {
+    if (efficiency1_5_option.checked) {
+        return 5;
+    } else if (efficiency1_3_option.checked) {
+        return 3;
+    } else if (efficiency1_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+
+function getRateEfficiency2() {
+    if (efficiency2_5_option.checked) {
+        return 5;
+    } else if (efficiency2_3_option.checked) {
+        return 3;
+    } else if (efficiency2_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+function getRateEfficiency3() {
+    if (efficiency3_5_option.checked) {
+        return 5;
+    } else if (efficiency3_3_option.checked) {
+        return 3;
+    } else if (efficiency3_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+function getRateEfficiency4() {
+    if (efficiency4_5_option.checked) {
+        return 5;
+    } else if (efficiency4_3_option.checked) {
+        return 3;
+    } else if (efficiency4_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+
+
+function getRateEfficiency5() {
+    if (efficiency5_5_option.checked) {
+        return 5;
+    } else if (efficiency5_3_option.checked) {
+        return 3;
+    } else if (efficiency5_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+function getRateEfficiency6() {
+    if (efficiency6_5_option.checked) {
+        return 5;
+    } else if (efficiency6_3_option.checked) {
+        return 3;
+    } else if (efficiency6_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+function getRateEfficiency7() {
+    if (efficiency7_5_option.checked) {
+        return 5;
+    } else if (efficiency7_3_option.checked) {
+        return 3;
+    } else if (efficiency7_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+function getRateEfficiency8() {
+    if (efficiency8_5_option.checked) {
+        return 5;
+    } else if (efficiency8_3_option.checked) {
+        return 3;
+    } else if (efficiency8_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+
+function getRateQuality9() {
+    if (quality9_5_option.checked) {
+        return 5;
+    } else if (quality9_4_option.checked) {
+        return 4;
+    } else if (quality9_3_option.checked) {
+        return 3;
+    } else if (quality9_2_option.checked) {
+        return 2;
+    } else if (quality9_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+function getRateEfficiency9() {
+    if (efficiency9_5_option.checked) {
+        return 5;
+    } else if (efficiency9_4_option.checked) {
+        return 4;
+    } else if (efficiency9_3_option.checked) {
+        return 3;
+    } else if (efficiency9_2_option.checked) {
+        return 2;
+    } else if (efficiency9_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+function getRateEfficiency10() {
+    if (efficiency10_5_option.checked) {
+        return 5;
+    } else if (efficiency10_3_option.checked) {
+        return 3;
+    } else if (efficiency10_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+// Quality for 11
+function getRateQuality11() {
+    if (quality11_5_option.checked) {
+        return 5;
+    } else if (quality11_4_option.checked) {
+        return 4;
+    } else if (quality11_3_option.checked) {
+        return 3;
+    } else if (quality11_2_option.checked) {
+        return 2;
+    } else if (quality11_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+// Timeliness for 11
+function getRateTimeliness11() {
+    if (timeliness11_5_option.checked) {
+        return 5;
+    } else if (timeliness11_4_option.checked) {
+        return 4;
+    } else if (timeliness11_3_option.checked) {
+        return 3;
+    } else if (timeliness11_2_option.checked) {
+        return 2;
+    } else if (timeliness11_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+// Quality for 12
+function getRateQuality12() {
+    if (quality12_5_option.checked) {
+        return 5;
+    } else if (quality12_4_option.checked) {
+        return 4;
+    } else if (quality12_3_option.checked) {
+        return 3;
+    } else if (quality12_2_option.checked) {
+        return 2;
+    } else if (quality12_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+// Timeliness for 12
+function getRateTimeliness12() {
+    if (timeliness12_5_option.checked) {
+        return 5;
+    } else if (timeliness12_4_option.checked) {
+        return 4;
+    } else if (timeliness12_3_option.checked) {
+        return 3;
+    } else if (timeliness12_2_option.checked) {
+        return 2;
+    } else if (timeliness12_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+// Quality for 13
+function getRateQuality13() {
+    if (quality13_5_option.checked) {
+        return 5;
+    } else if (quality13_4_option.checked) {
+        return 4;
+    } else if (quality13_3_option.checked) {
+        return 3;
+    } else if (quality13_2_option.checked) {
+        return 2;
+    } else if (quality13_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+// Timeliness for 13
+function getRateTimeliness13() {
+    if (timeliness13_5_option.checked) {
+        return 5;
+    } else if (timeliness13_4_option.checked) {
+        return 4;
+    } else if (timeliness13_3_option.checked) {
+        return 3;
+    } else if (timeliness13_2_option.checked) {
+        return 2;
+    } else if (timeliness13_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+// Quality for 14
+function getRateQuality14() {
+    if (quality14_5_option.checked) {
+        return 5;
+    } else if (quality14_4_option.checked) {
+        return 4;
+    } else if (quality14_3_option.checked) {
+        return 3;
+    } else if (quality14_2_option.checked) {
+        return 2;
+    } else if (quality14_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+// Efficiency for 14
+function getRateEfficiency14() {
+    if (efficiency14_5_option.checked) {
+        return 5;
+    } else if (efficiency14_4_option.checked) {
+        return 4;
+    } else if (efficiency14_3_option.checked) {
+        return 3;
+    } else if (efficiency14_2_option.checked) {
+        return 2;
+    } else if (efficiency14_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+// Timeliness for 14
+function getRateTimeliness14() {
+    if (timeliness14_5_option.checked) {
+        return 5;
+    } else if (timeliness14_4_option.checked) {
+        return 4;
+    } else if (timeliness14_3_option.checked) {
+        return 3;
+    } else if (timeliness14_2_option.checked) {
+        return 2;
+    } else if (timeliness14_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+
+let ipcrf = undefined;
+
+async function getIPCRF() {
+    try {
+
+        const teacher_id = sessionStorage.getItem('teacher_id');
+        const formData = new FormData();
+        formData.append('teacher_id', teacher_id);
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/ipcrf/part1/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData
+        });
+
+        ipcrf = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", ipcrf); 
+
+            teacherAverageScoreLabel.textContent = ipcrf.rating.toFixed(2);
+            teacherRatingDiv.textContent = getRating(ipcrf.rating);
+
+
+        } else {
+            console.log("Error Data : ", ipcrf);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getIPCRF();
+
+
+async function updateIPCRF(params) {
+    try {
+        
+        let content = ipcrf['content_for_evaluator']
+
+
+        const formData = new FormData();
+        formData.append('ipcrf_id', ipcrf['connection_to_other']);
+        formData.append('content', JSON.stringify(content));
+        formData.append('total_score', totalScore);
+        formData.append('plus_factor', plusFactor);
+        formData.append('average_score', averageScore);
+
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/check/ipcrf/part1/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData
+        });
+
+        ipcrf = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", ipcrf); 
+
+        } else {
+            console.log("Error Data : ", ipcrf);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Helper function to retrieve values
 function getValue(name) {
