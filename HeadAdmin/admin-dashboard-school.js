@@ -59,6 +59,9 @@ window.addEventListener('load', async function() {
 
         // Iterate over each school and create a row
         data.schools.forEach((school) => {
+            if(school.is_accepted !== true){
+                return;
+            }
             // Create a new div for each school row
             const schoolRow = document.createElement('div');
             schoolRow.classList.add('school-logo'); // Just a single class
