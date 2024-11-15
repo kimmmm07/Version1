@@ -1,3 +1,63 @@
+// Header Section
+const headerSection = document.getElementById('headerSection');
+const headerImage = document.getElementById('headerImage');
+const textOverlay = document.getElementById('textOverlay');
+const headerTitle1 = document.getElementById('headerTitle1');
+const headerTitle2 = document.getElementById('headerTitle2');
+const rpmsProficientSchoolYear = document.getElementById('rpmsProficientSchoolYear');
+
+// Tabs
+const tabs = document.getElementById('tabs');
+const streamTab = document.getElementById('streamTab');
+const resultsTab = document.getElementById('resultsTab');
+
+// Content Wrapper
+const contentWrapper = document.getElementById('contentWrapper');
+
+// Upcoming Section
+const upcomingSection = document.getElementById('upcomingSection');
+const upcomingTitle = document.getElementById('upcomingTitle');
+const rpmsProficientUpcomingList = document.getElementById('rpmsProficientUpcomingList');
+const upcomingKRA1 = document.getElementById('upcomingKRA1');
+const upcomingKRA2 = document.getElementById('upcomingKRA2');
+const upcomingKRA3 = document.getElementById('upcomingKRA3');
+const viewAllLink = document.getElementById('viewAllLink');
+
+// Main Content Section
+const mainContentList = document.getElementById('mainContentList');
+const kra1Item = document.getElementById('kra1Item');
+const kra1Icon = document.getElementById('kra1Icon');
+const kra1TextContainer = document.getElementById('kra1TextContainer');
+const kra1Title = document.getElementById('kra1Title');
+
+const kra2Item = document.getElementById('kra2Item');
+const kra2Icon = document.getElementById('kra2Icon');
+const kra2TextContainer = document.getElementById('kra2TextContainer');
+const kra2Title = document.getElementById('kra2Title');
+
+const kra3Item = document.getElementById('kra3Item');
+const kra3Icon = document.getElementById('kra3Icon');
+const kra3TextContainer = document.getElementById('kra3TextContainer');
+const kra3Title = document.getElementById('kra3Title');
+
+const kra4Item = document.getElementById('kra4Item');
+const kra4Icon = document.getElementById('kra4Icon');
+const kra4TextContainer = document.getElementById('kra4TextContainer');
+const kra4Title = document.getElementById('kra4Title');
+
+const plusFactorItem = document.getElementById('plusFactorItem');
+const plusFactorIcon = document.getElementById('plusFactorIcon');
+const plusFactorTextContainer = document.getElementById('plusFactorTextContainer');
+const plusFactorTitle = document.getElementById('plusFactorTitle');
+
+// Change the school year text
+rpmsProficientSchoolYear.textContent = "School Year 2024-2025";
+
+// Toggle active class on tabs
+streamTab.classList.toggle('active');
+resultsTab.classList.toggle('active');
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');

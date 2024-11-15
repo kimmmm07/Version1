@@ -1,3 +1,49 @@
+// Header Section
+const headerImage = document.getElementById("headerImage");
+const textOverlay = document.getElementById("textOverlay");
+const headerTitle1 = document.getElementById("headerTitle1");
+const headerTitle2 = document.getElementById("headerTitle2");
+const schoolYear = document.getElementById("schoolYear");
+
+// Tabs
+const tabs = document.getElementById("tabs");
+const streamTab = document.getElementById("streamTab");
+const resultsTab = document.getElementById("resultsTab");
+
+// Container
+const container = document.getElementById("container");
+const name = document.getElementById("name");
+const academicYear = document.getElementById("academicYear");
+
+// Report Table
+const reportTable = document.getElementById("reportTable");
+const row1 = document.getElementById("row1");
+const row2 = document.getElementById("row2");
+const row3 = document.getElementById("row3");
+
+// Report Table Titles
+const plusFactorTitle = document.getElementById("plusFactorTitle");
+const kra4Title = document.getElementById("kra4Title");
+const kra3Title = document.getElementById("kra3Title");
+const kra2Title = document.getElementById("kra2Title");
+const kra1Title = document.getElementById("kra1Title");
+
+// Report Table "Out Of"
+const plusFactorOutOf = document.getElementById("plusFactorOutOf");
+const kra4OutOf = document.getElementById("kra4OutOf");
+const kra3OutOf = document.getElementById("kra3OutOf");
+const kra2OutOf = document.getElementById("kra2OutOf");
+const kra1OutOf = document.getElementById("kra1OutOf");
+
+// Report Table Scores
+const plusFactorScore = document.getElementById("plusFactorScore");
+const kra4Score = document.getElementById("kra4Score");
+const kra3Score = document.getElementById("kra3Score");
+const kra2Score = document.getElementById("kra2Score");
+const kra1Score = document.getElementById("kra1Score");
+const totalScore = document.getElementById("totalScore");
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');

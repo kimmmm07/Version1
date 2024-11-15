@@ -60,13 +60,13 @@
         <!-- Breadcrumbs -->
         <div class="breadcrumb" id="breadcrumb">
             <ul>
-                <li><a href="rpms_proficient_stream.html">RPMS</a></li>
-                <li><a href="rpms_proficient_content1.html">PLUS FACTOR</a></li>
+                <li><a href="rpms_proficient_stream.html" id="rpmsLink">RPMS</a></li>
+                <li><a href="rpms_proficient_content1.html" id="plusFactorLink">PLUS FACTOR</a></li>
             </ul>
         </div>
-
+        
         <!-- Content for KRA objectives -->
-        <div class="content-wrapper">
+        <div class="content-wrapper" id="contentWrapper">
             <div class="kra-objectives" id="kraObjective15">
                 <p><strong>7% | Objective 15</strong> (Performed various related works / activities that contribute to the teaching- learning process.)</p>
                 <div class="objective" id="Objective15">
@@ -82,96 +82,95 @@
                             <br> 7. participation as research presenter in a forum/ conference;
                             <br> 8. mentorship of pre-service/in-service teachers
                             <br> 9. conducted research within the rating period;
-                            <br> 10. Others (please specify) with annotation on how it contributed to the teaching-learning process.</li>
+                            <br> 10. Others (please specify) with annotation on how it contributed to the teaching-learning process.
+                        </li>
                     </ul>
                 </div>
             </div>
-
+        
             <!-- Action and comments panel -->
-            <div class="actions-comments-panel">
-                <div class="turn-in-panel">
+            <div class="actions-comments-panel" id="actionsCommentsPanel">
+                <div class="turn-in-panel" id="turnInPanel">
                     <h4>Your Work</h4>
-                    
+        
                     <!-- Display Uploaded Files -->
                     <div id="fileList"></div> <!-- This is where the uploaded files will appear -->
-                    
+        
                     <!-- File Upload Section -->
                     <input type="file" id="fileInput" style="display: none;" multiple />
                     <button class="btn-primary" id="addCreateBtn">+ Add or Create</button>
-                    
+        
                     <!-- Turn In Button -->
                     <button class="btn-secondary" id="turnInBtn" disabled>Turn In</button>
                 </div>
-
+        
                 <!-- Private Comments -->
-                <div class="private-comments">
-                    <div class="private-comments-header">
-                        <img src="asset/User_01.png" alt="private-icon" class="private-icon">
-                        <h4>Private Comments</h4>
+                <div class="private-comments" id="privateComments">
+                    <div class="private-comments-header" id="privateCommentsHeader">
+                        <img src="asset/User_01.png" alt="private-icon" class="private-icon" id="privateIcon">
+                        <h4 id="privateCommentsTitle">Private Comments</h4>
                     </div>
-                
-                    <div class="private-comment-list">
+        
+                    <div class="private-comment-list" id="privateCommentList">
                         <!-- Dynamically added comments will appear here -->
                     </div>
-                    
+        
                     <!-- Comment input area -->
-                    <div class="textarea-icon-container">
+                    <div class="textarea-icon-container" id="textareaIconContainer">
                         <textarea id="privateCommentInput" placeholder="Add Private Comment..."></textarea>
                         <button id="submitCommentBtn" class="comment-icon">
-                            <img src="asset/Paper_Plane.png" alt="Comment Icon">
+                            <img src="asset/Paper_Plane.png" alt="Comment Icon" id="commentIcon">
                         </button>
                     </div>
                 </div>
-
-                <!-- Comment Section
-                <div class="comments-section">
-                    <div class="comments-header">
-                        <img src="asset/Users_Group.png" alt="comment-group-icon" class="comment-group-icon">
-                        <h4>Comments</h4>
+        
+                <!-- Comment Section -->
+                <!-- Comment section is currently commented out in your original code -->
+                <div class="comments-section" id="commentsSection">
+                    <div class="comments-header" id="commentsHeader">
+                        <img src="asset/Users_Group.png" alt="comment-group-icon" class="comment-group-icon" id="commentGroupIcon">
+                        <h4 id="commentsTitle">Comments</h4>
                     </div>
-                    <div class="textarea-icon-container">
-                        <textarea placeholder="Add Comment..."></textarea>
-                        <img src="asset/Paper_Plane.png" alt="Comment Icon" class="comment-icon">
-                    </div> -->
+                    <div class="textarea-icon-container" id="commentsTextareaContainer">
+                        <textarea id="commentInput" placeholder="Add Comment..."></textarea>
+                        <img src="asset/Paper_Plane.png" alt="Comment Icon" class="comment-icon" id="commentIcon">
+                    </div>
                 </div>
             </div>
         </div>
-
-
+        
         <!-- Modal Structure -->
         <div id="fileModal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h4>File Preview</h4>
+            <div class="modal-content" id="fileModalContent">
+                <span class="close" id="fileModalCloseBtn">&times;</span>
+                <h4 id="fileModalTitle">File Preview</h4>
                 <div id="modalBody"></div>
             </div>
         </div>
-
+        
         <!-- Modal HTML Structure -->
-        <div id="submissionModal" class="modal-2">
-            <div class="modal-content-2">
-                <span class="close" style="cursor:pointer;">&times;</span> <!-- Close button -->
-                <h3>Turn in your work?</h3>
+        <div id="submissionModal" class="modal-2" id="submissionModal">
+            <div class="modal-content-2" id="submissionModalContent">
+                <span class="close" style="cursor:pointer;" id="submissionModalCloseBtn">&times;</span> <!-- Close button -->
+                <h3 id="submissionModalTitle">Turn in your work?</h3>
                 <p id="fileCount"></p>
-                
+        
                 <!-- File list preview will go here -->
                 <div id="fileListPreview">
                     <!-- File details will be dynamically injected here -->
-                </div> 
-                
-                <div class="modal-buttons">
+                </div>
+        
+                <div class="modal-buttons" id="modalButtons">
                     <button id="cancelBtn" class="btn btn-secondary">Cancel</button>
                     <button id="confirmBtn" class="btn btn-primary">Turn In</button>
                 </div>
                 <!-- Unsubmit Button -->
-                <div class="unsubmit-button">
+                <div class="unsubmit-button" id="unsubmitButton">
                     <button class="btn-primary" id="unsubmitBtn" style="display: none;">Unsubmit</button>
                 </div>
-
-
-            </div>
             </div>
         </div>
+        
         <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
         <div class="modal-content">

@@ -60,136 +60,135 @@
         <!-- Breadcrumbs -->
         <div class="breadcrumb">
             <ul>
-                <li><a href="rpms_proficient_stream.html">RPMS</a></li>
-                <li><a href="rpms_proficient_content1.html">To-Do</a></li>
+                <li><a href="rpms_proficient_stream.html" id="rpmsLink">RPMS</a></li>
+                <li><a href="rpms_proficient_content1.html" id="toDoLink">To-Do</a></li>
             </ul>
         </div>
-
         
         <div class="tabs">
-            <a href="rpms_proficient_pending.html" class="tab" id="pending">Pending</a>
-            <a href="rpms_proficient_done.html" class="tab active" id="done">Done</a>
+            <a href="rpms_proficient_pending.html" class="tab" id="pendingTab">Pending</a>
+            <a href="rpms_proficient_done.html" class="tab active" id="doneTab">Done</a>
         </div>
-
+        
         <div class="dropdown-container">
-            <div class="dropdown-item">
-                <div class="dropdown-header">
-                    <span>No due date</span>
-                    <span class="count"></span>
-                    <button class="dropdown-toggle">&#9662;</button>
+            <div class="dropdown-item" id="noDueDateDropdown">
+                <div class="dropdown-header" id="noDueDateHeader">
+                    <span id="noDueDateLabel">No due date</span>
+                    <span class="count" id="noDueDateCount"></span>
+                    <button class="dropdown-toggle" id="noDueDateToggle">&#9662;</button>
                 </div>
-                <div class="dropdown-content">
-                    <div class="content-item">
-                    <a href="rpms_proficient_content1.html" class="content-item"> <!-- KRA 1 -->
-                        <img src="asset/Clipboard.png" alt="Icon" class="icon" />
-                        <div class="text-container"> <!-- New container for text -->
-                            <h4>KRA 1: Content Knowledge and Pedagogy</h4>
-                        <div class="rpms">
-                            <p>Results-Based Performance Management System School Year 2023-2024</p>
-                        </div>
-                        <div class="score" id="kra1Score">
-                            <p>Score:  /28</p>
-                        </div>
-                        </div>
-                    </a>
-                    </div>
-    
-                    <div class="content-item">
-                        <a href="rpms_proficient_content2.html" class="content-item"> <!-- KRA 1 -->
-                            <img src="asset/Clipboard.png" alt="Icon" class="icon" />
-                            <div class="text-container"> <!-- New container for text -->
-                                <h4>KRA 2: Learning Environment and Diversity</h4>
-                            <div class="rpms">
-                                <p>Results-Based Performance Management System School Year 2023-2024</p>
-                            </div>
-                            <div class="score" id="kra2Score">
-                                <p>Score:  /28</p>
-                            </div>
+                <div class="dropdown-content" id="noDueDateContent">
+                    <div class="content-item" id="kra1Item">
+                        <a href="rpms_proficient_content1.html" class="content-item">
+                            <img src="asset/Clipboard.png" alt="Icon" class="icon" id="kra1Icon" />
+                            <div class="text-container">
+                                <h4 id="kra1Title">KRA 1: Content Knowledge and Pedagogy</h4>
+                                <div class="rpms">
+                                    <p id="kra1SchoolYear">Results-Based Performance Management System School Year 2023-2024</p>
+                                </div>
+                                <div class="score" id="kra1Score">
+                                    <p>Score:  /28</p>
+                                </div>
                             </div>
                         </a>
-                        </div>
-    
-                        <div class="content-item">
-                            <a href="rpms_proficient_content3.html" class="content-item"> <!-- KRA 1 -->
-                                <img src="asset/Clipboard.png" alt="Icon" class="icon" />
-                                <div class="text-container"> <!-- New container for text -->
-                                    <h4>KRA 3: Curriculum and Planning</h4>
+                    </div>
+        
+                    <div class="content-item" id="kra2Item">
+                        <a href="rpms_proficient_content2.html" class="content-item">
+                            <img src="asset/Clipboard.png" alt="Icon" class="icon" id="kra2Icon" />
+                            <div class="text-container">
+                                <h4 id="kra2Title">KRA 2: Learning Environment and Diversity</h4>
                                 <div class="rpms">
-                                    <p>Results-Based Performance Management System School Year 2023-2024</p>
+                                    <p id="kra2SchoolYear">Results-Based Performance Management System School Year 2023-2024</p>
+                                </div>
+                                <div class="score" id="kra2Score">
+                                    <p>Score:  /28</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+        
+                    <div class="content-item" id="kra3Item">
+                        <a href="rpms_proficient_content3.html" class="content-item">
+                            <img src="asset/Clipboard.png" alt="Icon" class="icon" id="kra3Icon" />
+                            <div class="text-container">
+                                <h4 id="kra3Title">KRA 3: Curriculum and Planning</h4>
+                                <div class="rpms">
+                                    <p id="kra3SchoolYear">Results-Based Performance Management System School Year 2023-2024</p>
                                 </div>
                                 <div class="score" id="kra3Score">
                                     <p>Score:  /21</p>
                                 </div>
-                                </div>
-                            </a>
                             </div>
-    
-                            <div class="content-item">
-                                <a href="rpms_proficient_content4.html" class="content-item"> <!-- KRA 1 -->
-                                    <img src="asset/Clipboard.png" alt="Icon" class="icon" />
-                                    <div class="text-container"> <!-- New container for text -->
-                                        <h4>KRA 4: Curriculum and Planning & Assesment</h4>
-                                    <div class="rpms">
-                                        <p>Results-Based Performance Management System School Year 2023-2024</p>
-                                    </div>
-                                    <div class="score" id="kra4Score">
-                                        <p>Score:  /21</p>
-                                    </div>
-                                    </div>
-                                </a>
+                        </a>
+                    </div>
+        
+                    <div class="content-item" id="kra4Item">
+                        <a href="rpms_proficient_content4.html" class="content-item">
+                            <img src="asset/Clipboard.png" alt="Icon" class="icon" id="kra4Icon" />
+                            <div class="text-container">
+                                <h4 id="kra4Title">KRA 4: Curriculum and Planning & Assessment</h4>
+                                <div class="rpms">
+                                    <p id="kra4SchoolYear">Results-Based Performance Management System School Year 2023-2024</p>
                                 </div>
-    
-                                <div class="content-item">
-                                    <a href="rpms_proficient_content5.html" class="content-item"> <!-- KRA 1 -->
-                                        <img src="asset/Clipboard.png" alt="Icon" class="icon" />
-                                        <div class="text-container"> <!-- New container for text -->
-                                            <h4>PLUS FACTOR</h4>
-                                        <div class="rpms">
-                                            <p>Results-Based Performance Management System School Year 2023-2024</p>
-                                        </div>
-                                        <div class="score" id="plusFactorScore">
-                                            <p>Score:  /2</p>
-                                        </div>
-                                        </div>
-                                    </a>
+                                <div class="score" id="kra4Score">
+                                    <p>Score:  /21</p>
                                 </div>
-                                
+                            </div>
+                        </a>
+                    </div>
+        
+                    <div class="content-item" id="plusFactorItem">
+                        <a href="rpms_proficient_content5.html" class="content-item">
+                            <img src="asset/Clipboard.png" alt="Icon" class="icon" id="plusFactorIcon" />
+                            <div class="text-container">
+                                <h4 id="plusFactorTitle">PLUS FACTOR</h4>
+                                <div class="rpms">
+                                    <p id="plusFactorSchoolYear">Results-Based Performance Management System School Year 2023-2024</p>
+                                </div>
+                                <div class="score" id="plusFactorScore">
+                                    <p>Score:  /2</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         
-            <div class="dropdown-item">
-                <div class="dropdown-header">
-                    <span>This week</span>
-                    <span class="count"></span>
-                    <button class="dropdown-toggle">&#9662;</button>
+            <div class="dropdown-item" id="thisWeekDropdown">
+                <div class="dropdown-header" id="thisWeekHeader">
+                    <span id="thisWeekLabel">This week</span>
+                    <span class="count" id="thisWeekCount"></span>
+                    <button class="dropdown-toggle" id="thisWeekToggle">&#9662;</button>
                 </div>
                 <div class="dropdown-content" id="thisWeekContent">
                     <!-- Add any tasks or details for 'This week' here -->
                 </div>
             </div>
         
-            <div class="dropdown-item">
-                <div class="dropdown-header">
-                    <span>Next week</span>
-                    <span class="count"></span>
-                    <button class="dropdown-toggle">&#9662;</button>
+            <div class="dropdown-item" id="nextWeekDropdown">
+                <div class="dropdown-header" id="nextWeekHeader">
+                    <span id="nextWeekLabel">Next week</span>
+                    <span class="count" id="nextWeekCount"></span>
+                    <button class="dropdown-toggle" id="nextWeekToggle">&#9662;</button>
                 </div>
                 <div class="dropdown-content" id="nextWeekContent">
                     <!-- Add any tasks or details for 'Next week' here -->
                 </div>
             </div>
         
-            <div class="dropdown-item">
-                <div class="dropdown-header">
-                    <span>Later</span>
-                    <span class="count"></span>
-                    <button class="dropdown-toggle">&#9662;</button>
+            <div class="dropdown-item" id="laterDropdown">
+                <div class="dropdown-header" id="laterHeader">
+                    <span id="laterLabel">Later</span>
+                    <span class="count" id="laterCount"></span>
+                    <button class="dropdown-toggle" id="laterToggle">&#9662;</button>
                 </div>
                 <div class="dropdown-content" id="laterContent">
                     <!-- Add any tasks or details for 'Later' here -->
                 </div>
             </div>
         </div>
+        
         <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
         <div class="modal-content">

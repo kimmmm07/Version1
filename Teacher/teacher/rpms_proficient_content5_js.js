@@ -1,3 +1,45 @@
+// Breadcrumb
+const breadcrumb = document.getElementById('breadcrumb');
+const rpmsLink = document.getElementById('rpmsLink');
+const plusFactorLink = document.getElementById('plusFactorLink');
+
+// Content Wrapper and KRA Objectives
+const contentWrapper = document.getElementById('contentWrapper');
+const kraObjective15 = document.getElementById('kraObjective15');
+const objective15 = document.getElementById('Objective15');
+
+// Action and Comments Panel
+const actionsCommentsPanel = document.getElementById('actionsCommentsPanel');
+const turnInPanel = document.getElementById('turnInPanel');
+
+// Private Comments Section
+const privateComments = document.getElementById('privateComments');
+const privateCommentsHeader = document.getElementById('privateCommentsHeader');
+const privateIcon = document.getElementById('privateIcon');
+const privateCommentsTitle = document.getElementById('privateCommentsTitle');
+const privateCommentList = document.getElementById('privateCommentList');
+
+// Comment Section
+const commentsSection = document.getElementById('commentsSection');
+const commentsHeader = document.getElementById('commentsHeader');
+const commentGroupIcon = document.getElementById('commentGroupIcon');
+const commentsTitle = document.getElementById('commentsTitle');
+const commentsTextareaContainer = document.getElementById('commentsTextareaContainer');
+const commentInput = document.getElementById('commentInput');
+const commentIcon = document.getElementById('commentIcon');
+
+// Modal Structure
+const fileModalContent = document.getElementById('fileModalContent');
+const fileModalCloseBtn = document.getElementById('fileModalCloseBtn');
+const fileModalTitle = document.getElementById('fileModalTitle');
+
+// Submission Modal Structure
+const submissionModalContent = document.getElementById('submissionModalContent');
+const submissionModalCloseBtn = document.getElementById('submissionModalCloseBtn');
+const submissionModalTitle = document.getElementById('submissionModalTitle');
+
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');

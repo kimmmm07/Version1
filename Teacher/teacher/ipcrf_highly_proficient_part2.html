@@ -295,7 +295,52 @@
         </div>
     </div>
 
-    <script>// Modal logic
+    <script>
+        // Self-Management Section
+        const selfManagementContainer = document.querySelector('.objective-container:nth-of-type(1)');
+        const selfManagementRatings = selfManagementContainer.querySelector('.ratings');
+        const selfManagementCheckboxes = selfManagementRatings.querySelectorAll('input[name="obj1"]');
+
+        // Professionalism and Ethics Section
+        const professionalismContainer = document.querySelector('.objective-container:nth-of-type(2)');
+        const professionalismRatings = professionalismContainer.querySelector('.ratings');
+        const professionalismCheckboxes = professionalismRatings.querySelectorAll('input[name="obj2"]');
+
+        // Results Focus Section
+        const resultsFocusContainer = document.querySelector('.objective-container:nth-of-type(3)');
+        const resultsFocusRatings = resultsFocusContainer.querySelector('.ratings');
+        const resultsFocusCheckboxes = resultsFocusRatings.querySelectorAll('input[name="obj3"]');
+
+        // Teamwork Section
+        const teamworkContainer = document.querySelector('.objective-container:nth-of-type(4)');
+        const teamworkRatings = teamworkContainer.querySelector('.ratings');
+        const teamworkCheckboxes = teamworkRatings.querySelectorAll('input[name="obj4"]');
+
+        // Service Orientation Section
+        const serviceOrientationContainer = document.querySelector('.objective-container:nth-of-type(5)');
+        const serviceOrientationRatings = serviceOrientationContainer.querySelector('.ratings');
+        const serviceOrientationCheckboxes = serviceOrientationRatings.querySelectorAll('input[name="obj5"]');
+
+        // Innovation Section
+        const innovationContainer = document.querySelector('.objective-container:nth-of-type(6)');
+        const innovationRatings = innovationContainer.querySelector('.ratings');
+        const innovationCheckboxes = innovationRatings.querySelectorAll('input[name="obj6"]');
+
+        // To access each checkbox within each section, you can loop over the NodeList:
+        selfManagementCheckboxes.forEach((checkbox) => {
+            console.log(checkbox.id, checkbox.checked); // Example: Get the id and check status of each checkbox
+        });
+
+        professionalismCheckboxes.forEach((checkbox) => {
+            console.log(checkbox.id, checkbox.checked);
+        });
+
+        // Repeat for other sections as needed...
+
+
+    
+    
+    // Modal logic
         const logoutButton = document.getElementById('logoutLink');  // Logout button
         const logoutModal = document.getElementById('logoutModal');
         const yesButton = document.querySelector('.yes-btn');

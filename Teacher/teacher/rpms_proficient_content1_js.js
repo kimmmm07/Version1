@@ -1,3 +1,35 @@
+// Breadcrumb Links
+const rpmsLink = document.querySelector('.breadcrumb ul li a:nth-child(1)');
+const kraLink = document.querySelector('.breadcrumb ul li a:nth-child(2)');
+
+// KRA Objectives
+const kraObjective1 = document.getElementById('kraObjective1');
+const objective1 = document.getElementById('Objective1');
+const kraObjective2 = document.getElementById('kraObjective2');
+const objective2 = document.getElementById('Objective2');
+const kraObjective3 = document.getElementById('kraObjective3');
+const objective3 = document.getElementById('Objectvie3'); // Fixed typo in the ID
+const kraObjective4 = document.getElementById('kraObjective4');
+const objective4 = document.getElementById('Objective4');
+
+// Content Wrapper
+const contentWrapper = document.querySelector('.content-wrapper');
+
+// Actions and Comments Panel
+const actionsCommentsPanel = document.querySelector('.actions-comments-panel');
+const turnInPanel = document.querySelector('.turn-in-panel');
+
+
+// Private Comments Section
+const privateComments = document.querySelector('.private-comments');
+const privateCommentsHeader = document.querySelector('.private-comments-header');
+const privateIcon = document.querySelector('.private-icon');
+const privateCommentList = document.querySelector('.private-comment-list');
+
+// Modal Structure
+const fileModalCloseBtn = fileModal.querySelector('.close');
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
