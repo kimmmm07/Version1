@@ -24,7 +24,8 @@ const kraTitle = document.getElementById("kra-title");
 const kraIconImg = document.getElementById("kra-icon-img");
 
 // Objective elements
-const objective15 = document.getElementById("objective-15");
+const kraObjective15 = document.getElementById('kraObjective15');
+const objective15 = document.getElementById('Objective15');
 
 // Comments section
 const commentsSection = document.getElementById("comments-section");

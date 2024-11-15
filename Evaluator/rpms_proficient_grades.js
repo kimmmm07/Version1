@@ -26,21 +26,27 @@ const gradesTable = document.getElementById('grades-table');
 const sortBy = document.getElementById('sort-by');
 const sortSelect = document.getElementById('sort-select');
 
-// User Info and Grade values
-const userInfo = document.getElementById('user-info');
-const plusFactor = document.getElementById('plus-factor');
-const kra4 = document.getElementById('kra-4');
-const kra3 = document.getElementById('kra-3');
-const kra2 = document.getElementById('kra-2');
-const kra1 = document.getElementById('kra-1');
+// Report Table Titles
+const plusFactorTitle = document.getElementById("plusFactorTitle");
+const kra4Title = document.getElementById("kra4Title");
+const kra3Title = document.getElementById("kra3Title");
+const kra2Title = document.getElementById("kra2Title");
+const kra1Title = document.getElementById("kra1Title");
 
-// Values in the table
-const plusFactorValue = document.getElementById('plus-factor-value');
-const kra4Value = document.getElementById('kra-4-value');
-const kra3Value = document.getElementById('kra-3-value');
-const kra2Value = document.getElementById('kra-2-value');
-const kra1Value = document.getElementById('kra-1-value');
-const totalValue = document.getElementById('total-value');
+// Report Table "Out Of"
+const plusFactorOutOf = document.getElementById("plusFactorOutOf");
+const kra4OutOf = document.getElementById("kra4OutOf");
+const kra3OutOf = document.getElementById("kra3OutOf");
+const kra2OutOf = document.getElementById("kra2OutOf");
+const kra1OutOf = document.getElementById("kra1OutOf");
+
+// Report Table Scores
+const plusFactorScore = document.getElementById("plusFactorScore");
+const kra4Score = document.getElementById("kra4Score");
+const kra3Score = document.getElementById("kra3Score");
+const kra2Score = document.getElementById("kra2Score");
+const kra1Score = document.getElementById("kra1Score");
+const totalScore = document.getElementById("totalScore");
 
 // Event listeners for sidebar menu actions
 menuIcon.addEventListener('click', () => {

@@ -26,9 +26,9 @@ const privateIcon = document.querySelector('.private-icon');
 const privateCommentList = document.querySelector('.private-comment-list');
 
 // Modal Structure
-const fileModalCloseBtn = fileModal.querySelector('.close');
-
-
+const modalContent = document.getElementById('modalContent');
+const fileModalCloseBtn = document.getElementById('fileModalCloseBtn');
+const fileModalTitle = document.getElementById('fileModalTitle');
 
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {

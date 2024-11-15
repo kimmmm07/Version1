@@ -14,24 +14,33 @@ const gradesTab = tabs.querySelector('.tab[href="rpms_highlyproficient_grades.ht
 // Main Table
 const mainTable = document.querySelector('main table');
 const sortSelect = mainTable.querySelector('#sort-select');
-const plusFactorScore = mainTable.querySelector('#plus-factor-score');
-const kra4Score = mainTable.querySelector('#kra4-score');
-const kra3Score = mainTable.querySelector('#kra3-score');
-const kra2Score = mainTable.querySelector('#kra2-score');
-const kra1Score = mainTable.querySelector('#kra1-score');
 
 // User Info Section
 const userInfo = mainTable.querySelector('#user-info');
 const userIcon = userInfo.querySelector('img');
 const userName = userInfo.querySelector('#user-name');
 
-// Highlighted Score Cells
-const plusFactor = mainTable.querySelector('#plus-factor');
-const kra4 = mainTable.querySelector('#kra4');
-const kra3 = mainTable.querySelector('#kra3');
-const kra2 = mainTable.querySelector('#kra2');
-const kra1 = mainTable.querySelector('#kra1');
-const totalScore = mainTable.querySelector('#total-score');
+// Report Table Titles
+const plusFactorTitle = document.getElementById("plusFactorTitle");
+const kra4Title = document.getElementById("kra4Title");
+const kra3Title = document.getElementById("kra3Title");
+const kra2Title = document.getElementById("kra2Title");
+const kra1Title = document.getElementById("kra1Title");
+
+// Report Table "Out Of"
+const plusFactorOutOf = document.getElementById("plusFactorOutOf");
+const kra4OutOf = document.getElementById("kra4OutOf");
+const kra3OutOf = document.getElementById("kra3OutOf");
+const kra2OutOf = document.getElementById("kra2OutOf");
+const kra1OutOf = document.getElementById("kra1OutOf");
+
+// Report Table Scores
+const plusFactorScore = document.getElementById("plusFactorScore");
+const kra4Score = document.getElementById("kra4Score");
+const kra3Score = document.getElementById("kra3Score");
+const kra2Score = document.getElementById("kra2Score");
+const kra1Score = document.getElementById("kra1Score");
+const totalScore = document.getElementById("totalScore");
 
 
 // Floating menu toggle
