@@ -93,6 +93,16 @@ const q8Rating7 = document.getElementById('q8-rating-7');
 const q8Rating8 = document.getElementById('q8-rating-8');
 const q8RatingNo = document.getElementById('q8-rating-no');
 
+let q1 = 0;
+let q2 = 0;
+let q3 = 0;
+let q4 = 0;
+let q5 = 0;
+let q6 = 0;
+let q7 = 0;
+let q8 = 0;
+let q9 = 0;
+
 // Function to handle rating selection
 function selectRating(button, questionId, rating) {
     console.log(`Question ${questionId} rated: ${rating}`);
