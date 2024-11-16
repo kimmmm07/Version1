@@ -59,6 +59,7 @@
             </ol>
             <p><strong>*NO stands for Not Observed</strong> which automatically gets a rating of 3.</p>
         </div>
+        
 
         <form id="ratingForm">
             <div class="question-container" id="question1">
@@ -71,7 +72,7 @@
                     <button id="q1-rating-5" class="rating-button" type="button" onclick="selectRating(this, 'q1', 5)">5</button>
                     <button id="q1-rating-6" class="rating-button" type="button" onclick="selectRating(this, 'q1', 6)">6</button>
                     <button id="q1-rating-7" class="rating-button" type="button" onclick="selectRating(this, 'q1', 7)">7</button>
-                    <button id="q1-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q1', 'NO')">NO*</button>
+                    <button id="q1-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q1', 0)">NO*</button>
                 </div>
             </div>
         
@@ -85,7 +86,7 @@
                     <button id="q2-rating-5" class="rating-button" type="button" onclick="selectRating(this, 'q2', 5)">5</button>
                     <button id="q2-rating-6" class="rating-button" type="button" onclick="selectRating(this, 'q2', 6)">6</button>
                     <button id="q2-rating-7" class="rating-button" type="button" onclick="selectRating(this, 'q2', 7)">7</button>
-                    <button id="q2-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q2', 'NO')">NO*</button>
+                    <button id="q2-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q2', 0)">NO*</button>
                 </div>
             </div>
         </form>
@@ -100,7 +101,7 @@
                 <button id="q3-rating-5" class="rating-button" type="button" onclick="selectRating(this, 'q3', 5)">5</button>
                 <button id="q3-rating-6" class="rating-button" type="button" onclick="selectRating(this, 'q3', 6)">6</button>
                 <button id="q3-rating-7" class="rating-button" type="button" onclick="selectRating(this, 'q3', 7)">7</button>
-                <button id="q3-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q3', 'NO')">NO*</button>
+                <button id="q3-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q3', 0)">NO*</button>
             </div>
         </div>
         
@@ -114,7 +115,7 @@
                 <button id="q4-rating-5" class="rating-button" type="button" onclick="selectRating(this, 'q4', 5)">5</button>
                 <button id="q4-rating-6" class="rating-button" type="button" onclick="selectRating(this, 'q4', 6)">6</button>
                 <button id="q4-rating-7" class="rating-button" type="button" onclick="selectRating(this, 'q4', 7)">7</button>
-                <button id="q4-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q4', 'NO')">NO*</button>
+                <button id="q4-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q4', 0)">NO*</button>
             </div>
         </div>
         
@@ -128,7 +129,7 @@
                 <button id="q5-rating-5" class="rating-button" type="button" onclick="selectRating(this, 'q5', 5)">5</button>
                 <button id="q5-rating-6" class="rating-button" type="button" onclick="selectRating(this, 'q5', 6)">6</button>
                 <button id="q5-rating-7" class="rating-button" type="button" onclick="selectRating(this, 'q5', 7)">7</button>
-                <button id="q5-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q5', 'NO')">NO*</button>
+                <button id="q5-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q5', 0)">NO*</button>
             </div>
         </div>
         
@@ -141,7 +142,7 @@
                 <button id="q6-rating-5" class="rating-button" type="button" onclick="selectRating(this, 'q6', 5)">5</button>
                 <button id="q6-rating-6" class="rating-button" type="button" onclick="selectRating(this, 'q6', 6)">6</button>
                 <button id="q6-rating-7" class="rating-button" type="button" onclick="selectRating(this, 'q6', 7)">7</button>
-                <button id="q6-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q6', 'NO')">NO*</button>
+                <button id="q6-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q6', 0)">NO*</button>
             </div>
         </div>
         
@@ -153,7 +154,7 @@
                 <button id="q7-rating-5" class="rating-button" type="button" onclick="selectRating(this, 'q7', 5)">5</button>
                 <button id="q7-rating-6" class="rating-button" type="button" onclick="selectRating(this, 'q7', 6)">6</button>
                 <button id="q7-rating-7" class="rating-button" type="button" onclick="selectRating(this, 'q7', 7)">7</button>
-                <button id="q7-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q7', 'NO')">NO*</button>
+                <button id="q7-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q7', 0)">NO*</button>
             </div>
         </div>
         
@@ -165,7 +166,7 @@
                 <button id="q8-rating-5" class="rating-button" type="button" onclick="selectRating(this, 'q8', 5)">5</button>
                 <button id="q8-rating-6" class="rating-button" type="button" onclick="selectRating(this, 'q8', 6)">6</button>
                 <button id="q8-rating-7" class="rating-button" type="button" onclick="selectRating(this, 'q8', 7)">7</button>
-                <button id="q8-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q8', 'NO')">NO*</button>
+                <button id="q8-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q8', 0)">NO*</button>
             </div>
         </div>
         
@@ -177,7 +178,7 @@
                 <button id="q9-rating-5" class="rating-button" type="button" onclick="selectRating(this, 'q9', 5)">5</button>
                 <button id="q9-rating-6" class="rating-button" type="button" onclick="selectRating(this, 'q9', 6)">6</button>
                 <button id="q9-rating-7" class="rating-button" type="button" onclick="selectRating(this, 'q9', 7)">7</button>
-                <button id="q9-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q9', 'NO')">NO*</button>
+                <button id="q9-rating-no" class="rating-button no" type="button" onclick="selectRating(this, 'q9', 0)">NO*</button>
             </div>
         </div>
         
