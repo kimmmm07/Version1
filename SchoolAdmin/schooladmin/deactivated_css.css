@@ -302,7 +302,7 @@ th, td {
     vertical-align: middle;
 }
 
-p.deactivated {
+.deactivated {
     color: #ddd;
     font-size: 25px;
     text-align: center; /* Center the text */
@@ -310,6 +310,11 @@ p.deactivated {
     margin-top: 100px;
     margin-bottom: 100px;
 }
+
+
+
+
+
 
 /* Modal styles */
 .modal {
