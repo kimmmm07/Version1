@@ -7,13 +7,77 @@ const teacherTable = document.getElementById("teacherTable");
 
 
 
+function addTeacherRow(teacherData) { 
+
+    rater = teacherData.rater;
+    teacher_status = teacherData.status;
+    teacherData = teacherData['teacher'];
+
+    const tr = document.createElement('tr');
+
+    tr.innerHTML = `
+        <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacherData.fullname}</td>
+        <td>${teacherData.position}</td>
+        <td>${teacherData.grade_level}</td>
+        <td>${teacherData.rater ?? 'Not Assigned'}</td>
+        <td class="status pending">${teacher_status}</td>
+        <td><a id="${teacherData.employee_id}" class="review">REVIEW</a></td>
+    `;
+
+    teacherTable.appendChild(tr);
+
+    // Add the event listener to the action link
+    const actionLink = document.getElementById(`${teacherData.employee_id}`);
+    actionLink.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        sessionStorage.setItem('teacher_id', teacherData.employee_id);
+
+
+        // Call the appropriate function based on the teacher's status
+        window.location.href = "rpms_proficient_homepage.html"
+
+        // if (teacherData.status.toLowerCase() === 'pending') {
+        //     evaluateTeacher(teacherData);
+        // } else {
+        //     viewTeacher(teacherData);
+        // }
+    });
+}
 
 
 
 
 
 
+async function fetchData() {
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/all/rpms/attachment/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
 
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+            data.teachers.forEach(teacherData => {
+                addTeacherRow(teacherData);
+            })
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+};
+
+
+fetchData();
 
 
 
