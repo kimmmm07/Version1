@@ -152,9 +152,8 @@ let data_quarter_4 = undefined;
 function evaluatedTeacher(teacher_id, quarter){
     sessionStorage.setItem('teacher_id', teacher_id);
     sessionStorage.setItem('quarter', quarter);
-
     window.location.href = 'evaluator_cot_form_proficient.html';
-}
+};
 
 
 function viewTeacher(teacher_id, quarter){
@@ -162,44 +161,16 @@ function viewTeacher(teacher_id, quarter){
     sessionStorage.setItem('quarter', quarter);
 
     window.location.href = 'view_cot_form_t1-3.html';
-}
+};
 
-
-function addRow(data , quarter , tbody){
-    // const row = document.createElement('tr');
-
+function addRow(data, quarter, tbody) {
     const teacher = data.teacher;
     const cot = data.cot;
-
-    // Check if teacher is evaluated
-    // if (!teacher.is_evaluated) {
-    //     row.innerHTML = `
-    //         <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.first_name} ${teacher.middle_name} ${teacher.last_name}</td>
-    //         <td>${teacher.position}</td>
-    //         <td>${teacher.grade_level}</td>
-    //         <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
-    //         <td>
-    //             <a href="evaluator_cot_form_proficient.html" class="button">Observe</a> | 
-    //             <a href="#" class="disabled">View</a>
-    //         </td>
-    //     `;
-    // } else {
-    //     row.innerHTML = `
-    //         <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.first_name} ${teacher.middle_name} ${teacher.last_name}</td>
-    //         <td>${teacher.position}</td>
-    //         <td>${teacher.grade_level}</td>
-    //         <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
-    //         <td><span class="status">Observed</span> | <a href="view_cot_form_t1-3.html">View</a></td>
-    //     `;
-    // }
-
-    // Append the row to the table body
-    // tableBody.appendChild(row);
-
- 
-    // const tbody = document.getElementById('teacherTableBodyQuarter2');
     const tr = document.createElement('tr');
-    if (!teacher.is_checked){
+    const textEvaluatedTeacher = `evaluatedTeacher(${teacher.employee_id}, ${quarter})`;
+    const textViewTeacher = `viewTeacher(${teacher.employee_id}, ${quarter})`;
+
+    if (!teacher.is_checked) {
         tr.innerHTML = `
             <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.fullname}</td>
             <td>${teacher.position}</td>
@@ -208,28 +179,34 @@ function addRow(data , quarter , tbody){
             <td>${cot.rater ?? 'N/A'}</td>
             <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
             <td>
-                <a onclick="evaluatedTeacher(${teacher.employee_id}, ${quarter})" class="button">Observe</a> | 
-                <a  class="disabled">View</a>
+                <a id="${teacher.employee_id}-observe" class="button">Observe</a> | 
+                <a class="disabled">View</a>
             </td>
         `; 
+        tbody.appendChild(tr); 
+        const observeLink = document.getElementById(`${teacher.employee_id}-observe`);
+        observeLink.addEventListener('click', () => evaluatedTeacher(teacher.employee_id, quarter));
     } else { 
         tr.innerHTML = `
-        <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.fullname}</td>
-        <td>${teacher.position}</td>
-        <td>${cot.subject}</td>
-        <td>${teacher.grade_level}</td>
-        <td>${cot.rater ?? 'N/A'}</td>
-        <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
-        <td>
-            <a class="status">Observed</a> | 
-            <a onclick="viewTeacher(${teacher.employee_id}, ${quarter})" >View</a>
-        </td>
-    `;
-    }
-    tbody.appendChild(tr); 
-     
+            <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.fullname}</td>
+            <td>${teacher.position}</td>
+            <td>${cot.subject}</td>
+            <td>${teacher.grade_level}</td>
+            <td>${cot.rater ?? 'N/A'}</td>
+            <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
+            <td>
+                <a class="status">Observed</a> | 
+                <a id="${teacher.employee_id}-view">View</a>
+            </td>
+        `;
+        tbody.appendChild(tr);
+        const viewLink = document.getElementById(`${teacher.employee_id}-view`);
+        viewLink.addEventListener('click', () => viewTeacher(teacher.employee_id, quarter));
 
-}
+    }
+};
+
+
 
 async function getTeachers() {
     try {
