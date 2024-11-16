@@ -207,13 +207,13 @@ function calculateAverageScore() {
     let plusFactorScore = quality15 + timeliness15 + efficiency15;
 
     // Average Score calculation
-    let averageScore = totalKraScore;
+    averageScore = totalKraScore;
 
     // Plus Factor calculation
-    let plusFactor = (plusFactorScore / 3) * 0.02;
+    plusFactor = (plusFactorScore / 3) * 0.02;
 
     // Final Total Score
-    let totalScore = averageScore + plusFactor;
+    totalScore = averageScore + plusFactor;
 
     // Display the result in the "average-score" label
     document.getElementById('average-score').innerText = totalScore.toFixed(3); // Show three decimal places
