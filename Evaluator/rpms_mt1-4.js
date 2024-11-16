@@ -18,9 +18,37 @@ let rater2 = document.getElementById("rater-2");
 let status2 = document.getElementById("status-2");
 let action2 = document.getElementById("action-2");
 
+document.querySelectorAll('tbody tr').forEach(row => {
+    const statusCell = row.querySelector('.status');
+    const reviewLink = row.querySelector('a');
+
+    // Check if the status is 'submitted' or 'pending'
+    if (statusCell.classList.contains('submitted')) {
+        // Set status to 'Submitted' with green color
+        statusCell.textContent = 'Submitted';
+        statusCell.style.color = 'green';
+
+        // Update action to 'Reviewed' with gray color
+        reviewLink.textContent = 'Reviewed';
+        reviewLink.style.color = 'gray';
+        reviewLink.href = '#';  // Disable the link
+    } else if (statusCell.classList.contains('pending')) {
+        // Set status to 'Pending' with red color
+        statusCell.textContent = 'Pending';
+        statusCell.style.color = 'red';
+
+        // Update action to 'Review' with default color
+        reviewLink.textContent = 'Review';
+        reviewLink.style.color = '';  // Default link color
+        reviewLink.href = 'rpms_highlyproficient_homepage.html';  // Enable the link
+    }
+});
+
+
+
 // Checking the status and dynamically updating the text
 if (status1.classList.contains('pending')) {
-    status1.innerText = 'In Progress';  // Update status dynamically
+    // status1.innerText = 'In Progress';  // Update status dynamically
 }
 
 if (status2.innerText === 'Submitted') {
