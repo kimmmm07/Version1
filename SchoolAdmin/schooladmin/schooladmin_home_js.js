@@ -48,7 +48,10 @@ window.addEventListener("click", function(event) {
     }
 });
 
-window.addEventListener('load', async function () {
+
+let school = undefined;
+
+async function getFeeds() {
     const response = await fetch('https://bnahs.pythonanywhere.com/api/school/feeds/',
         {
             method: 'GET',
@@ -62,26 +65,58 @@ window.addEventListener('load', async function () {
     } else {
         console.log("Error Data : ",data);
     }
-     
+};
+
+getFeeds();
+
+async function getlDetailsByActionId(action_id) {
     const formData = new FormData();
-    formData.append('action_id', 'e9a7fdea-c6d0-40d8-8324-47aa18c60074')
+    // formData.append('action_id', 'e9a7fdea-c6d0-40d8-8324-47aa18c60074')
+    formData.append('action_id', action_id);
     const response1 = await fetch('https://bnahs.pythonanywhere.com/api/user/get/owner/action_id/', {
-            method: 'POST',
+        method: 'POST',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            
+        },
+        body: formData,
+        credentials: 'include',
+    });
+
+    const data1 = await response1.json();
+    if (response1.ok) {
+        console.log("Success Data : ", data1); 
+    } else {
+        console.log("Error Data : ", data1);
+    }
+}
+
+
+async function getSchoolDetails(){
+    try{
+        const response1 = await fetch('https://bnahs.pythonanywhere.com/api/school/profile/', {
+            method: 'GET',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
                 
-            },
-            body: formData,
+            }, 
             credentials: 'include',
         });
-
-        const data1 = await response1.json();
+    
+        school = await response1.json();
         if (response1.ok) {
-            console.log("Success Data : ", data1); 
+            console.log("Success Data : ", school); 
         } else {
-            console.log("Error Data : ", data1);
+            console.log("Error Data : ", school);
         }
-});
+
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+getSchoolDetails();
+
 
 // // Get the announcement and mention buttons
 // const announcementButton = document.querySelector('.announcement-btn');
