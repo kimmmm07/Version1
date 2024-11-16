@@ -169,7 +169,7 @@ function addRow(data , quarter , tbody){
     // const row = document.createElement('tr');
 
     const teacher = data.teacher;
-    const cot = data.cot;``
+    const cot = data.cot;
 
     // Check if teacher is evaluated
     // if (!teacher.is_evaluated) {
@@ -208,7 +208,7 @@ function addRow(data , quarter , tbody){
             <td>${cot.rater ?? 'N/A'}</td>
             <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
             <td>
-                <a onclick="evaluatedTeacher(${teacher.id}, ${quarter})" class="button">Observe</a> | 
+                <a onclick="evaluatedTeacher(${teacher.employee_id}, ${quarter})" class="button">Observe</a> | 
                 <a  class="disabled">View</a>
             </td>
         `; 
@@ -222,7 +222,7 @@ function addRow(data , quarter , tbody){
         <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
         <td>
             <a class="status">Observed</a> | 
-            <a onclick="viewTeacher(${teacher.id}, ${quarter})" >View</a>
+            <a onclick="viewTeacher(${teacher.employee_id}, ${quarter})" >View</a>
         </td>
     `;
     }
