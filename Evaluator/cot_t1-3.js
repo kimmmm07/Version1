@@ -167,8 +167,9 @@ function addRow(data, quarter, tbody , table) {
     const teacher = data.teacher;
     const cot = data.cot;
     const tr = document.createElement('tr'); 
+    
 
-    if (!teacher.is_checked) {
+    if (!cot.is_checked) {
         tr.innerHTML = `
             <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.fullname}</td>
             <td>${teacher.position}</td>
