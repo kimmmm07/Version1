@@ -124,6 +124,61 @@
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+let people = undefined;
+async function fetchFacultyData() {
+    try {
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/faculties/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        people = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", people);  
+        } else {
+            console.log("Error Data : ", people);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+fetchFacultyData();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </script>
 </body>
 </html>
