@@ -123,7 +123,6 @@ nav a.active {
 /* Top Bar */
 .top-bar {
     border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: flex-start;  /* Align content to the left */
     align-items: center;
@@ -131,14 +130,14 @@ nav a.active {
     gap: 10px; /* Add space between the button and points */
 }
 
-.top-bar button {
+/* .top-bar button {
     background-color: #D9D9D9;
     border-radius: 5px;
     color: white;
     border: none;
     padding: 8px 16px;
     cursor: pointer;
-}
+} */
 
 /* Style the points */
 .points {
