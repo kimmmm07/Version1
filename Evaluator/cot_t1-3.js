@@ -95,3 +95,164 @@ yesButton.addEventListener('click', async function() {
     }
 });
 
+
+
+
+
+
+function observeTeacher() {
+    // Handle the teacher data
+    console.log("Observing teacher:", teacher);
+    
+    window.location.href = 'evaluator_cot_form_proficient.html';
+}
+
+
+
+function populateTable(teachers) {
+    const tableBody = document.getElementById('teacherTableBody');
+    
+    teachers.forEach(teacher => {
+        const row = document.createElement('tr');
+
+        // Check if teacher is evaluated
+        if (!teacher.is_evaluated) {
+            row.innerHTML = `
+                <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.first_name} ${teacher.middle_name} ${teacher.last_name}</td>
+                <td>${teacher.position}</td>
+                <td>${teacher.grade_level}</td>
+                <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
+                <td>
+                    <a href="evaluator_cot_form_proficient.html" class="button">Observe</a> | 
+                    <a href="#" class="disabled">View</a>
+                </td>
+            `;
+        } else {
+            row.innerHTML = `
+                <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.first_name} ${teacher.middle_name} ${teacher.last_name}</td>
+                <td>${teacher.position}</td>
+                <td>${teacher.grade_level}</td>
+                <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
+                <td><span class="status">Observed</span> | <a href="view_cot_form_t1-3.html">View</a></td>
+            `;
+        }
+
+        // Append the row to the table body
+        tableBody.appendChild(row);
+    });
+}
+
+
+let data_quarter_1 = undefined;
+let data_quarter_2 = undefined;
+let data_quarter_3 = undefined;
+let data_quarter_4 = undefined;
+
+
+function evaluatedTeacher(teacher_id, quarter){
+    sessionStorage.setItem('teacher_id', teacher_id);
+    sessionStorage.setItem('quarter', quarter);
+    window.location.href = 'evaluator_cot_form_proficient.html';
+};
+
+
+function viewTeacher(teacher_id, quarter){
+    sessionStorage.setItem('teacher_id', teacher_id);
+    sessionStorage.setItem('quarter', quarter);
+
+    window.location.href = 'view_cot_form_t1-3.html';
+};
+
+function addRow(data, quarter, tbody) {
+    const teacher = data.teacher;
+    const cot = data.cot;
+    const tr = document.createElement('tr');
+    const textEvaluatedTeacher = `evaluatedTeacher(${teacher.employee_id}, ${quarter})`;
+    const textViewTeacher = `viewTeacher(${teacher.employee_id}, ${quarter})`;
+
+    if (!teacher.is_checked) {
+        tr.innerHTML = `
+            <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.fullname}</td>
+            <td>${teacher.position}</td>
+            <td>${cot.subject}</td>
+            <td>${teacher.grade_level}</td>
+            <td>${cot.rater ?? 'N/A'}</td>
+            <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
+            <td>
+                <a id="${teacher.employee_id}-observe" class="button">Observe</a> | 
+                <a class="disabled">View</a>
+            </td>
+        `; 
+        tbody.appendChild(tr); 
+        const observeLink = document.getElementById(`${teacher.employee_id}-observe`);
+        observeLink.addEventListener('click', () => evaluatedTeacher(teacher.employee_id, quarter));
+    } else { 
+        tr.innerHTML = `
+            <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.fullname}</td>
+            <td>${teacher.position}</td>
+            <td>${cot.subject}</td>
+            <td>${teacher.grade_level}</td>
+            <td>${cot.rater ?? 'N/A'}</td>
+            <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
+            <td>
+                <a class="status">Observed</a> | 
+                <a id="${teacher.employee_id}-view">View</a>
+            </td>
+        `;
+        tbody.appendChild(tr);
+        const viewLink = document.getElementById(`${teacher.employee_id}-view`);
+        viewLink.addEventListener('click', () => viewTeacher(teacher.employee_id, quarter));
+
+    }
+};
+
+
+
+async function getTeachers() {
+    try {
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/all/cot/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+            
+            data_quarter_1 = data['Quarter 1'];
+            data_quarter_2 = data['Quarter 2'];
+            data_quarter_3 = data['Quarter 3'];
+            data_quarter_4 = data['Quarter 4'];
+
+            data_quarter_1.forEach(quarter => {
+                addRow(quarter, 'Quarter 1', teacherTableBodyQuarter1);
+            });
+            data_quarter_2.forEach(quarter => {
+                addRow(quarter, 'Quarter 2', teacherTableBodyQuarter2);
+            });
+            data_quarter_3.forEach(quarter => {
+                addRow(quarter, 'Quarter 3', teacherTableBodyQuarter3);
+            });
+            data_quarter_4.forEach(quarter => {
+                addRow(quarter, 'Quarter 4', teacherTableBodyQuarter4);
+            });
+
+
+
+
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+
+getTeachers();
