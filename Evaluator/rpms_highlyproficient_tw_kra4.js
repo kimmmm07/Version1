@@ -11,7 +11,7 @@ const teacherWorkTab = document.getElementById('teacher-work-tab');
 // Top Bar
 const topBar = document.getElementById('top-bar');
 const returnButton = document.getElementById('return-button');
-const points = document.getElementById('points');
+const kra4Score = document.getElementById("kra4Score"); // kra 4
 
 // Content Section
 const content = document.getElementById('content');

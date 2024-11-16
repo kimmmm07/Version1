@@ -9,7 +9,7 @@ const closeBtn = document.querySelector(".close-btn");
 const logoutLink = document.getElementById("logoutLink");
 
 // Breadcrumb and Tabs
-const plusFactorPoint = document.getElementById("plusFactorPoint"); 
+const plusFactorScore = document.getElementById("plusFactorScore"); // plus factor
 const statusDropdown = document.getElementById("status");
 
 // Content Section

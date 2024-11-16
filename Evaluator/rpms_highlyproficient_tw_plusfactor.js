@@ -11,7 +11,7 @@ const teacherWorkTab = document.getElementById('teacher-work-tab');
 // Top Bar
 const topBar = document.getElementById('top-bar');
 const returnButton = document.getElementById('return-button');
-const points = document.getElementById('points');
+const plusFactorScore = document.getElementById("plusFactor"); // plus factor
 
 // Content Section
 const content = document.getElementById('content');

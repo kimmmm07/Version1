@@ -9,7 +9,7 @@ const closeBtn = document.querySelector(".close-btn");
 const logoutLink = document.getElementById("logoutLink");
 
 // Breadcrumb and Tabs
-const kra3Point = document.getElementById("kra3Point"); 
+const kra3Score = document.getElementById("kra3Score"); // kra 3
 const statusDropdown = document.getElementById("status");
 
 // Content Section
