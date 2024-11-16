@@ -101,6 +101,38 @@ yesButton.addEventListener('click', async function() {
     }
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Get the element by its ID
+const submissionDiv = document.getElementById('teacher-submission');
+const h3Element = document.getElementById('teacher-submission-name');
+const aElement = document.getElementById('teacher-submission-name');
+const nameTag = document.getElementById('name');
+
+
+
+let teacher = undefined;
+let submitted = undefined;
+
+
+function openAttachment(){
+    window.location.href = "rpms_proficient_attachment3.html";
+}
+
 async function getTeacherAttachments() {
     try {
         
@@ -124,6 +156,24 @@ async function getTeacherAttachments() {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
+            teacher = data.teacher;
+            
+            nameTag.innerText = teacher.fullname;
+
+            if (data.submitted && data.submitted.length > 0 && data.submitted[0]['Overall Score'] !== undefined) {
+                let attachment = data.submitted[0];
+                if (attachment.is_checked){
+                    kra3Score.innerText = `${attachment['Overall Score']} / 28`;
+                    h3Element.innerText = teacher.fullname;
+                    aElement.addEventListener('click', openAttachment);
+                } else { 
+                    submissionDiv.style.display ='none';
+                }
+            } else {
+                kra3Score.innerText = "__ / 28";
+                submissionDiv.style.display ='none';
+            }
+            
         } else {
             console.log("Error Data : ", data);
         }
