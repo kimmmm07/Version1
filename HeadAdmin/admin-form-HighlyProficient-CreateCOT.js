@@ -13,11 +13,67 @@ function openModal() {
 document.getElementById('openModalBtn').addEventListener('click', openModal);
 document.getElementById('cancelBtn').addEventListener('click', closeModal);
 
+// async function createFolder() {
+//     const selectedYear = String(document.getElementById('form2').value);
+//     if (selectedYear) {
+//         const formData = new FormData();
+//         formData.append('school_year', selectedYear);
+//         const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/school/evaluator/create/cot/', {
+//             method: 'POST',
+//             headers: {
+//                 'X-Requested-With': 'XMLHttpRequest',
+//             },
+//             body: formData,
+//             credentials: 'include',
+//         });
+
+//         const data = await response.json();
+
+//         if (response.ok) {
+//             console.log("Success Data: ", data);
+//         } else {
+//             console.log("Error Data: ", data);
+//         }
+
+//         const categoryContainer = document.getElementById('categoryContainer');
+//         const newCategory = document.createElement('div');
+//         newCategory.className = 'form-category';
+//         newCategory.innerHTML = `
+//             <div class="horizontal-background"></div>
+//             <h3 class="category-label">${selectedYear}</h3>
+            
+//             <a href="admin-form-HighlyProficient-COT-Quarters.html" class="form-link">
+//                 <div class="form-item">
+//                     <i class="fas fa-file-alt"></i>
+//                     Rating Sheet for Highly Proficient Teacher
+//                 </div>
+//             </a>
+//         `;
+//         categoryContainer.insertAdjacentElement('afterbegin', newCategory);
+//         closeModal();
+//     } else {
+//         alert('Please select a school year.');
+//     }
+// }
+
+// document.getElementById('createBtn').addEventListener('click', createFolder);
+
+
+
+
+
+
+
+const selectedYears = [];  // Array to store selected school years
+
+
 async function createFolder() {
     const selectedYear = String(document.getElementById('form2').value);
     if (selectedYear) {
         const formData = new FormData();
         formData.append('school_year', selectedYear);
+        formData.append('type_proficient', 'Highly Proficient');
+
         const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/school/evaluator/create/cot/', {
             method: 'POST',
             headers: {
@@ -57,6 +113,64 @@ async function createFolder() {
 }
 
 document.getElementById('createBtn').addEventListener('click', createFolder);
+
+async function populateFolders() {
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/school/evaluator/get/cot/highly_proficient', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+        });
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data: ", data); 
+            data.school_years.forEach(school_year => {
+                selectedYears.push(school_year);
+
+                const categoryContainer = document.getElementById('categoryContainer');
+                const newCategory = document.createElement('div');
+                newCategory.className = 'form-category';
+                newCategory.innerHTML = `
+                    <div class="horizontal-background"></div>
+                    <h3 class="category-label">${school_year}</h3>
+                    <a href="admin-form-Proficient-COT-Quarters.html" class="form-link">
+                        <div class="form-item">
+                            <i class="fas fa-file-alt custom-icon"></i>
+                            Rating Sheet for Proficient Teacher
+                        </div>
+                    </a>
+                    
+                `;
+
+                // Insert the new category at the top of the categoryContainer
+                categoryContainer.insertAdjacentElement('afterbegin', newCategory);
+            });
+        } else {
+            console.log("Error Data: ", data);
+        }
+    } catch (error) {
+        console.error('Error fetching folders:', error);
+    }
+};
+
+
+populateFolders();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
