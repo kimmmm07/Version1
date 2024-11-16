@@ -1,3 +1,46 @@
+// Statistics elements
+const totalSchool = document.getElementById("totalSchool");
+const totalTeacher = document.getElementById("totalTeacher");
+const evaluationConducted = document.getElementById("evaluationConducted");
+const totalPending = document.getElementById("totalPending");
+
+// Dropdown elements for submission and distribution rates
+const schoolDropdown = document.getElementById("schoolDropdown");
+const schoolYearDropdown = document.getElementById("schoolYearDropdown");
+const distributionSchoolDropdown = document.getElementById("distributionSchoolDropdown");
+const distributionYearDropdown = document.getElementById("distributionYearDropdown");
+
+// Canvas elements for charts
+const submissionRateChart = document.getElementById("submissionRateChart");
+const distributionChart = document.getElementById("distributionChart");
+const RecommendationChart = document.getElementById("recommendationChart");
+const tenureChart = document.getElementById("tenureChart");
+
+// Recommendation chart labels
+const promotionRate = document.getElementById("promotionRate");
+const retentionRate = document.getElementById("retentionRate");
+const terminationRate = document.getElementById("terminationRate");
+
+// Tenure chart labels
+const tenure0to3 = document.getElementById("tenure0to3");
+const tenure3to5 = document.getElementById("tenure3to5");
+const tenure5plus = document.getElementById("tenure5plus");
+
+// Example of fetching data dynamically (for demonstration purposes)
+function updateStatistics() {
+    // Dummy data fetch simulation
+    totalSchool.textContent = "5";
+    totalTeacher.textContent = "200";
+    evaluationConducted.textContent = "150";
+    totalPending.textContent = "50";
+}
+
+// Call updateStatistics function on page load
+window.onload = updateStatistics;
+
+
+
+
 const logoutButton = document.getElementById('logout-nav');
 const logoutModal = document.getElementById('logoutModal');
 const yesButton = document.querySelector('.yes-btn');

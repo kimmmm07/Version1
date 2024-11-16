@@ -32,22 +32,22 @@
             <div class="stats-container">
                 <div class="stat-box">
                     <h3>Total number of schools</h3>
-                    <p id="total-school"></p>
+                    <p id="totalSchool"></p>
                 </div>
                 <div class="stat-box">
                     <h3>Total number of teachers</h3>
-                    <p id="total-teacher"></p>
+                    <p id="totalTeacher"></p>
                 </div>
                 <div class="stat-box">
                     <h3>Number of evaluations conducted</h3>
-                    <p id="evaluation-conducted"></p>
+                    <p id="evaluationConducted"></p>
                 </div>
                 <div class="stat-box">
                     <h3>Number of pending evaluations</h3>
-                    <p id="total-pending"></p>
+                    <p id="totalPending"></p>
                 </div>
             </div>
-
+    
             <div class="chart-container submission-rate-container">
                 <div class="chart-title submission-rate-title">Evaluation Submission Rate</div>
                 <div class="submission-dropdown-container">
@@ -56,17 +56,17 @@
                         <option value="school1">Benigno "Ninoy" Aquino High School</option>
                         <option value="school2">Upper Bicutan National High School</option>
                         <option value="school3">Taguig National High School</option>
-                        <option value="school1">Signal Village National High School</option>
-                        <option value="school2">President Diosdado Macapagal High School</option>
-                        <option value="school3">Western Bicutan National High School</option>
+                        <option value="school4">Signal Village National High School</option>
+                        <option value="school5">President Diosdado Macapagal High School</option>
+                        <option value="school6">Western Bicutan National High School</option>
                     </select>
-            
+    
                     <select id="schoolYearDropdown">
                         <option value="" disabled selected>School Year</option>
-                        <option value="2023-2024">2019-2020</option>
-                        <option value="2024-2025">2020-2021</option>
-                        <option value="2023-2024">2021-2022</option>
-                        <option value="2024-2025">2022-2023</option>
+                        <option value="2019-2020">2019-2020</option>
+                        <option value="2020-2021">2020-2021</option>
+                        <option value="2021-2022">2021-2022</option>
+                        <option value="2022-2023">2022-2023</option>
                         <option value="2023-2024">2023-2024</option>
                         <option value="2024-2025">2024-2025</option>
                     </select>
@@ -74,29 +74,26 @@
                 <hr class="submission-rate-hr"> 
                 <canvas id="submissionRateChart"></canvas>
             </div>
-            
-            <br><br><br><br><br><br>
-            
+    
             <div class="chart-container distribution-chart-container">
                 <div class="chart-title distribution-chart-title">Distribution of Ratings Chart</div>
                 <div class="distribution-dropdown-container">
-                    <select id="distributionSchoolDropdown"
-                    <select class="distribution-school-dropdown">
+                    <select id="distributionSchoolDropdown">
                         <option value="" disabled selected>School</option>
                         <option value="school1">Benigno "Ninoy" Aquino High School</option>
                         <option value="school2">Upper Bicutan National High School</option>
                         <option value="school3">Taguig National High School</option>
-                        <option value="school1">Signal Village National High School</option>
-                        <option value="school2">President Diosdado Macapagal High School</option>
-                        <option value="school3">Western Bicutan National High School</option>
+                        <option value="school4">Signal Village National High School</option>
+                        <option value="school5">President Diosdado Macapagal High School</option>
+                        <option value="school6">Western Bicutan National High School</option>
                     </select>
-                    <select id="distributionYearDropdown"
-                    <select class="distribution-year-dropdown">
+    
+                    <select id="distributionYearDropdown">
                         <option value="" disabled selected>School Year</option>
-                        <option value="2023-2024">2019-2020</option>
-                        <option value="2024-2025">2020-2021</option>
-                        <option value="2023-2024">2021-2022</option>
-                        <option value="2024-2025">2022-2023</option>
+                        <option value="2019-2020">2019-2020</option>
+                        <option value="2020-2021">2020-2021</option>
+                        <option value="2021-2022">2021-2022</option>
+                        <option value="2022-2023">2022-2023</option>
                         <option value="2023-2024">2023-2024</option>
                         <option value="2024-2025">2024-2025</option>
                     </select>
@@ -104,36 +101,31 @@
                 <hr class="distribution-rate-hr">
                 <canvas id="distributionChart"></canvas>
             </div>
-            
-                    
-                    
-
-                <div class="pie-charts-container">
-                    <div class="chart-container recommendations-container">
-                        <div class="chart-title">Recommendations Chart</div>
-                        <hr>
-                        <canvas id="recommendationChart" width="150" height="150"></canvas>
-                        <div class="recommendation-labels">
-                            <ul>
-                                <li> Promotion: 39.11%</li>
-                                <li> Retention: 23.13%</li>
-                                <li> Termination: 28.02%</li>
-                            </ul>
-                        </div>
+    
+            <div class="pie-charts-container">
+                <div class="chart-container recommendations-container">
+                    <div class="chart-title">Recommendations Chart</div>
+                    <hr>
+                    <canvas id="recommendationChart" width="150" height="150"></canvas>
+                    <div class="recommendation-labels">
+                        <ul>
+                            <li>Promotion: <span id="promotionRate">39.11%</span></li>
+                            <li>Retention: <span id="retentionRate">23.13%</span></li>
+                            <li>Termination: <span id="terminationRate">28.02%</span></li>
+                        </ul>
                     </div>
-                    
-                    <div class="chart-container tenure-container">
-                        <div class="chart-title">Tenure Chart</div>
-                        <hr>  
-                        <canvas id="tenureChart" width="150" height="150"></canvas>
-                        <div class="tenure-labels">
-                            <ul>
-                                <li> 0-3 years: 39.11%</li>
-                                <li> 3-5 years: 23.13%</li>
-                                <li> 5+ years: 28.02%</li>
-                            </ul>
-                        </div>   
-                        </div>
+                </div>
+    
+                <div class="chart-container tenure-container">
+                    <div class="chart-title">Tenure Chart</div>
+                    <hr>  
+                    <canvas id="tenureChart" width="150" height="150"></canvas>
+                    <div class="tenure-labels">
+                        <ul>
+                            <li>0-3 years: <span id="tenure0to3">39.11%</span></li>
+                            <li>3-5 years: <span id="tenure3to5">23.13%</span></li>
+                            <li>5+ years: <span id="tenure5plus">28.02%</span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
