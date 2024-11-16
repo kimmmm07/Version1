@@ -370,9 +370,10 @@ nav ul li a i {
     padding: 20px;
     border-radius: 20px;
     text-align: center;
+    align-content: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 400px;
-    height: 150px;
+    height: 180px;
     border: 2px solid #082F96;
 }
 
