@@ -259,8 +259,8 @@ h1 {
     flex-direction: column;
     justify-content: center; /* Center-align labels vertically with the chart */
     text-align: left;
-    margin-left: 180px; /* Space between chart and labels */
-    margin-top: -130px;
+    margin-left: 0px; /* Space between chart and labels */
+    margin-top: 50px;
 }
 
 /* Make the bullet color and size match the chart's color */

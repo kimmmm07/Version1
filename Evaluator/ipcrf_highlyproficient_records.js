@@ -6,7 +6,6 @@ const rpmsTab = document.getElementById('rpms-tab');
 // Filters
 const schoolYearSelect = document.getElementById('school-year');
 const teacherTypeSelect = document.getElementById('teacher-type');
-const quarterSelect = document.getElementById('selectQuarter');
 
 // Table elements
 const recordsTbody = document.getElementById('records-tbody');
@@ -21,6 +20,41 @@ const evaluationResult = document.getElementById('evaluation-result');
 
 // Links
 const viewRecordLink = document.getElementById('view-record');
+
+document.addEventListener("DOMContentLoaded", function () {
+    const schoolYearDropdown = document.querySelector('select[name="school-year"]');
+    const teacherTypeDropdown = document.querySelector('select[name="teacher-type"]');
+
+    // Load the selected values from localStorage if they exist
+    const savedSchoolYear = localStorage.getItem('selectedSchoolYear');
+    const savedTeacherType = localStorage.getItem('selectedTeacherType');
+
+    if (savedSchoolYear) {
+        schoolYearDropdown.value = savedSchoolYear;
+    }
+
+    if (savedTeacherType) {
+        teacherTypeDropdown.value = savedTeacherType;
+    }
+
+    // Handle school year selection
+    schoolYearDropdown.addEventListener("change", function () {
+        console.log("Selected School Year:", schoolYearDropdown.value);
+        // Save the selected value to localStorage
+        localStorage.setItem('selectedSchoolYear', schoolYearDropdown.value);
+    });
+
+    // Handle teacher type selection and redirect to the selected page
+    teacherTypeDropdown.addEventListener("change", function () {
+        const selectedValue = teacherTypeDropdown.value;
+        if (selectedValue) {
+            // Save the selected value to localStorage
+            localStorage.setItem('selectedTeacherType', selectedValue);
+            // Redirect to the selected page based on the value
+            window.location.href = selectedValue;
+        }
+    });
+});
 
 // User Icon
 const userIcon = document.getElementById('user-icon');
