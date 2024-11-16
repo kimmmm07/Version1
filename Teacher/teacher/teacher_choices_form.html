@@ -155,6 +155,105 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+
+
+
+
+let ipcrf_1 = undefined;
+let ipcrf_2 = undefined;
+let ipcrf_3 = undefined;
+
+
+async function getIPCRF1(){
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/ipcrf/part1/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        ipcrf_1 = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", ipcrf_1);
+        } else {
+            console.log("Error Data : ", ipcrf_1);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+
+async function getIPCRF2(){
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/ipcrf/part2/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        ipcrf_2 = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", ipcrf_2);
+        } else {
+            console.log("Error Data : ", ipcrf_2);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+async function getIPCRF3(){
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/ipcrf/part3/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        ipcrf_3 = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", ipcrf_3);
+        } else {
+            console.log("Error Data : ", ipcrf_3);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getIPCRF3();
+
+getIPCRF1();
+
+getIPCRF2();
+
+
+
+
+
+
+
+
+
 </script>
 
 
