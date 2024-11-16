@@ -87,27 +87,27 @@ let kra_4_id = undefined;
 let plus_factor_id = undefined;
 
 function onclickKRA1(){
-    sessionStorage.setItem('kra_1_id', kra_1_id);
+    sessionStorage.setItem('classwrork_id', kra_1_id);
     window.location.href = 'rpms_proficient_kra1.html';
 }
 
 function onclickKRA2(){
-    sessionStorage.setItem('kra_2_id', kra_2_id);
+    sessionStorage.setItem('classwrork_id', kra_2_id);
     window.location.href = 'rpms_proficient_kra2.html';
 }
 
 function onclickKRA3(){
-    sessionStorage.setItem('kra_3_id', kra_3_id);
+    sessionStorage.setItem('classwrork_id', kra_3_id);
     window.location.href = 'rpms_proficient_kra3.html';
 }
 
 function onclickKRA4(){
-    sessionStorage.setItem('kra_4_id', kra_4_id);
+    sessionStorage.setItem('classwrork_id', kra_4_id);
     window.location.href = 'rpms_proficient_kra4.html';
 }
 
 function onclickPlusFactor(){
-    sessionStorage.setItem('plus_factor_id', plus_factor_id);
+    sessionStorage.setItem('classwrork_id', plus_factor_id);
     window.location.href = 'rpms_proficient_plusfactor.html';
 }
 
