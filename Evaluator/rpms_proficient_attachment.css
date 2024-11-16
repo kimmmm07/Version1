@@ -284,6 +284,7 @@ main {
     color: white;
     border: none;
     cursor: pointer;
+    width: 130px !important;
     border-radius: 20px;
 }
 
