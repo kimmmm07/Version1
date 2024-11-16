@@ -293,9 +293,7 @@ async function getAttachments() {
 
                 // Close the modal
                 submissionModal.style.display = 'none'; // Close submission modal
-            }
-
-            if(unsubmitted_attachments){
+            }else if(unsubmitted_attachments){
                 isSubmitted = false;
                 unsubmitted_attachments = responseData.unsumitted.map(item => ({
                     name: item.title || item.file.split('/').pop(),
@@ -406,6 +404,7 @@ async function unSubmitAttachment() {
         if (response.ok) {
             const responseData = await response.json();
             console.log('Files successfully uploaded:', responseData);
+            location.reload();
         } else {
             console.error('Failed to upload files:', response.statusText);
         }
