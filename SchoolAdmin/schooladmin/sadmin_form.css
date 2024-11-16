@@ -369,7 +369,7 @@ select:focus {
 
 
 /* Modal styles */
-.modal {
+.modal-logout {
     display: flex;
     position: fixed;
     top: 0;
@@ -383,35 +383,37 @@ select:focus {
     border: #082F96;
 }
 
-.modal.hidden {
+.modal-logout.hidden {
     display: none;
 }
 
-.modal-content {
+.modal-content-logout {
     background-color: white;
     padding: 20px;
     border-radius: 20px;
     text-align: center;
+    align-content: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 400px;
-    height: 150px;
+    height: 180px;
     border: 2px solid #082F96;
 }
 
-.modal-content p {
+
+.modal-content-logout p {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 20px;
 }
 
-.modal-buttons {
+.modal-buttons-logout {
     display: flex;
     justify-content: space-around;
     align-items: center;
     gap: -20px;
 }
 
-.modal-buttons button {
+.modal-buttons-logout button {
     width: 120px;
     padding: 10px 20px;
     border: none;
