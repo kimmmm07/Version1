@@ -241,7 +241,7 @@ turnInBtn.addEventListener('click', () => {
 
 // Cancel button functionality to close the submission modal
 cancelBtn.addEventListener('click', function () {
-    submissionModal.style.display = 'none'; // Close the modal on cancel
+    submissionModal.style.display = 'none';
 });
 
 
@@ -269,8 +269,9 @@ async function getAttachments() {
             console.log('Fetched attachments:', responseData);
 
             submitted_attachments = responseData.submitted;
-            unsubmitted_attachments = responseData.unsumitted;
-            if(submitted_attachments){
+            unsubmitted_attachments = responseData.unsumitted || [];
+            console.log(unsubmitted_attachments);
+            if(submitted_attachments.length > 0){
                 isSubmitted = true;
                 submittedFiles = responseData.submitted.map(item => ({
                     name: item.title || item.file.split('/').pop(),
@@ -293,11 +294,12 @@ async function getAttachments() {
 
                 // Close the modal
                 submissionModal.style.display = 'none'; // Close submission modal
-            }else if(unsubmitted_attachments){
+            }
+            else if(unsubmitted_attachments.length > 0){
                 isSubmitted = false;
                 unsubmitted_attachments = responseData.unsumitted.map(item => ({
                     name: item.title || item.file.split('/').pop(),
-                    type: "submitted", // Indicate it's a submitted file
+                    type: "unsubmitted",
                     file: "https://bnahs.pythonanywhere.com/"+item.file, 
                     attachmentId: item.attachment_id, // Unique ID
                 }));
@@ -316,13 +318,13 @@ async function getAttachments() {
 
                 // Enable turn in button
                 turnInBtn.disabled = false;
-                }
+            }
     
-                renderFileList(); // Render the file list after fetching
-            }
-            else {
+            renderFileList();
+       }
+        else {
             console.error('Failed to fetch attachments:', response.statusText);
-            }
+        }
     } catch (error) {
         console.error('Error during fetch:', error);
     }
