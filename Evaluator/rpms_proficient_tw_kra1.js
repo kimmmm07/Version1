@@ -100,3 +100,39 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+async function getTeacherAttachments() {
+    try {
+        
+        classwork_id = sessionStorage.getItem('classwrork_id');
+        teacher_id = sessionStorage.getItem('teacher_id');
+        const formData = new FormData();
+        formData.append('class_work_id ', classwork_id);
+        formData.append('teacher_id', teacher_id);
+
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/rpms/folder/classwork/attachments/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getTeacherAttachments();
