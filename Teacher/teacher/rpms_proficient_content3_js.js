@@ -241,7 +241,7 @@ turnInBtn.addEventListener('click', () => {
 
 // Cancel button functionality to close the submission modal
 cancelBtn.addEventListener('click', function () {
-    submissionModal.style.display = 'none'; // Close the modal on cancel
+    submissionModal.style.display = 'none';
 });
 
 
@@ -269,8 +269,9 @@ async function getAttachments() {
             console.log('Fetched attachments:', responseData);
 
             submitted_attachments = responseData.submitted;
-            unsubmitted_attachments = responseData.unsumitted;
-            if(submitted_attachments){
+            unsubmitted_attachments = responseData.unsumitted || [];
+            console.log(unsubmitted_attachments);
+            if(submitted_attachments.length > 0){
                 isSubmitted = true;
                 submittedFiles = responseData.submitted.map(item => ({
                     name: item.title || item.file.split('/').pop(),
@@ -294,12 +295,36 @@ async function getAttachments() {
                 // Close the modal
                 submissionModal.style.display = 'none'; // Close submission modal
             }
+            else if(unsubmitted_attachments.length > 0){
+                isSubmitted = false;
+                unsubmitted_attachments = responseData.unsumitted.map(item => ({
+                    name: item.title || item.file.split('/').pop(),
+                    type: "unsubmitted",
+                    file: "https://bnahs.pythonanywhere.com/"+item.file, 
+                    attachmentId: item.attachment_id, // Unique ID
+                }));
+                // Show Add or Create button and Turn In button again
+                addCreateBtn.style.display = 'block'; // Maintain position
+                turnInBtn.style.display = 'block';     // Maintain position
+
+                // Enable the remove buttons again
+                const removeButtons = document.querySelectorAll('.remove-file');
+                removeButtons.forEach(button => {
+                    button.style.display = 'inline'; // Show each remove button again
+                });
+
+                // Hide unsubmit button
+                unsubmitBtn.style.display = 'none';
+
+                // Enable turn in button
+                turnInBtn.disabled = false;
+            }
     
-                renderFileList(); // Render the file list after fetching
-            }
-            else {
+            renderFileList();
+       }
+        else {
             console.error('Failed to fetch attachments:', response.statusText);
-            }
+        }
     } catch (error) {
         console.error('Error during fetch:', error);
     }
@@ -343,6 +368,7 @@ async function sendFilesToBackend() {
         if (response.ok) {
             const responseData = await response.json();
             console.log('Files successfully uploaded:', responseData);
+            location.reload();
         } else {
             console.error('Failed to upload files:', response.statusText);
         }
@@ -381,6 +407,7 @@ async function unSubmitAttachment() {
         if (response.ok) {
             const responseData = await response.json();
             console.log('Files successfully uploaded:', responseData);
+            location.reload();
         } else {
             console.error('Failed to upload files:', response.statusText);
         }
