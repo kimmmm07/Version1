@@ -20,11 +20,11 @@
             <li><a href="sadmin_form.html" class="nav-link form"><img src="assets/File_Document1.png" alt="Form Icon" class="nav-icon"> Form</a></li>
             <li><a href="results.html" class="nav-link"><img src="assets/Check Document.png" alt="Results Icon" class="nav-icon"> Results</a></li>
             <li><a href="records.html" class="nav-link"><img src="assets/Folders1.png" alt="Records Icon" class="nav-icon"> Records</a></li>
-            <li id="logoutLink" class="logout-btn">
+            <li id="logout-nav" class="logout-btn">
                 <a href="../../index.html">
                     <img src="assets/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout
                 </a>
-            </li>
+            </li>            
         </ul>
     </nav>
 
@@ -84,5 +84,50 @@
     </div>
 
     <script src="dashboard-request-Declined.js" type="module"></script>
+
+    <script>
+const logoutButton = document.getElementById('logout-nav').querySelector('a'); // Target <a> element
+const logoutModal = document.getElementById('logoutModal');
+const yesButton = document.querySelector('.yes-btn');
+const noButton = document.querySelector('.no-btn');
+
+// Show modal when logout is clicked
+logoutButton.addEventListener('click', function(event) {
+    event.preventDefault();  // Prevent default logout behavior
+    logoutModal.classList.remove('hidden');  // Show modal
+});
+
+// Hide modal when "No" is clicked
+noButton.addEventListener('click', function() {
+    logoutModal.classList.add('hidden');  // Hide modal
+});
+
+// Redirect when "Yes" is clicked
+yesButton.addEventListener('click', async function() {
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data:", data); 
+            window.location.href = '../../get-started.html'; 
+        } else {
+            console.log("Error Data:", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+});
+
+
+    </script>
+
+
 </body>
 </html>
