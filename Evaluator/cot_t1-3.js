@@ -203,7 +203,7 @@ function addRow(data , quarter , tbody){
         tr.innerHTML = `
             <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.fullname}</td>
             <td>${teacher.position}</td>
-            <td>${teacher.department}</td>
+            <td>${cot.subject}</td>
             <td>${teacher.grade_level}</td>
             <td>${cot.rater ?? 'N/A'}</td>
             <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
@@ -216,7 +216,7 @@ function addRow(data , quarter , tbody){
         tr.innerHTML = `
         <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.fullname}</td>
         <td>${teacher.position}</td>
-        <td>${teacher.department}</td>
+        <td>${cot.subject}</td>
         <td>${teacher.grade_level}</td>
         <td>${cot.rater ?? 'N/A'}</td>
         <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
