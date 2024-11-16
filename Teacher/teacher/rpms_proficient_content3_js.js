@@ -366,6 +366,7 @@ async function sendFilesToBackend() {
         if (response.ok) {
             const responseData = await response.json();
             console.log('Files successfully uploaded:', responseData);
+            location.reload();
         } else {
             console.error('Failed to upload files:', response.statusText);
         }
