@@ -72,7 +72,7 @@ function closeMenu() {
 }
 
 // Modal logic
-const logoutButton = document.getElementById('logoutLink');  // Logout button
+const logoutButton = document.getElementById('logout-nav-link');  // Logout button
 const logoutModal = document.getElementById('logoutModal');
 const yesButton = document.querySelector('.yes-btn');
 const noButton = document.querySelector('.no-btn');
@@ -111,4 +111,99 @@ yesButton.addEventListener('click', async function() {
   } catch (error) {
       console.error("Error during fetch:", error);
   }
+});
+
+
+
+
+
+let teacher = undefined;
+let submitted = undefined;
+
+
+async function getTeacherAttachments() {
+    try {
+        
+        const classwork_id = sessionStorage.getItem('classwrork_id');
+        const teacher_id = sessionStorage.getItem('teacher_id');
+        const formData = new FormData();
+        formData.append('class_work_id ', classwork_id);
+        formData.append('teacher_id', teacher_id);
+
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/rpms/folder/classwork/attachments/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+            teacher = data.teacher;
+            if (data.submitted && data.submitted.length > 0 && data.submitted[0]['Overall Score'] !== undefined) {
+                submitted = data.submitted[0]; 
+            }
+
+            
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getTeacherAttachments();
+
+
+
+async function updateTeacherAttachment() {
+    try {
+        
+        const content = submitted.grade;
+        // content['9']['Score'] = kra9Score.value;
+        // content['10']['Score'] = kra10Score.value;
+        // content['11']['Score'] = kra11Score.value;
+        content['9']['Score'] = 6;
+        content['10']['Score'] = 6;
+        content['11']['Score'] = 6;
+        
+
+        const formData = new FormData();
+        formData.append('rpms_id ', submitted.attachment_id);
+        formData.append('content', JSON.stringify(content));
+        formData.append('comment', privateCommentsTextarea.value);
+
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/check/rpms/attachment/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+            
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+postButton.addEventListener("click", function() {
+    updateTeacherAttachment();
 });
