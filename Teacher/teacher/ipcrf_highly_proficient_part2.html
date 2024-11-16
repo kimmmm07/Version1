@@ -279,7 +279,7 @@
 <!-- Back and Proceed buttons -->
 <div class="buttons-container">
     <a href="ipcrf_highly_proficient_part1.html" class="back-btn">Back</a>
-    <button onclick="location.href='#'" class="proceed-btn"  onclick="saveCompetencies()"> Save </a>
+    <button class="proceed-btn"  onclick="updateIPCRF2()"> Save </a>
 </div>
 
 
@@ -296,43 +296,114 @@
     </div>
 
     <script>
-        // Self-Management Section
-        const selfManagementContainer = document.querySelector('.objective-container:nth-of-type(1)');
-        const selfManagementRatings = selfManagementContainer.querySelector('.ratings');
-        const selfManagementCheckboxes = selfManagementRatings.querySelectorAll('input[name="obj1"]');
+        // Self-Management Section 
+        let selfManagementSelected = [];
+        const selfManagementCheckboxes = document.querySelectorAll('input[name="obj1"]');
 
-        // Professionalism and Ethics Section
-        const professionalismContainer = document.querySelector('.objective-container:nth-of-type(2)');
-        const professionalismRatings = professionalismContainer.querySelector('.ratings');
-        const professionalismCheckboxes = professionalismRatings.querySelectorAll('input[name="obj2"]');
+        // Professionalism and Ethics Section 
+        let professionalismSelected = [];
+        const professionalismCheckboxes = document.querySelectorAll('input[name="obj2"]');
 
-        // Results Focus Section
-        const resultsFocusContainer = document.querySelector('.objective-container:nth-of-type(3)');
-        const resultsFocusRatings = resultsFocusContainer.querySelector('.ratings');
-        const resultsFocusCheckboxes = resultsFocusRatings.querySelectorAll('input[name="obj3"]');
+        // Results Focus Section 
+        let resultsFocusSelected = [];
+        const resultsFocusCheckboxes = document.querySelectorAll('input[name="obj3"]');
 
-        // Teamwork Section
-        const teamworkContainer = document.querySelector('.objective-container:nth-of-type(4)');
-        const teamworkRatings = teamworkContainer.querySelector('.ratings');
-        const teamworkCheckboxes = teamworkRatings.querySelectorAll('input[name="obj4"]');
+        // Teamwork Section 
+        let teamworkSelected = [];
+        const teamworkCheckboxes = document.querySelectorAll('input[name="obj4"]');
 
-        // Service Orientation Section
-        const serviceOrientationContainer = document.querySelector('.objective-container:nth-of-type(5)');
-        const serviceOrientationRatings = serviceOrientationContainer.querySelector('.ratings');
-        const serviceOrientationCheckboxes = serviceOrientationRatings.querySelectorAll('input[name="obj5"]');
+        // Service Orientation Section 
+        let serviceOrientationSelected = [];
+        const serviceOrientationCheckboxes = document.querySelectorAll('input[name="obj5"]');
 
-        // Innovation Section
-        const innovationContainer = document.querySelector('.objective-container:nth-of-type(6)');
-        const innovationRatings = innovationContainer.querySelector('.ratings');
-        const innovationCheckboxes = innovationRatings.querySelectorAll('input[name="obj6"]');
+        // Innovation Section 
+        let innovationSelected = [];
+        const innovationCheckboxes = document.querySelectorAll('input[name="obj6"]');
 
         // To access each checkbox within each section, you can loop over the NodeList:
         selfManagementCheckboxes.forEach((checkbox) => {
-            console.log(checkbox.id, checkbox.checked); // Example: Get the id and check status of each checkbox
+            console.log(checkbox.value, checkbox.checked); // Example: Get the id and check status of each checkbox
+            if (checkbox.checked) {
+                if (!selfManagementSelected.includes(checkbox.value)) {
+                    selfManagementSelected.push(checkbox.value);
+                }
+            } else {
+                const index = selfManagementSelected.indexOf(checkbox.value);
+                if (index > -1) {
+                    selfManagementSelected.splice(index, 1);
+                }
+            }
         });
 
         professionalismCheckboxes.forEach((checkbox) => {
             console.log(checkbox.id, checkbox.checked);
+            if (checkbox.checked) {
+                if (!professionalismSelected.includes(checkbox.value)) {
+                    professionalismSelected.push(checkbox.value);
+                }
+            } else {
+                const index = professionalismSelected.indexOf(checkbox.value);
+                if (index > -1) {
+                    professionalismSelected.splice(index, 1);
+                }
+            }
+            
+        });
+
+        resultsFocusCheckboxes.forEach((checkbox) => {
+            console.log(checkbox.id, checkbox.checked);
+            if (checkbox.checked) {
+                if (!resultsFocusSelected.includes(checkbox.value)) {
+                    resultsFocusSelected.push(checkbox.value);
+                }
+            } else {
+                const index = resultsFocusSelected.indexOf(checkbox.value);
+                if (index > -1) {
+                    resultsFocusSelected.splice(index, 1);
+                }
+            }
+        });
+
+        teamworkCheckboxes.forEach((checkbox) => {
+            console.log(checkbox.id, checkbox.checked);
+            if (checkbox.checked) {
+                if (!teamworkSelected.includes(checkbox.value)) {
+                    teamworkSelected.push(checkbox.value);
+                }
+            } else {
+                const index = teamworkSelected.indexOf(checkbox.value);
+                if (index > -1) {
+                    teamworkSelected.splice(index, 1);
+                }
+            }
+        });
+        
+        serviceOrientationCheckboxes.forEach((checkbox) => {
+            console.log(checkbox.id, checkbox.checked);
+            if (checkbox.checked) {
+                if (!serviceOrientationSelected.includes(checkbox.value)) {
+                    serviceOrientationSelected.push(checkbox.value);
+                }
+            } else {
+                const index = serviceOrientationSelected.indexOf(checkbox.value);
+                if (index > -1) {
+                    serviceOrientationSelected.splice(index, 1);
+                }
+            }
+        });
+
+        innovationCheckboxes.forEach((checkbox) => {
+            console.log(checkbox.id, checkbox.checked);
+            if (checkbox.checked) {
+                if (!innovationSelected.includes(checkbox.value)) {
+                    innovationSelected.push(checkbox.value);
+                }
+            } else {
+                const index = innovationSelected.indexOf(checkbox.value);
+                if (index > -1) {
+                    innovationSelected.splice(index, 1);
+                }
+            }
         });
 
         // Repeat for other sections as needed...
@@ -359,37 +430,31 @@
         
         // Redirect when "Yes" is clicked
         yesButton.addEventListener('click', async function() {
-    try {
-        
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
-            method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
+            try {
                 
-            },
-            credentials: 'include',
-        });
+                const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
+                    method: 'POST',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        
+                    },
+                    credentials: 'include',
+                });
 
-        const data = await response.json();
-        if (response.ok) {
-            console.log("Success Data : ", data); 
-            window.location.href = '../../get-started.html'; 
-        } else {
-            console.log("Error Data : ", data);
-        }
-    } catch (error) {
-        console.error("Error during fetch:", error);
-    }
-});
+                const data = await response.json();
+                if (response.ok) {
+                    console.log("Success Data : ", data); 
+                    window.location.href = '../../get-started.html'; 
+                } else {
+                    console.log("Error Data : ", data);
+                }
+            } catch (error) {
+                console.error("Error during fetch:", error);
+            }
+        });
 
 
 let ipcrf_content = undefined;
-let self_management_selected = [];
-let professional_ethics_selected = [];
-let results_focus_selected = [];
-let teamwork_selected = [];
-let service_orientation_selected = [];
-let innovation_selected = [];
 
 
 async function getIPCRF(){
@@ -429,15 +494,15 @@ async function updateIPCRF2(){
 
     try {
         let content = ipcrf_content['ipcrf']['content_for_teacher'];
-        content['1']["Selected"] = self_management_selected;
-        content['2']["Selected"] = professional_ethics_selected;
-        content['3']["Selected"] = results_focus_selected;
-        content['4']["Selected"] = teamwork_selected;
-        content['5']["Selected"] = service_orientation_selected;
-        content['6']["Selected"] = innovation_selected;
+        content['1']["Selected"] = selfManagementSelected;
+        content['2']["Selected"] = professionalismSelected;
+        content['3']["Selected"] = resultsFocusSelected;
+        content['4']["Selected"] = teamworkSelected;
+        content['5']["Selected"] = serviceOrientationSelected;
+        content['6']["Selected"] = innovationSelected;
         formData.append('ipcrf_id', ipcrf_content['ipcrf']['connection_to_other']); // TODO: Get from IPCRF
         formData.append('content', JSON.stringify(content) );
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/update/ipcrf/part1/', {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/update/ipcrf/part2/', {
             method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
