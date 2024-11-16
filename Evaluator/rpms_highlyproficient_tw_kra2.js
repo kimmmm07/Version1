@@ -49,7 +49,8 @@ const toggleText = document.getElementById('toggleText');
 
 // Teacher Submission
 const teacherSubmission = document.getElementById('teacher-submission');
-const teacherName = document.getElementById('teacher-name');
+const h3teacherName = document.getElementById('teacher-submission-name');
+const ateacherName = document.getElementById('teacher-submission-anchor');
 const attachmentLink = document.getElementById('attachment-link');
 const submittedImage = document.getElementById('submitted-image');
 const attachmentText = document.getElementById('attachment-text');
