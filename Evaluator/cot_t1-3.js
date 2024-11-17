@@ -167,7 +167,7 @@ function addRow(data, quarter, tbody , table) {
     const teacher = data.teacher;
     const cot = data.cot;
     const tr = document.createElement('tr'); 
-    
+    const randomInteger = Math.floor(Math.random() * 10) + 1;
 
     if (!cot.is_checked) {
         tr.innerHTML = `
@@ -178,12 +178,12 @@ function addRow(data, quarter, tbody , table) {
             <td>${cot.rater ?? 'N/A'}</td>
             <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
             <td>
-                <a id="${teacher.employee_id}-${table}-observe" class="button">Observe</a> | 
+                <a id="${teacher.employee_id}-${table}-${randomInteger}-observe" class="button">Observe</a> | 
                 <a class="disabled">View</a>
             </td>
         `; 
         tbody.appendChild(tr); 
-        const observeLink = document.getElementById(`${teacher.employee_id}-${table}-observe`);
+        const observeLink = document.getElementById(`${teacher.employee_id}-${table}-${randomInteger}-observe`);
         observeLink.addEventListener('click', () => evaluatedTeacher(teacher.employee_id, quarter));
     } else { 
         tr.innerHTML = `
@@ -195,11 +195,11 @@ function addRow(data, quarter, tbody , table) {
             <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
             <td>
                 <a class="status">Observed</a> | 
-                <a id="${teacher.employee_id}-${table}-view">View</a>
+                <a id="${teacher.employee_id}-${table}-${randomInteger}-view">View</a>
             </td>
         `;
         tbody.appendChild(tr);
-        const viewLink = document.getElementById(`${teacher.employee_id}-${table}-view`);
+        const viewLink = document.getElementById(`${teacher.employee_id}-${table}-${randomInteger}-view`);
         viewLink.addEventListener('click', () => viewTeacher(teacher.employee_id, quarter));
 
     }
@@ -229,16 +229,26 @@ async function getTeachers() {
             data_quarter_4 = data['Quarter 4'];
 
             data_quarter_1.forEach(quarter => {
-                addRow(quarter, 'Quarter 1', teacherTableBodyQuarter1 , '1');
+                if (quarter.cot.is_for_teacher_proficient){
+                    addRow(quarter, 'Quarter 1', teacherTableBodyQuarter1 , '1');
+                }
             });
             data_quarter_2.forEach(quarter => {
-                addRow(quarter, 'Quarter 2', teacherTableBodyQuarter2, '2');
+                if (quarter.cot.is_for_teacher_proficient){
+                    addRow(quarter, 'Quarter 2', teacherTableBodyQuarter2, '2');
+                }
+                    
             });
             data_quarter_3.forEach(quarter => {
-                addRow(quarter, 'Quarter 3', teacherTableBodyQuarter3, '3');
+                if (quarter.cot.is_for_teacher_proficient){
+                    addRow(quarter, 'Quarter 3', teacherTableBodyQuarter3, '3');
+                    
+                }
             });
             data_quarter_4.forEach(quarter => {
-                addRow(quarter, 'Quarter 4', teacherTableBodyQuarter4, '4');
+                if (quarter.cot.is_for_teacher_proficient){
+                    addRow(quarter, 'Quarter 4', teacherTableBodyQuarter4, '4'); 
+                }
             });
 
 
