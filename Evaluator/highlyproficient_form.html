@@ -276,15 +276,17 @@ async function getFORMS(){
             responsePercentageIpcrfHighlyProficient.textContent = ipcrf_content.response_rate_of_ipcrf_1_highly_proficient.toFixed(2) + '%';
 
 
+
             conductedReviewsRpmsProficient.textContent = ipcrf_content.number_of_conducted_rpms_proficient;
-            fullResponseCountRpmsProficient.textContent = ipcrf_content.number_of_conducted_rpms_proficient;
+            fullResponseCountRpmsProficient.textContent = ipcrf_content.number_of_evaluated_rpms_proficient;
             attentionCountRpmsProficient.textContent = ipcrf_content.number_of_pending_rpms_proficient;
             responsePercentageRpmsProficient.textContent = ipcrf_content.response_rate_of_rpms_proficient.toFixed(2) + "%";
 
             conductedReviewsRpmsHighlyProficient.textContent = ipcrf_content.number_of_conducted_rpms_highly_proficient;
-            fullResponseCountRpmsHighlyProficient.textContent = ipcrf_content.number_of_conducted_rpms_highly_proficient;
+            fullResponseCountRpmsHighlyProficient.textContent = ipcrf_content.number_of_evaluated_rpms_highly_proficient;
             attentionCountRpmsHighlyProficient.textContent = ipcrf_content.number_of_pending_rpms_highly_proficient;
             responsePercentageRpmsHighlyProficient.textContent = ipcrf_content.response_rate_of_rpms_highly_proficient.toFixed(2) + "%";
+
 
         } else {
             console.log("Error Data : ", ipcrf_content);
