@@ -83,6 +83,8 @@ window.addEventListener('load', async function () {
     }
 });
 
+
+
 // Function to handle delete confirmation
 function handleDelete(event) {
     const schoolId = event.target.getAttribute('data-id');
