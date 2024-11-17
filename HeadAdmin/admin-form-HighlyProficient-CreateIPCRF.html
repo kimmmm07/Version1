@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Performance Evaluation System</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="admin-form-Proficient-CreateIPCRF.css">
+    <link rel="stylesheet" href="admin-form-HighlyProficient-CreateIPCRF.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -67,12 +67,22 @@
 
             <div class="horizontal-line"></div>
 
+            
+
             <section class="dashboard-content">
                 <div id="categoryContainer"></div> <!-- Container for dynamic categories -->
             </section>
         </section>
     </main>
 
+
+    <div id="duplicateYearModal" class="modal hidden">
+        <div class="modal-content">
+            <p <p style="font-size: 18px;"">Only one entry per school year is allowed. <br>The selected school year already exists.</p>
+            <button onclick="closeDuplicateYearModal()">OK</button>
+        </div>
+    </div>
+    
     
     <div id="logoutModal" class="modal hidden">
         <div class="modal-content2">

@@ -628,3 +628,57 @@ select:focus {
     border: 1px solid #082F96 !important;
     font-weight: 700;
 }
+
+
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content{
+    border: 1px solid #082F96 !important;
+}
+
+#duplicateYearModal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #082F96 !important;
+}
+
+#duplicateYearModal .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+
+#duplicateYearModal button {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background-color: #082F96;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for a smoother interaction */
+#duplicateYearModal button:hover {
+    background-color: #0a3eb8;
+}
