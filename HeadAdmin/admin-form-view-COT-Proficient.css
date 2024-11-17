@@ -296,6 +296,7 @@ button[type="submit1"] {
 
 
 
+
 /* Modal styles */
 .modal {
     display: flex;
@@ -321,8 +322,8 @@ button[type="submit1"] {
     border-radius: 20px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    height: 150px;
+    width: 444px;
+    height: 195px;
     border: 2px solid #082F96;
 }
 
@@ -330,6 +331,7 @@ button[type="submit1"] {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 20px;
+    margin-top: 18px;
 }
 
 .modal-buttons {
