@@ -341,7 +341,6 @@ getRPMSFolder();
             });
 
             if (existingFolder) {
-                console.log("Duplicate school year found"); // Debugging log
                 openDuplicateYearModal(); // Show the modal
                 return;
             }            
