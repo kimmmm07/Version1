@@ -80,7 +80,7 @@ async function createFolder() {
             <h3 class="category-label">${selectedYear}</h3>
             <a href="admin-form-HighlyProficient-IPCRF-Parts.html" class="form-link">
                 <div class="form-item">
-                    <i class="fas fa-th-large custom-icon" style="color: #082F96;></i>
+                    <i class="fas fa-th-large custom-icon" style="color: #082F96;"></i>
                     IPCRF for Highly Proficient Teacher
                 </div>
             </a>
@@ -126,7 +126,7 @@ async function populateFolders() {
                     <h3 class="category-label">${school_year}</h3>
                     <a href="admin-form-HighlyProficient-IPCRF-Parts.html" class="form-link">
                         <div class="form-item">
-                            <i class="fas fa-th-large custom-icon"></i>
+                            <i class="fas fa-th-large custom-icon" style="color: #082F96;"></i>
                             IPCRF for Highly Proficient Teacher
                         </div>
                     </a>
@@ -196,7 +196,7 @@ async function createFolder() {
             
             <a href="admin-form-HighlyProficient-IPCRF-Parts.html" class="form-link">
                 <div class="form-item">
-                    <i class="fas fa-th-large custom-icon"></i>
+                    <i class="fas fa-th-large custom-icon" style="color: #082F96;"></i>
                     IPCRF for Highly Proficient Teacher
                 </div>
             </a>
@@ -223,4 +223,71 @@ document.querySelector('.create-btn').addEventListener('click', async function()
     
  
 });
+
+
+
+async function createFolder() {
+    const selectedYear = document.getElementById('form2').value;
+
+    if (!selectedYear) {
+        alert('Please select a school year.');
+        return;
+    }
+
+    if (selectedYears.includes(selectedYear)) {
+        // Show duplicate year modal if there's a duplicate school year
+        document.getElementById('duplicateYearModal').classList.remove('hidden');
+        return;
+    }    
+
+    const formData = new FormData();
+    formData.append('position', 'Highly Proficient');
+    formData.append('school_year', selectedYear);
+
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/forms/ipcrf/create/', {
+        method: 'POST',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: formData,
+        credentials: 'include',
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+        console.log("Success Data:", data);
+        selectedYears.push(selectedYear); // Add the new school year to prevent future duplicates
+    } else {
+        console.log("Error Data:", data);
+    }
+
+    // Create and add the new category HTML
+    const categoryContainer = document.getElementById('categoryContainer');
+    const newCategory = document.createElement('div');
+    newCategory.className = 'form-category';
+    newCategory.innerHTML = `
+        <div class="horizontal-background"></div>
+        <h3 class="category-label">${selectedYear}</h3>
+        <a href="admin-form-HighlyProficient-IPCRF-Parts.html" class="form-link">
+            <div class="form-item">
+                <i class="fas fa-th-large custom-icon" style="color: #082F96;"></i>
+                IPCRF for Highly Proficient Teacher
+            </div>
+        </a>
+    `;
+    categoryContainer.insertAdjacentElement('afterbegin', newCategory);
+
+    // Close the modal after creation
+    closeModal();
+}
+
+
+function closeDuplicateYearModal() {
+    document.getElementById('duplicateYearModal').classList.add('hidden');
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("duplicateYearModal").classList.add("hidden");
+});
+
 

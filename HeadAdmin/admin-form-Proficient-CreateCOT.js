@@ -3,6 +3,11 @@ function closeModal() {
     document.getElementById('formModal').style.display = 'none';
 }
 
+// Function to open the modal
+function openModal() {
+    document.getElementById('formModal').style.display = 'flex';
+}
+
 // Hide modal initially when forms are displayed
 document.addEventListener("DOMContentLoaded", closeModal);
 
@@ -56,11 +61,24 @@ const selectedYears = [];  // Array to store selected school years
 
 async function createFolder() {
     const selectedYear = String(document.getElementById('form2').value);
-    if (selectedYear) {
+    // Check if a school year is selected
+    if (!selectedYear) {
+        alert('Please select a school year.');
+        return;
+    }
+
+    // Check for duplicate school year
+    if (selectedYears.includes(selectedYear)) {
+        document.getElementById('duplicateYearModal').classList.remove('hidden');
+        return;
+    }
+
+
         const formData = new FormData();
         formData.append('school_year', selectedYear);
         formData.append('type_proficient', 'Proficient');
 
+        try {
         const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/school/evaluator/create/cot/', {
             method: 'POST',
             headers: {
@@ -74,6 +92,7 @@ async function createFolder() {
 
         if (response.ok) {
             console.log("Success Data: ", data);
+            selectedYears.push(selectedYear);  // Store the selected year to prevent duplicates
         } else {
             console.log("Error Data: ", data);
         }
@@ -87,15 +106,15 @@ async function createFolder() {
             
             <a href="admin-form-HighlyProficient-COT-Quarters.html" class="form-link">
                 <div class="form-item">
-                    <i class="fas fa-file-alt"></i>
+                    <i class="fas fa-file-alt"  style="color: #28a745;"></i>
                     Rating Sheet for Highly Proficient Teacher
                 </div>
             </a>
         `;
         categoryContainer.insertAdjacentElement('afterbegin', newCategory);
         closeModal();
-    } else {
-        alert('Please select a school year.');
+    } catch (error) {
+        console.error('Error creating folder:', error);
     }
 }
 
@@ -124,7 +143,7 @@ async function populateFolders() {
                     <h3 class="category-label">${school_year}</h3>
                     <a href="admin-form-Proficient-COT-Quarters.html" class="form-link">
                         <div class="form-item">
-                            <i class="fas fa-file-alt custom-icon"></i>
+                            <i class="fas fa-file-alt custom-icon"  style="color: #28a745;"></i>
                             Rating Sheet for Proficient Teacher
                         </div>
                     </a>
@@ -148,6 +167,17 @@ populateFolders();
 document.querySelector('.create-btn').addEventListener('click', function() {
     document.getElementById('formModal').style.display = 'flex'; // Change to 'block' if necessary
 });
+
+
+// Okay button functionality to close duplicate modal
+const okayButton = document.getElementById('okayBtn');  // Ensure the correct ID
+
+okayButton.addEventListener('click', function() {
+    document.getElementById('duplicateYearModal').classList.add('hidden');  // Close duplicate modal
+});
+
+
+
 
 
 

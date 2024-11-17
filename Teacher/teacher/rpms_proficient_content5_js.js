@@ -1,43 +1,43 @@
-// Breadcrumb
-const breadcrumb = document.getElementById('breadcrumb');
+// Breadcrumb Links
 const rpmsLink = document.getElementById('rpmsLink');
-const plusFactorLink = document.getElementById('plusFactorLink');
+const kraLink = document.getElementById('kraLink');
 
-// Content Wrapper and KRA Objectives
+// KRA Objectives
+const kraObjective9 = document.getElementById('kraObjective9');
+const objective9 = document.getElementById('Objective9');
+const kraObjective10 = document.getElementById('kraObjective10');
+const objective10 = document.getElementById('Objective10');
+const kraObjective11 = document.getElementById('kraObjective11');
+const objective11 = document.getElementById('Objective11');
+
+// Content Wrapper
 const contentWrapper = document.getElementById('contentWrapper');
-const kraObjective15 = document.getElementById('kraObjective15');
-const objective15 = document.getElementById('Objective15');
 
 // Action and Comments Panel
 const actionsCommentsPanel = document.getElementById('actionsCommentsPanel');
 const turnInPanel = document.getElementById('turnInPanel');
 
-// Private Comments Section
+// Private Comments
 const privateComments = document.getElementById('privateComments');
 const privateCommentsHeader = document.getElementById('privateCommentsHeader');
 const privateIcon = document.getElementById('privateIcon');
 const privateCommentsTitle = document.getElementById('privateCommentsTitle');
 const privateCommentList = document.getElementById('privateCommentList');
 
-// Comment Section
-const commentsSection = document.getElementById('commentsSection');
-const commentsHeader = document.getElementById('commentsHeader');
-const commentGroupIcon = document.getElementById('commentGroupIcon');
-const commentsTitle = document.getElementById('commentsTitle');
-const commentsTextareaContainer = document.getElementById('commentsTextareaContainer');
-const commentInput = document.getElementById('commentInput');
-const commentIcon = document.getElementById('commentIcon');
-
 // Modal Structure
-const fileModalContent = document.getElementById('fileModalContent');
+const modalContent = document.getElementById('modalContent');
 const fileModalCloseBtn = document.getElementById('fileModalCloseBtn');
 const fileModalTitle = document.getElementById('fileModalTitle');
 
-// Submission Modal Structure
+// Submission Modal
 const submissionModalContent = document.getElementById('submissionModalContent');
 const submissionModalCloseBtn = document.getElementById('submissionModalCloseBtn');
 const submissionModalTitle = document.getElementById('submissionModalTitle');
 
+
+
+const class_work_id = sessionStorage.getItem('plus_factor_id');
+console.log(class_work_id);
 
 
 // Floating menu toggle
@@ -79,6 +79,9 @@ let uploadedFiles = [];
 // Flag to check if files have been submitted
 let isSubmitted = false;
 
+let submittedFiles = []; // submitted files fetched from the API
+let unsubmittedFiles = [];
+
 // Trigger file upload dialog when "Add or Create" is clicked
 addCreateBtn.addEventListener('click', () => {
     fileInput.click();
@@ -87,6 +90,7 @@ addCreateBtn.addEventListener('click', () => {
 // Handle file selection
 fileInput.addEventListener('change', () => {
     const newFiles = Array.from(fileInput.files); // Get selected files
+    console.log(newFiles);
 
     // Add new files to the uploaded files array
     uploadedFiles = uploadedFiles.concat(newFiles);
@@ -112,61 +116,66 @@ function renderFileList() {
         const fileDiv = document.createElement('div');
         fileDiv.classList.add('file-preview');
 
-        // Create an image element for the file type icon
+        // Create an icon for the file type
         const icon = document.createElement('img');
-        icon.classList.add('file-icon'); // Add class for styling
+        icon.classList.add('file-icon');
 
-        // Set the icon based on file type
-        if (file.type.startsWith('image/')) {
+        if (file.type === "submitted" || file.type === "unsubmitted") {
+            icon.src = 'asset/file-placeholder.png'; // Placeholder for submitted/unsubmitted files
+        } else if (file instanceof File && file.type.startsWith('image/')) {
             icon.src = URL.createObjectURL(file);
             icon.classList.add('file-thumb');
-            icon.onload = () => URL.revokeObjectURL(icon.src); // Clean up memory
-        } else if (file.type.startsWith('application/pdf')) {
-            icon.src = 'asset/pdf.png'; // Use the PDF icon
-        } else if (file.type.startsWith('application/msword') || file.type.startsWith('application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
-            icon.src = 'asset/doc.png'; // Use the Word icon
-        } else if (file.type.startsWith('application/vnd.ms-excel') || file.type.startsWith('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {
-            icon.src = 'asset/xls.png'; // Use the Excel icon
+            icon.onload = () => URL.revokeObjectURL(icon.src);
         } else {
-            // Default placeholder for other file types
-            icon.src = 'file-placeholder.png'; // You can create a generic file icon
+            icon.src = 'asset/img-placeholder.png'; // Placeholder for unsupported types
         }
 
-        // Set the size of the icon (example: 50x50)
         icon.style.width = '20px';
         icon.style.height = '20px';
-
-        fileDiv.appendChild(icon); // Add the icon to the file preview
+        fileDiv.appendChild(icon);
 
         // Display file name
         const fileName = document.createElement('div');
         fileName.classList.add('file-name');
-        fileName.textContent = file.name;
+        fileName.textContent = file.name || "Unknown File";
 
-        // Make the file name clickable to show in modal
-        fileName.style.cursor = 'pointer'; // Change cursor to pointer
+        // File actions
+        fileName.style.cursor = 'pointer';
         fileName.addEventListener('click', () => {
-            const fileURL = URL.createObjectURL(file); // Create a URL for the file
-            showModal(fileURL, file.type); // Show modal with the file
-        });
-
-        // Create remove button
-        const removeBtn = document.createElement('span');
-        removeBtn.classList.add('remove-file');
-        removeBtn.textContent = 'X';
-        removeBtn.addEventListener('click', () => {
-            uploadedFiles.splice(index, 1); // Remove file from array
-            renderFileList(); // Re-render the file list
+            if (file.file) {
+                // Open file URL in a new tab
+                window.open(file.file, '_blank');
+            } else if (file instanceof File) {
+                const fileURL = URL.createObjectURL(file);
+                showModal(fileURL, file.type);
+            } else {
+                console.error("Unable to preview file: Invalid file type.");
+            }
         });
 
         fileDiv.appendChild(fileName);
-        fileDiv.appendChild(removeBtn);
+
+        // Add a remove button for "uploaded" files only
+        if (file.type === "uploaded") {
+            const removeBtn = document.createElement('span');
+            removeBtn.classList.add('remove-file');
+            removeBtn.textContent = 'X';
+            removeBtn.addEventListener('click', () => {
+                uploadedFiles.splice(index, 1); // Remove the file
+                renderFileList();
+            });
+            fileDiv.appendChild(removeBtn);
+        }
+
         fileList.appendChild(fileDiv);
     });
 
     // Disable the "Turn In" button if no files remain
     turnInBtn.disabled = uploadedFiles.length === 0;
 }
+
+
+
 
 // Function to show the modal
 function showModal(fileURL, fileType) {
@@ -206,7 +215,7 @@ turnInBtn.addEventListener('click', () => {
     modal.style.display = 'block';
 
     // Update file count text
-    const fileCountText = `${uploadedFiles.length} attachment(s) will be submitted for "PLUS FACTOR".`;
+    const fileCountText = `${uploadedFiles.length} attachment(s) will be submitted for "KRA 3: Curriculum and Planning".`;
     fileCount.textContent = fileCountText;
 
     // Generate file preview HTML
@@ -236,13 +245,165 @@ turnInBtn.addEventListener('click', () => {
 
 // Cancel button functionality to close the submission modal
 cancelBtn.addEventListener('click', function () {
-    submissionModal.style.display = 'none'; // Close the modal on cancel
+    submissionModal.style.display = 'none';
 });
+
+
+
+
+let submitted_attachments = [];
+let unsubmitted_attachments = [];
+
+
+async function getAttachments() {
+    try {
+        const formData = new FormData();
+        // const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
+        const class_work_id = sessionStorage.getItem('class_work_id');
+        formData.append('class_work_id', class_work_id);
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folder/classwork/attachments/', {
+            method: 'POST',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            credentials: 'include',
+            body: formData
+        });
+
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log('Fetched attachments:', responseData);
+
+            // Process submitted files
+            const submitted = responseData.submitted.map(item => ({
+                name: item.title || item.file.split('/').pop(),
+                type: "submitted",
+                file: "https://bnahs.pythonanywhere.com/" + item.file,
+                attachmentId: item.attachment_id,
+            }));
+
+            // Process unsubmitted files
+            const unsubmitted = responseData.unsumitted.map(item => ({
+                name: item.title || item.file.split('/').pop(),
+                type: "unsubmitted",
+                file: "https://bnahs.pythonanywhere.com/" + item.file,
+                attachmentId: item.attachment_id,
+            }));
+
+            // Merge into uploadedFiles
+            uploadedFiles = [...submitted, ...unsubmitted];
+
+            // Set flags for UI adjustments
+            isSubmitted = submitted.length > 0;
+
+            // UI updates based on submission status
+            addCreateBtn.style.display = isSubmitted ? 'none' : 'block';
+            turnInBtn.style.display = isSubmitted ? 'none' : 'block';
+            unsubmitBtn.style.display = isSubmitted ? 'block' : 'none';
+            turnInBtn.disabled = !isSubmitted && uploadedFiles.length === 0;
+
+            renderFileList();
+        } else {
+            console.error('Failed to fetch attachments:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error during fetch:', error);
+    }
+}
+
+
+getAttachments();
+
+
+
+
+// Function to send files to backend
+async function sendFilesToBackend() {
+
+
+    // Use fetch to send the data
+    try {
+
+        // Create a FormData object
+        const formData = new FormData();
+
+        const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
+        // const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
+
+        formData.append('class_work_id', class_work_id); // Include the classowrk ID
+        // Append each file to the FormData object
+        uploadedFiles.forEach((file, index) => {
+            formData.append(`file${index}`, file);
+        });
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/rpms/folder/classwork/turnin/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData
+        });
+
+        // Check the response status
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log('Files successfully uploaded:', responseData);
+            location.reload();
+        } else {
+            console.error('Failed to upload files:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error during fetch:', error);
+    }
+}
+
+
+
+async function unSubmitAttachment() {
+    
+    // Use fetch to send the data
+    try {
+
+        // Create a FormData object
+        const formData = new FormData();
+
+        const class_work_id = sessionStorage.getItem('class_work_id'); 
+        // const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
+
+        formData.append('class_work_id', class_work_id); // Include the classowrk ID
+        // Append each file to the FormData object
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/rpms/folder/classwork/unsubmit/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData
+        });
+
+        // Check the response status
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log('Files successfully uploaded:', responseData);
+            location.reload();
+        } else {
+            console.error('Failed to upload files:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error during fetch:', error);
+    }
+}
+
 
 // Confirm Turn In Action
 confirmBtn.addEventListener('click', function () {
     // Set submitted flag to true
     isSubmitted = true;
+
+    sendFilesToBackend();
 
     // Hide the Add or Create button and Turn In button
     addCreateBtn.style.display = 'none'; // Keep space occupied
@@ -265,6 +426,9 @@ confirmBtn.addEventListener('click', function () {
 unsubmitBtn.addEventListener('click', function () {
     // Set submitted flag to false
     isSubmitted = false;
+
+    unSubmitAttachment();
+
 
     // Show Add or Create button and Turn In button again
     addCreateBtn.style.display = 'block'; // Maintain position

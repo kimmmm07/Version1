@@ -75,6 +75,36 @@ yesButton.addEventListener('click', async function() {
 
 
 
+let kra_1_id = undefined;
+let kra_2_id = undefined;
+let kra_3_id = undefined;
+let kra_4_id = undefined;
+let plus_factor_id = undefined;
+
+function onclickKRA1(){
+    sessionStorage.setItem('kra_1_id', kra_1_id);
+    window.location.href = 'rpms_highly_proficient_content1.html';
+}
+
+function onclickKRA2(){
+    sessionStorage.setItem('kra_2_id', kra_2_id);
+    window.location.href = 'rpms_highly_proficient_content2.html';
+}
+
+function onclickKRA3(){
+    sessionStorage.setItem('kra_3_id', kra_3_id);
+    window.location.href = 'rpms_highly_proficient_content3.html';
+}
+
+function onclickKRA4(){
+    sessionStorage.setItem('kra_4_id', kra_4_id);
+    window.location.href = 'rpms_highly_proficient_content4.html';
+}
+
+function onclickPlusFactor(){
+    sessionStorage.setItem('plus_factor_id', plus_factor_id);
+    window.location.href = 'rpms_highly_proficient_content5.html';
+}
 
 
 
@@ -101,6 +131,19 @@ async function getClassworks(){
 
         if (response.ok) {
             console.log("Success Data : ", folder);  
+            folder.rpms_classworks.forEach(classwork => {
+                if (classwork.title == "PLUS FACTOR") {
+                    plus_factor_id = classwork.class_work_id;
+                } else if (classwork.title == "KRA 4:  Curriculum and Planning & Assessment and Reporting") {
+                    kra_4_id = classwork.class_work_id;
+                } else if (classwork.title == "KRA 3: Curriculum and Planning") {
+                    kra_3_id = classwork.class_work_id;
+                } else if (classwork.title == "KRA 2: Learning Environment and Diversity of Learners") {
+                    kra_2_id = classwork.class_work_id;
+                } else if (classwork.title == "KRA 1: Content Knowledge and Pedagogy") {
+                    kra_1_id = classwork.class_work_id;
+                }
+            })
         } else {
             console.log("Error Data : ", folder);
         }

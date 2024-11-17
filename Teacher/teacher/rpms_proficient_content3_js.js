@@ -35,6 +35,10 @@ const submissionModalCloseBtn = document.getElementById('submissionModalCloseBtn
 const submissionModalTitle = document.getElementById('submissionModalTitle');
 
 
+const class_work_id = sessionStorage.getItem('kra_3_id');
+console.log(class_work_id);
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
@@ -74,7 +78,8 @@ let uploadedFiles = [];
 // Flag to check if files have been submitted
 let isSubmitted = false;
 
-let submittedFiles = []; // Files fetched from the API
+let submittedFiles = []; // submitted files fetched from the API
+let unsubmittedFiles = [];
 
 // Trigger file upload dialog when "Add or Create" is clicked
 addCreateBtn.addEventListener('click', () => {
@@ -106,10 +111,7 @@ fileInput.addEventListener('change', () => {
 function renderFileList() {
     fileList.innerHTML = ''; // Clear current list
 
-    // Combine submitted files and uploaded files
-    const allFiles = [...submittedFiles, ...uploadedFiles];
-
-    allFiles.forEach((file, index) => {
+    uploadedFiles.forEach((file, index) => {
         const fileDiv = document.createElement('div');
         fileDiv.classList.add('file-preview');
 
@@ -117,14 +119,14 @@ function renderFileList() {
         const icon = document.createElement('img');
         icon.classList.add('file-icon');
 
-        if (file.type === "submitted") {
-            icon.src = 'file-placeholder.png'; // Placeholder for submitted files
-        } else if (file.type.startsWith('image/')) {
+        if (file.type === "submitted" || file.type === "unsubmitted") {
+            icon.src = 'asset/file-placeholder.png'; // Placeholder for submitted/unsubmitted files
+        } else if (file instanceof File && file.type.startsWith('image/')) {
             icon.src = URL.createObjectURL(file);
             icon.classList.add('file-thumb');
             icon.onload = () => URL.revokeObjectURL(icon.src);
         } else {
-            icon.src = 'file-placeholder.png'; // Placeholder for unsupported types
+            icon.src = 'asset/img-placeholder.png'; // Placeholder for unsupported types
         }
 
         icon.style.width = '20px';
@@ -134,32 +136,31 @@ function renderFileList() {
         // Display file name
         const fileName = document.createElement('div');
         fileName.classList.add('file-name');
-        fileName.textContent = file.name;
+        fileName.textContent = file.name || "Unknown File";
 
-        if (file.type === "submitted") {
-            // Open submitted file in a new tab
-            fileName.style.cursor = 'pointer';
-            fileName.addEventListener('click', () => {
+        // File actions
+        fileName.style.cursor = 'pointer';
+        fileName.addEventListener('click', () => {
+            if (file.file) {
+                // Open file URL in a new tab
                 window.open(file.file, '_blank');
-            });
-        } else {
-            // Open uploaded file in modal
-            fileName.style.cursor = 'pointer';
-            fileName.addEventListener('click', () => {
+            } else if (file instanceof File) {
                 const fileURL = URL.createObjectURL(file);
                 showModal(fileURL, file.type);
-            });
-        }
+            } else {
+                console.error("Unable to preview file: Invalid file type.");
+            }
+        });
 
         fileDiv.appendChild(fileName);
 
-        // Add a remove button for uploaded files only
-        if (file.type !== "submitted") {
+        // Add a remove button for "uploaded" files only
+        if (file.type === "uploaded") {
             const removeBtn = document.createElement('span');
             removeBtn.classList.add('remove-file');
             removeBtn.textContent = 'X';
             removeBtn.addEventListener('click', () => {
-                uploadedFiles.splice(index - submittedFiles.length, 1); // Adjust index
+                uploadedFiles.splice(index, 1); // Remove the file
                 renderFileList();
             });
             fileDiv.appendChild(removeBtn);
@@ -171,6 +172,8 @@ function renderFileList() {
     // Disable the "Turn In" button if no files remain
     turnInBtn.disabled = uploadedFiles.length === 0;
 }
+
+
 
 
 // Function to show the modal
@@ -254,7 +257,6 @@ let unsubmitted_attachments = [];
 async function getAttachments() {
     try {
         const formData = new FormData();
-        const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
         formData.append('class_work_id', class_work_id);
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folder/classwork/attachments/', {
@@ -268,67 +270,43 @@ async function getAttachments() {
             const responseData = await response.json();
             console.log('Fetched attachments:', responseData);
 
-            submitted_attachments = responseData.submitted;
-            unsubmitted_attachments = responseData.unsumitted || [];
-            console.log(unsubmitted_attachments);
-            if(submitted_attachments.length > 0){
-                isSubmitted = true;
-                submittedFiles = responseData.submitted.map(item => ({
-                    name: item.title || item.file.split('/').pop(),
-                    type: "submitted", // Indicate it's a submitted file
-                    file: "https://bnahs.pythonanywhere.com/"+item.file, 
-                    attachmentId: item.attachment_id, // Unique ID
-                }));
-                // Hide the Add or Create button and Turn In button
-                addCreateBtn.style.display = 'none'; // Keep space occupied
-                turnInBtn.style.display = 'none';     // Keep space occupied
+            // Process submitted files
+            const submitted = responseData.submitted.map(item => ({
+                name: item.title || item.file.split('/').pop(),
+                type: "submitted",
+                file: "https://bnahs.pythonanywhere.com/" + item.file,
+                attachmentId: item.attachment_id,
+            }));
 
-                // Disable all remove buttons in the file list
-                const removeButtons = document.querySelectorAll('.remove-file');
-                removeButtons.forEach(button => {
-                    button.style.display = 'none'; // Hide each remove button
-                });
+            // Process unsubmitted files
+            const unsubmitted = responseData.unsumitted.map(item => ({
+                name: item.title || item.file.split('/').pop(),
+                type: "unsubmitted",
+                file: "https://bnahs.pythonanywhere.com/" + item.file,
+                attachmentId: item.attachment_id,
+            }));
 
-                // Show unsubmit button
-                unsubmitBtn.style.display = 'block';
+            // Merge into uploadedFiles
+            uploadedFiles = [...submitted, ...unsubmitted];
 
-                // Close the modal
-                submissionModal.style.display = 'none'; // Close submission modal
-            }
-            else if(unsubmitted_attachments.length > 0){
-                isSubmitted = false;
-                unsubmitted_attachments = responseData.unsumitted.map(item => ({
-                    name: item.title || item.file.split('/').pop(),
-                    type: "unsubmitted",
-                    file: "https://bnahs.pythonanywhere.com/"+item.file, 
-                    attachmentId: item.attachment_id, // Unique ID
-                }));
-                // Show Add or Create button and Turn In button again
-                addCreateBtn.style.display = 'block'; // Maintain position
-                turnInBtn.style.display = 'block';     // Maintain position
+            // Set flags for UI adjustments
+            isSubmitted = submitted.length > 0;
 
-                // Enable the remove buttons again
-                const removeButtons = document.querySelectorAll('.remove-file');
-                removeButtons.forEach(button => {
-                    button.style.display = 'inline'; // Show each remove button again
-                });
+            // UI updates based on submission status
+            addCreateBtn.style.display = isSubmitted ? 'none' : 'block';
+            turnInBtn.style.display = isSubmitted ? 'none' : 'block';
+            unsubmitBtn.style.display = isSubmitted ? 'block' : 'none';
+            turnInBtn.disabled = !isSubmitted && uploadedFiles.length === 0;
 
-                // Hide unsubmit button
-                unsubmitBtn.style.display = 'none';
-
-                // Enable turn in button
-                turnInBtn.disabled = false;
-            }
-    
             renderFileList();
-       }
-        else {
+        } else {
             console.error('Failed to fetch attachments:', response.statusText);
         }
     } catch (error) {
         console.error('Error during fetch:', error);
     }
 }
+
 
 getAttachments();
 
@@ -345,7 +323,6 @@ async function sendFilesToBackend() {
         // Create a FormData object
         const formData = new FormData();
 
-        const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
         // const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
 
         formData.append('class_work_id', class_work_id); // Include the classowrk ID
@@ -387,8 +364,7 @@ async function unSubmitAttachment() {
         // Create a FormData object
         const formData = new FormData();
 
-        // const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
-        const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
+        // const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
 
         formData.append('class_work_id', class_work_id); // Include the classowrk ID
         // Append each file to the FormData object
@@ -415,14 +391,6 @@ async function unSubmitAttachment() {
         console.error('Error during fetch:', error);
     }
 }
-
-
-
-
-
-
-
-
 
 
 // Confirm Turn In Action
