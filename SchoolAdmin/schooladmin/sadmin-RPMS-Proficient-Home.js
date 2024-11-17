@@ -44,6 +44,7 @@ yesButton.addEventListener('click', async function() {
 
 
 
+
 // Function to open modal
 function openModal() {
     document.getElementById('formModal').style.display = 'flex';
@@ -56,14 +57,14 @@ function closeModal() {
     form2.selectedIndex = 0; // Reset dropdown
 }
 
-// Function to open duplicate school year modal
+// Function to open duplicate year modal
 function openDuplicateYearModal() {
-    document.getElementById('duplicateYearModal').style.display = 'flex';
+    document.getElementById('duplicateYearModalContent').style.display = 'flex';
 }
 
-// Function to close duplicate school year modal
+// Function to close duplicate year modal
 function closeDuplicateYearModal() {
-    document.getElementById('duplicateYearModal').style.display = 'none';
+    document.getElementById('closeDuplicateYearBtn').style.display = 'none';
 }
 
 // Hide modal initially when forms are displayed
@@ -71,6 +72,8 @@ document.addEventListener("DOMContentLoaded", closeModal);
 
 // Attach event listener to the Create Folder button
 document.getElementById('createFolderBtn').addEventListener('click', openModal);
+
+// JavaScript for handling folder creation
 
 // Get elements
 const createFolderBtn = document.getElementById('createFolderBtn');
@@ -80,7 +83,6 @@ const form2 = document.getElementById('form2'); // School Year dropdown
 const cardsSection = document.querySelector('.cards-section');
 const createBtn = document.querySelector('.create');
 const closeModalBtn = document.querySelector('.modal-close-btn');
-
 
 // List of appealing color pairs (background + white text)
 const colorPairs = [
@@ -293,22 +295,22 @@ function generateCard(folder) {
 
 let folders = undefined;
 
-
-// Fetch RPMS folders and generate cards
+// Fetch RPMS Folders
 async function getRPMSFolder() {
     try {
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/forms/rpms/folders/proficient', {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/forms/rpms/folders/highly_proficient', {
             method: 'GET',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-            },
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
             credentials: 'include',
         });
         const folders = await response.json();
         if (response.ok) {
+            console.log("Success Data: ", folders);
             folders.rpms_folders.forEach(folder => {
                 generateCard(folder);
             });
+        } else {
+            console.log("Error Data: ", folders);
         }
     } catch (error) {
         console.error(error);
@@ -324,26 +326,24 @@ getRPMSFolder();
 
 
 
+
+
 // Handle folder creation
-// const createBtn = document.querySelector('.create');
-//     const form1 = document.getElementById('form1');
-//     const form2 = document.getElementById('form2');
-//     const cardsSection = document.querySelector('.cards-section');
+createBtn.addEventListener('click', async () => {
+    const folderName = form1.value.trim();
+    const schoolYear = form2.value;
 
-    createBtn.addEventListener('click', async () => {
-        const folderName = form1.value.trim();
-        const schoolYear = form2.value;
+    // Ensure folder name and school year are filled
+    if (folderName && schoolYear) {
+        // Check if a folder for the selected school year already exists
+        const existingFolder = Array.from(cardsSection.querySelectorAll('.card-link')).find(card => {
+            return card.querySelector('.subheader').textContent === schoolYear;
+        });
 
-        if (folderName && schoolYear) {
-            // Check if a folder for the selected school year already exists
-            const existingFolder = Array.from(cardsSection.querySelectorAll('.card-link')).find(card => {
-                return card.querySelector('.subheader').textContent === schoolYear;
-            });
-
-            if (existingFolder) {
-                openDuplicateYearModal(); // Show the modal
-                return;
-            }            
+        if (existingFolder) {
+            alert('The selected school year already exists.');
+            return; // Exit if a folder for the school year already exists
+        }
 
         try{
             const formData = new FormData();

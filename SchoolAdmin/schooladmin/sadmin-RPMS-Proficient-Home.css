@@ -724,7 +724,6 @@ select:focus {
     justify-content: center;
     align-items: center;
     border: 1px solid #082F96 !important;
-    z-index: 9999; /* Make sure it's above other content */
 }
 
 #duplicateYearModal .modal-content {
