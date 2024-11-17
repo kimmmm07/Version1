@@ -3,71 +3,50 @@ let tenure_data = [ 32.11 , 23.13 , 28.02];
 let recommendations = [39.11, 28.02, 23.13];
 
 // Function to update charts based on selected filters
-document.getElementById('choose-year-filter').addEventListener('change', updateCharts);
+// document.getElementById('choose-year-filter').addEventListener('change', updateCharts);
 const chosser = document.getElementById('choose-proficiency')
 
-function updateCharts() {
-    const year = document.getElementById('choose-year-filter').value;
-    const proficiency = document.getElementById('choose-proficiency').value;
+// function updateCharts() {
+//     const year = document.getElementById('choose-year-filter').value;
+//     const proficiency = document.getElementById('choose-proficiency').value;
 
-    // Example Data (Modify as needed)
-    const annualRatingData = {
-        '2023-2024': [5, 2, 3, 3, 4, 3],
-        '2022-2023': [4, 3, 2, 4, 5, 3]
-    };
+//     // Example Data (Modify as needed)
+//     const annualRatingData = {
+//         '2023-2024': [5, 2, 3, 3, 4, 3],
+//         '2022-2023': [4, 3, 2, 4, 5, 3]
+//     };
 
-    const recommendationData = {
-        '2023-2024': [39.11, 28.03, 23.13],
-        '2022-2023': [40, 30, 30]
-    };
+//     const recommendationData = {
+//         '2023-2024': [39.11, 28.03, 23.13],
+//         '2022-2023': [40, 30, 30]
+//     };
 
-    const tenureData = {
-        '2023-2024': [39.11, 28.03, 23.13],
-        '2022-2023': [50, 20, 30]
-    };
+//     const tenureData = {
+//         '2023-2024': [39.11, 28.03, 23.13],
+//         '2022-2023': [50, 20, 30]
+//     };
 
-    const performanceData = {
-        '2023-2024': [60, 80, 90, 100],
-        '2022-2023': [70, 85, 75, 95]
-    };
+//     const performanceData = {
+//         '2023-2024': [60, 80, 90, 100],
+//         '2022-2023': [70, 85, 75, 95]
+//     };
 
-    // Update the charts with new data
-    annualRatingChart.data.datasets[0].data = annualRatingData[year];
-    recommendationChart.data.datasets[0].data = recommendationData[year];
-    tenureChart.data.datasets[0].data = tenureData[year];
-    performanceChart.data.datasets[0].data = performanceData[year];
+//     // Update the charts with new data
+//     annualRatingChart.data.datasets[0].data = annualRatingData[year];
+//     recommendationChart.data.datasets[0].data = recommendationData[year];
+//     tenureChart.data.datasets[0].data = tenureData[year];
+//     performanceChart.data.datasets[0].data = performanceData[year];
     
-    // Refresh charts
-    annualRatingChart.update();
-    recommendationChart.update();
-    tenureChart.update();
-    performanceChart.update();
-}
+//     // Refresh charts
+//     annualRatingChart.update();
+//     recommendationChart.update();
+//     tenureChart.update();
+//     performanceChart.update();
+// }
 
 // Create the charts using Chart.js
 const ctx1 = document.getElementById('annualRatingChart').getContext('2d');
-const annualRatingChart = new Chart(ctx1, {
-    type: 'bar',
-    data: {
-        labels: ['Jessica', 'Emily', 'Benjamin', 'Olivia', 'Daniel', 'Sophia'],
-        datasets: [{
-            label: 'Rating',
-            data: [5, 2, 3, 3, 4, 3],
-            backgroundColor: 'rgba(88, 24, 196, 0.7)',
-            borderColor: 'rgba(88, 24, 196, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-                max: 5
-            }
-        }
-    }
-});
-
+let annualRatingChart = undefined;
 // Recommendation Pie Chart
 var ctxRecommendation = document.getElementById('recommendationChart').getContext('2d');
 let recommendationChart = undefined; 
@@ -77,30 +56,7 @@ let tenureChart = undefined;
 
 //Performance Chart
 const ctx4 = document.getElementById('performanceChart').getContext('2d');
-const performanceChart = new Chart(ctx4, {
-    type: 'line',
-    data: {
-        labels: ['Year 1', 'Year 2', 'Year 3'],
-        datasets: [{
-            label: 'Jessica',
-            data: [70, 80, 90],
-            borderColor: '#FF6384',
-            fill: false
-        }, {
-            label: 'Emily',
-            data: [50, 60, 70],
-            borderColor: '#36A2EB',
-            fill: false
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
-});
+let performanceChart = undefined;
 
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
@@ -235,6 +191,8 @@ async function fetchTenure() {
 
 
 
+
+
 function updateRecommendationChart(data) {
     promotionRate.textContent = "Promotion : " + data.number_of_promotion_by_percentage.toFixed(2) + "%";
     retentionRate.textContent = "Retention : " + data.number_of_retention_by_percentage.toFixed(2) + "%";
@@ -310,6 +268,44 @@ async function fetchRecommendation() {
 }
 
 
+// 
+
+const borderColors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF']; // Add more colors if needed
+
+
+function updatePerformanceChart(data) {
+
+    if (performanceChart){
+        performanceChart.destroy();
+    }
+
+    const transformedData = data.map((item, index) => {
+        return {
+            label: item.name,
+            data: item.data.values,
+            borderColor: borderColors[index % borderColors.length], // Cycle through border colors
+            fill: false
+        };
+    });
+
+
+    performanceChart = new Chart(ctx4, {
+        type: 'line',
+        data: {
+            labels: ['Year 1', 'Year 2', 'Year 3'],
+            datasets: transformedData
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+}
+
 
 async function fetchPerformance() {
     
@@ -327,7 +323,9 @@ async function fetchPerformance() {
 
         if (response.ok) {
             console.log("Success Data : ", data); 
-            
+
+            performance_data = data;
+            updatePerformanceChart(data.all)
             
         } else {
             console.log("Error Data : ", data); 
@@ -340,8 +338,58 @@ async function fetchPerformance() {
 }
 
 
-async function fetchAnnualRatings(){
+function updateAnnualRatingChart(data) {
 
+    if (annualRatingChart){
+        annualRatingChart.destroy();
+    }
+
+    annualRatingChart = new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: data.names,
+            datasets: [{
+                label: 'Rating',
+                data: data.ratings,
+                backgroundColor: 'rgba(88, 24, 196, 0.7)',
+                borderColor: 'rgba(88, 24, 196, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 5
+                }
+            }
+        }
+    });
+    
+}
+
+async function fetchAnnualRatings(){
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/teachers/annual/ratings/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);
+            updateAnnualRatingChart(data.all);
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
 }
 
 
@@ -357,11 +405,17 @@ chosser.addEventListener('change', function() {
     if (chosser.value == "all"){
         updateTenureChart(tenures_data.all);
         updateRecommendationChart(recommendation_data.all);
+        updatePerformanceChart(performance_data.all);
+        updateAnnualRatingChart(annual_ratings_data.all);
     } else if (chosser.value == "proficient"){
         updateTenureChart(tenures_data.proficient);
         updateRecommendationChart(recommendation_data.proficient);
+        updatePerformanceChart(performance_data.proficient);
+        updateAnnualRatingChart(annual_ratings_data.proficient);
     } else if (chosser.value == "highlyproficient"){
         updateTenureChart(tenures_data.highly_proficient);
         updateRecommendationChart(recommendation_data.highly_proficient);
+        updatePerformanceChart(performance_data.highly_proficient);
+        updateAnnualRatingChart(annual_ratings_data.highly_proficient);
     }
 });
