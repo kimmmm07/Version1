@@ -392,14 +392,6 @@ async function unSubmitAttachment() {
 }
 
 
-
-
-
-
-
-
-
-
 // Confirm Turn In Action
 confirmBtn.addEventListener('click', function () {
     // Set submitted flag to true
