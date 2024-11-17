@@ -68,10 +68,10 @@ window.onload = function() {
     var kraChart = new Chart(ctxKRA, {
         type: 'bar',
         data: {
-            labels: ['KRA 1', 'KRA 2', 'KRA 3', 'KRA 4', 'Plus Factor'],
+            labels: ['KRA 1', 'KRA 2', 'KRA 3', 'KRA 4', 'Plus Factor', 'Total Score'],
             datasets: [{
                 label: 'KRA Breakdown',
-                data: [3, 2, 4, 1, 5],
+                data: [3, 2, 4, 1, 5, 100],
                 backgroundColor: 'rgba(88, 24, 196, 0.7)',
                 borderColor: 'rgba(88, 24, 196, 1)',
                 borderWidth: 1
@@ -81,7 +81,7 @@ window.onload = function() {
             scales: {
                 y: {
                     beginAtZero: true,
-                    max: 5
+                    max: 100
                 }
             }
         }
@@ -120,28 +120,30 @@ window.onload = function() {
 
 
     // Performance Line Chart
-    var ctxPerformance = document.getElementById('performanceChart').getContext('2d');
-    var performanceChart = new Chart(ctxPerformance, {
-        type: 'line',
-        data: {
-            labels: ['Year 1', 'Year 2', 'Year 3'],
-            datasets: [{
-                label: 'Performance',
-                data: [60, 75, 80],
-                backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 1,
-                fill: true
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
+var ctxPerformance = document.getElementById('performanceChart').getContext('2d');
+var performanceChart = new Chart(ctxPerformance, {
+    type: 'line',
+    data: {
+        labels: ['Year 1', 'Year 2', 'Year 3'],
+        datasets: [{
+            label: 'Performance',
+            data: [5, 4, 3], // Updated data
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+            fill: true
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true, 
+                max: 5 
             }
         }
-    });
+    }
+});
+
 
     // Handle Name Dropdown Change
     document.getElementById('choose-name-filter').addEventListener('change', function() {
