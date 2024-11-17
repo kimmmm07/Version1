@@ -58,6 +58,17 @@ window.addEventListener('load', async function () {
             if (school.is_declined) {
                 const row = document.createElement('div');
                 row.classList.add('school-row');
+                // row.innerHTML = `
+                //     <div class="school-column">${school.name}</div>
+                //     <div class="school-column school">${school.school_name}</div>
+                //     <div class="school-column">${school.school_address}</div>
+                //     <div class="school-column">${school.school_id}</div>
+                //     <div class="school-column status">Declined</div>
+                //     <div class="school-column status"></div>
+                //     <div class="school-column action">
+                //         <i class="fas fa-trash-alt delete-icon" data-id="${school.school_id}"></i> Delete
+                //     </div>
+                // `;
                 row.innerHTML = `
                     <div class="school-column">${school.name}</div>
                     <div class="school-column school">${school.school_name}</div>
@@ -66,7 +77,7 @@ window.addEventListener('load', async function () {
                     <div class="school-column status">Declined</div>
                     <div class="school-column status"></div>
                     <div class="school-column action">
-                        <i class="fas fa-trash-alt delete-icon" data-id="${school.school_id}"></i> Delete
+                        
                     </div>
                 `;
                 schoolRowWrapper.appendChild(row);
