@@ -344,18 +344,18 @@ ul {
     display: none;
 }
 
-.modal-content2 {
+.modal-content {
     background-color: white;
     padding: 20px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     width: 400px;
     height: 150px;
     border: 2px solid #082F96;
 }
 
-.modal-content2 p {
+.modal-content p {
     font-weight: bold;
     font-size: 18px;
     margin-bottom: 20px;
@@ -385,8 +385,8 @@ ul {
 }
 
 .no-btn {
-    background-color: white;
+    background-color: #FFFFFF;
     color: #082F96;
     border: 1px solid #082F96 !important;
     font-weight: 700;
-} 
+}

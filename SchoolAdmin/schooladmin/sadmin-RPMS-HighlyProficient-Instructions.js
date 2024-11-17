@@ -1,4 +1,4 @@
-const logoutButton = document.getElementById('logout-nav');  // Logout button
+const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');
 const yesButton = document.querySelector('.yes-btn');
 const noButton = document.querySelector('.no-btn');
@@ -17,7 +17,7 @@ noButton.addEventListener('click', function() {
 // Redirect when "Yes" is clicked
 yesButton.addEventListener('click', async function() {
     try {
-        
+    
         const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
             method: 'POST',
             headers: {
@@ -38,8 +38,6 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
- 
-
 
 function editContent() {
     const kraTitle = document.getElementById('kraTitle');
@@ -120,3 +118,4 @@ function saveContent() {
     btnContainer.style.color = '#28a745'; // Green for edit button
     btnContainer.setAttribute("onclick", "editContent()");
 }
+
