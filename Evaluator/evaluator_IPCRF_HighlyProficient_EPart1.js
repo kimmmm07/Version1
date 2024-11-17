@@ -24,101 +24,101 @@
 
 // KRA 1: Content Knowledge and Pedagogy - Efficiency Ratings
 const Efficiency1_5 = document.getElementById('Efficiency1_5');
-const efficiency1_5 = document.getElementById("efficiency1_5_option");
-const efficiency1_3 = document.getElementById("efficiency1_3_option");
-const efficiency1_1 = document.getElementById("efficiency1_1_option");
+const efficiency1_5_option = document.getElementById("efficiency1_5_option");
+const efficiency1_3_option = document.getElementById("efficiency1_3_option");
+const efficiency1_1_option = document.getElementById("efficiency1_1_option");
 
 // KRA 2: Evaluated with colleagues - Quality Ratings
 const Quality2_5 = document.getElementById('Quality2_5');
-const quality2_5 = document.getElementById("quality2_5_option");
-const quality2_4 = document.getElementById("quality2_4_option");
-const quality2_3 = document.getElementById("quality2_3_option");
-const quality2_2 = document.getElementById("quality2_2_option");
-const quality2_1 = document.getElementById("quality2_1_option");
+const quality2_5_option = document.getElementById("quality2_5_option");
+const quality2_4_option = document.getElementById("quality2_4_option");
+const quality2_3_option = document.getElementById("quality2_3_option");
+const quality2_2_option = document.getElementById("quality2_2_option");
+const quality2_1_option = document.getElementById("quality2_1_option");
 
 // KRA 2: Evaluated with colleagues - Timeliness Ratings
 const Timeliness2_5 = document.getElementById('Timeliness2_5');
-const timeliness2_5 = document.getElementById("timeliness2_5_option");
-const timeliness2_4 = document.getElementById("timeliness2_4_option");
-const timeliness2_3 = document.getElementById("timeliness2_3_option");
-const timeliness2_2 = document.getElementById("timeliness2_2_option");
-const timeliness2_1 = document.getElementById("timeliness2_1_option");
+const timeliness2_5_option = document.getElementById("timeliness2_5_option");
+const timeliness2_4_option = document.getElementById("timeliness2_4_option");
+const timeliness2_3_option = document.getElementById("timeliness2_3_option");
+const timeliness2_2_option = document.getElementById("timeliness2_2_option");
+const timeliness2_1_option = document.getElementById("timeliness2_1_option");
 
 // KRA 3: Developed and applied effective teaching strategies - Efficiency Ratings
 const Efficiency3_5 = document.getElementById('Efficiency3_5');
-const efficiency3_5 = document.getElementById("efficiency3_5_option");
-const efficiency3_3 = document.getElementById("efficiency3_3_option");
-const efficiency3_1 = document.getElementById("efficiency3_1_option");
+const efficiency3_5_option = document.getElementById("efficiency3_5_option");
+const efficiency3_3_option = document.getElementById("efficiency3_3_option");
+const efficiency3_1_option = document.getElementById("efficiency3_1_option");
 
 // KRA 4: Modeled and supported colleagues - Efficiency Ratings
 const Quality4_5 = document.getElementById('Quality2_5');
-const quality4_5 = document.getElementById("quality4_5_option");
-const quality4_3 = document.getElementById("quality4_3_option");
-const quality4_1 = document.getElementById("quality4_1_option");
+const quality4_5_option = document.getElementById("quality4_5_option");
+const quality4_3_option = document.getElementById("quality4_3_option");
+const quality4_1_option = document.getElementById("quality4_1_option");
 
 // KRA 2: Learning Environment & Diversity of Learners - Efficiency Ratings for Objective 5
 const Efficiency5_5 = document.getElementById('Efficiency5_5');
-const efficiency5_5 = document.getElementById("efficiency5_5_option");
-const efficiency5_3 = document.getElementById("efficiency5_3_option");
-const efficiency5_1 = document.getElementById("efficiency5_1_option");
+const efficiency5_5_option = document.getElementById("efficiency5_5_option");
+const efficiency5_3_option = document.getElementById("efficiency5_3_option");
+const efficiency5_1_option = document.getElementById("efficiency5_1_option");
 
 // KRA 2: Learning Environment & Diversity of Learners - Efficiency Ratings for Objective 6
 const Efficiency6_5 = document.getElementById('Efficiency6_5');
-const efficiency6_5 = document.getElementById("efficiency6_5_option");
-const efficiency6_3 = document.getElementById("efficiency6_3_option");
-const efficiency6_1 = document.getElementById("efficiency6_1_option");
+const efficiency6_5_option = document.getElementById("efficiency6_5_option");
+const efficiency6_3_option = document.getElementById("efficiency6_3_option");
+const efficiency6_1_option = document.getElementById("efficiency6_1_option");
 
 // KRA 2: Learning Environment & Diversity of Learners - Efficiency Ratings for Objective 7
 const Efficiency7_5 = document.getElementById('Efficiency7_5');
-const efficiency7_5 = document.getElementById("efficiency7_5_option");
-const efficiency7_3 = document.getElementById("efficiency7_3_option");
-const efficiency7_1 = document.getElementById("efficiency7_1_option");
+const efficiency7_5_option = document.getElementById("efficiency7_5_option");
+const efficiency7_3_option = document.getElementById("efficiency7_3_option");
+const efficiency7_1_option = document.getElementById("efficiency7_1_option");
 
 // KRA 2: Learning Environment & Diversity of Learners - Quality Ratings for Objective 8
 const Quality8_5 = document.getElementById('Quality8_5');
-const quality8_5 = document.getElementById("quality8_5_option");
-const quality8_4 = document.getElementById("quality8_4_option");
-const quality8_3 = document.getElementById("quality8_3_option");
-const quality8_2 = document.getElementById("quality8_2_option");
-const quality8_1 = document.getElementById("quality8_1_option");
+const quality8_5_option = document.getElementById("quality8_5_option");
+const quality8_4_option = document.getElementById("quality8_4_option");
+const quality8_3_option = document.getElementById("quality8_3_option");
+const quality8_2_option = document.getElementById("quality8_2_option");
+const quality8_1_option = document.getElementById("quality8_1_option");
 
 // KRA 3: Curriculum and Planning & Assessment and Reporting - Quality Ratings for Objective 9
 const Quality9_5 = document.getElementById('Quality9_5');
-const quality9_5 = document.getElementById("quality9_5_option");
-const quality9_4 = document.getElementById("quality9_4_option");
-const quality9_3 = document.getElementById("quality9_3_option");
-const quality9_2 = document.getElementById("quality9_2_option");
-const quality9_1 = document.getElementById("quality9_1_option");
+const quality9_5_option = document.getElementById("quality9_5_option");
+const quality9_4_option = document.getElementById("quality9_4_option");
+const quality9_3_option = document.getElementById("quality9_3_option");
+const quality9_2_option = document.getElementById("quality9_2_option");
+const quality9_1_option = document.getElementById("quality9_1_option");
 
 // KRA 3: Curriculum and Planning & Assessment and Reporting - Timeliness Ratings for Objective 9
 const Timeliness9_5 = document.getElementById('Timeliness9_5');
-const timeliness9_5 = document.getElementById("timeliness9_5_option");
-const timeliness9_4 = document.getElementById("timeliness9_4_option");
-const timeliness9_3 = document.getElementById("timeliness9_3_option");
-const timeliness9_2 = document.getElementById("timeliness9_2_option");
-const timeliness9_1 = document.getElementById("timeliness9_1_option");
+const timeliness9_5_option = document.getElementById("timeliness9_5_option");
+const timeliness9_4_option = document.getElementById("timeliness9_4_option");
+const timeliness9_3_option = document.getElementById("timeliness9_3_option");
+const timeliness9_2_option = document.getElementById("timeliness9_2_option");
+const timeliness9_1_option = document.getElementById("timeliness9_1_option");
 
 // KRA 3: Curriculum and Planning & Assessment and Reporting - Efficiency Ratings for Objective 10
 const Efficiency10_5 = document.getElementById('Efficiency10_5');
-const efficiency10_5 = document.getElementById("efficiency10_5_option");
-const efficiency10_3 = document.getElementById("efficiency10_3_option");
-const efficiency10_1 = document.getElementById("efficiency10_1_option");
+const efficiency10_5_option = document.getElementById("efficiency10_5_option");
+const efficiency10_3_option = document.getElementById("efficiency10_3_option");
+const efficiency10_1_option = document.getElementById("efficiency10_1_option");
 
 // KRA 3: Curriculum and Planning & Assessment and Reporting - Quality Ratings for Objective 11
 const Quality11_5 = document.getElementById('Quality11_5');
-const quality11_5 = document.getElementById("quality11_5_option");
-const quality11_4 = document.getElementById("quality11_4_option");
-const quality11_3 = document.getElementById("quality11_3_option");
-const quality11_2 = document.getElementById("quality11_2_option");
-const quality11_1 = document.getElementById("quality11_1_option");
+const quality11_5_option = document.getElementById("quality11_5_option");
+const quality11_4_option = document.getElementById("quality11_4_option");
+const quality11_3_option = document.getElementById("quality11_3_option");
+const quality11_2_option = document.getElementById("quality11_2_option");
+const quality11_1_option = document.getElementById("quality11_1_option");
 
 // KRA 3: Curriculum and Planning & Assessment and Reporting - Timeliness Ratings for Objective 11
 const Timeliness11_5 = document.getElementById('Timeliness11_5');
-const timeliness11_5 = document.getElementById("timeliness11_5_option");
-const timeliness11_4 = document.getElementById("timeliness11_4_option");
-const timeliness11_3 = document.getElementById("timeliness11_3_option");
-const timeliness11_2 = document.getElementById("timeliness11_2_option");
-const timeliness11_1 = document.getElementById("timeliness11_1_option");
+const timeliness11_5_option = document.getElementById("timeliness11_5_option");
+const timeliness11_4_option = document.getElementById("timeliness11_4_option");
+const timeliness11_3_option = document.getElementById("timeliness11_3_option");
+const timeliness11_2_option = document.getElementById("timeliness11_2_option");
+const timeliness11_1_option = document.getElementById("timeliness11_1_option");
 
 // KRA 4, Objective 12 Variables
 const quality12_5 = document.getElementById('Quality12_5');
