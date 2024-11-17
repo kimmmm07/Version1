@@ -321,9 +321,6 @@ ul {
     border: 1px solid black; /* Black border when the area is clicked and in edit mode */
 }
 
-
-
-
 /* Modal styles */
 .modal {
     display: flex;
