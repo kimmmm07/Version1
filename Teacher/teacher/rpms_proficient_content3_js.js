@@ -89,7 +89,6 @@ addCreateBtn.addEventListener('click', () => {
 // Handle file selection
 fileInput.addEventListener('change', () => {
     const newFiles = Array.from(fileInput.files); // Get selected files
-    console.log(newFiles);
 
     // Add new files to the uploaded files array
     uploadedFiles = uploadedFiles.concat(newFiles);
@@ -111,6 +110,10 @@ fileInput.addEventListener('change', () => {
 function renderFileList() {
     fileList.innerHTML = ''; // Clear current list
 
+    if (uploadedFiles.length > 0) {
+        addCreateBtn.style.display = 'none';
+    }
+
     uploadedFiles.forEach((file, index) => {
         const fileDiv = document.createElement('div');
         fileDiv.classList.add('file-preview');
@@ -119,8 +122,8 @@ function renderFileList() {
         const icon = document.createElement('img');
         icon.classList.add('file-icon');
 
-        if (file.type === "submitted" || file.type === "unsubmitted") {
-            icon.src = 'asset/file-placeholder.png'; // Placeholder for submitted/unsubmitted files
+        if (file.type === "submitted") {
+            icon.src = 'asset/file-placeholder.png'; 
         } else if (file instanceof File && file.type.startsWith('image/')) {
             icon.src = URL.createObjectURL(file);
             icon.classList.add('file-thumb');
@@ -148,8 +151,8 @@ function renderFileList() {
 
         fileDiv.appendChild(fileName);
 
-        // Add a remove button for "uploaded" files only
-        if (file instanceof File) {
+        // Add a remove button for non-"submitted" files only
+        if (file.type !== "submitted" && file instanceof File) {
             const removeBtn = document.createElement('span');
             removeBtn.classList.add('remove-file');
             removeBtn.textContent = 'X';
@@ -166,7 +169,6 @@ function renderFileList() {
     // Disable the "Turn In" button if no files remain
     turnInBtn.disabled = uploadedFiles.length === 0;
 }
-
 
 
 
@@ -258,15 +260,16 @@ async function getAttachments() {
             console.log('Fetched attachments:', responseData);
 
             // Handle fetched submitted files
-            const submitted = responseData.submitted.map(item => new File([item.file], item.title || item.file.split('/').pop()));
-            const unsubmitted = responseData.unsumitted.map(item => new File([item.file], item.title || item.file.split('/').pop()));
-
-            // Choose either submitted or unsubmitted, not both
+            const submitted = responseData.submitted;
+            // const unsubmitted = responseData.unsumitted.map(item => new File([item.file], item.title || item.file.split('/').pop()));
+            console.log(submitted[0]);
             if (submitted.length > 0) {
-                uploadedFiles = submitted;
+                const attachments = [
+                    { name: "https://bnahs.pythonanywhere.com" + submitted[0].file, type: "submitted" }
+                ];
                 isSubmitted = true;
+                uploadedFiles = attachments.map(att => ({ ...att }));
             } else {
-                uploadedFiles = unsubmitted;
                 isSubmitted = false;
             }
 
@@ -277,7 +280,11 @@ async function getAttachments() {
 
             turnInBtn.disabled = uploadedFiles.length === 0;
 
+            
+            console.log(uploadedFiles);
             renderFileList();
+
+            
         } else {
             console.error('Failed to fetch attachments:', response.statusText);
         }
@@ -347,6 +354,7 @@ async function unSubmitAttachment() {
             location.reload();
         } else {
             console.error('Failed to unsubmit files:', response.statusText);
+            return;
         }
     } catch (error) {
         console.error('Error during fetch:', error);
@@ -360,7 +368,6 @@ confirmBtn.addEventListener('click', function () {
     isSubmitted = true;
 
     sendFilesToBackend();
-
     // Hide buttons
     addCreateBtn.style.display = 'none';
     turnInBtn.style.display = 'none';
