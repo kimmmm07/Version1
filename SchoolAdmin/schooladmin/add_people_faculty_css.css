@@ -270,3 +270,23 @@ h1 {
     border: 1px solid #082F96 !important;
     font-weight: 700;
 }
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#password {
+    width: 100%;
+    padding-right: 40px; /* Add space for the icon */
+}
+
+#togglePassword {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
