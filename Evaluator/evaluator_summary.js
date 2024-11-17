@@ -4,7 +4,7 @@ let recommendations = [39.11, 28.02, 23.13];
 
 // Function to update charts based on selected filters
 document.getElementById('choose-year-filter').addEventListener('change', updateCharts);
-document.getElementById('choose-proficiency').addEventListener('change', updateCharts);
+const chosser = document.getElementById('choose-proficiency')
 
 function updateCharts() {
     const year = document.getElementById('choose-year-filter').value;
@@ -70,64 +70,10 @@ const annualRatingChart = new Chart(ctx1, {
 
 // Recommendation Pie Chart
 var ctxRecommendation = document.getElementById('recommendationChart').getContext('2d');
-var recommendationChart = new Chart(ctxRecommendation, {
-    type: 'pie',
-    data: {
-        labels: ['Promotion', 'Termination', 'Retention'],
-        datasets: [{
-            data: recommendations,
-            backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56'],
-            borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)', 'rgba(255, 206, 86, 1)'],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        plugins: {
-            legend: {
-                display: false // Hides the default legend
-            },
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return context.label + ': ' + context.raw + '%'; // Adds percentage in tooltip
-                    }
-                }
-            }
-        },
-        responsive: true,
-        maintainAspectRatio: true, // Ensures the pie chart keeps its size ratio
-    }
-});
-
+let recommendationChart = undefined; 
 //Tenure Chart
 const ctx3 = document.getElementById('tenureChart').getContext('2d');
-const tenureChart = new Chart(ctx3, {
-    type: 'doughnut',
-    data: {
-        labels: ['0-3 years', '5+ years', '3-5 years'],
-        datasets: [{
-            label: 'Tenure',
-            data: tenure_data,
-            backgroundColor: ['#6a41fc', '#ff6384', '#36a2eb']
-        }]
-    },
-    options: {
-        plugins: {
-            legend: {
-                display: false // Hides the default legend
-            },
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return context.label + ': ' + context.raw + '%'; // Adds percentage in tooltip
-                    }
-                }
-            }
-        },
-        responsive: true,
-        maintainAspectRatio: true, // Ensures the pie chart keeps its size ratio
-    }
-});
+let tenureChart = undefined;
 
 //Performance Chart
 const ctx4 = document.getElementById('performanceChart').getContext('2d');
@@ -200,6 +146,60 @@ yesButton.addEventListener('click', async function() {
 
 
 
+const tenure03 = document.getElementById('tenure-0-3');
+const tenure05 = document.getElementById('tenure-5-plus');
+const tenure35 = document.getElementById('tenure-3-5');
+
+const promotionRate = document.getElementById('promotion') ;
+const retentionRate = document.getElementById('retention') ;
+const terminationRate = document.getElementById('termination') ;
+
+
+let tenures_data = undefined;
+let annual_ratings_data = undefined;
+let recommendation_data = undefined;
+let performance_data = undefined;
+
+
+function updateTenureChart(data) {
+    if (tenureChart){
+        tenureChart.destroy();
+    }
+
+    tenure03.textContent = "0-3 years: " + data["0-3 years"].toFixed(2) + "%";
+    tenure05.textContent = "5+ years: " + data["5+ years"].toFixed(2) + "%";
+    tenure35.textContent = "3-5 years: " + data["3-5 years"].toFixed(2) + "%"; 
+
+    tenureChart =new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+            labels: ['0-3 years', '5+ years', '3-5 years'],
+            datasets: [{
+                label: 'Tenure',
+                data: [data['0-3 years'].toFixed(2), data['5+ years'].toFixed(2), data['3-5 years'].toFixed(2)],
+                backgroundColor: ['#6a41fc', '#ff6384', '#36a2eb']
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false // Hides the default legend
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.raw + '%'; // Adds percentage in tooltip
+                        }
+                    }
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: true, // Ensures the pie chart keeps its size ratio
+        }
+    });
+
+}
+
 async function fetchTenure() {
     
     
@@ -216,11 +216,12 @@ async function fetchTenure() {
 
         if (response.ok) {
             console.log("Success Data : ", data); 
-            tenure_data[0] = data["0-3 years"];
-            tenure_data[1] = data["3-5 years"];
-            tenure_data[2] = data["5+ years"];  
-            tenureChart.data.datasets[0].data = tenure_data;
-            tenureChart.update();
+            // tenure_data[0] = data["0-3 years"];
+            // tenure_data[1] = data["3-5 years"];
+            // tenure_data[2] = data["5+ years"]; 
+
+            tenures_data = data;
+            updateTenureChart(data.all)
             
         } else {
             console.log("Error Data : ", data); 
@@ -232,6 +233,51 @@ async function fetchTenure() {
     }
 }
 
+
+
+function updateRecommendationChart(data) {
+    promotionRate.textContent = "Promotion : " + data.number_of_promotion_by_percentage.toFixed(2) + "%";
+    retentionRate.textContent = "Retention : " + data.number_of_retention_by_percentage.toFixed(2) + "%";
+    terminationRate.textContent = "Termination : " + data.number_of_termination_by_percentage.toFixed(2) + "%";
+    
+    if (recommendationChart){
+        recommendationChart.destroy();
+    }
+
+    recommendationChart = new Chart(ctxRecommendation, {
+        type: 'pie',
+        data: {
+            labels: ['Promotion', 'Termination', 'Retention'],
+            datasets: [{
+                data: [
+                    data['number_of_promotion_by_percentage'] , 
+                    data['number_of_termination_by_percentage'] ,
+                    data['number_of_retention_by_percentage']
+                ],
+                backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56'],
+                borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)', 'rgba(255, 206, 86, 1)'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false // Hides the default legend
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return context.label + ': ' + context.raw + '%'; // Adds percentage in tooltip
+                        }
+                    }
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: true, // Ensures the pie chart keeps its size ratio
+        }
+    });
+    
+}
 
 async function fetchRecommendation() {
     
@@ -248,9 +294,10 @@ async function fetchRecommendation() {
         const data = await response.json();
 
         if (response.ok) {
-            console.log("Success Data : ", data); 
-            recommendationChart.data.datasets[0].data = [ data['promotion'] , data['termination'] , data['retention'] ];
-            recommendationChart.update();
+            console.log("Success Data : ", data);
+
+            recommendation_data = data;
+            updateRecommendationChart(data.all);
             
         } else {
             console.log("Error Data : ", data); 
@@ -264,7 +311,7 @@ async function fetchRecommendation() {
 
 
 
-async function fetchAnnualRatings() {
+async function fetchPerformance() {
     
     
     try {
@@ -280,8 +327,7 @@ async function fetchAnnualRatings() {
 
         if (response.ok) {
             console.log("Success Data : ", data); 
-            // recommendationChart.data.datasets[0].data = [ data['promotion'] , data['termination'] , data['retention'] ];
-            // recommendationChart.update();
+            
             
         } else {
             console.log("Error Data : ", data); 
@@ -294,7 +340,28 @@ async function fetchAnnualRatings() {
 }
 
 
+async function fetchAnnualRatings(){
+
+}
+
+
 
 fetchTenure();
 fetchRecommendation();
+fetchPerformance();
 fetchAnnualRatings();
+
+
+
+chosser.addEventListener('change', function() {
+    if (chosser.value == "all"){
+        updateTenureChart(tenures_data.all);
+        updateRecommendationChart(recommendation_data.all);
+    } else if (chosser.value == "proficient"){
+        updateTenureChart(tenures_data.proficient);
+        updateRecommendationChart(recommendation_data.proficient);
+    } else if (chosser.value == "highlyproficient"){
+        updateTenureChart(tenures_data.highly_proficient);
+        updateRecommendationChart(recommendation_data.highly_proficient);
+    }
+});
