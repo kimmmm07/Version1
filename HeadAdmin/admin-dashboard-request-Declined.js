@@ -77,8 +77,9 @@ window.addEventListener('load', async function () {
                     <div class="school-column status">Declined</div>
                     <div class="school-column status"></div>
                     <div class="school-column action">
-                        
-                    </div>
+                    <div class="school-column action">
+                        <i class="fas fa-trash-alt delete-icon" data-id="${school.school_id}"></i> Delete
+                     </div>
                 `;
                 schoolRowWrapper.appendChild(row);
             }
