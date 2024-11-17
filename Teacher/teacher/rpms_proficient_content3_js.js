@@ -362,8 +362,8 @@ async function unSubmitAttachment() {
         // Create a FormData object
         const formData = new FormData();
 
-        // const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
-        const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
+        const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
+        // const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
 
         formData.append('class_work_id', class_work_id); // Include the classowrk ID
         // Append each file to the FormData object
