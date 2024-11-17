@@ -215,6 +215,113 @@ yesButton.addEventListener('click', async function() {
                 reader.readAsDataURL(file);
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+        let user = undefined;
+
+        async function getProfile() {
+            try{
+                
+                const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/profile/', {
+                    method: 'GET',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        
+                    },
+                    credentials: 'include',
+                });
+        
+                const data = await response.json();
+                if (response.ok) {
+                    console.log("Success Data : ", data); 
+                    user = data;
+                } else {
+                    console.log("Error Data : ", data);
+                }
+            }
+            catch (error) {
+                console.error("Error during fetch:", error);
+            }
+        }
+        
+        getProfile();
+        
+        
+        async function updateProfile() {
+            try{
+                
+                const formData = new FormData();
+                formData.append('firstname', firstName.value);
+                formData.append('middlename', middleName.value);
+                formData.append('lastname', lastName.value);
+                formData.append('jobtitle', jobTitle.value);
+                formData.append('department', department.value);
+                formData.append('password', password.value);
+                formData.append('confirm_password', confirmPassword.value);
+                formData.append('profile', imageUpload.files[0]);
+        
+                const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/update_profile/', {
+                    method: 'POST',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        
+                    },
+                    credentials: 'include',
+                    body: formData
+                });
+        
+                const data = await response.json();
+                if (response.ok) {
+                    console.log("Success Data : ", data); 
+                } else {
+                    console.log("Error Data : ", data);
+                }
+        
+        
+            } catch (error) {
+                console.error("Error during fetch:", error);
+            }
+        
+        
+        }
+        
+        
+        
+        updateButton.addEventListener('click', async function() {
+            updateProfile();
+        });
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </script>
     
 </body>
