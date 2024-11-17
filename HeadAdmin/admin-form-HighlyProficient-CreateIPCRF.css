@@ -287,6 +287,10 @@ nav ul li a.active {
     position: relative; 
 }
 
+.form-item .custom-icon  {
+    color: #082F96 !important;
+}
+
 /* Remove underline and keep default color */
 .form-link {
     text-decoration: none; /* Removes underline */
@@ -303,7 +307,7 @@ nav ul li a.active {
 .form-item i {
     font-size: 1.2em;
     margin-right: 10px;
-    color: #082F96; 
+    color: #082F96;  
 }
 
 /* Form Item hover effect */

@@ -77,11 +77,11 @@ async function createFolder() {
         newCategory.className = 'form-category';
         newCategory.innerHTML = `
             <div class="horizontal-background"></div>
-            <h3 class="category-label">${selectedYear} - IPCRF</h3>
-            <a href="admin-form-Proficient-IPCRF-Parts.html" class="form-link">
+            <h3 class="category-label">${selectedYear}</h3>
+            <a href="admin-form-HighlyProficient-IPCRF-Parts.html" class="form-link">
                 <div class="form-item">
-                    <i class="fas fa-th-large custom-icon"></i>
-                    IPCRF for Proficient Teacher
+                    <i class="fas fa-th-large custom-icon" style="color: #082F96;></i>
+                    IPCRF for Highly Proficient Teacher
                 </div>
             </a>
         
@@ -123,11 +123,11 @@ async function populateFolders() {
                 newCategory.className = 'form-category';
                 newCategory.innerHTML = `
                     <div class="horizontal-background"></div>
-                    <h3 class="category-label">${school_year} - IPCRF</h3>
-                    <a href="admin-form-Proficient-IPCRF-Parts.html" class="form-link">
+                    <h3 class="category-label">${school_year}</h3>
+                    <a href="admin-form-HighlyProficient-IPCRF-Parts.html" class="form-link">
                         <div class="form-item">
                             <i class="fas fa-th-large custom-icon"></i>
-                            IPCRF for Proficient Teacher
+                            IPCRF for Highly Proficient Teacher
                         </div>
                     </a>
                 
@@ -192,11 +192,11 @@ async function createFolder() {
         newCategory.className = 'form-category';
         newCategory.innerHTML = `
             <div class="horizontal-background"></div>
-            <h3 class="category-label">${selectedYear} - IPCRF</h3>
+            <h3 class="category-label">${selectedYear}</h3>
             
             <a href="admin-form-HighlyProficient-IPCRF-Parts.html" class="form-link">
                 <div class="form-item">
-                    <i class="fas fa-th-large"></i>
+                    <i class="fas fa-th-large custom-icon"></i>
                     IPCRF for Highly Proficient Teacher
                 </div>
             </a>

@@ -84,7 +84,7 @@ async function createFolder() {
         newCategory.className = 'form-category';
         newCategory.innerHTML = `
             <div class="horizontal-background"></div>
-            <h3 class="category-label">${selectedYear} - IPCRF</h3>
+            <h3 class="category-label">${selectedYear}</h3>
             <a href="admin-form-Proficient-IPCRF-Parts.html" class="form-link">
                 <div class="form-item">
                     <i class="fas fa-th-large custom-icon"></i>
@@ -130,7 +130,7 @@ async function populateFolders() {
                 newCategory.className = 'form-category';
                 newCategory.innerHTML = `
                     <div class="horizontal-background"></div>
-                    <h3 class="category-label">${school_year} - IPCRF</h3>
+                    <h3 class="category-label">${school_year}</h3>
                     <a href="admin-form-Proficient-IPCRF-Parts.html" class="form-link">
                         <div class="form-item">
                             <i class="fas fa-th-large custom-icon"></i>

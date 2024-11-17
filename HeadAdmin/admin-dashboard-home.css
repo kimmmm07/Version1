@@ -157,10 +157,6 @@ nav ul li a.active {
     width: 100%;
 }
 
-.chart-container distribution-chart-container{
-    margin-top: 400px;
-}
-
 .distribution-rate-hr {
     border: 1px solid #ccc; 
     margin-bottom: 20px;
@@ -330,7 +326,6 @@ nav ul li a.active {
     width: 365px;
     height: 220px;
     margin-top: -50px;
-    margin-bottom: 700px;
 }
 
 .tenure-content {
