@@ -1,7 +1,7 @@
 // KRA 1 Efficiency objectives
 
 // Efficiency for 1
-const Efficiency3_5 = document.getElementById('Efficiency1_5');
+const Efficiency1_5 = document.getElementById('Efficiency1_5');
 const efficiency1_5_option = document.getElementById('efficiency1_5_option');
 const efficiency1_3_option = document.getElementById('efficiency1_3_option');
 const efficiency1_1_option = document.getElementById('efficiency1_1_option');
@@ -13,11 +13,13 @@ const efficiency2_3_option = document.getElementById('efficiency2_3_option');
 const efficiency2_1_option = document.getElementById('efficiency2_1_option');
 
 // Efficiency for 3
+const Efficiency3_5 = document.getElementById('Efficiency3_5');
 const efficiency3_5_option = document.getElementById('efficiency3_5_option');
 const efficiency3_3_option = document.getElementById('efficiency3_3_option');
 const efficiency3_1_option = document.getElementById('efficiency3_1_option');
 
 // Efficiency for 4
+const Efficiency4_5 = document.getElementById('Efficiency4_5');
 const efficiency4_5_option = document.getElementById('efficiency4_5_option');
 const efficiency4_3_option = document.getElementById('efficiency4_3_option');
 const efficiency4_1_option = document.getElementById('efficiency4_1_option');
@@ -26,21 +28,25 @@ const efficiency4_1_option = document.getElementById('efficiency4_1_option');
 // KRA 2 Efficiency options
 
 // 5
+const Efficiency5_5 = document.getElementById('Efficiency5_5');
 const efficiency5_5_option = document.getElementById('efficiency5_5_option');
 const efficiency5_3_option = document.getElementById('efficiency5_3_option');
 const efficiency5_1_option = document.getElementById('efficiency5_1_option');
 
 // 6
+const Efficiency6_5 = document.getElementById('Efficiency6_5');
 const efficiency6_5_option = document.getElementById('efficiency6_5_option');
 const efficiency6_3_option = document.getElementById('efficiency6_3_option');
 const efficiency6_1_option = document.getElementById('efficiency6_1_option');
 
 // 7
+const Efficiency7_5 = document.getElementById('Efficiency7_5');
 const efficiency7_5_option = document.getElementById('efficiency7_5_option');
 const efficiency7_3_option = document.getElementById('efficiency7_3_option');
 const efficiency7_1_option = document.getElementById('efficiency7_1_option');
 
 // 8
+const Efficiency8_5 = document.getElementById('Efficiency8_5');
 const efficiency8_5_option = document.getElementById('efficiency8_5_option');
 const efficiency8_3_option = document.getElementById('efficiency8_3_option');
 const efficiency8_1_option = document.getElementById('efficiency8_1_option');
