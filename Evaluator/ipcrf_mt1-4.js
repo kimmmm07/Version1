@@ -102,7 +102,7 @@ document.querySelectorAll('#records-tbody tr').forEach(row => {
 
 function clickToRate( employee_id ){
     sessionStorage.setItem('teacher_id', employee_id);
-    window.location.href = 'evaluator_IPCRF_Proficient_EPart1.html';
+    window.location.href = 'evaluator_IPCRF_HighlyProficient_EPart1.html';
 }
 
 

@@ -1,59 +1,87 @@
-// Access individual teacher rows and elements using numeric ids
-let teacher1 = document.getElementById("teacher-1");
-let teacher2 = document.getElementById("teacher-2");
+// Container and Title
+const rpmsContainer = document.getElementById("rpmsContainer");
+const rpmsTitle = document.getElementById("rpmsTitle");
 
-// Access specific data for teacher 1
-let name1 = document.getElementById("name-1");
-let position1 = document.getElementById("position-1");
-let gradeLevel1 = document.getElementById("grade-level-1");
-let rater1 = document.getElementById("rater-1");
-let status1 = document.getElementById("status-1");
-let action1 = document.getElementById("action-1");
+// Table and Rows
+const teacherTable = document.getElementById("teacherTable");
 
-// Access specific data for teacher 2
-let name2 = document.getElementById("name-2");
-let position2 = document.getElementById("position-2");
-let gradeLevel2 = document.getElementById("grade-level-2");
-let rater2 = document.getElementById("rater-2");
-let status2 = document.getElementById("status-2");
-let action2 = document.getElementById("action-2");
 
-document.querySelectorAll('tbody tr').forEach(row => {
-    const statusCell = row.querySelector('.status');
-    const reviewLink = row.querySelector('a');
 
-    // Check if the status is 'submitted' or 'pending'
-    if (statusCell.classList.contains('submitted')) {
-        // Set status to 'Submitted' with green color
-        statusCell.textContent = 'Submitted';
-        statusCell.style.color = 'green';
+function addTeacherRow(teacherData) { 
 
-        // Update action to 'Reviewed' with gray color
-        reviewLink.textContent = 'Reviewed';
-        reviewLink.style.color = 'gray';
-        reviewLink.href = '#';  // Disable the link
-    } else if (statusCell.classList.contains('pending')) {
-        // Set status to 'Pending' with red color
-        statusCell.textContent = 'Pending';
-        statusCell.style.color = 'red';
+    rater = teacherData.rater;
+    teacher_status = teacherData.status;
+    teacherData = teacherData['teacher'];
 
-        // Update action to 'Review' with default color
-        reviewLink.textContent = 'Review';
-        reviewLink.style.color = '';  // Default link color
-        reviewLink.href = 'rpms_highlyproficient_homepage.html';  // Enable the link
+    const tr = document.createElement('tr');
+
+    tr.innerHTML = `
+        <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacherData.fullname}</td>
+        <td>${teacherData.position}</td>
+        <td>${teacherData.grade_level}</td>
+        <td>${teacherData.rater ?? 'Not Assigned'}</td>
+        <td class="status pending">${teacher_status}</td>
+        <td><a id="${teacherData.employee_id}" class="review">REVIEW</a></td>
+    `;
+
+    teacherTable.appendChild(tr);
+
+    // Add the event listener to the action link
+    const actionLink = document.getElementById(`${teacherData.employee_id}`);
+    actionLink.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        sessionStorage.setItem('teacher_id', teacherData.employee_id);
+
+
+        // Call the appropriate function based on the teacher's status
+        window.location.href = "rpms_highlyproficient_homepage.html"
+
+        // if (teacherData.status.toLowerCase() === 'pending') {
+        //     evaluateTeacher(teacherData);
+        // } else {
+        //     viewTeacher(teacherData);
+        // }
+    });
+}
+
+
+
+
+
+
+async function fetchData() {
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/all/rpms/attachment/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+            data.teachers.forEach(teacherData => {
+                if (!teacherData.teacher.is_proficient){
+                    addTeacherRow(teacherData);  
+                }
+            })
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
     }
-});
+};
 
 
+fetchData();
 
-// Checking the status and dynamically updating the text
-if (status1.classList.contains('pending')) {
-    // status1.innerText = 'In Progress';  // Update status dynamically
-}
 
-if (status2.innerText === 'Submitted') {
-    action2.innerHTML = '<a href="rpms_highlyproficient_homepage.html" class="review" id="review-2">Review</a>';
-}
 
 
 

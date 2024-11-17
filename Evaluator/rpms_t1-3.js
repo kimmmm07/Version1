@@ -66,7 +66,9 @@ async function fetchData() {
         if (response.ok) {
             console.log("Success Data : ", data);  
             data.teachers.forEach(teacherData => {
-                addTeacherRow(teacherData);
+                if (teacherData.teacher.is_proficient){
+                    addTeacherRow(teacherData);  
+                }
             })
         } else {
             console.log("Error Data : ", data);
