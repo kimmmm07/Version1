@@ -19,6 +19,20 @@ const postImagePreview = document.getElementById("postImagePreview");
 const previewImage = document.getElementById("previewImage");
 const removeImageBtn = document.getElementById("removeImageBtn");
 
+
+
+const SchoolAdminUserIcon = document.getElementById("SchoolAdminUserIcon");
+
+
+
+
+
+
+
+
+
+
+
 // Array to store posts
 let posts = [];
 let notifications = [];
