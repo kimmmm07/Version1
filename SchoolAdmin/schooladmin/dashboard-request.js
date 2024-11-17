@@ -1,8 +1,3 @@
-
- 
-
-
-
 window.addEventListener('load', async function() { 
     // Modal handling
     const modal = document.getElementById('modal-overlay');
@@ -75,12 +70,10 @@ window.addEventListener('load', async function() {
                 // Populate modal fields with the specific school's data
                 document.getElementById('modal-name').textContent = data.name;
                 document.getElementById('modal-email').textContent = data.email;
-                document.getElementById('modal-school').textContent = data.school;
-                document.getElementById('modal-address').textContent = data.address;
-                document.getElementById('modal-type').textContent = data.type;
-                document.getElementById('modal-id').textContent = data.id;
-                document.getElementById('modal-contact').textContent = data.contact;
-                document.getElementById('modal-logo').src = data.school_logo;
+                document.getElementById('modal-job-started').textContent = data.school;
+                document.getElementById('modal-position').textContent = data.address;
+                document.getElementById('modal-department').textContent = data.type;
+                document.getElementById('modal-grade-level').textContent = data.id;
         
                 // Display modal
                 modal.style.display = 'flex';
@@ -99,6 +92,8 @@ window.addEventListener('load', async function() {
             modal.style.display = 'none';
         }
     });
+
+    
 
     document.getElementById("accept-btn").addEventListener('click', async function () {
         const formData = new FormData();
@@ -126,6 +121,8 @@ window.addEventListener('load', async function() {
             alert("Request denied.");
         }
     });
+
+    
 
     // document.getElementById("decline-btn").addEventListener('click', async function () {
     //     const formData = new FormData();
