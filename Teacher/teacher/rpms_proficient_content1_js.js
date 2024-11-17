@@ -332,7 +332,7 @@ async function sendFilesToBackend() {
         uploadedFiles.forEach((file, index) => {
             formData.append(`file${index}`, file);
         });
-
+        formData.entries();
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/rpms/folder/classwork/turnin/', {
             method: 'POST',
             headers: {
