@@ -36,7 +36,7 @@ const submissionModalTitle = document.getElementById('submissionModalTitle');
 
 
 
-const class_work_id = sessionStorage.getItem('kra_3_id');
+const class_work_id = sessionStorage.getItem('plus_factor_id');
 console.log(class_work_id);
 
 
