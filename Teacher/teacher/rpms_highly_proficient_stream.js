@@ -83,27 +83,27 @@ let plus_factor_id = undefined;
 
 function onclickKRA1(){
     sessionStorage.setItem('kra_1_id', kra_1_id);
-    window.location.href = 'rpms_proficient_content1.html';
+    window.location.href = 'rpms_highly_proficient_content1.html';
 }
 
 function onclickKRA2(){
     sessionStorage.setItem('kra_2_id', kra_2_id);
-    window.location.href = 'rpms_proficient_content2.html';
+    window.location.href = 'rpms_highly_proficient_content2.html';
 }
 
 function onclickKRA3(){
     sessionStorage.setItem('kra_3_id', kra_3_id);
-    window.location.href = 'rpms_proficient_content3.html';
+    window.location.href = 'rpms_highly_proficient_content3.html';
 }
 
 function onclickKRA4(){
     sessionStorage.setItem('kra_4_id', kra_4_id);
-    window.location.href = 'rpms_proficient_content4.html';
+    window.location.href = 'rpms_highly_proficient_content4.html';
 }
 
 function onclickPlusFactor(){
     sessionStorage.setItem('plus_factor_id', plus_factor_id);
-    window.location.href = 'rpms_proficient_content5.html';
+    window.location.href = 'rpms_highly_proficient_content5.html';
 }
 
 
