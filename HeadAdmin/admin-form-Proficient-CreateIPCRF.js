@@ -1,4 +1,3 @@
-
 const logoutButton = document.getElementById('logout-nav');  // Logout button
 const logoutModal = document.getElementById('logoutModal');
 const yesButton = document.querySelector('.yes-btn');
@@ -18,30 +17,25 @@ noButton.addEventListener('click', function() {
 // Redirect when "Yes" is clicked
 yesButton.addEventListener('click', async function() {
     try {
-        
         const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
             method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-                
             },
             credentials: 'include',
         });
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            console.log("Success Data: ", data); 
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            console.log("Error Data: ", data);
         }
     } catch (error) {
         console.error("Error during fetch:", error);
     }
 });
-
-
-
 
 // Function to close the modal
 function closeModal() {
@@ -51,65 +45,83 @@ function closeModal() {
 // Hide modal initially when forms are displayed
 document.addEventListener("DOMContentLoaded", closeModal);
 
+// Initialize the selected years array
+let selectedYears = [];
+
+// Function to create the folder for Proficient
 async function createFolder() {
     const selectedYear = document.getElementById('form2').value;
-    if (selectedYear) {
 
-        const formData = new FormData();
-        formData.append('position', 'Proficient');
-        formData.append('school_year', String(document.getElementById('form2').value));
+    // Check if a year is selected
+    if (!selectedYear) {
+        alert('Please select a school year.');
+        return;
+    }
 
+    // Check if the selected year already exists
+    if (selectedYears.includes(selectedYear)) {
+        // Show duplicate year modal if there's a duplicate school year
+        document.getElementById('duplicateYearModal').classList.remove('hidden');
+        return;
+    }
 
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/forms/ipcrf/create/',
-            {
-                method: 'POST',
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                }, 
-                body: formData, 
-                credentials: 'include', 
-            }
-        );
+    // Prepare the form data to send to the backend API
+    const formData = new FormData();
+    formData.append('position', 'Proficient');
+    formData.append('school_year', selectedYear);
 
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/forms/ipcrf/create/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            },
+            body: formData,
+            credentials: 'include',
+        });
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ",data);
+            console.log("Success Data:", data);
+            selectedYears.push(selectedYear); // Add the new school year to prevent future duplicates
+
+            // Create and add the new category HTML
+            const categoryContainer = document.getElementById('categoryContainer');
+            const newCategory = document.createElement('div');
+            newCategory.className = 'form-category';
+            newCategory.innerHTML = `
+                <div class="horizontal-background"></div>
+                <h3 class="category-label">${selectedYear}</h3>
+                <a href="admin-form-Proficient-IPCRF-Parts.html" class="form-link">
+                    <div class="form-item">
+                        <i class="fas fa-th-large custom-icon"></i>
+                        IPCRF for Proficient Teacher
+                    </div>
+                </a>
+            `;
+            // Insert the new category at the top of the categoryContainer
+            categoryContainer.insertAdjacentElement('afterbegin', newCategory);
+
+            // Optional: Add margin to the new category to pull it closer to the divider
+            newCategory.style.marginTop = '-10px';  // Adjust this value as needed
+
+            // Close the modal after creating the category
+            alert('Form created successfully.');
+            closeModal();
         } else {
-            console.log("Error Data : ",data);
+            console.log("Error Data:", data);
         }
-
-        const categoryContainer = document.getElementById('categoryContainer');
-        const newCategory = document.createElement('div');
-        newCategory.className = 'form-category';
-        newCategory.innerHTML = `
-            <div class="horizontal-background"></div>
-            <h3 class="category-label">${selectedYear}</h3>
-            <a href="admin-form-Proficient-IPCRF-Parts.html" class="form-link">
-                <div class="form-item">
-                    <i class="fas fa-th-large custom-icon"></i>
-                    IPCRF for Proficient Teacher
-                </div>
-            </a>
-        
-        `;
-
-        // Insert the new category at the top of the categoryContainer
-        categoryContainer.insertAdjacentElement('afterbegin', newCategory);
-        
-        // Optional: Add margin to the new category to pull it closer to the divider
-        newCategory.style.marginTop = '-10px';  // Adjust this value as needed
-
-        // Close the modal after creating the category
-        alert('Form created successfully.');
-        closeModal();
-    } else {
-        alert('Please select a school year.');
+    } catch (error) {
+        console.error("Error during fetch:", error);
     }
 }
 
-selectedYears = []
+// Function to close the duplicate year modal
+function closeDuplicateYearModal() {
+    document.getElementById('duplicateYearModal').classList.add('hidden');
+}
 
+// Function to populate existing folders
 async function populateFolders() {
     try {
         const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/forms/ipcrf/get/proficient', {
@@ -137,9 +149,7 @@ async function populateFolders() {
                             IPCRF for Proficient Teacher
                         </div>
                     </a>
-                
                 `;
-
                 // Insert the new category at the top of the categoryContainer
                 categoryContainer.insertAdjacentElement('afterbegin', newCategory);
             });
@@ -149,18 +159,17 @@ async function populateFolders() {
     } catch (error) {
         console.error('Error fetching folders:', error);
     }
-};
+}
 
-
+// Call populateFolders when the page loads to display existing folders
 populateFolders();
 
-
-
-
 // Event listener to show the modal when the "Create" button is clicked
-document.querySelector('.create-btn').addEventListener('click', async function() {
+document.querySelector('.create-btn').addEventListener('click', function() {
     document.getElementById('formModal').style.display = 'flex';
-
- 
 });
 
+// Hide duplicate year modal when the page loads
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("duplicateYearModal").classList.add("hidden");
+});
