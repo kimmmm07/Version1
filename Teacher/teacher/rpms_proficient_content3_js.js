@@ -35,6 +35,10 @@ const submissionModalCloseBtn = document.getElementById('submissionModalCloseBtn
 const submissionModalTitle = document.getElementById('submissionModalTitle');
 
 
+const class_work_id = sessionStorage.getItem('kra_3_id');
+console.log(class_work_id);
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
@@ -253,7 +257,6 @@ let unsubmitted_attachments = [];
 async function getAttachments() {
     try {
         const formData = new FormData();
-        const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
         formData.append('class_work_id', class_work_id);
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folder/classwork/attachments/', {
@@ -320,7 +323,6 @@ async function sendFilesToBackend() {
         // Create a FormData object
         const formData = new FormData();
 
-        const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
         // const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
 
         formData.append('class_work_id', class_work_id); // Include the classowrk ID
@@ -362,7 +364,6 @@ async function unSubmitAttachment() {
         // Create a FormData object
         const formData = new FormData();
 
-        const class_work_id = sessionStorage.getItem('class_work_id'); // Ito gamitin mo sample lang yan sa baba
         // const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
 
         formData.append('class_work_id', class_work_id); // Include the classowrk ID
