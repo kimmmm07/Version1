@@ -51,8 +51,8 @@ function toggleComments(button) {
     button.classList.toggle('active');
 }
 
-// Modal logic
-const logoutButton = document.getElementById('logoutLink');  // Logout button
+
+const logoutButton = document.getElementById('logoutLink');
 const logoutModal = document.getElementById('logoutModal');
 const yesButton = document.querySelector('.yes-btn');
 const noButton = document.querySelector('.no-btn');
@@ -70,25 +70,28 @@ noButton.addEventListener('click', function() {
 
 // Redirect when "Yes" is clicked
 yesButton.addEventListener('click', async function() {
-    const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/',
-        {
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
             method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-            }, 
-            credentials: 'include', 
+                
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            window.location.href = '../../get-started.html'; 
+        } else {
+            console.log("Error Data : ", data);
         }
-    );
-    
-    
-    const data = await response.json();
-    if (response.ok) {
-        window.location.href = '../../get-started.html'; 
-    } else {
-        console.log("Error Data : ",data);
+    } catch (error) {
+        console.error("Error during fetch:", error);
     }
 });
 
-// window.addEventListener('load', async function () {
-    
-// });
+
+

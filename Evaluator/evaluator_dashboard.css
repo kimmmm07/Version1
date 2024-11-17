@@ -178,6 +178,7 @@ aside {
     margin: 0;
 }
 
+
 /* Modal styles */
 .modal {
     display: flex;
@@ -202,7 +203,7 @@ aside {
     padding: 20px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     width: 400px;
     height: 150px;
     border: 2px solid #082F96;
