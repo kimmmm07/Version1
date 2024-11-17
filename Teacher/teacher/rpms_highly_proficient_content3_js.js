@@ -34,6 +34,9 @@ const submissionModalContent = document.getElementById('submissionModalContent')
 const submissionModalCloseBtn = document.getElementById('submissionModalCloseBtn');
 const submissionModalTitle = document.getElementById('submissionModalTitle');
 
+const class_work_id = sessionStorage.getItem('kra_3_id');
+console.log(class_work_id);
+
 
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {

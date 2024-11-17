@@ -17,6 +17,9 @@ const contentWrapper = document.getElementById('contentWrapper');
 const actionsCommentsPanel = document.getElementById('actionsCommentsPanel');
 const turnInPanel = document.getElementById('turnInPanel');
 
+const class_work_id = sessionStorage.getItem('kra_4_id');
+console.log(class_work_id);
+
 // Private Comments
 const privateComments = document.getElementById('privateComments');
 const privateCommentsHeader = document.getElementById('privateCommentsHeader');
