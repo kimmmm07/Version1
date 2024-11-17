@@ -138,24 +138,18 @@ function renderFileList() {
         fileName.classList.add('file-name');
         fileName.textContent = file.name || "Unknown File";
 
-        // File actions
         fileName.style.cursor = 'pointer';
         fileName.addEventListener('click', () => {
-            if (file.file) {
-                // Open file URL in a new tab
-                window.open(file.file, '_blank');
-            } else if (file instanceof File) {
+            if (file instanceof File) {
                 const fileURL = URL.createObjectURL(file);
                 showModal(fileURL, file.type);
-            } else {
-                console.error("Unable to preview file: Invalid file type.");
             }
         });
 
         fileDiv.appendChild(fileName);
 
         // Add a remove button for "uploaded" files only
-        if (file.type === "uploaded") {
+        if (file instanceof File) {
             const removeBtn = document.createElement('span');
             removeBtn.classList.add('remove-file');
             removeBtn.textContent = 'X';
@@ -207,40 +201,33 @@ window.addEventListener('click', (event) => {
 
 // Handle "Turn In" button click - Show Confirmation Modal
 turnInBtn.addEventListener('click', () => {
-    // Get the modal element
     const modal = submissionModal;
 
-    // Display the modal
+    // Display the modal and update the file count
     modal.style.display = 'block';
 
-    // Update file count text
     const fileCountText = `${uploadedFiles.length} attachment(s) will be submitted for "KRA 3: Curriculum and Planning".`;
     fileCount.textContent = fileCountText;
 
-    // Generate file preview HTML
     fileListPreview.innerHTML = ''; // Clear previous content
     uploadedFiles.forEach((file) => {
         const filePreviewDiv = document.createElement('div');
         filePreviewDiv.classList.add('file-preview');
 
-        // Create a clickable element (you can use a div or a span)
         const filePreviewLink = document.createElement('span');
         filePreviewLink.textContent = file.name;
-        filePreviewLink.style.cursor = 'pointer'; // Make it look clickable
+        filePreviewLink.style.cursor = 'pointer';
 
-        // Add a click event listener to show the modal with file preview
         filePreviewLink.addEventListener('click', () => {
-            const fileURL = URL.createObjectURL(file); // Create object URL for the file
-            showModal(fileURL, file.type); // Call the showModal function
+            const fileURL = URL.createObjectURL(file);
+            showModal(fileURL, file.type);
         });
 
-        // Append the clickable link to the preview div
         filePreviewDiv.appendChild(filePreviewLink);
-
-        // Append the entire file preview div to the preview container
         fileListPreview.appendChild(filePreviewDiv);
     });
 });
+
 
 // Cancel button functionality to close the submission modal
 cancelBtn.addEventListener('click', function () {
@@ -270,33 +257,25 @@ async function getAttachments() {
             const responseData = await response.json();
             console.log('Fetched attachments:', responseData);
 
-            // Process submitted files
-            const submitted = responseData.submitted.map(item => ({
-                name: item.title || item.file.split('/').pop(),
-                type: "submitted",
-                file: "https://bnahs.pythonanywhere.com/" + item.file,
-                attachmentId: item.attachment_id,
-            }));
+            // Handle fetched submitted files
+            const submitted = responseData.submitted.map(item => new File([item.file], item.title || item.file.split('/').pop()));
+            const unsubmitted = responseData.unsumitted.map(item => new File([item.file], item.title || item.file.split('/').pop()));
 
-            // Process unsubmitted files
-            const unsubmitted = responseData.unsumitted.map(item => ({
-                name: item.title || item.file.split('/').pop(),
-                type: "unsubmitted",
-                file: "https://bnahs.pythonanywhere.com/" + item.file,
-                attachmentId: item.attachment_id,
-            }));
+            // Choose either submitted or unsubmitted, not both
+            if (submitted.length > 0) {
+                uploadedFiles = submitted;
+                isSubmitted = true;
+            } else {
+                uploadedFiles = unsubmitted;
+                isSubmitted = false;
+            }
 
-            // Merge into uploadedFiles
-            uploadedFiles = [...submitted, ...unsubmitted];
-
-            // Set flags for UI adjustments
-            isSubmitted = submitted.length > 0;
-
-            // UI updates based on submission status
+            // UI adjustments based on the submission status
             addCreateBtn.style.display = isSubmitted ? 'none' : 'block';
             turnInBtn.style.display = isSubmitted ? 'none' : 'block';
             unsubmitBtn.style.display = isSubmitted ? 'block' : 'none';
-            turnInBtn.disabled = !isSubmitted && uploadedFiles.length === 0;
+
+            turnInBtn.disabled = uploadedFiles.length === 0;
 
             renderFileList();
         } else {
@@ -315,33 +294,25 @@ getAttachments();
 
 // Function to send files to backend
 async function sendFilesToBackend() {
-
-
-    // Use fetch to send the data
     try {
-
-        // Create a FormData object
+        // Create a FormData object for sending files
         const formData = new FormData();
+        formData.append('class_work_id', class_work_id); // Include the classwork ID
 
-        // const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
-
-        formData.append('class_work_id', class_work_id); // Include the classowrk ID
-        // Append each file to the FormData object
-        uploadedFiles.forEach((file, index) => {
-            formData.append(`file${index}`, file);
+        // Append each file to the FormData object (as actual file objects)
+        uploadedFiles.forEach(file => {
+            formData.append('file', file);
         });
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/rpms/folder/classwork/turnin/', {
             method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-                
             },
             credentials: 'include',
             body: formData
         });
 
-        // Check the response status
         if (response.ok) {
             const responseData = await response.json();
             console.log('Files successfully uploaded:', responseData);
@@ -354,38 +325,28 @@ async function sendFilesToBackend() {
     }
 }
 
-
-
+// Function to unsubmit files (send unsubmit request to backend)
 async function unSubmitAttachment() {
-    
-    // Use fetch to send the data
     try {
-
-        // Create a FormData object
+        // Create a FormData object for unsubmit request
         const formData = new FormData();
-
-        // const class_work_id = "61a83494-7bea-480d-a915-a9e884ed149f";
-
-        formData.append('class_work_id', class_work_id); // Include the classowrk ID
-        // Append each file to the FormData object
+        formData.append('class_work_id', class_work_id); // Include the classwork ID
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/rpms/folder/classwork/unsubmit/', {
             method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-                
             },
             credentials: 'include',
             body: formData
         });
 
-        // Check the response status
         if (response.ok) {
             const responseData = await response.json();
-            console.log('Files successfully uploaded:', responseData);
+            console.log('Files successfully unsubmitted:', responseData);
             location.reload();
         } else {
-            console.error('Failed to upload files:', response.statusText);
+            console.error('Failed to unsubmit files:', response.statusText);
         }
     } catch (error) {
         console.error('Error during fetch:', error);
@@ -400,48 +361,41 @@ confirmBtn.addEventListener('click', function () {
 
     sendFilesToBackend();
 
-    // Hide the Add or Create button and Turn In button
-    addCreateBtn.style.display = 'none'; // Keep space occupied
-    turnInBtn.style.display = 'none';     // Keep space occupied
+    // Hide buttons
+    addCreateBtn.style.display = 'none';
+    turnInBtn.style.display = 'none';
 
     // Disable all remove buttons in the file list
     const removeButtons = document.querySelectorAll('.remove-file');
     removeButtons.forEach(button => {
-        button.style.display = 'none'; // Hide each remove button
+        button.style.display = 'none';
     });
 
     // Show unsubmit button
     unsubmitBtn.style.display = 'block';
 
-    // Close the modal
     submissionModal.style.display = 'none'; // Close submission modal
 });
 
-// Unsubmit button functionality
+// Event listener for Unsubmit button
 unsubmitBtn.addEventListener('click', function () {
     // Set submitted flag to false
     isSubmitted = false;
 
     unSubmitAttachment();
 
+    // Show buttons again
+    addCreateBtn.style.display = 'block';
+    turnInBtn.style.display = 'block';
 
-    // Show Add or Create button and Turn In button again
-    addCreateBtn.style.display = 'block'; // Maintain position
-    turnInBtn.style.display = 'block';     // Maintain position
-
-    // Enable the remove buttons again
     const removeButtons = document.querySelectorAll('.remove-file');
     removeButtons.forEach(button => {
         button.style.display = 'inline'; // Show each remove button again
     });
 
-    // Hide unsubmit button
-    unsubmitBtn.style.display = 'none';
-
-    // Enable turn in button
-    turnInBtn.disabled = false;
+    unsubmitBtn.style.display = 'none'; // Hide unsubmit button
+    turnInBtn.disabled = false; // Enable Turn In button
 });
-
 // Replace with the actual user's name and image
 const userName = "John Doe"; // Example user name
 const userImage = "asset/User_01.png"; // Example user image source

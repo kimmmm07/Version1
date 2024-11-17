@@ -26,6 +26,7 @@
             </li>
         </ul>
     </nav>
+
     <div class="container" id="container">
         <header id="header">
             <h1 id="page-title">Analytics</h1>
@@ -95,17 +96,17 @@
         </div>
     </div>
     
-
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
         <div class="modal-content">
             <p>Are you sure you want to logout?</p>
             <div class="modal-buttons">
-                <button class="yes-btn">Yes</button>
-                <button class="no-btn">No</button>
+                <button class="yes-btn" id="yes-btn">Yes</button>
+                <button class="no-btn" id="no-btn">No</button>
             </div>
         </div>
     </div>
+    
 
     <script> 
         // Modal logic
@@ -129,6 +130,44 @@
             threats: "Balancing personal development with teaching responsibilities."
         }
     };
+
+
+
+    const container = document.getElementById('container');
+    const header = document.getElementById('header');
+    const pageTitle = document.getElementById('page-title');
+    const viewSummaryLink = document.getElementById('view-summary-link');
+    const chooseYearFilter = document.getElementById('choose-year-filter');
+    const yearOption = document.getElementById('year-option');
+    const analyticsGrid = document.getElementById('analytics-grid');
+    const kraBreakdown = document.getElementById('kra-breakdown');
+    const kraTitle = document.getElementById('kra-title');
+    const kraChart = document.getElementById('kraChart');
+    const kraDescription = document.getElementById('kra-description');
+    const recommendation = document.getElementById('recommendation');
+    const recommendationTitle = document.getElementById('recommendation-title');
+    const recommendationContent = document.getElementById('recommendation-content');
+    const recommendationChart = document.getElementById('recommendationChart');
+    const recommendationLabels = document.getElementById('recommendation-labels');
+    const promotionLabel = document.getElementById('promotionLabel');
+    const retentionLabel = document.getElementById('retentionLabel');
+    const terminationLabel = document.getElementById('terminationLabel');
+    const performance = document.getElementById('performance');
+    const performanceTitle = document.getElementById('performance-title');
+    const performanceChart = document.getElementById('performanceChart');
+    const swotAnalysis = document.getElementById('swot-analysis');
+    const swotTitle = document.getElementById('swot-title');
+    const swotContent = document.getElementById('swot-content');
+    const strengthsTitle = document.getElementById('strengths-title');
+    const strengths = document.getElementById('strengths');
+    const weaknessTitle = document.getElementById('weakness-title');
+    const weakness = document.getElementById('weakness');
+    const opportunitiesTitle = document.getElementById('opportunities-title');
+    const opportunities = document.getElementById('opportunities');
+    const threatsTitle = document.getElementById('threats-title');
+    const threats = document.getElementById('threats');
+    const yesBtn = document.getElementById('yes-btn');
+    const noBtn = document.getElementById('no-btn');
 
 
     const swot = swotData['john'];
