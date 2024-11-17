@@ -43,6 +43,7 @@ yesButton.addEventListener('click', async function() {
 
 
 
+
 // Function to open modal
 function openModal() {
     document.getElementById('formModal').style.display = 'flex';
@@ -53,6 +54,16 @@ function closeModal() {
     document.getElementById('formModal').style.display = 'none';
     form1.value = ''; // Reset input fields
     form2.selectedIndex = 0; // Reset dropdown
+}
+
+// Function to open duplicate school year modal
+function openDuplicateYearModal() {
+    document.getElementById('duplicateYearModal').style.display = 'flex';
+}
+
+// Function to close duplicate school year modal
+function closeDuplicateYearModal() {
+    document.getElementById('duplicateYearModal').style.display = 'none';
 }
 
 // Hide modal initially when forms are displayed
@@ -69,6 +80,7 @@ const form2 = document.getElementById('form2'); // School Year dropdown
 const cardsSection = document.querySelector('.cards-section');
 const createBtn = document.querySelector('.create');
 const closeModalBtn = document.querySelector('.modal-close-btn');
+
 
 // List of appealing color pairs (background + white text)
 const colorPairs = [
@@ -281,24 +293,22 @@ function generateCard(folder) {
 
 let folders = undefined;
 
-async function getRPMSFolder() {
-    try{
 
+// Fetch RPMS folders and generate cards
+async function getRPMSFolder() {
+    try {
         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/forms/rpms/folders/proficient', {
             method: 'GET',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
             },
-            credentials: 'include', 
+            credentials: 'include',
         });
-        folders = await response.json();
+        const folders = await response.json();
         if (response.ok) {
-            console.log("Success Data : ",folders);
             folders.rpms_folders.forEach(folder => {
                 generateCard(folder);
-            })
-        } else {
-            console.log("Error Data : ",folders);
+            });
         }
     } catch (error) {
         console.error(error);
@@ -315,21 +325,26 @@ getRPMSFolder();
 
 
 // Handle folder creation
-createBtn.addEventListener('click', async () => {
-    const folderName = form1.value.trim();
-    const schoolYear = form2.value;
+// const createBtn = document.querySelector('.create');
+//     const form1 = document.getElementById('form1');
+//     const form2 = document.getElementById('form2');
+//     const cardsSection = document.querySelector('.cards-section');
 
-    // Ensure folder name and school year are filled
-    if (folderName && schoolYear) {
-        // Check if a folder for the selected school year already exists
-        const existingFolder = Array.from(cardsSection.querySelectorAll('.card-link')).find(card => {
-            return card.querySelector('.subheader').textContent === schoolYear;
-        });
+    createBtn.addEventListener('click', async () => {
+        const folderName = form1.value.trim();
+        const schoolYear = form2.value;
 
-        if (existingFolder) {
-            alert('A folder for this school year already exists. Please select a different year.');
-            return; // Exit if a folder for the school year already exists
-        }
+        if (folderName && schoolYear) {
+            // Check if a folder for the selected school year already exists
+            const existingFolder = Array.from(cardsSection.querySelectorAll('.card-link')).find(card => {
+                return card.querySelector('.subheader').textContent === schoolYear;
+            });
+
+            if (existingFolder) {
+                console.log("Duplicate school year found"); // Debugging log
+                openDuplicateYearModal(); // Show the modal
+                return;
+            }            
 
         try{
             const formData = new FormData();
