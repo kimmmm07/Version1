@@ -1,11 +1,13 @@
 // KRA 1 Efficiency objectives
 
 // Efficiency for 1
+const Efficiency3_5 = document.getElementById('Efficiency1_5');
 const efficiency1_5_option = document.getElementById('efficiency1_5_option');
 const efficiency1_3_option = document.getElementById('efficiency1_3_option');
 const efficiency1_1_option = document.getElementById('efficiency1_1_option');
 
 // Efficiency for 2
+const Efficiency2_5 = document.getElementById('Efficiency2_5');
 const efficiency2_5_option = document.getElementById('efficiency2_5_option');
 const efficiency2_3_option = document.getElementById('efficiency2_3_option');
 const efficiency2_1_option = document.getElementById('efficiency2_1_option');
@@ -541,6 +543,60 @@ function getRateTimeliness14() {
 }
 
 
+
+function getRatetimeliness15(){
+    if (timeliness15_5_option.checked) {
+        return 5;
+    } else if (timeliness15_4_option.checked) {
+        return 4;
+    } else if (timeliness15_3_option.checked) {
+        return 3;
+    } else if (timeliness15_2_option.checked) {
+        return 2;
+    } else if (timeliness15_1_option.checked) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+
+function getRateEfficiency15() {
+    if (efficiency15_5_option.checked) {
+        return 5;
+    } else if (efficiency15_4_option.checked) {
+        return 4;
+    } else if (efficiency15_3_option.checked) {
+        return 3;
+    } else if (efficiency15_2_option.checked) {
+        return 2;
+    } else if (efficiency15_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+
+
+function getRateQuality15() {
+    if (quality15_5_option.checked) {
+        return 5;
+    } else if (quality15_4_option.checked) {
+        return 4;
+    } else if (quality15_3_option.checked) {
+        return 3;
+    } else if (quality15_2_option.checked) {
+        return 2;
+    } else if (quality15_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+
+
+
 let ipcrf = undefined;
 
 async function getIPCRF() {
@@ -580,10 +636,42 @@ async function getIPCRF() {
 getIPCRF();
 
 
-async function updateIPCRF(params) {
+async function updateIPCRF() {
     try {
         
         let content = ipcrf['content_for_evaluator']
+                
+        content['Content Knowledge and Pedagogy']['1']['EFFICIENCY']['Rate'] = getRateEfficiency1();
+        content['Content Knowledge and Pedagogy']['2']['EFFICIENCY']['Rate'] = getRateEfficiency2();
+        content['Content Knowledge and Pedagogy']['3']['EFFICIENCY']['Rate'] = getRateEfficiency3();
+        content['Content Knowledge and Pedagogy']['4']['EFFICIENCY']['Rate'] = getRateEfficiency4();
+
+        content['Learning Environment & Diversity of Learners']['5']['EFFICIENCY']['Rate'] = getRateEfficiency5();
+        content['Learning Environment & Diversity of Learners']['6']['EFFICIENCY']['Rate'] = getRateEfficiency6();
+        content['Learning Environment & Diversity of Learners']['7']['EFFICIENCY']['Rate'] = getRateEfficiency7();
+        content['Learning Environment & Diversity of Learners']['8']['EFFICIENCY']['Rate'] = getRateEfficiency8();
+
+        content['Curriculum and Planning & Assessment and Reporting']['9']['EFFICIENCY']['Rate'] = getRateEfficiency9();
+        content['Curriculum and Planning & Assessment and Reporting']['9']['QUALITY']['Rate'] = getRateQuality9();
+        
+        content['Curriculum and Planning & Assessment and Reporting']['10']['EFFICIENCY']['Rate'] = getRateEfficiency10();
+
+        content['Curriculum and Planning & Assessment and Reporting']['11']['QUALITY']['Rate'] = getRateQuality11();
+        content['Curriculum and Planning & Assessment and Reporting']['11']['TIMELINES']['Rate'] = getRateTimeliness11();
+
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['QUALITY']['Rate'] = getRateQuality12();
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['TIMELINES']['Rate'] = getRateTimeliness12();
+
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['QUALITY']['Rate'] = getRateQuality13();
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['TIMELINES']['Rate'] = getRateTimeliness13();
+
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['QUALITY']['Rate'] = getRateQuality14();
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['TIMELINES']['Rate'] = getRateTimeliness14();
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['EFFICIENCY']['Rate'] = getRateEfficiency14();
+
+        content['PLUS FACTOR']['15']['EFFICIENCY']['Rate'] = getRateEfficiency15();
+        content['PLUS FACTOR']['15']['TIMELINES']['Rate'] = getRatetimeliness15();
+        content['PLUS FACTOR']['15']['QUALITY']['Rate'] = getRateQuality15();
 
 
         const formData = new FormData();
@@ -604,12 +692,12 @@ async function updateIPCRF(params) {
             body: formData
         });
 
-        ipcrf = await response.json();
+        const result = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", ipcrf); 
+            console.log("Success Data : ", result); 
 
         } else {
-            console.log("Error Data : ", ipcrf);
+            console.log("Error Data : ", result);
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -619,7 +707,43 @@ async function updateIPCRF(params) {
 
 
 
+// const saveButton = document.getElementById("saveButton");
 
+// function validateForm() {
+//     let isValid = true;
+
+//     requiredFields.forEach((name) => {
+//         const selectedOption = document.querySelector(`input[name="${name}"]:checked`);
+//         const ratingWrapper = document.querySelector(`input[name="${name}"]`).closest('.ratings, .rating-options').querySelector('.rating-wrapper');
+
+//         if (!selectedOption) {
+//             isValid = false;
+
+//             // Add error class to show red border and background
+//             if (ratingWrapper) {
+//                 ratingWrapper.classList.add("error");
+//             }
+//         } else {
+//             // Remove error class if answered
+//             if (ratingWrapper) {
+//                 ratingWrapper.classList.remove("error");
+//             }
+//         }
+//     });
+
+//     if (!isValid) {
+//         alert("Please answer all sections before saving.");
+//     }
+
+//     return isValid;
+// }
+
+// saveButton.addEventListener("click", function () {
+//     const isFormValid = validateForm();
+//     if (isFormValid) {
+//         location.href = 'teacher_forms.html';
+//     }
+// });
 
 
 
@@ -694,56 +818,56 @@ yesButton.addEventListener('click', async function() {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-        const requiredFields = [
-            "efficiency1", "efficiency2", "efficiency3",
-            "efficiency4", "efficiency5", "efficiency6",
-            "efficiency7", "efficiency8", "quality9",
-            "efficiency9", "efficiency10", "quality11",
-            "timeliness11", "quality12", "timeliness12",
-            "quality13", "timeliness13",
-            "quality14", "efficiency14", "timeliness14",
-            "quality15", "efficiency15", "timeliness15"
-        ];
+// document.addEventListener("DOMContentLoaded", function () {
+//         const requiredFields = [
+//             "efficiency1", "efficiency2", "efficiency3",
+//             "efficiency4", "efficiency5", "efficiency6",
+//             "efficiency7", "efficiency8", "quality9",
+//             "efficiency9", "efficiency10", "quality11",
+//             "timeliness11", "quality12", "timeliness12",
+//             "quality13", "timeliness13",
+//             "quality14", "efficiency14", "timeliness14",
+//             "quality15", "efficiency15", "timeliness15"
+//         ];
     
-        const saveButton = document.querySelector("#saveButton");
+//         const saveButton = document.querySelector("#saveButton");
 
-        function validateForm() {
-            let isValid = true;
+//         function validateForm() {
+//             let isValid = true;
     
-            requiredFields.forEach((name) => {
-                const selectedOption = document.querySelector(`input[name="${name}"]:checked`);
-                const ratingWrapper = document.querySelector(`input[name="${name}"]`).closest('.ratings, .rating-options').querySelector('.rating-wrapper');
+//             requiredFields.forEach((name) => {
+//                 const selectedOption = document.querySelector(`input[name="${name}"]:checked`);
+//                 const ratingWrapper = document.querySelector(`input[name="${name}"]`).closest('.ratings, .rating-options').querySelector('.rating-wrapper');
     
-                if (!selectedOption) {
-                    isValid = false;
+//                 if (!selectedOption) {
+//                     isValid = false;
     
-                    // Add error class to show red border and background
-                    if (ratingWrapper) {
-                        ratingWrapper.classList.add("error");
-                    }
-                } else {
-                    // Remove error class if answered
-                    if (ratingWrapper) {
-                        ratingWrapper.classList.remove("error");
-                    }
-                }
-            });
+//                     // Add error class to show red border and background
+//                     if (ratingWrapper) {
+//                         ratingWrapper.classList.add("error");
+//                     }
+//                 } else {
+//                     // Remove error class if answered
+//                     if (ratingWrapper) {
+//                         ratingWrapper.classList.remove("error");
+//                     }
+//                 }
+//             });
     
-            if (!isValid) {
-                alert("Please answer all sections before saving.");
-            }
+//             if (!isValid) {
+//                 alert("Please answer all sections before saving.");
+//             }
     
-            return isValid;
-        }
+//             return isValid;
+//         }
     
-        saveButton.addEventListener("click", function () {
-            const isFormValid = validateForm();
-            if (isFormValid) {
-                location.href = 'teacher_forms.html';
-            }
-        });
-    });
+//         saveButton.addEventListener("click", function () {
+//             const isFormValid = validateForm();
+//             if (isFormValid) {
+//                 location.href = 'teacher_forms.html';
+//             }
+//         });
+//     });
 
 
 

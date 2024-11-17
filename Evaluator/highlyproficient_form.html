@@ -257,35 +257,34 @@ async function getFORMS(){
             conductedReviewsProficient.textContent = ipcrf_content.number_of_conducted_cot_proficient;
             fullResponseCountProficient.textContent = ipcrf_content.number_of_evaluated_cot_proficient;
             attentionCountProficient.textContent = ipcrf_content.number_of_pending_cot_proficient;
-            responsePercentageProficient.textContent = ipcrf_content.response_rate_of_cot_proficient;
+            responsePercentageProficient.textContent = ipcrf_content.response_rate_of_cot_proficient.toFixed(2) + '%';
 
             conductedReviewsHighlyProficient.textContent = ipcrf_content.number_of_conducted_cot_highly_proficient;
             fullResponseCountHighlyProficient.textContent = ipcrf_content.number_of_evaluated_cot_highly_proficient;
             attentionCountHighlyProficient.textContent = ipcrf_content.number_of_pending_cot_highly_proficient;
-            responsePercentageHighlyProficient.textContent = ipcrf_content.response_rate_of_cot_highly_proficient;
+            responsePercentageHighlyProficient.textContent = ipcrf_content.response_rate_of_cot_highly_proficient.toFixed(2) + '%';
             
 
             conductedReviewsIpcrfProficient.textContent = ipcrf_content.number_of_conducted_ipcrf_1_proficient;
             fullResponseCountIpcrfProficient.textContent = ipcrf_content.number_of_conducted_ipcrf_1_proficient;
             attentionCountIpcrfProficient.textContent = ipcrf_content.number_of_pending_ipcrf_1_proficient;
-            responsePercentageIpcrfProficient.textContent = ipcrf_content.response_rate_of_ipcrf_1_proficient;
+            responsePercentageIpcrfProficient.textContent = ipcrf_content.response_rate_of_ipcrf_1_proficient.toFixed(2) + '%';
 
             conductedReviewsIpcrfHighlyProficient.textContent = ipcrf_content.number_of_conducted_ipcrf_1_highly_proficient;
             fullResponseCountIpcrfHighlyProficient.textContent = ipcrf_content.number_of_conducted_ipcrf_1_highly_proficient;
             attentionCountIpcrfHighlyProficient.textContent = ipcrf_content.number_of_pending_ipcrf_1_highly_proficient;
-            responsePercentageIpcrfHighlyProficient.textContent = ipcrf_content.response_rate_of_ipcrf_1_highly_proficient;
+            responsePercentageIpcrfHighlyProficient.textContent = ipcrf_content.response_rate_of_ipcrf_1_highly_proficient.toFixed(2) + '%';
 
 
             conductedReviewsRpmsProficient.textContent = ipcrf_content.number_of_conducted_rpms_proficient;
             fullResponseCountRpmsProficient.textContent = ipcrf_content.number_of_conducted_rpms_proficient;
             attentionCountRpmsProficient.textContent = ipcrf_content.number_of_pending_rpms_proficient;
-            responsePercentageRpmsProficient.textContent = ipcrf_content.response_rate_of_rpms_proficient;
+            responsePercentageRpmsProficient.textContent = ipcrf_content.response_rate_of_rpms_proficient.toFixed(2) + "%";
 
             conductedReviewsRpmsHighlyProficient.textContent = ipcrf_content.number_of_conducted_rpms_highly_proficient;
             fullResponseCountRpmsHighlyProficient.textContent = ipcrf_content.number_of_conducted_rpms_highly_proficient;
             attentionCountRpmsHighlyProficient.textContent = ipcrf_content.number_of_pending_rpms_highly_proficient;
-            responsePercentageRpmsHighlyProficient.textContent = ipcrf_content.response_rate_of_rpms_highly_proficient;
-
+            responsePercentageRpmsHighlyProficient.textContent = ipcrf_content.response_rate_of_rpms_highly_proficient.toFixed(2) + "%";
 
         } else {
             console.log("Error Data : ", ipcrf_content);
