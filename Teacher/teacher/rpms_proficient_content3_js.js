@@ -122,7 +122,7 @@ function renderFileList() {
             icon.classList.add('file-thumb');
             icon.onload = () => URL.revokeObjectURL(icon.src);
         } else {
-            icon.src = 'file-placeholder.png'; // Placeholder for unsupported types
+            icon.src = 'asset/img-placeholder.png'; // Placeholder for unsupported types
         }
 
         icon.style.width = '20px';
