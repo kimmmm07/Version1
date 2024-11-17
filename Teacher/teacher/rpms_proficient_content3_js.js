@@ -113,6 +113,7 @@ function renderFileList() {
     if (uploadedFiles.length > 0) {
         addCreateBtn.style.display = 'none';
     }
+    console.log(uploadedFiles);
 
     uploadedFiles.forEach((file, index) => {
         const fileDiv = document.createElement('div');
@@ -260,16 +261,16 @@ async function getAttachments() {
             console.log('Fetched attachments:', responseData);
 
             // Handle fetched submitted files
-            const submitted = responseData.submitted;
-            // const unsubmitted = responseData.unsumitted.map(item => new File([item.file], item.title || item.file.split('/').pop()));
-            console.log(submitted[0]);
+            const submitted = responseData.submitted.map(item => new File([item.file], item.title || item.file.split('/').pop()));
+            const unsubmitted = responseData.unsumitted.map(item => new File([item.file], item.title || item.file.split('/').pop()));
+
+            
+            // Choose either submitted or unsubmitted, not both
             if (submitted.length > 0) {
-                const attachments = [
-                    { name: "https://bnahs.pythonanywhere.com" + submitted[0].file, type: "submitted" }
-                ];
+                uploadedFiles = submitted;
                 isSubmitted = true;
-                uploadedFiles = attachments.map(att => ({ ...att }));
             } else {
+                uploadedFiles = unsubmitted;
                 isSubmitted = false;
             }
 
@@ -280,11 +281,7 @@ async function getAttachments() {
 
             turnInBtn.disabled = uploadedFiles.length === 0;
 
-            
-            console.log(uploadedFiles);
             renderFileList();
-
-            
         } else {
             console.error('Failed to fetch attachments:', response.statusText);
         }

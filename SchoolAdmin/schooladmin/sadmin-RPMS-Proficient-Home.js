@@ -7,7 +7,7 @@ const noButton = document.querySelector('.no-btn');
 logoutButton.addEventListener('click', function(event) {
     event.preventDefault();  // Prevent default logout behavior
     logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
-});
+}); 
 
 // Hide modal when "No" is clicked
 noButton.addEventListener('click', function() {
@@ -60,8 +60,6 @@ document.addEventListener("DOMContentLoaded", closeModal);
 
 // Attach event listener to the Create Folder button
 document.getElementById('createFolderBtn').addEventListener('click', openModal);
-
-// JavaScript for handling folder creation
 
 // Get elements
 const createFolderBtn = document.getElementById('createFolderBtn');

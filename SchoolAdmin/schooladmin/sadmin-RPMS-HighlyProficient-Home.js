@@ -41,34 +41,50 @@ yesButton.addEventListener('click', async function() {
 
 
 
-// Function to open modal
-function openModal() {
-    document.getElementById('formModal').style.display = 'flex';
-}
 
-// Function to close modal
-function closeModal() {
-    document.getElementById('formModal').style.display = 'none';
-    form1.value = ''; // Reset input fields
-    form2.selectedIndex = 0; // Reset dropdown
-}
+// Modal for Duplicate Year
+document.addEventListener("DOMContentLoaded", function () {
+    const duplicateYearModal = document.getElementById('duplicateYearModal');
+    const formModal = document.getElementById('formModal');
+    const createFolderBtn = document.getElementById('createFolderBtn');
+    const closeDuplicateYearModalBtn = document.querySelector('#duplicateYearModal button');
+    const form1 = document.getElementById('form1'); // Folder Name input
+    const form2 = document.getElementById('form2'); // School Year dropdown
+    const cardsSection = document.querySelector('.cards-section');
+    const createBtn = document.querySelector('.create');
+    const closeModalBtn = document.querySelector('.modal-close-btn');
 
-// Hide modal initially when forms are displayed
-document.addEventListener("DOMContentLoaded", closeModal);
+    // Function to open duplicate year modal
+    function openDuplicateYearModal() {
+        duplicateYearModal.classList.remove('hidden');
+    }
 
-// Attach event listener to the Create Folder button
-document.getElementById('createFolderBtn').addEventListener('click', openModal);
+    // Function to close duplicate year modal
+    function closeDuplicateYearModal() {
+        duplicateYearModal.classList.add('hidden');
+    }
 
-// JavaScript for handling folder creation
+    closeDuplicateYearModalBtn.addEventListener('click', closeDuplicateYearModal);
 
-// Get elements
-const createFolderBtn = document.getElementById('createFolderBtn');
-const formModal = document.getElementById('formModal');
-const form1 = document.getElementById('form1'); // Folder Name input
-const form2 = document.getElementById('form2'); // School Year dropdown
-const cardsSection = document.querySelector('.cards-section');
-const createBtn = document.querySelector('.create');
-const closeModalBtn = document.querySelector('.modal-close-btn');
+    // Open modal function
+    function openModal() {
+        formModal.style.display = 'flex';
+    }
+
+    // Close modal function
+    function closeModal() {
+        formModal.style.display = 'none';
+        form1.value = ''; // Reset input fields
+        form2.selectedIndex = 0; // Reset dropdown
+    }
+
+    // Hide modal initially when forms are displayed
+    document.addEventListener("DOMContentLoaded", closeModal);
+
+    // Attach event listener to the Create Folder button
+    createFolderBtn.addEventListener('click', openModal);
+
+
 
 // List of appealing color pairs (background + white text)
 const colorPairs = [
@@ -282,24 +298,22 @@ function generateCard(folder) {
 
 let folders = undefined;
 
+// Fetch RPMS Folders
 async function getRPMSFolder() {
-    try{
-
+    try {
         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/forms/rpms/folders/highly_proficient', {
             method: 'GET',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-            },
-            credentials: 'include', 
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            credentials: 'include',
         });
-        folders = await response.json();
+        const folders = await response.json();
         if (response.ok) {
-            console.log("Success Data : ",folders);
+            console.log("Success Data: ", folders);
             folders.rpms_folders.forEach(folder => {
                 generateCard(folder);
-            })
+            });
         } else {
-            console.log("Error Data : ",folders);
+            console.log("Error Data: ", folders);
         }
     } catch (error) {
         console.error(error);
@@ -315,17 +329,16 @@ getRPMSFolder();
 
 
 
-
-
-
-
-
 // Handle folder creation
-createBtn.addEventListener('click', async() => {
+// const createBtn = document.querySelector('.create');
+// const form1 = document.getElementById('form1');
+// const form2 = document.getElementById('form2');
+// const cardsSection = document.querySelector('.cards-section');
+
+createBtn.addEventListener('click', async () => {
     const folderName = form1.value.trim();
     const schoolYear = form2.value;
 
-    // Ensure folder name and school year are filled
     if (folderName && schoolYear) {
         // Check if a folder for the selected school year already exists
         const existingFolder = Array.from(cardsSection.querySelectorAll('.card-link')).find(card => {
@@ -333,10 +346,9 @@ createBtn.addEventListener('click', async() => {
         });
 
         if (existingFolder) {
-            alert('A folder for this school year already exists. Please select a different year.');
+            openDuplicateYearModal(); // Show the modal if a duplicate school year is found
             return; // Exit if a folder for the school year already exists
         }
-
 
         try{
             const formData = new FormData();
@@ -424,23 +436,26 @@ createBtn.addEventListener('click', async() => {
 
 
 
-// Function to delete a folder
-function deleteFolder(button) {
-    const card = button.closest('.card-link'); // Find the closest card-link element
-    if (card) {
-        card.remove(); // Remove the card-link element (and the card inside)
-    }
-}
+// // Function to delete a folder
+// function deleteFolder(button) {
+//     const card = button.closest('.card-link'); // Find the closest card-link element
+//     if (card) {
+//         card.remove(); // Remove the card-link element (and the card inside)
+//     }
+// }
 
-// Close modal when "Cancel" is clicked
-closeModalBtn.addEventListener('click', closeModal);
+// // Close modal when "Cancel" is clicked
+// closeModalBtn.addEventListener('click', closeModal);
 
-// Close modal if clicked outside the modal content
-window.addEventListener('click', (e) => {
-    if (e.target === formModal) {
-        closeModal();
-    }
-});
+// // Close modal if clicked outside the modal content
+// window.addEventListener('click', (e) => {
+//     if (e.target === formModal) {
+//         closeModal();
+//     }
+// });
+
+
+
 
 
 // Toggle the floating menu display
@@ -453,4 +468,4 @@ function toggleFloatingMenu() {
 function closeMenu() {
     document.getElementById('floating-menu').style.display = 'none';
 }
- 
+});
