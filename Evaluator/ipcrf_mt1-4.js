@@ -124,7 +124,7 @@ function addRecord(record) {
         <td>${teacher.position}</td>
         <td>${teacher.grade_level}</td>
         <td>${ipcrf.rater ?? "Waiting To Be Rated"}</td>
-        <td class="status ${ipcrf.status.toLowerCase()}">${ipcrf.status}</td>
+        <td class="status ${ipcrf.is_checked ? "submitted" : "pending"}">${ipcrf.is_checked ? "Submitted" : "Pending"}</td>
         <td><a onclick="clickToRate(${teacher.employee_id})" class="review">Review</a></td>
     `;
     tbody.appendChild(tr);
