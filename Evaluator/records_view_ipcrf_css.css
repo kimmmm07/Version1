@@ -1,24 +1,17 @@
-/* Universal styling */
-* {
-    box-sizing: border-box;
+body {
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    padding-top: 100px;     /* Adjust based on the header height */
 }
 
-/* Body styling */
-body {
-    background-color: white; /* Set background to white */
-    padding: 20px;
-}
-
-/* Navbar styling */
-.navbar {
-    left: 0;
+/* Make the header fixed */
+header {
     position: fixed;       /* Fixes the header at the top */
     top: 0;                /* Aligns it to the top of the page */
     width: 100%;           /* Ensures the header spans the full width of the page */
-    height: 48px;          /* Adjust the height to fit the content */
+    height: 40px;          /* Adjust the height to fit the content */
     background-color: white;
     padding: 10px;
     display: flex;
@@ -28,68 +21,37 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better separation */
 }
 
-.navbar-logo {
+header img {
+    max-width: 90%;
+    max-height: 80px;      /* Adjust the max height for the logo */
+}
+
+nav {
     display: flex;
     align-items: center;
 }
 
-.navbar-logo img {
-    width: 90px; /* Adjust logo size */
-    height: auto;
-    margin-right: 10px;
-}
-
-.navbar-menu {
+nav a {
+    font-size: 14px;
     display: flex;
-    list-style: none;
-    margin-left: auto; /* Aligns menu to the right */
-}
-
-.navbar-menu li {
-    margin-right: 15px; /* Space between buttons */
-}
-
-.nav-link {
+    align-items: center;
+    margin-right: 15px;
     text-decoration: none;
     color: black;
-    font-size: 14px; /* Reduced font size for smaller buttons */
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center the icons and text vertically */
-    padding: 6px 10px; /* Reduced padding for smaller button size */
-}
-
-.nav-icon {
-    width: 20px;  /* Smaller icons */
-    height: 20px;
-    margin-right: 6px; /* Adjust icon spacing */
-    display: inline-block;
-}
-
-.records {
-    color: white;
-    background-color: #d00000;
-    padding: 6px 12px; /* Reduced padding to make the red button smaller */
-    border-radius: 40px; /* Keep the rounded corners */
-    font-size: 14px; /* Match the font size with other links */
-    display: flex;
-    align-items: center;
-}
-
-.active {
     font-weight: normal;
+    padding: 5px 10px;
 }
 
-.logout-btn a {
-    text-decoration: none;
-    color: #d00000;
-    font-size: 14px; /* Font size for logout button */
-    font-weight: bold;
-    padding: 6px 10px; /* Padding for button size */
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    margin-left: 15px; /* Spacing from other items */
-    transition: color 0.3s; /* Smooth transition for color change */
+nav a img {
+    height: 20px;
+    margin-right: 5px;
+}
+
+nav a.active {
+    color: white;
+    background-color: #C10001;
+    border-radius: 25px; 
+    padding: 5px 20px;   
 }
 
 /* Container styling */
@@ -104,13 +66,6 @@ body {
 }
 
 /* Header styling */
-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
 header h1 {
     font-size: 28px;
     font-weight: 600;
@@ -151,7 +106,7 @@ header h1 {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 5px auto;
     background-color: white;
     padding: 20px 2.5%;
@@ -329,7 +284,7 @@ button[type="submit"] {
 }
 
 .form-container {
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     background: #fff;
     padding: 20px;
