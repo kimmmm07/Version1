@@ -54,7 +54,7 @@ window.addEventListener('load', async function () {
         document.getElementById('position').textContent = evaluatorData.position;
         document.getElementById('email-address').textContent = evaluatorData.email_address;
         document.getElementById('email-address').href = `mailto:${evaluatorData.email_address}`;
-        document.getElementById('contact-no').textContent = evaluatorData.contact_number || "No contact number";    
+        // document.getElementById('contact-no').textContent = evaluatorData.contact_number || "No contact number";    
 
         // Populate the information section
         document.getElementById('emp-id').textContent = evaluatorData.employee_id;
