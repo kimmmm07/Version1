@@ -88,11 +88,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // List of appealing color pairs (background + white text)
 const colorPairs = [
-    { background: "#3498DB", text: "#FFFFFF" },
-    { background: "#2ECC71", text: "#FFFFFF" },
-    { background: "#E74C3C", text: "#FFFFFF" },
-    { background: "#9B59B6", text: "#FFFFFF" },
-    { background: "#F39C12", text: "#FFFFFF" },
+    { background: "#3498DB", text: "#FFFFFF" }, //2023-2024
+    { background: "#2ECC71", text: "#FFFFFF" }, //2024-2025
+    { background: "#E74C3C", text: "#FFFFFF" }, //2025-2026
+    { background: "#9B59B6", text: "#FFFFFF" }, //2026-2027
+    { background: "#F39C12", text: "#FFFFFF" }, //2027-2028....
     { background: "#1ABC9C", text: "#FFFFFF" },
     { background: "#34495E", text: "#FFFFFF" },
     { background: "#E67E22", text: "#FFFFFF" },
@@ -102,22 +102,22 @@ const colorPairs = [
     { background: "#D35400", text: "#FFFFFF" },
     { background: "#C0392B", text: "#FFFFFF" },
     { background: "#27AE60", text: "#FFFFFF" },
-    { background: "#2C3E50", text: "#FFFFFF" },
-    { background: "#F1C40F", text: "#FFFFFF" },
-    { background: "#1F618D", text: "#FFFFFF" },
-    { background: "#D98880", text: "#FFFFFF" },
-    { background: "#AF7AC5", text: "#FFFFFF" },
-    { background: "#1D8348", text: "#FFFFFF" },
-    { background: "#D4AC0D", text: "#FFFFFF" },
-    { background: "#C0392B", text: "#FFFFFF" },
-    { background: "#117A65", text: "#FFFFFF" },
-    { background: "#7D3C98", text: "#FFFFFF" },
-    { background: "#148F77", text: "#FFFFFF" },
-    { background: "#2471A3", text: "#FFFFFF" },
-    { background: "#D68910", text: "#FFFFFF" },
-    { background: "#6C3483", text: "#FFFFFF" },
-    { background: "#BA4A00", text: "#FFFFFF" },
-    { background: "#1A5276", text: "#FFFFFF" }
+    // { background: "#2C3E50", text: "#FFFFFF" },
+    // { background: "#F1C40F", text: "#FFFFFF" },
+    // { background: "#1F618D", text: "#FFFFFF" },
+    // { background: "#D98880", text: "#FFFFFF" },
+    // { background: "#AF7AC5", text: "#FFFFFF" },
+    // { background: "#1D8348", text: "#FFFFFF" },
+    // { background: "#D4AC0D", text: "#FFFFFF" },
+    // { background: "#C0392B", text: "#FFFFFF" },
+    // { background: "#117A65", text: "#FFFFFF" },
+    // { background: "#7D3C98", text: "#FFFFFF" },
+    // { background: "#148F77", text: "#FFFFFF" },
+    // { background: "#2471A3", text: "#FFFFFF" },
+    // { background: "#D68910", text: "#FFFFFF" },
+    // { background: "#6C3483", text: "#FFFFFF" },
+    // { background: "#BA4A00", text: "#FFFFFF" },
+    // { background: "#1A5276", text: "#FFFFFF" }
 ];
 
 // Initialize an array to keep track of used color indices
