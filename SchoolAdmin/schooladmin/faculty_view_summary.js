@@ -513,22 +513,36 @@ fetchPerformance();
 fetchKRAs();
 
 
+const generateReport = document.getElementById("generateReport");
 
-// chosser.addEventListener('change', function() {
-//     if (chosser.value == "all"){
-//         updateTenureChart(tenures_data.all);
-//         updateRecommendationChart(recommendation_data.all);
-//         updatePerformanceChart(performance_data.all);
-//         updateAnnualRatingChart(annual_ratings_data.all);
-//     } else if (chosser.value == "proficient"){
-//         updateTenureChart(tenures_data.proficient);
-//         updateRecommendationChart(recommendation_data.proficient);
-//         updatePerformanceChart(performance_data.proficient);
-//         updateAnnualRatingChart(annual_ratings_data.proficient);
-//     } else if (chosser.value == "highlyproficient"){
-//         updateTenureChart(tenures_data.highly_proficient);
-//         updateRecommendationChart(recommendation_data.highly_proficient);
-//         updatePerformanceChart(performance_data.highly_proficient);
-//         updateAnnualRatingChart(annual_ratings_data.highly_proficient);
-//     }
-// });
+generateReport.addEventListener('click', function() {
+    // Generate report logic here
+    // school/generate/report/
+    fetch('https://bnahs.pythonanywhere.com/api/school/generate/report/', {
+        method: 'GET',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        credentials: 'include',
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'school_report.pdf';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+ 
+document.getElementById('downloadPdfBtn').addEventListener('click', function() {
+
+}); 
+
+
+
