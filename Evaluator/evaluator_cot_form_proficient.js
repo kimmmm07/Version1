@@ -275,6 +275,13 @@ submitButton.addEventListener('click', function(event) {
     // Handle form submission logic here
     // For example, you could update the COT object with the selected ratings
     // and then call the updateCot() function to save the changes to the server
+    
+    if (!departmentSelect.value){
+        alert("Please select a subject.");
+        return;
+    }
+
+
     updateCot();
     alert('Form submitted!');
 });
