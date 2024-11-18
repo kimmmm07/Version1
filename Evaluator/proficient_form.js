@@ -34,15 +34,15 @@ function navigateToLink() {
     }
 }
 
-// On page load, restore the selected form type from localStorage
-document.addEventListener("DOMContentLoaded", function () {
-    const savedFormType = localStorage.getItem('selectedFormType');
+// // On page load, restore the selected form type from localStorage
+// document.addEventListener("DOMContentLoaded", function () {
+//     const savedFormType = localStorage.getItem('selectedFormType');
     
-    if (savedFormType) {
-        // Set the dropdown value to the previously selected option
-        document.getElementById('formType').value = savedFormType;
-    }
-});
+//     if (savedFormType) {
+//         // Set the dropdown value to the previously selected option
+//         document.getElementById('formType').value = savedFormType;
+//     }
+// });
 
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
