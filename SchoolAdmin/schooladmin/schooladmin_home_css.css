@@ -103,6 +103,7 @@ nav ul li a i {
 /* Feed Section */
 .feed-section {
     margin: 50px auto;
+    height: 650px;
     width: 68%;
     overflow-y: auto; /* Make the feed section scrollable */
     padding: 20px;
@@ -294,9 +295,10 @@ nav ul li a i {
 /* Right Sidebar: Stack Notification and To Do Sections */
 .right-sidebar {
     width: 30%; /* 30% width for the right sidebar */
+    height: 700px;
     display: flex;
     flex-direction: column; /* Stack items vertically */
-    gap: 20px; /* Add spacing between the sections */
+    gap: 30px; /* Add spacing between the sections */
 }
 
 /* Notification Section */
@@ -307,7 +309,7 @@ nav ul li a i {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border: 1px solid #ccc;
     background-color: white;
-    height: 300px;
+    height: 800px;
     overflow: auto;
 }
 

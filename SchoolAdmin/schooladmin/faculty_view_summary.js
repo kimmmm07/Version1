@@ -1,118 +1,134 @@
-window.onload = function() {
+// window.onload = function() {
 // KRA Breakdown Bar Chart
 var ctxKRA = document.getElementById('kraChart').getContext('2d');
-var kraChart = new Chart(ctxKRA, {
-    type: 'bar',
-    data: {
-        labels: ['KRA 1', 'KRA 2', 'KRA 3', 'KRA 4', 'Plus Factor', 'Total Score'],
-        datasets: [{
-            label: 'KRA Breakdown',
-            data: [3, 2, 4, 1, 5],
-            backgroundColor: 'rgba(88, 24, 196, 0.7)',
-            borderColor: 'rgba(88, 24, 196, 1)',
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-                max: 100
-            }
-        }
-    }
-});
+// var kraChart = new Chart(ctxKRA, {
+//     type: 'bar',
+//     data: {
+//         labels: ['KRA 1', 'KRA 2', 'KRA 3', 'KRA 4', 'Plus Factor', 'Total Score'],
+//         datasets: [{
+//             label: 'KRA Breakdown',
+//             data: [3, 2, 4, 1, 5],
+//             backgroundColor: 'rgba(88, 24, 196, 0.7)',
+//             borderColor: 'rgba(88, 24, 196, 1)',
+//             borderWidth: 1
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             y: {
+//                 beginAtZero: true,
+//                 max: 100
+//             }
+//         }
+//     }
+// });
 
 // Recommendation Pie Chart
+
+var kraChart = undefined;
+
 var ctxRecommendation = document.getElementById('recommendationChart').getContext('2d');
-var recommendationChart = new Chart(ctxRecommendation, {
-    type: 'pie',
-    data: {
-        labels: ['Promotion', 'Termination', 'Retention'],
-        datasets: [{
-            data: [39.11, 28.02, 23.13],
-            backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56'],
-            borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)', 'rgba(255, 206, 86, 1)'],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        plugins: {
-            legend: {
-                display: false // Hides the default legend
-            },
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return context.label + ': ' + context.raw + '%'; // Adds percentage in tooltip
-                    }
-                }
-            }
-        },
-        responsive: true,
-        maintainAspectRatio: true, // Ensures the pie chart keeps its size ratio
-    }
-});
+var recommendationChart =undefined;
+// var recommendationChart = new Chart(ctxRecommendation, {
+//     type: 'pie',
+//     data: {
+//         labels: ['Promotion', 'Termination', 'Retention'],
+//         datasets: [{
+//             data: [39.11, 28.02, 23.13],
+//             backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56'],
+//             borderColor: ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)', 'rgba(255, 206, 86, 1)'],
+//             borderWidth: 1
+//         }]
+//     },
+//     options: {
+//         plugins: {
+//             legend: {
+//                 display: false // Hides the default legend
+//             },
+//             tooltip: {
+//                 callbacks: {
+//                     label: function(context) {
+//                         return context.label + ': ' + context.raw + '%'; // Adds percentage in tooltip
+//                     }
+//                 }
+//             }
+//         },
+//         responsive: true,
+//         maintainAspectRatio: true, // Ensures the pie chart keeps its size ratio
+//     }
+// });
 
 //Tenure Chart
+
+
 const ctx3 = document.getElementById('tenureChart').getContext('2d');
-const tenureChart = new Chart(ctx3, {
-    type: 'doughnut',
-    data: {
-        labels: ['0-3 years', '5+ years', '3-5 years'],
-        datasets: [{
-            label: 'Tenure',
-            data: [39.11, 28.03, 23.13],
-            backgroundColor: ['#6a41fc', '#ff6384', '#36a2eb']
-        }]
-    },
-    options: {
-        plugins: {
-            legend: {
-                display: false // Hides the default legend
-            },
-            tooltip: {
-                callbacks: {
-                    label: function(context) {
-                        return context.label + ': ' + context.raw + '%'; // Adds percentage in tooltip
-                    }
-                }
-            }
-        },
-        responsive: true,
-        maintainAspectRatio: true, // Ensures the pie chart keeps its size ratio
-    }
-});
+let tenureChart = undefined;
+
+
+// let tenureChart = new Chart(ctx3, {
+//     type: 'doughnut',
+//     data: {
+//         labels: ['0-3 years', '5+ years', '3-5 years'],
+//         datasets: [{
+//             label: 'Tenure',
+//             data: [39.11, 28.03, 23.13],
+//             backgroundColor: ['#6a41fc', '#ff6384', '#36a2eb']
+//         }]
+//     },
+//     options: {
+//         plugins: {
+//             legend: {
+//                 display: false // Hides the default legend
+//             },
+//             tooltip: {
+//                 callbacks: {
+//                     label: function(context) {
+//                         return context.label + ': ' + context.raw + '%'; // Adds percentage in tooltip
+//                     }
+//                 }
+//             }
+//         },
+//         responsive: true,
+//         maintainAspectRatio: true, // Ensures the pie chart keeps its size ratio
+//     }
+// });
+
+
+
 
 // Performance Line Chart
 var ctxPerformance = document.getElementById('performanceChart').getContext('2d');
-var performanceChart = new Chart(ctxPerformance, {
-    type: 'line',
-    data: {
-        labels: ['Year 1', 'Year 2', 'Year 3'],
-        datasets: [{
-            label: 'Performance',
-            data: [60, 75, 80],
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1,
-            fill: true
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true,
-                max: 5
-            }
-        }
-    }
-});
+// var performanceChart = new Chart(ctxPerformance, {
+//     type: 'line',
+//     data: {
+//         labels: ['Year 1', 'Year 2', 'Year 3'],
+//         datasets: [{
+//             label: 'Performance',
+//             data: [60, 75, 80],
+//             backgroundColor: 'rgba(75, 192, 192, 0.2)',
+//             borderColor: 'rgba(75, 192, 192, 1)',
+//             borderWidth: 1,
+//             fill: true
+//         }]
+//     },
+//     options: {
+//         scales: {
+//             y: {
+//                 beginAtZero: true,
+//                 max: 5
+//             }
+//         }
+//     }
+// });
 
-};
+// };
 
 
 // Modal logic
+
+var performanceChart = undefined;
+
+
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');
 const yesButton = document.querySelector('.yes-btn');
@@ -257,7 +273,7 @@ async function fetchTenure() {
     
     
     try {
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/teachers/tenure/', {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/teachers/get/tenure/', {
             method: 'GET',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
@@ -338,7 +354,7 @@ async function fetchRecommendation() {
     
     
     try {
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/teachers/recommendations/', {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/teachers/get/recommendations/', {
             method: 'GET',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
@@ -386,7 +402,7 @@ function updatePerformanceChart(data) {
     });
 
 
-    performanceChart = new Chart(ctx4, {
+    performanceChart = new Chart(ctxPerformance, {
         type: 'line',
         data: {
             labels: ['Year 1', 'Year 2', 'Year 3'],
@@ -408,7 +424,7 @@ async function fetchPerformance() {
     
     
     try {
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/teachers/performance/', {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/teachers/get/performance/', {
             method: 'GET',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
@@ -435,19 +451,19 @@ async function fetchPerformance() {
 }
 
 
-function updateAnnualRatingChart(data) {
+function updateKRAChart(data) {
 
-    if (annualRatingChart){
-        annualRatingChart.destroy();
+    if (kraChart){
+        kraChart.destroy();
     }
 
-    annualRatingChart = new Chart(ctx1, {
+    kraChart = new Chart(ctxKRA, {
         type: 'bar',
         data: {
-            labels: data.names,
+            labels: ['KRA 1', 'KRA 2', 'KRA 3', 'KRA 4', 'Plus Factor', 'Total Score'],
             datasets: [{
-                label: 'Rating',
-                data: data.ratings,
+                label: 'KRA Breakdown',
+                data: data['averages'],
                 backgroundColor: 'rgba(88, 24, 196, 0.7)',
                 borderColor: 'rgba(88, 24, 196, 1)',
                 borderWidth: 1
@@ -457,18 +473,18 @@ function updateAnnualRatingChart(data) {
             scales: {
                 y: {
                     beginAtZero: true,
-                    max: 5
+                    max: 100
                 }
             }
-        }
+        } 
     });
     
 }
 
-async function fetchAnnualRatings(){
+async function fetchKRAs(){
     try {
         
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/teachers/annual/ratings/', {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/teachers/get/kras/scores/', {
             method: 'GET',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
@@ -480,7 +496,7 @@ async function fetchAnnualRatings(){
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);
-            updateAnnualRatingChart(data.all);
+            updateKRAChart(data);
         } else {
             console.log("Error Data : ", data);
         }
@@ -494,25 +510,25 @@ async function fetchAnnualRatings(){
 fetchTenure();
 fetchRecommendation();
 fetchPerformance();
-fetchAnnualRatings();
+fetchKRAs();
 
 
 
-chosser.addEventListener('change', function() {
-    if (chosser.value == "all"){
-        updateTenureChart(tenures_data.all);
-        updateRecommendationChart(recommendation_data.all);
-        updatePerformanceChart(performance_data.all);
-        updateAnnualRatingChart(annual_ratings_data.all);
-    } else if (chosser.value == "proficient"){
-        updateTenureChart(tenures_data.proficient);
-        updateRecommendationChart(recommendation_data.proficient);
-        updatePerformanceChart(performance_data.proficient);
-        updateAnnualRatingChart(annual_ratings_data.proficient);
-    } else if (chosser.value == "highlyproficient"){
-        updateTenureChart(tenures_data.highly_proficient);
-        updateRecommendationChart(recommendation_data.highly_proficient);
-        updatePerformanceChart(performance_data.highly_proficient);
-        updateAnnualRatingChart(annual_ratings_data.highly_proficient);
-    }
-});
+// chosser.addEventListener('change', function() {
+//     if (chosser.value == "all"){
+//         updateTenureChart(tenures_data.all);
+//         updateRecommendationChart(recommendation_data.all);
+//         updatePerformanceChart(performance_data.all);
+//         updateAnnualRatingChart(annual_ratings_data.all);
+//     } else if (chosser.value == "proficient"){
+//         updateTenureChart(tenures_data.proficient);
+//         updateRecommendationChart(recommendation_data.proficient);
+//         updatePerformanceChart(performance_data.proficient);
+//         updateAnnualRatingChart(annual_ratings_data.proficient);
+//     } else if (chosser.value == "highlyproficient"){
+//         updateTenureChart(tenures_data.highly_proficient);
+//         updateRecommendationChart(recommendation_data.highly_proficient);
+//         updatePerformanceChart(performance_data.highly_proficient);
+//         updateAnnualRatingChart(annual_ratings_data.highly_proficient);
+//     }
+// });
