@@ -3,6 +3,18 @@ const efficiency1_5 = document.getElementById('Efficiency1_5');
 const efficiency1_3 = document.getElementById('Efficiency1_3');
 const efficiency1_1 = document.getElementById('Efficiency1_1');
 
+function get_efficiency_1_result(){
+    if(efficiency1_5.checked){
+        return 5;
+    }else if(efficiency1_3.checked){
+        return 3;
+    }else if(efficiency1_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 // KRA 1 - Objective 2
 const quality2_5 = document.getElementById('Quality2_5');
 const quality2_4 = document.getElementById('Quality2_4');
@@ -10,36 +22,128 @@ const quality2_3 = document.getElementById('Quality2_3');
 const quality2_2 = document.getElementById('Quality2_2');
 const quality2_1 = document.getElementById('Quality2_1');
 
+function get_quality_2_result(){
+    if(quality2_5.checked){
+        return 5;
+    }else if(quality2_4.checked){
+        return 4;
+    }else if(quality2_3.checked){
+        return 3;
+    }else if(quality2_2.checked){
+        return 2;
+    }else if(quality2_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 const timeliness2_5 = document.getElementById('Timeliness2_5');
 const timeliness2_4 = document.getElementById('Timeliness2_4');
 const timeliness2_3 = document.getElementById('Timeliness2_3');
 const timeliness2_2 = document.getElementById('Timeliness2_2');
 const timeliness2_1 = document.getElementById('Timeliness2_1');
 
+function get_timeliness_2_result(){
+    if(timeliness2_5.checked){
+        return 5;
+    }else if(timeliness2_4.checked){
+        return 4;
+    }else if(timeliness2_3.checked){
+        return 3;
+    }else if(timeliness2_2.checked){
+        return 2;
+    }else if(timeliness2_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 // KRA 2 - Objective 3
 const efficiency3_5 = document.getElementById('Efficiency3_5');
 const efficiency3_3 = document.getElementById('Efficiency3_3');
 const efficiency3_1 = document.getElementById('Efficiency3_1');
+
+function get_efficiency_3_result(){
+    if(efficiency3_5.checked){
+        return 5;
+    }else if(efficiency3_3.checked){
+        return 3;
+    }else if(efficiency3_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
 
 // KRA 2 - Objective 4
 const efficiency4_5 = document.getElementById('Efficiency4_5');
 const efficiency4_3 = document.getElementById('Efficiency4_3');
 const efficiency4_1 = document.getElementById('Efficiency4_1');
 
+function get_efficiency_4_result(){
+    if(efficiency4_5.checked){
+        return 5;
+    }else if(efficiency4_3.checked){
+        return 3;
+    }else if(efficiency4_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 // KRA 2 - Objective 5
 const efficiency5_5 = document.getElementById('Efficiency5_5');
 const efficiency5_3 = document.getElementById('Efficiency5_3');
 const efficiency5_1 = document.getElementById('Efficiency5_1');
+
+function get_efficiency_5_result(){
+    if(efficiency5_5.checked){
+        return 5;
+    }else if(efficiency5_3.checked){
+        return 3;
+    }else if(efficiency5_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
 
 // KRA 2 - Objective 6
 const efficiency6_5 = document.getElementById('Efficiency6_5');
 const efficiency6_3 = document.getElementById('Efficiency6_3');
 const efficiency6_1 = document.getElementById('Efficiency6_1');
 
+function get_efficiency_6_result(){
+    if(efficiency6_5.checked){
+        return 5;
+    }else if(efficiency6_3.checked){
+        return 3;
+    }else if(efficiency6_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 // KRA 2 - Objective 7
 const efficiency7_5 = document.getElementById('Efficiency7_5');
 const efficiency7_3 = document.getElementById('Efficiency7_3');
 const efficiency7_1 = document.getElementById('Efficiency7_1');
+
+function get_efficiency_7_result(){
+    if(efficiency7_5.checked){
+        return 5;
+    }else if(efficiency7_3.checked){
+        return 3;
+    }else if(efficiency7_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
 
 // KRA 2 - Objective 8
 const quality8_5 = document.getElementById('Quality8_5');
@@ -48,6 +152,22 @@ const quality8_3 = document.getElementById('Quality8_3');
 const quality8_2 = document.getElementById('Quality8_2');
 const quality8_1 = document.getElementById('Quality8_1');
 
+function get_quality_8_result(){
+    if(quality8_5.checked){
+        return 5;
+    }else if(quality8_4.checked){
+        return 4;
+    }else if(quality8_3.checked){
+        return 3;
+    }else if(quality8_2.checked){
+        return 2;
+    }else if(quality8_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 // KRA 3 - Objective 9
 const quality9_1 = document.getElementById('Quality9_1');
 const quality9_2 = document.getElementById('Quality9_2');
@@ -55,16 +175,61 @@ const quality9_3 = document.getElementById('Quality9_3');
 const quality9_4 = document.getElementById('Quality9_4');
 const quality9_5 = document.getElementById('Quality9_5');
 
+function get_quality_9_result(){
+    if(quality9_5.checked){
+        return 5;
+    }else if(quality9_4.checked){
+        return 4;
+    }else if(quality9_3.checked){
+        return 3;
+    }else if(quality9_2.checked){
+        return 2;
+    }else if(quality9_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 const timeliness9_1 = document.getElementById('Timeliness9_1');
 const timeliness9_2 = document.getElementById('Timeliness9_2');
 const timeliness9_3 = document.getElementById('Timeliness9_3');
 const timeliness9_4 = document.getElementById('Timeliness9_4');
 const timeliness9_5 = document.getElementById('Timeliness9_5');
 
+function timeliness_9_result(){
+    if(timeliness9_5.checked){
+        return 5;
+    }else if(timeliness9_4.checked){
+        return 4;
+    }else if(timeliness9_3.checked){
+        return 3;
+    }else if(timeliness9_2.checked){
+        return 2;
+    }else if(timeliness9_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+
 // KRA 4 - Objective 10
 const efficiency10_1 = document.getElementById('Efficiency10_1');
 const efficiency10_3 = document.getElementById('Efficiency10_3');
 const efficiency10_5 = document.getElementById('Efficiency10_5');
+
+function get_efficiency_10_result(){
+    if(efficiency10_5.checked){
+        return 5;
+    }else if(efficiency10_3.checked){
+        return 3;
+    }else if(efficiency10_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
 
 // KRA 3 - Objective 11
 const quality11_1 = document.getElementById('Quality11_1');
@@ -73,11 +238,44 @@ const quality11_3 = document.getElementById('Quality11_3');
 const quality11_4 = document.getElementById('Quality11_4');
 const quality11_5 = document.getElementById('Quality11_5');
 
+
+function get_quality_11_result(){
+    if(quality11_5.checked){
+        return 5;
+    }else if(quality11_4.checked){
+        return 4;
+    }else if(quality11_3.checked){
+        return 3;
+    }else if(quality11_2.checked){
+        return 2;
+    }else if(quality11_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 const timeliness11_1 = document.getElementById('Timeliness11_1');
 const timeliness11_2 = document.getElementById('Timeliness11_2');
 const timeliness11_3 = document.getElementById('Timeliness11_3');
 const timeliness11_4 = document.getElementById('Timeliness11_4');
 const timeliness11_5 = document.getElementById('Timeliness11_5');
+
+function timeliness_11_result(){
+    if(timeliness11_5.checked){
+        return 5;
+    }else if(timeliness11_4.checked){
+        return 4;
+    }else if(timeliness11_3.checked){
+        return 3;
+    }else if(timeliness11_2.checked){
+        return 2;
+    }else if(timeliness11_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
 
 // KRA 4 - Objective 12
 const quality12_1 = document.getElementById('Quality12_1');
@@ -86,11 +284,43 @@ const quality12_3 = document.getElementById('Quality12_3');
 const quality12_4 = document.getElementById('Quality12_4');
 const quality12_5 = document.getElementById('Quality12_5');
 
+function get_quality_12_result(){
+    if(quality12_5.checked){
+        return 5;
+    }else if(quality12_4.checked){
+        return 4;
+    }else if(quality12_3.checked){
+        return 3;
+    }else if(quality12_2.checked){
+        return 2;
+    }else if(quality12_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 const timeliness12_1 = document.getElementById('Timeliness12_1');
 const timeliness12_2 = document.getElementById('Timeliness12_2');
 const timeliness12_3 = document.getElementById('Timeliness12_3');
 const timeliness12_4 = document.getElementById('Timeliness12_4');
 const timeliness12_5 = document.getElementById('Timeliness12_5');
+
+function timeliness_12_result(){
+    if(timeliness12_5.checked){
+        return 5;
+    }else if(timeliness12_4.checked){
+        return 4;
+    }else if(timeliness12_3.checked){
+        return 3;
+    }else if(timeliness12_2.checked){
+        return 2;
+    }else if(timeliness12_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
 
 // KRA 4 - Objective 13
 const quality13_1 = document.getElementById('Quality13_1');
@@ -99,11 +329,44 @@ const quality13_3 = document.getElementById('Quality13_3');
 const quality13_4 = document.getElementById('Quality13_4');
 const quality13_5 = document.getElementById('Quality13_5');
 
+function get_quality_13_result(){
+    if(quality13_5.checked){
+        return 5;
+    }else if(quality13_4.checked){
+        return 4;
+    }else if(quality13_3.checked){
+        return 3;
+    }else if(quality13_2.checked){
+        return 2;
+    }else if(quality13_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 const timeliness13_1 = document.getElementById('Timeliness13_1');
 const timeliness13_2 = document.getElementById('Timeliness13_2');
 const timeliness13_3 = document.getElementById('Timeliness13_3');
 const timeliness13_4 = document.getElementById('Timeliness13_4');
 const timeliness13_5 = document.getElementById('Timeliness13_5');
+
+
+function timeliness_13_result(){
+    if(timeliness13_5.checked){
+        return 5;
+    }else if(timeliness13_4.checked){
+        return 4;
+    }else if(timeliness13_3.checked){
+        return 3;
+    }else if(timeliness13_2.checked){
+        return 2;
+    }else if(timeliness13_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
 
 // KRA 4 - Objective 14
 const quality14_1 = document.getElementById('Quality14_1');
@@ -112,11 +375,43 @@ const quality14_3 = document.getElementById('Quality14_3');
 const quality14_4 = document.getElementById('Quality14_4');
 const quality14_5 = document.getElementById('Quality14_5');
 
+function get_quality_14_result(){
+    if(quality14_5.checked){
+        return 5;
+    }else if(quality14_4.checked){
+        return 4;
+    }else if(quality14_3.checked){
+        return 3;
+    }else if(quality14_2.checked){
+        return 2;
+    }else if(quality14_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 const efficiency14_1 = document.getElementById('Efficiency14_1');
 const efficiency14_2 = document.getElementById('Efficiency14_2');
 const efficiency14_3 = document.getElementById('Efficiency14_3');
 const efficiency14_4 = document.getElementById('Efficiency14_4');
 const efficiency14_5 = document.getElementById('Efficiency14_5');
+
+function get_efficiency_14_result(){
+    if(efficiency14_5.checked){
+        return 5;
+    }else if(efficiency14_4.checked){
+        return 4;
+    }else if(efficiency14_3.checked){
+        return 3;
+    }else if(efficiency14_2.checked){
+        return 2;
+    }else if(efficiency14_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
 
 // Plus Factor Form Elements
 const quality15_5 = document.getElementById('Quality15_5');
@@ -125,17 +420,67 @@ const quality15_3 = document.getElementById('Quality15_3');
 const quality15_2 = document.getElementById('Quality15_2');
 const quality15_1 = document.getElementById('Quality15_1');
 
+function get_quality_15_result(){
+    if(quality15_5.checked){
+        return 5;
+    }else if(quality15_4.checked){
+        return 4;
+    }else if(quality15_3.checked){
+        return 3;
+    }else if(quality15_2.checked){
+        return 2;
+    }else if(quality15_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
+
 const efficiency15_5 = document.getElementById('Efficiency15_5');
 const efficiency15_4 = document.getElementById('Efficiency15_4');
 const efficiency15_3 = document.getElementById('Efficiency15_3');
 const efficiency15_2 = document.getElementById('Efficiency15_2');
 const efficiency15_1 = document.getElementById('Efficiency15_1');
 
+function get_efficiency_15_result(){
+    if(efficiency15_5.checked){
+        return 5;
+    }else if(efficiency15_4.checked){
+        return 4;
+    }else if(efficiency15_3.checked){
+        return 3;
+    }else if(efficiency15_2.checked){
+        return 2;
+    }else if(efficiency15_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+
 const timeliness15_5 = document.getElementById('Timeliness15_5');
 const timeliness15_4 = document.getElementById('Timeliness15_4');
 const timeliness15_3 = document.getElementById('Timeliness15_3');
 const timeliness15_2 = document.getElementById('Timeliness15_2');
 const timeliness15_1 = document.getElementById('Timeliness15_1');
+
+
+function get_timeliness_15_result(){
+    if(timeliness15_5.checked){
+        return 5;
+    }else if(timeliness15_4.checked){
+        return 4;
+    }else if(timeliness15_3.checked){
+        return 3;
+    }else if(timeliness15_2.checked){
+        return 2;
+    }else if(timeliness15_1.checked){
+        return 1;
+    }else{
+        return 0;
+    }
+}
 
 // Average Score Elements
 const averageScoreLabel = document.getElementById('average-score');
@@ -240,7 +585,7 @@ function getRating(averageScore) {
 
 
 async function getIPCRF(){
-    const formData = new FormData();
+    // const formData = new FormData();
     // formData.append('employee_id', employeeId); 
     // formData.append('password', password); 
 
@@ -276,11 +621,15 @@ async function updateIPCRF1(){
     // formData.append('employee_id', employeeId); 
     // formData.append('password', password); 
 
+    let teacher_content = ipcrf_content['ipcrf']['content_for_teacher']
+
+
+
     formData.append('ipcrf_id', ipcrf_content['ipcrf']['connection_to_other']); // TODO: Get from IPCRF
     formData.append('average_score', averageScore); 
     formData.append('plus_factor', plusFactor); 
     formData.append('total_score', totalScore);
-    formData.append('content', JSON.stringify(ipcrf_content['ipcrf']['content_for_teacher']));
+    formData.append('content', JSON.stringify(teacher_content));
 
     try {
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/update/ipcrf/part1/', {
