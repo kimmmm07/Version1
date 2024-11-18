@@ -194,9 +194,11 @@ yesButton.addEventListener('click', async function() {
             var chooseFormFilter = document.getElementById('choose-form-filter');
             if (data.Proficient){
                 chooseFormFilter.value = 'proficient'; // Set the default option
+                document.querySelector('#choose-form-filter option[value="highly-proficient"]').disabled = true;
                 enableProficientForms();
             } else {
                 chooseFormFilter.value = 'highly-proficient'; // Set the default option 
+                document.querySelector('#choose-form-filter option[value="proficient"]').disabled = true;
                 enableHighlyProficientForms();
             }
         };
@@ -262,6 +264,12 @@ yesButton.addEventListener('click', async function() {
                 rpmsProficient.classList.remove('enabled');
             }
         });
+
+
+
+
+            
+
     </script>
 </body>
 </html>
