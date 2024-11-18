@@ -22,11 +22,30 @@
 // const Efficiency15 = document.getElementById("Efficiency15_5");
 // const Timeliness15 = document.getElementById("Timeliness15_5");
 
+
+let plusFactor = 0;
+let averageScore = 0;
+let totalScore = 0;
+
 // KRA 1: Content Knowledge and Pedagogy - Efficiency Ratings
 const Efficiency1_5 = document.getElementById('Efficiency1_5');
 const efficiency1_5_option = document.getElementById("efficiency1_5_option");
 const efficiency1_3_option = document.getElementById("efficiency1_3_option");
 const efficiency1_1_option = document.getElementById("efficiency1_1_option");
+
+function Efficiency1_5_result(){
+    if (efficiency1_5_option.checked) {
+        return 5;
+    } else if (efficiency1_3_option.checked) {
+        return 3;
+    } else if (efficiency1_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+
 
 // KRA 2: Evaluated with colleagues - Quality Ratings
 const Quality2_5 = document.getElementById('Quality2_5');
@@ -36,6 +55,22 @@ const quality2_3_option = document.getElementById("quality2_3_option");
 const quality2_2_option = document.getElementById("quality2_2_option");
 const quality2_1_option = document.getElementById("quality2_1_option");
 
+function Quality2_5_result(){
+    if (quality2_5_option.checked) {
+        return 5;
+    } else if (quality2_4_option.checked) {
+        return 4;
+    } else if (quality2_3_option.checked) {
+        return 3;
+    } else if (quality2_2_option.checked) {
+        return 2;
+    } else if (quality2_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
 // KRA 2: Evaluated with colleagues - Timeliness Ratings
 const Timeliness2_5 = document.getElementById('Timeliness2_5');
 const timeliness2_5_option = document.getElementById("timeliness2_5_option");
@@ -44,11 +79,39 @@ const timeliness2_3_option = document.getElementById("timeliness2_3_option");
 const timeliness2_2_option = document.getElementById("timeliness2_2_option");
 const timeliness2_1_option = document.getElementById("timeliness2_1_option");
 
+function Timeliness2_5_result(){
+    if (timeliness2_5_option.checked) {
+        return 5;
+    } else if (timeliness2_4_option.checked) {
+        return 4;
+    } else if (timeliness2_3_option.checked) {
+        return 3;
+    } else if (timeliness2_2_option.checked) {
+        return 2;
+    } else if (timeliness2_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
 // KRA 3: Developed and applied effective teaching strategies - Efficiency Ratings
 const Efficiency3_5 = document.getElementById('Efficiency3_5');
 const efficiency3_5_option = document.getElementById("efficiency3_5_option");
 const efficiency3_3_option = document.getElementById("efficiency3_3_option");
 const efficiency3_1_option = document.getElementById("efficiency3_1_option");
+
+function Efficiency3_5_result(){
+    if (efficiency3_5_option.checked) {
+        return 5;
+    } else if (efficiency3_3_option.checked) {
+        return 3;
+    } else if (efficiency3_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
 
 // KRA 4: Modeled and supported colleagues - Efficiency Ratings
 const Quality4_5 = document.getElementById('Quality2_5');
@@ -56,11 +119,36 @@ const quality4_5_option = document.getElementById("quality4_5_option");
 const quality4_3_option = document.getElementById("quality4_3_option");
 const quality4_1_option = document.getElementById("quality4_1_option");
 
+
+function getQuality4_5_result(){
+    if (quality4_5_option.checked) {
+        return 5;
+    } else if (quality4_3_option.checked) {
+        return 3;
+    } else if (quality4_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
 // KRA 2: Learning Environment & Diversity of Learners - Efficiency Ratings for Objective 5
 const Efficiency5_5 = document.getElementById('Efficiency5_5');
 const efficiency5_5_option = document.getElementById("efficiency5_5_option");
 const efficiency5_3_option = document.getElementById("efficiency5_3_option");
 const efficiency5_1_option = document.getElementById("efficiency5_1_option");
+
+function Efficiency5_5_result(){
+    if (efficiency5_5_option.checked) {
+        return 5;
+    } else if (efficiency5_3_option.checked) {
+        return 3;
+    } else if (efficiency5_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
 
 // KRA 2: Learning Environment & Diversity of Learners - Efficiency Ratings for Objective 6
 const Efficiency6_5 = document.getElementById('Efficiency6_5');
@@ -68,11 +156,36 @@ const efficiency6_5_option = document.getElementById("efficiency6_5_option");
 const efficiency6_3_option = document.getElementById("efficiency6_3_option");
 const efficiency6_1_option = document.getElementById("efficiency6_1_option");
 
+function Efficiency6_5_result(){
+    if (efficiency6_5_option.checked) {
+        return 5;
+    } else if (efficiency6_3_option.checked) {
+        return 3;
+    } else if (efficiency6_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
 // KRA 2: Learning Environment & Diversity of Learners - Efficiency Ratings for Objective 7
 const Efficiency7_5 = document.getElementById('Efficiency7_5');
 const efficiency7_5_option = document.getElementById("efficiency7_5_option");
 const efficiency7_3_option = document.getElementById("efficiency7_3_option");
 const efficiency7_1_option = document.getElementById("efficiency7_1_option");
+
+
+function Efficiency7_5_result(){
+    if (efficiency7_5_option.checked) {
+        return 5;
+    } else if (efficiency7_3_option.checked) {
+        return 3;
+    } else if (efficiency7_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
 
 // KRA 2: Learning Environment & Diversity of Learners - Quality Ratings for Objective 8
 const Quality8_5 = document.getElementById('Quality8_5');
@@ -82,6 +195,23 @@ const quality8_3_option = document.getElementById("quality8_3_option");
 const quality8_2_option = document.getElementById("quality8_2_option");
 const quality8_1_option = document.getElementById("quality8_1_option");
 
+
+function Quality8_5_result(){
+    if (quality8_5_option.checked) {
+        return 5;
+    } else if (quality8_4_option.checked) {
+        return 4;
+    } else if (quality8_3_option.checked) {
+        return 3;
+    } else if (quality8_2_option.checked) {
+        return 2;
+    } else if (quality8_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
 // KRA 3: Curriculum and Planning & Assessment and Reporting - Quality Ratings for Objective 9
 const Quality9_5 = document.getElementById('Quality9_5');
 const quality9_5_option = document.getElementById("quality9_5_option");
@@ -89,6 +219,23 @@ const quality9_4_option = document.getElementById("quality9_4_option");
 const quality9_3_option = document.getElementById("quality9_3_option");
 const quality9_2_option = document.getElementById("quality9_2_option");
 const quality9_1_option = document.getElementById("quality9_1_option");
+
+
+function Quality9_5_result(){
+    if (quality9_5_option.checked) {
+        return 5;
+    } else if (quality9_4_option.checked) {
+        return 4;
+    } else if (quality9_3_option.checked) {
+        return 3;
+    } else if (quality9_2_option.checked) {
+        return 2;
+    } else if (quality9_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
 
 // KRA 3: Curriculum and Planning & Assessment and Reporting - Timeliness Ratings for Objective 9
 const Timeliness9_5 = document.getElementById('Timeliness9_5');
@@ -98,11 +245,40 @@ const timeliness9_3_option = document.getElementById("timeliness9_3_option");
 const timeliness9_2_option = document.getElementById("timeliness9_2_option");
 const timeliness9_1_option = document.getElementById("timeliness9_1_option");
 
+
+function Timeliness9_5_result(){
+    if (timeliness9_5_option.checked) {
+        return 5;
+    } else if (timeliness9_4_option.checked) {
+        return 4;
+    } else if (timeliness9_3_option.checked) {
+        return 3;
+    } else if (timeliness9_2_option.checked) {
+        return 2;
+    } else if (timeliness9_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
 // KRA 3: Curriculum and Planning & Assessment and Reporting - Efficiency Ratings for Objective 10
 const Efficiency10_5 = document.getElementById('Efficiency10_5');
 const efficiency10_5_option = document.getElementById("efficiency10_5_option");
 const efficiency10_3_option = document.getElementById("efficiency10_3_option");
 const efficiency10_1_option = document.getElementById("efficiency10_1_option");
+
+function Efficiency10_5_result(){
+    if (efficiency10_5_option.checked) {
+        return 5;
+    } else if (efficiency10_3_option.checked) {
+        return 3;
+    } else if (efficiency10_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
 
 // KRA 3: Curriculum and Planning & Assessment and Reporting - Quality Ratings for Objective 11
 const Quality11_5 = document.getElementById('Quality11_5');
@@ -112,6 +288,22 @@ const quality11_3_option = document.getElementById("quality11_3_option");
 const quality11_2_option = document.getElementById("quality11_2_option");
 const quality11_1_option = document.getElementById("quality11_1_option");
 
+function Quality11_5_result(){
+    if (quality11_5_option.checked) {
+        return 5;
+    } else if (quality11_4_option.checked) {
+        return 4;
+    } else if (quality11_3_option.checked) {
+        return 3;
+    } else if (quality11_2_option.checked) {
+        return 2;
+    } else if (quality11_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
 // KRA 3: Curriculum and Planning & Assessment and Reporting - Timeliness Ratings for Objective 11
 const Timeliness11_5 = document.getElementById('Timeliness11_5');
 const timeliness11_5_option = document.getElementById("timeliness11_5_option");
@@ -119,6 +311,23 @@ const timeliness11_4_option = document.getElementById("timeliness11_4_option");
 const timeliness11_3_option = document.getElementById("timeliness11_3_option");
 const timeliness11_2_option = document.getElementById("timeliness11_2_option");
 const timeliness11_1_option = document.getElementById("timeliness11_1_option");
+
+
+function Timeliness11_5_result(){
+    if (timeliness11_5_option.checked) {
+        return 5;
+    } else if (timeliness11_4_option.checked) {
+        return 4;
+    } else if (timeliness11_3_option.checked) {
+        return 3;
+    } else if (timeliness11_2_option.checked) {
+        return 2;
+    } else if (timeliness11_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
 
 // KRA 4, Objective 12 Variables
 const quality12_5 = document.getElementById('Quality12_5');
@@ -128,12 +337,44 @@ const quality12_3_option = document.getElementById('quality12_3_option');
 const quality12_2_option = document.getElementById('quality12_2_option');
 const quality12_1_option = document.getElementById('quality12_1_option');
 
+function Quality12_5_result(){
+    if (quality12_5_option.checked) {
+        return 5;
+    } else if (quality12_4_option.checked) {
+        return 4;
+    } else if (quality12_3_option.checked) {
+        return 3;
+    } else if (quality12_2_option.checked) {
+        return 2;
+    } else if (quality12_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
 const timeliness12_5 = document.getElementById('Timeliness12_5');
 const timeliness12_5_option = document.getElementById('timeliness12_5_option');
 const timeliness12_4_option = document.getElementById('timeliness12_4_option');
 const timeliness12_3_option = document.getElementById('timeliness12_3_option');
 const timeliness12_2_option = document.getElementById('timeliness12_2_option');
 const timeliness12_1_option = document.getElementById('timeliness12_1_option');
+
+function timeliness12_5_result(){
+    if (timeliness12_5_option.checked) {
+        return 5;
+    } else if (timeliness12_4_option.checked) {
+        return 4;
+    } else if (timeliness12_3_option.checked) {
+        return 3;
+    } else if (timeliness12_2_option.checked) {
+        return 2;
+    } else if (timeliness12_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
 
 // KRA 4, Objective 13 Variables
 const quality13_5 = document.getElementById('Quality13_5');
@@ -143,12 +384,44 @@ const quality13_3_option = document.getElementById('quality13_3_option');
 const quality13_2_option = document.getElementById('quality13_2_option');
 const quality13_1_option = document.getElementById('quality13_1_option');
 
+function Quality13_5_result(){
+    if (quality13_5_option.checked) {
+        return 5;
+    } else if (quality13_4_option.checked) {
+        return 4;
+    } else if (quality13_3_option.checked) {
+        return 3;
+    } else if (quality13_2_option.checked) {
+        return 2;
+    } else if (quality13_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
 const timeliness13_5 = document.getElementById('Timeliness13_5');
 const timeliness13_5_option = document.getElementById('timeliness13_5_option');
 const timeliness13_4_option = document.getElementById('timeliness13_4_option');
 const timeliness13_3_option = document.getElementById('timeliness13_3_option');
 const timeliness13_2_option = document.getElementById('timeliness13_2_option');
 const timeliness13_1_option = document.getElementById('timeliness13_1_option');
+
+function timeliness13_5_result(){
+    if (timeliness13_5_option.checked) {
+        return 5;
+    } else if (timeliness13_4_option.checked) {
+        return 4;
+    } else if (timeliness13_3_option.checked) {
+        return 3;
+    } else if (timeliness13_2_option.checked) {
+        return 2;
+    } else if (timeliness13_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
 
 // KRA 4, Objective 14 Variables
 const quality14_5 = document.getElementById('Quality14_5');
@@ -158,6 +431,22 @@ const quality14_3_option = document.getElementById('quality14_3_option');
 const quality14_2_option = document.getElementById('quality14_2_option');
 const quality14_1_option = document.getElementById('quality14_1_option');
 
+function quality14_5_result(){
+    if (quality14_5_option.checked) {
+        return 5;
+    } else if (quality14_4_option.checked) {
+        return 4;
+    } else if (quality14_3_option.checked) {
+        return 3;
+    } else if (quality14_2_option.checked) {
+        return 2;
+    } else if (quality14_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
 const efficiency14_5 = document.getElementById('Efficiency14_5');
 const efficiency14_5_option = document.getElementById('efficiency14_5_option');
 const efficiency14_4_option = document.getElementById('efficiency14_4_option');
@@ -165,12 +454,44 @@ const efficiency14_3_option = document.getElementById('efficiency14_3_option');
 const efficiency14_2_option = document.getElementById('efficiency14_2_option');
 const efficiency14_1_option = document.getElementById('efficiency14_1_option');
 
+function efficiency14_5_result(){
+    if (efficiency14_5_option.checked) {
+        return 5;
+    } else if (efficiency14_4_option.checked) {
+        return 4;
+    } else if (efficiency14_3_option.checked) {
+        return 3;
+    } else if (efficiency14_2_option.checked) {
+        return 2;
+    } else if (efficiency14_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
 const timeliness14_5 = document.getElementById('Timeliness14_5');
 const timeliness14_5_option = document.getElementById('timeliness14_5_option');
 const timeliness14_4_option = document.getElementById('timeliness14_4_option');
 const timeliness14_3_option = document.getElementById('timeliness14_3_option');
 const timeliness14_2_option = document.getElementById('timeliness14_2_option');
 const timeliness14_1_option = document.getElementById('timeliness14_1_option');
+
+function timeliness14_5_result(){
+    if (timeliness14_5_option.checked) {
+        return 5;
+    } else if (timeliness14_4_option.checked) {
+        return 4;
+    } else if (timeliness14_3_option.checked) {
+        return 3;
+    } else if (timeliness14_2_option.checked) {
+        return 2;
+    } else if (timeliness14_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
 
 // PLUS FACTOR Variables
 const quality15_5 = document.getElementById('Quality15_5');
@@ -180,12 +501,44 @@ const quality15_3_option = document.getElementById('quality15_3_option');
 const quality15_2_option = document.getElementById('quality15_2_option');
 const quality15_1_option = document.getElementById('quality15_1_option');
 
+function quality15_5_result(){
+    if (quality15_5_option.checked) {
+        return 5;
+    } else if (quality15_4_option.checked) {
+        return 4;
+    } else if (quality15_3_option.checked) {
+        return 3;
+    } else if (quality15_2_option.checked) {
+        return 2;
+    } else if (quality15_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
 const efficiency15_5 = document.getElementById('Efficiency15_5');
 const efficiency15_5_option = document.getElementById('efficiency15_5_option');
 const efficiency15_4_option = document.getElementById('efficiency15_4_option');
 const efficiency15_3_option = document.getElementById('efficiency15_3_option');
 const efficiency15_2_option = document.getElementById('efficiency15_2_option');
 const efficiency15_1_option = document.getElementById('efficiency15_1_option');
+
+function efficiency15_5_result(){
+    if (efficiency15_5_option.checked) {
+        return 5;
+    } else if (efficiency15_4_option.checked) {
+        return 4;
+    } else if (efficiency15_3_option.checked) {
+        return 3;
+    } else if (efficiency15_2_option.checked) {
+        return 2;
+    } else if (efficiency15_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
 
 const timeliness15_5 = document.getElementById('Timeliness15_5');
 const timeliness15_5_option = document.getElementById('timeliness15_5_option');
@@ -194,11 +547,28 @@ const timeliness15_3_option = document.getElementById('timeliness15_3_option');
 const timeliness15_2_option = document.getElementById('timeliness15_2_option');
 const timeliness15_1_option = document.getElementById('timeliness15_1_option');
 
+function timeliness15_5_result(){
+    if (timeliness15_5_option.checked) {
+        return 5;
+    } else if (timeliness15_4_option.checked) {
+        return 4;
+    } else if (timeliness15_3_option.checked) {
+        return 3;
+    } else if (timeliness15_2_option.checked) {
+        return 2;
+    } else if (timeliness15_1_option.checked) {
+        return 1;
+    } else {
+        return 0; // Default case if none are checked
+    }
+}
+
+
+
 // Teacher's and Evaluator's Adjectival Rating Variables
 const teacherAverageScore = document.getElementById('teacher-average-score');
 const teacherRating = document.getElementById('teacher-rating');
 
-const averageScore = document.getElementById('average-score');
 const evaluatorRating = document.getElementById('rating');
 
 
@@ -263,13 +633,13 @@ function calculateAverageScore() {
     let plusFactorScore = quality15 + timeliness15 + efficiency15;
 
     // Average Score calculation
-    let averageScore = totalKraScore;
+    averageScore = totalKraScore;
 
     // Plus Factor calculation
-    let plusFactor = (plusFactorScore / 3) * 0.02;
+    plusFactor = (plusFactorScore / 3) * 0.02;
 
     // Final Total Score
-    let totalScore = averageScore + plusFactor;
+    totalScore = averageScore + plusFactor;
 
     // Display the result in the "average-score" label
     document.getElementById('average-score').innerText = totalScore.toFixed(3); // Show three decimal places
@@ -355,3 +725,177 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+let ipcrf = undefined;
+
+async function getIPCRF() {
+    try {
+
+        const teacher_id = sessionStorage.getItem('teacher_id');
+        const formData = new FormData();
+        formData.append('teacher_id', teacher_id);
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/ipcrf/part1/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData
+        });
+
+        ipcrf = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", ipcrf); 
+
+            teacherAverageScore.textContent = ipcrf.rating.toFixed(2);
+            teacherRating.textContent = getRating(ipcrf.rating);
+            
+            const content = ipcrf["content_for_evaluator"];
+            const con1 = content["Content Knowledge and Pedagogy"];
+            const con2 = content["Learning Environment & Diversity of Learners"];
+            const con3 = content["Curriculum and Planning & Assessment and Reporting"];
+            const con4 = content["Community Linkages and Professional Engagement & Personal Growth and Professional Development"];
+            const con5 = content["PLUS FACTOR"];
+
+            // Efficiency1_5.innerHTML = `<input type="radio"  id="Efficiency1_5" value="5" checked disabled>  ${con1["1"]["EFFICIENCY"]["Rate"]} - ${con1["1"]["EFFICIENCY"][con1["1"]["EFFICIENCY"]["Rate"]]}`;
+            // Quality2_5.innerHTML = `<input type="radio"  id="Quality1_5" value="5" checked disabled>  ${con1["2"]["QUALITY"]["Rate"]} - ${con1["1"]["QUALITY"][con1["2"]["QUALITY"]["Rate"]]}`;
+            // Timeliness2_5.innerHTML = `<input type="radio"  id="Timeliness1_5" value="5" checked disabled>  ${con1["2"]["TIMELINES"]["Rate"]} - ${con1["2"]["TIMELINES"][con1["3"]["TIMELINES"]["Rate"]]}`;
+            // Efficiency3_5.innerHTML = `<input type="radio"  id="Efficiency3_5" value="5" checked disabled>  ${con2["3"]["EFFICIENCY"]["Rate"]} - ${con2["3"]["EFFICIENCY"][con2["3"]["EFFICIENCY"]["Rate"]]}`;
+            // Quality4_5.innerHTML = `<input type="radio"  id="Quality4_5" value="5" checked disabled>  ${con2["4"]["QUALITY"]["Rate"]} - ${con2["4"]["QUALITY"][con2["4"]["QUALITY"]["Rate"]]}`;
+            // Efficiency5_5.innerHTML = `<input type="radio"  id="Efficiency5_5" value="5" checked disabled>  ${con3["5"]["EFFICIENCY"]["Rate"]} - ${con3["5"]["EFFICIENCY"][con3["5"]["EFFICIENCY"]["Rate"]]}`;
+            // Efficiency6_5.innerHTML = `<input type="radio"  id="Efficiency6_5" value="5" checked disabled>  ${con3["6"]["EFFICIENCY"]["Rate"]} - ${con3["6"]["EFFICIENCY"][con3["6"]["EFFICIENCY"]["Rate"]]}`;
+            // Efficiency7_5.innerHTML = `<input type="radio"  id="Efficiency7_5" value="5" checked disabled>  ${con3["7"]["EFFICIENCY"]["Rate"]} - ${con3["7"]["EFFICIENCY"][con3["7"]["EFFICIENCY"]["Rate"]]}`;
+            // Quality8_5.innerHTML = `<input type="radio"  id="Quality8_5" value="5" checked disabled>  ${con4["8"]["QUALITY"]["Rate"]} - ${con4["8"]["QUALITY"][con4["8"]["QUALITY"]["Rate"]]}`;
+            // Quality9_5.innerHTML = `<input type="radio"  id="Quality9_5" value="5" checked disabled>  ${con5["9"]["QUALITY"]["Rate"]} - ${con5["9"]["QUALITY"][con5["9"]["QUALITY"]["Rate"]]}`;
+            // Timeliness9_5.innerHTML = `<input type="radio"  id="Timeliness9_5" value="5" checked disabled>  ${con5["9"]["TIMELINES"]["Rate"]} - ${con5["9"]["TIMELINES"][con5["9"]["TIMELINES"]["Rate"]]}`;
+            // Efficiency10_5.innerHTML = `<input type="radio"  id="Efficiency10_5" value="5" checked disabled>  ${con5["10"]["EFFICIENCY"]["Rate"]} - ${con5["10"]["EFFICIENCY"][con5["10"]["EFFICIENCY"]["Rate"]]}`;
+            // Quality11_5.innerHTML = `<input type="radio"  id="Quality11_5" value="5" checked disabled>  ${con5["11"]["QUALITY"]["Rate"]} - ${con5["11"]["QUALITY"][con5["11"]["QUALITY"]["Rate"]]}`;
+            // Timeliness11_5.innerHTML = `<input type="radio"  id="Timeliness11_5" value="5" checked disabled>  ${con5["11"]["TIMELINES"]["Rate"]} - ${con5["11"]["TIMELINES"][con5["11"]["TIMELINES"]["Rate"]]}`;
+            // quality12_5.innerHTML = `<input type="radio"  id="Quality12_5" value="5" checked disabled>  ${con5["12"]["QUALITY"]["Rate"]} - ${con5["12"]["QUALITY"][con5["12"]["QUALITY"]["Rate"]]}`;
+            // timeliness12_5.innerHTML = `<input type="radio"  id="Timeliness12_5" value="5" checked disabled>  ${con5["12"]["TIMELINES"]["Rate"]} - ${con5["12"]["TIMELINES"][con5["12"]["TIMELINES"]["Rate"]]}`;
+            // quality13_5.innerHTML = `<input type="radio"  id="Quality13_5" value="5" checked disabled>  ${con5["13"]["QUALITY"]["Rate"]} - ${con5["13"]["QUALITY"][con5["13"]["QUALITY"]["Rate"]]}`;
+            // timeliness13_5.innerHTML = `<input type="radio"  id="Timeliness13_5" value="5" checked disabled>  ${con5["13"]["TIMELINES"]["Rate"]} - ${con5["13"]["TIMELINES"][con5["13"]["TIMELINES"]["Rate"]]}`;
+            // quality14_5.innerHTML = `<input type="radio"  id="Quality14_5" value="5" checked disabled>  ${con5["14"]["QUALITY"]["Rate"]} - ${con5["14"]["QUALITY"][con5["14"]["QUALITY"]["Rate"]]}`;
+            // efficiency14_5.innerHTML = `<input type="radio"  id="Efficiency14_5" value="5" checked disabled>  ${con5["14"]["EFFICIENCY"]["Rate"]} - ${con5["14"]["EFFICIENCY"][con5["14"]["EFFICIENCY"]["Rate"]]}`;
+            // timeliness14_5.innerHTML = `<input type="radio"  id="Timeliness14_5" value="5" checked disabled>  ${con5["14"]["TIMELINES"]["Rate"]} - ${con5["14"]["TIMELINES"][con5["14"]["TIMELINES"]["Rate"]]}`;
+            // quality15_5.innerHTML = `<input type="radio"  id="Quality15_5" value="5" checked disabled>  ${con5["15"]["QUALITY"]["Rate"]} - ${con5["15"]["QUALITY"][con5["15"]["QUALITY"]["Rate"]]}`;
+            // efficiency15_5.innerHTML = `<input type="radio"  id="Efficiency15_5" value="5" checked disabled>  ${con5["15"]["EFFICIENCY"]["Rate"]} - ${con5["15"]["EFFICIENCY"][con5["15"]["EFFICIENCY"]["Rate"]]}`;
+            // timeliness15_5.innerHTML = `<input type="radio"  id="Timeliness15_5" value="5" checked disabled>  ${con5["15"]["TIMELINES"]["Rate"]} - ${con5["15"]["TIMELINES"][con5["15"]["TIMELINES"]["Rate"]]}`;
+
+
+
+
+        } else {
+            console.log("Error Data : ", ipcrf);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getIPCRF();
+
+
+async function updateIPCRF() {
+    try {
+        
+        let content = ipcrf['content_for_evaluator']
+                
+        // content['Content Knowledge and Pedagogy']['1']['EFFICIENCY']['Rate'] = getRateEfficiency1();
+        // content['Content Knowledge and Pedagogy']['2']['EFFICIENCY']['Rate'] = getRateEfficiency2();
+        // content['Content Knowledge and Pedagogy']['3']['EFFICIENCY']['Rate'] = getRateEfficiency3();
+        // content['Content Knowledge and Pedagogy']['4']['EFFICIENCY']['Rate'] = getRateEfficiency4();
+
+        // content['Learning Environment & Diversity of Learners']['5']['EFFICIENCY']['Rate'] = getRateEfficiency5();
+        // content['Learning Environment & Diversity of Learners']['6']['EFFICIENCY']['Rate'] = getRateEfficiency6();
+        // content['Learning Environment & Diversity of Learners']['7']['EFFICIENCY']['Rate'] = getRateEfficiency7();
+        // content['Learning Environment & Diversity of Learners']['8']['EFFICIENCY']['Rate'] = getRateEfficiency8();
+
+        // content['Curriculum and Planning & Assessment and Reporting']['9']['EFFICIENCY']['Rate'] = getRateEfficiency9();
+        // content['Curriculum and Planning & Assessment and Reporting']['9']['QUALITY']['Rate'] = getRateQuality9();
+        
+        // content['Curriculum and Planning & Assessment and Reporting']['10']['EFFICIENCY']['Rate'] = getRateEfficiency10();
+
+        // content['Curriculum and Planning & Assessment and Reporting']['11']['QUALITY']['Rate'] = getRateQuality11();
+        // content['Curriculum and Planning & Assessment and Reporting']['11']['TIMELINES']['Rate'] = getRateTimeliness11();
+
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['QUALITY']['Rate'] = getRateQuality12();
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['TIMELINES']['Rate'] = getRateTimeliness12();
+
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['QUALITY']['Rate'] = getRateQuality13();
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['TIMELINES']['Rate'] = getRateTimeliness13();
+
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['QUALITY']['Rate'] = getRateQuality14();
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['TIMELINES']['Rate'] = getRateTimeliness14();
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['EFFICIENCY']['Rate'] = getRateEfficiency14();
+
+        // content['PLUS FACTOR']['15']['EFFICIENCY']['Rate'] = getRateEfficiency15();
+        // content['PLUS FACTOR']['15']['TIMELINES']['Rate'] = getRatetimeliness15();
+        // content['PLUS FACTOR']['15']['QUALITY']['Rate'] = getRateQuality15();
+
+
+        const formData = new FormData();
+        formData.append('ipcrf_id', ipcrf['connection_to_other']);
+        formData.append('content', JSON.stringify(content));
+        formData.append('total_score', totalScore);
+        formData.append('plus_factor', plusFactor);
+        formData.append('average_score', averageScore);
+
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/check/ipcrf/part1/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", result); 
+
+        } else {
+            console.log("Error Data : ", result);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
