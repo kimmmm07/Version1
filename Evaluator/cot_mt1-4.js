@@ -209,7 +209,7 @@ let data_quarter_4 = undefined;
 function evaluatedTeacher(teacher_id, quarter){
     sessionStorage.setItem('teacher_id', teacher_id);
     sessionStorage.setItem('quarter', quarter);
-    window.location.href = 'evaluator_cot_form_proficient.html';
+    window.location.href = 'evaluator_cot_form_highlyproficient.html';
 };
 
 
@@ -217,14 +217,14 @@ function viewTeacher(teacher_id, quarter){
     sessionStorage.setItem('teacher_id', teacher_id);
     sessionStorage.setItem('quarter', quarter);
 
-    window.location.href = 'view_cot_form_t1-3.html';
+    window.location.href = 'view_cot_form_mt1-4.html';
 };
 
 function addRow(data, quarter, tbody , table) {
     const teacher = data.teacher;
     const cot = data.cot;
     const tr = document.createElement('tr'); 
-    const randomInteger = Math.floor(Math.random() * 10) + 1;
+    const randomInteger = Math.floor(Math.random() * 1000) + 1;
 
     if (!cot.is_checked) {
         tr.innerHTML = `

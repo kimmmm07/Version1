@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty</title>
+    <title>Faculty Management</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="faculty_css.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="records_ipcrf_view_css.css">
 </head>
 <body>
     <nav class="navbar">
@@ -15,11 +14,10 @@
         </div>
         <ul class="navbar-menu">
             <li><a href="schooladmin_home.html" class="nav-link"><img src="assets/House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
-            <li><a href="faculty.html" class="nav-link faculty active "><img src="assets/Users_Group.png" alt="Faculty Icon" class="nav-icon"> Faculty</a></li>
-            <li><a href="request.html" class="nav-link request active"><i class="fas fa-clipboard-list"></i>Request</a></li>
+            <li><a href="faculty.html" class="nav-link"><img src="assets/Users_Group1.png" alt="Faculty Icon" class="nav-icon"> Faculty</a></li>
             <li><a href="sadmin_form.html" class="nav-link form"><img src="assets/File_Document1.png" alt="Faculty Icon" class="nav-icon"> Form</a></li>
             <li><a href="results.html" class="nav-link"><img src="assets/Check Document.png" alt="Results Icon" class="nav-icon"> Results</a></li>
-            <li><a href="records.html" class="nav-link"><img src="assets/Folders1.png" alt="Records Icon" class="nav-icon"> Records</a></li>
+            <li><a href="records.html" class="nav-link records active"><img src="assets/Folders.png" alt="Records Icon" class="nav-icon"> Records</a></li>
             <li id="logoutLink" class="logout-btn">
                 <a href="../../index.html">
                     <img src="assets/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout
@@ -28,55 +26,6 @@
         </ul>
     </nav>
 
-    <div class="container">
-        <header>
-            <h1>Faculty</h1>
-            <a href="add_people_faculty.html" class="add-btn">+ Add People</a>
-        </header>
-
-        <div class="tabs">
-            <a href="faculty.html" class="tab active">All</a>
-            <a href="status.html" class="tab">Status</a>
-            <!-- <a href="assigned.html" class="tab">Assigned</a> -->
-            <a href="deactivated.html" class="tab">Deactivated</a>
-            <a href="faculty_view_summary.html" class="view-summary">View Summary</a>
-        </div>
-
-        <!-- <div class="filters">
-            <div class="filter-box">
-                <button class="filter all-people active" id="all-people-filter">All people <span id="all-count">0</span></button>
-                <button class="filter" id="admin-filter">Admin <span id="admin-count">0</span></button>
-                <button class="filter" id="teacher-filter">Teacher <span id="teacher-count">0</span></button>
-                <button class="filter" id="rater-filter">Rater <span id="rater-count">0</span></button>
-                <button class="filter" id="ratee-filter">Ratee <span id="ratee-count">0</span></button>
-            </div>
-            <div class="search-box">
-                <div class="search-container">
-                    <img src="assets\Search_Magnifying_Glass.png" alt="Search Icon" class="search-icon">
-                    <input type="text" class="search-input" placeholder="Search">
-                </div>
-                <input type="text" class="filter-input" placeholder="Position">
-                <input type="text" class="filter-input" placeholder="Grade Level">
-            </div>
-        </div> -->
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Grade Level</th>
-                    <th>Job started</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id="faculty-list">
-                <tr class="second-row" data-faculty-id="1"> <!-- Add a data attribute for identification -->
-                   
-                </tr>
-            </tbody>            
-        </table>
-    </div>
     <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
         <div class="modal-content">
@@ -130,8 +79,3 @@
     }
 });
         </script>
-
-    <script src="faculty_js.js" type="module"></script>
-    
-</body>
-</html>
