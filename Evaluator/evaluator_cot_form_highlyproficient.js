@@ -2,7 +2,7 @@
 const backLink = document.querySelector(".back-link");
 
 // Department dropdown
-const departmentDropdown = document.getElementById("department");
+const departmentSelect  = document.getElementById("department");
 
 // Instruction section
 const instructions = document.getElementById("instructions");
@@ -102,16 +102,16 @@ let q6 = 0;
 let q7 = 0;
 let q8 = 0;
 
-// // Function to handle rating selection
-// function selectRating(button, questionId, rating) {
-//     console.log(`Question ${questionId} rated: ${rating}`);
-//     // Add your validation or processing logic here
-// }
+// Function to handle rating selection
+function selectRating(button, questionId, rating) {
+    console.log(`Question ${questionId} rated: ${rating}`);
+    // Add your validation or processing logic here
+}
 
 
 
 // Comments section
-const comments = document.getElementById("comments");
+const commentsTextarea = document.getElementById("comments");
 
 // Buttons
 const backBtn = document.getElementById("backBtn");
@@ -297,6 +297,7 @@ async function getCot() {
             cot = data.cot;
             teacher = data.teacher;
             cot_content = data.cot.content;
+            console.log(cot_content);
         } else {
             console.log("Error Data : ", data);
         }
@@ -358,6 +359,7 @@ async function updateCot() {
             console.log("Success Data : ", data);  
         } else {
             console.log("Error Data : ", data);
+            alert("Something went wrong.");
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -367,7 +369,15 @@ async function updateCot() {
 
 
 
+submitBtn.addEventListener('click', async function(event) {
+    event.preventDefault();
 
+    if (!departmentSelect.value){
+        alert("Please select a subject.");
+        return;
+    }
+    updateCot();
+})
 
 
 
