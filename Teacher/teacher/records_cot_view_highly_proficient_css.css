@@ -334,7 +334,7 @@ button {
     top: 10px;
     right: 10px;
     display: flex;
-    gap: 10px;  /* Spacing between the buttons */
+    gap: 0px;  /* Spacing between the buttons */
 }
 
 /* Style for the buttons */
