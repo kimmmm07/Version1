@@ -188,6 +188,13 @@ document.querySelectorAll('input[type="radio"]').forEach((input) => {
 });
 
 
+// Function to handle rating selection
+function selectRating(button, questionId, rating) {
+    console.log(`Question ${questionId} rated: ${rating}`);
+    // Add your validation or processing logic here
+}
+
+
 let plusFactor = 0;
 let averageScore = 0;
 let totalScore = 0;

@@ -206,6 +206,14 @@ document.querySelectorAll('input[type="radio"]').forEach((input) => {
     input.addEventListener('change', calculateAverageScore);
 });
 
+
+// Function to handle rating selection
+function selectRating(button, questionId, rating) {
+    console.log(`Question ${questionId} rated: ${rating}`);
+    // Add your validation or processing logic here
+}
+
+
 function calculateAverageScore() {
     // Capture values from all KRAs
     const efficiency1 = getValue('efficiency1');
