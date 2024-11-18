@@ -246,7 +246,33 @@ async function getEvaluation() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            console.log("Success Data : ", data);
+            ipcrfStatusBtn.innerHTML = `<span class="status-icon"></span>${ data.ipcrf.overall ? 'Completed' : 'Pending' }`;
+            rpmsStatusBtn.innerHTML = `<span class="status-icon"></span>${ data.rpms.overall ? 'Completed' : 'Pending' }`;
+            cotStatusBtn.innerHTML = `<span class="status-icon"></span>${ data.cots.overall ? 'Completed' : 'Pending' }`;
+            ipcrfRaterName.textContent = data.ipcrf.rater ?  data.ipcrf.rater.fullname : 'Not yet rated';
+            rpmsRaterName.textContent = data.rpms.rater ? data.rpms.rater.fullname : 'Not yet rated';
+            cotRaterName.textContent = data.cots.rater ? data.cots.rater.fullname : 'Not yet rated';
+            ipcrfRater.textContent = data.ipcrf.rater ? "Rater: " + data.ipcrf.rater.fullname : 'Rater: Not yet rated';
+            rpmsRater.textContent = data.rpms.rater ? "Rater: " + data.rpms.rater.fullname : 'Rater: Not yet rated';
+            cotRater.textContent = data.cots.rater ? "Rater: " + data.cots.rater.fullname : 'Rater: Not yet rated';
+            
+            // Original date string
+
+            // Convert the date string to a Date object
+            let dateObject1 = new Date(data.ipcrf.date_submitted );
+            let dateObject2 = new Date(data.rpms.date_submitted );
+            let dateObject3 = new Date(data.cots.date_submitted );
+
+            // Format the date object into the desired format
+            let options = { year: 'numeric', month: 'long', day: 'numeric' };
+            
+
+            ipcrfDateSubmitted.textContent =  data.ipcrf.date_submitted != null ? "Date Submitted: " + dateObject1.toLocaleDateString('en-US', options) : 'Date Submitted: Not yet submitted';
+            rpmsDateSubmitted.textContent =  data.rpms.date_submitted != null   ? "Date Submitted: " + dateObject2.toLocaleDateString('en-US', options) : 'Date Submitted: Not yet submitted';
+            cotDateSubmitted.textContent =  data.cots.date_submitted != null   ? "Date Submitted: " + dateObject3.toLocaleDateString('en-US', options) : 'Date Submitted: Not yet submitted';
+
+
         } else {
             console.log("Error Data : ", data);
         }
