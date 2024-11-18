@@ -200,7 +200,31 @@
         </div>
     </div>
 
-    <script>// Modal logic
+    <script>
+        // Function to download the form as a PDF
+        document.getElementById('downloadPdf').addEventListener('click', function () {
+            const formContent = document.querySelector('.container');
+
+            // Use html2canvas to convert the HTML to canvas
+            html2canvas(formContent).then(function (canvas) {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF();
+                
+                // Add image to PDF
+                pdf.addImage(imgData, 'PNG', 10, 10, 190, 0); // Adjust dimensions as needed
+                
+                // Save the generated PDF
+                pdf.save('Teacher_Rating_Sheet.pdf');
+            });
+        });
+
+
+        // Function to print the form
+        document.getElementById('printForm').addEventListener('click', function () {
+            window.print();
+        });
+
+        // Modal logic
         const logoutButton = document.getElementById('logoutLink');  // Logout button
         const logoutModal = document.getElementById('logoutModal');
         const yesButton = document.querySelector('.yes-btn');

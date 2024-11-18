@@ -47,34 +47,6 @@ const observerSignature2 = document.getElementById("observerSignature2");
 const backButton2 = document.getElementById("backButton2");
 
 
-// Function to download the form as a PDF
-document.getElementById('downloadPdf').addEventListener('click', function () {
-    const formContent = document.querySelector('.container');
-
-    // Use html2canvas to convert the HTML to canvas
-    html2canvas(formContent).then(function (canvas) {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF();
-        
-        // Add image to PDF
-        pdf.addImage(imgData, 'PNG', 10, 10, 190, 0); // Adjust dimensions as needed
-        
-        // Save the generated PDF
-        pdf.save('Teacher_Rating_Sheet.pdf');
-    });
-});
-
-
-// Function to print the form
-document.getElementById('printForm').addEventListener('click', function () {
-    window.print();
-});
-
-
-
-
-
-
 
 
 const indicator1Row = document.getElementById('indicator1Row');

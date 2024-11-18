@@ -153,12 +153,13 @@ function renderFileList() {
         fileDiv.appendChild(fileName);
 
         // Add a remove button for non-"submitted" files only
-        if (file.type !== "submitted" && file instanceof File) {
+        if (file instanceof File) {
             const removeBtn = document.createElement('span');
             removeBtn.classList.add('remove-file');
             removeBtn.textContent = 'X';
             removeBtn.addEventListener('click', () => {
                 uploadedFiles.splice(index, 1); // Remove the file
+                addCreateBtn.style.display = 'block';
                 renderFileList();
             });
             fileDiv.appendChild(removeBtn);
@@ -261,19 +262,18 @@ async function getAttachments() {
             console.log('Fetched attachments:', responseData);
 
             // Handle fetched submitted files
-            const submitted = responseData.submitted.map(item => new File([item.file], item.title || item.file.split('/').pop()));
-            const unsubmitted = responseData.unsumitted.map(item => new File([item.file], item.title || item.file.split('/').pop()));
-
+            const submitted = responseData.submitted.map(item => {
+                const cleanedFileName = item.file.replace('/media/rpms_attachments/', '');
+                
+                // Create a new File object with the cleaned name
+                return new File([cleanedFileName], cleanedFileName, { type: item.streams_type || '' });
+            });
             
             // Choose either submitted or unsubmitted, not both
             if (submitted.length > 0) {
                 uploadedFiles = submitted;
                 isSubmitted = true;
-            } else {
-                uploadedFiles = unsubmitted;
-                isSubmitted = false;
             }
-
             // UI adjustments based on the submission status
             addCreateBtn.style.display = isSubmitted ? 'none' : 'block';
             turnInBtn.style.display = isSubmitted ? 'none' : 'block';
