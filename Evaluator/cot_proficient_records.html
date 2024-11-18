@@ -35,22 +35,22 @@
         <div class="filters" id="filters">
             <!-- Select School Year -->
             <select id="schoolYearSelect" name="school-year">
-                <option value="" disabled selected>Select School Year</option>
-                <option value="2023-2024">S.Y. 2023 - 2024</option>
+                <option value="all">All School Year</option>
+                <!-- <option value="2023-2024">S.Y. 2023 - 2024</option>
                 <option value="2022-2023">S.Y. 2022 - 2023</option>
-                <option value="2021-2022">S.Y. 2021 - 2022</option>
+                <option value="2021-2022">S.Y. 2021 - 2022</option> -->
             </select>
     
             <!-- Select Teacher Type -->
             <select id="teacherTypeSelect" name="teacher-type">
-                <option value="" disabled selected>Select Teacher Type</option>
+                <option value="all">All Teacher Type</option>
                 <option value="Proficient">Proficient Teacher</option>
                 <option value="Highly Proficient">Highly Proficient Teacher</option>
             </select>
     
             <!-- Select Quarter -->
             <select id="selectQuarter" name="quarter">
-                <option value="" disabled selected>Select Quarter</option>
+                <option value="all">All Quarter</option>
                 <option value="1">Quarter 1</option>
                 <option value="2">Quarter 2</option>
                 <option value="3">Quarter 3</option>
@@ -68,7 +68,7 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="teacherTableBody">
                 <!-- <tr id="recordRow1">
                     <td id="teacherName1">
                         <img src="User_Circle.png" alt="User Icon" width="25" id="userIcon1">
@@ -94,7 +94,7 @@
             </div>
         </div>
     </div>
-    <script>
+    <!-- <script>
     
         async function fetchData() {
     
@@ -123,7 +123,7 @@
         }
         fetchData();
     
-    </script>
+    </script> -->
     <script src="cot_proficient_records.js"></script>
 
     <!-- <script> //not functional
@@ -143,7 +143,7 @@
         }
         </script> -->
 
-    <script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('schoolYearSelect').addEventListener('change', function() {
                 const schoolYear = String(this.value);
@@ -160,7 +160,7 @@
                 console.log("Selected Quarter:", quarter);
             });
         });
-    </script>
+    </script> -->
 
 </body>
 </html>
