@@ -4,7 +4,7 @@ var ctxKRA = document.getElementById('kraChart').getContext('2d');
 var kraChart = new Chart(ctxKRA, {
     type: 'bar',
     data: {
-        labels: ['KRA 1', 'KRA 2', 'KRA 3', 'KRA 4', 'Plus Factor'],
+        labels: ['KRA 1', 'KRA 2', 'KRA 3', 'KRA 4', 'Plus Factor', 'Total Score'],
         datasets: [{
             label: 'KRA Breakdown',
             data: [3, 2, 4, 1, 5],
@@ -17,7 +17,7 @@ var kraChart = new Chart(ctxKRA, {
         scales: {
             y: {
                 beginAtZero: true,
-                max: 5
+                max: 100
             }
         }
     }
@@ -102,7 +102,8 @@ var performanceChart = new Chart(ctxPerformance, {
     options: {
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
+                max: 5
             }
         }
     }
