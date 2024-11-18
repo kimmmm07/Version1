@@ -769,32 +769,79 @@ async function getIPCRF() {
             const con4 = content["Community Linkages and Professional Engagement & Personal Growth and Professional Development"];
             const con5 = content["PLUS FACTOR"];
 
-            // Efficiency1_5.innerHTML = `<input type="radio"  id="Efficiency1_5" value="5" checked disabled>  ${con1["1"]["EFFICIENCY"]["Rate"]} - ${con1["1"]["EFFICIENCY"][con1["1"]["EFFICIENCY"]["Rate"]]}`;
-            // Quality2_5.innerHTML = `<input type="radio"  id="Quality1_5" value="5" checked disabled>  ${con1["2"]["QUALITY"]["Rate"]} - ${con1["1"]["QUALITY"][con1["2"]["QUALITY"]["Rate"]]}`;
-            // Timeliness2_5.innerHTML = `<input type="radio"  id="Timeliness1_5" value="5" checked disabled>  ${con1["2"]["TIMELINES"]["Rate"]} - ${con1["2"]["TIMELINES"][con1["3"]["TIMELINES"]["Rate"]]}`;
-            // Efficiency3_5.innerHTML = `<input type="radio"  id="Efficiency3_5" value="5" checked disabled>  ${con2["3"]["EFFICIENCY"]["Rate"]} - ${con2["3"]["EFFICIENCY"][con2["3"]["EFFICIENCY"]["Rate"]]}`;
-            // Quality4_5.innerHTML = `<input type="radio"  id="Quality4_5" value="5" checked disabled>  ${con2["4"]["QUALITY"]["Rate"]} - ${con2["4"]["QUALITY"][con2["4"]["QUALITY"]["Rate"]]}`;
-            // Efficiency5_5.innerHTML = `<input type="radio"  id="Efficiency5_5" value="5" checked disabled>  ${con3["5"]["EFFICIENCY"]["Rate"]} - ${con3["5"]["EFFICIENCY"][con3["5"]["EFFICIENCY"]["Rate"]]}`;
-            // Efficiency6_5.innerHTML = `<input type="radio"  id="Efficiency6_5" value="5" checked disabled>  ${con3["6"]["EFFICIENCY"]["Rate"]} - ${con3["6"]["EFFICIENCY"][con3["6"]["EFFICIENCY"]["Rate"]]}`;
-            // Efficiency7_5.innerHTML = `<input type="radio"  id="Efficiency7_5" value="5" checked disabled>  ${con3["7"]["EFFICIENCY"]["Rate"]} - ${con3["7"]["EFFICIENCY"][con3["7"]["EFFICIENCY"]["Rate"]]}`;
-            // Quality8_5.innerHTML = `<input type="radio"  id="Quality8_5" value="5" checked disabled>  ${con4["8"]["QUALITY"]["Rate"]} - ${con4["8"]["QUALITY"][con4["8"]["QUALITY"]["Rate"]]}`;
-            // Quality9_5.innerHTML = `<input type="radio"  id="Quality9_5" value="5" checked disabled>  ${con5["9"]["QUALITY"]["Rate"]} - ${con5["9"]["QUALITY"][con5["9"]["QUALITY"]["Rate"]]}`;
-            // Timeliness9_5.innerHTML = `<input type="radio"  id="Timeliness9_5" value="5" checked disabled>  ${con5["9"]["TIMELINES"]["Rate"]} - ${con5["9"]["TIMELINES"][con5["9"]["TIMELINES"]["Rate"]]}`;
-            // Efficiency10_5.innerHTML = `<input type="radio"  id="Efficiency10_5" value="5" checked disabled>  ${con5["10"]["EFFICIENCY"]["Rate"]} - ${con5["10"]["EFFICIENCY"][con5["10"]["EFFICIENCY"]["Rate"]]}`;
-            // Quality11_5.innerHTML = `<input type="radio"  id="Quality11_5" value="5" checked disabled>  ${con5["11"]["QUALITY"]["Rate"]} - ${con5["11"]["QUALITY"][con5["11"]["QUALITY"]["Rate"]]}`;
-            // Timeliness11_5.innerHTML = `<input type="radio"  id="Timeliness11_5" value="5" checked disabled>  ${con5["11"]["TIMELINES"]["Rate"]} - ${con5["11"]["TIMELINES"][con5["11"]["TIMELINES"]["Rate"]]}`;
-            // quality12_5.innerHTML = `<input type="radio"  id="Quality12_5" value="5" checked disabled>  ${con5["12"]["QUALITY"]["Rate"]} - ${con5["12"]["QUALITY"][con5["12"]["QUALITY"]["Rate"]]}`;
-            // timeliness12_5.innerHTML = `<input type="radio"  id="Timeliness12_5" value="5" checked disabled>  ${con5["12"]["TIMELINES"]["Rate"]} - ${con5["12"]["TIMELINES"][con5["12"]["TIMELINES"]["Rate"]]}`;
-            // quality13_5.innerHTML = `<input type="radio"  id="Quality13_5" value="5" checked disabled>  ${con5["13"]["QUALITY"]["Rate"]} - ${con5["13"]["QUALITY"][con5["13"]["QUALITY"]["Rate"]]}`;
-            // timeliness13_5.innerHTML = `<input type="radio"  id="Timeliness13_5" value="5" checked disabled>  ${con5["13"]["TIMELINES"]["Rate"]} - ${con5["13"]["TIMELINES"][con5["13"]["TIMELINES"]["Rate"]]}`;
-            // quality14_5.innerHTML = `<input type="radio"  id="Quality14_5" value="5" checked disabled>  ${con5["14"]["QUALITY"]["Rate"]} - ${con5["14"]["QUALITY"][con5["14"]["QUALITY"]["Rate"]]}`;
-            // efficiency14_5.innerHTML = `<input type="radio"  id="Efficiency14_5" value="5" checked disabled>  ${con5["14"]["EFFICIENCY"]["Rate"]} - ${con5["14"]["EFFICIENCY"][con5["14"]["EFFICIENCY"]["Rate"]]}`;
-            // timeliness14_5.innerHTML = `<input type="radio"  id="Timeliness14_5" value="5" checked disabled>  ${con5["14"]["TIMELINES"]["Rate"]} - ${con5["14"]["TIMELINES"][con5["14"]["TIMELINES"]["Rate"]]}`;
-            // quality15_5.innerHTML = `<input type="radio"  id="Quality15_5" value="5" checked disabled>  ${con5["15"]["QUALITY"]["Rate"]} - ${con5["15"]["QUALITY"][con5["15"]["QUALITY"]["Rate"]]}`;
-            // efficiency15_5.innerHTML = `<input type="radio"  id="Efficiency15_5" value="5" checked disabled>  ${con5["15"]["EFFICIENCY"]["Rate"]} - ${con5["15"]["EFFICIENCY"][con5["15"]["EFFICIENCY"]["Rate"]]}`;
-            // timeliness15_5.innerHTML = `<input type="radio"  id="Timeliness15_5" value="5" checked disabled>  ${con5["15"]["TIMELINES"]["Rate"]} - ${con5["15"]["TIMELINES"][con5["15"]["TIMELINES"]["Rate"]]}`;
+            console.log("Content 1 : ", con1);
+            console.log("Content 2 : ", con2);
+            console.log("Content 3 : ", con3);
+            console.log("Content 4 : ", con4);
+            console.log("Content 5 : ", con5);
 
+            Efficiency1_5.innerHTML = `<input type="radio"   value="5" checked disabled>  
+            ${con1["1"]["EFFICIENCY"]["Rate"]} - ${con1["1"]["EFFICIENCY"][con1["1"]["EFFICIENCY"]["Rate"]]}`;
+            Quality2_5.innerHTML = `<input type="radio"  value="5" checked disabled>  
+            ${con1["2"]["QUALITY"]["Rate"]} - ${con1["1"]["QUALITY"][con1["2"]["QUALITY"]["Rate"]]}`;
+            Timeliness2_5.innerHTML = `<input type="radio"  value="5" checked disabled>  
+            ${con1["2"]["TIMELINESS"]["Rate"]} - ${con1["2"]["TIMELINESS"][con1["2"]["TIMELINESS"]["Rate"]]}`;
+            Efficiency3_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con1["3"]["EFFICIENCY"]["Rate"]} -
+            ${con1["3"]["EFFICIENCY"][con1["3"]["EFFICIENCY"]["Rate"]]}`;
+            Quality4_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
+            ${con1["4"]["QUALITY"]["Rate"]} -
+            ${con1["4"]["QUALITY"][con1["4"]["QUALITY"]["Rate"]]}`;
+            Efficiency5_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con2["5"]["EFFICIENCY"]["Rate"]} -
+            ${con2["5"]["EFFICIENCY"][con2["5"]["EFFICIENCY"]["Rate"]]}`;
+            Efficiency6_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con2["6"]["EFFICIENCY"]["Rate"]} -
+            ${con2["6"]["EFFICIENCY"][con2["6"]["EFFICIENCY"]["Rate"]]}`;
+            Efficiency7_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
+            ${con2["7"]["EFFICIENCY"]["Rate"]} -
+            ${con2["7"]["EFFICIENCY"][con2["7"]["EFFICIENCY"]["Rate"]]}`;
+            Quality8_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
+            ${con2["8"]["QUALITY"]["Rate"]} -
+            ${con2["8"]["QUALITY"][con2["8"]["QUALITY"]["Rate"]]}`;
+            Quality9_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
+            ${con3["9"]["QUALITY"]["Rate"]} -
+            ${con3["9"]["QUALITY"][con3["9"]["QUALITY"]["Rate"]]}`;
+            Timeliness9_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con3["9"]["TIMELINESS"]["Rate"]} -
+            ${con3["9"]["TIMELINESS"][con3["9"]["TIMELINESS"]["Rate"]]}`;
+            Efficiency10_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con3["10"]["EFFICIENCY"]["Rate"]} -
+            ${con3["10"]["EFFICIENCY"][con3["10"]["EFFICIENCY"]["Rate"]]}`;
+            Quality11_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con3["11"]["QUALITY"]["Rate"]} -
+            ${con3["11"]["QUALITY"][con3["11"]["QUALITY"]["Rate"]]}`;
+            Timeliness11_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
+            ${con3["11"]["TIMELINES"]["Rate"]} -
+            ${con3["11"]["TIMELINES"][con3["11"]["TIMELINES"]["Rate"]]}`; 
+            quality12_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con4["12"]["QUALITY"]["Rate"]} -
+            ${con4["12"]["QUALITY"][con4["12"]["QUALITY"]["Rate"]]}`;
+            timeliness12_5.innerHTML = `<input type="radio" value="5" checked disabled> 
+            ${con4["12"]["TIMELINES"]["Rate"]} -
+            ${con4["12"]["TIMELINES"][con4["12"]["TIMELINES"]["Rate"]]}`;
+            quality13_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con4["13"]["QUALITY"]["Rate"]} -
+            ${con4["13"]["QUALITY"][con4["13"]["QUALITY"]["Rate"]]}`;
+            timeliness13_5.innerHTML = `<input type="radio"  _5" value="5" checked disabled> 
+            ${con4["13"]["TIMELINES"]["Rate"]} -
+            ${con4["13"]["TIMELINES"][con4["13"]["TIMELINES"]["Rate"]]}`;
+            quality14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con4["14"]["QUALITY"]["Rate"]} -
+            ${con4["14"]["QUALITY"][con4["14"]["QUALITY"]["Rate"]]}`;
+            // efficiency14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            // ${con4["14"]["EFFICIENCY"]["Rate"]} -
+            // ${con4["14"]["EFFICIENCY"][con4["14"]["EFFICIENCY"]["Rate"]]}`;
+            quality15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con5["15"]["QUALITY"]["Rate"]} -
+            ${con5["15"]["QUALITY"][con5["15"]["QUALITY"]["Rate"]]}`;
+            efficiency15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con5["15"]["EFFICIENCY"]["Rate"]} -
+            ${con5["15"]["EFFICIENCY"][con5["15"]["EFFICIENCY"]["Rate"]]}`;
+            timeliness15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con5["15"]["TIMELINES"]["Rate"]} - ${con5["15"]["TIMELINES"][con5["15"]["TIMELINES"]["Rate"]]}`;
 
+ 
 
 
         } else {
