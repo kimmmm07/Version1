@@ -777,7 +777,6 @@
     </div>
 
     <script src="ipcrf_highly_proficient_part1_js.js"></script>
-    
     <script>// Modal logic
         const logoutButton = document.getElementById('logoutLink');  // Logout button
         const logoutModal = document.getElementById('logoutModal');
@@ -819,27 +818,24 @@
                 console.error("Error during fetch:", error);
             }
         });
-        </script>
 
 
-
-        <script>
-        document.addEventListener("DOMContentLoaded", function () {
         const requiredFields = [
-            "efficiency1", "efficiency2", "efficiency3",
-            "efficiency4", "efficiency5", "efficiency6",
-            "efficiency7", "efficiency8", "quality9",
-            "efficiency9", "efficiency10", "quality11",
-            "timeliness11", "quality12", "timeliness12",
-            "quality13", "timeliness13",
-            "quality14", "efficiency14", "timeliness14",
-            "quality15", "efficiency15", "timeliness15"
-        ];
-    
-        const saveButton = document.querySelector("#saveButton");
-    
-        // Function to validate the form
-        function validateForm() {
+        "efficiency1", "quality2", "timeliness2",
+        "efficiency3", "efficiency4", "efficiency5",
+        "efficiency6", "quality8", "efficiency7",
+        "quality9", "timeliness9", "efficiency10",
+        "quality11", "timeliness11", "quality12",
+        "timeliness12", "quality13", "timeliness13",
+        "quality14", "efficiency14", "quality15",
+        "efficiency15", "timeliness15"
+    ];
+
+
+    const saveButton = document.querySelector("#saveButton");
+
+    // Function to validate the form
+    function validateForm() {
             let isValid = true;
     
             requiredFields.forEach((name) => {
@@ -867,7 +863,7 @@
     
             return isValid;
         }
-    
+
         // Function to update IPCRF data
         async function updateIPCRF1() { 
             try {
@@ -931,18 +927,20 @@
                 console.error("Error during fetch:", error);
             }
         }
-    
-        // Add click event listener to the "Save" button
-        saveButton.addEventListener("click", async function () {
-            const isFormValid = validateForm();
-    
-            // If the form is valid, submit using updateIPCRF1 function
-            if (isFormValid) {
-                updateIPCRF1();  // Call the async update function
-                location.href = 'teacher_forms.html';
-            }
-        });
+
+    // Add click event listener to the "Save" button
+    saveButton.addEventListener("click", function () {
+        const isFormValid = validateForm();
+
+        
+        updateIPCRF1(); // FOR TESTING ONLY
+        // If the form is valid, proceed to the next page
+        if (isFormValid) {
+            // updateIPCRF1(); // Uncomment when official
+            location.href = 'teacher_forms.html';
+        }
     });
+
     </script>
 
 </body>
