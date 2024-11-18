@@ -60,13 +60,13 @@
         </div>
 
         <!-- Filters Section -->
-        <div class="filters">
+        <!-- <div class="filters">
             <div class="filter-box">
                 <select class="filter" id="choose-year-filter">
                     <option value="proficient">A.Y. 2023 - 2024</option>
                 </select>
             </div>
-        </div>
+        </div> -->
 
         <!--Generate Report-->
         <div class="report-button">
@@ -88,9 +88,9 @@
                     <canvas id="recommendationChart" width="150" height="150"></canvas>
                     <div class="recommendation-labels">
                         <ul>
-                            <li> Promotion: 0.0%</li>
-                            <li> Retention: 0.0%</li>
-                            <li> Termination: 0.0%</li>
+                            <li id="promotion">Promotion: 0.0%</li>
+                            <li id="retention">Retention: 0.0%</li>
+                            <li id="termination">Termination: 0.0%</li>
                         </ul>
                     </div>
                 </div>
@@ -102,9 +102,9 @@
                     <canvas id="tenureChart" width="150" height="150"></canvas>
                     <div class="tenure-labels">
                         <ul>
-                            <li> 0-3 years: 0.0%</li>
-                            <li> 3-5 years: 0.0%</li>
-                            <li> 5+ years: 0.0%</li>
+                            <li id="tenure-0-3">0-3 years: 0.0%</li>
+                            <li id="tenure-3-5">3-5 years: 0.0%</li>
+                            <li id="tenure-5-plus">5+ years: 0.0%</li>
                         </ul>
                     </div>
                 </div>
