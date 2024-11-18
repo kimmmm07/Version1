@@ -828,10 +828,7 @@ async function getIPCRF() {
             ${con4["13"]["TIMELINES"][con4["13"]["TIMELINES"]["Rate"]]}`;
             quality14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
             ${con4["14"]["QUALITY"]["Rate"]} -
-            ${con4["14"]["QUALITY"][con4["14"]["QUALITY"]["Rate"]]}`;
-            // efficiency14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            // ${con4["14"]["EFFICIENCY"]["Rate"]} -
-            // ${con4["14"]["EFFICIENCY"][con4["14"]["EFFICIENCY"]["Rate"]]}`;
+            ${con4["14"]["QUALITY"][con4["14"]["QUALITY"]["Rate"]]}`; 
             quality15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
             ${con5["15"]["QUALITY"]["Rate"]} -
             ${con5["15"]["QUALITY"][con5["15"]["QUALITY"]["Rate"]]}`;
@@ -840,7 +837,9 @@ async function getIPCRF() {
             ${con5["15"]["EFFICIENCY"][con5["15"]["EFFICIENCY"]["Rate"]]}`;
             timeliness15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
             ${con5["15"]["TIMELINES"]["Rate"]} - ${con5["15"]["TIMELINES"][con5["15"]["TIMELINES"]["Rate"]]}`;
-
+            efficiency14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con4["14"]["EFFICIENCY"]["Rate"]} -
+            ${con4["14"]["EFFICIENCY"][con4["14"]["EFFICIENCY"]["Rate"]]}`;
  
 
 
