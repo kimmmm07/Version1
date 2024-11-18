@@ -86,7 +86,7 @@ const quality11_3_option = document.getElementById('quality11_3_option');
 const quality11_2_option = document.getElementById('quality11_2_option');
 const quality11_1_option = document.getElementById('quality11_1_option');
 
-const Timeliness11_5 = document.getElementById('TImeliness11_5');
+const Timeliness11_5 = document.getElementById('Timeliness11_5');
 const timeliness11_5_option = document.getElementById('timeliness11_5_option');
 const timeliness11_4_option = document.getElementById('timeliness11_4_option');
 const timeliness11_3_option = document.getElementById('timeliness11_3_option');
@@ -645,6 +645,65 @@ async function getIPCRF() {
 
             teacherAverageScoreLabel.textContent = ipcrf.rating.toFixed(2);
             teacherRatingDiv.textContent = getRating(ipcrf.rating);
+
+            const content = ipcrf["content_for_teacher"];
+            const con1 = content["Content Knowledge and Pedagogy"];
+            const con2 = content["Learning Environment & Diversity of Learners"];
+            const con3 = content["Curriculum and Planning & Assessment and Reporting"];
+            const con4 = content["Community Linkages and Professional Engagement & Personal Growth and Professional Development"];
+            const con5 = content["PLUS FACTOR"];
+
+            console.log("Content 1 : ", con1);
+            console.log("Content 2 : ", con2);
+            console.log("Content 3 : ", con3);
+            console.log("Content 4 : ", con4);
+            console.log("Content 5 : ", con5);
+
+            Efficiency1_5.innerHTML = `<input type="radio"   value="5" checked disabled>  
+            ${con1["1"]["EFFICIENCY"]["Rate"]} - ${con1["1"]["EFFICIENCY"][con1["1"]["EFFICIENCY"]["Rate"]]}`;
+            Efficiency2_5.innerHTML = `<input type="radio"   value="5" checked disabled>  
+            ${con1["2"]["EFFICIENCY"]["Rate"]} - ${con1["2"]["EFFICIENCY"][con1["2"]["EFFICIENCY"]["Rate"]]}`;
+            Efficiency3_5.innerHTML = `<input type="radio"   value="5" checked disabled>  
+            ${con1["3"]["EFFICIENCY"]["Rate"]} - ${con1["3"]["EFFICIENCY"][con1["3"]["EFFICIENCY"]["Rate"]]}`;
+            Efficiency4_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con1["4"]["EFFICIENCY"]["Rate"]} - ${con1["4"]["EFFICIENCY"][con1["4"]["EFFICIENCY"]["Rate"]]}`;
+            Efficiency5_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con2["5"]["EFFICIENCY"]["Rate"]} - ${con2["5"]["EFFICIENCY"][con2["5"]["EFFICIENCY"]["Rate"]]}`;
+            Efficiency6_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con2["6"]["EFFICIENCY"]["Rate"]} - ${con2["6"]["EFFICIENCY"][con2["6"]["EFFICIENCY"]["Rate"]]}`;
+            Efficiency7_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con2["7"]["EFFICIENCY"]["Rate"]} - ${con2["7"]["EFFICIENCY"][con2["7"]["EFFICIENCY"]["Rate"]]}`;
+            Efficiency8_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con2["8"]["EFFICIENCY"]["Rate"]} - ${con2["8"]["EFFICIENCY"][con2["8"]["EFFICIENCY"]["Rate"]]}`;
+            Quality9_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con3["9"]["QUALITY"]["Rate"]} - ${con3["9"]["QUALITY"][con3["9"]["QUALITY"]["Rate"]]}`;
+            Efficiency9_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con3["9"]["EFFICIENCY"]["Rate"]} - ${con3["9"]["EFFICIENCY"][con3["9"]["EFFICIENCY"]["Rate"]]}`;
+            Efficiency10_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con3["10"]["EFFICIENCY"]["Rate"]} - ${con3["10"]["EFFICIENCY"][con3["10"]["EFFICIENCY"]["Rate"]]}`;
+            Quality11_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con3["11"]["QUALITY"]["Rate"]} - ${con3["11"]["QUALITY"][con3["11"]["QUALITY"]["Rate"]]}`;
+            Timeliness11_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con3["11"]["TIMELINES"]["Rate"]} - ${con3["11"]["TIMELINES"][con3["11"]["TIMELINES"]["Rate"]]}`;
+            Quality12_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con4["12"]["QUALITY"]["Rate"]} - ${con4["12"]["QUALITY"][con4["12"]["QUALITY"]["Rate"]]}`;
+            TImeliness12_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con4["12"]["TIMELINES"]["Rate"]} - ${con4["12"]["TIMELINES"][con4["12"]["TIMELINES"]["Rate"]]}`;
+            Quality13_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con4["13"]["QUALITY"]["Rate"]} - ${con4["13"]["QUALITY"][con4["13"]["QUALITY"]["Rate"]]}`;
+            Timeliness13_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con4["13"]["TIMELINES"]["Rate"]} - ${con4["13"]["TIMELINES"][con4["13"]["TIMELINES"]["Rate"]]}`;
+            Quality14_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con4["14"]["QUALITY"]["Rate"]} - ${con4["14"]["QUALITY"][con4["14"]["QUALITY"]["Rate"]]}`;
+            Timeliness14_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con4["14"]["TIMELINES"]["Rate"]} - ${con4["14"]["TIMELINES"][con4["14"]["TIMELINES"]["Rate"]]}`;
+            Quality15_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con5["15"]["QUALITY"]["Rate"]} - ${con5["15"]["QUALITY"][con5["15"]["QUALITY"]["Rate"]]}`;
+            Timeliness15_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con5["15"]["TIMELINES"]["Rate"]} - ${con5["15"]["TIMELINES"][con5["15"]["TIMELINES"]["Rate"]]}`;
+            Efficiency15_5.innerHTML = `<input type="radio"   value="5" checked disabled>
+            ${con5["15"]["EFFICIENCY"]["Rate"]} - ${con5["15"]["EFFICIENCY"][con5["15"]["EFFICIENCY"]["Rate"]]}`;
+ 
 
 
         } else {
