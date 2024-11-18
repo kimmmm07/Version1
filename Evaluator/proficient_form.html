@@ -29,9 +29,9 @@
     <div class="divider"></div>
 
     <select id="formType" onchange="navigateToLink()">
-        <option value="#">Select Form</option>
+        <!-- <option value="#">Select Form</option> -->
         <option value="proficient_form.html">Proficient Teacher</option>
-        <option value="highlyproficient_form.html">Highly Proficient Teacher</option>
+        <!-- <option value="highlyproficient_form.html">Highly Proficient Teacher</option> -->
     </select>
 
     <div class="section-title" id="section-title-cot">Classroom Observation Tools</div>
@@ -206,6 +206,42 @@
 
 
 <script>
+
+
+
+
+async function fixRedirections(){
+    try{
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/profile/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);
+            if (!data.evaluator.is_proficient){
+                window.location.href = 'highlyproficient_form.html';
+            } 
+            //window.location.href = '../../get-started.html'; 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    }catch(error){
+        console.log(error);
+    }
+}
+
+fixRedirections();
+
+
+
+
 
 const conductedReviewsProficient = document.getElementById('conducted-reviews-proficient');
 const fullResponseCountProficient = document.getElementById('full-response-count-proficient');

@@ -116,3 +116,143 @@ document.getElementById('downloadPdf').addEventListener('click', function () {
 document.getElementById('printForm').addEventListener('click', function () {
     window.print();
 });
+
+
+
+
+const indicator1Row = document.getElementById('indicator1Row');
+const indicator2Row = document.getElementById('indicator2Row'); 
+const indicator3Row = document.getElementById('indicator3Row');
+const indicator4Row = document.getElementById('indicator4Row');
+const indicator5Row = document.getElementById('indicator5Row');
+const indicator6Row = document.getElementById('indicator6Row');
+const indicator7Row = document.getElementById('indicator7Row');
+const indicator8Row = document.getElementById('indicator8Row');
+
+
+
+
+
+
+async function checkRow(idrow , comparisonValue) {
+    var row = document.getElementById(idrow);
+
+    let selectedData;
+    if (comparisonValue == 4){
+        selectedData = row.cells[1];
+    } else if (comparisonValue == 5){
+        selectedData = row.cells[2];
+    } else if (comparisonValue == 6){
+        selectedData = row.cells[3];
+    } else if (comparisonValue == 7){
+        selectedData = row.cells[4];
+    } else if (comparisonValue == 8){
+        selectedData = row.cells[5];
+    } else {
+        selectedData = row.cells[6];
+    }
+    
+    // Add class name correctly
+    selectedData.classList.add("checked");
+    
+    // Access specific cells
+    // var firstCell = row.cells[0]; // First cell
+    // var secondCell = row.cells[1]; // Second cell
+
+    // // Manipulate cell data
+    // console.log(firstCell.innerHTML); // Logs the content of the first cell
+    // secondCell.innerHTML = "Updated content for second cell"; // Updates the content of the second cell
+
+    // Log the updated row content
+    // console.log(row.innerHTML);
+    
+}
+
+
+
+let cot = undefined;
+let teacher = undefined;
+let cot_content = undefined;
+
+async function getCot() {
+    try {
+        
+        const teacher_id = sessionStorage.getItem('teacher_id');
+        const quarter = sessionStorage.getItem('quarter');
+
+        const formData = new FormData();
+        formData.append('teacher_id', teacher_id);
+        formData.append('quarter', quarter);
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/cot/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData,
+
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            cot = data.cot;
+            teacher = data.teacher;
+            cot_content = data.cot.content;
+
+
+            
+
+            for (var i = 0; i < 8; i++) {
+                let res = i + 1;
+                // console.log(res)
+                // console.log(cot_content['Questions'][res]['Selected']);
+                if (cot_content['Questions'][res]['Selected'] == 4){
+                    checkRow('indicator'+(res)+'Row', 4);
+                } else if (cot_content['Questions'][res]['Selected'] == 5){
+                    checkRow('indicator'+(res)+'Row', 5);
+                } else if (cot_content['Questions'][res]['Selected'] == 6){
+                    checkRow('indicator'+(res)+'Row', 6);
+                } else if (cot_content['Questions'][res]['Selected'] == 7){
+                    checkRow('indicator'+(res)+'Row', 7);
+                } else if (cot_content['Questions'][res]['Selected'] == 8){
+                    checkRow('indicator'+(res)+'Row', 8);
+                } else {
+                    checkRow('indicator'+(res)+'Row', 0);
+                }
+            }
+
+
+            observerName.textContent = cot_content['Observer Name'];
+            observationDate.textContent = new Date(cot.created_at).toLocaleDateString();
+            teacherObserved.textContent = cot_content['Teacher Name'];
+            observationQuarter.textContent = cot_content['Quarter'];
+            subjectGradeLevel.textContent = cot.subject;
+            schoolYear.textContent = cot.school_year;
+            additionalComments.value = cot_content["Comments"];
+
+
+
+
+
+
+
+
+            console.log(cot_content);
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+getCot();
+
+
+
+
+
+
