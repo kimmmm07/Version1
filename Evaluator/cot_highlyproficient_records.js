@@ -289,33 +289,33 @@ let what_school_year = "all";
 // const teacherTypeSelect = document.getElementById('teacherTypeSelect');
 // const selectQuarter = document.getElementById('selectQuarter');
 
-schoolYearSelect.addEventListener('change', function() {
-    what_school_year = this.value;
-    const teacherTableBody = document.getElementById('teacherTableBody');
-    teacherTableBody.innerHTML = '';
+// schoolYearSelect.addEventListener('change', function() {
+//     what_school_year = this.value;
+//     const teacherTableBody = document.getElementById('teacherTableBody');
+//     teacherTableBody.innerHTML = '';
 
-    takers.forEach(taker => {
+//     takers.forEach(taker => {
 
-        const taker_data = taker.cot_taker;
-        const taker_evaluator = taker.cot_evaluator;
-        const school_year = taker.school_year;
-        const taker_quarter = taker.quarter;
+//         const taker_data = taker.cot_taker;
+//         const taker_evaluator = taker.cot_evaluator;
+//         const school_year = taker.school_year;
+//         const taker_quarter = taker.quarter;
         
-        if (what_teacher == "Proficient" && taker.is_proficient == true){
+//         if (what_teacher == "Proficient" && taker.is_proficient == true){
             
-            if (what_quarter != "all"){
-                if (school_year == what_school_year){
-                    if (what_quarter == taker_quarter){
-                        addTeacherRow(taker);
-                    }
-                }
-            } 
-        } 
-    });
-});
+//             if (what_quarter != "all"){
+//                 if (school_year == what_school_year){
+//                     if (what_quarter == taker_quarter){
+//                         addTeacherRow(taker);
+//                     }
+//                 }
+//             } 
+//         } 
+//     });
+// });
 
 
-
+// TODO : FIX THE FILTERING 
 
 
 
