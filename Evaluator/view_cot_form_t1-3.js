@@ -231,7 +231,7 @@ async function getCot() {
             observationDate2.textContent = new Date(cot.created_at).toLocaleDateString();
             teacherObserved2.textContent = cot_content['Teacher Name'];
             observationQuarter2.textContent = cot_content['Quarter'];
-            subjectGradeLevel2.textContent = cot_content['Subject & Grade Level'];
+            subjectGradeLevel2.textContent = cot.subject;
             schoolYear2.textContent = cot.school_year;
             additionalComments.value = cot_content["Comments"];
 
