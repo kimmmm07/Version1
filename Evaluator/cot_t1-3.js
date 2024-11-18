@@ -167,7 +167,7 @@ function addRow(data, quarter, tbody , table) {
     const teacher = data.teacher;
     const cot = data.cot;
     const tr = document.createElement('tr'); 
-    const randomInteger = Math.floor(Math.random() * 10) + 1;
+    const randomInteger = Math.floor(Math.random() * 1000) + 1;
 
     if (!cot.is_checked) {
         tr.innerHTML = `
