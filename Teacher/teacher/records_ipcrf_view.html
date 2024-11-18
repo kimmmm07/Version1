@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Performance Evaluation System</title>
+    <link rel="stylesheet" href="records_ipcrf_view_css.css">
+    <!-- Add external libraries for PDF generation and icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header-background"></div>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <img src="asset/image 6.png" alt="DepED Logo" />
+            </div>
+            <ul class="navbar-menu">
+                <li><a href="teacher_home.html" class="nav-link"><img src="asset/House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
+                <li><a href="teacher_evaluation.html" class="nav-link"><img src="asset/Test Passed.png" alt="Evaluation Icon" class="nav-icon"> Evaluation</a></li>
+                <li><a href="teacher_forms.html" class="nav-link"><img src="asset/Documents.png" alt="Forms Icon" class="nav-icon"> Forms</a></li>
+                <li><a href="teacher_summary.html" class="nav-link"><img src="asset/Chart_Pie.png" alt="Summary Icon" class="nav-icon"> Summary</a></li>
+                <li><a href="teacher_records.html" class="nav-link records active"><img src="asset/Folders.png" alt="Records Icon" class="nav-icon"> Records</a></li>
+                <li><a href="teacher_profile.html" class="nav-link"><img src="asset/User_01.png" alt="Profile Icon" class="nav-icon"> Profile</a></li>
+                <li id="logoutLink" class="logout-btn">
+                    <a href="../../index.html">
+                        <img src="asset/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header> 
+ 
+ <div class="form-container">
+        <!-- Action buttons positioned in the upper-right corner of the container -->
+        <div class="action-buttons">
+            <button id="downloadPdf" class="action"><i class="fas fa-file-pdf"></i> Download PDF</button>
+            <button id="printForm" class="action"><i class="fas fa-print"></i> Print Form</button>
+        </div>
+
+        <img src="asset/seal.png" alt="DepEd Logo" class="logo" id="depedLogo">
+        <h1>Individual Performance Commitment and Review Form Summary Sheet</h1>
+        
+        <div class="form-section">
+            <label>Name of Employee:</label>
+            <input type="text" disabled>
+        </div>
+        <div class="form-section">
+            <label>Rating Period:</label>
+            <input type="text" disabled>
+        </div>
+
+        <div class="form-section">
+            <label>Position:</label>
+            <input type="text" disabled>
+        </div>
+        <div class="form-section">
+            <label>Date of Review:</label>
+            <input type="text" disabled>
+        </div>
+
+        <div class="form-section">
+            <label>Name of Rater:</label>
+            <input type="text" disabled>
+        </div>
+        <div class="form-section">
+            <label>Position of Rater:</label>
+            <input type="text" disabled>
+        </div>
+
+        <div class="form-section">
+            <label>Bureau/Center/Service/Division:</label>
+            <input type="text" disabled>
+        </div>
+
+        <h2>Individual Performance Commitment and Review Form</h2>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Key Result Area</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>KRA 1: Content Knowledge and Pedagogy</td>
+                    <td><input type="text" disabled></td>
+                </tr>
+                <tr>
+                    <td>KRA 2: Learning and Environment and Diversity</td>
+                    <td><input type="text" disabled></td>
+                </tr>
+                <tr>
+                    <td>KRA 3: Curriculum and Planning</td>
+                    <td><input type="text" disabled></td>
+                </tr>
+                <tr>
+                    <td>KRA 4: Curriculum and Planning & Assessment</td>
+                    <td><input type="text" disabled></td>
+                </tr>
+                <tr>
+                    <td>Plus Factor</td>
+                    <td><input type="text" disabled></td>
+                </tr>
+                <tr>
+                    <td>Final Rating</td>
+                    <td><input type="text" disabled></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Development Plans</h2>
+        
+        <div class="plan-section">
+            <h3>Functional Competencies</h3>
+            <label>Strengths:</label>
+            <textarea disabled></textarea>
+            <label>Development Needs:</label>
+            <textarea disabled></textarea>
+            <h3>Action Plan (Recommended Developmental Intervention)</h3>
+            <label>Learning Objectives</label>
+            <textarea disabled></textarea>
+            <label>Intervention</label>
+            <textarea disabled></textarea>
+            <label>Timeliness</label>
+            <textarea disabled></textarea>
+            <label>Resources Needs</label>
+            <textarea disabled></textarea>
+        </div>
+
+        <div class="plan-section">
+            <h3>Behavioral Competencies</h3>
+            <label>Strengths:</label>
+            <textarea disabled></textarea>
+            <label>Development Needs:</label>
+            <textarea disabled></textarea>
+            <h3>Action Plan (Recommended Developmental Intervention)</h3>
+            <label>Learning Objectives</label>
+            <textarea disabled></textarea>
+            <label>Intervention</label>
+            <textarea disabled></textarea>
+            <label>Timeliness</label>
+            <textarea disabled></textarea>
+            <label>Resources Needs</label>
+            <textarea disabled></textarea>
+        </div>
+
+        <div class="buttons" id="buttonsSection2">
+            <a href="teacher_records_ipcrf.html"><button class="back" id="backButton2">Back</button></a>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to download the form as a PDF
+        document.getElementById('downloadPdf').addEventListener('click', function () {
+            const formContent = document.querySelector('.form-container');
+
+            // Use html2canvas to convert the HTML to canvas
+            html2canvas(formContent).then(function (canvas) {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF();
+                
+                // Add image to PDF
+                pdf.addImage(imgData, 'PNG', 10, 10, 190, 0); // Adjust dimensions as needed
+                
+                // Save the generated PDF
+                pdf.save('Teacher_Rating_Sheet.pdf');
+            });
+        });
+
+        // Function to print the form
+        document.getElementById('printForm').addEventListener('click', function () {
+            window.print();
+        });
+        
+
+        // Modal logic
+        const logoutButton = document.getElementById('logoutLink');  // Logout button
+        const logoutModal = document.getElementById('logoutModal');
+        const yesButton = document.querySelector('.yes-btn');
+        const noButton = document.querySelector('.no-btn');
+        
+        // Show modal when logout is clicked
+        logoutButton.addEventListener('click', function(event) {
+            event.preventDefault();  // Prevent default logout behavior
+            logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
+        });
+        
+        // Hide modal when "No" is clicked
+        noButton.addEventListener('click', function() {
+            logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
+        });
+        
+        // Redirect when "Yes" is clicked
+        yesButton.addEventListener('click', async function() {
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            window.location.href = '../../get-started.html'; 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+});
+        </script>
