@@ -487,3 +487,51 @@ textarea {
 .buttons {
     text-align: center;
 }
+
+/* Position the container as a relative element for absolute positioning of buttons */
+.form-container {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 90px;
+}
+
+/* Action buttons inside the form-container positioned in the upper-right corner */
+.action-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Style for the action buttons */
+.action {
+    background-color: #007BFF;  /* Blue background */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.action i {
+    font-size: 16px;
+}
+
+/* Hover effect for buttons */
+.action:hover {
+    background-color: #0056b3;
+}
+
+/* Print-specific CSS to hide buttons and nav when printing */
+@media print {
+    header, .action-buttons {
+        display: none !important;  /* Hide header and action buttons when printing */
+    }
+}
