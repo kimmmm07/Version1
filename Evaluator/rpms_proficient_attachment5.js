@@ -44,7 +44,10 @@ const gradeList = document.getElementById('grade-list');
 const gradeItem1 = document.getElementById('grade-item-1');
 const gradeItem2 = document.getElementById('grade-item-2');
 const gradeItem3 = document.getElementById('grade-item-3');
+
+// Total Score in Sidebar
 const totalScore = document.getElementById('total-score');
+const totalScoreValue = document.getElementById('total-score-value');
 
 // Private comment section
 const privateCommentsTextarea = document.getElementById('private-comments-textarea');

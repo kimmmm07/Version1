@@ -447,3 +447,33 @@ main {
   border: 1px solid #082F96 !important;
   font-weight: 700;
 }
+
+
+.input-container {
+  display: inline-flex;
+  align-items: center;
+}
+
+#score {
+  width: 50px;
+  padding: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid #333;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-right: -18px; /* Ensures no visible gap */
+}
+
+#max-score {
+  width: 30px;
+  padding: 5px;
+  text-align: center;
+  background-color: white;
+  color: black;
+  box-sizing: border-box;
+  border: 1px solid #333;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  pointer-events: none;
+}

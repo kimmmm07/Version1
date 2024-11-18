@@ -41,7 +41,7 @@ const gradeItem3 = gradeItems[2].querySelector('span');
 
 // Total Score in Sidebar
 const totalScore = detailsSidebar.querySelector('.total-score');
-const totalScoreValue = totalScore.querySelector('span');
+const totalScoreValue = document.getElementById('total-score-value');
 
 // Private Comments Section in Sidebar
 const privateCommentsSection = detailsSidebar.querySelector('.private-comments-section');
