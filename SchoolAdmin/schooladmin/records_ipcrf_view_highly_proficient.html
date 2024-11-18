@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faculty Management</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
     <link rel="stylesheet" href="records_ipcrf_view_highly_proficient_css.css">
 </head>
 <body>
@@ -27,6 +28,12 @@
     </nav>
 
     <div class="form-container">
+         <!-- Action buttons positioned in the upper-right corner of the container -->
+         <div class="action-buttons">
+            <button id="downloadPdf" class="action"><i class="fas fa-file-pdf"></i> Download PDF</button>
+            <button id="printForm" class="action"><i class="fas fa-print"></i> Print Form</button>
+        </div>
+        
         <img src="assets/deped.png" alt="DepEd Logo" class="logo" id="depedLogo">
         <h1>Individual Performance Commitment and Review Form Summary Sheet</h1>
         
@@ -151,7 +158,30 @@
         </div>
     </div>
 
-    <script>// Modal logic
+    <script>
+        // Function to download the form as a PDF
+        document.getElementById('downloadPdf').addEventListener('click', function () {
+            const formContent = document.querySelector('.form-container');
+
+            // Use html2canvas to convert the HTML to canvas
+            html2canvas(formContent).then(function (canvas) {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF();
+                
+                // Add image to PDF
+                pdf.addImage(imgData, 'PNG', 10, 10, 190, 0); // Adjust dimensions as needed
+                
+                // Save the generated PDF
+                pdf.save('Teacher_Rating_Sheet.pdf');
+            });
+        });
+
+        // Function to print the form
+        document.getElementById('printForm').addEventListener('click', function () {
+            window.print();
+        });
+        
+        // Modal logic
         const logoutButton = document.getElementById('logoutLink');  // Logout button
         const logoutModal = document.getElementById('logoutModal');
         const yesButton = document.querySelector('.yes-btn');
