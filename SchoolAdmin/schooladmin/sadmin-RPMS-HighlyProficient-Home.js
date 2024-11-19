@@ -130,16 +130,17 @@ const colorPairs = [
     { background: "#2ECC71", text: "#FFFFFF" }, //2024-2025
     { background: "#E74C3C", text: "#FFFFFF" }, //2025-2026
     { background: "#9B59B6", text: "#FFFFFF" }, //2026-2027
-    { background: "#F39C12", text: "#FFFFFF" }, //2027-2028....
-    { background: "#1ABC9C", text: "#FFFFFF" },
-    { background: "#34495E", text: "#FFFFFF" },
-    { background: "#E67E22", text: "#FFFFFF" },
-    { background: "#16A085", text: "#FFFFFF" }, 
-    { background: "#8E44AD", text: "#FFFFFF" },
-    { background: "#2980B9", text: "#FFFFFF" },
-    { background: "#D35400", text: "#FFFFFF" },
-    { background: "#C0392B", text: "#FFFFFF" },
-    { background: "#27AE60", text: "#FFFFFF" },
+    { background: "#F39C12", text: "#FFFFFF" }, //2027-2028
+    { background: "#1ABC9C", text: "#FFFFFF" }, //2028-2029
+    { background: "#34495E", text: "#FFFFFF" }, //2029-2030
+    { background: "#E67E22", text: "#FFFFFF" }, //2030-2031
+    { background: "#16A085", text: "#FFFFFF" }, //2031-2032
+    { background: "#8E44AD", text: "#FFFFFF" }, //2032-2033
+    { background: "#2980B9", text: "#FFFFFF" }, //2033-2034
+    { background: "#D35400", text: "#FFFFFF" }, //2034-2035
+    { background: "#C0392B", text: "#FFFFFF" }, //2035-2036
+    { background: "#27AE60", text: "#FFFFFF" }, //2036-2037
+    
     // { background: "#2C3E50", text: "#FFFFFF" },
     // { background: "#F1C40F", text: "#FFFFFF" },
     // { background: "#1F618D", text: "#FFFFFF" },
