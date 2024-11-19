@@ -164,10 +164,20 @@
     // Confirm decline action
     confirmDeclineButton.addEventListener('click', async () => {
         event.preventDefault();
-        const reason = String(document.getElementById('declineReason').value);
+        let reason = String(document.getElementById('declineReason').value);
         if (!reason){
             alert("Select a reason.");
             return;
+        }
+
+        if (reason === 'Other') {
+            const otherText = document.getElementById('otherText').value;
+            if (!otherText) {
+                alert("Please provide a reason for 'Other'.");
+                return;
+            } else{
+                reason = `${reason}: ${otherText}`;
+            }
         }
         const formData = new FormData();
         

@@ -94,7 +94,7 @@ window.addEventListener('load', async function() {
                 <div class="school-column school">${details.school}</div>
                 <div class="school-column">${details.address}</div>
                 <div class="school-column">${details.id}</div>
-                <div class="school-column action">
+                <div class="school-column action view-icon ">
                     <i class="fas fa-eye view-icon"></i> View
                 </div>
             `;
@@ -107,6 +107,7 @@ window.addEventListener('load', async function() {
         
         // Add event listener for View icon click
         schoolRowWrapper.addEventListener('click', (e) => {
+            console.log("Clicked on View icon", e.target );
             if (e.target.classList.contains('view-icon')) {
                 const row = e.target.closest('.school-row');
                 const data = row.schoolData;  // Access the row's attached school data
