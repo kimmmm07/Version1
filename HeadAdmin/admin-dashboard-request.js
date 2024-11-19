@@ -95,7 +95,7 @@ window.addEventListener('load', async function() {
                 <div class="school-column">${details.address}</div>
                 <div class="school-column">${details.id}</div>
                 <div class="school-column action view-icon ">
-                    <i class="fas fa-eye view-icon"></i> View
+                    <i class="fas fa-eye"></i> View
                 </div>
             `;
         
