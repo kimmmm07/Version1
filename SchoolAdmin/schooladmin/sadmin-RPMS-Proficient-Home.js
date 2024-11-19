@@ -228,7 +228,7 @@ function generateCard(folder) {
 
     // Create the school year icon image
     const schoolYearIcon = document.createElement('img');
-    schoolYearIcon.src = "asset/Group 267.png";
+    schoolYearIcon.src = "assets/Group 267.png";
     schoolYearIcon.alt = "SY Icon";
     // schoolYearIcon.id = "schoolYearIcon";
 
@@ -266,7 +266,7 @@ function generateCard(folder) {
 
     // Create the user icon image
     const userIcon = document.createElement('img');
-    userIcon.src = "asset/Name.png";
+    userIcon.src = "assets/Name.png";
     userIcon.alt = "User Icon";
     // userIcon.id = "userIcon";
 
