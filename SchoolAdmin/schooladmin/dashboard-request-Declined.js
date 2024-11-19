@@ -2,7 +2,7 @@
 
 window.addEventListener('load', async function () {
     // Fetch school data
-     const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/schools/', {
+     const response = await fetch('https://bnahs.pythonanywhere.com/api/school/people/get/by_status/', {
          method: 'GET',
          credentials: 'include'
      });
@@ -17,20 +17,18 @@ window.addEventListener('load', async function () {
          document.querySelectorAll('.school-row:not(.header)').forEach(row => row.remove());
  
          // Loop through schools and create rows if they are accepted
-         data.schools.forEach(school => {
-             if (school.is_declined) {
+         data.rejected.forEach(school => { 
                  const row = document.createElement('div');
                  row.classList.add('school-row');
                  row.innerHTML = `
-                     <div class="school-column">${school.name}</div>
-                     <div class="school-column school">${school.school_name}</div>
-                     <div class="school-column">${school.school_address}</div>
-                     <div class="school-column">${school.school_id}</div>
+                     <div class="school-column">${school.fullname}</div>
+                     <div class="school-column school">${school.position}</div>
+                     <div class="school-column">${school.grade_level}</div>
+                     <div class="school-column">${school.employee_id}</div>
                      <div class="school-column status">Declined</div>
-                     <div class="school-column status"></div>
+                     <div class="school-column status">${school.reason}</div>
                  `;
-                 schoolRowWrapper.appendChild(row);
-             }
+                 schoolRowWrapper.appendChild(row); 
          });
      } else {
          console.log("Error Data:", data);
