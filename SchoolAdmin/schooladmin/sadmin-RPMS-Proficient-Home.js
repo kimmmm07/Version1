@@ -75,6 +75,9 @@ document.getElementById('createFolderBtn').addEventListener('click', openModal);
 
 // JavaScript for handling folder creation
 
+
+
+
 // Get elements
 const createFolderBtn = document.getElementById('createFolderBtn');
 const formModal = document.getElementById('formModal');
@@ -84,42 +87,39 @@ const cardsSection = document.querySelector('.cards-section');
 const createBtn = document.querySelector('.create');
 const closeModalBtn = document.querySelector('.modal-close-btn');
 
-// List of appealing color pairs (background + white text)
-const colorPairs = [
-    { background: "#3498DB", text: "#FFFFFF" },
-    { background: "#2ECC71", text: "#FFFFFF" },
-    { background: "#E74C3C", text: "#FFFFFF" },
-    { background: "#9B59B6", text: "#FFFFFF" },
-    { background: "#F39C12", text: "#FFFFFF" },
-    { background: "#1ABC9C", text: "#FFFFFF" },
-    { background: "#34495E", text: "#FFFFFF" },
-    { background: "#E67E22", text: "#FFFFFF" },
-    { background: "#16A085", text: "#FFFFFF" }, 
-    { background: "#8E44AD", text: "#FFFFFF" },
-    { background: "#2980B9", text: "#FFFFFF" },
-    { background: "#D35400", text: "#FFFFFF" },
-    { background: "#C0392B", text: "#FFFFFF" },
-    { background: "#27AE60", text: "#FFFFFF" },
-    { background: "#2C3E50", text: "#FFFFFF" },
-    { background: "#F1C40F", text: "#FFFFFF" },
-    { background: "#1F618D", text: "#FFFFFF" },
-    { background: "#D98880", text: "#FFFFFF" },
-    { background: "#AF7AC5", text: "#FFFFFF" },
-    { background: "#1D8348", text: "#FFFFFF" },
-    { background: "#D4AC0D", text: "#FFFFFF" },
-    { background: "#C0392B", text: "#FFFFFF" },
-    { background: "#117A65", text: "#FFFFFF" },
-    { background: "#7D3C98", text: "#FFFFFF" },
-    { background: "#148F77", text: "#FFFFFF" },
-    { background: "#2471A3", text: "#FFFFFF" },
-    { background: "#D68910", text: "#FFFFFF" },
-    { background: "#6C3483", text: "#FFFFFF" },
-    { background: "#BA4A00", text: "#FFFFFF" },
-    { background: "#1A5276", text: "#FFFFFF" }
-];
-
-// Initialize an array to keep track of used color indices
-const usedColorIndices = [];
+// List of color pairs (background + white text)
+const colorPairs = {
+    "School Year 2023-2024": { background: "#3498DB", text: "#FFFFFF" },
+    "School Year 2024-2025": { background: "#2ECC71", text: "#FFFFFF" },
+    "School Year 2025-2026": { background: "#E74C3C", text: "#FFFFFF" },
+    "School Year 2026-2027": { background: "#9B59B6", text: "#FFFFFF" },
+    "School Year 2027-2028": { background: "#F39C12", text: "#FFFFFF" },
+    "School Year 2028-2029": { background: "#1ABC9C", text: "#FFFFFF" },
+    "School Year 2029-2030": { background: "#34495E", text: "#FFFFFF" },
+    "School Year 2030-2031": { background: "#E67E22", text: "#FFFFFF" },
+    "School Year 2031-2032": { background: "#16A085", text: "#FFFFFF" },
+    "School Year 2032-2033": { background: "#8E44AD", text: "#FFFFFF" },
+    "School Year 2033-2034": { background: "#2980B9", text: "#FFFFFF" },
+    "School Year 2034-2035": { background: "#D35400", text: "#FFFFFF" },
+    "School Year 2035-2036": { background: "#C0392B", text: "#FFFFFF" },
+    "School Year 2036-2037": { background: "#27AE60", text: "#FFFFFF" }
+};
+    // { background: "#2C3E50", text: "#FFFFFF" },
+    // { background: "#F1C40F", text: "#FFFFFF" },
+    // { background: "#1F618D", text: "#FFFFFF" },
+    // { background: "#D98880", text: "#FFFFFF" },
+    // { background: "#AF7AC5", text: "#FFFFFF" },
+    // { background: "#1D8348", text: "#FFFFFF" },
+    // { background: "#D4AC0D", text: "#FFFFFF" },
+    // { background: "#C0392B", text: "#FFFFFF" },
+    // { background: "#117A65", text: "#FFFFFF" },
+    // { background: "#7D3C98", text: "#FFFFFF" },
+    // { background: "#148F77", text: "#FFFFFF" },
+    // { background: "#2471A3", text: "#FFFFFF" },
+    // { background: "#D68910", text: "#FFFFFF" },
+    // { background: "#6C3483", text: "#FFFFFF" },
+    // { background: "#BA4A00", text: "#FFFFFF" },
+    // { background: "#1A5276", text: "#FFFFFF" }
 
 // Function to lighten a color
 function lightenColor(hex, percent) {
@@ -141,34 +141,20 @@ function darkenColor(hex, percent) {
     return `#${(0x1000000 + (R * 0x10000 + G * 0x100 + B)).toString(16).slice(1)}`;
 }
 
-// Function to assign a random color pair
-function assignRandomColor(folderElement) {
-    // Check if all colors have been used
-    if (usedColorIndices.length === colorPairs.length) {
-        alert("All color pairs have been used. Resetting.");
-        usedColorIndices.length = 0; // Clear the array to reuse colors
-    }
+// Function to assign fixed color based on school year
+function assignFixedColor(folderElement, schoolYear) {
+    const selectedPair = colorPairs[schoolYear];
 
-    let randomIndex;
+    if (selectedPair) {
+        folderElement.style.backgroundColor = selectedPair.background;
+        folderElement.style.color = selectedPair.text;
 
-    // Select a random index that hasn't been used yet
-    do {
-        randomIndex = Math.floor(Math.random() * colorPairs.length);
-    } while (usedColorIndices.includes(randomIndex));
-
-    // Store the used index
-    usedColorIndices.push(randomIndex);
-    const selectedPair = colorPairs[randomIndex];
-
-    // Apply the selected background and text colors
-    folderElement.style.backgroundColor = selectedPair.background;
-    folderElement.style.color = selectedPair.text;
-
-    // Set the SY icon background to a darker color and text to a lighter color
-    const syIcon = folderElement.querySelector('.sy-icon');
-    if (syIcon) {
-        syIcon.style.backgroundColor = darkenColor(selectedPair.background, 10); // Darken by 10%
-        syIcon.style.color = lightenColor(selectedPair.background, 50); // Lighten by 50%
+        // Set the SY icon background to a darker color and text to a lighter color
+        const syIcon = folderElement.querySelector('.sy-icon');
+        if (syIcon) {
+            syIcon.style.backgroundColor = darkenColor(selectedPair.background, 10);
+            syIcon.style.color = lightenColor(selectedPair.background, 50);
+        }
     }
 }
 
@@ -182,114 +168,113 @@ function assignRandomColor(folderElement) {
 
 
 
+// function generateCard(folder) {
+//     // Create the anchor tag
+//     const anchor = document.createElement('a');
+//     // anchor.href = "rpms_proficient_stream.html";
+//     anchor.onclick = function(event) {
+//         event.preventDefault();
+//         sessionStorage.setItem('rpms_folder_id', folder.rpms_folder_id);
+//         window.location.href = 'sadmin-RPMS-Proficient-Landing.html';
+//     };
+//     anchor.className = "card-link";
+//     // anchor.id = "cardLink";
 
-function generateCard(folder) {
-    // Create the anchor tag
-    const anchor = document.createElement('a');
-    // anchor.href = "rpms_proficient_stream.html";
-    anchor.onclick = function(event) {
-        event.preventDefault();
-        sessionStorage.setItem('rpms_folder_id', folder.rpms_folder_id);
-        window.location.href = 'sadmin-RPMS-Proficient-Landing.html';
-    };
-    anchor.className = "card-link";
-    // anchor.id = "cardLink";
+//     // Create the card div
+//     const card = document.createElement('div');
+//     card.className = "card";
+//     // card.id = "card";
 
-    // Create the card div
-    const card = document.createElement('div');
-    card.className = "card";
-    // card.id = "card";
+//     // Create the card header
+//     const cardHeader = document.createElement('div');
+//     cardHeader.className = "card-header blue";
+//     cardHeader.style.backgroundColor = folder.rpms_folder_background_color;
+//     // cardHeader.id = "cardHeader";
 
-    // Create the card header
-    const cardHeader = document.createElement('div');
-    cardHeader.className = "card-header blue";
-    cardHeader.style.backgroundColor = folder.rpms_folder_background_color;
-    // cardHeader.id = "cardHeader";
+//     // Create the header content div
+//     const headerContent = document.createElement('div');
+//     headerContent.className = "header-content";
+//     // headerContent.id = "headerContent";
+//     headerContent.textContent = folder.rpms_folder_name;
 
-    // Create the header content div
-    const headerContent = document.createElement('div');
-    headerContent.className = "header-content";
-    // headerContent.id = "headerContent";
-    headerContent.textContent = folder.rpms_folder_name;
+//     // Create the school year span
+//     const schoolYear = document.createElement('span');
+//     schoolYear.className = "subheader";
+//     // schoolYear.id = "schoolYear";
+//     schoolYear.textContent = folder.rpms_folder_school_year;
 
-    // Create the school year span
-    const schoolYear = document.createElement('span');
-    schoolYear.className = "subheader";
-    // schoolYear.id = "schoolYear";
-    schoolYear.textContent = folder.rpms_folder_school_year;
+//     // Append the school year span to the header content
+//     headerContent.appendChild(schoolYear);
 
-    // Append the school year span to the header content
-    headerContent.appendChild(schoolYear);
+//     // Create the header icon div
+//     const headerIcon = document.createElement('div');
+//     headerIcon.className = "header-icon";
+//     headerIcon.id = "headerIcon";
 
-    // Create the header icon div
-    const headerIcon = document.createElement('div');
-    headerIcon.className = "header-icon";
-    headerIcon.id = "headerIcon";
+//     // Create the school year icon image
+//     const schoolYearIcon = document.createElement('img');
+//     schoolYearIcon.src = "assets/Group 267.png";
+//     schoolYearIcon.alt = "SY Icon";
+//     // schoolYearIcon.id = "schoolYearIcon";
 
-    // Create the school year icon image
-    const schoolYearIcon = document.createElement('img');
-    schoolYearIcon.src = "assets/Group 267.png";
-    schoolYearIcon.alt = "SY Icon";
-    // schoolYearIcon.id = "schoolYearIcon";
+//     // Append the image to the header icon
+//     headerIcon.appendChild(schoolYearIcon);
 
-    // Append the image to the header icon
-    headerIcon.appendChild(schoolYearIcon);
+//     // Append header content and header icon to card header
+//     cardHeader.appendChild(headerContent);
+//     cardHeader.appendChild(headerIcon);
 
-    // Append header content and header icon to card header
-    cardHeader.appendChild(headerContent);
-    cardHeader.appendChild(headerIcon);
+//     // Create the card body
+//     const cardBody = document.createElement('div');
+//     cardBody.className = "card-body";
+//     // cardBody.id = "cardBody";
 
-    // Create the card body
-    const cardBody = document.createElement('div');
-    cardBody.className = "card-body";
-    // cardBody.id = "cardBody";
+//     // Create the card body text paragraph
+//     const cardBodyText = document.createElement('p');
+//     // cardBodyText.id = "cardBodyText";
 
-    // Create the card body text paragraph
-    const cardBodyText = document.createElement('p');
-    // cardBodyText.id = "cardBodyText";
+//     // Create the list in the card body
+//     const cardBodyList = document.createElement('ul');
+//     // cardBodyList.id = "cardBodyList";
 
-    // Create the list in the card body
-    const cardBodyList = document.createElement('ul');
-    // cardBodyList.id = "cardBodyList";
+//     // Create list items
+//     for (let i = 1; i <= 5; i++) {
+//         const listItem = document.createElement('li');
+//         listItem.id = `listItem${i}`;
+//         cardBodyList.appendChild(listItem);
+//     }
 
-    // Create list items
-    for (let i = 1; i <= 5; i++) {
-        const listItem = document.createElement('li');
-        listItem.id = `listItem${i}`;
-        cardBodyList.appendChild(listItem);
-    }
+//     // Create the card icon bottom
+//     const cardIconBottom = document.createElement('div');
+//     cardIconBottom.className = "card-icon-bottom";
+//     // cardIconBottom.id = "cardIconBottom";
 
-    // Create the card icon bottom
-    const cardIconBottom = document.createElement('div');
-    cardIconBottom.className = "card-icon-bottom";
-    // cardIconBottom.id = "cardIconBottom";
+//     // Create the user icon image
+//     const userIcon = document.createElement('img');
+//     userIcon.src = "assets/Name.png";
+//     userIcon.alt = "User Icon";
+//     // userIcon.id = "userIcon";
 
-    // Create the user icon image
-    const userIcon = document.createElement('img');
-    userIcon.src = "assets/Name.png";
-    userIcon.alt = "User Icon";
-    // userIcon.id = "userIcon";
+//     // Append the user icon to the card icon bottom
+//     cardIconBottom.appendChild(userIcon);
 
-    // Append the user icon to the card icon bottom
-    cardIconBottom.appendChild(userIcon);
+//     // Append card body text, list, and icon bottom to card body
+//     cardBody.appendChild(cardBodyText);
+//     cardBody.appendChild(cardBodyList);
+//     cardBody.appendChild(cardIconBottom);
 
-    // Append card body text, list, and icon bottom to card body
-    cardBody.appendChild(cardBodyText);
-    cardBody.appendChild(cardBodyList);
-    cardBody.appendChild(cardIconBottom);
+//     // Append card header and card body to card
+//     card.appendChild(cardHeader);
+//     card.appendChild(cardBody);
 
-    // Append card header and card body to card
-    card.appendChild(cardHeader);
-    card.appendChild(cardBody);
+//     // Append card to anchor
+//     anchor.appendChild(card);
 
-    // Append card to anchor
-    anchor.appendChild(card);
+//     // Find the cards section element 
 
-    // Find the cards section element 
-
-    // Append anchor to the cards section
-    cardsSection.appendChild(anchor);
-}
+//     // Append anchor to the cards section
+//     cardsSection.appendChild(anchor);
+// }
 
 
 
@@ -333,7 +318,6 @@ createBtn.addEventListener('click', async () => {
     const folderName = form1.value.trim();
     const schoolYear = form2.value;
 
-    // Ensure folder name and school year are filled
     if (folderName && schoolYear) {
         // Check if a folder for the selected school year already exists
         const existingFolder = Array.from(cardsSection.querySelectorAll('.card-link')).find(card => {
@@ -341,17 +325,17 @@ createBtn.addEventListener('click', async () => {
         });
 
         if (existingFolder) {
-            alert('The selected school year already exists.');
+            openDuplicateYearModal(); // Show the modal if a duplicate school year is found
             return; // Exit if a folder for the school year already exists
         }
 
-        try{
+        try {
             const formData = new FormData();
             formData.append('folder_name', folderName);
             formData.append('school_year', schoolYear);
             formData.append('position_rpms', 'Proficient');
-            formData.append('background_color', '#3498DB');
-            formData.append('color', '#FFFFFF');
+            formData.append('background_color', colorPairs[schoolYear].background);
+            formData.append('color', colorPairs[schoolYear].text);
 
             const response = await fetch('https://bnahs.pythonanywhere.com/api/school/forms/rpms/folders/create/', {
                 method: 'POST',
@@ -362,17 +346,15 @@ createBtn.addEventListener('click', async () => {
                 body: formData,
             });
             const data = await response.json();
-     
-    
+
             if (response.ok) {
                 console.log('Folder created successfully:', data);
             } else {
-                console.error('Error creating folder:', data.error); 
+                console.error('Error creating folder:', data.error);
             }
-        } catch(e){
+        } catch (e) {
             console.error("Error creating folder:", e);
         }
-        
 
         // Create new folder card
         const newCard = document.createElement('a');
@@ -386,7 +368,7 @@ createBtn.addEventListener('click', async () => {
                         ${folderName}
                         <span class="subheader">${schoolYear}</span>
                     </div>
-                    
+                    <button class="delete-btn" onclick="deleteFolder(this)">&#10006;</button>
                     <div class="header-icon sy-icon">SY</div>
                 </div>
                 <div class="card-body">
@@ -407,9 +389,9 @@ createBtn.addEventListener('click', async () => {
         // Append the new folder card to the cards-section
         cardsSection.appendChild(newCard);
 
-        // Assign random color to the new card
+        // Assign fixed color to the new card based on the selected school year
         const cardHeader = newCard.querySelector('.card-header');
-        assignRandomColor(cardHeader);
+        assignFixedColor(cardHeader, schoolYear);
 
         // Close the modal and reset the form fields
         closeModal();
@@ -417,6 +399,7 @@ createBtn.addEventListener('click', async () => {
         alert('Please fill in both Folder Name and School Year.');
     }
 });
+
 
 
 function onclickOpenFolder(rpms_folder_id){

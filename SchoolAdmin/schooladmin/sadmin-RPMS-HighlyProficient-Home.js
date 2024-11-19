@@ -41,6 +41,7 @@ yesButton.addEventListener('click', async function() {
 
 
 
+
 // Function to open modal
 function openModal() {
     document.getElementById('formModal').style.display = 'flex';
@@ -70,6 +71,8 @@ document.addEventListener("DOMContentLoaded", closeModal);
 document.getElementById('createFolderBtn').addEventListener('click', openModal);
 
 // JavaScript for handling folder creation
+
+
 
 // Get elements
 const createFolderBtn = document.getElementById('createFolderBtn');
