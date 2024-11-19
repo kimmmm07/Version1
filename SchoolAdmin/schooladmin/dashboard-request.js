@@ -3,33 +3,32 @@ window.addEventListener('load', async function() {
     const modal = document.getElementById('modal-overlay');
     const closeModal = document.querySelector('.close-button');
 
-    const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/schools/', {
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/school/people/get/by_status/', {
         method: 'GET',
         credentials: 'include'
     });
 
-    const data = await response.json();
+    const result = await response.json();
 
     if (response.ok) {
+        const data = result.all;
         console.log("Success Data:", data);
         const baseURL = 'https://bnahs.pythonanywhere.com';
         // Create the userData object
         const userData = [];
 
         // Loop through each school in the data and populate userData as an array
-        data.schools.forEach(school => {
-            if (school.is_verified == true && school.is_accepted == false && school.is_declined == false){
+        data.forEach(people => { 
                 userData.push({
-                    name: school.name,
-                    email: school.email_address,
-                    school: school.school_name,
-                    address: school.school_address,
-                    type: school.school_type,
-                    id: school.school_id,
-                    contact: school.contact_number,
-                    school_logo: baseURL + school.school_logo
-                });
-            }
+                    name: people.fullname,
+                    email: people.email_address,
+                    people: people.fullname,
+                    address: people.grade_level,
+                    type: people.position,
+                    id: people.employee_id,
+                    contact: people.email_address,
+                    school: people.position,
+                }); 
         });
         
         console.log("Formatted userData:", userData);
