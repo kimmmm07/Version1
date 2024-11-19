@@ -266,9 +266,47 @@ yesButton.addEventListener('click', async function() {
 
 
 
+let evaluator = undefined;
 let cot = undefined;
 let teacher = undefined;
 let cot_content = undefined;
+
+
+
+
+async function getEvaluator() {
+    try {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/profile/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);
+            evaluator = data.evaluator;
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+getEvaluator();
+
+
+
+
+
+
+
+
+
 
 async function getCot() {
     try {
@@ -328,6 +366,7 @@ async function updateCot() {
         cot_content['Teacher ID'] = teacher_id;
         cot_content['Quarter'] = quarter; 
         cot_content['Comments'] = commentsTextarea.value;
+        cot_content['Observer ID'] = evaluator.employee_id;
         cot_content['Questions']['1']['Selected'] = q1;
         cot_content['Questions']['2']['Selected'] = q2;
         cot_content['Questions']['3']['Selected'] = q3;
