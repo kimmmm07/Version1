@@ -39,50 +39,88 @@ yesButton.addEventListener('click', async function() {
     }
 });
 
+// Function to open modal
+function openModal() {
+    document.getElementById('formModal').style.display = 'flex';
+}
+
+// Function to close modal
+function closeModal() {
+    document.getElementById('formModal').style.display = 'none';
+    form1.value = ''; // Reset input fields
+    form2.selectedIndex = 0; // Reset dropdown
+}
+
+// Function to open duplicate year modal
+function openDuplicateYearModal() {
+    document.getElementById('duplicateYearModalContent').style.display = 'flex';
+}
+
+// Function to close duplicate year modal
+function closeDuplicateYearModal() {
+    document.getElementById('closeDuplicateYearBtn').style.display = 'none';
+}
+
+// Hide modal initially when forms are displayed
+document.addEventListener("DOMContentLoaded", closeModal);
+
+// Attach event listener to the Create Folder button
+document.getElementById('createFolderBtn').addEventListener('click', openModal);
+
+// JavaScript for handling folder creation
+
+// Get elements
+const createFolderBtn = document.getElementById('createFolderBtn');
+const formModal = document.getElementById('formModal');
+const form1 = document.getElementById('form1'); // Folder Name input
+const form2 = document.getElementById('form2'); // School Year dropdown
+const cardsSection = document.querySelector('.cards-section');
+const createBtn = document.querySelector('.create');
+const closeModalBtn = document.querySelector('.modal-close-btn');
 
 
 
-// Modal for Duplicate Year
-document.addEventListener("DOMContentLoaded", function () {
-    const duplicateYearModal = document.getElementById('duplicateYearModal');
-    const formModal = document.getElementById('formModal');
-    const createFolderBtn = document.getElementById('createFolderBtn');
-    const closeDuplicateYearModalBtn = document.querySelector('#duplicateYearModal button');
-    const form1 = document.getElementById('form1'); // Folder Name input
-    const form2 = document.getElementById('form2'); // School Year dropdown
-    const cardsSection = document.querySelector('.cards-section');
-    const createBtn = document.querySelector('.create');
-    const closeModalBtn = document.querySelector('.modal-close-btn');
+// // Modal for Duplicate Year
+// document.addEventListener("DOMContentLoaded", function () {
+//     const duplicateYearModal = document.getElementById('duplicateYearModal');
+//     const formModal = document.getElementById('formModal');
+//     const createFolderBtn = document.getElementById('createFolderBtn');
+//     const closeDuplicateYearModalBtn = document.querySelector('#duplicateYearModal button');
+//     const form1 = document.getElementById('form1'); // Folder Name input
+//     const form2 = document.getElementById('form2'); // School Year dropdown
+//     const cardsSection = document.querySelector('.cards-section');
+//     const createBtn = document.querySelector('.create');
+//     const closeModalBtn = document.querySelector('.modal-close-btn');
 
-    // Function to open duplicate year modal
-    function openDuplicateYearModal() {
-        duplicateYearModal.classList.remove('hidden');
-    }
+//     // Function to open duplicate year modal
+//     function openDuplicateYearModal() {
+//         duplicateYearModal.classList.remove('hidden');
+//     }
 
-    // Function to close duplicate year modal
-    function closeDuplicateYearModal() {
-        duplicateYearModal.classList.add('hidden');
-    }
+//     // Function to close duplicate year modal
+//     function closeDuplicateYearModal() {
+//         duplicateYearModal.classList.add('hidden');
+//     }
 
-    closeDuplicateYearModalBtn.addEventListener('click', closeDuplicateYearModal);
+//     closeDuplicateYearModalBtn.addEventListener('click', closeDuplicateYearModal);
 
-    // Open modal function
-    function openModal() {
-        formModal.style.display = 'flex';
-    }
+//     // Open modal function
+//     function openModal() {
+//         formModal.style.display = 'flex';
+//     }
 
-    // Close modal function
-    function closeModal() {
-        formModal.style.display = 'none';
-        form1.value = ''; // Reset input fields
-        form2.selectedIndex = 0; // Reset dropdown
-    }
+//     // Close modal function
+//     function closeModal() {
+//         formModal.style.display = 'none';
+//         form1.value = ''; // Reset input fields
+//         form2.selectedIndex = 0; // Reset dropdown
+//     }
 
-    // Hide modal initially when forms are displayed
-    document.addEventListener("DOMContentLoaded", closeModal);
+//     // Hide modal initially when forms are displayed
+//     document.addEventListener("DOMContentLoaded", closeModal);
 
-    // Attach event listener to the Create Folder button
-    createFolderBtn.addEventListener('click', openModal);
+//     // Attach event listener to the Create Folder button
+//     createFolderBtn.addEventListener('click', openModal);
 
 
 
@@ -468,4 +506,3 @@ function toggleFloatingMenu() {
 function closeMenu() {
     document.getElementById('floating-menu').style.display = 'none';
 }
-});
