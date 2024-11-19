@@ -28,13 +28,13 @@ const observation4 = document.getElementById("observation4");
 const ratingTable2 = document.getElementById("ratingTable2");
 
 // Example: Accessing specific ratings
-const indicator1Rating3 = document.getElementById("indicator1Rating3");
-const indicator2Rating7 = document.getElementById("indicator2Rating7");
-const indicator3Rating7 = document.getElementById("indicator3Rating7");
-const indicator4Rating7 = document.getElementById("indicator4Rating7");
-const indicator5Rating7 = document.getElementById("indicator5Rating7");
-const indicator6Rating7 = document.getElementById("indicator6Rating7");
-const indicator7Rating5 = document.getElementById("indicator7Rating5");
+// const indicator1Rating3 = document.getElementById("indicator1Rating3");
+// const indicator2Rating7 = document.getElementById("indicator2Rating7");
+// const indicator3Rating7 = document.getElementById("indicator3Rating7");
+// const indicator4Rating7 = document.getElementById("indicator4Rating7");
+// const indicator5Rating7 = document.getElementById("indicator5Rating7");
+// const indicator6Rating7 = document.getElementById("indicator6Rating7");
+// const indicator7Rating5 = document.getElementById("indicator7Rating5");
 
 // Comments Section
 const additionalComments = document.getElementById("comments2");
@@ -139,18 +139,20 @@ async function checkRow(idrow , comparisonValue) {
     var row = document.getElementById(idrow);
 
     let selectedData;
-    if (comparisonValue == 4){
+    if (comparisonValue == 3){
         selectedData = row.cells[1];
-    } else if (comparisonValue == 5){
+    } else if (comparisonValue == 4){
         selectedData = row.cells[2];
-    } else if (comparisonValue == 6){
+    } else if (comparisonValue == 5){
         selectedData = row.cells[3];
-    } else if (comparisonValue == 7){
+    } else if (comparisonValue == 6){
         selectedData = row.cells[4];
-    } else if (comparisonValue == 8){
+    } else if (comparisonValue == 7){
         selectedData = row.cells[5];
-    } else {
+    } else if (comparisonValue == 8){
         selectedData = row.cells[6];
+    } else {
+        selectedData = row.cells[7];
     }
     
     // Add class name correctly
