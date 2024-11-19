@@ -48,19 +48,29 @@
                 </div>
             </div> -->
 
-            <div class="school-list">
-                     <!-- Wrapper for rows to manage width -->
-                     <div class="school-row-wrapper">
-                        <div class="school-row header">
-                            <div class="school-column">Name</div>
-                            <div class="school-column school">Position</div>
-                            <div class="school-column">Grade Level</div>
-                            <div class="school-column">Employee ID</div>
-                            <div class="school-column">Status</div>
-                            <div class="school-column">Reason</div>
-                        </div>
-                        <!-- Example of a school entry -->
+            <div class="school-list" id="school-list">
+                <!-- Wrapper for rows to manage width -->
+                <div class="school-row-wrapper" id="school-row-wrapper">
+                    <div class="school-row header" id="school-header">
+                        <div class="school-column" id="name-column">Name</div>
+                        <div class="school-column school" id="position-column">Position</div>
+                        <div class="school-column" id="grade-level-column">Grade Level</div>
+                        <div class="school-column" id="employee-id-column">Employee ID</div>
+                        <div class="school-column" id="status-column">Status</div>
+                        <div class="school-column" id="reason-column">Reason</div>
+                    </div>
+                    <!-- Example of a school entry -->
+                    <div class="school-row" id="school-row">
+                        <div class="school-column" id="name-value">hard coded</div>
+                        <div class="school-column school" id="position-value">hard coded</div>
+                        <div class="school-column" id="grade-level-value">hard coded</div>
+                        <div class="school-column" id="employee-id-value">hard coded</div>
+                        <div class="school-column" id="status-value">hard coded</div>
+                        <div class="school-column" id="reason-value">ajuju</div>
+                    </div>     
                 </div>
+            </div>
+            
             </section>
         </main>
         </div>
@@ -84,6 +94,25 @@
     </div>
 
     <script src="dashboard-request-Declined.js" type="module"></script>
+
+    <script>
+    const schoolList = document.getElementById('school-list');
+    const schoolRowWrapper = document.getElementById('school-row-wrapper');
+    const schoolHeader = document.getElementById('school-header');
+    const nameColumn = document.getElementById('name-column');
+    const positionColumn = document.getElementById('position-column');
+    const gradeLevelColumn = document.getElementById('grade-level-column');
+    const employeeIdColumn = document.getElementById('employee-id-column');
+    const statusColumn = document.getElementById('status-column');
+    const reasonColumn = document.getElementById('reason-column');
+    const schoolRow = document.getElementById('school-row');
+    const nameValue = document.getElementById('name-value');
+    const positionValue = document.getElementById('position-value');
+    const gradeLevelValue = document.getElementById('grade-level-value');
+    const employeeIdValue = document.getElementById('employee-id-value');
+    const statusValue = document.getElementById('status-value');
+    const reasonValue = document.getElementById('reason-value');
+    </script>
 
     <script>
        // Modal logic
@@ -130,6 +159,8 @@
 
 
     </script>
+
+
 
 
 </body>
