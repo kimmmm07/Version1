@@ -29,6 +29,8 @@ window.addEventListener('load', async function() {
                     id: people.employee_id,
                     contact: people.email_address,
                     school: people.position,
+
+
                 }); 
             }
         });
@@ -72,10 +74,12 @@ window.addEventListener('load', async function() {
                 // Populate modal fields with the specific school's data
                 document.getElementById('modal-name').textContent = data.name;
                 document.getElementById('modal-email').textContent = data.email;
-                document.getElementById('modal-job-started').textContent = data.school;
-                document.getElementById('modal-position').textContent = data.address;
-                document.getElementById('modal-department').textContent = data.type;
-                document.getElementById('modal-grade-level').textContent = data.id;
+                document.getElementById('modal-school').textContent = data.school;
+                document.getElementById('modal-address').textContent = data.address;
+                document.getElementById('modal-type').textContent = data.department ?? 'N/A';
+                document.getElementById('modal-id').textContent = data.id;
+                // document.getElementById('modal-contact').textContent = data.contact;
+                // document.getElementById('modal-logo').src = data.school_logo;
         
                 // Display modal
                 modal.style.display = 'flex';
