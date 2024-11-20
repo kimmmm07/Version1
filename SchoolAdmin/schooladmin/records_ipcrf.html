@@ -149,7 +149,7 @@ function renderFacultyList(data) {
 
         let testdate = new Date(member.ipcrf.created_at);
         let optionsThing = { year: 'numeric', month: 'long', day: 'numeric' }; 
-        
+        const randomInteger = Math.floor(Math.random() * 1000) + 1;
         tr.innerHTML = `
             <th>
                 <div class="user-icon"></div>
@@ -159,10 +159,27 @@ function renderFacultyList(data) {
             <th>${member.ipcrf_taker.grade_level}</th>
             <th>${member.ipcrf_taker.department}</th>
             <th>${member.ipcrf_rater ? member.ipcrf_rater.fullname : "N/A"}</th>
-            <th>${testdate.toLocaleDateString('en-US', optionsThing)}</th>
+            <th>${testdate.toLocaleDateString('en-US', optionsThing)}</th>            
+            <th style="color: #032F97; text-align: center;">
+                <a id="view-link-${randomInteger}" style="text-decoration: none; cursor: pointer; color: inherit;">
+                    <img src="assets/Eye.png" class="eye-icon"> View
+                </a>
+            </th> 
         `;
 
         tbody.appendChild(tr);
+
+        const viewLink = document.getElementById(`view-link-${randomInteger}`);
+        viewLink.addEventListener('click', () => {
+            const ipcrfId = member.ipcrf.cot_form_id;
+            localStorage.setItem('teacher_id', member.ipcrf_taker.employee_id);
+            localStorage.setItem('ipcrf_id', ipcrfId);
+            if (member.ipcrf_taker.is_proficient) {
+                window.location.href = "records_ipcrf_view.html";
+            } else{
+                window.location.href = "records_ipcrf_view_highly_proficient.html";
+            }
+        });
     });
 }
 
