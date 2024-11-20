@@ -233,5 +233,5 @@ getFolders();
 
 async function openFolder( folder_id ){
     sessionStorage.setItem('rpms_folder_id', folder_id);
-    window.location.href = '../../rpms_highlyproficient_folder.html';
+    window.location.href = '../../rpms_proficient_folder.html';
 }
