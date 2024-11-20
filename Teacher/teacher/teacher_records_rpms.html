@@ -44,17 +44,17 @@
 
         <div class="filters">
             <div class="filter-box">
-                <select class="filter" id="school-year-filter">
-                    <option>A.Y. 2023 - 2024</option>
+                <!-- <select class="filter" id="school-year-filter"> -->
+                    <!-- <option>A.Y. 2023 - 2024</option>
                     <option>A.Y. 2022 - 2023</option>
-                    <option>A.Y. 2021 - 2022</option>
+                    <option>A.Y. 2021 - 2022</option> -->
                     <!-- Add more options here if necessary -->
-                </select>
-                <select class="filter" id="teacher-status-filter">
-                    <option>Proficient Teacher</option>
-                    <option>Highly Proficient Teacher</option>
+                <!-- </select> -->
+                <!-- <select class="filter" id="teacher-status-filter"> -->
+                    <!-- <option>Proficient Teacher</option>
+                    <option>Highly Proficient Teacher</option> -->
                     <!-- Add more options here if necessary -->
-                </select>
+                <!-- </select> -->
             </div>
         </div>
 
@@ -66,7 +66,7 @@
                     <th>Grade Level</th>
                     <th>Department</th>
                     <th>Rater</th>
-                    <th>Date</th>
+                    <!-- <th>Date</th> -->
                     <th></th>
                     <th></th>
                 </tr>
@@ -235,6 +235,307 @@
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let profile = undefined;
+
+
+
+
+
+async function fetchProfile() {
+    try{
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/profile/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+        
+        profile = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", profile); 
+
+                        
+
+            fetchData();
+
+
+ 
+        } else {
+            console.log("Error Data : ", profile);
+        }
+    } catch (error) {
+        console.log("Error Data : ", error);
+    } 
+}
+
+
+
+fetchProfile();
+
+
+async function fetchData() {
+    try{
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/get/records/rpms/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+        
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+
+            school_year = data.school_year;
+            quarter = data.quarter;
+            takers = data.rpms_taker;
+
+
+            // school_year.forEach(year => {
+            //     addOption(year);
+            // });
+
+            takers.forEach(taker => {
+                if (taker.rpms_taker.employee_id != profile.user.employee_id ){
+                    addTeacherRow(taker); 
+                }
+            });
+
+
+ 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.log("Error Data : ", error);
+    } 
+}
+
+
+
+
+
+function addOption(year) {
+
+
+    // Create a new option element
+    var option = document.createElement('option');
+
+    // Set the value and text of the new option
+    option.value = year;
+    option.text = year;
+
+    // Add the new option to the select element
+    schoolYearSelect.appendChild(option);
+}
+
+
+
+
+
+    // {/* <button onclick="addTeacherRow('John Doe', 'Teacher I', 'Elementary', 'Jane Smith', 987654)">Add Row</button> */}
+    function addTeacherRow(taker) {
+        const taker_data = taker.rpms_taker;
+        const taker_evaluator = taker.rpms_evaluator;
+        const school_year = taker.school_year;
+        const taker_quarter = taker.quarter;
+    
+        // Get the table body
+        var tableBody = document.getElementById('faculty-list');
+    
+        // Create a new row
+        var newRow = document.createElement('tr');
+        newRow.classList.add('second-row');
+        newRow.dataset.facultyId = rowCount;  // Assuming you generate this ID dynamically
+    
+        // Generate a unique row ID (e.g., based on current row count)
+        var rowCount = tableBody.rows.length + 1;
+        newRow.id = 'recordRow' + rowCount;
+    
+        // Create new cells
+        var nameCell = document.createElement('th');
+        var positionCell = document.createElement('th');
+        var gradeLevelCell = document.createElement('th');
+        var subjectCell = document.createElement('th');
+        var raterCell = document.createElement('th');
+        var emptyCell = document.createElement('th');
+        var actionCell = document.createElement('th');
+        var optionsCell = document.createElement('th');
+    
+        // Set the inner HTML for each cell
+        nameCell.innerHTML = `<div class="user-icon" id="userIcon${rowCount}"></div>${taker_data.fullname}`;
+        positionCell.textContent = taker_data.position;
+        gradeLevelCell.textContent = taker_data.grade_level;
+        subjectCell.textContent = taker_data.department || "N/A";  // Assuming taker_data has a subject field
+        raterCell.textContent = taker_evaluator ? taker_evaluator.fullname : 'N/A';
+        emptyCell.textContent = '';  // Assuming no data for this cell
+    
+        // Create the anchor tag for the action cell
+        var anchor = document.createElement('a');
+        anchor.href = 'records_rpms_content.html';  // Assuming this is the correct link
+        anchor.style.textDecoration = 'none';
+        anchor.style.color = 'inherit';
+        anchor.id = 'viewLink' + rowCount;
+    
+        // Create the image tag for the anchor
+        var img = document.createElement('img');
+        img.src = 'asset/Eye.png';
+        img.classList.add('eye-icon');
+        img.id = 'eyeIcon';
+    
+        // Append the image to the anchor
+        anchor.appendChild(img);
+        anchor.appendChild(document.createTextNode(' View'));
+    
+        // Append the anchor to the action cell
+        actionCell.style.color = '#032F97';
+        actionCell.style.textAlign = 'center';
+        actionCell.appendChild(anchor);
+    
+        // Create the button for the options cell
+        var button = document.createElement('button');
+        button.classList.add('three-dots-btn');
+        button.id = 'threeDotsBtn';
+        var buttonImg = document.createElement('img');
+        buttonImg.src = 'asset/More.png';
+        button.appendChild(buttonImg);
+    
+        // Create the dropdown menu for the options cell
+        var dropdown = document.createElement('div');
+        dropdown.classList.add('dropdown');
+        dropdown.id = 'dropdownMenu';
+    
+        var dropdownMenu = document.createElement('ul');
+        dropdownMenu.classList.add('dropdown-menu');
+        dropdownMenu.id = 'dropdownOptions';
+    
+        // Create the deactivate option
+        var deactivateOption = document.createElement('li');
+        deactivateOption.classList.add('deactivate-btn');
+        var deactivateLink = document.createElement('a');
+        deactivateLink.href = '#';
+        deactivateLink.style.color = '#A21718';
+        var deactivateIcon = document.createElement('img');
+        deactivateIcon.src = 'asset/Trash.png';
+        deactivateIcon.alt = 'Deactivate Icon';
+        deactivateIcon.classList.add('icon');
+        deactivateIcon.id = 'deactivateIcon';
+        deactivateLink.appendChild(deactivateIcon);
+        deactivateLink.appendChild(document.createTextNode('Delete'));
+        deactivateOption.appendChild(deactivateLink);
+    
+        // Create the download option
+        var downloadOption = document.createElement('li');
+        downloadOption.classList.add('download-btn');
+        var downloadLink = document.createElement('a');
+        downloadLink.href = '#';
+        downloadLink.style.color = '#0D6EFD';
+        var downloadIcon = document.createElement('img');
+        downloadIcon.src = 'asset/Download.png';
+        downloadIcon.alt = 'Download Icon';
+        downloadIcon.classList.add('icon');
+        downloadIcon.id = 'downloadIcon';
+        downloadLink.appendChild(downloadIcon);
+        downloadLink.appendChild(document.createTextNode('Download'));
+        downloadOption.appendChild(downloadLink);
+    
+        // Append options to the dropdown menu
+        dropdownMenu.appendChild(deactivateOption);
+        dropdownMenu.appendChild(downloadOption);
+        dropdown.appendChild(dropdownMenu);
+    
+        // Append the button and dropdown to the options cell
+        optionsCell.appendChild(button);
+        optionsCell.appendChild(dropdown);
+    
+        // Append cells to the row
+        newRow.appendChild(nameCell);
+        newRow.appendChild(positionCell);
+        newRow.appendChild(gradeLevelCell);
+        newRow.appendChild(subjectCell);
+        newRow.appendChild(raterCell);
+        newRow.appendChild(emptyCell);
+        newRow.appendChild(actionCell);
+        newRow.appendChild(optionsCell);
+    
+        // Append the new row to the table body
+        tableBody.appendChild(newRow);
+    }
+    
+
+
+
+
+function viewCOTForm(teacher_id , quarter){
+
+    sessionStorage.setItem('teacher_id', teacher_id);
+    sessionStorage.setItem('ipcrf_id', quarter);
+    window.location.href = 'records_rpms_content.html';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </script>
 
 </body>
