@@ -102,11 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         const jobStartedDate = person.job_started 
                             ? new Date(person.job_started).toLocaleDateString("en-US", { month: 'numeric', day: 'numeric', year: 'numeric' }) 
                             : 'N/A';
-        
+                        console.log("Profile ", person.profile);
                         // Populate row with data
                         row.innerHTML = `
                             <th>
-                                <div class="user-icon"></div>
+                                <img class="user-icon" ${person.profile ? `src="https://bnahs.pythonanywhere.com${person.profile}"` : ''}>
                                 ${fullName}
                             </th>
                             <th>${person.position || 'N/A'}</th>
