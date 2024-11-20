@@ -167,114 +167,113 @@ function assignFixedColor(folderElement, schoolYear) {
 
 
 
+function generateCard(folder) {
+    // Create the anchor tag
+    const anchor = document.createElement('a');
+    // anchor.href = "rpms_proficient_stream.html";
+    anchor.onclick = function(event) {
+        event.preventDefault();
+        sessionStorage.setItem('rpms_folder_id', folder.rpms_folder_id);
+        window.location.href = 'sadmin-RPMS-Proficient-Landing.html';
+    };
+    anchor.className = "card-link";
+    // anchor.id = "cardLink";
 
-// function generateCard(folder) {
-//     // Create the anchor tag
-//     const anchor = document.createElement('a');
-//     // anchor.href = "rpms_proficient_stream.html";
-//     anchor.onclick = function(event) {
-//         event.preventDefault();
-//         sessionStorage.setItem('rpms_folder_id', folder.rpms_folder_id);
-//         window.location.href = 'sadmin-RPMS-Proficient-Landing.html';
-//     };
-//     anchor.className = "card-link";
-//     // anchor.id = "cardLink";
+    // Create the card div
+    const card = document.createElement('div');
+    card.className = "card";
+    // card.id = "card";
 
-//     // Create the card div
-//     const card = document.createElement('div');
-//     card.className = "card";
-//     // card.id = "card";
+    // Create the card header
+    const cardHeader = document.createElement('div');
+    cardHeader.className = "card-header blue";
+    cardHeader.style.backgroundColor = folder.rpms_folder_background_color;
+    // cardHeader.id = "cardHeader";
 
-//     // Create the card header
-//     const cardHeader = document.createElement('div');
-//     cardHeader.className = "card-header blue";
-//     cardHeader.style.backgroundColor = folder.rpms_folder_background_color;
-//     // cardHeader.id = "cardHeader";
+    // Create the header content div
+    const headerContent = document.createElement('div');
+    headerContent.className = "header-content";
+    // headerContent.id = "headerContent";
+    headerContent.textContent = folder.rpms_folder_name;
 
-//     // Create the header content div
-//     const headerContent = document.createElement('div');
-//     headerContent.className = "header-content";
-//     // headerContent.id = "headerContent";
-//     headerContent.textContent = folder.rpms_folder_name;
+    // Create the school year span
+    const schoolYear = document.createElement('span');
+    schoolYear.className = "subheader";
+    // schoolYear.id = "schoolYear";
+    schoolYear.textContent = folder.rpms_folder_school_year;
 
-//     // Create the school year span
-//     const schoolYear = document.createElement('span');
-//     schoolYear.className = "subheader";
-//     // schoolYear.id = "schoolYear";
-//     schoolYear.textContent = folder.rpms_folder_school_year;
+    // Append the school year span to the header content
+    headerContent.appendChild(schoolYear);
 
-//     // Append the school year span to the header content
-//     headerContent.appendChild(schoolYear);
+    // Create the header icon div
+    const headerIcon = document.createElement('div');
+    headerIcon.className = "header-icon";
+    headerIcon.id = "headerIcon";
 
-//     // Create the header icon div
-//     const headerIcon = document.createElement('div');
-//     headerIcon.className = "header-icon";
-//     headerIcon.id = "headerIcon";
+    // Create the school year icon image
+    const schoolYearIcon = document.createElement('img');
+    schoolYearIcon.src = "assets/Group 267.png";
+    schoolYearIcon.alt = "SY Icon";
+    // schoolYearIcon.id = "schoolYearIcon";
 
-//     // Create the school year icon image
-//     const schoolYearIcon = document.createElement('img');
-//     schoolYearIcon.src = "assets/Group 267.png";
-//     schoolYearIcon.alt = "SY Icon";
-//     // schoolYearIcon.id = "schoolYearIcon";
+    // Append the image to the header icon
+    headerIcon.appendChild(schoolYearIcon);
 
-//     // Append the image to the header icon
-//     headerIcon.appendChild(schoolYearIcon);
+    // Append header content and header icon to card header
+    cardHeader.appendChild(headerContent);
+    cardHeader.appendChild(headerIcon);
 
-//     // Append header content and header icon to card header
-//     cardHeader.appendChild(headerContent);
-//     cardHeader.appendChild(headerIcon);
+    // Create the card body
+    const cardBody = document.createElement('div');
+    cardBody.className = "card-body";
+    // cardBody.id = "cardBody";
 
-//     // Create the card body
-//     const cardBody = document.createElement('div');
-//     cardBody.className = "card-body";
-//     // cardBody.id = "cardBody";
+    // Create the card body text paragraph
+    const cardBodyText = document.createElement('p');
+    // cardBodyText.id = "cardBodyText";
 
-//     // Create the card body text paragraph
-//     const cardBodyText = document.createElement('p');
-//     // cardBodyText.id = "cardBodyText";
+    // Create the list in the card body
+    const cardBodyList = document.createElement('ul');
+    // cardBodyList.id = "cardBodyList";
 
-//     // Create the list in the card body
-//     const cardBodyList = document.createElement('ul');
-//     // cardBodyList.id = "cardBodyList";
+    // Create list items
+    for (let i = 1; i <= 5; i++) {
+        const listItem = document.createElement('li');
+        listItem.id = `listItem${i}`;
+        cardBodyList.appendChild(listItem);
+    }
 
-//     // Create list items
-//     for (let i = 1; i <= 5; i++) {
-//         const listItem = document.createElement('li');
-//         listItem.id = `listItem${i}`;
-//         cardBodyList.appendChild(listItem);
-//     }
+    // Create the card icon bottom
+    const cardIconBottom = document.createElement('div');
+    cardIconBottom.className = "card-icon-bottom";
+    // cardIconBottom.id = "cardIconBottom";
 
-//     // Create the card icon bottom
-//     const cardIconBottom = document.createElement('div');
-//     cardIconBottom.className = "card-icon-bottom";
-//     // cardIconBottom.id = "cardIconBottom";
+    // Create the user icon image
+    const userIcon = document.createElement('img');
+    userIcon.src = "assets/Name.png";
+    userIcon.alt = "User Icon";
+    // userIcon.id = "userIcon";
 
-//     // Create the user icon image
-//     const userIcon = document.createElement('img');
-//     userIcon.src = "assets/Name.png";
-//     userIcon.alt = "User Icon";
-//     // userIcon.id = "userIcon";
+    // Append the user icon to the card icon bottom
+    cardIconBottom.appendChild(userIcon);
 
-//     // Append the user icon to the card icon bottom
-//     cardIconBottom.appendChild(userIcon);
+    // Append card body text, list, and icon bottom to card body
+    cardBody.appendChild(cardBodyText);
+    cardBody.appendChild(cardBodyList);
+    cardBody.appendChild(cardIconBottom);
 
-//     // Append card body text, list, and icon bottom to card body
-//     cardBody.appendChild(cardBodyText);
-//     cardBody.appendChild(cardBodyList);
-//     cardBody.appendChild(cardIconBottom);
+    // Append card header and card body to card
+    card.appendChild(cardHeader);
+    card.appendChild(cardBody);
 
-//     // Append card header and card body to card
-//     card.appendChild(cardHeader);
-//     card.appendChild(cardBody);
+    // Append card to anchor
+    anchor.appendChild(card);
 
-//     // Append card to anchor
-//     anchor.appendChild(card);
+    // Find the cards section element 
 
-//     // Find the cards section element 
-
-//     // Append anchor to the cards section
-//     cardsSection.appendChild(anchor);
-// }
+    // Append anchor to the cards section
+    cardsSection.appendChild(anchor);
+}
 
 
 
@@ -283,7 +282,7 @@ let folders = undefined;
 // Fetch RPMS Folders
 async function getRPMSFolder() {
     try {
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/forms/rpms/folders/highly_proficient', {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/forms/rpms/folders/proficient', {
             method: 'GET',
             headers: { 'X-Requested-With': 'XMLHttpRequest' },
             credentials: 'include',
@@ -350,51 +349,56 @@ createBtn.addEventListener('click', async () => {
             if (response.ok) {
                 console.log('Folder created successfully:', data);
             } else {
-                console.error('Error creating folder:', data.error);
+                console.error('Error creating folder:', data);
             }
         } catch (e) {
             console.error("Error creating folder:", e);
         }
 
-        // Create new folder card
-        const newCard = document.createElement('a');
-        newCard.href = "sadmin-RPMS-Proficient-Landing.html"; // Redirect to this page when clicked
-        newCard.classList.add('card-link');
+        // // Create new folder card
+        // const newCard = document.createElement('a');
+        // newCard.href = "sadmin-RPMS-Proficient-Landing.html"; // Redirect to this page when clicked
+        // newCard.classList.add('card-link');
 
-        newCard.innerHTML = `
-            <div class="card">
-                <div class="card-header">
-                    <div class="header-content">
-                        ${folderName}
-                        <span class="subheader">${schoolYear}</span>
-                    </div>
-                    <button class="delete-btn" onclick="deleteFolder(this)">&#10006;</button>
-                    <div class="header-icon sy-icon">SY</div>
-                </div>
-                <div class="card-body">
-                    <p></p>
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                    <div class="card-icon-bottom">
-                        <img src="Assets\\Name.png" alt="User Icon">
-                    </div>
-                </div>
-            </div>
-        `;
+        // newCard.innerHTML = `
+        //     <div class="card">
+        //         <div class="card-header">
+        //             <div class="header-content">
+        //                 ${folderName}
+        //                 <span class="subheader">${schoolYear}</span>
+        //             </div>
+        //             <button class="delete-btn" onclick="deleteFolder(this)">&#10006;</button>
+        //             <div class="header-icon sy-icon">SY</div>
+        //         </div>
+        //         <div class="card-body">
+        //             <p></p>
+        //             <ul>
+        //                 <li></li>
+        //                 <li></li>
+        //                 <li></li>
+        //                 <li></li>
+        //             </ul>
+        //             <div class="card-icon-bottom">
+        //                 <img src="Assets\\Name.png" alt="User Icon">
+        //             </div>
+        //         </div>
+        //     </div>
+        // `;
 
-        // Append the new folder card to the cards-section
-        cardsSection.appendChild(newCard);
+        // // Append the new folder card to the cards-section
+        // cardsSection.appendChild(newCard);
 
-        // Assign fixed color to the new card based on the selected school year
-        const cardHeader = newCard.querySelector('.card-header');
-        assignFixedColor(cardHeader, schoolYear);
+        // // Assign fixed color to the new card based on the selected school year
+        // const cardHeader = newCard.querySelector('.card-header');
+        // assignFixedColor(cardHeader, schoolYear);
 
-        // Close the modal and reset the form fields
-        closeModal();
+        // // Close the modal and reset the form fields
+        // closeModal();
+
+        // Refresh the page
+        window.location.href = window.location.href;
+
+
     } else {
         alert('Please fill in both Folder Name and School Year.');
     }
