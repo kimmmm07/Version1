@@ -38,18 +38,22 @@
                 <div class="form-field">
                     <input type="text" id="name" placeholder="Name">
                     <i class="fas fa-exclamation-circle required-icon"></i>
+                    <span class="error-message1" id="name-error"></span>
                 </div>
                 <div class="form-field">
                     <input type="text" id="school-id" placeholder="School ID">
                     <i class="fas fa-exclamation-circle required-icon"></i>
+                    <span class="error-message2" id="school-id-error"></span>
                 </div>
                 <div class="form-field">
                     <input type="text" id="school-name" placeholder="School Name">
                     <i class="fas fa-exclamation-circle required-icon"></i>
+                    <span class="error-message3" id="school-name-error"></span>
                 </div>
                 <div class="form-field">
                     <input type="text" id="school-address" placeholder="School Address">
                     <i class="fas fa-exclamation-circle required-icon"></i>
+                    <span class="error-message4" id="school-address-error"></span>
                 </div>
                 <div class="form-field">
                     <select class="school-type-dropdown" id="school-type">
@@ -58,26 +62,31 @@
                         <option value="rural">Rural</option>
                     </select>
                     <i class="fas fa-exclamation-circle required-icon"></i>
+                    <span class="error-message5" id="school-type-error"></span>
                 </div>
                 <div class="form-field">
                     <input type="text" id="contact-info" placeholder="Contact Information">
                     <i class="fas fa-exclamation-circle required-icon"></i>
+                    <span class="error-message6" id="contact-information-error"></span>
                 </div>
                 <div class="form-field">
                     <input type="email" id="email" placeholder="Email Address">
                     <i class="fas fa-exclamation-circle required-icon"></i>
+                    <span class="error-message7" id="email-error"></span>
                 </div>
                 <div class="form-field">
                     <input type="password" id="password" placeholder="Password">
                     <i class="fas fa-exclamation-circle required-icon"></i>
+                    <span class="error-message8" id="password-error"></span>
                 </div>
                 <div class="form-field">
                     <input type="password" id="confirm-password" placeholder="Confirm Password">
                     <i class="fas fa-exclamation-circle required-icon"></i>
+                    <span class="error-message9" id="confirm-password-error"></span>
                 </div>
                 <div class="button-group">
                     <a href="get-started.html" class="cancel-btn">Cancel</a>
-                    <button type="button" class="reg-btn">Register</button>
+                    <button type="button" class="reg-btn"  onclick="validateForm()">Register</button>
                 </div>
             </form>
         </div>
@@ -86,79 +95,72 @@
 
     <script>
 
-document.querySelector(".reg-btn").addEventListener("click", function (event) {
-    event.preventDefault(); // Prevent default form submission behavior
+// Function to display error messages
+function showError(errorId, message) {
+    const errorElement = document.getElementById(errorId);
+    errorElement.textContent = message; // Set the error message
+    errorElement.classList.add("show"); // Show the error message (ensure the .show class is defined in CSS)
+    
+    // Show the error icon
+    const iconElement = errorElement.previousElementSibling; // Assuming the icon comes just before the span
+    if (iconElement && iconElement.classList.contains("required-icon")) {
+        iconElement.classList.add("show"); // Show the error icon
+    }
+}
 
+// Function to clear error messages
+function clearError(errorId) {
+    const errorElement = document.getElementById(errorId);
+    errorElement.textContent = ""; // Clear the error message
+    errorElement.classList.remove("show"); // Hide the error message
+    
+    // Hide the error icon
+    const iconElement = errorElement.previousElementSibling; // Assuming the icon comes just before the span
+    if (iconElement && iconElement.classList.contains("required-icon")) {
+        iconElement.classList.remove("show"); // Hide the error icon
+    }
+}
+
+function validateForm() {
     let isValid = true;
-
-    // Utility functions
-    const showError = (id, message) => {
-        const element = document.getElementById(id);
-        const errorIcon = element?.nextElementSibling;
-
-        if (errorIcon) {
-            errorIcon.classList.add("show");
-            errorIcon.title = message;
-        } else {
-            console.error(`Error icon not found for element: ${id}`);
-        }
-    };
-
-    const clearError = (id) => {
-        const element = document.getElementById(id);
-        const errorIcon = element?.nextElementSibling;
-
-        if (errorIcon) {
-            errorIcon.classList.remove("show");
-            errorIcon.title = "";
-        }
-    };
 
     // Validate required fields
     const fields = [
-        { id: "name", message: "Name is required." },
-        { id: "school-id", message: "School ID is required." },
-        { id: "school-name", message: "School Name is required." },
-        { id: "school-address", message: "School Address is required." },
-        { id: "contact-info", message: "Contact Information is required." },
-        { id: "email", message: "Email Address is required." },
-        { id: "password", message: "Password is required." },
-        { id: "confirm-password", message: "Confirm Password is required." },
+        { id: "name", errorId: "name-error", message: "Name is required." },
+        { id: "school-id", errorId: "school-id-error", message: "School ID is required." },
+        { id: "school-name", errorId: "school-name-error", message: "School Name is required." },
+        { id: "school-address", errorId: "school-address-error", message: "School Address is required." },
+        { id: "school-type", errorId: "school-type-error", message: "School Type is required." },
+        { id: "contact-info", errorId: "contact-information-error", message: "Contact Information is required." },
+        { id: "email", errorId: "email-error", message: "Email is required." },
+        { id: "password", errorId: "password-error", message: "Password is required." },
+        { id: "confirm-password", errorId: "confirm-password-error", message: "Confirm Password is required." },
     ];
 
-    fields.forEach((field) => {
-        const element = document.getElementById(field.id);
+    fields.forEach(({ id, errorId, message }) => {
+        const element = document.getElementById(id);
         if (element.value.trim() === "") {
-            showError(field.id, field.message);
+            showError(errorId, message); // Show error message
             isValid = false;
         } else {
-            clearError(field.id);
+            clearError(errorId); // Clear error message
         }
     });
-
-    // Validate dropdown
-    const schoolType = document.getElementById("school-type");
-    if (schoolType.value === "") {
-        showError("school-type", "School Type is required.");
-        isValid = false;
-    } else {
-        clearError("school-type");
-    }
 
     // Validate email format
     const email = document.getElementById("email");
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (email.value.trim() !== "" && !emailPattern.test(email.value)) {
-        showError("email", "Invalid email format.");
+        showError("email-error", "Invalid email format.");
         isValid = false;
     }
 
     // Validate password
     const password = document.getElementById("password");
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{12,}$/;
-    if (!passwordPattern.test(password.value)) {
+    if (password.value.trim() !== "" && !passwordPattern.test(password.value)) {
         showError(
-            "password",
+            "password-error",
             "Password must be at least 12 characters, with uppercase, lowercase, a number, and a special character."
         );
         isValid = false;
@@ -167,7 +169,7 @@ document.querySelector(".reg-btn").addEventListener("click", function (event) {
     // Confirm passwords match
     const confirmPassword = document.getElementById("confirm-password");
     if (password.value !== confirmPassword.value) {
-        showError("confirm-password", "Passwords do not match.");
+        showError("confirm-password-error", "Passwords do not match.");
         isValid = false;
     }
 
@@ -176,7 +178,16 @@ document.querySelector(".reg-btn").addEventListener("click", function (event) {
         // Uncomment this line to submit the form
         // document.querySelector("form").submit();
     }
+}
+
+// Adding an event listener for the button
+document.querySelector(".reg-btn").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevent default form submission
+    validateForm(); // Call validateForm to show errors if necessary
 });
+
+
+
 
     </script>
 </body>
