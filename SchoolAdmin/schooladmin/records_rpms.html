@@ -43,13 +43,14 @@
             <div class="filter-box">
                 <select class="filter" id="school-year-filter">
                     <option>A.Y. 2023 - 2024</option>
-                    <option>A.Y. 2022 - 2023</option>
-                    <option>A.Y. 2021 - 2022</option>
+                    <!-- <option>A.Y. 2022 - 2023</option>
+                    <option>A.Y. 2021 - 2022</option> -->
                     <!-- Add more options here if necessary -->
                 </select>
                 <select class="filter" id="teacher-status-filter">
-                    <option>Proficient Teacher</option>
-                    <option>Highly Proficient Teacher</option>
+                    <option value="all">All Teacher</option>
+                    <option value="Proficient">Proficient Teacher</option>
+                    <option value="Highly Proficient">Highly Proficient Teacher</option>
                     <!-- Add more options here if necessary -->
                 </select>
             </div>
@@ -232,6 +233,148 @@
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+function renderFacultyList(data) {
+    const tbody = document.getElementById('faculty-list');
+    tbody.innerHTML = '';  // Clear existing content
+    data.forEach(member => {
+        const tr = document.createElement('tr');
+        tr.classList.add('second-row');
+
+
+        let testdate = new Date(member.rpms_data.created_at);
+        let optionsThing = { year: 'numeric', month: 'long', day: 'numeric' }; 
+        
+        tr.innerHTML = `
+            <th>
+                <div class="user-icon"></div>
+                ${member.rpms_taker.fullname}
+            </th>
+            <th>${member.rpms_taker.position}</th>
+            <th>${member.rpms_taker.grade_level}</th>
+            <th>${member.rpms_taker.department}</th>
+            <th>${member.rpms_rater ? member.rpms_rater.fullname : "N/A"}</th>
+            <th>${testdate.toLocaleDateString('en-US', optionsThing)}</th>
+        `;
+
+        tbody.appendChild(tr);
+    });
+}
+
+// Call the function to render the faculty list
+//renderFacultyList(facultyData);
+
+
+let school_year = undefined;
+let quarter = undefined;
+let takers = undefined;
+
+async function fetchData() {
+    try{
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/get/records/rpms/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+        
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+
+            school_year = data.school_year;
+            quarter = data.quarter;
+            takers = data.rpms_taker;
+
+
+            //school_year.forEach(year => {
+            //    addOption(year);
+            //});
+
+            renderFacultyList(takers);
+
+
+ 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.log("Error Data : ", error);
+    } 
+}
+
+fetchData();
+
+
+
+
+
+document.getElementById("teacher-status-filter").addEventListener("change", function() {
+    const selectedValue = this.value;
+    if (selectedValue) {
+        console.log("Selected value:", selectedValue);
+    }
+
+
+    let new_data = [];
+    takers.forEach(taker => { 
+        console.log("Result" , taker.rpms_taker.is_proficient && selectedValue == "Highly Proficient");
+        if (taker.rpms_taker.is_proficient && selectedValue == "Proficient") {
+            new_data.push(taker);
+        } else if ( !taker.rpms_taker.is_proficient && selectedValue == "Highly Proficient") {
+            new_data.push(taker);
+        } else if(selectedValue == "all") {
+            new_data.push(taker);
+        }
+    });
+
+
+    renderFacultyList(new_data);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </script>
 
 </body>
