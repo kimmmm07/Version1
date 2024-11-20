@@ -43,22 +43,23 @@
             <div class="filter-box">
                 <select class="filter" id="schoolYearSelect" name="school-year">
                     <option>A.Y. 2023 - 2024</option>
-                    <option>A.Y. 2022 - 2023</option>
-                    <option>A.Y. 2021 - 2022</option>
+                    <!-- <option>A.Y. 2022 - 2023</option>
+                    <option>A.Y. 2021 - 2022</option> -->
                     <!-- Add more options here if necessary -->
                 </select>
-                <select class="filter" id="teacherTypeSelect" name="teacher-type" onchange="filterRecords()">
-                    <option>Proficient Teacher</option>
-                    <option>Highly Proficient Teacher</option>
+                <select class="filter" id="teacherTypeSelect" name="teacher-type">
+                    <option value="all">All Teacher</option>
+                    <option value="Proficient">Proficient Teacher</option>
+                    <option value="Highly Proficient">Highly Proficient Teacher</option>
                     <!-- Add more options here if necessary -->
                 </select>
 
                 <select class="filter" id="selectQuarter" name="quarter">
-                    <option value="">Select Quarter</option>
-                    <option value="1">Quarter 1</option>
-                    <option value="2">Quarter 2</option>
-                    <option value="3">Quarter 3</option>
-                    <option value="4">Quarter 4</option>
+                    <option value="all">All Quarter</option>
+                    <option value="Quarter 1">Quarter 1</option>
+                    <option value="Quarter 2">Quarter 2</option>
+                    <option value="Quarter 3">Quarter 3</option>
+                    <option value="Quarter 4">Quarter 4</option>
                 </select>
             </div>
         </div>
@@ -77,43 +78,8 @@
                 </tr>
             </thead>
             <tbody id="faculty-list">
-                <tr class="second-row" data-faculty-id="1"> <!-- Add a data attribute for identification -->
-                    <th>
-                        <div class="user-icon"></div>
-                        Jessica Sanchez Ramirez
-                    </th>
-                    <th>Teacher II</th>
-                    <th>Junior High School</th>
-                    <th>Science</th>
-                    <th>David Patel</th>
-                    <th></th>
-                    <th style="color: #032F97; text-align: center;">
-                        <a href="records_cot_view.html" style="text-decoration: none; color: inherit;">
-                            <img src="assets/Eye.png" class="eye-icon"> View
-                        </a>
-                    </th>                    
-                    <th>
-                        <button class="three-dots-btn"><img src="assets/More.png"></button>
-                        <div class="dropdown">
-                            <ul class="dropdown-menu">
-                                <li class="deactivate-btn">
-                                    <a href="#" style="color: #A21718;">
-                                        <img src="assets/Trash.png" alt="Deactivate Icon" class="icon">
-                                        Delete
-                                    </a>
-                                </li>                                    
-                                <!-- <li class="download-bt">
-                                    <a href="#" style="color: #0D6EFD;">
-                                        <img src="assets/Download.png" alt="Delete Icon" class="icon">
-                                        Download
-                                    </a>
-                                </li>                                     -->
-                            </ul>
-                        </div>
-                    </th> <!-- Three dots -->
-                </tr>
 
-                <tr class="second-row" data-faculty-id="1"> <!-- Add a data attribute for identification -->
+                <tr class="second-row"> <!-- Add a data attribute for identification -->
                     <th>
                         <div class="user-icon"></div>
                         Michael Pelps Johnson
@@ -122,31 +88,7 @@
                     <th>Junior High School</th>
                     <th>Science</th>
                     <th>David Patel</th>
-                    <th></th>
-                    <th style="color: #032F97; text-align: center;">
-                        <a href="records_cot_view_highly_proficient.html" style="text-decoration: none; color: inherit;">
-                            <img src="assets/Eye.png" class="eye-icon"> View
-                        </a>
-                    </th>                    
-                    <th>
-                        <button class="three-dots-btn"><img src="assets/More.png"></button>
-                        <div class="dropdown">
-                            <ul class="dropdown-menu">
-                                <li class="deactivate-btn">
-                                    <a href="#" style="color: #A21718;">
-                                        <img src="assets/Trash.png" alt="Deactivate Icon" class="icon">
-                                        Delete
-                                    </a>
-                                </li>                                    
-                                <!-- <li class="download-bt">
-                                    <a href="#" style="color: #0D6EFD;">
-                                        <img src="assets/Download.png" alt="Delete Icon" class="icon">
-                                        Download
-                                    </a>
-                                </li>                                     -->
-                            </ul>
-                        </div>
-                    </th> <!-- Three dots -->
+                    <th>May 17,  2024</th>
                 </tr>
             </tbody>  
         </table>     
@@ -162,7 +104,7 @@
         </div>
     </div>
 
-    <script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Filter button functionality
             const filterButtons = document.querySelectorAll('.filter');
@@ -232,7 +174,7 @@
                 });
             });
         });
-    </script>
+    </script> -->
     <script>// Modal logic
         const logoutButton = document.getElementById('logoutLink');  // Logout button
         const logoutModal = document.getElementById('logoutModal');
@@ -274,6 +216,189 @@
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+
+
+
+
+
+function renderFacultyList(data) {
+    const tbody = document.getElementById('faculty-list');
+    tbody.innerHTML = '';  // Clear existing content
+    console.log(data[0])
+    data.forEach(member => {
+        const tr = document.createElement('tr');
+        tr.classList.add('second-row');
+
+
+        let testdate = new Date(member.cot.created_at);
+        let optionsThing = { year: 'numeric', month: 'long', day: 'numeric' }; 
+        
+        tr.innerHTML = `
+            <th>
+                <div class="user-icon"></div>
+                ${member.cot_taker.fullname}
+            </th>
+            <th>${member.cot_taker.position}</th>
+            <th>${member.cot_taker.grade_level}</th>
+            <th>${member.cot_taker.department}</th>
+            <th>${member.cot_evaluator ? member.cot_evaluator.fullname : "N/A"}</th>
+            <th>${testdate.toLocaleDateString('en-US', optionsThing)}</th>
+        `;
+
+        tbody.appendChild(tr);
+    });
+}
+
+// Call the function to render the faculty list
+//renderFacultyList(facultyData);
+
+
+let school_year = undefined;
+let quarter = undefined;
+let takers = undefined;
+
+async function fetchData() {
+    try{
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/get/records/cot/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+        
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+
+            school_year = data.school_year;
+            quarter = data.quarter;
+            takers = data.cot_taker;
+
+
+            //school_year.forEach(year => {
+            //    addOption(year);
+            //});
+
+            renderFacultyList(takers);
+
+
+ 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.log("Error Data : ", error);
+    } 
+}
+
+fetchData();
+
+
+
+
+
+document.getElementById("teacherTypeSelect").addEventListener("change", function() {
+    const selectedValue = this.value;
+    if (selectedValue) {
+        console.log("Selected value:", selectedValue);
+    }
+
+    const selectedQuarter = document.getElementById("selectQuarter").value;
+    if (selectedQuarter) {
+        console.log("Selected Quarter:", selectedQuarter);
+    }
+
+    let new_data = [];
+    let filtered_data = [];
+    takers.forEach(taker => { 
+        console.log("Result" , taker.cot_taker.is_proficient && selectedValue == "Highly Proficient");
+        if (taker.cot_taker.is_proficient && selectedValue == "Proficient") {
+            new_data.push(taker);
+        } else if ( !taker.cot_taker.is_proficient && selectedValue == "Highly Proficient") {
+            new_data.push(taker);
+        } else if(selectedValue == "all") {
+            new_data.push(taker);
+        }
+    });
+
+
+    new_data.forEach(taker => {
+        if (taker.quarter == selectedQuarter && selectedQuarter != "all") {
+            filtered_data.push(taker);
+        } else {
+            filtered_data.push(taker);
+        }
+    });
+
+    console.log(filtered_data);
+    renderFacultyList(filtered_data);
+})
+
+
+
+
+document.getElementById("selectQuarter").addEventListener("change", function() {
+
+
+    const selectedValue = document.getElementById("teacherTypeSelect").value;
+    if (selectedValue) {
+        console.log("Selected Value:", selectedValue);
+    }
+
+    let new_data = [];
+    let filtered_data = [];
+    takers.forEach(taker => {
+        console.log("Result" , taker.cot_taker.is_proficient && selectedValue == "Highly Proficient");
+        if (taker.cot_taker.is_proficient && selectedValue == "Proficient") {
+            new_data.push(taker);
+        } else if ( !taker.cot_taker.is_proficient && selectedValue == "Highly Proficient") {
+            new_data.push(taker);
+        } else if(selectedValue == "all") {
+            new_data.push(taker);
+        }
+    });
+
+
+    const selectedQuarter = this.value;
+    if (selectedQuarter) {
+        console.log("Selected Quarter:", selectedQuarter);
+    }
+
+    new_data.forEach(taker => { 
+        console.log("Result", taker.quarter == selectedQuarter, selectedQuarter != "all");
+        console.log("Result", taker.quarter)
+        if (taker.quarter == selectedQuarter) {
+            filtered_data.push(taker);
+        } else if ("all" == selectedQuarter) {
+            filtered_data.push(taker);
+        }
+    });
+
+
+    renderFacultyList(filtered_data);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </script>
     
 
