@@ -698,7 +698,8 @@ async function updateIPCRF1(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            console.log("Success Data : ", data);
+            location.href = 'teacher_forms.html';
         } else {
             console.log("Error Data : ", data);
             // alert("Login Failed.")
