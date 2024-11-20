@@ -259,13 +259,19 @@ async function getEvaluation() {
             rpmsRater.textContent = data.rpms.rater ? "Rater: " + data.rpms.rater.fullname : 'Rater: Not yet rated';
             cotRater.textContent = data.cots.rater ? "Rater: " + data.cots.rater.fullname : 'Rater: Not yet rated';
             if (data.rpms.rater){
-                rpmsProfilePhoto.src = "https://bnahs.pythonanywhere.com" + data.rpms.rater.profile
+                if (data.rpms.rater.profile){
+                    rpmsProfilePhoto.src = "https://bnahs.pythonanywhere.com" + data.rpms.rater.profile
+                }
             }
             if (data.ipcrf.rater){
-                ipcrfProfilePhoto.src = "https://bnahs.pythonanywhere.com" + data.ipcrf.rater.profile
+                if (data.ipcrf.rater.profile){
+                    ipcrfProfilePhoto.src = "https://bnahs.pythonanywhere.com" + data.ipcrf.rater.profile
+                } 
             }
             if (data.cots.rater){
-                cotProfilePhoto.src = "https://bnahs.pythonanywhere.com" + data.cots.rater.profile
+                if (data.cots.rater.profile){
+                    cotProfilePhoto.src = "https://bnahs.pythonanywhere.com" + data.cots.rater.profile
+                }
             }
             // Original date string
 
