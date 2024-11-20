@@ -707,7 +707,7 @@ select:focus {
 
 .modal.hidden {
     display: none;
-}
+} 
 
 .modal-content{
     border: 1px solid #082F96 !important;
