@@ -1,37 +1,33 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//     const schoolYearDropdown = document.querySelector('select[name="school-year"]');
-//     const teacherTypeDropdown = document.querySelector('select[name="teacher-type"]');
 
-//     // Load the selected values from localStorage if they exist
-//     const savedSchoolYear = localStorage.getItem('selectedSchoolYear');
-//     const savedTeacherType = localStorage.getItem('selectedTeacherType');
+async function fixRedirections(){
+    try{
 
-//     if (savedSchoolYear) {
-//         schoolYearDropdown.value = savedSchoolYear;
-//     }
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/profile/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
 
-//     if (savedTeacherType) {
-//         teacherTypeDropdown.value = savedTeacherType;
-//     }
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);
+            if (!data.evaluator.is_proficient){
+                window.location.href = 'cot_highlyproficient_records.html';
+            } 
+            //window.location.href = '../../get-started.html'; 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    }catch(error){
+        console.log(error);
+    }
+}
 
-//     // Handle school year selection
-//     schoolYearDropdown.addEventListener("change", function () {
-//         console.log("Selected School Year:", schoolYearDropdown.value);
-//         // Save the selected value to localStorage
-//         localStorage.setItem('selectedSchoolYear', schoolYearDropdown.value);
-//     });
+fixRedirections();
 
-//     // Handle teacher type selection and redirect to the selected page
-//     teacherTypeDropdown.addEventListener("change", function () {
-//         const selectedValue = teacherTypeDropdown.value;
-//         if (selectedValue) {
-//             // Save the selected value to localStorage
-//             localStorage.setItem('selectedTeacherType', selectedValue);
-//             // Redirect to the selected page based on the value
-//             window.location.href = selectedValue;
-//         }
-//     });
-// });
 
 // Main Content and Title
 const mainContent = document.getElementById('mainContent');
@@ -133,12 +129,14 @@ async function fetchData() {
             takers = data.cot_taker;
 
 
-            school_year.forEach(year => {
-                addOption(year);
-            });
+            // school_year.forEach(year => {
+            //     addOption(year);
+            // });
 
             takers.forEach(taker => {
-                addTeacherRow(taker);
+                if (taker.cot_taker.is_proficient){
+                    addTeacherRow(taker); 
+                }
             });
 
 
@@ -261,46 +259,46 @@ function viewCOTForm(teacher_id , quarter){
 
 
 
-document.getElementById("teacherTypeSelect").addEventListener("change", function() {
-    const selectedValue = this.value;
-    if (selectedValue) {
-        console.log("Selected value:", selectedValue);
-    }
+// document.getElementById("teacherTypeSelect").addEventListener("change", function() {
+//     const selectedValue = this.value;
+//     if (selectedValue) {
+//         console.log("Selected value:", selectedValue);
+//     }
 
-    const selectedQuarter = document.getElementById("selectQuarter").value;
-    if (selectedQuarter) {
-        console.log("Selected Quarter:", selectedQuarter);
-    }
+//     const selectedQuarter = document.getElementById("selectQuarter").value;
+//     if (selectedQuarter) {
+//         console.log("Selected Quarter:", selectedQuarter);
+//     }
 
-    let new_data = [];
-    let filtered_data = [];
-    takers.forEach(taker => { 
-        console.log("Result" , taker.cot_taker.is_proficient && selectedValue == "Highly Proficient");
-        if (taker.cot_taker.is_proficient && selectedValue == "Proficient") {
-            new_data.push(taker);
-        } else if ( !taker.cot_taker.is_proficient && selectedValue == "Highly Proficient") {
-            new_data.push(taker);
-        } else if(selectedValue == "all") {
-            new_data.push(taker);
-        }
-    });
+//     let new_data = [];
+//     let filtered_data = [];
+//     takers.forEach(taker => { 
+//         console.log("Result" , taker.cot_taker.is_proficient && selectedValue == "Highly Proficient");
+//         if (taker.cot_taker.is_proficient && selectedValue == "Proficient") {
+//             new_data.push(taker);
+//         } else if ( !taker.cot_taker.is_proficient && selectedValue == "Highly Proficient") {
+//             new_data.push(taker);
+//         } else if(selectedValue == "all") {
+//             new_data.push(taker);
+//         }
+//     });
 
 
-    new_data.forEach(taker => {
-        if (taker.quarter == selectedQuarter && selectedQuarter != "all") {
-            filtered_data.push(taker);
-        } else {
-            filtered_data.push(taker);
-        }
-    });
+//     new_data.forEach(taker => {
+//         if (taker.quarter == selectedQuarter && selectedQuarter != "all") {
+//             filtered_data.push(taker);
+//         } else {
+//             filtered_data.push(taker);
+//         }
+//     });
 
-    console.log(filtered_data);
-    tableBody = document.getElementById("teacherTableBody");
-    tableBody.innerHTML = "";
-    filtered_data.forEach( teacher =>{
-        addTeacherRow(teacher);
-    })
-})
+//     console.log(filtered_data);
+//     tableBody = document.getElementById("teacherTableBody");
+//     tableBody.innerHTML = "";
+//     filtered_data.forEach( teacher =>{
+//         addTeacherRow(teacher);
+//     })
+// })
 
 
 
@@ -315,13 +313,8 @@ document.getElementById("selectQuarter").addEventListener("change", function() {
 
     let new_data = [];
     let filtered_data = [];
-    takers.forEach(taker => {
-        console.log("Result" , taker.cot_taker.is_proficient && selectedValue == "Highly Proficient");
-        if (taker.cot_taker.is_proficient && selectedValue == "Proficient") {
-            new_data.push(taker);
-        } else if ( !taker.cot_taker.is_proficient && selectedValue == "Highly Proficient") {
-            new_data.push(taker);
-        } else if(selectedValue == "all") {
+    takers.forEach(taker => { 
+        if (taker.cot_taker.is_proficient) {
             new_data.push(taker);
         }
     });
