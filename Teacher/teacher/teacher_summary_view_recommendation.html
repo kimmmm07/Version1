@@ -374,6 +374,8 @@ async function getReport(){
             document.getElementById('teacherfinalRating').textContent = teacher_data.rating ? teacher_data.rating.rating : "N/A";
             document.getElementById('EvaluatorfinalRating').textContent = teacher_data.rating ? teacher_data.rating.evaluator_rating : "N/A";
             
+            let rating = teacher_data.rating;
+            
 
         } else {
             console.log("Error Data : ", teacher_data);
