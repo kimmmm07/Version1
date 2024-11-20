@@ -283,7 +283,7 @@ const commentsTextarea = document.getElementById('comments');
 
 // Form buttons
 const backButton = document.getElementById('backBtn');
-const submitButton = document.getElementById('SubmitBtn');
+const submitBtn = document.getElementById('SubmitBtn');
 
 // Instructions container
 const instructionsContainer = document.getElementById('instructions');
@@ -324,7 +324,7 @@ document.getElementById('backBtn').addEventListener('click', function() {
 
 
 //submitting form for proficient
-document.getElementById('ratingForm').addEventListener('submit', function(e) {
+submitBtn.addEventListener('click', async function(event) {
     e.preventDefault(); 
 
     if (validateForm()) {
