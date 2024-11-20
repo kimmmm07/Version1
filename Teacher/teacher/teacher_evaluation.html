@@ -62,9 +62,9 @@
                         <p id="ipcrfRater">Rater: David Patel</p>
                     </div>
                 </div>
-                <a href="#" class="view-link" id="ipcrfViewLink">
+                <!-- <a href="#" class="view-link" id="ipcrfViewLink">
                     <img src="asset/Eye.png" alt="View Icon" class="view-icon" id="ipcrfViewIcon"> View
-                </a>
+                </a> -->
             </div>
         </div>  
         
@@ -85,9 +85,9 @@
                         <p id="rpmsRater">Rater: David Patel</p>
                     </div>
                 </div>
-                <a href="#" class="view-link" id="rpmsViewLink">
+                <!-- <a href="#" class="view-link" id="rpmsViewLink">
                     <img src="asset/Eye.png" alt="View Icon" class="view-icon" id="rpmsViewIcon"> View
-                </a>
+                </a> -->
             </div>
         </div>   
         
@@ -108,9 +108,9 @@
                         <p id="cotRater">Rater: David Patel</p>
                     </div>
                 </div>
-                <a href="#" class="view-link" id="cotViewLink">
+                <!-- <a href="#" class="view-link" id="cotViewLink">
                     <img src="asset/Eye.png" alt="View Icon" class="view-icon" id="cotViewIcon"> View
-                </a>
+                </a> -->
             </div>
         </div>  
     </div>
@@ -256,7 +256,15 @@ async function getEvaluation() {
             ipcrfRater.textContent = data.ipcrf.rater ? "Rater: " + data.ipcrf.rater.fullname : 'Rater: Not yet rated';
             rpmsRater.textContent = data.rpms.rater ? "Rater: " + data.rpms.rater.fullname : 'Rater: Not yet rated';
             cotRater.textContent = data.cots.rater ? "Rater: " + data.cots.rater.fullname : 'Rater: Not yet rated';
-            
+            if (data.rpms.rater){
+                rpmsProfilePhoto.src = "https://bnahs.pythonanywhere.com" + data.rpms.rater.profile
+            }
+            if (data.ipcrf.rater){
+                ipcrfProfilePhoto.src = "https://bnahs.pythonanywhere.com" + data.ipcrf.rater.profile
+            }
+            if (data.cots.rater){
+                cotProfilePhoto.src = "https://bnahs.pythonanywhere.com" + data.cots.rater.profile
+            }
             // Original date string
 
             // Convert the date string to a Date object
