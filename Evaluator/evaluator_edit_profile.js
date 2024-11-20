@@ -167,7 +167,11 @@ async function updateProfile() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            console.log("Success Data : ", data);                     
+            alert("Profile updated successfully.");
+            setTimeout(() => {
+                window.location.href = "evaluator_profile.html";
+            }, 500);
         } else {
             console.log("Error Data : ", data);
         }

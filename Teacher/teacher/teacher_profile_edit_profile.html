@@ -147,7 +147,7 @@ const confirmPasswordIcon = document.getElementById('confirmPasswordIcon');
 // Form buttons
 const formButtons = document.getElementById('formButtons');
 const cancelBtn = document.getElementById('cancel');
-const updateBtn = document.getElementById('update');
+const updateButton = document.getElementById('update');
 
 
 // Modal logic
@@ -282,7 +282,11 @@ yesButton.addEventListener('click', async function() {
         
                 const data = await response.json();
                 if (response.ok) {
-                    console.log("Success Data : ", data); 
+                    console.log("Success Data : ", data);
+                    alert("Profile updated successfully.");
+                    setTimeout(() => {
+                        window.location.href = "teacher_profile.html";
+                    }, 500);
                 } else {
                     console.log("Error Data : ", data);
                 }
