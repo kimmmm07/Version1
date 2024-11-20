@@ -25,7 +25,7 @@
     <main>
         <div class="register-school-section">
             <h2 class="register-heading">Register School</h2>
-            <form action="">
+            <form>
                 <div class="upload-logo">
                     <label for="school-logo-upload">
                         <i class="fas fa-user-circle upload-icon" id="upload-icon"></i>
@@ -52,12 +52,12 @@
                     <i class="fas fa-exclamation-circle required-icon"></i>
                 </div>
                 <div class="form-field">
-                    <select class="school-type-dropdown" required>
+                    <select class="school-type-dropdown" id="school-type">
                         <option value="" disabled selected>School Type</option>
                         <option value="urban">Urban</option>
                         <option value="rural">Rural</option>
                     </select>
-                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                    <i class="fas fa-exclamation-circle required-icon"></i>
                 </div>
                 <div class="form-field">
                     <input type="text" id="contact-info" placeholder="Contact Information">
@@ -77,12 +77,107 @@
                 </div>
                 <div class="button-group">
                     <a href="get-started.html" class="cancel-btn">Cancel</a>
-                    <button type="submit" class="reg-btn">Register</button>
+                    <button type="button" class="reg-btn">Register</button>
                 </div>
             </form>
-            
         </div>
     </main>
-    <script src="register.js" type="module"></script>
+    <script src="register.js" type="module" defer></script>
+
+    <script>
+
+document.querySelector(".reg-btn").addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    let isValid = true;
+
+    // Utility functions
+    const showError = (id, message) => {
+        const element = document.getElementById(id);
+        const errorIcon = element?.nextElementSibling;
+
+        if (errorIcon) {
+            errorIcon.classList.add("show");
+            errorIcon.title = message;
+        } else {
+            console.error(`Error icon not found for element: ${id}`);
+        }
+    };
+
+    const clearError = (id) => {
+        const element = document.getElementById(id);
+        const errorIcon = element?.nextElementSibling;
+
+        if (errorIcon) {
+            errorIcon.classList.remove("show");
+            errorIcon.title = "";
+        }
+    };
+
+    // Validate required fields
+    const fields = [
+        { id: "name", message: "Name is required." },
+        { id: "school-id", message: "School ID is required." },
+        { id: "school-name", message: "School Name is required." },
+        { id: "school-address", message: "School Address is required." },
+        { id: "contact-info", message: "Contact Information is required." },
+        { id: "email", message: "Email Address is required." },
+        { id: "password", message: "Password is required." },
+        { id: "confirm-password", message: "Confirm Password is required." },
+    ];
+
+    fields.forEach((field) => {
+        const element = document.getElementById(field.id);
+        if (element.value.trim() === "") {
+            showError(field.id, field.message);
+            isValid = false;
+        } else {
+            clearError(field.id);
+        }
+    });
+
+    // Validate dropdown
+    const schoolType = document.getElementById("school-type");
+    if (schoolType.value === "") {
+        showError("school-type", "School Type is required.");
+        isValid = false;
+    } else {
+        clearError("school-type");
+    }
+
+    // Validate email format
+    const email = document.getElementById("email");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email.value.trim() !== "" && !emailPattern.test(email.value)) {
+        showError("email", "Invalid email format.");
+        isValid = false;
+    }
+
+    // Validate password
+    const password = document.getElementById("password");
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{12,}$/;
+    if (!passwordPattern.test(password.value)) {
+        showError(
+            "password",
+            "Password must be at least 12 characters, with uppercase, lowercase, a number, and a special character."
+        );
+        isValid = false;
+    }
+
+    // Confirm passwords match
+    const confirmPassword = document.getElementById("confirm-password");
+    if (password.value !== confirmPassword.value) {
+        showError("confirm-password", "Passwords do not match.");
+        isValid = false;
+    }
+
+    if (isValid) {
+        alert("Form is valid. Proceeding to submit.");
+        // Uncomment this line to submit the form
+        // document.querySelector("form").submit();
+    }
+});
+
+    </script>
 </body>
 </html>
