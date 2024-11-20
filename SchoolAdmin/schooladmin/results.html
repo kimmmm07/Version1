@@ -46,8 +46,9 @@
                     <!-- Add more options here if necessary -->
                 </select>
                 <select class="filter" id="teacher-status-filter">
-                    <option>Proficient Teacher</option>
-                    <option>Highly Proficient Teacher</option>
+                    <option value="all">All Teacher</option>
+                    <option value="p" >Proficient Teacher</option>
+                    <option value="hp">Highly Proficient Teacher</option>
                     <!-- Add more options here if necessary -->
                 </select>
             </div>
@@ -133,6 +134,126 @@
         console.error("Error during fetch:", error);
     }
 });
+
+
+function renderFacultyList(data , conditon) {
+    const tbody = document.getElementById('faculty-list');
+    tbody.innerHTML = '';  // Clear existing content
+    console.log(data );
+    console.log(conditon);
+    data.data.forEach(member => {
+        if (conditon == "all"){
+            console.log("hello all");
+            const tr = document.createElement('tr');
+            tr.classList.add('second-row'); 
+    
+            tr.innerHTML = `
+                <th>
+                    <div class="user-icon"></div>
+                    ${member.teacher.fullname}
+                </th>
+                <th>${member.ranking[0]}</th>
+                <th>${member.job.years} Years and ${member.job.months} Months</th>
+                <th>${member.ranking[1]}</th>
+                <th>${member.recommendation.result}</th>
+                <th>${member.rating ? member.rating.evaluator_rating : "N/A"}</th>
+            `;
+    
+            tbody.appendChild(tr);
+        } else if ( conditon == "hp" && !member.teacher.is_proficient ){
+            console.log("hello");
+            const tr = document.createElement('tr');
+            tr.classList.add('second-row'); 
+    
+            tr.innerHTML = `
+                <th>
+                    <div class="user-icon"></div>
+                    ${member.teacher.fullname}
+                </th>
+                <th>${member.ranking[0]}</th>
+                <th>${member.job.years} Years and ${member.job.months} Months</th>
+                <th>${member.ranking[1]}</th>
+                <th>${member.recommendation.result}</th>
+                <th>${member.rating ? member.rating.evaluator_rating : "N/A"}</th>
+            `;
+    
+            tbody.appendChild(tr);
+        } else if ( conditon == "p" && member.teacher.is_proficient ) {
+            console.log("hello p");
+            const tr = document.createElement('tr');
+            tr.classList.add('second-row'); 
+    
+            tr.innerHTML = `
+                <th>
+                    <div class="user-icon"></div>
+                    ${member.teacher.fullname}
+                </th>
+                <th>${member.ranking[0]}</th>
+                <th>${member.job.years} Years and ${member.job.months} Months</th>
+                <th>${member.ranking[1]}</th>
+                <th>${member.recommendation.result}</th>
+                <th>${member.rating ? member.rating.evaluator_rating : "N/A"}</th>
+            `;
+    
+            tbody.appendChild(tr); 
+        }
+    }); 
+
+
+
+
+
+}
+
+// Call the function to render the faculty list
+//renderFacultyList(facultyData);
+
+
+
+let main_data = undefined;
+
+async function fetchData(){
+    try{ 
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/teacher/generate/report/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+        
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            main_data = data;  
+            renderFacultyList(data , "all"); 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+
+fetchData();
+
+
+
+document.getElementById("teacher-status-filter").addEventListener("change", function() {
+    const selectedOption = this.value;
+    console.log(selectedOption);
+    renderFacultyList(main_data, selectedOption);
+});
+
+
+
+
+
+
+
         </script>
 </body>
 </html>
