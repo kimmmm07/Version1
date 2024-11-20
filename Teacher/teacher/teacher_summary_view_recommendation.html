@@ -366,13 +366,26 @@ async function getReport(){
         if (response.ok) {
             console.log("Success Data : ", teacher_data);
             document.getElementById('performanceRating').textContent = teacher_data.performance_rating;
-            document.getElementById('finalRating').textContent = teacher_data.rating ? teacher_data.rating.evaluator_rating : "N/A";
+            document.getElementById('finalRating').textContent = teacher_data.rating ? teacher_data.rating.evaluator_rating.toFixed(2) : "N/A";
             document.getElementById('yearsOfExperience').textContent = teacher_data.job.years + " years and " + teacher_data.job.months + " months";
             document.getElementById('currentJobTitle').textContent = teacher_data.teacher.position;
             document.getElementById('qualifiedRank').textContent = teacher_data.ranking[1];
             document.getElementById('recommendation').textContent = teacher_data.recommendation.result;
-            document.getElementById('teacherfinalRating').textContent = teacher_data.rating ? teacher_data.rating.rating : "N/A";
-            document.getElementById('EvaluatorfinalRating').textContent = teacher_data.rating ? teacher_data.rating.evaluator_rating : "N/A";
+            document.getElementById('teacherfinalRating').textContent = teacher_data.rating ? teacher_data.rating.rating.toFixed(2) : "N/A";
+            document.getElementById('EvaluatorfinalRating').textContent = teacher_data.rating ? teacher_data.rating.evaluator_rating.toFixed(2) : "N/A";
+            
+            let rating = teacher_data.rating;
+            document.getElementById('Evaluatorkra1Score').textContent = rating ? rating.kra1_evaluator.toFixed(2) : "N/A";
+            document.getElementById('Evaluatorkra2Score').textContent = rating ? rating.kra2_evaluator.toFixed(2) : "N/A";
+            document.getElementById('Evaluatorkra3Score').textContent = rating ? rating.kra2_evaluator.toFixed(2) : "N/A";
+            document.getElementById('Evaluatorkra4Score').textContent = rating ? rating.kra2_evaluator.toFixed(2) : "N/A";
+            document.getElementById('EvaluatorplusFactorScore').textContent = rating ? rating.kra2_evaluator.toFixed(2) : "N/A";
+            document.getElementById('kra1Score').textContent = rating ? rating.kra1_teacher.toFixed(2) : "N/A";
+            document.getElementById('kra2Score').textContent = rating ? rating.kra2_teacher.toFixed(2) : "N/A";
+            document.getElementById('kra3Score').textContent = rating ? rating.kra2_teacher.toFixed(2) : "N/A";
+            document.getElementById('kra4Score').textContent = rating ? rating.kra2_teacher.toFixed(2) : "N/A";
+            document.getElementById('plusFactorScore').textContent = rating ? rating.kra2_teacher.toFixed(2) : "N/A";
+            
             
 
         } else {

@@ -202,7 +202,7 @@ function calculateAverageScore() {
     ((quality13 + timeliness13) / 2) * 0.07 +
     ((efficiency14 + quality14 + timeliness14) / 3) * 0.07;
 
-    plus_factor_main = quality15 + timeliness15 + efficiency15;
+    plus_factor_main = ((quality15 + timeliness15 + efficiency15) / 3) * 0.02;
 
     // Total score for main KRAs
     let totalKraScore = 
@@ -698,7 +698,8 @@ async function updateIPCRF1(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            console.log("Success Data : ", data);
+            location.href = 'teacher_forms.html';
         } else {
             console.log("Error Data : ", data);
             // alert("Login Failed.")
