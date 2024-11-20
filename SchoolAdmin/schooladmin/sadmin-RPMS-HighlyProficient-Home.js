@@ -39,6 +39,9 @@ yesButton.addEventListener('click', async function() {
     }
 });
 
+
+
+
 // Function to open modal
 function openModal() {
     document.getElementById('formModal').style.display = 'flex';
@@ -68,6 +71,8 @@ document.addEventListener("DOMContentLoaded", closeModal);
 document.getElementById('createFolderBtn').addEventListener('click', openModal);
 
 // JavaScript for handling folder creation
+
+
 
 // Get elements
 const createFolderBtn = document.getElementById('createFolderBtn');
@@ -123,23 +128,23 @@ const closeModalBtn = document.querySelector('.modal-close-btn');
 //     createFolderBtn.addEventListener('click', openModal);
 
 
-
-// List of appealing color pairs (background + white text)
-const colorPairs = [
-    { background: "#3498DB", text: "#FFFFFF" }, //2023-2024
-    { background: "#2ECC71", text: "#FFFFFF" }, //2024-2025
-    { background: "#E74C3C", text: "#FFFFFF" }, //2025-2026
-    { background: "#9B59B6", text: "#FFFFFF" }, //2026-2027
-    { background: "#F39C12", text: "#FFFFFF" }, //2027-2028....
-    { background: "#1ABC9C", text: "#FFFFFF" },
-    { background: "#34495E", text: "#FFFFFF" },
-    { background: "#E67E22", text: "#FFFFFF" },
-    { background: "#16A085", text: "#FFFFFF" }, 
-    { background: "#8E44AD", text: "#FFFFFF" },
-    { background: "#2980B9", text: "#FFFFFF" },
-    { background: "#D35400", text: "#FFFFFF" },
-    { background: "#C0392B", text: "#FFFFFF" },
-    { background: "#27AE60", text: "#FFFFFF" },
+// List of color pairs (background + white text)
+const colorPairs = {
+    "School Year 2023-2024": { background: "#3498DB", text: "#FFFFFF" },
+    "School Year 2024-2025": { background: "#2ECC71", text: "#FFFFFF" },
+    "School Year 2025-2026": { background: "#E74C3C", text: "#FFFFFF" },
+    "School Year 2026-2027": { background: "#9B59B6", text: "#FFFFFF" },
+    "School Year 2027-2028": { background: "#F39C12", text: "#FFFFFF" },
+    "School Year 2028-2029": { background: "#1ABC9C", text: "#FFFFFF" },
+    "School Year 2029-2030": { background: "#34495E", text: "#FFFFFF" },
+    "School Year 2030-2031": { background: "#E67E22", text: "#FFFFFF" },
+    "School Year 2031-2032": { background: "#16A085", text: "#FFFFFF" },
+    "School Year 2032-2033": { background: "#8E44AD", text: "#FFFFFF" },
+    "School Year 2033-2034": { background: "#2980B9", text: "#FFFFFF" },
+    "School Year 2034-2035": { background: "#D35400", text: "#FFFFFF" },
+    "School Year 2035-2036": { background: "#C0392B", text: "#FFFFFF" },
+    "School Year 2036-2037": { background: "#27AE60", text: "#FFFFFF" }
+};
     // { background: "#2C3E50", text: "#FFFFFF" },
     // { background: "#F1C40F", text: "#FFFFFF" },
     // { background: "#1F618D", text: "#FFFFFF" },
@@ -156,10 +161,6 @@ const colorPairs = [
     // { background: "#6C3483", text: "#FFFFFF" },
     // { background: "#BA4A00", text: "#FFFFFF" },
     // { background: "#1A5276", text: "#FFFFFF" }
-];
-
-// Initialize an array to keep track of used color indices
-const usedColorIndices = [];
 
 // Function to lighten a color
 function lightenColor(hex, percent) {
@@ -181,34 +182,20 @@ function darkenColor(hex, percent) {
     return `#${(0x1000000 + (R * 0x10000 + G * 0x100 + B)).toString(16).slice(1)}`;
 }
 
-// Function to assign a random color pair
-function assignRandomColor(folderElement) {
-    // Check if all colors have been used
-    if (usedColorIndices.length === colorPairs.length) {
-        alert("All color pairs have been used. Resetting.");
-        usedColorIndices.length = 0; // Clear the array to reuse colors
-    }
+// Function to assign fixed color based on school year
+function assignFixedColor(folderElement, schoolYear) {
+    const selectedPair = colorPairs[schoolYear];
 
-    let randomIndex;
+    if (selectedPair) {
+        folderElement.style.backgroundColor = selectedPair.background;
+        folderElement.style.color = selectedPair.text;
 
-    // Select a random index that hasn't been used yet
-    do {
-        randomIndex = Math.floor(Math.random() * colorPairs.length);
-    } while (usedColorIndices.includes(randomIndex));
-
-    // Store the used index
-    usedColorIndices.push(randomIndex);
-    const selectedPair = colorPairs[randomIndex];
-
-    // Apply the selected background and text colors
-    folderElement.style.backgroundColor = selectedPair.background;
-    folderElement.style.color = selectedPair.text;
-
-    // Set the SY icon background to a darker color and text to a lighter color
-    const syIcon = folderElement.querySelector('.sy-icon');
-    if (syIcon) {
-        syIcon.style.backgroundColor = darkenColor(selectedPair.background, 10); // Darken by 10%
-        syIcon.style.color = lightenColor(selectedPair.background, 50); // Lighten by 50%
+        // Set the SY icon background to a darker color and text to a lighter color
+        const syIcon = folderElement.querySelector('.sy-icon');
+        if (syIcon) {
+            syIcon.style.backgroundColor = darkenColor(selectedPair.background, 10);
+            syIcon.style.color = lightenColor(selectedPair.background, 50);
+        }
     }
 }
 
@@ -224,113 +211,114 @@ function assignRandomColor(folderElement) {
 
 
 
-function generateCard(folder) {
-    // Create the anchor tag
-    const anchor = document.createElement('a');
-    // anchor.href = "rpms_proficient_stream.html";
-    anchor.onclick = function(event) {
-        event.preventDefault();
-        sessionStorage.setItem('rpms_folder_id', folder.rpms_folder_id);
-        window.location.href = 'sadmin-RPMS-HighlyProficient-Landing.html';
-    };
-    anchor.className = "card-link";
-    // anchor.id = "cardLink";
 
-    // Create the card div
-    const card = document.createElement('div');
-    card.className = "card";
-    // card.id = "card";
+// function generateCard(folder) {
+//     // Create the anchor tag
+//     const anchor = document.createElement('a');
+//     // anchor.href = "rpms_proficient_stream.html";
+//     anchor.onclick = function(event) {
+//         event.preventDefault();
+//         sessionStorage.setItem('rpms_folder_id', folder.rpms_folder_id);
+//         window.location.href = 'sadmin-RPMS-HighlyProficient-Landing.html';
+//     };
+//     anchor.className = "card-link";
+//     // anchor.id = "cardLink";
 
-    // Create the card header
-    const cardHeader = document.createElement('div');
-    cardHeader.className = "card-header blue";
-    cardHeader.style.backgroundColor = folder.rpms_folder_background_color;
-    // cardHeader.id = "cardHeader";
+//     // Create the card div
+//     const card = document.createElement('div');
+//     card.className = "card";
+//     // card.id = "card";
 
-    // Create the header content div
-    const headerContent = document.createElement('div');
-    headerContent.className = "header-content";
-    // headerContent.id = "headerContent";
-    headerContent.textContent = folder.rpms_folder_name;
+//     // Create the card header
+//     const cardHeader = document.createElement('div');
+//     cardHeader.className = "card-header blue";
+//     cardHeader.style.backgroundColor = folder.rpms_folder_background_color;
+//     // cardHeader.id = "cardHeader";
 
-    // Create the school year span
-    const schoolYear = document.createElement('span');
-    schoolYear.className = "subheader";
-    // schoolYear.id = "schoolYear";
-    schoolYear.textContent = folder.rpms_folder_school_year;
+//     // Create the header content div
+//     const headerContent = document.createElement('div');
+//     headerContent.className = "header-content";
+//     // headerContent.id = "headerContent";
+//     headerContent.textContent = folder.rpms_folder_name;
 
-    // Append the school year span to the header content
-    headerContent.appendChild(schoolYear);
+//     // Create the school year span
+//     const schoolYear = document.createElement('span');
+//     schoolYear.className = "subheader";
+//     // schoolYear.id = "schoolYear";
+//     schoolYear.textContent = folder.rpms_folder_school_year;
 
-    // Create the header icon div
-    const headerIcon = document.createElement('div');
-    headerIcon.className = "header-icon";
-    headerIcon.id = "headerIcon";
+//     // Append the school year span to the header content
+//     headerContent.appendChild(schoolYear);
 
-    // Create the school year icon image
-    const schoolYearIcon = document.createElement('img');
-    schoolYearIcon.src = "assets/Group 267.png";
-    schoolYearIcon.alt = "SY Icon";
-    // schoolYearIcon.id = "schoolYearIcon";
+//     // Create the header icon div
+//     const headerIcon = document.createElement('div');
+//     headerIcon.className = "header-icon";
+//     headerIcon.id = "headerIcon";
 
-    // Append the image to the header icon
-    headerIcon.appendChild(schoolYearIcon);
+//     // Create the school year icon image
+//     const schoolYearIcon = document.createElement('img');
+//     schoolYearIcon.src = "assets/Group 267.png";
+//     schoolYearIcon.alt = "SY Icon";
+//     // schoolYearIcon.id = "schoolYearIcon";
 
-    // Append header content and header icon to card header
-    cardHeader.appendChild(headerContent);
-    cardHeader.appendChild(headerIcon);
+//     // Append the image to the header icon
+//     headerIcon.appendChild(schoolYearIcon);
 
-    // Create the card body
-    const cardBody = document.createElement('div');
-    cardBody.className = "card-body";
-    // cardBody.id = "cardBody";
+//     // Append header content and header icon to card header
+//     cardHeader.appendChild(headerContent);
+//     cardHeader.appendChild(headerIcon);
 
-    // Create the card body text paragraph
-    const cardBodyText = document.createElement('p');
-    // cardBodyText.id = "cardBodyText";
+//     // Create the card body
+//     const cardBody = document.createElement('div');
+//     cardBody.className = "card-body";
+//     // cardBody.id = "cardBody";
 
-    // Create the list in the card body
-    const cardBodyList = document.createElement('ul');
-    // cardBodyList.id = "cardBodyList";
+//     // Create the card body text paragraph
+//     const cardBodyText = document.createElement('p');
+//     // cardBodyText.id = "cardBodyText";
 
-    // Create list items
-    for (let i = 1; i <= 5; i++) {
-        const listItem = document.createElement('li');
-        listItem.id = `listItem${i}`;
-        cardBodyList.appendChild(listItem);
-    }
+//     // Create the list in the card body
+//     const cardBodyList = document.createElement('ul');
+//     // cardBodyList.id = "cardBodyList";
 
-    // Create the card icon bottom
-    const cardIconBottom = document.createElement('div');
-    cardIconBottom.className = "card-icon-bottom";
-    // cardIconBottom.id = "cardIconBottom";
+//     // Create list items
+//     for (let i = 1; i <= 5; i++) {
+//         const listItem = document.createElement('li');
+//         listItem.id = `listItem${i}`;
+//         cardBodyList.appendChild(listItem);
+//     }
 
-    // Create the user icon image
-    const userIcon = document.createElement('img');
-    userIcon.src = "assets/Name.png";
-    userIcon.alt = "User Icon";
-    // userIcon.id = "userIcon";
+//     // Create the card icon bottom
+//     const cardIconBottom = document.createElement('div');
+//     cardIconBottom.className = "card-icon-bottom";
+//     // cardIconBottom.id = "cardIconBottom";
 
-    // Append the user icon to the card icon bottom
-    cardIconBottom.appendChild(userIcon);
+//     // Create the user icon image
+//     const userIcon = document.createElement('img');
+//     userIcon.src = "assets/Name.png";
+//     userIcon.alt = "User Icon";
+//     // userIcon.id = "userIcon";
 
-    // Append card body text, list, and icon bottom to card body
-    cardBody.appendChild(cardBodyText);
-    cardBody.appendChild(cardBodyList);
-    cardBody.appendChild(cardIconBottom);
+//     // Append the user icon to the card icon bottom
+//     cardIconBottom.appendChild(userIcon);
 
-    // Append card header and card body to card
-    card.appendChild(cardHeader);
-    card.appendChild(cardBody);
+//     // Append card body text, list, and icon bottom to card body
+//     cardBody.appendChild(cardBodyText);
+//     cardBody.appendChild(cardBodyList);
+//     cardBody.appendChild(cardIconBottom);
 
-    // Append card to anchor
-    anchor.appendChild(card);
+//     // Append card header and card body to card
+//     card.appendChild(cardHeader);
+//     card.appendChild(cardBody);
 
-    // Find the cards section element 
+//     // Append card to anchor
+//     anchor.appendChild(card);
 
-    // Append anchor to the cards section
-    cardsSection.appendChild(anchor);
-}
+//     // Find the cards section element 
+
+//     // Append anchor to the cards section
+//     cardsSection.appendChild(anchor);
+// }
 
 
 
@@ -364,15 +352,14 @@ getRPMSFolder();
 
 
 
-
-
-
 // Handle folder creation
 // const createBtn = document.querySelector('.create');
 // const form1 = document.getElementById('form1');
 // const form2 = document.getElementById('form2');
 // const cardsSection = document.querySelector('.cards-section');
 
+
+// Handle folder creation
 createBtn.addEventListener('click', async () => {
     const folderName = form1.value.trim();
     const schoolYear = form2.value;
@@ -388,13 +375,13 @@ createBtn.addEventListener('click', async () => {
             return; // Exit if a folder for the school year already exists
         }
 
-        try{
+        try {
             const formData = new FormData();
             formData.append('folder_name', folderName);
             formData.append('school_year', schoolYear);
             formData.append('position_rpms', 'Highly Proficient');
-            formData.append('background_color', '#3498DB');
-            formData.append('color', '#FFFFFF');
+            formData.append('background_color', colorPairs[schoolYear].background);
+            formData.append('color', colorPairs[schoolYear].text);
 
             const response = await fetch('https://bnahs.pythonanywhere.com/api/school/forms/rpms/folders/create/', {
                 method: 'POST',
@@ -405,26 +392,19 @@ createBtn.addEventListener('click', async () => {
                 body: formData,
             });
             const data = await response.json();
-     
-    
+
             if (response.ok) {
                 console.log('Folder created successfully:', data);
             } else {
-                console.error('Error creating folder:', data.error); 
+                console.error('Error creating folder:', data.error);
             }
-        } catch(e){
+        } catch (e) {
             console.error("Error creating folder:", e);
         }
 
-
-
-
-
-
-
         // Create new folder card
         const newCard = document.createElement('a');
-        newCard.href = "sadmin-RPMS-Proficient-Landing.html"; // Redirect to this page when clicked
+        newCard.href = "sadmin-RPMS-HighlyProficient-Landing.html"; // Redirect to this page when clicked
         newCard.classList.add('card-link');
 
         newCard.innerHTML = `
@@ -455,9 +435,9 @@ createBtn.addEventListener('click', async () => {
         // Append the new folder card to the cards-section
         cardsSection.appendChild(newCard);
 
-        // Assign random color to the new card
+        // Assign fixed color to the new card based on the selected school year
         const cardHeader = newCard.querySelector('.card-header');
-        assignRandomColor(cardHeader);
+        assignFixedColor(cardHeader, schoolYear);
 
         // Close the modal and reset the form fields
         closeModal();
@@ -465,8 +445,6 @@ createBtn.addEventListener('click', async () => {
         alert('Please fill in both Folder Name and School Year.');
     }
 });
-
-
 
 
 
