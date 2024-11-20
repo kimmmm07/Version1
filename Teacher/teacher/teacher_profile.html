@@ -127,7 +127,10 @@ window.addEventListener('load', async function () {
         console.log("Success Data : ",data);
         const teacherData = data.user;
 
-        mainProfilePicture.src = "https://bnahs.pythonanywhere.com" + teacherData.profile
+        if (teacherData.profile) {
+            mainProfilePicture.src = "https://bnahs.pythonanywhere.com" + teacherData.profile
+            
+        }
         // Populate the profile details
         document.getElementById('name').textContent = `${teacherData.first_name} ${teacherData.middle_name} ${teacherData.last_name}`;
         document.getElementById('position').textContent = teacherData.position;
