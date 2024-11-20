@@ -24,31 +24,31 @@
     </header>
 
     <main>
-        <h1>Records</h1><br>
+        <h1 id="records-title">Records</h1><br>
 
         <div class="tabs">
-            <a href="cot_highlyproficient_records.html" id="cot-tab">COT</a>
-            <a href="ipcrf_highlyproficient_records.html" class="active" id="ipcrf-tab">IPRCF</a>
-            <a href="rpms_highlyproficient_records.html" id="rpms-tab">RPMS</a>
+            <a href="cot_highlyproficient_records.html" id="tab-cot">COT</a>
+            <a href="ipcrf_highlyproficient_records.html" class="active" id="tab-ipcrf">IPRCF</a>
+            <a href="rpms_highlyproficient_records.html" id="tab-rpms">RPMS</a>
         </div><br>
 
         <div class="filters">
             <select name="school-year" id="school-year">
                 <option value="#">Select School Year</option>
                 <option value="2023-2024">S.Y. 2023 - 2024</option>
-                <option value="2022-2023">S.Y. 2022 - 2023</option>
-                <option value="2021-2022">S.Y. 2021 - 2022</option>
+                <!--<option value="2022-2023">S.Y. 2022 - 2023</option>
+                <option value="2021-2022">S.Y. 2021 - 2022</option>-->
             </select>
         
-            <select name="teacher-type" id="teacher-type">
-                <option value="#">Select Teacher Type</option>
-                <option value="ipcrf_proficient_records.html" id="proficient-teacher">Proficient Teacher</option>
+            <select name="teacher-type" id="teacher-type-filter">
+                <!--<option value="#">Select Teacher Type</option>
+                <option value="ipcrf_proficient_records.html" id="proficient-teacher">Proficient Teacher</option>-->
                 <option value="ipcrf_highlyproficient_records.html" id="highly-proficient-teacher">Highly Proficient Teacher</option>
             </select>
      
         </div>
     
-        <table>
+        <table id="records-table">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -59,8 +59,8 @@
                     <th>Action</th>
                 </tr>
             </thead>
-            <tbody id="records-tbody">
-                <tr id="record1">
+            <tbody id="teacherTableBody">
+                <!--<tr id="record1">
                     <td>
                         <img src="User_Circle.png" alt="User Icon" width="25" id="user-icon"> 
                         <span id="teacher-name">Michael Pelps Johnson</span>
@@ -71,7 +71,7 @@
                     <td id="evaluation-result">Outstanding</td>
                     <td id="teacher-action"><a href="records_view_ipcrf.html" class="view-link" id="view-record">
                         <img src="Eye.png" class="eye-icon" id="eyeIcon">View</a></td>
-                </tr>
+                </tr>-->
             </tbody>
         </table>
     </main>
@@ -86,7 +86,7 @@
             </div>
         </div>
     </div>
-    <script>
+    <!--<script>
     
         async function fetchData() {
     
@@ -115,7 +115,7 @@
         }
         fetchData();
     
-    </script>
+    </script>-->
     <script src="ipcrf_highlyproficient_records.js"></script>
 </body>
 </html>
