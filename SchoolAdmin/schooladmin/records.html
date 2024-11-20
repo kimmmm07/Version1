@@ -235,6 +235,7 @@ function renderFacultyList(data) {
 
         let testdate = new Date(member.cot.created_at);
         let optionsThing = { year: 'numeric', month: 'long', day: 'numeric' }; 
+        const randomInteger = Math.floor(Math.random() * 1000) + 1;
         
         tr.innerHTML = `
             <th>
@@ -246,9 +247,26 @@ function renderFacultyList(data) {
             <th>${member.cot_taker.department}</th>
             <th>${member.cot_evaluator ? member.cot_evaluator.fullname : "N/A"}</th>
             <th>${testdate.toLocaleDateString('en-US', optionsThing)}</th>
+            <th style="color: #032F97; text-align: center;">
+                <a id="view-link-${randomInteger}" style="text-decoration: none; cursor: pointer; color: inherit;">
+                    <img src="assets/Eye.png" class="eye-icon"> View
+                </a>
+            </th> 
         `;
 
         tbody.appendChild(tr);
+
+        const viewLink = document.getElementById(`view-link-${randomInteger}`);
+        viewLink.addEventListener('click', () => {
+            const cotId = member.cot.cot_form_id;
+            localStorage.setItem('teacher_id', member.cot_taker.employee_id);
+            localStorage.setItem('cot_id', cotId);
+            if (member.cot_taker.is_proficient) {
+                window.location.href = "records_cot_view.html";
+            } else{
+                window.location.href = "records_cot_view_highly_proficient.html";
+            }
+        });
     });
 }
 
