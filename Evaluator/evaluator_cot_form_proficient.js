@@ -298,21 +298,6 @@ backButton.addEventListener('click', function() {
 });
 
 // For the "Submit" button
-submitButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    // Handle form submission logic here
-    // For example, you could update the COT object with the selected ratings
-    // and then call the updateCot() function to save the changes to the server
-    
-    if (!departmentSelect.value){
-        alert("Please select a subject.");
-        return;
-    }
-
-
-    updateCot();
-    alert('Form submitted!');
-});
 
 
 // Check if all questions have been answered
@@ -361,11 +346,21 @@ document.getElementById('ratingForm').addEventListener('submit', function(e) {
             }
         });
 
+            
+        if (!departmentSelect.value){
+            alert("Please select a subject.");
+            return;
+        }
+
+
         const department = String(document.getElementById('department').value); //subject selected
         const comment = String(document.getElementById('comments').value);
         console.log(department);
         console.log(comment);
         console.log(forms);  //display forms
+        
+        updateCot();
+
         alert('Form submitted successfully!');
     } else {
         alert('Please answer all questions before submitting.');

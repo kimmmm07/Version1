@@ -172,39 +172,12 @@ document.getElementById('backBtn').addEventListener('click', function() {
 });
 
 
-//submitting form for highly proficient
-document.getElementById('ratingForm').addEventListener('submit', function(e) {
-    e.preventDefault(); 
+// //submitting form for highly proficient
+// document.getElementById('ratingForm').addEventListener('submit', function(e) {
+//     e.preventDefault(); 
 
-    if (validateForm()) {
-        const forms = {};
-        
-        //All questions
-        const questions = document.querySelectorAll('.question-container');
-
-        questions.forEach((questionContainer, index) => {
-            const questionText = questionContainer.querySelector('.question').textContent.trim();
-            const selectedButton = questionContainer.querySelector('.rating-button.active');
-            
-            // added to forms object
-            if (selectedButton) {
-                forms[index + 1] = {
-                    question: questionText,
-                    selectedRating: selectedButton.textContent
-                };
-            }
-        });
-
-        const department = String(document.getElementById('department').value); //subject selected
-        const comment = String(document.getElementById('comments').value);
-        console.log(department);
-        console.log(comment);
-        console.log(forms);  //display forms
-        alert('Form submitted successfully!');
-    } else {
-        alert('Please answer all questions before submitting.');
-    }
-});
+    
+// });
 
 
 
@@ -411,11 +384,42 @@ async function updateCot() {
 submitBtn.addEventListener('click', async function(event) {
     event.preventDefault();
 
-    if (!departmentSelect.value){
-        alert("Please select a subject.");
-        return;
+    if (validateForm()) {
+        const forms = {};
+        
+        //All questions
+        const questions = document.querySelectorAll('.question-container');
+
+        questions.forEach((questionContainer, index) => {
+            const questionText = questionContainer.querySelector('.question').textContent.trim();
+            const selectedButton = questionContainer.querySelector('.rating-button.active');
+            
+            // added to forms object
+            if (selectedButton) {
+                forms[index + 1] = {
+                    question: questionText,
+                    selectedRating: selectedButton.textContent
+                };
+            }
+        });
+
+            
+        if (!departmentSelect.value){
+            alert("Please select a subject.");
+            return;
+        }
+
+        const department = String(document.getElementById('department').value); //subject selected
+        const comment = String(document.getElementById('comments').value);
+        console.log(department);
+        console.log(comment);
+        console.log(forms);  //display forms
+        updateCot();
+        alert('Form submitted successfully!');
+    } else {
+        alert('Please answer all questions before submitting.');
     }
-    updateCot();
+
 })
 
 
