@@ -944,6 +944,7 @@ async function updateIPCRF() {
         const result = await response.json();
         if (response.ok) {
             console.log("Success Data : ", result); 
+            location.href = 'ipcrf_t1-3.html';
 
         } else {
             console.log("Error Data : ", result);
