@@ -5,10 +5,10 @@ const evaluationConducted = document.getElementById("evaluationConducted");
 const totalPending = document.getElementById("totalPending");
 
 // Dropdown elements for submission and distribution rates
-const schoolDropdown = document.getElementById("schoolDropdown");
-const schoolYearDropdown = document.getElementById("schoolYearDropdown");
-const distributionSchoolDropdown = document.getElementById("distributionSchoolDropdown");
-const distributionYearDropdown = document.getElementById("distributionYearDropdown");
+// const schoolDropdown = document.getElementById("schoolDropdown");
+// const schoolYearDropdown = document.getElementById("schoolYearDropdown");
+// const distributionSchoolDropdown = document.getElementById("distributionSchoolDropdown");
+// const distributionYearDropdown = document.getElementById("distributionYearDropdown");
 
 // Canvas elements for charts 
 const distributionChart = document.getElementById("distributionChart");
