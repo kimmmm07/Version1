@@ -49,6 +49,7 @@ window.addEventListener('load', async function () {
         console.log("Success Data : ",data);
         const evaluatorData = data.evaluator;
 
+        this.document.getElementById('profileImage').src = "https://bnahs.pythonanywhere.com/" + evaluatorData.profile;
         // Populate the profile details
         document.getElementById('name').textContent = `${evaluatorData.first_name} ${evaluatorData.middle_name} ${evaluatorData.last_name}`;
         document.getElementById('position').textContent = evaluatorData.position;
