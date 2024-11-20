@@ -202,7 +202,7 @@ function calculateAverageScore() {
     ((quality13 + timeliness13) / 2) * 0.07 +
     ((efficiency14 + quality14 + timeliness14) / 3) * 0.07;
 
-    plus_factor_main = quality15 + timeliness15 + efficiency15;
+    plus_factor_main = ((quality15 + timeliness15 + efficiency15) / 3) * 0.02;
 
     // Total score for main KRAs
     let totalKraScore = 
