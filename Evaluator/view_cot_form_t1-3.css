@@ -196,11 +196,28 @@ textarea {
 }
 
 .signature-block {
-    width: 40%;
+    width: 45%;
     text-align: center;
     font-size: 12px;
-    border-top: 1px solid #000;
     padding-top: 10px;
+}
+
+.observerSignature {
+    background-color: white;
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black ;
+}
+
+.teacherSignature {
+    background-color: white;
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid black ;
 }
 
 .buttons {
