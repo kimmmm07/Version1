@@ -48,8 +48,9 @@
                     <!-- Add more options here if necessary -->
                 </select>
                 <select class="filter" id="teacher-status-filter">
-                    <option>Proficient Teacher</option>
-                    <option>Highly Proficient Teacher</option>
+                    <option value="all">All Teacher</option>
+                    <option value="Proficient">Proficient Teacher</option>
+                    <option value="Highly Proficient">Highly Proficient Teacher</option>
                     <!-- Add more options here if necessary -->
                 </select>
             </div>
@@ -69,76 +70,6 @@
                 </tr>
             </thead>
             <tbody id="faculty-list">
-                <tr class="second-row" data-faculty-id="1"> <!-- Add a data attribute for identification -->
-                    <th>
-                        <div class="user-icon"></div>
-                        Jessica Sanchez Ramirez
-                    </th>
-                    <th>Teacher II</th>
-                    <th>Junior High School</th>
-                    <th>Science</th>
-                    <th>David Patel</th>
-                    <th>May 2024</th>
-                    <th style="color: #032F97; text-align: center;">
-                        <a href="records_ipcrf_view.html" style="text-decoration: none; color: inherit;">
-                            <img src="assets/Eye.png" class="eye-icon"> View
-                        </a>
-                    </th>                    
-                    <th>
-                        <button class="three-dots-btn"><img src="assets/More.png"></button>
-                        <div class="dropdown">
-                            <ul class="dropdown-menu">
-                                <li class="deactivate-btn">
-                                    <a href="#" style="color: #A21718;">
-                                        <img src="assets/Trash.png" alt="Deactivate Icon" class="icon">
-                                        Delete
-                                    </a>
-                                </li>                                    
-                                <!-- <li class="download-bt">
-                                    <a href="#" style="color: #0D6EFD;">
-                                        <img src="assets/Download.png" alt="Delete Icon" class="icon">
-                                        Download
-                                    </a>
-                                </li>                                     -->
-                            </ul>
-                        </div>
-                    </th> <!-- Three dots -->
-                </tr>
-                <tr class="second-row" data-faculty-id="1"> <!-- Add a data attribute for identification -->
-                    <th>
-                        <div class="user-icon"></div>
-                        Michael Pelps Johnson
-                    </th>
-                    <th>Master Teacher II</th>
-                    <th>Junior High School</th>
-                    <th>Science</th>
-                    <th>David Patel</th>
-                    <th>May 2024</th>
-                    <th style="color: #032F97; text-align: center;">
-                        <a href="records_ipcrf_view_highly_proficient.html" style="text-decoration: none; color: inherit;">
-                            <img src="assets/Eye.png" class="eye-icon"> View
-                        </a>
-                    </th>                    
-                    <th>
-                        <button class="three-dots-btn"><img src="assets/More.png"></button>
-                        <div class="dropdown">
-                            <ul class="dropdown-menu">
-                                <li class="deactivate-btn">
-                                    <a href="#" style="color: #A21718;">
-                                        <img src="assets/Trash.png" alt="Deactivate Icon" class="icon">
-                                        Delete
-                                    </a>
-                                </li>                                    
-                                <!-- <li class="download-bt">
-                                    <a href="#" style="color: #0D6EFD;">
-                                        <img src="assets/Download.png" alt="Delete Icon" class="icon">
-                                        Download
-                                    </a>
-                                </li>                                     -->
-                            </ul>
-                        </div>
-                    </th> <!-- Three dots -->
-                </tr>
             </tbody>  
         </table>     
     </div>
@@ -194,9 +125,144 @@
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+function renderFacultyList(data) {
+    const tbody = document.getElementById('faculty-list');
+    tbody.innerHTML = '';  // Clear existing content
+    console.log(data[0])
+    data.forEach(member => {
+        const tr = document.createElement('tr');
+        tr.classList.add('second-row');
+
+
+        let testdate = new Date(member.ipcrf.created_at);
+        let optionsThing = { year: 'numeric', month: 'long', day: 'numeric' }; 
+        
+        tr.innerHTML = `
+            <th>
+                <div class="user-icon"></div>
+                ${member.ipcrf_taker.fullname}
+            </th>
+            <th>${member.ipcrf_taker.position}</th>
+            <th>${member.ipcrf_taker.grade_level}</th>
+            <th>${member.ipcrf_taker.department}</th>
+            <th>${member.ipcrf_rater ? member.ipcrf_rater.fullname : "N/A"}</th>
+            <th>${testdate.toLocaleDateString('en-US', optionsThing)}</th>
+        `;
+
+        tbody.appendChild(tr);
+    });
+}
+
+// Call the function to render the faculty list
+//renderFacultyList(facultyData);
+
+
+let school_year = undefined;
+let quarter = undefined;
+let takers = undefined;
+
+async function fetchData() {
+    try{
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/get/records/ipcrf/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+        
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+
+            school_year = data.school_year;
+            quarter = data.quarter;
+            takers = data.ipcrf_taker;
+
+
+            //school_year.forEach(year => {
+            //    addOption(year);
+            //});
+
+            renderFacultyList(takers);
+
+
+ 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.log("Error Data : ", error);
+    } 
+}
+
+fetchData();
+
+
+
+
+
+document.getElementById("teacher-status-filter").addEventListener("change", function() {
+    const selectedValue = this.value;
+    if (selectedValue) {
+        console.log("Selected value:", selectedValue);
+    }
+
+
+    let new_data = [];
+    takers.forEach(taker => { 
+        console.log("Result" , taker.ipcrf_taker.is_proficient && selectedValue == "Highly Proficient");
+        if (taker.ipcrf_taker.is_proficient && selectedValue == "Proficient") {
+            new_data.push(taker);
+        } else if ( !taker.ipcrf_taker.is_proficient && selectedValue == "Highly Proficient") {
+            new_data.push(taker);
+        } else if(selectedValue == "all") {
+            new_data.push(taker);
+        }
+    });
+
+
+    renderFacultyList(new_data);
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         </script>
 
-    <script>
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Filter button functionality
             const filterButtons = document.querySelectorAll('.filter');
@@ -266,7 +332,7 @@
                 });
             });
         });
-    </script>
+    </script> -->
 
 </body>
 </html>
