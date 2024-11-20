@@ -952,7 +952,7 @@
 <!-- Back and Proceed buttons -->
 <div class="buttons-container">
     <a href="ipcrf_mt1-4.html" class="back-btn">Back</a>
-    <button type="button" class="proceed-btn" id="saveButton" onclick="validateForm()">Save</button>
+    <button type="button" class="proceed-btn" id="saveButton">Save</button>
 </div>
 
 </div>
@@ -989,7 +989,7 @@
     
 
 
-    const saveButton = document.querySelector("#saveButton");
+    const saveButton = document.getElementById("saveButton");
 
     // Function to validate the form
     function validateForm() {
@@ -1027,6 +1027,7 @@
 
         // If the form is valid, proceed to the next page
         if (isFormValid) {
+            updateIPCRF();
             location.href = 'teacher_forms.html';
         }
     });

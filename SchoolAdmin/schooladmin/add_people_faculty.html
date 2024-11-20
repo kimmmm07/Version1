@@ -73,31 +73,37 @@
             <div class="form-row">
                 <label for="employee-id">Employee ID</label>
                 <input type="text" id="employee-id" name="employee_id" required>
+                <span class="error-message-id" id="employee-id-error"></span>
             </div>
             
             <div class="form-row name-fields">
                 <div>
                     <label for="first-name">First Name</label>
                     <input type="text" id="first-name" name="first_name" required>
+                    <span class="error-message1" id="first-name-error"></span>
                 </div>
                 <div>
                     <label for="middle-name">Middle Name</label>
                     <input type="text" id="middle-name" name="middle_name">
+                    <span class="error-message1" id="first-name-error"></span>
                 </div>
                 <div>
                     <label for="last-name">Last Name</label>
                     <input type="text" id="last-name" name="last_name" required>
+                    <span class="error-message1" id="last-name-error"></span>
                 </div>
             </div>
         
             <div class="form-row">
                 <label for="email">Email Address</label>
                 <input type="email" id="email" name="email" required>
+                <span class="error-message" id="email-error"></span>
             </div>
         
             <div class="form-row">
                 <label for="job-started">Job Started</label>
                 <input type="date" id="job-started" name="job_started">
+                <span class="error-message-js" id="job-started-error"></span>
             </div>
         
             <div class="form-row">
@@ -126,6 +132,7 @@
                     <option value="School Principal IV">School Principal IV</option>
                     <!-- more options... -->
                 </select>
+                <span class="error-message-pos" id="position-error"></span>
             </div>
         
             <div class="form-row">
@@ -147,6 +154,7 @@
                     <!-- Add more options as needed -->
                     <!-- more options... -->
                 </select>
+                <span class="error-message-gl" id="grade-level-error"></span>
             </div>
         
         
@@ -173,6 +181,7 @@
                         <option value="IPED">IPED</option>
                         <option value="Special Programs">Special Programs</option>
                 </select>
+                <span class="error-message-dept" id="department-error"></span>
             </div>
         
             <div class="form-row">
@@ -181,11 +190,13 @@
                     <input type="password" id="password" name="password" required>
                     <i class="bi bi-eye-slash" id="togglePassword"></i>
                 </div>
+                <span class="error-message-pass" id="password-error"></span>
             </div>            
         
             <div class="form-row">
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" name="confirm_password" required>
+                <span class="error-message-match" id="confirm-password-error"></span>
             </div>
         
             <div class="form-actions">
@@ -258,6 +269,124 @@ const togglePassword = document.querySelector("#togglePassword");
             // toggle the icon
             this.classList.toggle("bi-eye");
         });
+
+
+        function showError(id, message) {
+    const errorElement = document.getElementById(id);
+    errorElement.innerText = message;
+    errorElement.style.display = "block";
+}
+
+function clearError(id) {
+    const errorElement = document.getElementById(id);
+    errorElement.innerText = "";
+    errorElement.style.display = "none";
+}
+
+function validateForm() {
+    let isValid = true;
+
+    // Validate Employee ID
+    const employeeId = document.getElementById("employee-id");
+    if (employeeId.value.trim() === "") {
+        showError("employee-id-error", "Employee ID is required.");
+        isValid = false;
+    } else {
+        clearError("employee-id-error");
+    }
+
+    // Validate First Name
+    const firstName = document.getElementById("first-name");
+    if (firstName.value.trim() === "") {
+        showError("first-name-error", "First name is required.");
+        isValid = false;
+    } else {
+        clearError("first-name-error");
+    }
+
+    // Validate Last Name
+    const lastName = document.getElementById("last-name");
+    if (lastName.value.trim() === "") {
+        showError("last-name-error", "Last name is required.");
+        isValid = false;
+    } else {
+        clearError("last-name-error");
+    }
+
+    // Validate Email
+    const email = document.getElementById("email");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email.value.trim() === "") {
+        showError("email-error", "Email is required.");
+        isValid = false;
+    } else if (!emailPattern.test(email.value)) {
+        showError("email-error", "Invalid email format.");
+        isValid = false;
+    } else {
+        clearError("email-error");
+    }
+
+    // Validate Job Started
+    const jobStarted = document.getElementById("job-started");
+    if (jobStarted.value === "") {
+        showError("job-started-error", "Job start date is required.");
+        isValid = false;
+    } else {
+        clearError("job-started-error");
+    }
+
+    // Validate Position
+    const position = document.getElementById("position");
+    if (position.value === "") {
+        showError("position-error", "Position is required.");
+        isValid = false;
+    } else {
+        clearError("position-error");
+    }
+
+    // Validate Grade Level
+    const gradeLevel = document.getElementById("grade-level");
+    if (gradeLevel.value === "") {
+        showError("grade-level-error", "Grade level is required.");
+        isValid = false;
+    } else {
+        clearError("grade-level-error");
+    }
+
+    // Validate Department
+    const department = document.getElementById("department");
+    if (department.value === "") {
+        showError("department-error", "Department is required.");
+        isValid = false;
+    } else {
+        clearError("department-error");
+    }
+
+    // Validate Password with 12+ characters, uppercase, lowercase, number, and special character
+    const password = document.getElementById("password");
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{12,}$/;
+    if (!passwordPattern.test(password.value)) {
+        showError("password-error", "Password must be at least 12 characters and contain a special character.");
+        isValid = false;
+    } else {
+        clearError("password-error");
+    }
+
+    // Validate Confirm Password
+    const confirmPassword = document.getElementById("confirm-password");
+    if (confirmPassword.value !== password.value) {
+        showError("confirm-password-error", "Passwords do not match.");
+        isValid = false;
+    } else {
+        clearError("confirm-password-error");
+    }
+
+    // If all fields are valid, submit the form
+    if (isValid) {
+        registerPeople();
+        //document.getElementById("add-people-form").submit();
+    }
+}
 </script>
     <script src="add-people.js" type="module"></script>
 </body>

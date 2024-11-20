@@ -182,6 +182,10 @@ async function getIPCRF1(){
         ipcrf_1 = await response.json();
         if (response.ok) {
             console.log("Success Data : ", ipcrf_1);
+            if(ipcrf_1.ipcrf.is_checked){
+                ipcrfProficientPart1.href= "#"
+            }
+
         } else {
             console.log("Error Data : ", ipcrf_1);
         }
@@ -207,6 +211,9 @@ async function getIPCRF2(){
         ipcrf_2 = await response.json();
         if (response.ok) {
             console.log("Success Data : ", ipcrf_2);
+            if(ipcrf_2.ipcrf.is_checked){
+                ipcrfProficientPart2.href= "#"
+            }
         } else {
             console.log("Error Data : ", ipcrf_2);
         }
@@ -231,6 +238,9 @@ async function getIPCRF3(){
         ipcrf_3 = await response.json();
         if (response.ok) {
             console.log("Success Data : ", ipcrf_3);
+            if(ipcrf_3.ipcrf.is_checked){
+                ipcrfProficientPart3.href= "#"
+            }
         } else {
             console.log("Error Data : ", ipcrf_3);
         }
