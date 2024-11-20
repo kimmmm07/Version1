@@ -355,7 +355,7 @@
         async function fetchData() {
             try{
                 
-                const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/get/records/ipcrf/', {
+                const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/get/ipcrf/specific/', {
                     method: 'GET',
                     headers: {
                         'X-Requested-With': 'XMLHttpRequest',
@@ -454,7 +454,10 @@
             
                 // Create the anchor tag for the action cell
                 var anchor = document.createElement('a');
-                anchor.href = 'records_ipcrf_view.html';  // Assuming this is the correct link
+                //anchor.href = 'records_ipcrf_view.html';  // Assuming this is the correct link
+                anchor.addEventListener('click', function(event) {
+                    viewCOTForm(taker_data.employee_id, taker.ipcrf.connection_to_other);
+                })
                 anchor.style.textDecoration = 'none';
                 anchor.style.color = 'inherit';
                 anchor.id = 'viewLink' + rowCount;
