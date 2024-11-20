@@ -787,6 +787,11 @@ async function updateIPCRF() {
         formData.append('total_score', totalScore);
         formData.append('plus_factor', plusFactor);
         formData.append('average_score', averageScore);
+        formData.append('plus_factor_main', plus_factor_main);
+        formData.append('kra1', kra1);
+        formData.append('kra2', kra2);
+        formData.append('kra3', kra3);
+        formData.append('kra4', kra4);
 
         
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/check/ipcrf/part1/', {
