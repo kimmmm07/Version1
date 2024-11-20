@@ -201,6 +201,7 @@ async function getCot() {
             cot = data.cot;
             teacher = data.teacher;
             cot_content = data.cot.content;
+            rater = data.rater;
 
 
             
@@ -225,7 +226,7 @@ async function getCot() {
             }
 
 
-            observerName.textContent = cot_content['Observer Name'];
+            observerName.textContent = rater ? rater.fullname : 'Not Rated Yet';
             observationDate.textContent = new Date(cot.created_at).toLocaleDateString();
             teacherObserved.textContent = teacher.fullname;
             observationQuarter.textContent = cot_content['Quarter'];
@@ -235,7 +236,7 @@ async function getCot() {
 
 
 
-
+ 
 
 
 
