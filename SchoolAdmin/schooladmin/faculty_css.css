@@ -301,7 +301,7 @@ td {
 }
 
 .manage-btn {
-    background-color: #0033cc;
+    background-color: #d00000;
     color: white;
     border: none;
     border-radius: 20px;
@@ -314,7 +314,7 @@ td {
 }
 
 .manage-btn:hover {
-    background-color: #0022aa;
+    background-color: #b00000;
 }
 
 .manage-btn span {

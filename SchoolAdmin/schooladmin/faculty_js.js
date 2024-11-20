@@ -46,23 +46,7 @@ window.addEventListener('load', async function () {
                     <th>${person.grade_level || 'N/A'}</th>
                     <th>${jobStartedDate}</th>
                     <th>
-                        <button class="manage-btn">Manage <span>&#9662;</span></button>
-                        <div class="dropdown">
-                            <ul class="dropdown-menu">
-                                <li class="deactivate-btn">
-                                    <a href="#">
-                                        <img src="assets/Shutdown.png" alt="Deactivate Icon" class="icon">
-                                        Deactivate
-                                    </a>
-                                </li>
-                                <li class="delete-btn">
-                                    <a href="#" style="color: #A21718;">
-                                        <img src="assets/Trash.png" alt="Delete Icon" class="icon">
-                                        Delete
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                        <button class="manage-btn">Deactivate</button>
                     </th>
                 `;
 
