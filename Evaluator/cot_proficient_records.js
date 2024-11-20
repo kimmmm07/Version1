@@ -261,4 +261,95 @@ function viewCOTForm(teacher_id , quarter){
 
 
 
+document.getElementById("teacherTypeSelect").addEventListener("change", function() {
+    const selectedValue = this.value;
+    if (selectedValue) {
+        console.log("Selected value:", selectedValue);
+    }
+
+    const selectedQuarter = document.getElementById("selectQuarter").value;
+    if (selectedQuarter) {
+        console.log("Selected Quarter:", selectedQuarter);
+    }
+
+    let new_data = [];
+    let filtered_data = [];
+    takers.forEach(taker => { 
+        console.log("Result" , taker.cot_taker.is_proficient && selectedValue == "Highly Proficient");
+        if (taker.cot_taker.is_proficient && selectedValue == "Proficient") {
+            new_data.push(taker);
+        } else if ( !taker.cot_taker.is_proficient && selectedValue == "Highly Proficient") {
+            new_data.push(taker);
+        } else if(selectedValue == "all") {
+            new_data.push(taker);
+        }
+    });
+
+
+    new_data.forEach(taker => {
+        if (taker.quarter == selectedQuarter && selectedQuarter != "all") {
+            filtered_data.push(taker);
+        } else {
+            filtered_data.push(taker);
+        }
+    });
+
+    console.log(filtered_data);
+    tableBody = document.getElementById("teacherTableBody");
+    tableBody.innerHTML = "";
+    filtered_data.forEach( teacher =>{
+        addTeacherRow(teacher);
+    })
+})
+
+
+
+
+document.getElementById("selectQuarter").addEventListener("change", function() {
+
+
+    const selectedValue = document.getElementById("teacherTypeSelect").value;
+    if (selectedValue) {
+        console.log("Selected Value:", selectedValue);
+    }
+
+    let new_data = [];
+    let filtered_data = [];
+    takers.forEach(taker => {
+        console.log("Result" , taker.cot_taker.is_proficient && selectedValue == "Highly Proficient");
+        if (taker.cot_taker.is_proficient && selectedValue == "Proficient") {
+            new_data.push(taker);
+        } else if ( !taker.cot_taker.is_proficient && selectedValue == "Highly Proficient") {
+            new_data.push(taker);
+        } else if(selectedValue == "all") {
+            new_data.push(taker);
+        }
+    });
+
+
+    const selectedQuarter = this.value;
+    if (selectedQuarter) {
+        console.log("Selected Quarter:", selectedQuarter);
+    }
+
+    new_data.forEach(taker => { 
+        console.log("Result", taker.quarter == selectedQuarter, selectedQuarter != "all");
+        console.log("Result", taker.quarter)
+        if (taker.quarter == selectedQuarter) {
+            filtered_data.push(taker);
+        } else if ("all" == selectedQuarter) {
+            filtered_data.push(taker);
+        }
+    });
+
+    console.log(filtered_data);
+    tableBody = document.getElementById("teacherTableBody");
+    tableBody.innerHTML = "";
+    filtered_data.forEach( teacher =>{
+        addTeacherRow(teacher);
+    })
+})
+
+
+
 
