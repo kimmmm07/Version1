@@ -285,16 +285,18 @@ async function fetchData() {
             document.getElementById("finalRating").value = ipcrf ? ipcrf.evaluator_rating : "Not Rated Yet"; 
 
 
-            let content_A = ipcrf_3?.content_A_for_teacher?.[0].A;
+            let content_A = ipcrf_3?.content_for_teacher['A'][0];
+            console.log(content_A)
             document.getElementById("functionalStrengths").value = content_A ? content_A['Strenghts'].join("\n") : "Not Answered Yet";
             document.getElementById("functionalDevelopmentNeeds").value = content_A ? content_A['Development Needs'].join("\n") : "Not Answered Yet";
             document.getElementById("functionalLearningObjectives").value = content_A ? content_A['Learning Objectives'] : "Not Answered Yet";
             document.getElementById("functionalIntervention").value = content_A ? content_A['Intervention'] : "Not Answered Yet";
-            document.getElementById("functionalTimeliness").value = content_A ? content_A['Timeline'].join("\n") : "Not Answered Yet";
+            document.getElementById("functionalTimeliness").value = content_A ? content_A['Timeline']: "Not Answered Yet";
             document.getElementById("functionalResourcesNeeds").value = content_A ? content_A['Resources Needs'] : "Not Answered Yet";
 
 
-            let content_B = ipcrf_3?.content_B_for_teacher?.B;
+            let content_B = ipcrf_3?.content_for_teacher.B;
+            console.log(content_B)
             document.getElementById("behavioralStrengths").value = content_B ? content_B['Strenghts'].join("\n") : "Not Answered Yet";
             document.getElementById("behavioralDevelopmentNeeds").value = content_B ? content_B['Development Needs'].join("\n") : "Not Answered Yet";
             document.getElementById("behavioralLearningObjectives").value = content_B ? content_B['Learning Objectives'] : "Not Answered Yet";
