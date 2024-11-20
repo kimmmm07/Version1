@@ -491,7 +491,11 @@ const backBtn = document.querySelector('.back-btn');
 // const saveButton = document.getElementById('saveButton');
 
 
-
+let kra1 = 0;
+let kra2 = 0;
+let kra3 = 0;
+let kra4 = 0;
+let plus_factor_main = 0;
 let averageScore = 0;
 let plusFactor = 0;
 let totalScore = 0;
@@ -528,6 +532,28 @@ function calculateAverageScore() {
     const quality15 = getValue('quality15');
     const timeliness15 = getValue('timeliness15');
     const efficiency15 = getValue('efficiency15');
+
+
+    kra1 =  ((efficiency1 + 1) / 2) * 0.07 +     
+    ((quality2 + timeliness2) / 2) * 0.07 +  
+    ((efficiency3 + 1) / 2) * 0.07 +     
+    ((efficiency4 + 1) / 2) * 0.07 ;
+
+    kra2 = ((efficiency5 + 1) / 2) * 0.07 +     // KRA 5
+    ((efficiency6 + 1) / 2) * 0.07 +     // KRA 6
+    ((efficiency7 + 1) / 2) * 0.07 +     // KRA 7
+    ((quality8 + 1) / 2) * 0.07;
+
+    kra3 = ((quality9 + timeliness9) / 2) * 0.07 +  // KRA 9
+    ((efficiency10 + 1) / 2) * 0.07 +    // KRA 10
+    ((quality11 + timeliness11) / 2) * 0.07;
+
+    kra4 = ((quality12 + timeliness12) / 2) * 0.07 + // KRA 12
+    ((quality13 + timeliness13) / 2) * 0.07 + // KRA 13
+    ((efficiency14 + quality14) / 2) * 0.07;
+
+    plus_factor_main = quality15 + timeliness15 + efficiency15;
+
 
     // Total score for main KRAs
     let totalKraScore = 
@@ -637,6 +663,11 @@ async function updateIPCRF1(){
     formData.append('plus_factor', plusFactor); 
     formData.append('total_score', totalScore);
     formData.append('content', JSON.stringify(teacher_content));
+    formData.append('plus_factor_main', plus_factor_main);
+    formData.append('kra1', kra1);
+    formData.append('kra2', kra2);
+    formData.append('kra3', kra3);
+    formData.append('kra4', kra4);
 
     try {
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/update/ipcrf/part1/', {
