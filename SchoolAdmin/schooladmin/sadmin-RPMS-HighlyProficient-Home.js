@@ -212,39 +212,35 @@ function assignFixedColor(folderElement, schoolYear) {
 
 
 
+
+
 function generateCard(folder) {
     // Create the anchor tag
     const anchor = document.createElement('a');
-    // anchor.href = "rpms_proficient_stream.html";
-    anchor.onclick = function(event) {
+    anchor.onclick = function (event) {
         event.preventDefault();
         sessionStorage.setItem('rpms_folder_id', folder.rpms_folder_id);
-        window.location.href = 'sadmin-RPMS-HighlyProficient-Landing.html';
+        window.location.href = 'sadmin-RPMS-Proficient-Landing.html';
     };
     anchor.className = "card-link";
-    // anchor.id = "cardLink";
 
     // Create the card div
     const card = document.createElement('div');
     card.className = "card";
-    // card.id = "card";
 
     // Create the card header
     const cardHeader = document.createElement('div');
-    cardHeader.className = "card-header blue";
+    cardHeader.className = "card-header";
     cardHeader.style.backgroundColor = folder.rpms_folder_background_color;
-    // cardHeader.id = "cardHeader";
 
     // Create the header content div
     const headerContent = document.createElement('div');
     headerContent.className = "header-content";
-    // headerContent.id = "headerContent";
     headerContent.textContent = folder.rpms_folder_name;
 
     // Create the school year span
     const schoolYear = document.createElement('span');
     schoolYear.className = "subheader";
-    // schoolYear.id = "schoolYear";
     schoolYear.textContent = folder.rpms_folder_school_year;
 
     // Append the school year span to the header content
@@ -253,16 +249,30 @@ function generateCard(folder) {
     // Create the header icon div
     const headerIcon = document.createElement('div');
     headerIcon.className = "header-icon";
-    headerIcon.id = "headerIcon";
 
-    // Create the school year icon image
-    const schoolYearIcon = document.createElement('img');
-    schoolYearIcon.src = "assets/Group 267.png";
-    schoolYearIcon.alt = "SY Icon";
-    // schoolYearIcon.id = "schoolYearIcon";
+    // Dynamically generate the SY icon
+    const syIcon = document.createElement('div');
+    syIcon.className = "sy-icon";
+    syIcon.textContent = "SY"; // Always display "SY" as the text
+    
+    // Dynamically assign colors to the SY Icon
+    const selectedPair = colorPairs[folder.rpms_folder_school_year];
+    if (selectedPair) {
+        syIcon.style.backgroundColor = darkenColor(selectedPair.background, 10);
+        syIcon.style.color = "#FFFFFF";
+        // syIcon.style.color = lightenColor(selectedPair.background, 50);
+        syIcon.style.width = '60px';
+        syIcon.style.height = '60px';
+        syIcon.style.borderRadius = '50%';
+        syIcon.style.display = 'flex';
+        syIcon.style.alignItems = 'center';
+        syIcon.style.justifyContent = 'center';
+        syIcon.style.fontWeight = 'bold'; // Make "SY" bold
+        syIcon.style.fontSize = '22px'; // Adjust font size for better visibility
+    }
 
-    // Append the image to the header icon
-    headerIcon.appendChild(schoolYearIcon);
+    // Append the SY icon to the header icon container
+    headerIcon.appendChild(syIcon);
 
     // Append header content and header icon to card header
     cardHeader.appendChild(headerContent);
@@ -271,33 +281,27 @@ function generateCard(folder) {
     // Create the card body
     const cardBody = document.createElement('div');
     cardBody.className = "card-body";
-    // cardBody.id = "cardBody";
 
     // Create the card body text paragraph
     const cardBodyText = document.createElement('p');
-    // cardBodyText.id = "cardBodyText";
 
     // Create the list in the card body
     const cardBodyList = document.createElement('ul');
-    // cardBodyList.id = "cardBodyList";
 
     // Create list items
     for (let i = 1; i <= 5; i++) {
         const listItem = document.createElement('li');
-        listItem.id = `listItem${i}`;
         cardBodyList.appendChild(listItem);
     }
 
     // Create the card icon bottom
     const cardIconBottom = document.createElement('div');
     cardIconBottom.className = "card-icon-bottom";
-    // cardIconBottom.id = "cardIconBottom";
 
     // Create the user icon image
     const userIcon = document.createElement('img');
     userIcon.src = "assets/Name.png";
     userIcon.alt = "User Icon";
-    // userIcon.id = "userIcon";
 
     // Append the user icon to the card icon bottom
     cardIconBottom.appendChild(userIcon);
@@ -313,8 +317,6 @@ function generateCard(folder) {
 
     // Append card to anchor
     anchor.appendChild(card);
-
-    // Find the cards section element 
 
     // Append anchor to the cards section
     cardsSection.appendChild(anchor);
