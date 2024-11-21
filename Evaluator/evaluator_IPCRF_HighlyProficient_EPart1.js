@@ -881,6 +881,113 @@ getIPCRF();
 
 
 
+
+
+
+
+
+
+
+
+async function updateIPCRF() {
+    try {
+        
+        let content = ipcrf['content_for_evaluator']
+                
+        // content['Content Knowledge and Pedagogy']['1']['EFFICIENCY']['Rate'] = getRateEfficiency1();
+        // content['Content Knowledge and Pedagogy']['2']['EFFICIENCY']['Rate'] = getRateEfficiency2();
+        // content['Content Knowledge and Pedagogy']['3']['EFFICIENCY']['Rate'] = getRateEfficiency3();
+        // content['Content Knowledge and Pedagogy']['4']['EFFICIENCY']['Rate'] = getRateEfficiency4();
+
+        // content['Learning Environment & Diversity of Learners']['5']['EFFICIENCY']['Rate'] = getRateEfficiency5();
+        // content['Learning Environment & Diversity of Learners']['6']['EFFICIENCY']['Rate'] = getRateEfficiency6();
+        // content['Learning Environment & Diversity of Learners']['7']['EFFICIENCY']['Rate'] = getRateEfficiency7();
+        // content['Learning Environment & Diversity of Learners']['8']['EFFICIENCY']['Rate'] = getRateEfficiency8();
+
+        // content['Curriculum and Planning & Assessment and Reporting']['9']['EFFICIENCY']['Rate'] = getRateEfficiency9();
+        // content['Curriculum and Planning & Assessment and Reporting']['9']['QUALITY']['Rate'] = getRateQuality9();
+        
+        // content['Curriculum and Planning & Assessment and Reporting']['10']['EFFICIENCY']['Rate'] = getRateEfficiency10();
+
+        // content['Curriculum and Planning & Assessment and Reporting']['11']['QUALITY']['Rate'] = getRateQuality11();
+        // content['Curriculum and Planning & Assessment and Reporting']['11']['TIMELINES']['Rate'] = getRateTimeliness11();
+
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['QUALITY']['Rate'] = getRateQuality12();
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['TIMELINES']['Rate'] = getRateTimeliness12();
+
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['QUALITY']['Rate'] = getRateQuality13();
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['TIMELINES']['Rate'] = getRateTimeliness13();
+
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['QUALITY']['Rate'] = getRateQuality14();
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['TIMELINES']['Rate'] = getRateTimeliness14();
+        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['EFFICIENCY']['Rate'] = getRateEfficiency14();
+
+        // content['PLUS FACTOR']['15']['EFFICIENCY']['Rate'] = getRateEfficiency15();
+        // content['PLUS FACTOR']['15']['TIMELINES']['Rate'] = getRatetimeliness15();
+        // content['PLUS FACTOR']['15']['QUALITY']['Rate'] = getRateQuality15();
+
+
+        const formData = new FormData();
+        formData.append('ipcrf_id', ipcrf['connection_to_other']);
+        formData.append('content', JSON.stringify(content));
+        formData.append('total_score', totalScore);
+        formData.append('plus_factor', plusFactor);
+        formData.append('average_score', averageScore);
+        formData.append('plus_factor_main', plus_factor_main);
+        formData.append('kra1', kra1);
+        formData.append('kra2', kra2);
+        formData.append('kra3', kra3);
+        formData.append('kra4', kra4);
+
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/check/ipcrf/part1/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", result);
+            alert("Form is submitted successfully");
+            setTimeout(()=>{
+                location.href = 'ipcrf_t1-3.html';
+
+            },1000)
+
+        } else {
+            console.log("Error Data : ", result);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const requiredFields = [
     "efficiency1", "quality2", "timeliness2",
     "efficiency3", "efficiency4", "efficiency5",
