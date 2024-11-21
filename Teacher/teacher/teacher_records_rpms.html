@@ -66,7 +66,7 @@
                     <th>Grade Level</th>
                     <th>Department</th>
                     <th>Rater</th>
-                    <!-- <th>Date</th> -->
+                    <th>Date</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -385,12 +385,12 @@ function addOption(year) {
         var optionsCell = document.createElement('th');
     
         // Set the inner HTML for each cell
-        nameCell.innerHTML = `<div class="user-icon" id="userIcon${rowCount}"></div>${taker_data.fullname}`;
+        nameCell.innerHTML = `<img class="user-icon" id="userIcon${rowCount}" src="${ taker_data.profile ? "https://bnahs.pythonanywhere.com" + taker_data.profile : "asset/User_Circle.png"}" >${taker_data.fullname}`;
         positionCell.textContent = taker_data.position;
         gradeLevelCell.textContent = taker_data.grade_level;
         subjectCell.textContent = taker_data.department || "N/A";  // Assuming taker_data has a subject field
         raterCell.textContent = taker_evaluator ? taker_evaluator.fullname : 'N/A';
-        emptyCell.textContent = '';  // Assuming no data for this cell
+        emptyCell.textContent = taker.rpms_data.check_date ? new Date(taker.rpms_data.check_date).toLocaleDateString() : "Not Rated Yet"; // Assuming no data for this cell
     
         // Create the anchor tag for the action cell
         var anchor = document.createElement('a');
@@ -414,62 +414,6 @@ function addOption(year) {
         actionCell.style.textAlign = 'center';
         actionCell.appendChild(anchor);
     
-        // Create the button for the options cell
-        var button = document.createElement('button');
-        button.classList.add('three-dots-btn');
-        button.id = 'threeDotsBtn';
-        var buttonImg = document.createElement('img');
-        buttonImg.src = 'asset/More.png';
-        button.appendChild(buttonImg);
-    
-        // Create the dropdown menu for the options cell
-        var dropdown = document.createElement('div');
-        dropdown.classList.add('dropdown');
-        dropdown.id = 'dropdownMenu';
-    
-        var dropdownMenu = document.createElement('ul');
-        dropdownMenu.classList.add('dropdown-menu');
-        dropdownMenu.id = 'dropdownOptions';
-    
-        // Create the deactivate option
-        var deactivateOption = document.createElement('li');
-        deactivateOption.classList.add('deactivate-btn');
-        var deactivateLink = document.createElement('a');
-        deactivateLink.href = '#';
-        deactivateLink.style.color = '#A21718';
-        var deactivateIcon = document.createElement('img');
-        deactivateIcon.src = 'asset/Trash.png';
-        deactivateIcon.alt = 'Deactivate Icon';
-        deactivateIcon.classList.add('icon');
-        deactivateIcon.id = 'deactivateIcon';
-        deactivateLink.appendChild(deactivateIcon);
-        deactivateLink.appendChild(document.createTextNode('Delete'));
-        deactivateOption.appendChild(deactivateLink);
-    
-        // Create the download option
-        var downloadOption = document.createElement('li');
-        downloadOption.classList.add('download-btn');
-        var downloadLink = document.createElement('a');
-        downloadLink.href = '#';
-        downloadLink.style.color = '#0D6EFD';
-        var downloadIcon = document.createElement('img');
-        downloadIcon.src = 'asset/Download.png';
-        downloadIcon.alt = 'Download Icon';
-        downloadIcon.classList.add('icon');
-        downloadIcon.id = 'downloadIcon';
-        downloadLink.appendChild(downloadIcon);
-        downloadLink.appendChild(document.createTextNode('Download'));
-        downloadOption.appendChild(downloadLink);
-    
-        // Append options to the dropdown menu
-        dropdownMenu.appendChild(deactivateOption);
-        dropdownMenu.appendChild(downloadOption);
-        dropdown.appendChild(dropdownMenu);
-    
-        // Append the button and dropdown to the options cell
-        optionsCell.appendChild(button);
-        optionsCell.appendChild(dropdown);
-    
         // Append cells to the row
         newRow.appendChild(nameCell);
         newRow.appendChild(positionCell);
@@ -478,7 +422,6 @@ function addOption(year) {
         newRow.appendChild(raterCell);
         newRow.appendChild(emptyCell);
         newRow.appendChild(actionCell);
-        newRow.appendChild(optionsCell);
     
         // Append the new row to the table body
         tableBody.appendChild(newRow);

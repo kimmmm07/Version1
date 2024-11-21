@@ -79,7 +79,7 @@ const indicator5Row = document.getElementById('indicator5Row');
 const indicator6Row = document.getElementById('indicator6Row');
 const indicator7Row = document.getElementById('indicator7Row');
 const indicator8Row = document.getElementById('indicator8Row');
-
+ 
 
 async function checkRow(idrow , comparisonValue) {
     var row = document.getElementById(idrow);
@@ -98,7 +98,7 @@ async function checkRow(idrow , comparisonValue) {
     } else if (comparisonValue == 8){
         selectedData = row.cells[6];
     } else {
-        selectedData = row.cells[7];
+        selectedData = row.cells[6];
     }
     
     // Add class name correctly
@@ -128,12 +128,14 @@ async function getCot() {
         
         const teacher_id = sessionStorage.getItem('teacher_id');
         const quarter = sessionStorage.getItem('quarter');
+        const cot_id = sessionStorage.getItem('cot_id');
 
         const formData = new FormData();
         formData.append('teacher_id', teacher_id);
         formData.append('quarter', quarter);
+        formData.append('cot_id', cot_id);
 
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/cot/', {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/forms/cot/get/', {
             method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
@@ -174,7 +176,7 @@ async function getCot() {
 
             // Info Section Elements
             observerName2.textContent = rater ? rater.fullname : 'Not Rated Yet';
-            observationDate2.textContent = new Date(cot.created_at).toLocaleDateString();
+            observationDate2.textContent = cot.check_date ? new Date(cot.check_date).toLocaleDateString() : "Not Rated Yet";
             teacherObserved2.textContent = teacher.fullname;
             observationQuarter2.textContent = cot_content['Quarter'];
             subjectGradeLevel2.textContent = cot.subject;

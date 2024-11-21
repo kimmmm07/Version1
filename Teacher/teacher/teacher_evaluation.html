@@ -277,7 +277,7 @@ function createEvaluationCard(data) {
     raterName.textContent = data.rater ? data.rater.fullname : "Not Rated Yet";
 
     const profilePhoto = document.createElement('img'); 
-    profilePhoto.src = data.rater && data.rater.profile ? "https://bnahs.pythonanywhere.com" + data.rater.profile : 'asset/User_Circle.png';
+    profilePhoto.src = data.rater?.profile ? "https://bnahs.pythonanywhere.com" + data.rater.profile : 'asset/User_Circle.png';
     profilePhoto.alt = 'Profile Icon';
     profilePhoto.classList.add('profile-icon');
 
@@ -319,11 +319,18 @@ function createEvaluationCard(data) {
     const submissionDetails = document.createElement('div');
     submissionDetails.classList.add('submission-details');
 
-    let dateObject3 = new Date(data.data.submit_date );
     
     const dateSubmitted = document.createElement('p'); 
-    dateSubmitted.textContent = data.data?.submit_date ? `Date Submitted: ${dateObject3.toLocaleDateString('en-US', options)}` : "Date Submitted: Not Submitted" ;
-
+    if (data.data?.submit_date){
+        let dateObject3 = new Date(data.data.submit_date );
+        dateSubmitted.textContent =`Date Submitted: ${dateObject3.toLocaleDateString('en-US', options)}`;
+    } else if (data.data?.check_date){ 
+        let dateObject3 = new Date(data.data.check_date );
+        dateSubmitted.textContent =`Date Submitted: ${dateObject3.toLocaleDateString('en-US', options)}`;
+    } else {
+        dateSubmitted.textContent = "Not Rated Yet";
+    }
+    
     const rater = document.createElement('p');
 
     rater.textContent = `Rater: ${data.rater ? data.rater.fullname : "Not Rated Yet"}`;
@@ -407,7 +414,7 @@ async function getCOT(){
                         
                     taker_data = {
                         taker : cot_taker.cot_taker,
-                        rater : cot_taker.cot_rater,
+                        rater : cot_taker.cot_evaluator,
                         data : cot_taker.cot,
                         title : 'Classroom Observation Tool Form'
                     }

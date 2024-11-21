@@ -346,6 +346,9 @@ submitBtn.addEventListener('click', async function(event) {
         updateCot();
 
         alert('Form submitted successfully!');
+        setTimeout(()=>{
+            window.location.href = 'evaluator_cot_form_proficient.html';
+        }, 1000)
     } else {
         alert('Please answer all questions before submitting.');
     }

@@ -126,9 +126,6 @@ const middleNameIcon = document.getElementById('middleNameIcon');
 const lastNameIcon = document.getElementById('lastNameIcon');
 
 // Job Title input and icon
-const jobTitleGroup = document.getElementById('jobTitleGroup');
-const jobTitle = document.getElementById('jobTitle');
-const jobTitleIcon = document.getElementById('jobTitleIcon');
 
 // Department input and icon
 const departmentGroup = document.getElementById('departmentGroup');
@@ -263,8 +260,7 @@ yesButton.addEventListener('click', async function() {
                 const formData = new FormData();
                 formData.append('firstname', firstName.value);
                 formData.append('middlename', middleName.value);
-                formData.append('lastname', lastName.value);
-                formData.append('jobtitle', jobTitle.value);
+                formData.append('lastname', lastName.value); 
                 formData.append('department', department.value);
                 formData.append('password', password.value);
                 formData.append('confirm_password', confirmPassword.value);

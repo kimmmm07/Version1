@@ -11,12 +11,12 @@ const teacherLevel2 = document.getElementById("teacherLevel2");
 const ratingSheetTitle2 = document.getElementById("ratingSheetTitle2");
 
 // Info Section Elements
-const observerName2 = document.getElementById("observerName2");
-const observationDate2 = document.getElementById("observationDate2");
-const teacherObserved2 = document.getElementById("teacherObserved2");
-const observationQuarter2 = document.getElementById("observationQuarter2");
-const subjectGradeLevel2 = document.getElementById("subjectGradeLevel2");
-const schoolYear2 = document.getElementById("schoolYear2");
+const observerName2 = document.getElementById("observerName");
+const observationDate2 = document.getElementById("observationDate");
+const teacherObserved2 = document.getElementById("teacherObserved");
+const observationQuarter2 = document.getElementById("observationQuarter");
+const subjectGradeLevel2 = document.getElementById("subjectGradeLevel");
+const schoolYear2 = document.getElementById("schoolYear");
 
 // Observation Section Checkboxes
 const observation1 = document.getElementById("observation1");
@@ -162,7 +162,7 @@ async function getCot() {
 
             
 
-            for (var i = 0; i < 7; i++) {
+            for (var i = 0; i < 8; i++) {
                 let res = i + 1;
                 // console.log(res)
                 // console.log(cot_content['Questions'][res]['Selected']);
@@ -183,11 +183,11 @@ async function getCot() {
 
             // Info Section Elements
 
-            observerName2.textContent = cot_content['Observer Name'];
-            observationDate2.textContent = new Date(cot.created_at).toLocaleDateString();
-            teacherObserved2.textContent = cot_content['Teacher Name'];
+            observerName2.textContent = data.rater ? data.rater.fullname : "Not Rated Yet";
+            observationDate2.textContent = cot.check_date ? new Date(cot.check_date).toLocaleDateString() : "Not Rated Yet";
+            teacherObserved2.textContent = teacher.fullname;
             observationQuarter2.textContent = cot_content['Quarter'];
-            subjectGradeLevel2.textContent = cot_content['Subject & Grade Level'];
+            subjectGradeLevel2.textContent = teacher.grade_level;
             schoolYear2.textContent = cot.school_year;
             additionalComments.value = cot_content["Comments"];
 
