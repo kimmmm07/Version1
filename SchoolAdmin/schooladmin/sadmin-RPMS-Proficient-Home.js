@@ -224,7 +224,7 @@ function generateCard(folder) {
     }
 
     // Append the SY icon to the header icon container
-    headerIcon.appendChild(syIcon);
+    headerIcon.appendChild(syIcon); 
 
     // Append header content and header icon to card header
     cardHeader.appendChild(headerContent);
