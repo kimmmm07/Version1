@@ -234,10 +234,11 @@ function addTeacherRow(taker) {
     var anchor = document.createElement('a');
     anchor.classList.add('view-link');
     anchor.id = 'viewLink' + rowCount;
+    anchor.style.cursor = 'pointer';
 
     // Add the event listener
     anchor.addEventListener('click', function() {
-        viewCOTForm(taker_data.employee_id, taker_quarter);
+        viewCOTForm(taker_data.employee_id);
     });
 
     // Create the image tag
@@ -269,10 +270,9 @@ function addTeacherRow(taker) {
 
 
 
-function viewCOTForm(teacher_id , quarter){
+function viewCOTForm(teacher_id ){
 
-    sessionStorage.setItem('teacher_id', teacher_id);
-    sessionStorage.setItem('quarter', quarter);
+    sessionStorage.setItem('teacher_id', teacher_id); 
     window.location.href = 'rpms_proficient_records_view.html';
 }
 

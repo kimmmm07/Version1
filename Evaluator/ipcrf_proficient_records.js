@@ -224,7 +224,7 @@ function addTeacherRow(taker) {
 
     // Add the event listener
     anchor.addEventListener('click', function() {
-        viewCOTForm(taker_data.employee_id, taker_quarter);
+        viewCOTForm(taker_data.employee_id, taker.ipcrf.connection_to_other	);
     });
 
     // Create the image tag
@@ -260,7 +260,7 @@ function addTeacherRow(taker) {
 function viewCOTForm(teacher_id , quarter){
 
     sessionStorage.setItem('teacher_id', teacher_id);
-    sessionStorage.setItem('quarter', quarter);
+    sessionStorage.setItem('ipcrf_id', quarter);
     window.location.href = 'records_view_ipcrf.html';
 }
 
