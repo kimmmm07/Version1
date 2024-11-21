@@ -124,7 +124,7 @@ nav ul li a i {
 
 /* Active state for the sidebar icon */
 .sidebar-icon.active {
-    width: 100%;
+    width: 109%;
     background-color: rgba(93, 181, 230, 0.5); /* Light blue background color */
     border-radius: 8px; /* Rounded corners */
     padding: 2px 18px; 
