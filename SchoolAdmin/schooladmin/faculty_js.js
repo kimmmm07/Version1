@@ -2,7 +2,6 @@
 //             // Filter button functionality
             
 //         });
-
 window.addEventListener('load', async function () {
     const response = await fetch('https://bnahs.pythonanywhere.com/api/school/faculties/', {
         method: 'GET',
@@ -39,25 +38,88 @@ window.addEventListener('load', async function () {
                 // Populate row with data
                 row.innerHTML = `
                     <th>
-                        <img class="user-icon" ${person.profile ? `src="https://bnahs.pythonanywhere.com${person.profile}"` : ''}>
+                        <img class="user-icon" src="${person.profile ? `https://bnahs.pythonanywhere.com${person.profile}` : 'assets/User_Circle.png'}" alt="User Icon">
                         ${fullName}
                     </th>
                     <th>${person.position || 'N/A'}</th>
                     <th>${person.grade_level || 'N/A'}</th>
                     <th>${jobStartedDate}</th>
                     <th>
-                        <button class="manage-btn">Deactivate</button>
+                        <button class="manage-btn deactivate-btn">Deactivate</button>
                     </th>
                 `;
 
                 // Append the row to the table body
                 facultyList.appendChild(row);
+
+                // Attach event listeners for new elements
+                const manageButton = row.querySelector('.manage-btn');
+                manageButton.addEventListener('click', function(event) {
+                    // Prevent the click event from bubbling up to the window
+                    event.stopPropagation();
+                    // Toggle the "show" class on the sibling .dropdown element
+                    const dropdown = this.nextElementSibling; // Get the dropdown that follows the button
+                    if (dropdown) {
+                        dropdown.classList.toggle('show');
+                        console.log("Dropdown: ", dropdown);
+                    }
+                });
+
+                const deactivateButton = row.querySelector('.deactivate-btn');
+                deactivateButton.addEventListener('click', async function(event) {
+                    event.preventDefault(); // Prevent default anchor behavior
+
+                    // Get the faculty row
+                    const facultyRow = this.closest('tr');
+                    const facultyId = facultyRow.dataset.facultyId; 
+
+                    const formData = new FormData();
+                    formData.append('teacher_id', facultyId);
+                    const response = await fetch('https://bnahs.pythonanywhere.com/api/school/faculty/deactivate/', {
+                        method: 'POST',
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                        },  
+                        credentials: 'include',
+                        body: formData,
+                    });
+                
+                    const data = await response.json();
+                    if (!response.ok) {
+                        console.log("Error Deactivating faculty member : ", data);
+                        alert('Error deactivating faculty member');
+                        return;
+                    }  else {
+                        alert("Deactivation succeeded");
+                    }
+
+                    // Move the faculty member to the deactivated list (if you have an array or state to track)
+                    // Get the ID of the faculty
+                    console.log(`Deactivating faculty ID: ${facultyId}`); // Log for verification
+                    // You can use AJAX to send this ID to your server if needed
+
+                    // For demo purposes, let's just remove it from the table for now
+                    facultyRow.style.display = 'none'; // Or you could remove it completely
+                });
+
+                // Add delete button functionality if necessary
+                const deleteButton = row.querySelector('.delete-btn');
+                if (deleteButton) {
+                    deleteButton.addEventListener('click', function(event) {
+                        event.preventDefault(); // Prevent default anchor behavior
+
+                        // Get the faculty row
+                        const facultyRow = this.closest('tr');
+
+                        // Remove the faculty member completely
+                        facultyRow.remove(); // Remove the row from the table
+                    });
+                }
             }
         });
     } else {
         console.log("Error Data : ", data);
     }
-
 
     const filterButtons = document.querySelectorAll('.filter');
     
@@ -70,21 +132,6 @@ window.addEventListener('load', async function () {
         });
     });
 
-    // Dropdown functionality for "Manage" button
-    const manageButtons = document.querySelectorAll('.manage-btn');
-    console.log("Manage Buttons: ", manageButtons);
-
-    manageButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            // Prevent the click event from bubbling up to the window
-            event.stopPropagation();
-            // Toggle the "show" class on the sibling .dropdown element
-            const dropdown = this.nextElementSibling; // Get the dropdown that follows the button
-            dropdown.classList.toggle('show');
-            console.log("Dropdown: ", dropdown);
-        });
-    });
-
     // Close the dropdown if clicking outside of it
     window.onclick = function(event) {
         if (!event.target.matches('.manage-btn')) {
@@ -94,39 +141,4 @@ window.addEventListener('load', async function () {
             });
         }
     }
-
-    // Deactivate button functionality
-    const deactivateButtons = document.querySelectorAll('.deactivate-btn a');
-
-    deactivateButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default anchor behavior
-
-            // Get the faculty row
-            const facultyRow = this.closest('tr');
-
-            // Move the faculty member to the deactivated list (if you have an array or state to track)
-            const facultyId = facultyRow.dataset.facultyId; // Get the ID of the faculty
-            console.log(`Deactivating faculty ID: ${facultyId}`); // Log for verification
-            // You can use AJAX to send this ID to your server if needed
-
-            // For demo purposes, let's just remove it from the table for now
-            facultyRow.style.display = 'none'; // Or you could remove it completely
-        });
-    });
-
-    // Delete button functionality
-    const deleteButtons = document.querySelectorAll('.delete-btn a');
-
-    deleteButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevent default anchor behavior
-
-            // Get the faculty row
-            const facultyRow = this.closest('tr');
-
-            // Remove the faculty member completely
-            facultyRow.remove(); // Remove the row from the table
-        });
-    });
 });
