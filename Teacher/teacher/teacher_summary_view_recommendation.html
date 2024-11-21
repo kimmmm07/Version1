@@ -369,7 +369,7 @@ async function getReport(){
             document.getElementById('finalRating').textContent = teacher_data.rating ? teacher_data.rating.evaluator_rating.toFixed(2) : "N/A";
             document.getElementById('yearsOfExperience').textContent = teacher_data.job.years + " years and " + teacher_data.job.months + " months";
             document.getElementById('currentJobTitle').textContent = teacher_data.teacher.position;
-            document.getElementById('qualifiedRank').textContent = teacher_data.ranking[1];
+            document.getElementById('qualifiedRank').textContent = teacher_data?.ranking[1] ?? "         ";
             document.getElementById('recommendation').textContent = teacher_data.recommendation.result;
             document.getElementById('teacherfinalRating').textContent = teacher_data.rating ? teacher_data.rating.rating.toFixed(2) : "N/A";
             document.getElementById('EvaluatorfinalRating').textContent = teacher_data.rating ? teacher_data.rating.evaluator_rating.toFixed(2) : "N/A";
