@@ -115,6 +115,8 @@ nav a.active {
     height: 350px; /* Adjust height */
     background-color: white;
     overflow: hidden;
+    margin-top: -40px !important;
+    margin-bottom: 70px;
 }
 
 .card-header {
@@ -124,7 +126,7 @@ nav a.active {
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    height: 25%; /* Set header height to cover only a portion */
+    height: 15%; /* Set header height to cover only a portion */
     border-radius: 12px 12px 0 0;
     position: relative;
 }
@@ -363,4 +365,22 @@ nav a.active {
     color: #082F96;
     border: 1px solid #082F96 !important;
     font-weight: 700;
+}
+
+
+
+.sy-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    margin-top: 80px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Makes it circular */
+    font-size: 12px;
+    color: #fff; /* Contrast text color */
+    font-weight: bold;
+    font-size: 22px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional for better visual */
 }
