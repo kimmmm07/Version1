@@ -277,7 +277,7 @@ function createEvaluationCard(data) {
     raterName.textContent = data.rater ? data.rater.fullname : "Not Rated Yet";
 
     const profilePhoto = document.createElement('img'); 
-    profilePhoto.src = data.rater && data.rater.profile ? "https://bnahs.pythonanywhere.com" + data.rater.profile : 'asset/User_Circle.png';
+    profilePhoto.src = data.rater?.profile ? "https://bnahs.pythonanywhere.com" + data.rater.profile : 'asset/User_Circle.png';
     profilePhoto.alt = 'Profile Icon';
     profilePhoto.classList.add('profile-icon');
 
@@ -407,7 +407,7 @@ async function getCOT(){
                         
                     taker_data = {
                         taker : cot_taker.cot_taker,
-                        rater : cot_taker.cot_rater,
+                        rater : cot_taker.cot_evaluator,
                         data : cot_taker.cot,
                         title : 'Classroom Observation Tool Form'
                     }
