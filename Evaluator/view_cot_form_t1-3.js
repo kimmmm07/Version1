@@ -174,7 +174,7 @@ async function getCot() {
 
             // Info Section Elements
             observerName2.textContent = rater ? rater.fullname : 'Not Rated Yet';
-            observationDate2.textContent = new Date(cot.created_at).toLocaleDateString();
+            observationDate2.textContent = cot.check_date ? new Date(cot.check_date).toLocaleDateString() : "Not Rated Yet";
             teacherObserved2.textContent = teacher.fullname;
             observationQuarter2.textContent = cot_content['Quarter'];
             subjectGradeLevel2.textContent = cot.subject;
