@@ -79,6 +79,17 @@ function generateCard(folder) {
     // headerContent.id = "headerContent";
     headerContent.textContent = folder.rpms_folder_name;
 
+    // Function to darken a color
+    function darkenColor(hex, percent) {
+        const num = parseInt(hex.replace('#', ''), 16);
+        const amt = Math.round(2.55 * percent);
+        const R = Math.max((num >> 16) - amt, 0);
+        const G = Math.max((num >> 8 & 0x00FF) - amt, 0);
+        const B = Math.max((num & 0x0000FF) - amt, 0);
+        return `#${(0x1000000 + (R * 0x10000 + G * 0x100 + B)).toString(16).slice(1)}`;
+    }
+
+
     // Create the school year span
     const schoolYear = document.createElement('span');
     schoolYear.className = "subheader";
@@ -90,14 +101,19 @@ function generateCard(folder) {
 
     // Create the header icon div
     const headerIcon = document.createElement('div');
-    headerIcon.className = "header-icon";
+    // headerIcon.className = "header-icon";
     headerIcon.id = "headerIcon";
 
-    // Create the school year icon image
-    const schoolYearIcon = document.createElement('img');
-    schoolYearIcon.src = "Group 267.png";
-    schoolYearIcon.alt = "SY Icon";
-    // schoolYearIcon.id = "schoolYearIcon";
+    // Generate a darker color for the SY icon
+    const darkerColor = darkenColor(folder.rpms_folder_background_color, 20);
+
+
+    // Create the dynamic School Year icon
+    const schoolYearIcon = document.createElement('div');
+    schoolYearIcon.className = "sy-icon";
+    schoolYearIcon.style.backgroundColor = darkerColor;
+    schoolYearIcon.textContent = "SY"; // Dynamic text or placeholder
+
 
     // Append the image to the header icon
     headerIcon.appendChild(schoolYearIcon);
