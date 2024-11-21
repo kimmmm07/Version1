@@ -150,7 +150,8 @@ yesButton.addEventListener('click', async function() {
 });
 
 
-
+let teacher = undefined;
+let submitted = undefined;
 
 async function getTeacherAttachments() {
     try {
@@ -173,9 +174,9 @@ async function getTeacherAttachments() {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
-            const teacher = data.teacher;
+            teacher = data.teacher;
             document.getElementById("teacher-name").textContent = teacher.fullname; 
-            const submitted = data.submitted;
+            submitted = data.submitted;
             console.log(teacher);
             console.log(submitted);
 
@@ -193,6 +194,10 @@ getTeacherAttachments();
 
 
 returnBtn.addEventListener('click', async function(){
+    const rpms_id = submitted['0'].attachment_id;
+    let content = submitted['0'].grade;
+    console.log(rpms_id);
+    console.log(content);
     if(!parseInt(score1.value) || parseInt(score1.value) > 7){
         alert("Grade should not be 0 and is lower or equal to the max score.");
         return;
@@ -209,9 +214,37 @@ returnBtn.addEventListener('click', async function(){
         alert("Grade should not be 0 and is lower or equal to the max score.");
         return;
     }
-
+    content['1'].Score = String(score1.value);
+    content['2'].Score = String(score2.value);
+    content['3'].Score = String(score3.value);
+    content['4'].Score = String(score4.value);
+    console.log(content);
     score.value = String(parseInt(score1.value)+parseInt(score2.value)+parseInt(score3.value)+parseInt(score4.value));
-    const totalScore = score.value;
+    
+
+    const formData = new FormData();
+    formData.append('rpms_id', rpms_id);
+    formData.append('content', JSON.stringify(content));
+    formData.append('comment', String(document.getElementById('private-comments-textarea')));
+
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/check/rpms/attachment/',
+        {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            }, 
+            body: formData, 
+            credentials: 'include', 
+        }
+    );
+
+
+    const data = await response.json();
+    if (response.ok) {
+        console.log("Success Data : ",data);
+    } else {
+        console.log("Error Data : ",data);
+    }
 
 
 });
