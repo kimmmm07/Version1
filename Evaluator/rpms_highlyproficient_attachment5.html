@@ -60,25 +60,24 @@
     <div class="student-info">
       <div class="dropdown">
         <i class="fas fa-user"></i>
-        <div id="student-name">
-          Michael Pelps Johnson
+        <div id="teacher-name">
+        
       </div>      
         <span>Turned in</span>
       </div>
     </div><br>
 
     <div class="file-preview">
-      <img src="Group 924.png" alt="Attachment Preview">
+      <div id="pdf-container" style="width: 100%; height: 800px; overflow: auto; border: 1px solid #ccc;"></div>
 
-      <!-- Three-dot menu with icons placed at the top right -->
-      <div class="file-actions">
+      <div class="file-actions" id="file-actions">
         <button class="three-dots" id="three-dots-btn">⋮</button>
         <div class="dropdown-menu" id="dropdown-menu">
-          <button onclick="downloadFile()">
-            <i class="fas fa-download" id="fas fa-download"></i> Download
+          <button id="download-btn" onclick="downloadFile()">
+            <i class="fas fa-download" id="fas-fa-download"></i> Download
           </button>
-          <button onclick="printFile()">
-            <i class="fas fa-print" id="fas fa-print"></i> Print
+          <button id="print-btn" onclick="printFile()">
+            <i class="fas fa-print" id="fas-fa-print"></i> Print
           </button>
         </div>
       </div>
@@ -92,16 +91,29 @@
     </div><br>
 
     <div class="file-section tab">
-      <h3>Files</h3>
-      <p>Turned in on Aug 10, 11:00PM</p>
-      <img src="Group 924.png" alt="Sample attachment">
+      <h3 id="file-section-title">Files</h3>
+      <p id="file-upload-time"></p>
+      <button id="file-btn"
+        style="
+          background-color: #4CAF50; 
+          color: white; 
+          padding: 10px 20px; 
+          text-align: center; 
+          font-size: 16px; 
+          border: none; 
+          border-radius: 5px; 
+          cursor: pointer; 
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+      >
+        File
+      </button>
     </div>
 
     <div class="grade-section tab">
       <h3>Grade</h3>
       <ul>
         <li>Performed various related works/ activities that contribute to the teaching-learning process. 
-          <span id="plusFactorScore"><input type="number" id="score" min="1" max="2"></span><span><input type="text" id="max-score" value="/2" disabled></span></li>
+          <span id="plusFactorScore"><input type="number" id="score1" min="1" max="2"></span><span><input type="text" id="max-score" value="/2" disabled></span></li>
       </ul>
     </div>
 
@@ -129,5 +141,6 @@
   </div>
   
   <script src="rpms_highlyproficient_attachment5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
 </body>
 </html>

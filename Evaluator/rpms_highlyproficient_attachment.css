@@ -457,7 +457,7 @@ main {
   align-items: center;
 }
 
-#score {
+#score, #score1, #score2, #score3, #score4 {
   width: 50px;
   padding: 5px;
   text-align: center;

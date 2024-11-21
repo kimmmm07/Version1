@@ -61,7 +61,7 @@
     <div class="student-info">
       <div class="dropdown">
         <i class="fas fa-user"></i>
-        <div id="student-name">
+        <div id="teacher-name">
           Michael Pelps Johnson
       </div>      
         <span>Turned in</span>
@@ -69,20 +69,19 @@
     </div><br>
 
     <div class="file-preview">
-      <img src="Group 924.png" alt="Attachment Preview">
+      <div id="pdf-container" style="width: 100%; height: 1000px; overflow: auto; border: 1px solid #ccc;"></div>
 
-      <!-- Three-dot menu with icons placed at the top right -->
-      <div class="file-actions">
-        <button class="three-dots" id="three-dots-btn">⋮</button>
-        <div class="dropdown-menu" id="dropdown-menu">
-          <button onclick="downloadFile()">
-            <i class="fas fa-download" id="fas fa-download"></i> Download
-          </button>
-          <button onclick="printFile()">
-            <i class="fas fa-print" id="fas fa-print"></i> Print
-          </button>
+        <div class="file-actions" id="file-actions">
+          <button class="three-dots" id="three-dots-btn">⋮</button>
+          <div class="dropdown-menu" id="dropdown-menu">
+            <button id="download-btn" onclick="downloadFile()">
+              <i class="fas fa-download" id="fas-fa-download"></i> Download
+            </button>
+            <button id="print-btn" onclick="printFile()">
+              <i class="fas fa-print" id="fas-fa-print"></i> Print
+            </button>
+          </div>
         </div>
-      </div>
     </div>
   </section>
 
@@ -93,20 +92,33 @@
     </div><br>
 
     <div class="file-section tab">
-      <h3>Files</h3>
-      <p>Turned in on Aug 10, 11:00PM</p>
-      <img src="Group 924.png" alt="Sample attachment">
+      <h3 id="file-section-title">Files</h3>
+          <p id="file-upload-time"></p>
+          <button id="file-btn"
+            style="
+              background-color: #4CAF50; 
+              color: white; 
+              padding: 10px 20px; 
+              text-align: center; 
+              font-size: 16px; 
+              border: none; 
+              border-radius: 5px; 
+              cursor: pointer; 
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+          >
+            File
+          </button>
     </div>
 
     <div class="grade-section tab">
       <h3>Grade</h3>
       <ul>
         <li>Modeled to colleagues the setting of achievable and challenging learning outcomes that are aligned with learning competencies to cultivate a culture of excellence for all learners. (PPST 4.2.3) 
-          <span id="kra9Score"><input type="number" id="score" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
+          <span id="kra9Score"><input type="number" id="score1" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
         <li>Used effective strategies for providing timely, accurate and constructive feedback to encourage learners to reflect on and improve their own learning. (PPST 5.3.3) 
-          <span id="kra10Score"><input type="number" id="score" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
+          <span id="kra10Score"><input type="number" id="score2" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
         <li>Worked collaboratively with colleagues to analyze and utilize assessment data to modify practices and programs to further support learner progress and achievement. (PPST 5.5.3) 
-          <span id="kra11Score"><input type="number" id="score" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
+          <span id="kra11Score"><input type="number" id="score3" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
       </ul>
     </div>
 
@@ -135,5 +147,6 @@
   </div>
   
   <script src="rpms_highlyproficient_attachment3.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
 </body>
 </html>

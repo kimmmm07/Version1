@@ -22,7 +22,7 @@ function addTeacherRow(teacherData) {
         <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacherData.fullname}</td>
         <td>${teacherData.position}</td>
         <td>${teacherData.grade_level}</td>
-        <td>${teacherData.rater ?? 'Not Assigned'}</td>
+        <td>${rater ? rater.fullname : 'Not Assigned'}</td>
         <td class="status ${statusClass}">${teacher_status}</td>
         <td><a id="${teacherData.employee_id}" class="review">Review</a></td>
     `;
@@ -69,7 +69,7 @@ async function fetchData() {
         if (response.ok) {
             console.log("Success Data : ", data);  
             data.teachers.forEach(teacherData => {
-                if (!teacherData.teacher.is_proficient){
+                if (!teacherData.teacher.is_proficient && teacherData.teacher.is_accepted){
                     addTeacherRow(teacherData);  
                 }
             })

@@ -83,6 +83,7 @@ let plus_factor_id = undefined;
 
 function onclickKRA1(){
     sessionStorage.setItem('kra_1_id', kra_1_id);
+    console.log(kra_1_id);
     window.location.href = 'rpms_highly_proficient_content1.html';
 }
 

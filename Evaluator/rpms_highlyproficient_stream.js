@@ -106,3 +106,89 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+ 
+
+
+let kra_1_id = undefined;
+let kra_2_id = undefined;
+let kra_3_id = undefined;
+let kra_4_id = undefined;
+let plus_factor_id = undefined;
+
+function onclickKRA1(){
+    sessionStorage.setItem('kra_1_id', kra_1_id);
+    window.location.href = 'rpms_highlyproficient_kra1.html';
+}
+
+function onclickKRA2(){
+    sessionStorage.setItem('kra_2_id', kra_2_id);
+    window.location.href = 'rpms_highlyproficient_kra2.html';
+}
+
+function onclickKRA3(){
+    sessionStorage.setItem('kra_3_id', kra_3_id);
+    window.location.href = 'rpms_highlyproficient_kra3.html';
+}
+
+function onclickKRA4(){
+    sessionStorage.setItem('kra_4_id', kra_4_id);
+    window.location.href = 'rpms_highlyproficient_kra4.html';
+}
+
+function onclickPlusFactor(){
+    sessionStorage.setItem('plus_factor_id', plus_factor_id);
+    window.location.href = 'rpms_highlyproficient_plusfactor.html';
+}
+
+let folder = undefined;
+async function getClassworks(){
+    try {
+        
+        const rpms_folder_id = sessionStorage.getItem('rpms_folder_id'); // 
+
+        const formData = new FormData();
+        formData.append('rpms_folder_id', rpms_folder_id);
+        formData.append('folder_type', 'proficient' );
+
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/rpms/folder/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData,
+        });
+
+        folder = await response.json();
+
+        if (response.ok) {
+            console.log("Success Data : ", folder);  
+
+            folder.rpms_classworks.forEach(classwork => {
+                if (classwork.title == "PLUS FACTOR") {
+                    plus_factor_id = classwork.class_work_id;
+                } else if (classwork.title == "KRA 4:  Curriculum and Planning & Assessment and Reporting") {
+                    kra_4_id = classwork.class_work_id;
+                } else if (classwork.title == "KRA 3: Curriculum and Planning") {
+                    kra_3_id = classwork.class_work_id;
+                } else if (classwork.title == "KRA 2: Learning Environment and Diversity of Learners") {
+                    kra_2_id = classwork.class_work_id;
+                } else if (classwork.title == "KRA 1: Content Knowledge and Pedagogy") {
+                    kra_1_id = classwork.class_work_id;
+                }
+            })
+
+        } else {
+            console.log("Error Data : ", folder);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getClassworks();

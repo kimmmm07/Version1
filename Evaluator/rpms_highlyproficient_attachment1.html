@@ -59,7 +59,7 @@
       <div class="student-info" id="student-info">
           <div class="dropdown">
               <i class="fas fa-user" id="user-icon"></i>
-              <div id="student-name">
+              <div id="teacher-name">
                 Michael Pelps Johnson
             </div>            
               <span id="status-text">Turned in</span>
@@ -67,20 +67,19 @@
       </div><br>
 
       <div class="file-preview" id="file-preview">
-          <img src="Group 924.png" alt="Attachment Preview" id="attachment-preview">
+        <div id="pdf-container" style="width: 100%; height: 1200px; overflow: auto; border: 1px solid #ccc;"></div>
 
-          <!-- Three-dot menu with icons placed at the top right -->
-          <div class="file-actions" id="file-actions">
-              <button class="three-dots" id="three-dots-btn">⋮</button>
-              <div class="dropdown-menu" id="dropdown-menu">
-                  <button onclick="downloadFile()" id="download-btn">
-                      <i class="fas fa-download"></i> Download
-                  </button>
-                  <button onclick="printFile()" id="print-btn">
-                      <i class="fas fa-print"></i> Print
-                  </button>
-              </div>
+        <div class="file-actions" id="file-actions">
+          <button class="three-dots" id="three-dots-btn">⋮</button>
+          <div class="dropdown-menu" id="dropdown-menu">
+            <button id="download-btn" onclick="downloadFile()">
+              <i class="fas fa-download" id="fas-fa-download"></i> Download
+            </button>
+            <button id="print-btn" onclick="printFile()">
+              <i class="fas fa-print" id="fas-fa-print"></i> Print
+            </button>
           </div>
+        </div>
       </div>
   </section>
 
@@ -91,22 +90,35 @@
       </div><br>
 
       <div class="file-section tab" id="file-section">
-          <h3>Files</h3>
-          <p>Turned in on Aug 10, 11:00PM</p>
-          <img src="Group 924.png" alt="Sample attachment" id="sample-attachment">
+        <h3 id="file-section-title">Files</h3>
+        <p id="file-upload-time"></p>
+        <button id="file-btn"
+          style="
+            background-color: #4CAF50; 
+            color: white; 
+            padding: 10px 20px; 
+            text-align: center; 
+            font-size: 16px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+        >
+          File
+        </button>
       </div>
 
       <div class="grade-section tab" id="grade-section">
           <h3>Grade</h3>
           <ul>
               <li>Modeled effective applications of content knowledge within and across curriculum teaching areas. (PPST 1.1.3) 
-                <span id="kra1Score"><input type="number" id="score" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
+                <span id="kra1Score"><input type="number" id="score1" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
               <li>Evaluated with colleagues the effectiveness of teaching strategies that promote learner achievement in literacy and numeracy (PPST 1.4.3) 
-                <span id="kra2Score"><input type="number" id="score" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
+                <span id="kra2Score"><input type="number" id="score2" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
               <li>Developed and applied effective teaching strategies to promote critical and creative thinking, as well as other higher-order thinking skills. (PPST 1.5.3) 
-                <span id="kra3Score"><input type="number" id="score" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
+                <span id="kra3Score"><input type="number" id="score3" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
               <li>Modeled and supported colleagues in the proficient use of Mother Tongue, Filipino, and English to improve teaching and learning, as well as to develop the learners’ pride of their language, heritage, and culture. (PPST 1.6.3) 
-                <span id="kra4Score"><input type="number" id="score" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
+                <span id="kra4Score"><input type="number" id="score4" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
           </ul>
       </div>
 
@@ -134,5 +146,6 @@
 </div>
 
   <script src="rpms_highlyproficient_attachment1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
 </body>
 </html>
