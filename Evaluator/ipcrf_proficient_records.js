@@ -139,7 +139,9 @@ async function fetchData() {
             });
 
             takers.forEach(taker => {
-                addTeacherRow(taker);
+                if(taker.ipcrf_taker.is_proficient){
+                    addTeacherRow(taker);
+                }
             });
 
 
