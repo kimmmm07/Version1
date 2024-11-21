@@ -106,14 +106,14 @@ let cot_content = undefined;
 async function getCot() {
     try {
         
-        const teacher_id = sessionStorage.getItem('teacher_id');
+        const form_id = sessionStorage.getItem('form_id');
         const quarter = sessionStorage.getItem('quarter');
 
         const formData = new FormData();
-        formData.append('teacher_id', teacher_id);
+        formData.append('cot_id', form_id);
         formData.append('quarter', quarter);
 
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/cot/', {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/forms/cot/get/', {
             method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
@@ -155,11 +155,11 @@ async function getCot() {
 
             // Info Section Elements
 
-            observerName2.textContent = cot_content['Observer Name'];
-            observationDate2.textContent = new Date(cot.created_at).toLocaleDateString();
-            teacherObserved2.textContent = cot_content['Teacher Name'];
+            observerName2.textContent = data.rater ? data.rater.fullname : "Not Rated Yet";
+            observationDate2.textContent = cot.check_date ? new Date(cot.check_date).toLocaleDateString() : "Not Rated Yet";
+            teacherObserved2.textContent = teacher.fullname;
             observationQuarter2.textContent = cot_content['Quarter'];
-            subjectGradeLevel2.textContent = cot_content['Subject & Grade Level'];
+            subjectGradeLevel2.textContent = teacher.grade_level;
             schoolYear2.textContent = cot.school_year;
             additionalComments.value = cot_content["Comments"];
 

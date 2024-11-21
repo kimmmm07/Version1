@@ -72,7 +72,7 @@
                     <th>Grade Level</th>
                     <th>Department</th>
                     <th>Rater</th>
-                    <!-- <th>Date</th> -->
+                    <th>Date</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -403,6 +403,11 @@ function addOption(year) {
 
 
 
+function viewCOTForm(form_id , quarter){
+
+    sessionStorage.setItem('form_id', form_id);
+    sessionStorage.setItem('quarter', quarter);
+}
 
 
     // {/* <button onclick="addTeacherRow('John Doe', 'Teacher I', 'Elementary', 'Jane Smith', 987654)">Add Row</button> */}
@@ -440,14 +445,25 @@ function addOption(year) {
         gradeLevelCell.textContent = taker_data.grade_level;
         subjectCell.textContent = taker_data.subject || "N/A";  // Assuming taker_data has a subject field
         raterCell.textContent = taker_evaluator ? taker_evaluator.fullname : 'N/A';
-        emptyCell.textContent = '';  // Assuming no data for this cell
+        
+        
+        emptyCell.textContent = taker.cot.check_date ? new Date(taker.cot.check_date).toLocaleDateString() : "Not Rated Yet"; // Assuming no data for this cell
     
         // Create the anchor tag for the action cell
         var anchor = document.createElement('a');
-        anchor.href = 'records_cot_view_proficient.html';  // Assuming this is the correct link
+        //anchor.href = 'records_cot_view_proficient.html';  // Assuming this is the correct link
         anchor.style.textDecoration = 'none';
         anchor.style.color = 'inherit';
+        anchor.style.cursor = "pointer";
         anchor.id = 'viewLink' + rowCount;
+        anchor.addEventListener("click", (event)=>{
+            viewCOTForm(taker.cot.cot_form_id , taker.cot.quarter)
+            if (taker_data.is_proficient){
+                window.location.href = 'records_cot_view_proficient.html';
+            } else {
+                window.location.href = "records_cot_view_highly_proficient.html";
+            }
+        })
     
         // Create the image tag for the anchor
         var img = document.createElement('img');
@@ -464,61 +480,7 @@ function addOption(year) {
         actionCell.style.textAlign = 'center';
         actionCell.appendChild(anchor);
     
-        // Create the button for the options cell
-        var button = document.createElement('button');
-        button.classList.add('three-dots-btn');
-        button.id = 'threeDotsBtn';
-        var buttonImg = document.createElement('img');
-        buttonImg.src = 'asset/More.png';
-        button.appendChild(buttonImg);
-    
-        // Create the dropdown menu for the options cell
-        var dropdown = document.createElement('div');
-        dropdown.classList.add('dropdown');
-        dropdown.id = 'dropdownMenu';
-    
-        var dropdownMenu = document.createElement('ul');
-        dropdownMenu.classList.add('dropdown-menu');
-        dropdownMenu.id = 'dropdownOptions';
-    
-        // Create the deactivate option
-        var deactivateOption = document.createElement('li');
-        deactivateOption.classList.add('deactivate-btn');
-        var deactivateLink = document.createElement('a');
-        deactivateLink.href = '#';
-        deactivateLink.style.color = '#A21718';
-        var deactivateIcon = document.createElement('img');
-        deactivateIcon.src = 'asset/Trash.png';
-        deactivateIcon.alt = 'Deactivate Icon';
-        deactivateIcon.classList.add('icon');
-        deactivateIcon.id = 'deactivateIcon';
-        deactivateLink.appendChild(deactivateIcon);
-        deactivateLink.appendChild(document.createTextNode('Delete'));
-        deactivateOption.appendChild(deactivateLink);
-    
-        // Create the download option
-        var downloadOption = document.createElement('li');
-        downloadOption.classList.add('download-btn');
-        var downloadLink = document.createElement('a');
-        downloadLink.href = '#';
-        downloadLink.style.color = '#0D6EFD';
-        var downloadIcon = document.createElement('img');
-        downloadIcon.src = 'asset/Download.png';
-        downloadIcon.alt = 'Download Icon';
-        downloadIcon.classList.add('icon');
-        downloadIcon.id = 'downloadIcon';
-        downloadLink.appendChild(downloadIcon);
-        downloadLink.appendChild(document.createTextNode('Download'));
-        downloadOption.appendChild(downloadLink);
-    
-        // Append options to the dropdown menu
-        dropdownMenu.appendChild(deactivateOption);
-        dropdownMenu.appendChild(downloadOption);
-        dropdown.appendChild(dropdownMenu);
-    
-        // Append the button and dropdown to the options cell
-        optionsCell.appendChild(button);
-        optionsCell.appendChild(dropdown);
+
     
         // Append cells to the row
         newRow.appendChild(nameCell);
@@ -528,7 +490,6 @@ function addOption(year) {
         newRow.appendChild(raterCell);
         newRow.appendChild(emptyCell);
         newRow.appendChild(actionCell);
-        newRow.appendChild(optionsCell);
     
         // Append the new row to the table body
         tableBody.appendChild(newRow);
@@ -538,12 +499,6 @@ function addOption(year) {
 
 
 
-function viewCOTForm(teacher_id , quarter){
-
-    sessionStorage.setItem('teacher_id', teacher_id);
-    sessionStorage.setItem('quarter', quarter);
-    window.location.href = 'view_cot_form_mt1-4.html';
-}
 
 
 
