@@ -68,7 +68,7 @@
                 </tr>
             </thead>
             <tbody id="faculty-list">
-                <tr class="second-row" data-faculty-id="1"> <!-- Add a data attribute for identification -->
+                <!-- <tr class="second-row" data-faculty-id="1">
                     <th>
                         <div class="user-icon"></div>
                         Jessica Sanchez Ramirez
@@ -81,7 +81,7 @@
                         <span class="status-dot"></span>
                         Evaluated
                     </th> 
-                </tr>
+                </tr> -->
             </tbody>
                  
         </table>
@@ -120,7 +120,7 @@
         });
     
 
-        let people = undefined;
+        //let people = undefined;
         async function fetchFacultyData() {
             try {
         
@@ -133,11 +133,53 @@
                     credentials: 'include',
                 });
         
-                people = await response.json();
+                const data = await response.json();
                 if (response.ok) {
-                    console.log("Success Data : ", people);  
+                    console.log("Success Data : ", data);
+                    const people = data.people;
+
+                    // Select the table body where rows will be appended
+                    const facultyList = document.getElementById('faculty-list');
+            
+                    // Loop through the people array and filter by role
+                    people.forEach(person => {
+                        if (person.role == "Teacher" || person.role == "Teacher II") {
+                            
+                            // Create a new table row
+                            const row = document.createElement('tr');
+                            row.classList.add('second-row');
+                            row.setAttribute('data-faculty-id', person.employee_id);
+            
+                            // Extract full name
+                            const fullName = `${person.first_name} ${person.middle_name} ${person.last_name}`;
+            
+                            // Format job started date
+                            const jobStartedDate = person.job_started 
+                                ? new Date(person.job_started).toLocaleDateString("en-US", { month: 'numeric', day: 'numeric', year: 'numeric' }) 
+                                : 'N/A';
+                            console.log("Profile ", person.profile);
+                            // Populate row with data
+                            row.innerHTML = `
+                                <th>
+                                    <img class="user-icon" ${person.profile ? `src="https://bnahs.pythonanywhere.com${person.profile}"` : ''}>
+                                    ${fullName}
+                                </th>
+                                <th>${person.position || 'N/A'}</th>
+                                <th>${person.grade_level || 'N/A'}</th> 
+                                <th>${person.department || 'N/A'}</th>
+                                <th>${person.evaluator ? person.evaluator.fullname : 'N/A'}</th>
+                                <th class="status-text">
+                                    <span class="status-dot"></span>
+                                    ${person.is_evaluated ? 'Evaluated' : 'Not Evaluated'}
+                                </th> 
+                            `;
+            
+                            // Append the row to the table body
+                            facultyList.appendChild(row);
+                        }
+                    });  
                 } else {
-                    console.log("Error Data : ", people);
+                    console.log("Error Data : ", data);
                 }
             } catch (error) {
                 console.error("Error during fetch:", error);
@@ -149,6 +191,6 @@
     
     </script>
 
-    
+
 </body>
 </html>
