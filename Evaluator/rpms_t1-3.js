@@ -6,12 +6,10 @@ const rpmsTitle = document.getElementById("rpmsTitle");
 const teacherTable = document.getElementById("teacherTable");
 
 
-
-function addTeacherRow(teacherData) { 
-
-    rater = teacherData.rater;
-    teacher_status = teacherData.status;
-    teacherData = teacherData['teacher'];
+function addTeacherRow(teacherData) {
+    const rater = teacherData.rater;
+    const teacher_status = teacherData.status;
+    const teacher = teacherData.teacher;
 
     const tr = document.createElement('tr');
     const statusClass = `${teacher_status === "In Progress" ? "progress" 
@@ -19,69 +17,57 @@ function addTeacherRow(teacherData) {
         : "submitted"}`;
 
     tr.innerHTML = `
-        <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacherData.fullname}</td>
-        <td>${teacherData.position}</td>
-        <td>${teacherData.grade_level}</td>
-        <td>${teacherData.rater ?? 'Not Assigned'}</td>
+        <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.fullname}</td>
+        <td>${teacher.position}</td>
+        <td>${teacher.grade_level}</td>
+        <td>${rater ?? 'Not Assigned'}</td>
         <td class="status ${statusClass}">${teacher_status}</td>
-        <td><a id="${teacherData.employee_id}" class="review">Review</a></td>
+        <td><a href="#" class="review">Review</a></td>
     `;
 
+    // Attach the row to the table
     teacherTable.appendChild(tr);
 
-    // Add the event listener to the action link
-    const actionLink = document.getElementById(`${teacherData.employee_id}`);
+    // Add an event listener to the review link
+    const actionLink = tr.querySelector('.review');
     actionLink.addEventListener('click', function(event) {
         event.preventDefault();
 
-        sessionStorage.setItem('teacher_id', teacherData.employee_id);
+        // Store the employee ID in sessionStorage
+        sessionStorage.setItem('teacher_id', teacher.employee_id);
 
-
-        // Call the appropriate function based on the teacher's status
-        window.location.href = "rpms_proficient_homepage.html"
-
-        // if (teacherData.status.toLowerCase() === 'pending') {
-        //     evaluateTeacher(teacherData);
-        // } else {
-        //     viewTeacher(teacherData);
-        // }
+        // Redirect to the homepage or handle status-specific logic
+        window.location.href = "rpms_proficient_homepage.html";
     });
 }
 
-
-
-
-
-
 async function fetchData() {
     try {
-        
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/all/rpms/attachment/', {
             method: 'GET',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
-                
             },
             credentials: 'include',
         });
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            console.log("Success Data:", data);  
             data.teachers.forEach(teacherData => {
-                if (teacherData.teacher.is_proficient){
+                if (teacherData.teacher.is_proficient) {
                     addTeacherRow(teacherData);  
                 }
-            })
+            });
         } else {
-            console.log("Error Data : ", data);
+            console.log("Error Data:", data);
         }
     } catch (error) {
         console.error("Error during fetch:", error);
     }
-};
+}
 
-
+// Fetch the data on page load
 fetchData();
 
 

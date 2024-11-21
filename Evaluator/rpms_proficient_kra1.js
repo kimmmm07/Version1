@@ -15,6 +15,8 @@ const schoolYearLink = document.getElementById("school-year-link");
 
 const class_work_id = sessionStorage.getItem('kra_1_id');
 console.log(class_work_id);
+const teacher_id = sessionStorage.getItem('teacher_id');
+console.log(teacher_id);
 
 
 // Container and content elements
@@ -103,3 +105,22 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+async function getAttachments() {
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/get/records/rpms/',
+        {
+            method: 'GET',
+            credentials: 'include'
+        }
+    );
+    
+    const data = await response.json();
+    if (response.ok) {
+        console.log("Success Data : ",data);
+    } else {
+        console.log("Error Data : ",data);
+    }
+}
+
+getAttachments();
