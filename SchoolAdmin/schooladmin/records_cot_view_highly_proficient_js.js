@@ -228,7 +228,7 @@ async function getCot() {
 
 
             observerName.textContent = rater ? rater.fullname : "Not Observed Yet" ;
-            observationDate.textContent = new Date(cot.created_at).toLocaleDateString();
+            observationDate.textContent = cot.check_date ? new Date(cot.check_date).toLocaleDateString() : "Not Rated Yet";
             teacherObserved.textContent = teacher.fullname;
             observationQuarter.textContent = cot_content['Quarter'];
             subjectGradeLevel.textContent = teacher.grade_level;
