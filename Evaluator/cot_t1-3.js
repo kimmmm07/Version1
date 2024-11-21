@@ -171,7 +171,7 @@ function addRow(data, quarter, tbody , table , is_open) {
 
     if (!cot.is_checked) {
         tr.innerHTML = `
-            <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.fullname}</td>
+            <td><img class="user-icon" src="${ teacher.profile ? "https://bnahs.pythonanywhere.com" + teacher.profile : "User_Circle.png"}" alt="User Icon" width="25"> ${teacher.fullname}</td>
             <td>${teacher.position}</td>
             <td>${cot.subject}</td>
             <td>${teacher.grade_level}</td>
@@ -189,7 +189,7 @@ function addRow(data, quarter, tbody , table , is_open) {
         }
     } else { 
         tr.innerHTML = `
-            <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.fullname}</td>
+            <td><img class="user-icon" src="${ teacher.profile ? "https://bnahs.pythonanywhere.com" + teacher.profile : "User_Circle.png"}" alt="User Icon" width="25"> ${teacher.fullname}</td>
             <td>${teacher.position}</td>
             <td>${cot.subject}</td>
             <td>${teacher.grade_level}</td>

@@ -107,18 +107,27 @@ function addRecord(record) {
     console.log(teacher);
     console.log(ipcrf);
 
+    let status;
+    let is_open = true;
+    if (ipcrf.is_checked_by_evaluator){
+        status = "Submitted"
+        is_open = false;
+    } else {
+        status = "Pending"
+    }
+
     const tbody = document.getElementById("ipcrf-tbody");
     const tr = document.createElement("tr");
     tr.innerHTML = `
         <td>
-            <img src="User_Circle.png" alt="User Icon"> 
+            <img class="user-icon" src="${ teacher.profile ? "https://bnahs.pythonanywhere.com" + teacher.profile : "User_Circle.png"}" alt="User Icon"> 
             <span>${teacher.fullname}</span>
         </td>
         <td>${teacher.position}</td>
         <td>${teacher.grade_level}</td>
         <td>${ipcrf.rater ?? "Waiting To Be Rated"}</td>
-        <td class="status ${ipcrf.status.toLowerCase()}">${ipcrf.status}</td>
-        <td><a onclick="clickToRate(${teacher.employee_id})" class="review">Review</a></td>
+        <td class="status ${is_open ? "pending" : "submitted"}">${status}</td>
+        <td><a ${ is_open ? `onclick="clickToRate(${teacher.employee_id})"` : ""} class="review ${ !is_open && "custom-disabled"}">Review</a></td>
     `;
     tbody.appendChild(tr);
 }
