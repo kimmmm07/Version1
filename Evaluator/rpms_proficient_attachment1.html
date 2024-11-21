@@ -71,20 +71,19 @@
       </div><br>
 
       <div class="file-preview" id="file-preview">
-          <img src="Group 924.png" alt="Attachment Preview" id="file-preview-img">
+        <div id="pdf-container" style="width: 100%; height: 600px; overflow: auto; border: 1px solid #ccc;"></div>
 
-          <!-- Three-dot menu with icons placed at the top right -->
-          <div class="file-actions" id="file-actions">
-              <button class="three-dots" id="three-dots-btn">⋮</button>
-              <div class="dropdown-menu" id="dropdown-menu">
-                  <button id="download-btn" onclick="downloadFile()">
-                      <i class="fas fa-download" id="fas-fa-download"></i> Download
-                  </button>
-                  <button id="print-btn" onclick="printFile()">
-                      <i class="fas fa-print" id="fas-fa-print"></i> Print
-                  </button>
-              </div>
+        <div class="file-actions" id="file-actions">
+          <button class="three-dots" id="three-dots-btn">⋮</button>
+          <div class="dropdown-menu" id="dropdown-menu">
+            <button id="download-btn" onclick="downloadFile()">
+              <i class="fas fa-download" id="fas-fa-download"></i> Download
+            </button>
+            <button id="print-btn" onclick="printFile()">
+              <i class="fas fa-print" id="fas-fa-print"></i> Print
+            </button>
           </div>
+        </div>
       </div>
   </section>
 
@@ -141,5 +140,6 @@
   
   <script src="rpms_proficient_attachment1.js">
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
 </body>
 </html>
