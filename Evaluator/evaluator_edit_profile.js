@@ -27,10 +27,10 @@ const lastName = document.getElementById('last-name');
 const lastNameWarning = document.getElementById('last-name-warning');
 
 // Job Title
-const jobTitleGroup = document.getElementById('job-title-group');
-const jobTitleWrapper = document.getElementById('job-title-wrapper');
-const jobTitle = document.getElementById('job-title');
-const jobTitleWarning = document.getElementById('job-title-warning');
+// const jobTitleGroup = document.getElementById('job-title-group');
+// const jobTitleWrapper = document.getElementById('job-title-wrapper');
+// const jobTitle = document.getElementById('job-title');
+// const jobTitleWarning = document.getElementById('job-title-warning');
 
 // Department
 const departmentGroup = document.getElementById('department-group');
@@ -149,7 +149,7 @@ async function updateProfile() {
         formData.append('firstname', firstName.value);
         formData.append('middlename', middleName.value);
         formData.append('lastname', lastName.value);
-        formData.append('jobtitle', jobTitle.value);
+        // formData.append('jobtitle', jobTitle.value);
         formData.append('department', department.value);
         formData.append('password', password.value);
         formData.append('confirm_password', confirmPassword.value);
