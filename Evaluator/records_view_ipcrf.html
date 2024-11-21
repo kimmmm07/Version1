@@ -165,7 +165,7 @@
             const formData = new FormData();
             formData.append('teacher_id', sessionStorage.getItem('teacher_id'));
             formData.append('ipcrf_id', sessionStorage.getItem('ipcrf_id'));
-            const response = await fetch('https://bnahs.pythonanywhere.com/api/school/get/ipcrf/specific/', {
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/get/ipcrf/specific/', {
                 method: 'POST',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest',
@@ -187,8 +187,8 @@
 
                 document.getElementById("nameOfEmployee").value = teacher.fullname;
                 document.getElementById("bureauCenterServiceDivision").value = school.school_address;
-                document.getElementById("ratingPeriod").value = ipcrf.school_year;
-                document.getElementById("dateOfReview").value = ipcrf ? new Date(ipcrf.submit_date).toLocaleDateString(): "Not Rated Yet";
+                document.getElementById("ratingPeriod").value = ipcrf?.school_year ?? "Not Rated Yet" ;
+                document.getElementById("dateOfReview").value = ipcrf?.submit_date ? new Date(ipcrf.submit_date).toLocaleDateString(): "Not Rated Yet";
                 document.getElementById("nameOfRater").value = rater ? rater.fullname : "Not Rated Yet";
                 document.getElementById("positionOfRater").value = rater ? rater.fullname : "Not Rated Yet"; 
                 document.getElementById("position").value = teacher.position; 
