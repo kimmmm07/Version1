@@ -29,7 +29,7 @@ window.addEventListener('load', async function() {
                     id: people.employee_id,
                     contact: people.email_address,
                     school: people.position,
-
+                    department : people.department
 
                 }); 
             }
