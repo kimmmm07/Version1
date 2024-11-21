@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Notifications</title>
+    <link rel="stylesheet" href="rpms_setting.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+     <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-icon" id="menu-icon">
+            <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
+        </div>        
+        <div class="sidebar-icon">
+            <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
+        </div>
+        <div class="sidebar-icon active">
+            <a href="rpms_hp_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
+        </div>
+    </div>
+
+    <!-- Floating Menu -->
+    <div class="floating-menu" id="floating-menu">
+        <div class="menu-header">
+            <!-- Close button -->
+            <button class="close-btn" onclick="closeMenu()">✖</button>
+        </div>
+        <ul>
+        <li><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
+        <li><a href="rpms_hp_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
+        <!-- Horizontal line between Setting and School Year -->
+        <hr class="menu-divider">
+        <!-- <li><a href="rpms_highlyproficient.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li> -->
+        </ul>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div>
+            <img src="DepEd_01.png" alt="DepED Logo">
+        </div>
+        <nav>
+            <a href="evaluator_dashboard.html"><img src="House_01.png" alt="Home">Home</a>
+            <a href="highlyproficient_form.html" class="active"><img src="Documents.png" alt="Forms">Forms</a>
+            <a href="cot_highlyproficient_records.html"><img src="Folders.png" alt="Records">Records</a>
+            <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+            <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
+            <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
+        </nav>
+    </header>
+
+    <div class="breadcrumbs">
+        <span>RPMS</span> &gt; <a href="#"><b>Settings</b></a>
+    </div>
+
+    <div class="container">
+        <div class="settings-container">
+            <h2>Notifications</h2>
+
+            <br>
+            <h3 class="section-title">Email</h3>
+            <div class="toggle">
+                <label for="email-notifications">Allow email notifications</label>
+                <input type="checkbox" id="email-notifications" checked>
+            </div>
+
+            <br>
+            <h3 class="section-title">Comments</h3>
+            <div class="toggle">
+                <label for="comments-posts">Comments on your posts</label>
+                <input type="checkbox" id="comments-posts" checked>
+            </div>
+            <div class="toggle">
+                <label for="comments-mention">Comments that mention you</label>
+                <input type="checkbox" id="comments-mention" checked>
+            </div>
+            <div class="toggle">
+                <label for="private-comments">Private comments on work</label>
+                <input type="checkbox" id="private-comments" checked>
+            </div>
+
+            <br>
+            <h3 class="section-title">RPMS</h3>
+            <div class="toggle">
+                <label for="rpms-work-posts">Work and other posts</label>
+                <input type="checkbox" id="rpms-work-posts" checked>
+            </div>
+            <div class="toggle">
+                <label for="returned-work">Returned work and grades</label>
+                <input type="checkbox" id="returned-work" checked>
+            </div>
+            <div class="toggle">
+                <label for="invitations">Invitations to join classes as a student</label>
+                <input type="checkbox" id="invitations" checked>
+            </div>
+            <div class="toggle">
+                <label for="due-date-reminders">Due-date reminders for your work</label>
+                <input type="checkbox" id="due-date-reminders" checked>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="rpms_hp_setting.js"></script>
+</body>
+</html>
