@@ -47,50 +47,6 @@ const observerSignature2 = document.getElementById("observerSignature2");
 const backButton2 = document.getElementById("backButton2");
 
 
-
-
-// Modal logic
-const logoutButton = document.getElementById('logoutLink');  // Logout button
-const logoutModal = document.getElementById('logoutModal');
-const yesButton = document.querySelector('.yes-btn');
-const noButton = document.querySelector('.no-btn');
-
-// Show modal when logout is clicked
-logoutButton.addEventListener('click', function(event) {
-    event.preventDefault();  // Prevent default logout behavior
-    logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
-});
-
-// Hide modal when "No" is clicked
-noButton.addEventListener('click', function() {
-    logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
-});
-
-// Redirect when "Yes" is clicked
-yesButton.addEventListener('click', async function() {
-    try {
-        
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
-            method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                
-            },
-            credentials: 'include',
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-            console.log("Success Data : ", data); 
-            window.location.href = '../../get-started.html'; 
-        } else {
-            console.log("Error Data : ", data);
-        }
-    } catch (error) {
-        console.error("Error during fetch:", error);
-    }
-});
-
 // Function to download the form as a PDF
 document.getElementById('downloadPdf').addEventListener('click', function () {
     const formContent = document.querySelector('.container');
@@ -115,12 +71,6 @@ document.getElementById('printForm').addEventListener('click', function () {
 });
 
 
-
-
-
-
-
-
 const indicator1Row = document.getElementById('indicator1Row');
 const indicator2Row = document.getElementById('indicator2Row'); 
 const indicator3Row = document.getElementById('indicator3Row');
@@ -129,10 +79,6 @@ const indicator5Row = document.getElementById('indicator5Row');
 const indicator6Row = document.getElementById('indicator6Row');
 const indicator7Row = document.getElementById('indicator7Row');
 const indicator8Row = document.getElementById('indicator8Row');
-
-
-
-
 
 
 async function checkRow(idrow , comparisonValue) {
@@ -207,9 +153,6 @@ async function getCot() {
             rater = data.rater;
 
 
-
-            
-
             for (var i = 0; i < 7; i++) {
                 let res = i + 1;
                 // console.log(res)
@@ -230,7 +173,6 @@ async function getCot() {
             }
 
             // Info Section Elements
-
             observerName2.textContent = rater ? rater.fullname : 'Not Rated Yet';
             observationDate2.textContent = new Date(cot.created_at).toLocaleDateString();
             teacherObserved2.textContent = teacher.fullname;
@@ -238,12 +180,6 @@ async function getCot() {
             subjectGradeLevel2.textContent = cot.subject;
             schoolYear2.textContent = cot.school_year;
             additionalComments.value = cot_content["Comments"];
-
-
-
-
-
-
 
 
             console.log(cot_content);
@@ -258,7 +194,44 @@ async function getCot() {
 getCot();
 
 
+// Modal logic
+const logoutButton = document.getElementById('logoutLink');  // Logout button
+const logoutModal = document.getElementById('logoutModal');
+const yesButton = document.querySelector('.yes-btn');
+const noButton = document.querySelector('.no-btn');
 
+// Show modal when logout is clicked
+logoutButton.addEventListener('click', function(event) {
+    event.preventDefault();  // Prevent default logout behavior
+    logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
+});
 
+// Hide modal when "No" is clicked
+noButton.addEventListener('click', function() {
+    logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
+});
 
+// Redirect when "Yes" is clicked
+yesButton.addEventListener('click', async function() {
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
 
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            window.location.href = '../../get-started.html'; 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+});
