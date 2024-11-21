@@ -13,6 +13,10 @@ const settingsLink = document.getElementById("settings-link");
 const schoolYearLink = document.getElementById("school-year-link");
 
 
+const class_work_id = sessionStorage.getItem('kra_1_id');
+console.log(class_work_id);
+
+
 // Container and content elements
 const container = document.getElementById("container");
 const breadcrumb = document.getElementById("breadcrumb");
@@ -44,9 +48,9 @@ const sendCommentBtn = document.getElementById("send-comment-btn");
 
 
 
-document.querySelector('.dots-menu').addEventListener('click', function() {
-    alert("Options menu clicked.");
-});
+// document.querySelector('.dots-menu').addEventListener('click', function() {
+//     alert("Options menu clicked.");
+// });
 
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
