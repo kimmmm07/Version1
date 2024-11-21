@@ -330,6 +330,9 @@ submitBtn.addEventListener('click', async function(event) {
         console.log(forms);  //display forms
         updateCot();
         alert('Form submitted successfully!');
+        setTimeout(()=>{
+            window.location.href = "cot_mt1-4.html";
+        },1000)
     } else {
         alert('Please answer all questions before submitting.');
     }
