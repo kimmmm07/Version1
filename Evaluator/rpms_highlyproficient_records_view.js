@@ -105,3 +105,116 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+
+
+
+
+function populateKraList( data , element) {
+    element.innerHTML = ''; // Clear existing list items
+    data.forEach((item, index) => {
+        console.log(item); 
+        const filename = item.file.substring(item.file.lastIndexOf('/') + 1);
+
+        console.log(filename);  // Output: IPCRF_Summary_Sheet_8dFHmCw.pdf
+
+        const randomInteger = Math.floor(Math.random() * 10000) + 1;
+
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `📄 <a id="${randomInteger}-link" style="cursor:pointer;" >${filename}</a>`;
+        element.appendChild(listItem);
+
+        
+        const linkElement = document.getElementById(`${randomInteger}-link`);
+        linkElement.addEventListener('click', async () => {
+            try {
+                const formData = new FormData();
+                formData.append("rpms_id", item.attachment_id);
+                const response = await fetch('https://bnahs.pythonanywhere.com/api/download/rpms/', {
+                    method: 'POST',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                    credentials: 'include',
+                    body: formData,
+                });
+            
+                if (response.ok) {
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'filename.pdf';  // Set a default file name or use one from the response
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    console.log("File downloaded successfully"); 
+                } else {
+                    const errorData = await response.json();
+                    console.log("Error Data : ", errorData);
+                }
+            } catch (error) {
+                console.error("Error during fetch:", error);
+            }
+            
+        });
+
+
+
+
+
+
+    });
+}
+
+
+
+
+
+async function fetchRPMSList(){
+    try {
+        
+        const teacher_id = sessionStorage.getItem("teacher_id");
+        const formData = new FormData();
+        formData.append('teacher_id', teacher_id);
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/get/rpms/attachments', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);
+ 
+            populateKraList(data['KRA 1: Content Knowledge and Pedagogy'] , kra1List); 
+            populateKraList(data['KRA 2: Learning Environment and Diversity of Learners'] , kra2List); 
+            populateKraList(data['KRA 3: Curriculum and Planning'] , kra3List); 
+            populateKraList(data['KRA 4:  Curriculum and Planning & Assessment and Reporting'] , kra4List); 
+            populateKraList(data['PLUS FACTOR'] , plusFactorList); 
+
+
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+
+fetchRPMSList();
+
+
+
+
+
+

@@ -142,9 +142,6 @@ async function fetchData() {
             takers = data.rpms_taker;
 
 
-            // school_year.forEach(year => {
-            //     addOption(year);
-            // });
 
             takers.forEach(taker => {
                 addTeacherRow(taker);
@@ -166,22 +163,6 @@ fetchData();
 
 
 
-function addOption(year) {
-
-
-    // Create a new option element
-    var option = document.createElement('option');
-
-    // Set the value and text of the new option
-    option.value = year;
-    option.text = year;
-
-    // Add the new option to the select element
-    schoolYearSelect.appendChild(option);
-}
-
-
-
 
 
     // {/* <button onclick="addTeacherRow('John Doe', 'Teacher I', 'Elementary', 'Jane Smith', 987654)">Add Row</button> */}
@@ -191,6 +172,10 @@ function addTeacherRow(taker) {
     const taker_evaluator = taker.rpms_evaluator;
     const school_year = taker.school_year;
     const taker_quarter = taker.quarter;
+
+    if (taker_data.is_proficient){
+        return;
+    }
 
     // Get the table body
     var tableBody = document.getElementById('teacherTableBody');
@@ -228,7 +213,7 @@ function addTeacherRow(taker) {
 
     // Add the event listener
     anchor.addEventListener('click', function() {
-        viewCOTForm(taker_data.employee_id, taker_quarter);
+        viewCOTForm(taker_data.employee_id);
     });
 
     // Create the image tag
@@ -260,10 +245,9 @@ function addTeacherRow(taker) {
 
 
 
-function viewCOTForm(teacher_id , quarter){
+function viewCOTForm(teacher_id ){
 
-    sessionStorage.setItem('teacher_id', teacher_id);
-    sessionStorage.setItem('quarter', quarter);
+    sessionStorage.setItem('teacher_id', teacher_id); 
     window.location.href = 'rpms_highlyproficient_records_view.html';
 }
 

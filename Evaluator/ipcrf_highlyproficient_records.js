@@ -190,6 +190,11 @@ function addTeacherRow(taker) {
     const school_year = taker.school_year;
     const taker_quarter = taker.quarter;
 
+
+    if (taker_data.is_proficient){
+        return;
+    }
+
     // Get the table body
     var tableBody = document.getElementById('teacherTableBody');
 
@@ -219,7 +224,7 @@ function addTeacherRow(taker) {
     positionCell.textContent = taker_data.position;
     gradeLevelCell.textContent = taker_data.grade_level;
     raterCell.textContent = taker_evaluator ? taker_evaluator.fullname : 'N/A';
-    ratingCell.textContent = taker.ipcrf.evaluator_rating + " - " + getRating(taker.ipcrf.evaluator_rating);  // Assuming rating is stored in the 'rating' property of the taker object
+    ratingCell.textContent = taker?.ipcrf?.evaluator_rating.toFixed(2) + " - " + getRating(taker.ipcrf.evaluator_rating);  // Assuming rating is stored in the 'rating' property of the taker object
 
     // Create the anchor tag
     var anchor = document.createElement('a');
@@ -228,7 +233,7 @@ function addTeacherRow(taker) {
 
     // Add the event listener
     anchor.addEventListener('click', function() {
-        viewCOTForm(taker_data.employee_id, taker_quarter);
+        viewCOTForm(taker_data.employee_id, taker.ipcrf.connection_to_other);
     });
 
     // Create the image tag
@@ -264,7 +269,7 @@ function addTeacherRow(taker) {
 function viewCOTForm(teacher_id , quarter){
 
     sessionStorage.setItem('teacher_id', teacher_id);
-    sessionStorage.setItem('quarter', quarter);
+    sessionStorage.setItem('ipcrf_id', quarter);
     window.location.href = 'records_view_ipcrf.html';
 }
 

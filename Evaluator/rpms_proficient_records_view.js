@@ -150,16 +150,6 @@ function populateKraList( data , element) {
     });
 }
 
-// // Example data structure
-// const data = [
-//     { link: 'rpms_attachments/IPCRF_Summary_Sheet_8dFHmCw.pdf', name: 'IPCRF_Summary_Sheet_8dFHmCw.pdf' },
-//     { link: 'rpms_attachments/meansofverification2.pdf', name: 'meansofverification2.pdf' },
-//     { link: 'rpms_attachments/meansofverification3.pdf', name: 'meansofverification3.pdf' }
-// ];
-
-// // Call the function with the data
-// populateKraList(data);
-
 
 
 
