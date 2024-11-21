@@ -1,5 +1,23 @@
+// Back link
+const backLink = document.querySelector(".back-link");
+
 // Department Dropdown
 const departmentSelect = document.getElementById('department');
+
+// Instructions container
+const instructionsContainer = document.getElementById('instructions');
+
+// Form and Questions
+const ratingForm = document.getElementById("ratingForm");
+const question1 = document.getElementById("question1");
+const question2 = document.getElementById("question2");
+const question3 = document.getElementById("question3");
+const question4 = document.getElementById("question4");
+const question5 = document.getElementById("question5");
+const question6 = document.getElementById("question6");
+const question7 = document.getElementById("question7");
+const question8 = document.getElementById("question8");
+const question9 = document.getElementById("question9");
 
 // Rating buttons for each question
 const ratingButtonsQ1 = document.querySelectorAll('#question1 .rating-button');
@@ -28,8 +46,6 @@ const q2Rating6 = document.getElementById('q2-rating-6');
 const q2Rating7 = document.getElementById('q2-rating-7');
 const q2RatingNo = document.getElementById('q2-rating-no');
 
-
-
 // Variables for Question 3 rating buttons
 const q3Rating3 = document.getElementById('q3-rating-3');
 const q3Rating4 = document.getElementById('q3-rating-4');
@@ -53,9 +69,6 @@ const q5Rating5 = document.getElementById('q5-rating-5');
 const q5Rating6 = document.getElementById('q5-rating-6');
 const q5Rating7 = document.getElementById('q5-rating-7');
 const q5RatingNo = document.getElementById('q5-rating-no');
-
-
-
 
 // Variables for Question 6 rating buttons
 const q6Rating3 = document.getElementById('q6-rating-3');
@@ -89,8 +102,6 @@ const q9Rating6 = document.getElementById('q9-rating-6');
 const q9Rating7 = document.getElementById('q9-rating-7');
 const q9RatingNo = document.getElementById('q9-rating-no');
 
-
-
 let q1 = 0;
 let q2 = 0;
 let q3 = 0;
@@ -101,11 +112,22 @@ let q7 = 0;
 let q8 = 0;
 let q9 = 0;
 
+// Function to handle rating selection
+function selectRating(button, questionId, rating) {
+    console.log(`Question ${questionId} rated: ${rating}`);
+    // Add your validation or processing logic here
+}
+
+// Comment textarea
+const commentsTextarea = document.getElementById('comments');
+
+// Form buttons
+const backBtn = document.getElementById('backBtn');
+const submitBtn = document.getElementById('SubmitBtn');
 
 // Function to handle rating selection
 function selectRating(button, questionId, rating) {
     console.log(`Question ${questionId} rated: ${rating}`);
-    // need validation...
     if (questionId === 'q1') {
         q1 = rating;
     } else if (questionId === 'q2') {
@@ -126,6 +148,7 @@ function selectRating(button, questionId, rating) {
         q9 = rating;
     }
 
+    // Get all buttons in the same question group
     const buttons = button.parentNode.querySelectorAll('.rating-button');
     
     // Remove 'active' class from all buttons
@@ -136,14 +159,32 @@ function selectRating(button, questionId, rating) {
     
 }
 
+// Check if all questions have been answered
+function validateForm() {
+    const questions = document.querySelectorAll('.question-container');
+    let allAnswered = true;
 
+    questions.forEach((question, index) => {
+        // Check if any button in the current question is active
+        const isAnswered = question.querySelector('.rating-button.active');
+        if (!isAnswered) {
+            alert(`Question ${index + 1} is not answered.`);
+            allAnswered = false;
+        }
+    });
+
+    return allAnswered;
+}
+
+document.getElementById('backBtn').addEventListener('click', function() {
+    window.history.back();
+});
 
 
 let evaluator = undefined;
 let cot = undefined;
 let teacher = undefined;
 let cot_content = undefined;
-
 
 async function getEvaluator() {
     try {
@@ -209,7 +250,6 @@ async function getCot() {
 getCot();
 
 
-
 async function updateCot() {
     try {
 
@@ -261,6 +301,7 @@ async function updateCot() {
             console.log("Success Data : ", data);  
         } else {
             console.log("Error Data : ", data);
+            alert("Something went wrong.");
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -268,64 +309,9 @@ async function updateCot() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-// Comment textarea
-const commentsTextarea = document.getElementById('comments');
-
-// Form buttons
-const backButton = document.getElementById('backBtn');
-const submitBtn = document.getElementById('SubmitBtn');
-
-// Instructions container
-const instructionsContainer = document.getElementById('instructions');
-
-// Form ID for submission
-const ratingForm = document.getElementById('ratingForm');
-
-// Example of assigning event listeners
-// For the "Back" button
-backButton.addEventListener('click', function() {
-    window.history.back();
-});
-
-// For the "Submit" button
-
-
-// Check if all questions have been answered
-function validateForm() {
-    const questions = document.querySelectorAll('.question-container');
-    let allAnswered = true;
-
-    questions.forEach(question => {
-        // Check if any button in the current question is active
-        const isAnswered = question.querySelector('.rating-button.active');
-        if (!isAnswered) {
-            allAnswered = false;
-        }
-    });
-
-    return allAnswered;
-}
-
-document.getElementById('backBtn').addEventListener('click', function() {
-    window.history.back();
-});
-
-
-
-
 //submitting form for proficient
 submitBtn.addEventListener('click', async function(event) {
-    e.preventDefault(); 
+    event.preventDefault(); 
 
     if (validateForm()) {
         const forms = {};
@@ -346,12 +332,10 @@ submitBtn.addEventListener('click', async function(event) {
             }
         });
 
-            
         if (!departmentSelect.value){
             alert("Please select a subject.");
             return;
         }
-
 
         const department = String(document.getElementById('department').value); //subject selected
         const comment = String(document.getElementById('comments').value);
@@ -366,14 +350,6 @@ submitBtn.addEventListener('click', async function(event) {
         alert('Please answer all questions before submitting.');
     }
 });
-
-
-
-
-
-
-
-
 
 
 //logout func
@@ -418,3 +394,14 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+// Form ID for submission
+// const ratingForm = document.getElementById('ratingForm');
+
+// Example of assigning event listeners
+// For the "Back" button
+// backButton.addEventListener('click', function() {
+//     window.history.back();
+// });
+// For the "Submit" button

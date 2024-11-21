@@ -28,13 +28,13 @@ const observation4 = document.getElementById("observation4");
 const ratingTable2 = document.getElementById("ratingTable2");
 
 // Example: Accessing specific ratings
-const indicator1Rating3 = document.getElementById("indicator1Rating3");
-const indicator2Rating7 = document.getElementById("indicator2Rating7");
-const indicator3Rating7 = document.getElementById("indicator3Rating7");
-const indicator4Rating7 = document.getElementById("indicator4Rating7");
-const indicator5Rating7 = document.getElementById("indicator5Rating7");
-const indicator6Rating7 = document.getElementById("indicator6Rating7");
-const indicator7Rating5 = document.getElementById("indicator7Rating5");
+// const indicator1Rating3 = document.getElementById("indicator1Rating3");
+// const indicator2Rating7 = document.getElementById("indicator2Rating7");
+// const indicator3Rating7 = document.getElementById("indicator3Rating7");
+// const indicator4Rating7 = document.getElementById("indicator4Rating7");
+// const indicator5Rating7 = document.getElementById("indicator5Rating7");
+// const indicator6Rating7 = document.getElementById("indicator6Rating7");
+// const indicator7Rating5 = document.getElementById("indicator7Rating5");
 
 // Comments Section
 const additionalComments = document.getElementById("comments2");
@@ -71,12 +71,6 @@ document.getElementById('printForm').addEventListener('click', function () {
 });
 
 
-
-
-
-
-
-
 const indicator1Row = document.getElementById('indicator1Row');
 const indicator2Row = document.getElementById('indicator2Row'); 
 const indicator3Row = document.getElementById('indicator3Row');
@@ -87,26 +81,24 @@ const indicator7Row = document.getElementById('indicator7Row');
 const indicator8Row = document.getElementById('indicator8Row');
 
 
-
-
-
-
 async function checkRow(idrow , comparisonValue) {
     var row = document.getElementById(idrow);
 
     let selectedData;
-    if (comparisonValue == 4){
+    if (comparisonValue == 3){
         selectedData = row.cells[1];
-    } else if (comparisonValue == 5){
+    } else if (comparisonValue == 4){
         selectedData = row.cells[2];
-    } else if (comparisonValue == 6){
+    } else if (comparisonValue == 5){
         selectedData = row.cells[3];
-    } else if (comparisonValue == 7){
+    } else if (comparisonValue == 6){
         selectedData = row.cells[4];
-    } else if (comparisonValue == 8){
+    } else if (comparisonValue == 7){
         selectedData = row.cells[5];
-    } else {
+    } else if (comparisonValue == 8){
         selectedData = row.cells[6];
+    } else {
+        selectedData = row.cells[7];
     }
     
     // Add class name correctly
@@ -158,10 +150,9 @@ async function getCot() {
             cot = data.cot;
             teacher = data.teacher;
             cot_content = data.cot.content;
-
+            rater = data.rater;
 
             
-
             for (var i = 0; i < 7; i++) {
                 let res = i + 1;
                 // console.log(res)
@@ -182,20 +173,13 @@ async function getCot() {
             }
 
             // Info Section Elements
-
-            observerName2.textContent = cot_content['Observer Name'];
+            observerName2.textContent = rater ? rater.fullname : 'Not Rated Yet';
             observationDate2.textContent = new Date(cot.created_at).toLocaleDateString();
-            teacherObserved2.textContent = cot_content['Teacher Name'];
+            teacherObserved2.textContent = teacher.fullname;
             observationQuarter2.textContent = cot_content['Quarter'];
-            subjectGradeLevel2.textContent = cot_content['Subject & Grade Level'];
+            subjectGradeLevel2.textContent = cot.subject;
             schoolYear2.textContent = cot.school_year;
             additionalComments.value = cot_content["Comments"];
-
-
-
-
-
-
 
 
             console.log(cot_content);
@@ -210,7 +194,44 @@ async function getCot() {
 getCot();
 
 
+// Modal logic
+const logoutButton = document.getElementById('logoutLink');  // Logout button
+const logoutModal = document.getElementById('logoutModal');
+const yesButton = document.querySelector('.yes-btn');
+const noButton = document.querySelector('.no-btn');
 
+// Show modal when logout is clicked
+logoutButton.addEventListener('click', function(event) {
+    event.preventDefault();  // Prevent default logout behavior
+    logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
+});
 
+// Hide modal when "No" is clicked
+noButton.addEventListener('click', function() {
+    logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
+});
 
+// Redirect when "Yes" is clicked
+yesButton.addEventListener('click', async function() {
+try {
 
+const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
+    method: 'POST',
+    headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        
+    },
+    credentials: 'include',
+});
+
+const data = await response.json();
+if (response.ok) {
+    console.log("Success Data : ", data); 
+    window.location.href = '../../get-started.html'; 
+} else {
+    console.log("Error Data : ", data);
+}
+} catch (error) {
+console.error("Error during fetch:", error);
+}
+});

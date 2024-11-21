@@ -105,7 +105,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td  id="indicator1Rating3"></td>
+                        <td></td>
                     </tr>
                     <tr id="indicator2Row">
                         <td>2. Used a range of teaching strategies that enhance learner achievement in literacy and numeracy skills.</td>
@@ -113,7 +113,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td  id="indicator2Rating7"></td>
+                        <td></td>
                         <td></td>
                     </tr>
                     <tr id="indicator3Row">
@@ -121,7 +121,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td  id="indicator3Rating7"></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -131,7 +131,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td  id="indicator4Rating7"></td>
+                        <td></td>
                         <td></td>
                     </tr>
                     <tr id="indicator5Row">
@@ -139,7 +139,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td  id="indicator5Rating7"></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -148,7 +148,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td  id="indicator6Rating7"></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                     </tr>
@@ -156,7 +156,7 @@
                         <td>7. Maintained consistent learning environments that support learner participation.</td>
                         <td></td>
                         <td></td>
-                        <td  id="indicator7Rating5"></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -200,46 +200,5 @@
     </div>
 
     <script src="records_cot_view_proficient.js"></script>
-
-    <script>// Modal logic
-        const logoutButton = document.getElementById('logoutLink');  // Logout button
-        const logoutModal = document.getElementById('logoutModal');
-        const yesButton = document.querySelector('.yes-btn');
-        const noButton = document.querySelector('.no-btn');
-        
-        // Show modal when logout is clicked
-        logoutButton.addEventListener('click', function(event) {
-            event.preventDefault();  // Prevent default logout behavior
-            logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
-        });
-        
-        // Hide modal when "No" is clicked
-        noButton.addEventListener('click', function() {
-            logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
-        });
-        
-        // Redirect when "Yes" is clicked
-        yesButton.addEventListener('click', async function() {
-    try {
-        
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
-            method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                
-            },
-            credentials: 'include',
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-            console.log("Success Data : ", data); 
-            window.location.href = '../../get-started.html'; 
-        } else {
-            console.log("Error Data : ", data);
-        }
-    } catch (error) {
-        console.error("Error during fetch:", error);
-    }
-});
-        </script>
+</body>
+</html>  

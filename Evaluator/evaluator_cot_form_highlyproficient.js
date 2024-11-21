@@ -108,8 +108,6 @@ function selectRating(button, questionId, rating) {
     // Add your validation or processing logic here
 }
 
-
-
 // Comments section
 const commentsTextarea = document.getElementById("comments");
 
@@ -117,7 +115,7 @@ const commentsTextarea = document.getElementById("comments");
 const backBtn = document.getElementById("backBtn");
 const submitBtn = document.getElementById("SubmitBtn");
 
-
+// Function to handle rating selection
 function selectRating(button, questionId, rating) {
     console.log(`Question ${questionId} rated: ${rating}`);
     if (questionId === 'q1') {
@@ -138,7 +136,6 @@ function selectRating(button, questionId, rating) {
         q8 = rating;
     }
 
-
     // Get all buttons in the same question group
     const buttons = button.parentNode.querySelectorAll('.rating-button');
     
@@ -149,7 +146,7 @@ function selectRating(button, questionId, rating) {
     button.classList.add('active');
 }
 
-
+// Check if all questions have been answered
 function validateForm() {
     const questions = document.querySelectorAll('.question-container');
     let allAnswered = true;
@@ -165,87 +162,15 @@ function validateForm() {
     return allAnswered;
 }
 
-
-
 document.getElementById('backBtn').addEventListener('click', function() {
     window.history.back();
 });
-
-
-// //submitting form for highly proficient
-// document.getElementById('ratingForm').addEventListener('submit', function(e) {
-//     e.preventDefault(); 
-
-    
-// });
-
-
-
-
-
-
-
-
-
-//logout func
-// Modal logic
-const logoutButton = document.getElementById('logoutLink');  // Logout button
-const logoutModal = document.getElementById('logoutModal');
-const yesButton = document.querySelector('.yes-btn');
-const noButton = document.querySelector('.no-btn');
-
-// Show modal when logout is clicked
-logoutButton.addEventListener('click', function(event) {
-    event.preventDefault();  // Prevent default logout behavior
-    logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
-});
-
-// Hide modal when "No" is clicked
-noButton.addEventListener('click', function() {
-    logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
-});
-
-// Redirect when "Yes" is clicked
-yesButton.addEventListener('click', async function() {
-    try {
-        
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
-            method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                
-            },
-            credentials: 'include',
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-            console.log("Success Data : ", data); 
-            window.location.href = '../../get-started.html'; 
-        } else {
-            console.log("Error Data : ", data);
-        }
-    } catch (error) {
-        console.error("Error during fetch:", error);
-    }
-});
-
-
-
-
-
-
-
-
 
 
 let evaluator = undefined;
 let cot = undefined;
 let teacher = undefined;
 let cot_content = undefined;
-
-
-
 
 async function getEvaluator() {
     try {
@@ -271,14 +196,6 @@ async function getEvaluator() {
 }
 
 getEvaluator();
-
-
-
-
-
-
-
-
 
 
 async function getCot() {
@@ -318,7 +235,6 @@ async function getCot() {
 }
 
 getCot();
-
 
 
 async function updateCot() {
@@ -379,8 +295,7 @@ async function updateCot() {
 }
 
 
-
-
+//submitting form for highly proficient
 submitBtn.addEventListener('click', async function(event) {
     event.preventDefault();
 
@@ -403,7 +318,6 @@ submitBtn.addEventListener('click', async function(event) {
             }
         });
 
-            
         if (!departmentSelect.value){
             alert("Please select a subject.");
             return;
@@ -423,9 +337,51 @@ submitBtn.addEventListener('click', async function(event) {
 })
 
 
+//logout func
+// Modal logic
+const logoutButton = document.getElementById('logoutLink');  // Logout button
+const logoutModal = document.getElementById('logoutModal');
+const yesButton = document.querySelector('.yes-btn');
+const noButton = document.querySelector('.no-btn');
+
+// Show modal when logout is clicked
+logoutButton.addEventListener('click', function(event) {
+    event.preventDefault();  // Prevent default logout behavior
+    logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
+});
+
+// Hide modal when "No" is clicked
+noButton.addEventListener('click', function() {
+    logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
+});
+
+// Redirect when "Yes" is clicked
+yesButton.addEventListener('click', async function() {
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            window.location.href = '../../get-started.html'; 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+});
 
 
-
-
-
-
+// //submitting form for highly proficient
+// document.getElementById('ratingForm').addEventListener('submit', function(e) {
+//     e.preventDefault();  
+// });
