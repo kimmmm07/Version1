@@ -37,10 +37,12 @@ const gradeSection = document.getElementById('grade-section');
 const totalScoreSection = document.getElementById('total-score-section');
 const privateCommentsSection = document.getElementById('private-comments-section');
 
-const kra1Score = document.getElementById("kra1Score");
-const kra2Score = document.getElementById("kra2Score");
-const kra3Score = document.getElementById("kra3Score");
-const kra4Score = document.getElementById("kra4Score");
+
+const score = document.getElementById("score");
+const score1 = document.getElementById("score1");
+const score2 = document.getElementById("score2");
+const score3 = document.getElementById("score3");
+const score4 = document.getElementById("score4");
 
 // Grade items and score
 const gradeList = document.getElementById('grade-list');
@@ -58,7 +60,11 @@ const privateCommentsTextarea = document.getElementById('private-comments-textar
 const postButton = document.getElementById('post-button');
 
 
-
+const class_work_id = sessionStorage.getItem('kra_1_id');
+console.log(class_work_id);
+const teacher_id = sessionStorage.getItem('teacher_id');
+console.log(teacher_id);
+let teacher_name = undefined;
 
 
 
@@ -89,9 +95,9 @@ downloadBtn.addEventListener('click', downloadFile);
 
 // Dropdown
 
-teacherDropdownSelect.addEventListener('change', function() {
-    console.log("Selected teacher: " + teacherDropdownSelect.value);
-});
+// teacherDropdownSelect.addEventListener('change', function() {
+//     console.log("Selected teacher: " + teacherDropdownSelect.value);
+// });
 
 
 postButton.addEventListener('click', function() {
@@ -144,3 +150,68 @@ yesButton.addEventListener('click', async function() {
 });
 
 
+
+
+async function getTeacherAttachments() {
+    try {
+
+        const formData = new FormData();
+        formData.append('class_work_id ', class_work_id);
+        formData.append('teacher_id', teacher_id);
+
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/rpms/folder/classwork/attachments/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+            const teacher = data.teacher;
+            document.getElementById("teacher-name").textContent = teacher.fullname; 
+            const submitted = data.submitted;
+            console.log(teacher);
+            console.log(submitted);
+
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getTeacherAttachments();
+
+
+
+returnBtn.addEventListener('click', async function(){
+    if(!parseInt(score1.value) || parseInt(score1.value) > 7){
+        alert("Grade should not be 0 and is lower or equal to the max score.");
+        return;
+    }
+    if(!parseInt(score2.value) || parseInt(score2.value) > 7){
+        alert("Grade should not be 0 and is lower or equal to the max score.");
+        return;
+    }
+    if(!parseInt(score3.value) || parseInt(score3.value) > 7){
+        alert("Grade should not be 0 and is lower or equal to the max score.");
+        return;
+    }
+    if(!parseInt(score4.value) || parseInt(score4.value) > 7){
+        alert("Grade should not be 0 and is lower or equal to the max score.");
+        return;
+    }
+
+    score.value = String(parseInt(score1.value)+parseInt(score2.value)+parseInt(score3.value)+parseInt(score4.value));
+    const totalScore = score.value;
+
+
+});
