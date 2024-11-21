@@ -251,7 +251,7 @@ function addRow(data, quarter, tbody , table,  is_open) {
             <td>${cot.subject}</td>
             <td>${teacher.grade_level}</td>
             <td>${cot.rater ?? 'N/A'}</td>
-            <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
+            <td>${cot.check_date ? new Date(cot.check_date).toLocaleDateString() : "Not Rated Yet"}</td>
             <td>
                 <a class="status">Observed</a> | 
                 <a id="${teacher.employee_id}-${table}-${randomInteger}-view">View</a>
@@ -294,7 +294,7 @@ async function getTeachers() {
                 }
             });
             data_quarter_2.forEach((quarter , index) => {
-                if (quarter.cot.is_for_teacher_proficient){
+                if (!quarter.cot.is_for_teacher_proficient){
                     const is_open = data_quarter_1[index]?.cot?.is_checked;
                     addRow(quarter, 'Quarter 2', teacherTableBodyQuarter2, '2', is_open);
                     
@@ -302,7 +302,7 @@ async function getTeachers() {
                     
             });
             data_quarter_3.forEach((quarter , index)  => {
-                if (quarter.cot.is_for_teacher_proficient){
+                if (!quarter.cot.is_for_teacher_proficient){
                     const is_open = data_quarter_2[index]?.cot?.is_checked;
                     console.log("Disabled : ", is_open);
                     addRow(quarter, 'Quarter 3', teacherTableBodyQuarter3, '3' , is_open);
@@ -310,7 +310,7 @@ async function getTeachers() {
                 }
             });
             data_quarter_4.forEach((quarter , index)  => {
-                if (quarter.cot.is_for_teacher_proficient){
+                if (!quarter.cot.is_for_teacher_proficient){
                     const is_open = data_quarter_3[index]?.cot?.is_checked;
                     addRow(quarter, 'Quarter 4', teacherTableBodyQuarter4, '4' , is_open); 
                 }
