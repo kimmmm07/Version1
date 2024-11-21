@@ -306,6 +306,7 @@ body {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 1px;  /* Add padding for spacing */
     width: 100%;    /* Adjust to the width of the container */
+    height: 25%;
     transition: all 0.3s ease-in-out;  /* Smooth transition for resizing */
 }
 
@@ -316,7 +317,7 @@ body {
 }
 
 .overall-score {
-   margin-left: 260px;  
+   margin-left: 240px;  
    font-weight: bold;
    margin-bottom: -100px;
    border: none;
@@ -328,7 +329,7 @@ body {
 }
 
 .reflected-score {
-    margin-left: 230px;
+    margin-left: 220px;
     margin-top: -24px;
     display: flex;
     color: #d00000;
@@ -337,7 +338,7 @@ body {
     background: transparent;
     font-size: 16px; /* Match the font size to your existing style */
     font-weight: bold; /* Match text weight */
-    width: 5%;
+    width: 15%;
  }
 
  .reflected-score::placeholder {
