@@ -440,7 +440,7 @@ function viewCOTForm(form_id , quarter){
         var optionsCell = document.createElement('th');
     
         // Set the inner HTML for each cell
-        nameCell.innerHTML = `<div class="user-icon" id="userIcon${rowCount}"></div>${taker_data.fullname}`;
+        nameCell.innerHTML = `<img class="user-icon" id="userIcon${rowCount}" src="${ taker_data.profile ? "https://bnahs.pythonanywhere.com" + taker_data.profile : "asset/User_Circle.png"}" >${taker_data.fullname}`;
         positionCell.textContent = taker_data.position;
         gradeLevelCell.textContent = taker_data.grade_level;
         subjectCell.textContent = taker_data.subject || "N/A";  // Assuming taker_data has a subject field
