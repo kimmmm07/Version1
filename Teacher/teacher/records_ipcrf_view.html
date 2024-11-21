@@ -277,12 +277,12 @@ async function fetchData() {
             document.getElementById("positionOfRater").value = rater ? rater.fullname : "Not Rated Yet"; 
             document.getElementById("position").value = teacher.position; 
 
-            document.getElementById("kra1Score").value = ipcrf ? ipcrf.kra1_evaluator : "Not Rated Yet"; 
-            document.getElementById("kra2Score").value = ipcrf ? ipcrf.kra3_evaluator : "Not Rated Yet";  
-            document.getElementById("kra3Score").value = ipcrf ? ipcrf.kra3_evaluator : "Not Rated Yet"; 
-            document.getElementById("kra4Score").value = ipcrf ? ipcrf.kra4_evaluator : "Not Rated Yet"; 
-            document.getElementById("plusFactorScore").value = ipcrf ? ipcrf.plus_factor_evaluator : "Not Rated Yet"; 
-            document.getElementById("finalRating").value = ipcrf ? ipcrf.evaluator_rating : "Not Rated Yet"; 
+            document.getElementById("kra1Score").value = ipcrf ? ipcrf.kra1_evaluator.toFixed(2) : "Not Rated Yet"; 
+            document.getElementById("kra2Score").value = ipcrf ? ipcrf.kra3_evaluator.toFixed(2) : "Not Rated Yet";  
+            document.getElementById("kra3Score").value = ipcrf ? ipcrf.kra3_evaluator.toFixed(2) : "Not Rated Yet"; 
+            document.getElementById("kra4Score").value = ipcrf ? ipcrf.kra4_evaluator.toFixed(2) : "Not Rated Yet"; 
+            document.getElementById("plusFactorScore").value = ipcrf ? ipcrf.plus_factor_evaluator.toFixed(2) : "Not Rated Yet"; 
+            document.getElementById("finalRating").value = ipcrf ? ipcrf.evaluator_rating.toFixed(2) : "Not Rated Yet"; 
 
 
             let content_A = ipcrf_3?.content_for_teacher['A'][0];

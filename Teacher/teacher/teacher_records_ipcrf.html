@@ -64,7 +64,7 @@
                     <th>Grade Level</th>
                     <th>Department</th>
                     <th>Rater</th>
-                    <th>Date</th>
+                    <th>Rating</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -306,7 +306,14 @@
 
 
 
-
+        // Function to get adjectival rating based on average score
+        function getRating(averageScore) {
+            if (averageScore >= 4.500) return "Outstanding";
+            if (averageScore >= 3.500) return "Very Satisfactory";
+            if (averageScore >= 2.500) return "Satisfactory";
+            if (averageScore >= 1.500) return "Unsatisfactory";
+            return "Poor"; // below 1.499
+        }
 
 
 
@@ -418,7 +425,7 @@
             // {/* <button onclick="addTeacherRow('John Doe', 'Teacher I', 'Elementary', 'Jane Smith', 987654)">Add Row</button> */}
             function addTeacherRow(taker) {
                 const taker_data = taker.ipcrf_taker;
-                const taker_evaluator = taker.ipcrf_evaluator;
+                const taker_evaluator = taker.ipcrf_rater;
                 const school_year = taker.school_year;
                 const taker_quarter = taker.quarter;
             
@@ -450,7 +457,7 @@
                 gradeLevelCell.textContent = taker_data.grade_level;
                 subjectCell.textContent = taker_data.department || "N/A";  // Assuming taker_data has a subject field
                 raterCell.textContent = taker_evaluator ? taker_evaluator.fullname : 'N/A';
-                emptyCell.textContent =  taker.ipcrf.check_date ? new Date(taker.ipcrf.check_date).toLocaleDateString() : "Not Rated Yet"; // Assuming no data for this cell
+                emptyCell.textContent =  taker.ipcrf?.evaluator_rating ? taker.ipcrf.evaluator_rating.toFixed(2) + " - " + getRating(taker.ipcrf.evaluator_rating) : "Not Rated Yet"; // Assuming no data for this cell
             
                 // Create the anchor tag for the action cell
                 var anchor = document.createElement('a');
