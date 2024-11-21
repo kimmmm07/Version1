@@ -261,7 +261,7 @@ const timeliness11_3 = document.getElementById('Timeliness11_3');
 const timeliness11_4 = document.getElementById('Timeliness11_4');
 const timeliness11_5 = document.getElementById('Timeliness11_5');
 
-function timeliness_11_result(){
+function get_timeliness_11_result(){
     if(timeliness11_5.checked){
         return 5;
     }else if(timeliness11_4.checked){
@@ -306,7 +306,7 @@ const timeliness12_3 = document.getElementById('Timeliness12_3');
 const timeliness12_4 = document.getElementById('Timeliness12_4');
 const timeliness12_5 = document.getElementById('Timeliness12_5');
 
-function timeliness_12_result(){
+function get_timeliness_12_result(){
     if(timeliness12_5.checked){
         return 5;
     }else if(timeliness12_4.checked){
@@ -352,7 +352,7 @@ const timeliness13_4 = document.getElementById('Timeliness13_4');
 const timeliness13_5 = document.getElementById('Timeliness13_5');
 
 
-function timeliness_13_result(){
+function get_timeliness_13_result(){
     if(timeliness13_5.checked){
         return 5;
     }else if(timeliness13_4.checked){
@@ -656,6 +656,29 @@ async function updateIPCRF1(){
 
     let teacher_content = ipcrf_content['ipcrf']['content_for_teacher']
 
+    teacher_content['Content Knowledge and Pedagogy']['1']["EFFICIENCY"]["Rate"] = get_efficiency_1_result();
+    teacher_content['Content Knowledge and Pedagogy']['2']["QUALITY"]["Rate"] = get_quality_2_result();
+    teacher_content['Content Knowledge and Pedagogy']['2']["TIMELINESS"]["Rate"] = get_timeliness_2_result();
+    teacher_content['Content Knowledge and Pedagogy']['3']["EFFICIENCY"]["Rate"] = get_efficiency_3_result();
+    teacher_content['Content Knowledge and Pedagogy']['4']["EFFICIENCY"]["Rate"] = get_efficiency_4_result();
+    teacher_content['Learning Environment & Diversity of Learners']['5']["EFFICIENCY"]["Rate"] = get_efficiency_5_result();
+    teacher_content['Learning Environment & Diversity of Learners']['6']["EFFICIENCY"]["Rate"] = get_efficiency_6_result();
+    teacher_content['Learning Environment & Diversity of Learners']['7']["EFFICIENCY"]["Rate"] = get_efficiency_7_result();
+    teacher_content['Learning Environment & Diversity of Learners']['8']["QUALITY"]["Rate"] = get_quality_8_result();
+    teacher_content['Curriculum and Planning & Assessment and Reporting']['9']["QUALITY"]["Rate"] = get_quality_9_result();
+    teacher_content['Curriculum and Planning & Assessment and Reporting']['9']["TIMELINESS"]["Rate"] = timeliness_9_result();
+    teacher_content['Curriculum and Planning & Assessment and Reporting']['10']["EFFICIENCY"]["Rate"] = get_efficiency_10_result();
+    teacher_content['Curriculum and Planning & Assessment and Reporting']['11']["QUALITY"]["Rate"] = get_quality_11_result();
+    teacher_content['Curriculum and Planning & Assessment and Reporting']['11']["TIMELINES"]["Rate"] = get_timeliness_11_result();
+    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']["QUALITY"]["Rate"] = get_quality_12_result();
+    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']["TIMELINES"]["Rate"] = get_timeliness_12_result();
+    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']["QUALITY"]["Rate"] = get_quality_12_result();
+    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']["TIMELINES"]["Rate"] = get_timeliness_13_result();
+    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["QUALITY"]["Rate"] = get_efficiency_14_result();
+    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["EFFICIENCY"]["Rate"] = get_efficiency_14_result();
+    teacher_content['PLUS FACTOR']['15']["QUALITY"]["Rate"] = get_quality_15_result();
+    teacher_content['PLUS FACTOR']['15']["EFFICIENCY"]["Rate"] = get_quality_15_result();
+    teacher_content['PLUS FACTOR']['15']["TIMELINES"]["Rate"] = get_timeliness_15_result();
 
 
     formData.append('ipcrf_id', ipcrf_content['ipcrf']['connection_to_other']); // TODO: Get from IPCRF
