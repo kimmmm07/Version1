@@ -258,9 +258,13 @@ function renderFacultyList(data) {
 
         const viewLink = document.getElementById(`view-link-${randomInteger}`);
         viewLink.addEventListener('click', () => {
-            const cotId = member.cot.cot_form_id;
-            localStorage.setItem('teacher_id', member.cot_taker.employee_id);
-            localStorage.setItem('cot_id', cotId);
+            const quarter = member.cot.quarter;
+            const cot_id = member.cot.cot_form_id;
+            sessionStorage.setItem('teacher_id', member.cot_taker.employee_id);
+            sessionStorage.setItem('quarter', quarter);
+            sessionStorage.setItem('cot_id', cot_id);
+
+
             if (member.cot_taker.is_proficient) {
                 window.location.href = "records_cot_view.html";
             } else{
