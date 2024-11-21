@@ -180,6 +180,49 @@ async function getTeacherAttachments() {
             let content = submitted['0'].grade;
             console.log(teacher);
             console.log(submitted);
+
+            const dateStr = String(submitted['0'].created_at); 
+            const date = new Date(dateStr); 
+
+            const url = 'https://bnahs.pythonanywhere.com'+submitted['0']['file'];
+            const pdfContainer = document.getElementById('pdf-container');
+        
+            const renderPDF = async (url) => {
+            const pdfjsLib = window['pdfjs-dist/build/pdf'];
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js';
+        
+            const pdf = await pdfjsLib.getDocument(url).promise;
+            for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+                const page = await pdf.getPage(pageNumber);
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                const viewport = page.getViewport({ scale: 1.5 });
+        
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                pdfContainer.appendChild(canvas);
+        
+                await page.render({ canvasContext: context, viewport }).promise;
+            }
+            };
+        
+            renderPDF(url).catch(err => {
+            pdfContainer.innerHTML = `<p>Failed to load PDF. Please try <a href="${url}">downloading it</a>.</p>`;
+            });
+            const options = {
+            month: 'short', 
+            day: '2-digit', 
+            year: 'numeric', 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            hour12: true
+            };
+
+            const formattedDate = date.toLocaleString('en-US', options);
+            console.log(formattedDate);
+
+            document.getElementById("file-upload-time").textContent = "Turned in on " +formattedDate;
+         
             if(teacher.is_checked_by_evaluator === true){
                 returnBtn.style.display = 'none';
                 score1.value = content['1'].Score;

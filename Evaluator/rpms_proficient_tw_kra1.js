@@ -139,6 +139,10 @@ async function getTeacherAttachments() {
                 document.getElementById('status').textContent = 'No Attachment';
                 document.getElementById('attachment-anchor').removeAttribute('href');
             }
+            if(parseInt(submitted[0]["Overall Score"]) > 0){
+                document.getElementById('kra1Score').textContent = String(submitted[0]["Overall Score"]) + " /28"
+            }
+            
             console.log(teacher);
             console.log(submitted);
 
