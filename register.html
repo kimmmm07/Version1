@@ -25,7 +25,7 @@
     <main>
         <div class="register-school-section">
             <h2 class="register-heading">Register School</h2>
-            <form>
+            <form action = "">
                 <div class="upload-logo">
                     <label for="school-logo-upload">
                         <i class="fas fa-user-circle upload-icon" id="upload-icon"></i>
@@ -38,62 +38,62 @@
                 <div class="form-field">
                     <input type="text" id="name" placeholder="Name">
                     <i class="fas fa-exclamation-circle required-icon"></i>
-                    <span class="error-message1" id="name-error"></span>
+                    <!-- <span class="error-message1" id="name-error"></span> -->
                 </div>
                 <div class="form-field">
                     <input type="text" id="school-id" placeholder="School ID">
                     <i class="fas fa-exclamation-circle required-icon"></i>
-                    <span class="error-message2" id="school-id-error"></span>
+                    <!-- <span class="error-message2" id="school-id-error"></span> -->
                 </div>
                 <div class="form-field">
                     <input type="text" id="school-name" placeholder="School Name">
                     <i class="fas fa-exclamation-circle required-icon"></i>
-                    <span class="error-message3" id="school-name-error"></span>
+                    <!-- <span class="error-message3" id="school-name-error"></span> -->
                 </div>
                 <div class="form-field">
                     <input type="text" id="school-address" placeholder="School Address">
                     <i class="fas fa-exclamation-circle required-icon"></i>
-                    <span class="error-message4" id="school-address-error"></span>
+                    <!-- <span class="error-message4" id="school-address-error"></span> -->
                 </div>
                 <div class="form-field">
-                    <select class="school-type-dropdown" id="school-type">
+                    <select class="school-type-dropdown" required>
                         <option value="" disabled selected>School Type</option>
                         <option value="urban">Urban</option>
                         <option value="rural">Rural</option>
                     </select>
-                    <i class="fas fa-exclamation-circle required-icon"></i>
-                    <span class="error-message5" id="school-type-error"></span>
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                    <!-- <span class="error-message5" id="school-type-error"></span> -->
                 </div>
                 <div class="form-field">
                     <input type="text" id="contact-info" placeholder="Contact Information">
                     <i class="fas fa-exclamation-circle required-icon"></i>
-                    <span class="error-message6" id="contact-information-error"></span>
+                    <!-- <span class="error-message6" id="contact-information-error"></span> -->
                 </div>
                 <div class="form-field">
                     <input type="email" id="email" placeholder="Email Address">
                     <i class="fas fa-exclamation-circle required-icon"></i>
-                    <span class="error-message7" id="email-error"></span>
+                    <!-- <span class="error-message7" id="email-error"></span> -->
                 </div>
                 <div class="form-field">
                     <input type="password" id="password" placeholder="Password">
                     <i class="fas fa-exclamation-circle required-icon"></i>
-                    <span class="error-message8" id="password-error"></span>
+                    <!-- <span class="error-message8" id="password-error"></span> -->
                 </div>
                 <div class="form-field">
                     <input type="password" id="confirm-password" placeholder="Confirm Password">
                     <i class="fas fa-exclamation-circle required-icon"></i>
-                    <span class="error-message9" id="confirm-password-error"></span>
+                    <!-- <span class="error-message9" id="confirm-password-error"></span> -->
                 </div>
                 <div class="button-group">
                     <a href="get-started.html" class="cancel-btn">Cancel</a>
-                    <button type="button" class="reg-btn"  onclick="validateForm()">Register</button>
+                    <button type="submit" class="reg-btn">Register</button>
                 </div>
             </form>
         </div>
     </main>
-    <script src="register.js" type="module" defer></script>
+    <script src="register.js" type="module"></script>
 
-    <script>
+    <!-- <script>
 
 // Function to display error messages
 function showError(errorId, message) {
@@ -189,6 +189,6 @@ document.querySelector(".reg-btn").addEventListener("click", function(event) {
 
 
 
-    </script>
+    </script> -->
 </body>
 </html>
