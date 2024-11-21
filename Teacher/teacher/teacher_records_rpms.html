@@ -317,7 +317,7 @@ async function fetchData() {
             // });
 
             takers.forEach(taker => {
-                if (taker.rpms_taker.employee_id != profile.user.employee_id ){
+                if (taker.rpms_taker.employee_id == profile.user.employee_id ){
                     addTeacherRow(taker); 
                 }
             });
@@ -393,10 +393,14 @@ function addOption(year) {
     
         // Create the anchor tag for the action cell
         var anchor = document.createElement('a');
-        anchor.href = 'records_rpms_content.html';  // Assuming this is the correct link
+        //anchor.href = 'records_rpms_content.html';  // Assuming this is the correct link
         anchor.style.textDecoration = 'none';
         anchor.style.color = 'inherit';
         anchor.id = 'viewLink' + rowCount;
+        anchor.style.cursor = "pointer";
+        anchor.addEventListener('click', function(event) {
+            viewCOTForm(taker_data.employee_id);
+        })
     
         // Create the image tag for the anchor
         var img = document.createElement('img');
@@ -430,11 +434,10 @@ function addOption(year) {
 
 
 
-function viewCOTForm(teacher_id , quarter){
+function viewCOTForm(teacher_id ){
 
-    sessionStorage.setItem('teacher_id', teacher_id);
-    sessionStorage.setItem('ipcrf_id', quarter);
-    window.location.href = 'records_rpms_content.html';
+    sessionStorage.setItem('teacher_id', teacher_id); 
+    window.location.href = 'rpms_proficient_records_view.html';
 }
 
 

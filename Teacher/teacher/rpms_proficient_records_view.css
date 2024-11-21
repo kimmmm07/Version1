@@ -81,64 +81,27 @@ h1 {
     margin-left: 1050px;
     font-weight: bold;
 }
-
-.filters {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 30px;
-    border-top: 1px solid gray;
-    margin-top: -15px;
+.records-section h2 {
+    margin-top: 20px;
+    font-size: 18px;
+    color: black;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
 }
-.filters select {
-    padding: 10px;
+ul {
+    list-style: none;
+    margin: 10px 0;
+    padding: 0;
+}
+ul li {
+    margin-bottom: 10px;
     font-size: 14px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background-color: white;
-    color: #333;
-    margin-top: 20px;
 }
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-table thead {
-    background-color: #f9f9f9;
-}
-table th, table td {
-    padding: 12px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-table th {
-    font-weight: bold;
-    color: #333;
-}
-table td .icon {
-    margin-right: 10px;
-}
-
-td img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-    vertical-align: middle;
-}
-
-.eye-icon {
-    width: 20px;
-    height: 20px;
-    vertical-align: middle;
-    margin-right: 5px; /* Optional: add space between icon and text */
-}
-
-.view-link {
-    color: #0056b3;
+ul li a {
     text-decoration: none;
-    font-weight: bold;
+    color: #0056b3;
 }
-.view-link:hover {
+ul li a:hover {
     text-decoration: underline;
 }
 
@@ -206,15 +169,4 @@ td img {
     color: #082F96;
     border: 1px solid #082F96 !important;
     font-weight: 700;
-}
-
-.user-icon {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
-    vertical-align: middle;
-    background-image: url('assets/User_Circle.png'); /* You can replace this with an actual icon */
-    background-size: cover;
 }
