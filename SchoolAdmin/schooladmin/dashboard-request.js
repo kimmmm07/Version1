@@ -105,7 +105,7 @@ window.addEventListener('load', async function() {
         const formData = new FormData();
         
         // Make sure to add data to formData before sending the request
-        formData.append('school_id', String(document.getElementById('modal-id').textContent));
+        formData.append('employee_id', String(document.getElementById('modal-id').textContent));
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/schools/add/', {
             method: 'POST',
