@@ -258,10 +258,14 @@ async function getIPCRF3(){
     }
 }
 
+async function OverAll(){
+    await getIPCRF1();
+    await getIPCRF2();
+    await getIPCRF3(); 
+}
 
-getIPCRF1();
-getIPCRF2();
-getIPCRF3();
+
+OverAll();
 
 
 
