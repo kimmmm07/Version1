@@ -165,7 +165,7 @@
             const formData = new FormData();
             formData.append('teacher_id', sessionStorage.getItem('teacher_id'));
             formData.append('ipcrf_id', sessionStorage.getItem('ipcrf_id'));
-            const response = await fetch('https://bnahs.pythonanywhere.com/api/school/get/ipcrf/specific/', {
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/get/ipcrf/specific/', {
                 method: 'POST',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest',
