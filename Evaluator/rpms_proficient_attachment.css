@@ -158,7 +158,7 @@ main {
 
 /* Other existing styles remain unchanged */
   
-  .file-preview img {
+  .file-preview img{
     width: 800px;
     height: 800px;
   }

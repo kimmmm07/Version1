@@ -15,19 +15,25 @@ const statusDropdown = document.getElementById("status");
 // Content Section
 const nameCheckbox = document.getElementById("name"); 
 
+const class_work_id = sessionStorage.getItem('kra_2_id');
+console.log(class_work_id);
+const teacher_id = sessionStorage.getItem('teacher_id');
+console.log(teacher_id);
+let teacher_name = undefined;
+
 // Right Section (KRA 2: Learning Environment and Diversity of Learners)
 const statusNumberTurnedIn = document.getElementById("statusNumberTurnedIn");
 const statusNumberAssigned = document.getElementById("statusNumberAssigned");
 const toggleContainer = document.getElementById("toggleContainer");
 const toggleCircle = document.getElementById("toggleCircle");
 const toggleText = document.getElementById("toggleText");
-const teacherName = document.getElementById("name"); s
+const teacherName = document.getElementById("name"); 
 const attachmentKra2 = document.getElementById("attachmentKra2");
 
 // Event listener examples for testing interactions
-toggleContainer.addEventListener("click", () => {
-    console.log("Toggle clicked!");
-});
+// toggleContainer.addEventListener("click", () => {
+//     console.log("Toggle clicked!");
+// });
 
 nameCheckbox.addEventListener("change", () => {
     console.log(`Checkbox for ${teacherName.textContent} changed: ${nameCheckbox.checked}`);
@@ -103,15 +109,11 @@ yesButton.addEventListener('click', async function() {
 
 
 
-
-
 async function getTeacherAttachments() {
     try {
-        
-        classwork_id = sessionStorage.getItem('classwrork_id');
-        teacher_id = sessionStorage.getItem('teacher_id');
+
         const formData = new FormData();
-        formData.append('class_work_id ', classwork_id);
+        formData.append('class_work_id ', class_work_id);
         formData.append('teacher_id', teacher_id);
 
 
@@ -128,6 +130,22 @@ async function getTeacherAttachments() {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
+            const teacher = data.teacher;
+            document.getElementById("name").textContent = teacher.fullname; 
+            document.getElementById("name1").textContent = teacher.fullname; 
+            const submitted = data.submitted;
+            if(submitted.length === 0){
+                document.getElementById("attachmentKra2").textContent = '';
+                document.getElementById('status').textContent = 'No Attachment';
+                document.getElementById('attachment-anchor').removeAttribute('href');
+            }
+            if(parseInt(submitted[0]["Overall Score"]) > 0){
+                document.getElementById('kra2Score').textContent = String(submitted[0]["Overall Score"]) + " /28"
+            }
+            
+            console.log(teacher);
+            console.log(submitted);
+
         } else {
             console.log("Error Data : ", data);
         }

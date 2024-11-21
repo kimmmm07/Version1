@@ -186,7 +186,9 @@ async function getTeacherAttachments() {
 
             const url = 'https://bnahs.pythonanywhere.com'+submitted['0']['file'];
             const pdfContainer = document.getElementById('pdf-container');
-        
+            document.getElementById('file-btn').addEventListener('click', function(){
+                window.open(url, '_blank');
+            });
             const renderPDF = async (url) => {
             const pdfjsLib = window['pdfjs-dist/build/pdf'];
             pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js';
@@ -223,7 +225,7 @@ async function getTeacherAttachments() {
 
             document.getElementById("file-upload-time").textContent = "Turned in on " +formattedDate;
          
-            if(teacher.is_checked_by_evaluator === true){
+            if(submitted['0'].is_checked === true){
                 returnBtn.style.display = 'none';
                 score1.value = content['1'].Score;
                 score1.disabled = true;
@@ -298,6 +300,7 @@ returnBtn.addEventListener('click', async function(){
     const data = await response.json();
     if (response.ok) {
         console.log("Success Data : ",data);
+        location.reload();
     } else {
         console.log("Error Data : ",data);
     }
