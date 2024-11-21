@@ -1,3 +1,61 @@
+// Floating menu toggle
+
+
+document.getElementById('menu-icon').addEventListener('click', function() {
+    const floatingMenu = document.getElementById('floating-menu');
+    floatingMenu.style.display = floatingMenu.style.display === 'block' ? 'none' : 'block';
+    });
+    
+    function closeMenu() {
+    document.getElementById('floating-menu').style.display = 'none';
+    }
+    
+    // Modal logic
+    const logoutButton = document.getElementById('logoutLink');  // Logout button
+    const logoutModal = document.getElementById('logoutModal');
+    const yesButton = document.querySelector('.yes-btn');
+    const noButton = document.querySelector('.no-btn');
+    
+    // Show modal when logout is clicked
+    logoutButton.addEventListener('click', function(event) {
+        event.preventDefault();  // Prevent default logout behavior
+        logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
+    });
+    
+    // Hide modal when "No" is clicked
+    noButton.addEventListener('click', function() {
+        logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
+    });
+    
+    // Redirect when "Yes" is clicked
+    yesButton.addEventListener('click', async function() {
+        try {
+            
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    
+                },
+                credentials: 'include',
+            });
+    
+            const data = await response.json();
+            if (response.ok) {
+                console.log("Success Data : ", data); 
+                window.location.href = '../../get-started.html'; 
+            } else {
+                console.log("Error Data : ", data);
+            }
+        } catch (error) {
+            console.error("Error during fetch:", error);
+        }
+    });
+    
+    
+
+
+
 // Card Section
 const cardsSection = document.getElementById('cardsSection');
 
@@ -29,61 +87,6 @@ const cardIconBottom = document.getElementById('cardIconBottom');
 const userIcon = document.getElementById('userIcon');
 
 
-// Floating menu toggle
-
-
-document.getElementById('menu-icon').addEventListener('click', function() {
-const floatingMenu = document.getElementById('floating-menu');
-floatingMenu.style.display = floatingMenu.style.display === 'block' ? 'none' : 'block';
-});
-
-function closeMenu() {
-document.getElementById('floating-menu').style.display = 'none';
-}
-
-// Modal logic
-const logoutButton = document.getElementById('logoutLink');  // Logout button
-const logoutModal = document.getElementById('logoutModal');
-const yesButton = document.querySelector('.yes-btn');
-const noButton = document.querySelector('.no-btn');
-
-// Show modal when logout is clicked
-logoutButton.addEventListener('click', function(event) {
-    event.preventDefault();  // Prevent default logout behavior
-    logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
-});
-
-// Hide modal when "No" is clicked
-noButton.addEventListener('click', function() {
-    logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
-});
-
-// Redirect when "Yes" is clicked
-yesButton.addEventListener('click', async function() {
-    try {
-        
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
-            method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                
-            },
-            credentials: 'include',
-        });
-
-        const data = await response.json();
-        if (response.ok) {
-            console.log("Success Data : ", data); 
-            window.location.href = '../../get-started.html'; 
-        } else {
-            console.log("Error Data : ", data);
-        }
-    } catch (error) {
-        console.error("Error during fetch:", error);
-    }
-});
-
-
 
 
 
@@ -92,7 +95,6 @@ yesButton.addEventListener('click', async function() {
 function generateCard(folder) {
     // Create the anchor tag
     const anchor = document.createElement('a');
-    // anchor.href = "rpms_proficient_stream.html";
     anchor.onclick = function(event) {
         event.preventDefault();
         sessionStorage.setItem('rpms_folder_id', folder.rpms_folder_id);
@@ -118,25 +120,41 @@ function generateCard(folder) {
     // headerContent.id = "headerContent";
     headerContent.textContent = folder.rpms_folder_name;
 
-    // Create the school year span
-    const schoolYear = document.createElement('span');
-    schoolYear.className = "subheader";
-    // schoolYear.id = "schoolYear";
-    schoolYear.textContent = folder.rpms_folder_school_year;
+
+    // Function to darken a color
+    function darkenColor(hex, percent) {
+        const num = parseInt(hex.replace('#', ''), 16);
+        const amt = Math.round(2.55 * percent);
+        const R = Math.max((num >> 16) - amt, 0);
+        const G = Math.max((num >> 8 & 0x00FF) - amt, 0);
+        const B = Math.max((num & 0x0000FF) - amt, 0);
+        return `#${(0x1000000 + (R * 0x10000 + G * 0x100 + B)).toString(16).slice(1)}`;
+    }
+
+     // Create the school year span
+     const schoolYear = document.createElement('span');
+     schoolYear.className = "subheader";
+     schoolYear.textContent = folder.rpms_folder_school_year;
+ 
 
     // Append the school year span to the header content
     headerContent.appendChild(schoolYear);
 
     // Create the header icon div
     const headerIcon = document.createElement('div');
-    headerIcon.className = "header-icon";
+    // headerIcon.className = "header-icon";
     headerIcon.id = "headerIcon";
 
-    // Create the school year icon image
-    const schoolYearIcon = document.createElement('img');
-    schoolYearIcon.src = "asset/Group 267.png";
-    schoolYearIcon.alt = "SY Icon";
-    // schoolYearIcon.id = "schoolYearIcon";
+    // Generate a darker color for the SY icon
+    const darkerColor = darkenColor(folder.rpms_folder_background_color, 20);
+
+
+    // Create the dynamic School Year icon
+    const schoolYearIcon = document.createElement('div');
+    schoolYearIcon.className = "sy-icon";
+    schoolYearIcon.style.backgroundColor = darkerColor;
+    schoolYearIcon.textContent = "SY"; // Dynamic text or placeholder
+
 
     // Append the image to the header icon
     headerIcon.appendChild(schoolYearIcon);
@@ -197,6 +215,22 @@ function generateCard(folder) {
     // Append anchor to the cards section
     cardsSection.appendChild(anchor);
 }
+
+function createFolder(folder) {
+    // Assuming folder data includes `rpms_folder_background_color`
+    const newFolder = {
+        rpms_folder_id: folder.id,
+        rpms_folder_name: folder.name,
+        rpms_folder_school_year: folder.schoolYear,
+        rpms_folder_background_color: folder.backgroundColor,
+    };
+
+    generateCard(newFolder); // Reuse `generateCard` for consistent styling
+}
+
+
+
+
 
 
 let folders = undefined;
