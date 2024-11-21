@@ -4,6 +4,7 @@ const efficiency1_3 = document.getElementById('Efficiency1_3');
 const efficiency1_1 = document.getElementById('Efficiency1_1');
 
 function get_efficiency_1_result(){
+    console.log("GgGGGGG");
     if(efficiency1_5.checked){
         return 5;
     }else if(efficiency1_3.checked){
@@ -467,6 +468,7 @@ const timeliness15_1 = document.getElementById('Timeliness15_1');
 
 
 function get_timeliness_15_result(){
+    console.log("Happen");
     if(timeliness15_5.checked){
         return 5;
     }else if(timeliness15_4.checked){
@@ -654,7 +656,7 @@ async function updateIPCRF1(){
     // formData.append('employee_id', employeeId); 
     // formData.append('password', password); 
 
-    let teacher_content = ipcrf_content['ipcrf']['content_for_teacher']
+    let teacher_content = ipcrf_content['ipcrf']['content_for_teacher'];
 
     teacher_content['Content Knowledge and Pedagogy']['1']["EFFICIENCY"]["Rate"] = get_efficiency_1_result();
     teacher_content['Content Knowledge and Pedagogy']['2']["QUALITY"]["Rate"] = get_quality_2_result();
@@ -705,7 +707,7 @@ async function updateIPCRF1(){
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
-            location.href = 'teacher_forms.html';
+            // location.href = 'teacher_forms.html';
         } else {
             console.log("Error Data : ", data);
             // alert("Login Failed.")
@@ -714,3 +716,124 @@ async function updateIPCRF1(){
         console.error("Error during fetch:", error);
     }
 }
+
+
+
+
+
+
+
+const logoutButton = document.getElementById('logoutLink');  // Logout button
+const logoutModal = document.getElementById('logoutModal');
+const yesButton = document.querySelector('.yes-btn');
+const noButton = document.querySelector('.no-btn');
+
+// Show modal when logout is clicked
+logoutButton.addEventListener('click', function(event) {
+    event.preventDefault();  // Prevent default logout behavior
+    logoutModal.classList.remove('hidden');  // Show modal by removing 'hidden' class
+});
+
+// Hide modal when "No" is clicked
+noButton.addEventListener('click', function() {
+    logoutModal.classList.add('hidden');  // Hide modal by adding 'hidden' class
+});
+
+// Redirect when "Yes" is clicked
+yesButton.addEventListener('click', async function() {
+    try {
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            window.location.href = '../../get-started.html'; 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+});
+
+
+const requiredFields = [
+"efficiency1", "quality2", "timeliness2",
+"efficiency3", "efficiency4", "efficiency5",
+"efficiency6", "quality8", "efficiency7",
+"quality9", "timeliness9", "efficiency10",
+"quality11", "timeliness11", "quality12",
+"timeliness12", "quality13", "timeliness13",
+"quality14", "efficiency14", "quality15",
+"efficiency15", "timeliness15"
+];
+
+
+const saveButton = document.querySelector("#saveButton");
+
+// Function to validate the form
+function validateForm() {
+    let isValid = true;
+
+    requiredFields.forEach((name) => {
+        const selectedOption = document.querySelector(`input[name="${name}"]:checked`);
+        const ratingWrapper = document.querySelector(`input[name="${name}"]`).closest('.ratings, .rating-options').querySelector('.rating-wrapper');
+
+        if (!selectedOption) {
+            isValid = false;
+
+            // Add error class to show red border and background
+            if (ratingWrapper) {
+                ratingWrapper.classList.add("error");
+            }
+        } else {
+            // Remove error class if answered
+            if (ratingWrapper) {
+                ratingWrapper.classList.remove("error");
+            }
+        }
+    });
+
+    if (!isValid) {
+        alert("Please answer all sections before saving.");
+    }
+
+    return isValid;
+}
+
+// Function to update IPCRF data
+// Add click event listener to the "Save" button
+saveButton.addEventListener("click", function () {
+    const isFormValid = validateForm();
+
+
+    //updateIPCRF1(); // FOR TESTING ONLY
+    // If the form is valid, proceed to the next page
+    if (isFormValid) {
+        updateIPCRF1(); // Uncomment when official
+        
+}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
