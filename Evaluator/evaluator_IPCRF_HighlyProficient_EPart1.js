@@ -787,7 +787,7 @@ async function getIPCRF() {
             teacherAverageScore.textContent = ipcrf.rating.toFixed(2);
             teacherRating.textContent = getRating(ipcrf.rating);
             
-            const content = ipcrf["content_for_evaluator"];
+            const content = ipcrf["content_for_teacher"];
             const con1 = content["Content Knowledge and Pedagogy"];
             const con2 = content["Learning Environment & Diversity of Learners"];
             const con3 = content["Curriculum and Planning & Assessment and Reporting"];
@@ -799,11 +799,9 @@ async function getIPCRF() {
             console.log("Content 3 : ", con3);
             console.log("Content 4 : ", con4);
             console.log("Content 5 : ", con5);
-
+ 
             Efficiency1_5.innerHTML = `<input type="radio"   value="5" checked disabled>  
             ${con1["1"]["EFFICIENCY"]["Rate"]} - ${con1["1"]["EFFICIENCY"][con1["1"]["EFFICIENCY"]["Rate"]]}`;
-            Quality2_5.innerHTML = `<input type="radio"  value="5" checked disabled>  
-            ${con1["2"]["QUALITY"]["Rate"]} - ${con1["1"]["QUALITY"][con1["2"]["QUALITY"]["Rate"]]}`;
             Timeliness2_5.innerHTML = `<input type="radio"  value="5" checked disabled>  
             ${con1["2"]["TIMELINESS"]["Rate"]} - ${con1["2"]["TIMELINESS"][con1["2"]["TIMELINESS"]["Rate"]]}`;
             Efficiency3_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
@@ -866,7 +864,9 @@ async function getIPCRF() {
             ${con4["14"]["EFFICIENCY"]["Rate"]} -
             ${con4["14"]["EFFICIENCY"][con4["14"]["EFFICIENCY"]["Rate"]]}`;
  
-
+            
+            Quality2_5.innerHTML = `<input type="radio" checked disabled>  
+            ${con1["2"]["QUALITY"]["Rate"]} - ${con1["1"]["QUALITY"][con1["2"]["QUALITY"]["Rate"]]}`;
 
         } else {
             console.log("Error Data : ", ipcrf);
@@ -880,86 +880,62 @@ async function getIPCRF() {
 getIPCRF();
 
 
-async function updateIPCRF() {
-    try {
-        
-        let content = ipcrf['content_for_evaluator']
-                
-        // content['Content Knowledge and Pedagogy']['1']['EFFICIENCY']['Rate'] = getRateEfficiency1();
-        // content['Content Knowledge and Pedagogy']['2']['EFFICIENCY']['Rate'] = getRateEfficiency2();
-        // content['Content Knowledge and Pedagogy']['3']['EFFICIENCY']['Rate'] = getRateEfficiency3();
-        // content['Content Knowledge and Pedagogy']['4']['EFFICIENCY']['Rate'] = getRateEfficiency4();
 
-        // content['Learning Environment & Diversity of Learners']['5']['EFFICIENCY']['Rate'] = getRateEfficiency5();
-        // content['Learning Environment & Diversity of Learners']['6']['EFFICIENCY']['Rate'] = getRateEfficiency6();
-        // content['Learning Environment & Diversity of Learners']['7']['EFFICIENCY']['Rate'] = getRateEfficiency7();
-        // content['Learning Environment & Diversity of Learners']['8']['EFFICIENCY']['Rate'] = getRateEfficiency8();
-
-        // content['Curriculum and Planning & Assessment and Reporting']['9']['EFFICIENCY']['Rate'] = getRateEfficiency9();
-        // content['Curriculum and Planning & Assessment and Reporting']['9']['QUALITY']['Rate'] = getRateQuality9();
-        
-        // content['Curriculum and Planning & Assessment and Reporting']['10']['EFFICIENCY']['Rate'] = getRateEfficiency10();
-
-        // content['Curriculum and Planning & Assessment and Reporting']['11']['QUALITY']['Rate'] = getRateQuality11();
-        // content['Curriculum and Planning & Assessment and Reporting']['11']['TIMELINES']['Rate'] = getRateTimeliness11();
-
-        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['QUALITY']['Rate'] = getRateQuality12();
-        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['TIMELINES']['Rate'] = getRateTimeliness12();
-
-        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['QUALITY']['Rate'] = getRateQuality13();
-        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['TIMELINES']['Rate'] = getRateTimeliness13();
-
-        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['QUALITY']['Rate'] = getRateQuality14();
-        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['TIMELINES']['Rate'] = getRateTimeliness14();
-        // content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['EFFICIENCY']['Rate'] = getRateEfficiency14();
-
-        // content['PLUS FACTOR']['15']['EFFICIENCY']['Rate'] = getRateEfficiency15();
-        // content['PLUS FACTOR']['15']['TIMELINES']['Rate'] = getRatetimeliness15();
-        // content['PLUS FACTOR']['15']['QUALITY']['Rate'] = getRateQuality15();
+const requiredFields = [
+    "efficiency1", "quality2", "timeliness2",
+    "efficiency3", "efficiency4", "efficiency5",
+    "efficiency6", "quality8", "efficiency7",
+    "quality9", "timeliness9", "efficiency10",
+    "quality11", "timeliness11", "quality12",
+    "timeliness12", "quality13", "timeliness13",
+    "quality14", "efficiency14", "quality15",
+    "efficiency15", "timeliness15"
+];
 
 
-        const formData = new FormData();
-        formData.append('ipcrf_id', ipcrf['connection_to_other']);
-        formData.append('content', JSON.stringify(content));
-        formData.append('total_score', totalScore);
-        formData.append('plus_factor', plusFactor);
-        formData.append('average_score', averageScore);
-        formData.append('plus_factor_main', plus_factor_main);
-        formData.append('kra1', kra1);
-        formData.append('kra2', kra2);
-        formData.append('kra3', kra3);
-        formData.append('kra4', kra4);
 
-        
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/check/ipcrf/part1/', {
-            method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                
-            },
-            credentials: 'include',
-            body: formData
+
+const saveButton = document.getElementById("saveButton");
+
+// Function to validate the form
+function validateForm() {
+        let isValid = true;
+
+        requiredFields.forEach((name) => {
+            const selectedOption = document.querySelector(`input[name="${name}"]:checked`);
+            const ratingWrapper = document.querySelector(`input[name="${name}"]`).closest('.ratings, .rating-options').querySelector('.rating-wrapper');
+
+            if (!selectedOption) {
+                isValid = false;
+
+                // Add error class to show red border and background
+                if (ratingWrapper) {
+                    ratingWrapper.classList.add("error");
+                }
+            } else {
+                // Remove error class if answered
+                if (ratingWrapper) {
+                    ratingWrapper.classList.remove("error");
+                }
+            }
         });
 
-        const result = await response.json();
-        if (response.ok) {
-            console.log("Success Data : ", result); 
-            location.href = 'ipcrf_t1-3.html';
-
-        } else {
-            console.log("Error Data : ", result);
+        if (!isValid) {
+            alert("Please answer all sections before saving.");
         }
-    } catch (error) {
-        console.error("Error during fetch:", error);
+
+        return isValid;
     }
-}
 
+// Add click event listener to the "Save" button
+saveButton.addEventListener("click", function () {
+    const isFormValid = validateForm();
 
-
-
-
-
-
+    // If the form is valid, proceed to the next page
+    if (isFormValid) {
+        updateIPCRF();
+    }
+});
 
 
 
