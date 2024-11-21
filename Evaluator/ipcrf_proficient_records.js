@@ -175,6 +175,13 @@ function addOption(year) {
 }
 
 
+function getRating(averageScore) {
+    if (averageScore >= 4.500) return "Outstanding";
+    if (averageScore >= 3.500) return "Very Satisfactory";
+    if (averageScore >= 2.500) return "Satisfactory";
+    if (averageScore >= 1.500) return "Unsatisfactory";
+    return "Poor"; // below 1.499
+}
 
 
 
@@ -182,7 +189,7 @@ function addOption(year) {
 
 function addTeacherRow(taker) {
     const taker_data = taker.ipcrf_taker;
-    const taker_evaluator = taker.ipcrf_evaluator;
+    const taker_evaluator = taker.ipcrf_rater;
     const school_year = taker.school_year;
     const taker_quarter = taker.quarter;
 
@@ -215,7 +222,7 @@ function addTeacherRow(taker) {
     positionCell.textContent = taker_data.position;
     gradeLevelCell.textContent = taker_data.grade_level;
     raterCell.textContent = taker_evaluator ? taker_evaluator.fullname : 'N/A';
-    ratingCell.textContent = taker.ipcrf.evaluator_rating;  // Assuming rating is stored in the 'rating' property of the taker object
+    ratingCell.textContent = taker?.ipcrf?.evaluator_rating.toFixed(2) + " - " + getRating(taker.ipcrf.evaluator_rating);  // Assuming rating is stored in the 'rating' property of the taker object
 
     // Create the anchor tag
     var anchor = document.createElement('a');
