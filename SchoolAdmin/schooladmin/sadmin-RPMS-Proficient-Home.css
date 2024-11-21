@@ -350,6 +350,7 @@ nav ul li a.active {
     height: 350px; /* Adjust height */
     background-color: white;
     overflow: hidden;
+    margin-top: 35px !important;
 }
 
 .card-header {

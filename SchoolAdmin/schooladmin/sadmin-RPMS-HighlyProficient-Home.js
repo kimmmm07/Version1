@@ -213,7 +213,7 @@ function assignFixedColor(folderElement, schoolYear) {
 
 
 
-
+ 
 function generateCard(folder) {
     // Create the anchor tag
     const anchor = document.createElement('a');

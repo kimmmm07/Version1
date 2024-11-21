@@ -233,6 +233,7 @@ body {
     height: 350px; /* Adjust height */
     background-color: white;
     overflow: hidden;
+    margin-bottom: 25px;
 }
 
 .card-header {
@@ -390,4 +391,21 @@ body {
     color: #082F96;
     border: 1px solid #082F96 !important;
     font-weight: 700;
+}
+
+
+.sy-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    margin-top: 80px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Makes it circular */
+    font-size: 12px;
+    color: #fff; /* Contrast text color */
+    font-weight: bold;
+    font-size: 22px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional for better visual */
 }
