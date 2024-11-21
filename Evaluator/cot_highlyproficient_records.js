@@ -273,6 +273,7 @@ function addTeacherRow(taker) {
     var positionCell = document.createElement('td');
     var gradeLevelCell = document.createElement('td');
     var raterCell = document.createElement('td');
+    var dateCell = document.createElement('td');
     var actionCell = document.createElement('td');
 
     // Set IDs for new cells
@@ -286,6 +287,7 @@ function addTeacherRow(taker) {
     positionCell.textContent = taker_data.position;
     gradeLevelCell.textContent = taker_data.grade_level;
     raterCell.textContent = taker_evaluator ? taker_evaluator.fullname : 'N/A';
+    dateCell.textContent = taker.cot?.check_date ? new Date(taker.cot.check_date).toLocaleDateString() : 'Not Rated Yet';
 
     // Create the anchor tag
     var anchor = document.createElement('a');
@@ -315,6 +317,7 @@ function addTeacherRow(taker) {
     newRow.appendChild(positionCell);
     newRow.appendChild(gradeLevelCell);
     newRow.appendChild(raterCell);
+    newRow.appendChild(dateCell);
     newRow.appendChild(actionCell);
 
     // Append the new row to the table body
