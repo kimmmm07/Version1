@@ -134,6 +134,11 @@ async function getTeacherAttachments() {
             document.getElementById("name").textContent = teacher.fullname; 
             document.getElementById("name1").textContent = teacher.fullname; 
             const submitted = data.submitted;
+            if(submitted.length === 0){
+                document.getElementById("attachmentKra1").textContent = ''
+                document.getElementById('status').textContent = 'No Attachment';
+                document.getElementById('attachment-anchor').removeAttribute('href');
+            }
             console.log(teacher);
             console.log(submitted);
 

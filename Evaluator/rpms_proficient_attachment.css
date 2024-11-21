@@ -454,7 +454,7 @@ main {
   align-items: center;
 }
 
-#score {
+#score,#score1,#score2,#score3,#score4 {
   width: 50px;
   padding: 5px;
   text-align: center;
@@ -465,7 +465,7 @@ main {
   margin-right: -18px; /* Ensures no visible gap */
 }
 
-#max-score {
+#max-score1, #max-score2,#max-score3,#max-score4, #max-score{
   width: 30px;
   padding: 5px;
   text-align: center;
