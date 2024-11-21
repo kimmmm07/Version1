@@ -80,6 +80,8 @@ th {
 td a {
     text-decoration: none;
     color: #007bff;
+    cursor: pointer;
+    font-weight: 700;
 }
 td a:hover {
     text-decoration: underline;
