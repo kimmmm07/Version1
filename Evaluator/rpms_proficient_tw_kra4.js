@@ -3,34 +3,40 @@ const menuIcon = document.getElementById("menu-icon");
 
 // Floating Menu Elements
 const floatingMenu = document.getElementById("floating-menu");
-const closeBtn = document.querySelector(".close-btn");
+const closeBtn = document.querySelector(".close-btn"); 
 
 // Header Section
 const logoutLink = document.getElementById("logoutLink");
 
 // Breadcrumb and Tabs
-const kra4Score = document.getElementById("kra4Score"); // kra 4
+const kra3Score = document.getElementById("kra3Score"); // kra 3
 const statusDropdown = document.getElementById("status");
 
 // Content Section
 const nameCheckbox = document.getElementById("name"); 
 
-// Right Section (KRA 4: Curriculum and Planning & Assessment and Reporting)
+const class_work_id = sessionStorage.getItem('kra_4_id');
+console.log(class_work_id);
+const teacher_id = sessionStorage.getItem('teacher_id');
+console.log(teacher_id);
+let teacher_name = undefined;
+
+// Right Section (KRA 3: Curriculum and Planning)
 const statusNumberTurnedIn = document.getElementById("statusNumberTurnedIn");
 const statusNumberAssigned = document.getElementById("statusNumberAssigned");
 const toggleContainer = document.getElementById("toggleContainer");
 const toggleCircle = document.getElementById("toggleCircle");
 const toggleText = document.getElementById("toggleText");
-const attachmentKra4 = document.getElementById("attachmentKra4");
+const attachmentKra3 = document.getElementById("attachmentKra3");
 
 // Event listener examples for testing interactions
-toggleContainer.addEventListener("click", () => {
-    console.log("Toggle clicked!");
-});
+// toggleContainer.addEventListener("click", () => {
+//     console.log("Toggle clicked!");
+// });
 
-nameCheckbox.addEventListener("change", () => {
-    console.log(`Checkbox for "Jessica Sanchez Ramirez" changed: ${nameCheckbox.checked}`);
-});
+// nameCheckbox.addEventListener("change", () => {
+//     console.log(`Checkbox for "Jessica Sanchez Ramirez" changed: ${nameCheckbox.checked}`);
+// });
 
 
 
@@ -104,13 +110,41 @@ yesButton.addEventListener('click', async function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Get the element by its ID
+const submissionDiv = document.getElementById('teacher-submission');
+const h3Element = document.getElementById('teacher-submission-name');
+const aElement = document.getElementById('teacher-submission-name');
+const nameTag = document.getElementById('name');
+
+
+
+let teacher = undefined;
+let submitted = undefined;
+
+
+function openAttachment(){
+    window.location.href = "rpms_proficient_attachment3.html";
+}
+
+
 async function getTeacherAttachments() {
     try {
-        
-        classwork_id = sessionStorage.getItem('classwrork_id');
-        teacher_id = sessionStorage.getItem('teacher_id');
+
         const formData = new FormData();
-        formData.append('class_work_id ', classwork_id);
+        formData.append('class_work_id ', class_work_id);
         formData.append('teacher_id', teacher_id);
 
 
@@ -127,6 +161,22 @@ async function getTeacherAttachments() {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
+            const teacher = data.teacher;
+            document.getElementById("name").textContent = teacher.fullname; 
+            document.getElementById("name1").textContent = teacher.fullname; 
+            const submitted = data.submitted;
+            if(submitted.length === 0){
+                document.getElementById("attachmentKra4").textContent = '';
+                document.getElementById('status').textContent = 'No Attachment';
+                document.getElementById('attachment-anchor').removeAttribute('href');
+            }
+            if(parseInt(submitted[0]["Overall Score"]) > 0){
+                document.getElementById('kra4Score').textContent = String(submitted[0]["Overall Score"]) + " /21"
+            }
+            
+            console.log(teacher);
+            console.log(submitted);
+
         } else {
             console.log("Error Data : ", data);
         }

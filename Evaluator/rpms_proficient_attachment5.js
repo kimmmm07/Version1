@@ -36,14 +36,19 @@ const gradeSection = document.getElementById('grade-section');
 const totalScoreSection = document.getElementById('total-score-section');
 const privateCommentsSection = document.getElementById('private-comments-section');
 
-// Report Table Scores
-const plusFactorScore = document.getElementById("plusFactorScore");
+
+const score = document.getElementById("score");
+const score1 = document.getElementById("score1");
+
+
+
 
 // Grade items and score
 const gradeList = document.getElementById('grade-list');
 const gradeItem1 = document.getElementById('grade-item-1');
 const gradeItem2 = document.getElementById('grade-item-2');
 const gradeItem3 = document.getElementById('grade-item-3');
+const gradeItem4 = document.getElementById('grade-item-4');
 
 // Total Score in Sidebar
 const totalScore = document.getElementById('total-score');
@@ -52,6 +57,13 @@ const totalScoreValue = document.getElementById('total-score-value');
 // Private comment section
 const privateCommentsTextarea = document.getElementById('private-comments-textarea');
 const postButton = document.getElementById('post-button');
+
+
+const class_work_id = sessionStorage.getItem('plus_factor_id');
+console.log(class_work_id);
+const teacher_id = sessionStorage.getItem('teacher_id');
+console.log(teacher_id);
+let teacher_name = undefined;
 
 
 
@@ -111,4 +123,146 @@ yesButton.addEventListener('click', async function() {
   } catch (error) {
       console.error("Error during fetch:", error);
   }
+});
+
+
+
+let teacher = undefined;
+let submitted = undefined;
+
+async function getTeacherAttachments() {
+    try {
+
+        const formData = new FormData();
+        formData.append('class_work_id ', class_work_id);
+        formData.append('teacher_id', teacher_id);
+
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/rpms/folder/classwork/attachments/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+            teacher = data.teacher;
+            document.getElementById("teacher-name").textContent = teacher.fullname; 
+            submitted = data.submitted;
+            let content = submitted['0'].grade;
+            console.log(teacher);
+            console.log(submitted);
+
+            const dateStr = String(submitted['0'].created_at); 
+            const date = new Date(dateStr); 
+
+            const url = 'https://bnahs.pythonanywhere.com'+submitted['0']['file'];
+            console.log(url);
+            const pdfContainer = document.getElementById('pdf-container');
+            document.getElementById('file-btn').addEventListener('click', function(){
+                window.open(url, '_blank');
+            });
+            const renderPDF = async (url) => {
+            const pdfjsLib = window['pdfjs-dist/build/pdf'];
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js';
+        
+            const pdf = await pdfjsLib.getDocument(url).promise;
+            for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++) {
+                const page = await pdf.getPage(pageNumber);
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                const viewport = page.getViewport({ scale: 1.5 });
+        
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                pdfContainer.appendChild(canvas);
+        
+                await page.render({ canvasContext: context, viewport }).promise;
+            }
+            };
+        
+            renderPDF(url).catch(err => {
+            pdfContainer.innerHTML = `<p>Failed to load PDF. Please try <a href="${url}">downloading it</a>.</p>`;
+            });
+            const options = {
+            month: 'short', 
+            day: '2-digit', 
+            year: 'numeric', 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            hour12: true
+            };
+
+            const formattedDate = date.toLocaleString('en-US', options);
+            console.log(formattedDate);
+
+            document.getElementById("file-upload-time").textContent = "Turned in on " +formattedDate;
+         
+            if(submitted['0'].is_checked === true){
+                returnBtn.style.display = 'none';
+                score1.value = content['15'].Score;
+                score1.disabled = true;
+                score.value = String(submitted[0]["Overall Score"]);
+            }
+
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getTeacherAttachments();
+
+
+
+returnBtn.addEventListener('click', async function(){
+    const rpms_id = submitted['0'].attachment_id;
+    let content = submitted['0'].grade;
+    console.log(rpms_id);
+    console.log(content);
+    if(!parseInt(score1.value) || parseInt(score1.value) > 2){
+        alert("Grade should not be 0 and is lower or equal to the max score.");
+        return;
+    }
+
+    content['15'].Score = String(score1.value);
+
+    console.log(content);
+    score.value = String(parseInt(score1.value));
+    
+
+    const formData = new FormData();
+    formData.append('rpms_id', rpms_id);
+    formData.append('content', JSON.stringify(content));
+    formData.append('comment', String(document.getElementById('private-comments-textarea')));
+
+    const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/check/rpms/attachment/',
+        {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+            }, 
+            body: formData, 
+            credentials: 'include', 
+        }
+    );
+
+
+    const data = await response.json();
+    if (response.ok) {
+        console.log("Success Data : ",data);
+        location.reload();
+    } else {
+        console.log("Error Data : ",data);
+    }
+
+
 });
