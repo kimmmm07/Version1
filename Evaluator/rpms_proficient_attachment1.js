@@ -177,8 +177,21 @@ async function getTeacherAttachments() {
             teacher = data.teacher;
             document.getElementById("teacher-name").textContent = teacher.fullname; 
             submitted = data.submitted;
+            let content = submitted['0'].grade;
             console.log(teacher);
             console.log(submitted);
+            if(teacher.is_checked_by_evaluator === true){
+                returnBtn.style.display = 'none';
+                score1.value = content['1'].Score;
+                score1.disabled = true;
+                score2.value = content['2'].Score;
+                score2.disabled = true;
+                score3.value = content['3'].Score;
+                score3.disabled = true;
+                score4.value = content['4'].Score;
+                score4.disabled = true;
+                score.value = String(submitted[0]["Overall Score"]);
+            }
 
         } else {
             console.log("Error Data : ", data);

@@ -260,6 +260,11 @@ async function getAttachments() {
             const responseData = await response.json();
             console.log('Fetched attachments:', responseData);
 
+            const submit = responseData.submitted;
+            console.log(String(submit['0']['Overall Score']));
+            const score = parseInt(submit['0']['Overall Score']);
+            
+            
             // Handle fetched submitted files
             const submitted = responseData.submitted.map(item => {
                 const cleanedFileName = item.file.replace('/media/rpms_attachments/', '');
@@ -281,6 +286,10 @@ async function getAttachments() {
             turnInBtn.disabled = uploadedFiles.length === 0;
 
             renderFileList();
+            if(score > 0){
+                document.getElementById('reflected-score').value = String(submit['0']['Overall Score']);
+                unsubmitBtn.style.display = 'none';
+            }
         } else {
             console.error('Failed to fetch attachments:', response.statusText);
         }

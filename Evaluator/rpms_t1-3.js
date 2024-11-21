@@ -20,7 +20,7 @@ function addTeacherRow(teacherData) {
         <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacher.fullname}</td>
         <td>${teacher.position}</td>
         <td>${teacher.grade_level}</td>
-        <td>${rater ?? 'Not Assigned'}</td>
+        <td>${rater.fullname ?? 'Not Assigned'}</td>
         <td class="status ${statusClass}">${teacher_status}</td>
         <td><a href="#" class="review">Review</a></td>
     `;
