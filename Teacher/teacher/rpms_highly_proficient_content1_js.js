@@ -35,11 +35,6 @@ const submissionModalCloseBtn = document.getElementById('submissionModalCloseBtn
 const submissionModalTitle = document.getElementById('submissionModalTitle');
 
 
-
-const class_work_id = sessionStorage.getItem('kra_1_id');
-console.log(class_work_id);
-
-
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
@@ -47,7 +42,7 @@ floatingMenu.style.display = floatingMenu.style.display === 'block' ? 'none' : '
 });
 
 function closeMenu() {
-document.getElementById('floating-menu').style.display = 'none';
+    document.getElementById('floating-menu').style.display = 'none';
 }
 
 const fileInput = document.getElementById('fileInput');
