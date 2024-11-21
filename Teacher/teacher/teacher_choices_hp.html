@@ -167,10 +167,14 @@ async function getIPCRF1(){
         if (response.ok) {
             console.log("Success Data : ", ipcrf_1);
             if(ipcrf_1.ipcrf.is_checked){
+                ipcrfHighlyProficientPart1.style.opacity = 0.5;
                 ipcrfHighlyProficientPart1.href= "#"
             }
+
         } else {
             console.log("Error Data : ", ipcrf_1);
+            ipcrfHighlyProficientPart1.href= "#"
+            ipcrfHighlyProficientPart1.style.opacity = 0.5;
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -194,11 +198,14 @@ async function getIPCRF2(){
         ipcrf_2 = await response.json();
         if (response.ok) {
             console.log("Success Data : ", ipcrf_2);
-            if(ipcrf_2.ipcrf.is_checked){
+            if(ipcrf_2.ipcrf.is_checked || !ipcrf_1.ipcrf.is_checked){
                 ipcrfHighlyProficientPart2.href= "#"
+                ipcrfHighlyProficientPart2.style.opacity = 0.5;
             }
         } else {
             console.log("Error Data : ", ipcrf_2);
+            ipcrfHighlyProficientPart2.href= "#"
+            ipcrfHighlyProficientPart2.style.opacity = 0.5;
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -221,11 +228,14 @@ async function getIPCRF3(){
         ipcrf_3 = await response.json();
         if (response.ok) {
             console.log("Success Data : ", ipcrf_3);
-            if(ipcrf_3.ipcrf.is_checked){
+            if(ipcrf_3.ipcrf.is_checked || !ipcrf_1.ipcrf.is_checked || !ipcrf_2.ipcrf.is_checked){
                 ipcrfHighlyProficientPart3.href= "#"
+                ipcrfHighlyProficientPart3.style.opacity = 0.5;
             }
         } else {
             console.log("Error Data : ", ipcrf_3);
+            ipcrfHighlyProficientPart3.href= "#"
+            ipcrfHighlyProficientPart3.style.opacity = 0.5;
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -233,11 +243,11 @@ async function getIPCRF3(){
 }
 
 
+getIPCRF1();
+getIPCRF2();
 getIPCRF3();
 
-getIPCRF1();
 
-getIPCRF2();
 
 
 
