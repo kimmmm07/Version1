@@ -442,7 +442,7 @@ function viewCOTForm(form_id , quarter){
         nameCell.innerHTML = `<img class="user-icon" id="userIcon${rowCount}" src="${ taker_data.profile ? "https://bnahs.pythonanywhere.com" + taker_data.profile : "asset/User_Circle.png"}" >${taker_data.fullname}`;
         positionCell.textContent = taker_data.position;
         gradeLevelCell.textContent = taker_data.grade_level;
-        subjectCell.textContent = taker_data.subject || "N/A";  // Assuming taker_data has a subject field
+        subjectCell.textContent = taker_data.department	 || "N/A";  // Assuming taker_data has a subject field
         raterCell.textContent = taker_evaluator ? taker_evaluator.fullname : 'N/A';
         
         
