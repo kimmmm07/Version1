@@ -121,6 +121,19 @@ td img {
 .modal.hidden {
     display: none;
 }
+.user-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+    background-image: url('assets/User_Circle.png'); /* You can replace this with an actual icon */
+    background-size: cover;
+}
+.custom-disabled{
+    color : gray;
+}
 
 .modal-content {
     background-color: white;
