@@ -101,6 +101,9 @@ td img {
 .status.submitted {
     color: green;
 }
+.status.progress {
+    color: rgb(252, 174, 6);
+}
 .status.pending {
     color: red;
 }

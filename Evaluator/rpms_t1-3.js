@@ -14,13 +14,16 @@ function addTeacherRow(teacherData) {
     teacherData = teacherData['teacher'];
 
     const tr = document.createElement('tr');
+    const statusClass = `${teacher_status === "In Progress" ? "progress" 
+        : teacher_status === "No Attachments" ? "pending" 
+        : "submitted"}`;
 
     tr.innerHTML = `
         <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacherData.fullname}</td>
         <td>${teacherData.position}</td>
         <td>${teacherData.grade_level}</td>
         <td>${teacherData.rater ?? 'Not Assigned'}</td>
-        <td class="status pending">${teacher_status}</td>
+        <td class="status ${statusClass}">${teacher_status}</td>
         <td><a id="${teacherData.employee_id}" class="review">Review</a></td>
     `;
 

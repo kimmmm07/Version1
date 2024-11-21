@@ -183,11 +183,14 @@ async function getIPCRF1(){
         if (response.ok) {
             console.log("Success Data : ", ipcrf_1);
             if(ipcrf_1.ipcrf.is_checked){
+                ipcrfProficientPart1.style.opacity = 0.5;
                 ipcrfProficientPart1.href= "#"
             }
 
         } else {
             console.log("Error Data : ", ipcrf_1);
+            ipcrfProficientPart1.href= "#"
+            ipcrfProficientPart1.style.opacity = 0.5;
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -211,11 +214,14 @@ async function getIPCRF2(){
         ipcrf_2 = await response.json();
         if (response.ok) {
             console.log("Success Data : ", ipcrf_2);
-            if(ipcrf_2.ipcrf.is_checked){
+            if(ipcrf_2.ipcrf.is_checked || !ipcrf_1.ipcrf.is_checked){
                 ipcrfProficientPart2.href= "#"
+                ipcrfProficientPart2.style.opacity = 0.5;
             }
         } else {
             console.log("Error Data : ", ipcrf_2);
+            ipcrfProficientPart2.href= "#"
+            ipcrfProficientPart2.style.opacity = 0.5;
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -238,23 +244,30 @@ async function getIPCRF3(){
         ipcrf_3 = await response.json();
         if (response.ok) {
             console.log("Success Data : ", ipcrf_3);
-            if(ipcrf_3.ipcrf.is_checked){
+            if(ipcrf_3.ipcrf.is_checked || !ipcrf_1.ipcrf.is_checked || !ipcrf_2.ipcrf.is_checked){
                 ipcrfProficientPart3.href= "#"
+                ipcrfProficientPart3.style.opacity = 0.5;
             }
         } else {
             console.log("Error Data : ", ipcrf_3);
+            ipcrfProficientPart3.href= "#"
+            ipcrfProficientPart3.style.opacity = 0.5;
         }
     } catch (error) {
         console.error("Error during fetch:", error);
     }
 }
 
+async function OverAll(){
+    await getIPCRF1();
+    await getIPCRF2();
+    await getIPCRF3(); 
+}
 
-getIPCRF3();
 
-getIPCRF1();
+OverAll();
 
-getIPCRF2();
+
 
 
 
