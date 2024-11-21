@@ -107,7 +107,7 @@ window.addEventListener('load', async function() {
         // Make sure to add data to formData before sending the request
         formData.append('employee_id', String(document.getElementById('modal-id').textContent));
 
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/admin/schools/add/', {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/people/add', {
             method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
@@ -121,7 +121,9 @@ window.addEventListener('load', async function() {
         if (response.ok) {
             console.log("Success Data: ", data);
             alert("Request succeeded");
-            window.location.href = 'admin-dashboard-request.html';
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
         } else {
             console.log("Error Data: ", data);
             alert("Request denied.");
