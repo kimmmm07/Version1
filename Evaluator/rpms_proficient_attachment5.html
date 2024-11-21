@@ -70,20 +70,19 @@
   </div><br>
 
     <div class="file-preview" id="file-preview">
-      <img src="Group 924.png" alt="Attachment Preview" id="file-preview-img">
+      <div id="pdf-container" style="width: 100%; height: 800px; overflow: auto; border: 1px solid #ccc;"></div>
 
-      <!-- Three-dot menu with icons placed at the top right -->
-      <div class="file-actions" id="file-actions">
-        <button class="three-dots" id="three-dots-btn">⋮</button>
-        <div class="dropdown-menu" id="dropdown-menu">
-          <button onclick="downloadFile()" id="download-btn">
-            <i class="fas fa-download" id="fas-download"></i> Download
-          </button>
-          <button onclick="printFile()" id="print-btn">
-            <i class="fas fa-print" id="fas-print"></i> Print
-          </button>
+        <div class="file-actions" id="file-actions">
+          <button class="three-dots" id="three-dots-btn">⋮</button>
+          <div class="dropdown-menu" id="dropdown-menu">
+            <button id="download-btn" onclick="downloadFile()">
+              <i class="fas fa-download" id="fas-fa-download"></i> Download
+            </button>
+            <button id="print-btn" onclick="printFile()">
+              <i class="fas fa-print" id="fas-fa-print"></i> Print
+            </button>
+          </div>
         </div>
-      </div>
     </div>
   </section>
 
@@ -94,16 +93,29 @@
     </div><br>
 
     <div class="file-section tab" id="file-section">
-      <h3 id="file-title">Files</h3>
-      <p id="file-date">Turned in on Aug 10, 11:00PM</p>
-      <img src="Group 924.png" alt="Sample attachment" id="file-img">
+      <h3 id="file-section-title">Files</h3>
+          <p id="file-upload-time"></p>
+          <button id="file-btn"
+            style="
+              background-color: #4CAF50; 
+              color: white; 
+              padding: 10px 20px; 
+              text-align: center; 
+              font-size: 16px; 
+              border: none; 
+              border-radius: 5px; 
+              cursor: pointer; 
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+          >
+            File
+          </button>
     </div>
 
     <div class="grade-section tab" id="grade-section">
       <h3 id="grade-title">Grade</h3>
       <ul id="grade-list">
         <li id="grade-1">Performed various related works/activities that contribute to the teaching learning process 
-          <span id="plusFactorScore"><input type="number" id="score" min="1" max="2"></span><span><input type="text" id="max-score" value="/2" disabled></span></li>
+          <span id="plusFactorScore"><input type="number" id="score1" min="1" max="2"></span><span><input type="text" id="max-score1" value="/2" disabled></span></li>
       </ul>
     </div>
 
@@ -132,5 +144,6 @@
   </div>
   
   <script src="rpms_proficient_attachment5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
 </body>
 </html>
