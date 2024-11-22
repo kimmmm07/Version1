@@ -316,7 +316,7 @@ body {
 }
 
 .overall-score {
-    margin-left: 260px;  
+    margin-left: 230px;  
     font-weight: bold;
     margin-bottom: -100px;
     border: none;
@@ -328,7 +328,7 @@ body {
  }
  
  .reflected-score {
-     margin-left: 230px;
+     margin-left: 210px;
      margin-top: -24px;
      display: flex;
      color: #d00000;
@@ -337,7 +337,7 @@ body {
      background: transparent;
      font-size: 16px; /* Match the font size to your existing style */
      font-weight: bold; /* Match text weight */
-     width: 5%;
+     width: 10%;
   }
  
   .reflected-score::placeholder {
