@@ -15,13 +15,13 @@ const resultsTab = document.getElementById('resultsTab');
 const contentWrapper = document.getElementById('contentWrapper');
 
 // Upcoming Section
-const upcomingSection = document.getElementById('upcomingSection');
-const upcomingTitle = document.getElementById('upcomingTitle');
-const rpmsProficientUpcomingList = document.getElementById('rpmsProficientUpcomingList');
-const upcomingKRA1 = document.getElementById('upcomingKRA1');
-const upcomingKRA2 = document.getElementById('upcomingKRA2');
-const upcomingKRA3 = document.getElementById('upcomingKRA3');
-const viewAllLink = document.getElementById('viewAllLink');
+// const upcomingSection = document.getElementById('upcomingSection');
+// const upcomingTitle = document.getElementById('upcomingTitle');
+// const rpmsProficientUpcomingList = document.getElementById('rpmsProficientUpcomingList');
+// const upcomingKRA1 = document.getElementById('upcomingKRA1');
+// const upcomingKRA2 = document.getElementById('upcomingKRA2');
+// const upcomingKRA3 = document.getElementById('upcomingKRA3');
+// const viewAllLink = document.getElementById('viewAllLink');
 
 // Main Content Section
 const mainContentList = document.getElementById('mainContentList');
@@ -54,8 +54,8 @@ const plusFactorTitle = document.getElementById('plusFactorTitle');
 rpmsProficientSchoolYear.textContent = "School Year 2024-2025";
 
 // Toggle active class on tabs
-streamTab.classList.toggle('active');
-resultsTab.classList.toggle('active');
+// streamTab.classList.toggle('active');
+// resultsTab.classList.toggle('active');
 
 
 // Floating menu toggle
