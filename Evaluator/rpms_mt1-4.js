@@ -15,7 +15,7 @@ function addTeacherRow(teacherData) {
 
     const tr = document.createElement('tr');
     const statusClass = `${teacher_status === "In Progress" ? "progress" 
-        : teacher_status === "No Attachments" ? "pending" 
+        : teacher_status === "Pending" ? "pending" 
         : "submitted"}`;
 
     tr.innerHTML = `
