@@ -129,20 +129,6 @@ getClassworksResult();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
