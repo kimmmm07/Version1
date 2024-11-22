@@ -174,8 +174,13 @@ function renderFileList() {
 
 
 
+let mainfile = undefined;
 // Function to show the modal
 function showModal(fileURL, fileType) {
+    console.log("fileType : ", fileType);
+    console.log("fileURL : ", fileURL);
+    console.log("File : ", mainfile);
+
     if (fileType.startsWith('image/')) {
         modalBody.innerHTML = `<img src="${fileURL}" style="max-width: 100%; height: auto;"/>`;
     } else if (fileType.startsWith('application/pdf')) {
@@ -187,6 +192,11 @@ function showModal(fileURL, fileType) {
     } else {
         modalBody.innerHTML = `<p>Preview not available for this file type.</p>`;
     }
+
+    // const modalBody = document.getElementById('pdf-container');
+    const url = "https://bnahs.pythonanywhere.com" + mainfile.file;
+    modalBody.innerHTML = `<p> <a href="${url}"> Clicking this will allow you to view the file.</a></p>`;
+        
 
     fileModal.style.display = 'block'; // Show the modal
 }
@@ -221,7 +231,7 @@ turnInBtn.addEventListener('click', () => {
         const filePreviewLink = document.createElement('span');
         filePreviewLink.textContent = file.name;
         filePreviewLink.style.cursor = 'pointer';
-
+        console.log("File : ", file)
         filePreviewLink.addEventListener('click', () => {
             const fileURL = URL.createObjectURL(file);
             showModal(fileURL, file.type);
@@ -260,6 +270,8 @@ async function getAttachments() {
         if (response.ok) {
             const responseData = await response.json();
             console.log('Fetched attachments:', responseData);
+            
+            mainfile = responseData.submitted?.[0];
 
             // Handle fetched submitted files
             const submitted = responseData.submitted.map(item => {
