@@ -91,3 +91,37 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+let folder = undefined;
+async function getClassworks(){
+    try {
+        
+        const rpms_folder_id = sessionStorage.getItem('rpms_folder_id'); // 
+
+        const formData = new FormData();
+        formData.append('rpms_folder_id', rpms_folder_id);
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folder/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData,
+        });
+
+        folder = await response.json();
+
+        if (response.ok) {
+            console.log("Success Data : ", folder);  
+        } else {
+            console.log("Error Data : ", folder);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getClassworks();
