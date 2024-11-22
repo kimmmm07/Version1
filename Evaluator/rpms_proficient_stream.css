@@ -258,6 +258,7 @@ nav a.active {
 }
 
 .content-item {
+    margin-left: 150px;
     display: flex;
     align-items: center; /* Aligns the items vertically */
     justify-content: space-between; /* Adds space between the text and the 3 dots */
@@ -266,7 +267,7 @@ nav a.active {
     border-radius: 10px;
     background-color: white;
     margin-bottom: 15px;
-    width: 85%;
+    width: 100%;
     text-decoration: none; /* Remove underline from links */
     color: inherit; /* Inherit color from parent element */
 }
