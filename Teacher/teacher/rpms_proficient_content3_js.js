@@ -282,6 +282,10 @@ async function getAttachments() {
             turnInBtn.disabled = uploadedFiles.length === 0;
 
             renderFileList();
+            if(score > 0){
+                document.getElementById('reflected-score').value = String(submit['0']['Overall Score']);
+                unsubmitBtn.style.display = 'none';
+            }
         } else {
             console.error('Failed to fetch attachments:', response.statusText);
         }
