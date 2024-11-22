@@ -560,20 +560,20 @@ function calculateAverageScore() {
     // Total score for main KRAs
     let totalKraScore = 
         //KRA 1
-        ((efficiency1 + 1) / 2) * 0.07 +     
+        ((efficiency1 + 5) / 2) * 0.07 +     
         ((quality2 + timeliness2) / 2) * 0.07 +  
-        ((efficiency3 + 1) / 2) * 0.07 +     
-        ((efficiency4 + 1) / 2) * 0.07 +     
+        ((efficiency3 + 5) / 2) * 0.07 +     
+        ((efficiency4 + 5) / 2) * 0.07 +     
 
         //KRA 2
-        ((efficiency5 + 1) / 2) * 0.07 +     // KRA 5
-        ((efficiency6 + 1) / 2) * 0.07 +     // KRA 6
-        ((efficiency7 + 1) / 2) * 0.07 +     // KRA 7
-        ((quality8 + 1) / 2) * 0.07 +        // KRA 8
+        ((efficiency5 + 5) / 2) * 0.07 +     // KRA 5
+        ((efficiency6 + 5) / 2) * 0.07 +     // KRA 6
+        ((efficiency7 + 5) / 2) * 0.07 +     // KRA 7
+        ((quality8 + 5) / 2) * 0.07 +        // KRA 8
 
         //KRA 3
         ((quality9 + timeliness9) / 2) * 0.07 +  // KRA 9
-        ((efficiency10 + 1) / 2) * 0.07 +    // KRA 10
+        ((efficiency10 + 5) / 2) * 0.07 +    // KRA 10
         ((quality11 + timeliness11) / 2) * 0.07 + // KRA 11
 
         //KRA 4
