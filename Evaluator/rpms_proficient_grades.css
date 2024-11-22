@@ -204,6 +204,10 @@ th {
     color: #007bff;
 }
 
+#grades-table{
+    margin-top: 50px;
+}
+
 /* Floating menu styles */
 .floating-menu {
     display: none; /* Ensure the menu is displayed */

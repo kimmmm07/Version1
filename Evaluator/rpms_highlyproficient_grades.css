@@ -246,6 +246,10 @@ th {
 .close-btn:hover {
     color: red; /* Change color on hover for effect */
 }
+
+#grades-table{
+    margin-top: 50px;
+}
   
 .floating-menu ul {
     list-style: none;
