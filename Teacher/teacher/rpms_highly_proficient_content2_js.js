@@ -173,6 +173,8 @@ function renderFileList() {
 
 
 
+
+let mainfile = undefined;
 // Function to show the modal
 function showModal(fileURL, fileType) {
     if (fileType.startsWith('image/')) {
@@ -188,6 +190,8 @@ function showModal(fileURL, fileType) {
     }
 
     fileModal.style.display = 'block'; // Show the modal
+    const url = "https://bnahs.pythonanywhere.com" + mainfile.file;
+    modalBody.innerHTML = `<p> <a href="${url}"> Clicking this will allow you to view the file.</a></p>`;
 }
 
 // Close the modal when the close button is clicked for submission modal
@@ -259,6 +263,7 @@ async function getAttachments() {
         if (response.ok) {
             const responseData = await response.json();
             console.log('Fetched attachments:', responseData);
+            mainfile = responseData.submitted?.[0];
 
             // Handle fetched submitted files
             const submitted = responseData.submitted.map(item => {
