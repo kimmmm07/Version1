@@ -1,60 +1,45 @@
-// Container
-const container = document.getElementById('container');
+// Sidebar Icon Elements
+const menuIcon = document.getElementById("menu-icon");
 
-// Breadcrumb
-const breadcrumb = document.getElementById('breadcrumb');
+// Floating Menu Elements
+const floatingMenu = document.getElementById("floating-menu");
+const closeBtn = document.querySelector(".close-btn"); 
 
-// Tabs
-const instructionsTab = document.getElementById('instructions-tab');
-const teacherWorkTab = document.getElementById('teacher-work-tab');
+// Header Section
+const logoutLink = document.getElementById("logoutLink");
 
-// Top Bar
-const topBar = document.getElementById('top-bar');
-const returnButton = document.getElementById('return-button');
-const kra4Score = document.getElementById("kra4Score"); // kra 4
+// Breadcrumb and Tabs
+const kra3Score = document.getElementById("kra3Score"); // kra 3
+const statusDropdown = document.getElementById("status");
 
 // Content Section
-const content = document.getElementById('content');
+const nameCheckbox = document.getElementById("name"); 
 
-// Left Section
-const leftSection = document.getElementById('left-section');
-const teacherWorkHeading = document.getElementById('teacher-work-heading');
-const allTeachersCheckbox = document.getElementById('all-teachers-checkbox');
-const sortLabel = document.getElementById('sort-label');
-const statusSelect = document.getElementById('status');
-const turnedInCheckbox = document.getElementById('turned-in-checkbox');
-const namePointsContainer = document.getElementById('name-points-container');
-const teacherCheckbox = document.getElementById('teacher-checkbox');
-const dividerLine = document.getElementById('divider-line');
-const pointsWithBorder = document.getElementById('points-with-border');
+const class_work_id = sessionStorage.getItem('kra_4_id');
+console.log(class_work_id);
+const teacher_id = sessionStorage.getItem('teacher_id');
+console.log(teacher_id);
+let teacher_name = undefined;
 
-// Right Section
-const rightSection = document.getElementById('right-section');
-const kraHeading = document.getElementById('kra-heading');
+// Right Section (KRA 3: Curriculum and Planning)
+const statusNumberTurnedIn = document.getElementById("statusNumberTurnedIn");
+const statusNumberAssigned = document.getElementById("statusNumberAssigned");
+const toggleContainer = document.getElementById("toggleContainer");
+const toggleCircle = document.getElementById("toggleCircle");
+const toggleText = document.getElementById("toggleText");
+const attachmentKra3 = document.getElementById("attachmentKra3");
 
-// Submission Status
-const submissionStatus = document.getElementById('submission-status');
-const statusItem1 = document.getElementById('status-item-1');
-const statusNumber1 = document.getElementById('status-number-1');
-const statusText1 = document.getElementById('status-text-1');
-const statusItem2 = document.getElementById('status-item-2');
-const statusNumber2 = document.getElementById('status-number-2');
-const statusText2 = document.getElementById('status-text-2');
-const dividerLine1 = document.getElementById('divider-line1');
+// Event listener examples for testing interactions
+// toggleContainer.addEventListener("click", () => {
+//     console.log("Toggle clicked!");
+// });
 
-// Toggle Container
-const toggleContainer = document.getElementById('toggleContainer');
-const toggleCircle = document.getElementById('toggleCircle');
-const toggleText = document.getElementById('toggleText');
+// nameCheckbox.addEventListener("change", () => {
+//     console.log(`Checkbox for "Jessica Sanchez Ramirez" changed: ${nameCheckbox.checked}`);
+// });
 
-// Teacher Submission
-const teacherSubmission = document.getElementById('teacher-submission');
-const h3teacherName = document.getElementById('teacher-submission-name');
-const ateacherName = document.getElementById('teacher-submission-anchor');
-const attachmentLink = document.getElementById('attachment-link');
-const submittedImage = document.getElementById('submitted-image');
-const attachmentText = document.getElementById('attachment-text');
-const turnedInText = document.getElementById('turned-in-text');
+
+
 
 
 function toggleStatus() {
@@ -70,8 +55,8 @@ function toggleStatus() {
     }
 }
 
-    // Floating menu toggle
-    document.getElementById('menu-icon').addEventListener('click', function() {
+// Floating menu toggle
+document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
 floatingMenu.style.display = floatingMenu.style.display === 'block' ? 'none' : 'block';
 });
@@ -121,3 +106,84 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Get the element by its ID
+const submissionDiv = document.getElementById('teacher-submission');
+const h3Element = document.getElementById('teacher-submission-name');
+const aElement = document.getElementById('teacher-submission-name');
+const nameTag = document.getElementById('name');
+
+
+
+let teacher = undefined;
+let submitted = undefined;
+
+
+function openAttachment(){
+    window.location.href = "rpms_proficient_attachment3.html";
+}
+
+
+async function getTeacherAttachments() {
+    try {
+
+        const formData = new FormData();
+        formData.append('class_work_id ', class_work_id);
+        formData.append('teacher_id', teacher_id);
+
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/rpms/folder/classwork/attachments/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+            const teacher = data.teacher;
+            document.getElementById("name").textContent = teacher.fullname; 
+            document.getElementById("name1").textContent = teacher.fullname; 
+            const submitted = data.submitted;
+            if(submitted.length === 0){
+                document.getElementById("attachmentKra4").textContent = '';
+                document.getElementById('status').textContent = 'No Attachment';
+                document.getElementById('attachment-anchor').removeAttribute('href');
+            }
+            if(parseInt(submitted[0]["Overall Score"]) > 0){
+                document.getElementById('kra4Score').textContent = String(submitted[0]["Overall Score"]) + " /21"
+            }
+            
+            console.log(teacher);
+            console.log(submitted);
+
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getTeacherAttachments();

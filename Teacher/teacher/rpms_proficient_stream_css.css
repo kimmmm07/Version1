@@ -263,6 +263,7 @@ body {
 
 /* Tabs styling */
 .tabs {
+    color: black;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -375,7 +376,8 @@ body {
 }
 
 .content-item {
-    width: 85%;
+    margin-left: 150px;
+    width: 100%;
     background-color: white;
     border-radius: 10px;
     padding: 20px;
