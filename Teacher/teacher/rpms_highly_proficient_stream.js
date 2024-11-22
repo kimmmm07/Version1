@@ -8,9 +8,9 @@ const streamTab = document.querySelector('.tabs a[href="rpms_highly_proficient_s
 const resultsTab = document.querySelector('.tabs a[href="rpms_highly_proficient_results.html"]');
 
 // Upcoming Section
-const upcomingSection = document.querySelector('.upcoming');
-const upcomingList = document.querySelector('.upcoming-list');
-const viewAllLink = upcomingList.querySelector('.view-all a');
+// const upcomingSection = document.querySelector('.upcoming');
+// const upcomingList = document.querySelector('.upcoming-list');
+// const viewAllLink = upcomingList.querySelector('.view-all a');
 
 // Main Content Section
 const mainContentList = document.querySelector('.main-content-list');
