@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teacher Work Submission</title>
+  <title>KRA 3: Attachment</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23nEy6j5tzbZrD13NQdD5wE3bZ+gV8tZr" crossorigin="anonymous">
   <link rel="stylesheet" href="rpms_highlyproficient_attachment.css">
@@ -55,7 +55,20 @@
 
 <main>
   <section class="content">
-    <h1>KRA 3: Curriculum & Planning & Assessment and Reporting</h1>
+    <!-- <h1>KRA 3: Curriculum & Planning & Assessment and Reporting</h1> -->
+    <div class="kra-header" id="kra-header">
+      <div class="kra-icon" id="kra-icon">
+          <img src="Clipboard.png" alt="Clipboard Icon" id="kra-icon-img">
+      </div>
+      <div class="kra-details" id="kra-details">
+          <h2 id="kra-title">KRA 3: Curriculum & Planning & Assessment and Reporting</h2>
+          <!-- <p class="posted-by" id="posted-by">John Doe • 6:01PM</p> -->
+          <p class="points" id="points">21 points</p>
+      </div>
+      <!-- <div class="dots-menu" id="dots-menu">
+          <span id="dots">...</span>
+      </div> -->
+    </div>
 
     <!-- Student name and status with dropdown -->
     <div class="student-info">
@@ -91,7 +104,7 @@
       <button id="return-btn" class="return-button">Return</button>
     </div><br>
 
-    <div class="file-section tab">
+    <!-- <div class="file-section tab">
       <h3 id="file-section-title">Files</h3>
           <p id="file-upload-time"></p>
           <button id="file-btn"
@@ -108,17 +121,41 @@
           >
             File
           </button>
-    </div>
+    </div> -->
 
     <div class="grade-section tab">
       <h3>Grade</h3>
       <ul>
         <li>Modeled to colleagues the setting of achievable and challenging learning outcomes that are aligned with learning competencies to cultivate a culture of excellence for all learners. (PPST 4.2.3) 
           <span id="kra9Score"><input type="number" id="score1" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
+          <div class="file-section tab" id="file-section">
+            <h3 id="file-section-title">Files</h3>
+            <p id="file-upload-time"></p>
+            <button id="file-btn">
+              File
+            </button>
+          </div><br>
+        
         <li>Used effective strategies for providing timely, accurate and constructive feedback to encourage learners to reflect on and improve their own learning. (PPST 5.3.3) 
           <span id="kra10Score"><input type="number" id="score2" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
+          <div class="file-section tab" id="file-section">
+            <h3 id="file-section-title">Files</h3>
+            <p id="file-upload-time"></p>
+            <button id="file-btn">
+              File
+            </button>
+          </div><br>
+        
         <li>Worked collaboratively with colleagues to analyze and utilize assessment data to modify practices and programs to further support learner progress and achievement. (PPST 5.5.3) 
           <span id="kra11Score"><input type="number" id="score3" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
+          <div class="file-section tab" id="file-section">
+            <h3 id="file-section-title">Files</h3>
+            <p id="file-upload-time"></p>
+            <button id="file-btn">
+              File
+            </button>
+          </div><br>
+
       </ul>
     </div>
 
