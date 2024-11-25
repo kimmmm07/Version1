@@ -67,20 +67,53 @@
       </div>-->
   </div>
 
-    <div class="teacher-info" id="teacher-info">
-      <div class="dropdown" id="teacher-dropdown">
-          <i class="fas fa-user" id="user-icon"></i>
-          <div id="teacher-name">
-            Jessica Sanchez Ramirez
-          </div> 
-          <!--<select id="teacher-dropdown-select">
-              <option id="teacher-1">Jessica Sanchez Ramirez</option>
-              <option id="teacher-2">Teacher 2</option>
-              <option id="teacher-3">Teacher 3</option>
-          </select>-->
-          <span id="turn-in-status">Turned in</span>
+  <div class="teacher-info-container">
+    <!-- Student Info -->
+    <div class="teacher-info">
+      <div class="dropdown">
+        <i class="fas fa-user"></i>
+        <div id="teacher-name"></div>
+        <span>Turned in</span>
       </div>
-  </div><br>
+    </div>
+  
+    <!-- Instructions Tab -->
+    <div class="instructions-tab">
+      <a href="#" id="instructions-link">Instructions</a>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div id="instructions-modal" class="modal hidden">
+    <div class="modal-content-instruction">
+      <span class="close-btn" id="close-modal">&times;</span>
+      <h2 style="text-align: center;">Instructions</h2>
+      <p><strong>7% | Objective 9</strong> (Set achievable and appropriate learning outcomes that are aligned with learning competencies.)</p>
+      <ul id="Objective9">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>At least one (1) lesson plan (e.g., DLP, DLL, WHLP, WLP, WLL, Lesson Exemplars, and the likes) or one lesson from a self-learning module, developed by the ratee* and used in instruction, with achievable and appropriate learning outcomes that are aligned with the learning competencies as shown in any one (1) of the following:
+              <br> 1. lecture/discussion
+              <br> 2. activity/activity sheet
+              <br> 3. performance task
+              <br> rubric for assessing performance using criteria that appropriately describe the target output</li>    
+      </ul><br>
+
+      <p><strong>7% | Objective 10</strong> (Used strategies for providing timely, accurate and constructive feedback to improve learner performance.)</p>
+      <ul id="Objective10">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>Classroom Observation Tool (COT) rating sheet/s or inter-observer agreement form/s</li>
+      </ul><br>
+      
+      <p><strong>7% | Objective 11</strong> (Utilized assessment data to inform the modification of teaching and learning practices and programs.)</p>
+      <ul id="Objective11">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>A list of identified least/most mastered skills based on the frequency of errors/correct responses with any one (1) of the following supporting MOVs:
+              <br> 1. accomplishment report for remedial/enhancement activities (e.g., remedial sessions, Summer Reading Camp, Phil-IRI-based reading program)
+              <br> 2. intervention material used for remediation/reinforcement/enhancement
+              <br> 3. lesson plan/activity log for remediation/enhancement utilizing assessment data to modify teaching and learning practices or programs</li>
+      </ul>
+    </div>
+  </div>
 
     <div class="file-preview" id="file-preview">
       <div id="pdf-container" style="width: 100%; height: 1000px; overflow: auto; border: 1px solid #ccc;"></div>

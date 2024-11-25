@@ -69,20 +69,60 @@
       </div>-->
   </div>
 
-    <div class="teacher-info" id="teacher-info">
-      <div class="dropdown" id="teacher-dropdown">
-          <i class="fas fa-user" id="user-icon"></i>
-          <div id="teacher-name">
-            Jessica Sanchez Ramirez
-          </div> 
-          <!--<select id="teacher-dropdown-select">
-              <option id="teacher-1">Jessica Sanchez Ramirez</option>
-              <option id="teacher-2">Teacher 2</option>
-              <option id="teacher-3">Teacher 3</option>
-          </select>-->
-          <span id="turn-in-status">Turned in</span>
+  <div class="teacher-info-container">
+    <!-- Student Info -->
+    <div class="teacher-info">
+      <div class="dropdown">
+        <i class="fas fa-user"></i>
+        <div id="teacher-name"></div>
+        <span>Turned in</span>
       </div>
-  </div><br>
+    </div>
+  
+    <!-- Instructions Tab -->
+    <div class="instructions-tab">
+      <a href="#" id="instructions-link">Instructions</a>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div id="instructions-modal" class="modal hidden">
+    <div class="modal-content-instruction">
+      <span class="close-btn" id="close-modal">&times;</span>
+      <h2 style="text-align: center;">Instructions</h2>
+      <p><strong>7% | Objective 5</strong> (Established safe and secure learning environments to enhance learning through the consistent implementation of policies, guidelines and procedures.)</p>
+      <ul id="Objective5">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>Classroom Observation Tool (COT) rating sheet/s or inter-observer agreement form/s done through onsite / face-to-face / in-person classroom observation
+            <br> If onsite / face-to-face / in-person classes are not implemented,
+            <br> - through observation of synchronous / asynchronous teaching in other modalities; 
+      </ul><br>
+
+      <p><strong>7% | Objective 6</strong> (Maintained learning environments that promote fairness, respect and care to encourage learning.)</p>
+      <ul id="Objective6">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>Classroom Observation Tool (COT) rating sheet/s or inter-observer agreement form/s done through onsite / face-to-face / in-person classroom observation
+            <br> If onsite / face-to-face / in-person classes are not implemented,
+            <br> - through observation of synchronous / asynchronous teaching in other modalities; 
+      </ul><br>
+      
+      <p><strong>7% | Objective 7</strong> (Established a learner-centered culture by using teaching strategies that respond to their linguistic, cultural, socio-economic and religious backgrounds.)</p>
+      <ul id="Objective7">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>Classroom Observation Tool (COT) rating sheet/s or inter-observer agreement form/s done through onsite / face-to-face / in-person classroom observation
+            <br> If onsite / face-to-face / in-person classes are not implemented,
+            <br> - through observation of synchronous / asynchronous teaching in other modalities; 
+      </ul><br>
+
+      <p><strong>7% | Objective 8</strong> (Adapted and used culturally appropriate teaching strategies to address the needs of learners from indigenous groups.)</p>
+      <ul id="Objective8">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>Classroom Observation Tool (COT) rating sheet/s or inter-observer agreement form/s done through onsite / face-to-face / in-person classroom observation
+            <br> If onsite / face-to-face / in-person classes are not implemented,
+            <br> - through observation of synchronous / asynchronous teaching in other modalities; 
+      </ul>
+    </div>
+  </div>
 
     <div class="file-preview" id="file-preview">
       <div id="pdf-container" style="width: 100%; height: 1200px; overflow: auto; border: 1px solid #ccc;"></div>

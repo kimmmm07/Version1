@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teacher Work Submission</title>
+  <title>PLUS FACTOR: Attachment</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23nEy6j5tzbZrD13NQdD5wE3bZ+gV8tZr" crossorigin="anonymous">
   <link rel="stylesheet" href="rpms_highlyproficient_attachment.css">
@@ -54,19 +54,70 @@
 
 <main>
   <section class="content">
-    <h1>PLUS FACTOR</h1>
-
-    <!-- Student name and status with dropdown -->
-    <div class="student-info">
-      <div class="dropdown">
-        <i class="fas fa-user"></i>
-        <div id="teacher-name">
-        
-      </div>      
-        <span>Turned in</span>
+    <!-- <h1>PLUS FACTOR</h1> -->
+    <div class="kra-header" id="kra-header">
+      <div class="kra-icon" id="kra-icon">
+          <img src="Clipboard.png" alt="Clipboard Icon" id="kra-icon-img">
       </div>
-    </div><br>
+      <div class="kra-details" id="kra-details">
+          <h2 id="kra-title">PLUS FACTOR</h2>
+          <!-- <p class="posted-by" id="posted-by">John Doe • 6:01PM</p> -->
+          <p class="points" id="points">2 points</p>
+      </div>
+      <!-- <div class="dots-menu" id="dots-menu">
+          <span id="dots">...</span>
+      </div> -->
+    </div>
 
+    <div class="student-info-container">
+      <!-- Student Info -->
+      <div class="student-info">
+        <div class="dropdown">
+          <i class="fas fa-user"></i>
+          <div id="teacher-name"></div>
+          <span>Turned in</span>
+        </div>
+      </div>
+    
+      <!-- Instructions Tab -->
+      <div class="instructions-tab">
+        <a href="#" id="instructions-link">Instructions</a>
+      </div>
+    </div>
+    
+    <!-- Modal -->
+    <div id="instructions-modal" class="modal hidden">
+      <div class="modal-content-instruction">
+        <span class="close-btn" id="close-modal">&times;</span>
+        <h2 style="text-align: center;">Instructions</h2>
+        <p><strong>7% | Objective 15</strong> Performed various related works/ activities that contribute to the teaching-learning process.</p>
+        <ul id="Objective15">
+            <li><strong>Means of Verification (MOV)</strong></li>
+            <li>Any proof that the master teacher:
+                <br> - served as facilitator / speaker
+                <br> - served as demonstration teacher
+                <br> - served as a member of the technical working group
+                <br> - served as OIC in the absence of the principal
+                <br> - represented the principal in meetings and conference
+                <br> - observed classes of Teachers I-III
+                <br> - assisted the school selection committee in the evaluation of credentials when hiring or promoting teachers
+                <br> - served in a committee
+                <br> - served as adviser to co-curricular activities
+                <br> - served as coordinator / chairperson
+                <br> - authored / contributed to a book or journal
+                <br> - coached and mentored learners in competitions
+                <br> - mentored pre-service / in-service teachers
+                <br> - conducted research within the rating period;
+                <br> - others (please specify)
+                <br> With annotations on how it contributed to the teaching-learning process
+            </li>
+        </ul>
+      </div>
+    </div>
+
+    
+
+    
     <div class="file-preview">
       <div id="pdf-container" style="width: 100%; height: 800px; overflow: auto; border: 1px solid #ccc;"></div>
 
@@ -90,7 +141,7 @@
       <button id="return-btn" class="return-button">Return</button>
     </div><br>
 
-    <div class="file-section tab">
+    <!-- <div class="file-section tab">
       <h3 id="file-section-title">Files</h3>
       <p id="file-upload-time"></p>
       <button id="file-btn"
@@ -107,13 +158,20 @@
       >
         File
       </button>
-    </div>
+    </div> -->
 
     <div class="grade-section tab">
       <h3>Grade</h3>
       <ul>
-        <li>Performed various related works/ activities that contribute to the teaching-learning process. 
+        <li>Objective 15: Performed various related works/ activities that contribute to the teaching-learning process. 
           <span id="plusFactorScore"><input type="number" id="score1" min="1" max="2"></span><span><input type="text" id="max-score" value="/2" disabled></span></li>
+          <div class="file-section tab" id="file-section">
+            <h3 id="file-section-title">Files</h3>
+            <p id="file-upload-time"></p>
+            <button id="file-btn">
+              File
+            </button>
+          </div><br>
       </ul>
     </div>
 

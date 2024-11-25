@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teacher Work Submission</title>
+  <title>KRA 4: Attachment</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23nEy6j5tzbZrD13NQdD5wE3bZ+gV8tZr" crossorigin="anonymous">
   <link rel="stylesheet" href="rpms_highlyproficient_attachment.css">
@@ -54,18 +54,77 @@
 
 <main>
   <section class="content">
-    <h1>KRA 4: Community Linkages and Professional Engagement & Personal Growth and Professional Development</h1>
+    <!-- <h1>KRA 4: Community Linkages and Professional Engagement & Personal Growth and Professional Development</h1> -->
+    <div class="kra-header" id="kra-header">
+      <div class="kra-icon" id="kra-icon">
+          <img src="Clipboard.png" alt="Clipboard Icon" id="kra-icon-img">
+      </div>
+      <div class="kra-details" id="kra-details">
+          <h2 id="kra-title">KRA 4: Community Linkages and Professional Engagement & Personal Growth and Professional Development</h2>
+          <!-- <p class="posted-by" id="posted-by">John Doe • 6:01PM</p> -->
+          <p class="points" id="points">21 points</p>
+      </div>
+      <!-- <div class="dots-menu" id="dots-menu">
+          <span id="dots">...</span>
+      </div> -->
+  </div>
 
-    <!-- Student name and status with dropdown -->
+  <div class="student-info-container">
+    <!-- Student Info -->
     <div class="student-info">
       <div class="dropdown">
         <i class="fas fa-user"></i>
-        <div id="teacher-name">
-          
-      </div>      
+        <div id="teacher-name"></div>
         <span>Turned in</span>
       </div>
-    </div><br>
+    </div>
+  
+    <!-- Instructions Tab -->
+    <div class="instructions-tab">
+      <a href="#" id="instructions-link">Instructions</a>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div id="instructions-modal" class="modal hidden">
+    <div class="modal-content-instruction">
+      <span class="close-btn" id="close-modal">&times;</span>
+      <h2 style="text-align: center;">Instructions</h2>
+      <p><strong>7% | Objective 12</strong> Guided colleagues to strengthen relationships with parents/guardians and the wider school community to maximize their involvement in the educative process. (PPST 6.2.3)</p>
+      <ul id="objective-12-list">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li> - Proof/s of attendance in coaching and mentoring sessions/meetings/LAC sessions/FGDs/other collegial discussions that highlights the objective
+              <br> - Minutes/notes of coaching and mentoring sessions/meetings/FGDs/other collegial discussions that highlights the objective
+              <br> - Reflection notes of teachers on the coaching and mentoring sessions/meetings/FGDs/other collegial discussions that highlights the objective with proof/s of attendance
+              <br> - Performance Monitoring and Coaching Form (PMCF), with annotations highlighting the objective
+          </li>
+      </ul><br>
+      <p><strong>7% | Objective 13</strong> Contributed actively to professional networks within and between schools to improve knowledge and to enhance practice. (PPST 7.3.3)</p>
+      <ul id="Objective13">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>1. Approved activity/project proposal for a webinar, retooling, upskilling, and other training/seminar/workshop with accomplishment report
+              <br> 2. Approved activity/project proposal for benchmarking or innovation with accomplishment report
+              <br> 3. Certificate as contributor to LRMDS
+              <br> 4. Certificate of completion in a course/training
+              <br> 5. Certificate of recognition/speakership in webinar, retooling, upskilling, and other training/seminar/workshop
+              <br> 6. Any proof of participation in school LAC sessions (online/face-to-face) certified by the LAC Coordinator
+              <br> 7. Others (Please specify and provide annotations)
+          </li>
+      </ul><br>
+      <p><strong>7% | Objective 14</strong> Initiated professional reflections and promote learning opportunities with colleagues to improve practice. (PPST 7.4.3)</p>
+      <ul id="Objective14">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>1. Proof/s of attendance in coaching and mentoring sessions/meetings/LAC sessions/FGDs/other collegial discussions that highlights the objective
+              <br> 2. Approved LAC/FGD Plan
+              <br> 3. Training matric of LAC sessions highlighting the teacher’s role, with proof of attendance
+              <br> 4. Minutes of LAC sessions/FGDs highlighting the teacher’s role with proof of attendance
+              <br> 5. Performance Monitoring and Coaching Form (PMCF)
+              <br> 6. Personal notes/reflections of colleagues on regional/ division/ school-led INSETs and/or other trainings supervised/ conducted by teacher
+              <br> 7. Others (Please specify and provide annotations)
+          </li>
+      </ul>
+    </div>
+  </div>
 
     <div class="file-preview">
       <div id="pdf-container" style="width: 100%; height: 1000px; overflow: auto; border: 1px solid #ccc;"></div>
@@ -90,7 +149,7 @@
       <button id="return-btn" class="return-button">Return</button>
     </div><br>
 
-    <div class="file-section tab">
+    <!-- <div class="file-section tab">
       <h3 id="file-section-title">Files</h3>
           <p id="file-upload-time"></p>
           <button id="file-btn"
@@ -107,17 +166,40 @@
           >
             File
           </button>
-    </div>
+    </div> -->
 
     <div class="grade-section tab">
       <h3>Grade</h3>
       <ul>
-        <li>Guided colleagues to strengthen relationships with parents/guardians and the wider school community to maximize their involvement in the educative process. (PPST 6.2.3) 
+        <li>Objective 12: Guided colleagues to strengthen relationships with parents/guardians and the wider school community to maximize their involvement in the educative process. (PPST 6.2.3) 
           <span id="kra12Score"><input type="number" id="score1" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
-        <li>Contributed actively to professional networks within and between schools to improve knowledge and to enhance practice. (PPST 7.3.3) 
+          <div class="file-section tab" id="file-section">
+            <h3 id="file-section-title">Files</h3>
+            <p id="file-upload-time"></p>
+            <button id="file-btn">
+              File
+            </button>
+          </div><br>
+
+        <li>Objective 13: Contributed actively to professional networks within and between schools to improve knowledge and to enhance practice. (PPST 7.3.3) 
           <span id="kra13Score"><input type="number" id="score2" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
-        <li>Initiated professional reflections and promote learning opportunities with colleagues to improve practice. (PPST 7.4.3)
+          <div class="file-section tab" id="file-section">
+            <h3 id="file-section-title">Files</h3>
+            <p id="file-upload-time"></p>
+            <button id="file-btn">
+              File
+            </button>
+          </div><br>
+
+        <li>Objective 14: Initiated professional reflections and promote learning opportunities with colleagues to improve practice. (PPST 7.4.3)
           <span id="kra14Score"><input type="number" id="score3" min="1" max="7"></span><span><input type="text" id="max-score" value="/7" disabled></span></li>
+          <div class="file-section tab" id="file-section">
+            <h3 id="file-section-title">Files</h3>
+            <p id="file-upload-time"></p>
+            <button id="file-btn">
+              File
+            </button>
+          </div><br>
       </ul>
     </div>
 

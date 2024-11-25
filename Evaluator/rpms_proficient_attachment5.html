@@ -67,21 +67,46 @@
       </div>-->
   </div>
   
-    <div class="teacher-info" id="teacher-info">
-      <div class="dropdown" id="teacher-dropdown">
-          <i class="fas fa-user" id="user-icon"></i>
-          <div id="teacher-name">
-            Jessica Sanchez Ramirez
-          </div> 
-          <!--<select id="teacher-dropdown-select">
-              <option id="teacher-1">Jessica Sanchez Ramirez</option>
-              <option id="teacher-2">Teacher 2</option>
-              <option id="teacher-3">Teacher 3</option>
-          </select>-->
-          <span id="turn-in-status">Turned in</span>
+  <div class="teacher-info-container">
+    <!-- Student Info -->
+    <div class="teacher-info">
+      <div class="dropdown">
+        <i class="fas fa-user"></i>
+        <div id="teacher-name"></div>
+        <span>Turned in</span>
       </div>
-  </div><br>
+    </div>
+  
+    <!-- Instructions Tab -->
+    <div class="instructions-tab">
+      <a href="#" id="instructions-link">Instructions</a>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div id="instructions-modal" class="modal hidden">
+    <div class="modal-content-instruction">
+      <span class="close-btn" id="close-modal">&times;</span>
+      <h2 style="text-align: center;">Instructions</h2>
+      <p><strong>7% | Objective 15</strong> (Performed various related works / activities that contribute to the teaching-learning process.)</p>
+      <ul id="Objective15">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>Any one (1) of the following:
+              <br> 1. committee involvement;
+              <br> 2. involvement as module/learning material writer/ validator;
+              <br> 3. involvement as a resource person/speaker/learning facilitator in the RO/SDO/school-initiated TV/radio-based instruction;
+              <br> 4. book or journal authorship/co-authorship/ contributorship;
+              <br> 5. advisorship/coordinatorship/chairpersonship
+              <br> 6. participation in demonstration teaching;
+              <br> 7. participation as research presenter in a forum/ conference;
+              <br> 8. mentorship of pre-service/in-service teachers
+              <br> 9. conducted research within the rating period;
+              <br> 10. Others (please specify) with annotation on how it contributed to the teaching-learning process.</li>
+      </ul>
+    </div>
+  </div>
 
+  
     <div class="file-preview" id="file-preview">
       <div id="pdf-container" style="width: 100%; height: 800px; overflow: auto; border: 1px solid #ccc;"></div>
 

@@ -266,3 +266,21 @@ returnBtn.addEventListener('click', async function(){
 
 
 });
+
+// Open Modal
+document.getElementById("instructions-link").addEventListener("click", function () {
+    document.getElementById("instructions-modal").classList.remove("hidden");
+  });
+  
+  // Close Modal
+  document.getElementById("close-modal").addEventListener("click", function () {
+    document.getElementById("instructions-modal").classList.add("hidden");
+  });
+  
+  // Close Modal on Background Click
+  document.getElementById("instructions-modal").addEventListener("click", function (event) {
+    if (event.target === this) {
+      this.classList.add("hidden");
+    }
+  });
+  
