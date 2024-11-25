@@ -150,6 +150,35 @@ nav ul li a.active {
     margin-bottom: 20px;
 }
 
+
+.welcome-message {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: #082F96; /* A calm blue color */
+    margin-top: 100px !important;
+    margin-bottom: -20px;
+    margin-left: 8%;
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f4f8; /* Light gray-blue background */
+    border: 2px solid #082F96;
+    border-radius: 8px;
+    /* margin: 20px auto; */
+    width: 80%; /* Centers the div and makes it responsive */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    /* transition: all 0.3s ease-in-out; Smooth transition for effects */
+}
+
+/* Hover effect
+.welcome-message:hover {
+    color: #ffffff; 
+    background-color: #4a90e2; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+    transform: scale(1.05);
+} */
+
+
 .submission-rate-hr {
     border: 1px solid #ccc;
     margin-top: 25px;

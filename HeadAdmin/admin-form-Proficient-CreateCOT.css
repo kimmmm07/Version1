@@ -392,7 +392,7 @@ nav ul li a.active {
 /* Create button styling */
 .create-btn {
     font-family: 'Poppins', sans-serif;
-    background-color: #082F96; 
+    background-color: #289742; 
     color: white;
     padding: 8px 20px;
     border: none;
@@ -412,7 +412,7 @@ nav ul li a.active {
 
 /* Create button hover effect */
 .create-btn:hover {
-    background-color: #061F6A; 
+    background-color: #068323 !important; 
 }
 
 /* Icon size inside Create button */
