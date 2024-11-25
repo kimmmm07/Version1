@@ -68,20 +68,61 @@
       </div>-->
   </div>
 
-    <div class="teacher-info" id="teacher-info">
-      <div class="dropdown" id="teacher-dropdown">
-          <i class="fas fa-user" id="user-icon"></i>
-          <div id="teacher-name">
-            Jessica Sanchez Ramirez
-          </div> 
-          <!--<select id="teacher-dropdown-select">
-              <option id="teacher-1">Jessica Sanchez Ramirez</option>
-              <option id="teacher-2">Teacher 2</option>
-              <option id="teacher-3">Teacher 3</option>
-          </select>-->
-          <span id="turn-in-status">Turned in</span>
+  <div class="teacher-info-container">
+    <!-- Student Info -->
+    <div class="teacher-info">
+      <div class="dropdown">
+        <i class="fas fa-user"></i>
+        <div id="teacher-name"></div>
+        <span>Turned in</span>
       </div>
-  </div><br>
+    </div>
+  
+    <!-- Instructions Tab -->
+    <div class="instructions-tab">
+      <a href="#" id="instructions-link">Instructions</a>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div id="instructions-modal" class="modal hidden">
+    <div class="modal-content-instruction">
+      <span class="close-btn" id="close-modal">&times;</span>
+      <h2 style="text-align: center;">Instructions</h2>
+      <p><strong>7% | Objective 12</strong> (Established safe and secure learning environments to enhance learning through the consistent implementation of policies, guidelines and procedures.)</p>
+      <ul id="Objective12">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>Any one (1) of the following:
+              <br> 1. Proof of participation in any activity highlighting the objective, such as, but not limited the following:
+              <br> - Receipt form/monitoring form during distribution of learning materials, etc.
+              <br> - Commitment form to stakeholders, developed advocacy materials, certificate of participation that shows parents’/stakeholders’ engagement signed by the school head, etc.
+              <br> - Home visitation forms
+              <br> - Any equivalent ALS form/document that highlights the objective
+              <br> - Others (please specify and provide annotations)
+              <br> 2. Parent-teacher log or proof of other stakeholders meeting (e.g., one-on-one parent-teacher learner conference log; attendance sheet with minutes of online or face-to-face meeting; proof of involvement in the learners’/parents’ orientation, etc.)
+              <br> 3. Any form of communication to parents/stakeholders (e.g., notice of meeting; screenshot of chat/text message/communication with parent/guardian)</li>
+      </ul><br>
+      
+      <p><strong>7% | Objective 13</strong> (Participated in professional networks to share knowledge and to enhance practice)</p>
+      <ul id="Objective13">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>1. Certificate of completion in a course/training
+              <br> 2. Certificate of participation in a webinar, retooling, upskilling, and other training/seminar/workshop with proof of implementation
+              <br> 3. Certificate of recognition/ speakership in a webinar and other training/seminar/workshop
+              <br> 4. Any proof of participation in a benchmarking activity
+              <br> 5. Any proof of participation in school LAC sessions (online/face-to-face) certified by the LAC Coordinator
+              <br> 6. Others (please specify and provide annotations)</li>
+      </ul><br>
+
+      <p><strong>7% | Objective 14</strong> (Developed a personal improvement plan based on reflection of one’s practice and ongoing professional learning)</p>
+      <ul id="Objective14">
+          <li><strong>Means of Verification (MOV)</strong></li>
+          <li>1. Certification from the ICT Coordinator / School Head / Focal Person in charge of e-SAT
+              <br> 2. IPCRF-DP
+              <br> 3. Mid-year Review Form (MRF) Updated IPCRF-DP from Phase II</li>
+      </ul>
+    </div>
+  </div>
 
     <div class="file-preview" id="file-preview">
       <div id="pdf-container" style="width: 100%; height: 1000px; overflow: auto; border: 1px solid #ccc;"></div>

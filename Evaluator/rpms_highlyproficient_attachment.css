@@ -201,7 +201,7 @@ main {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 600px; /* Increased width */
+  width: 800px; /* Increased width */
   height: 500px; /* Increased height */
   text-align: flex-start;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
