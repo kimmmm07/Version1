@@ -19,7 +19,7 @@ function addTeacherRow(teacherData) {
         : "submitted"}`;
 
     tr.innerHTML = `
-        <td><img src="User_Circle.png" alt="User Icon" width="25"> ${teacherData.fullname}</td>
+        <td><img class="user-icon" src="${ teacherData.profile ? "https://bnahs.pythonanywhere.com" + teacherData.profile : "User_Circle.png"}" alt="User Icon" width="25"> ${teacherData.fullname}</td>
         <td>${teacherData.position}</td>
         <td>${teacherData.grade_level}</td>
         <td>${rater ? rater.fullname : 'Not Assigned'}</td>

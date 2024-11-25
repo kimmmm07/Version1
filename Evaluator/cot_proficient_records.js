@@ -206,7 +206,7 @@ function addTeacherRow(taker) {
 
     // Set the inner HTML for each cell
     // nameCell.innerHTML = '<img src="User_Circle.png" alt="User Icon" width="25" id="userIcon' + rowCount + '">' + taker_data.fullname;
-    nameCell.innerHTML = `<img class="user-icon" id="userIcon${rowCount}" src="${ taker_data.profile ? "https://bnahs.pythonanywhere.com" + taker_data.profile : "asset/User_Circle.png"}" >${taker_data.fullname}`;
+    nameCell.innerHTML = `<img class="user-icon" id="userIcon${rowCount}" src="${ taker_data.profile ? "https://bnahs.pythonanywhere.com" + taker_data.profile : "User_Circle.png"}" >${taker_data.fullname}`;
     positionCell.textContent = taker_data.position;
     gradeLevelCell.textContent = taker_data.grade_level;
     raterCell.textContent = taker_evaluator ? taker_evaluator.fullname : 'N/A';

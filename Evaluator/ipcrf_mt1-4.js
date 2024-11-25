@@ -118,7 +118,7 @@ function addRecord(record) {
     const tr = document.createElement("tr");
     tr.innerHTML = `
         <td>
-            <img src="User_Circle.png" alt="User Icon"> 
+            <img class="user-icon" src="${ teacher.profile ? "https://bnahs.pythonanywhere.com" + teacher.profile : "User_Circle.png"}" alt="User Icon"> 
             <span>${teacher.fullname}</span>
         </td>
         <td>${teacher.position}</td>

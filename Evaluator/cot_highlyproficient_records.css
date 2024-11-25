@@ -179,6 +179,17 @@ td img {
     z-index: 1001; /* Ensure the modal content is above the overlay */
 }
 
+.user-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+    background-image: url('User_Circle.png'); /* You can replace this with an actual icon */
+    background-size: cover;
+}
+
 .modal-content p {
     font-weight: bold;
     font-size: 18px;
