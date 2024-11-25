@@ -452,7 +452,7 @@ nav ul li a.active {
     bottom: 20px; /* Adjusts the distance from the bottom */
     left: 720px;
     transform: translateX(-50%);
-    background-color: #082F96;
+    background-color: #068323;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -466,7 +466,7 @@ nav ul li a.active {
 }
 
 .create-folder-btn:hover {
-    background-color: #0b246b; /* Darker color on hover */
+    background-color: #04681b; /* Darker color on hover */
 }
 
 /* Add some margin to make space for scrolling */
