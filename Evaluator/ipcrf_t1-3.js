@@ -16,6 +16,7 @@ const raterName1 = document.getElementById('rater-name1');
 const status1 = document.getElementById('status1');
 const reviewLink1 = document.getElementById('review-link1');
 
+
 // Record 2
 const record2 = document.getElementById('record2');
 const userIcon2 = document.getElementById('user-icon2');
