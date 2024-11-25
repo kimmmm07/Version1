@@ -70,6 +70,13 @@ nav a.active {
 
 }
 
+.sidebar-icon.active { 
+    /* width: 100%; */
+    background-color: rgba(93, 181, 230, 0.5); /* Light blue background color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 2px 18px; 
+}
+
 /* Sidebar icon container */
 .sidebar-icon {
     margin: 20px 0;
@@ -202,6 +209,7 @@ th {
 }
 .highlight {
     color: #007bff;
+    font-weight: 700;
 }
 
 /* Floating menu styles */
@@ -248,7 +256,7 @@ th {
 }
 
 #grades-table{
-    margin-top: 50px;
+    margin-top: 30px;
 }
   
 .floating-menu ul {
