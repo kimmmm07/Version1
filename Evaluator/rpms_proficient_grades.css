@@ -70,6 +70,13 @@ nav a.active {
 
 }
 
+.sidebar-icon.active { 
+    /* width: 100%; */
+    background-color: rgba(93, 181, 230, 0.5); /* Light blue background color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 2px 18px; 
+}
+
 /* Sidebar icon container */
 .sidebar-icon {
     margin: 20px 0;
@@ -137,7 +144,8 @@ h1 {
 .tabs {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    margin-top: 25px !important;
     border-bottom: 1px solid #ddd; /* Light gray line for separation */
     width: 78%;
     margin: 0 auto;
@@ -202,10 +210,11 @@ th {
 }
 .highlight {
     color: #007bff;
+    font-weight: 700;
 }
 
 #grades-table{
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 /* Floating menu styles */
