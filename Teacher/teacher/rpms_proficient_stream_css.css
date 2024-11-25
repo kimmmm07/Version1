@@ -485,3 +485,14 @@ body {
     border: 1px solid #082F96 !important;
     font-weight: 700;
 }
+
+.text-container {
+    flex: 1; /* Allows the text to take up remaining space */
+}
+
+.status-icon {
+    width: 30px;
+    height: 30px;
+}
+
+
