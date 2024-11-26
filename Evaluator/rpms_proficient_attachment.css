@@ -168,15 +168,23 @@ main {
     font-weight: bold;
     color: #0A840E; /* Keep the text color for active tab */
   }
+
+
+  .modal-content-instruction
+  {
+    width: 800px !important;
+  }
+  
   
   #instructions-link {
     font-weight: bold;
-    color: #0A840E; /* Keep the text color for active tab */
+    color: #0454aa; /* Keep the text color for active tab */
     cursor: pointer;
+    text-decoration: none;
   }
   
   #instructions-link:hover {
-    color: #003d80;
+    color: #0a6eda;
   }
   
  /* Modal Styles */
