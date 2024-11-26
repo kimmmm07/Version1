@@ -309,6 +309,8 @@ function addTeacherRow(taker) {
     // Append the image to the anchor
     anchor.appendChild(img);
     anchor.appendChild(document.createTextNode('View'));
+    anchor.style.cursor = 'pointer';
+    anchor.style.textDecoration = 'none';
 
     // Append the anchor to the action cell
     actionCell.appendChild(anchor);
