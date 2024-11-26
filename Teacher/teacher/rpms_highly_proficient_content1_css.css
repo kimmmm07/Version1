@@ -10,7 +10,7 @@
 body {
     background-color: white; /* Set background to white */
     padding: 20px;
-}
+} 
 
 /* Navbar styling */
 .navbar {
@@ -235,7 +235,7 @@ body {
 
 .breadcrumb ul li {
     margin-right: 10px;
-    font-size: 16px; /* Adjusted font size for breadcrumbs */
+    font-size: 24px; /* Adjusted font size for breadcrumbs */
     font-weight: 500;
 }
 
@@ -304,9 +304,11 @@ body {
     border: 1px solid #ddd;
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    margin-bottom: -20px;
     padding: 1px;  /* Add padding for spacing */
     width: 100%;    /* Adjust to the width of the container */
-    height: auto;
+    height: 180px;
     transition: all 0.3s ease-in-out;  /* Smooth transition for resizing */
 }
 
@@ -315,6 +317,28 @@ body {
     margin-top: 20px;
     margin-bottom: -20px;
 }
+
+/* Turn-in section */
+.turn-in-panel_ts {
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1px;  /* Add padding for spacing */
+    margin-top: 30px;
+    margin-bottom: 10px;
+    width: 100%;    /* Adjust to the width of the container */
+    height: 70px;
+    transition: all 0.3s ease-in-out;  /* Smooth transition for resizing */
+}
+
+/* Turn-in section */
+.turn-in-panel_ts h4 {
+    margin-left: 35px;
+    margin-top: 20px;
+    margin-bottom: -20px;
+}
+
+
 
 .overall-score {
     margin-left: 230px;  
@@ -345,6 +369,37 @@ body {
      color: #d00000; /* Matches your input text color */
      font-weight: bold; /* Optional to style it like input text */
  }
+
+ .overall-score_ts {
+    margin-left: 200px;  
+    font-weight: bold;
+    margin-bottom: -100px;
+    border: none;
+    background: transparent;
+    font-size: 16px; /* Match the font size to your existing style */
+    font-weight: bold; /* Match text weight */
+    color: #000; /* Use your preferred color */
+    outline: none; /* Remove focus outline for cleaner design */
+ }
+ 
+ .reflected-score_ts {
+     margin-left: 180px;
+     margin-top: -24px;
+     display: flex;
+     color: #d00000;
+     font-weight: bold;
+     border: none;
+     background: transparent;
+     font-size: 16px; /* Match the font size to your existing style */
+     font-weight: bold; /* Match text weight */
+     width: 10%;
+  }
+ 
+  .reflected-score_ts::placeholder {
+     color: #d00000; /* Matches your input text color */
+     font-weight: bold; /* Optional to style it like input text */
+ }
+
 
 .btn-primary, .btn-secondary {
     display: block;
