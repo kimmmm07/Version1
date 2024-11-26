@@ -16,7 +16,7 @@ body {
 .navbar {
     left: 0;
     position: fixed;       /* Fixes the header at the top */
-    top: 0;                /* Aligns it to the top of the page */
+    top: 4px;                /* Aligns it to the top of the page */
     width: 100%;           /* Ensures the header spans the full width of the page */
     height: 48px;          /* Adjust the height to fit the content */
     background-color: white;
@@ -39,7 +39,7 @@ body {
     margin-right: 10px;
 }
 
-.navbar-menu {
+.navbar-menu { 
     display: flex;
     list-style: none;
     margin-left: auto; /* Aligns menu to the right */
