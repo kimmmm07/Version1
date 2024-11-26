@@ -6,6 +6,7 @@ body {
     padding-top: 100px;     /* Adjust based on the header height */
 }
 
+
 /* Make the header fixed */
 header {
     position: fixed;       /* Fixes the header at the top */
@@ -23,7 +24,7 @@ header {
 
 header img {
     max-width: 90%;
-    max-height: 80px;      /* Adjust the max height for the logo */
+    max-height: 80px;
 }
 
 nav {
@@ -88,6 +89,7 @@ nav a.active {
     width: 100%;
 } 
 
+
 /* Header section styling */
 .header-section {
     position: relative;
@@ -104,13 +106,13 @@ nav a.active {
     height: 100%; /* Full height */
     object-fit:fill; /* Ensure the image keeps its aspect ratio */
     border-radius: 50px; /* Apply border-radius to the image */
-    margin-top: 50px;
+    margin-top: -10px;
 }
 
 /* Text overlay styling */
 .text-overlay {
     position: absolute;
-    top: 60%; /* Adjust this value to move the text overlay */
+    top: 40%; /* Adjust this value to move the text overlay */
     left: 20px; /* Align to the left with some padding */
     text-align: left; /* Align text to the left */
     color: white; /* Adjust text color */
@@ -132,14 +134,7 @@ nav a.active {
     margin-bottom: 0; /* Ensure no bottom margin if not needed */
 }
 
-main {
-    padding: 130px;
-    margin-top: -100px;
-}
-h1 {
-    font-size: 24px;
-    color: #333;
-}
+
 /* Tabs styling */
 .tabs {
     display: flex;
@@ -164,7 +159,7 @@ h1 {
     border-bottom: 2px solid transparent;
     margin-right: 10px;
     transition: color 0.2s;
-    margin-top: 60px;
+    margin-top: 10px;
 }
 
 .tab.active {
@@ -177,6 +172,15 @@ h1 {
     color: #0A840E; /* Text color changes to blue on hover */
 }
 
+main {
+    padding: 130px;
+    margin-top: -100px;
+}
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
 table {
     width: 105%;
     border-collapse: collapse;
@@ -187,6 +191,7 @@ table th, table td {
     text-align: center;
     font-size: 16px;
 }
+
 th {
     background-color: #f4f4f4;
 }

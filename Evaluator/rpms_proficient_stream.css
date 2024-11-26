@@ -101,6 +101,7 @@ nav a.active {
     font-weight: bold;
 }
 
+
 /* Header section styling */
 .header-section {
     position: relative;
@@ -117,13 +118,13 @@ nav a.active {
     height: 100%; /* Full height */
     object-fit:fill; /* Ensure the image keeps its aspect ratio */
     border-radius: 50px; /* Apply border-radius to the image */
-    margin-top: 50px;
+    margin-top: -10px;
 }
 
 /* Text overlay styling */
 .text-overlay {
     position: absolute;
-    top: 60%; /* Adjust this value to move the text overlay */
+    top: 40%; /* Adjust this value to move the text overlay */
     left: 20px; /* Align to the left with some padding */
     text-align: left; /* Align text to the left */
     color: white; /* Adjust text color */
@@ -167,7 +168,7 @@ nav a.active {
     border-bottom: 2px solid transparent;
     margin-right: 10px;
     transition: color 0.2s;
-    margin-top: 60px;
+    margin-top: 10px;
 }
 
 .tab.active {

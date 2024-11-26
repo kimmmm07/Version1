@@ -103,9 +103,17 @@ nav a.active {
     font-size: 18px;
     cursor: pointer;
     border-bottom: 2px solid transparent;
-    margin-right: 10px;
+    margin-right: 35px;
     transition: color 0.2s;
     margin-top: 60px;
+}
+
+#instructions-tab{
+    margin-left: 17px;
+}
+
+#breadcrumb{
+    margin-left: 9px;
 }
 
 .tab.active {
@@ -122,6 +130,7 @@ nav a.active {
     gap: 10px;
     color:blue;
 }
+
 
 .kra-header {
     display: flex;
