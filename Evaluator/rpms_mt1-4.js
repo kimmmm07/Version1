@@ -24,7 +24,9 @@ function addTeacherRow(teacherData) {
         <td>${teacherData.grade_level}</td>
         <td>${rater ? rater.fullname : 'Not Assigned'}</td>
         <td class="status ${statusClass}">${teacher_status}</td>
-        <td><a id="${teacherData.employee_id}" class="review">Review</a></td>
+        <td>
+        <a id="${teacherData.employee_id}" class="review" style="cursor: pointer; text-decoration: none;">Review</a>
+    </td>
     `;
 
     teacherTable.appendChild(tr);

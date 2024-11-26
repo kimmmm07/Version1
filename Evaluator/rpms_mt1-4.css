@@ -113,6 +113,8 @@ td img {
 
 .action.reviewed {
     color: gray;
+    cursor: pointer; /* Makes the cursor a pointer on hover */
+    text-decoration: none; /* Optional: Removes underline */
 }
 .status.progress {
     color: rgb(252, 174, 6);
@@ -120,6 +122,13 @@ td img {
 .status.pending {
     color: red;
 }
+
+/* Add this in your CSS file */
+/* .review {
+    cursor: pointer;
+    text-decoration: none;
+} */
+
 
 .user-icon {
     display: inline-block;

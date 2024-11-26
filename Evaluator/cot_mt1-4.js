@@ -180,8 +180,8 @@ function populateTable(teachers) {
                 <td>${teacher.grade_level}</td>
                 <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
                 <td>
-                    <a href="evaluator_cot_form_proficient.html" class="button">Observe</a> | 
-                    <a href="#" class="disabled">View</a>
+                    <a href="evaluator_cot_form_proficient.html" class="button" style="cursor: pointer; text-decoration: none;">Observe</a> | 
+                    <a href="#" class="disabled" style="cursor: default; text-decoration: none; font-weight: 'bold';">View</a>
                 </td>
             `;
         } else {
@@ -190,7 +190,9 @@ function populateTable(teachers) {
                 <td>${teacher.position}</td>
                 <td>${teacher.grade_level}</td>
                 <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
-                <td><span class="status">Observed</span> | <a href="view_cot_form_t1-3.html">View</a></td>
+                <td><span class="status">Observed</span> | 
+                    <a href="view_cot_form_t1-3.html" style="cursor: pointer; text-decoration: none; font-weight: 'bold';">View</a>
+                </td>
             `;
         }
 
@@ -235,8 +237,8 @@ function addRow(data, quarter, tbody , table,  is_open) {
             <td>${cot.rater ?? 'N/A'}</td>
             <td>${cot.check_date ? new Date(cot.check_date).toLocaleDateString() : "Not Rated Yet"}</td>
             <td>
-                <a id="${teacher.employee_id}-${table}-${randomInteger}-observe" class="${ is_open ? 'button' : 'disabled' }" style="cursor: pointer;">Observe</a> | 
-                <a class="disabled">View</a>
+                <a id="${teacher.employee_id}-${table}-${randomInteger}-observe" class="${ is_open ? 'button' : 'disabled' }" style="cursor: ${is_open ? 'pointer' : 'default'}; text-decoration: none;">Observe</a> | 
+                <a class="disabled" style="cursor: default; text-decoration: none; font-weight: 'bold';">View</a>
             </td>
         `; 
         tbody.appendChild(tr); 
@@ -253,8 +255,8 @@ function addRow(data, quarter, tbody , table,  is_open) {
             <td>${cot.rater ?? 'N/A'}</td>
             <td>${cot.check_date ? new Date(cot.check_date).toLocaleDateString() : "Not Rated Yet"}</td>
             <td>
-                <a class="status">Observed</a> | 
-                <a id="${teacher.employee_id}-${table}-${randomInteger}-view">View</a>
+                <a class="status" style="cursor: pointer; text-decoration: none;">Observed</a> | 
+                <a id="${teacher.employee_id}-${table}-${randomInteger}-view" style="cursor: pointer; text-decoration: none; font-weight: 'bold';">View</a>
             </td>
         `;
         tbody.appendChild(tr);

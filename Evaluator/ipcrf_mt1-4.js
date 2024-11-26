@@ -76,19 +76,26 @@ document.querySelectorAll('#records-tbody tr').forEach(row => {
     const reviewLink = row.querySelector('.review');
 
     if (isReviewed) {
+        // Set status and styles for "Reviewed" state
         statusCell.textContent = 'Submitted';
-        statusCell.style.color = 'green';
+        statusCell.style.color = 'green';  // Green for 'Submitted'
         reviewLink.textContent = 'Reviewed';
-        reviewLink.style.color = 'gray';
-        reviewLink.href = '#';
+        reviewLink.style.color = 'gray';  // Gray for 'Reviewed'
+        reviewLink.style.cursor = 'pointer';  // Pointer cursor for clickable
+        reviewLink.style.textDecoration = 'none';  // Remove underline
+        reviewLink.href = '#';  // Disable link
     } else {
+        // Set status and styles for "Pending" state
         statusCell.textContent = 'Pending';
-        statusCell.style.color = 'red';
+        statusCell.style.color = 'red';  // Red for 'Pending'
         reviewLink.textContent = 'Review';
-        reviewLink.style.color = '';
-        reviewLink.href = 'evaluator_IPCRF_HighlyProficient_EPart1.html';
+        reviewLink.style.color = '';  // Default color for 'Review'
+        reviewLink.style.cursor = 'pointer';  // Pointer cursor for clickable
+        reviewLink.style.textDecoration = 'none';  // Remove underline
+        reviewLink.href = 'evaluator_IPCRF_HighlyProficient_EPart1.html';  // Set link for 'Review'
     }
 });
+
 
 
 
@@ -125,7 +132,7 @@ function addRecord(record) {
         <td>${teacher.grade_level}</td>
         <td>${ipcrf.rater ?? "Waiting To Be Rated"}</td>
         <td class="status ${ipcrf.is_checked ? "submitted" : "pending"}">${ipcrf.is_checked ? "Submitted" : "Pending"}</td>
-        <td><a onclick="clickToRate(${teacher.employee_id})" class="review">Review</a></td>
+        <td><a onclick="clickToRate(${teacher.employee_id})" class="review" style="cursor: pointer; text-decoration: none;">Review</a></td>
     `;
     tbody.appendChild(tr);
 }

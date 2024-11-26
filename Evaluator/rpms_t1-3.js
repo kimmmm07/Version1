@@ -22,11 +22,14 @@ function addTeacherRow(teacherData) {
         <td>${teacher.grade_level}</td>
         <td>${rater ? rater.fullname : 'Not Assigned'}</td>
         <td class="status ${statusClass}">${teacher_status}</td>
-        <td><a class="review">Review</a></td>
+        <td>
+        <a id="${teacherData.employee_id}" class="review" style="cursor: pointer; text-decoration: none;">Review</a>
+    </td>
     `;
 
     // Attach the row to the table
     teacherTable.appendChild(tr);
+    
 
     // Add an event listener to the review link
     const actionLink = tr.querySelector('.review');

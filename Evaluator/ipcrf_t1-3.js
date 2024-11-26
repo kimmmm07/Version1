@@ -80,15 +80,20 @@ document.querySelectorAll('#ipcrf-tbody tr').forEach(row => {
         statusCell.style.color = 'green';  // Set color to green for Submitted
         reviewLink.textContent = 'Reviewed';
         reviewLink.style.color = 'gray';
-        reviewLink.href = '#';
+        reviewLink.style.cursor = 'default';  // Set cursor to default (not clickable)
+        reviewLink.style.textDecoration = 'none'; // Remove underline
+        reviewLink.href = '#';  // Disable the link
     } else {
         statusCell.textContent = 'Pending';
         statusCell.style.color = 'red';  // Set color to red for Pending
         reviewLink.textContent = 'Review';
-        reviewLink.style.color = '';
-        reviewLink.href = 'evaluator_IPCRF_Proficient_EPart1.html';
+        reviewLink.style.color = '';  // Default color
+        reviewLink.style.cursor = 'pointer';  // Set cursor to pointer (clickable)
+        reviewLink.style.textDecoration = 'none'; // Remove underline
+        reviewLink.href = 'evaluator_IPCRF_Proficient_EPart1.html';  // Enable the link
     }
 });
+
 
 
 
@@ -128,7 +133,14 @@ function addRecord(record) {
         <td>${teacher.grade_level}</td>
         <td>${ipcrf.rater ?? "Waiting To Be Rated"}</td>
         <td class="status ${is_open ? "pending" : "submitted"}">${status}</td>
-        <td><a ${ is_open ? `onclick="clickToRate(${teacher.employee_id})"` : ""} class="review ${ !is_open && "custom-disabled"}">Review</a></td>
+        <td>
+        <a 
+            ${is_open ? `onclick="clickToRate(${teacher.employee_id})"` : ""} 
+            class="review ${!is_open ? "custom-disabled" : ""}" 
+            style="cursor: ${is_open ? 'pointer' : 'default'}; text-decoration: none;">
+            Review
+        </a>
+    </td>
     `;
     tbody.appendChild(tr);
 }
