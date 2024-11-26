@@ -53,6 +53,17 @@ nav a.active {
     border-radius: 25px; 
     padding: 5px 20px;   
 }
+
+.welcome-message {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #082F96; /* A calm blue color */
+    margin-top: 4px;
+    margin-bottom: 10px;
+    margin-left: 38%;
+}
+
 h1 {
     font-size: 24px;
     margin-bottom: 30px;
