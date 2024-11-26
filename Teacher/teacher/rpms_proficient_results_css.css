@@ -254,6 +254,13 @@ body {
     margin-bottom: 0; /* Ensure no bottom margin if not needed */
 }
 
+.sidebar-icon.active { 
+    width: 109%;
+    background-color: rgba(93, 181, 230, 0.5); /* Light blue background color */
+    border-radius: 8px; /* Rounded corners */
+    padding: 2px 18px; 
+}
+
 /* Tabs styling */
 .tabs {
     display: flex;
