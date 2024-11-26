@@ -236,6 +236,7 @@ function addTeacherRow(taker) {
     anchor.classList.add('view-link');
     anchor.id = 'viewLink' + rowCount;
     anchor.style.cursor = 'pointer';
+    anchor.style.textDecoration = 'none';
 
     // Add the event listener
     anchor.addEventListener('click', function() {
