@@ -242,10 +242,18 @@ function addTeacherRow(taker) {
     img.src = 'Eye.png';
     img.classList.add('eye-icon');
     img.id = 'eyeIcon';
+    
+ 
+    // Create the anchor element
+    // var anchor = document.createElement('a');
+    // anchor.href = 'records_view_ipcrf.html'; // Add the desired link
+    // anchor.classList.add('pointer-anchor'); // Add the CSS class to apply the pointer style
 
     // Append the image to the anchor
     anchor.appendChild(img);
     anchor.appendChild(document.createTextNode('View'));
+    anchor.style.cursor = 'pointer';
+
 
     // Append the anchor to the action cell
     actionCell.appendChild(anchor);
