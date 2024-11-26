@@ -89,6 +89,16 @@ body {
     font-weight: normal;
 }
 
+.welcome-message {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #082F96;
+    margin-top: 80px;
+    margin-bottom: -30px;
+    margin-left: 38%;
+}
+
 /* Container styling */
 .container {
     max-width: 800px;
