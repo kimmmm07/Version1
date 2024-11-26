@@ -58,6 +58,28 @@ main {
     padding: 20px 5%;
 }
 
+.eye-icon {
+    cursor: pointer; /* Makes the cursor change to a pointer on hover */
+    width: 24px; /* Example size */
+    height: 24px; /* Example size */
+    transition: transform 0.2s ease-in-out; /* Optional: smooth effect on hover */
+}
+
+.eye-icon:hover {
+    transform: scale(1.1); /* Optional: slightly enlarges the icon on hover */
+}
+
+.anchor-view {
+    display: inline-flex; /* Ensures the image and text are side by side */
+    align-items: center; /* Aligns the text vertically with the image */
+    gap: 8px; /* Adds spacing between the image and the text */
+    text-decoration: none; /* Removes underline from the link */
+    cursor: pointer; /* Makes the cursor a pointer when hovered */
+    color: #000; /* Sets text color */
+    font-size: 16px; /* Adjusts text size */
+    transition: color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
 .welcome-message {
     font-family: 'Poppins', sans-serif;
     font-size: 28px;
