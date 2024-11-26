@@ -162,6 +162,11 @@ main {
     align-items: center;
     margin-bottom: 20px;
   }
+
+  .modal-content-instruction
+  {
+    width: 800px !important;
+  }
   
   .instructions-tab {
     margin-left: 20px;
@@ -171,12 +176,12 @@ main {
   
   #instructions-link {
     font-weight: bold;
-    color: #0A840E; /* Keep the text color for active tab */
+    color: #0454aa; /* Keep the text color for active tab */
     cursor: pointer;
   }
   
   #instructions-link:hover {
-    color: #003d80;
+    color: #0a6eda;
   }
   
  /* Modal Styles */
