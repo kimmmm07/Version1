@@ -188,7 +188,7 @@ main {
   }
   
   #file-section-title{
-    font-size: 16px;
+    font-size: 20px;
   }
 
  /* Modal Styles */
@@ -298,7 +298,7 @@ main {
     flex: 1;
     border-left: 1px solid #ddd;
     padding-left: 20px;
-    display: flex;
+    display: flex-top;
     flex-direction: column;
   }
   
@@ -311,7 +311,6 @@ main {
   }
 
   .file-section p {
-    font-size: 12px;
     color: gray
   }
   

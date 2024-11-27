@@ -69,11 +69,50 @@
             <span class="points" id="kra4Score">__ points</span>-->
         </div>
 
-        <br>
+        <div class="stepper-wrapper">
+            <div class="stepper-item completed">
+              <div class="step-counter">12</div>
+              <div class="step-name">Objective 12</div>
+            </div>
+            <div class="stepper-item completed">
+              <div class="step-counter">13</div>
+              <div class="step-name">Objective 13</div>
+            </div>
+            <div class="stepper-item active">
+              <div class="step-counter">14</div>
+              <div class="step-name">Objective 14</div>
+            </div>
+        </div>
+
+        <!-- Main Content section -->
+        <div class="main-content-list" id="main-content-list" style="cursor: pointer;">
+            <a href="#" class="content-item" id="objective12-item"> 
+                <img src="attachment.png" alt="Icon" class="icon" id="objective12-icon" />
+                <div class="text-container" id="objective12-text-container">
+                    <h4 id="objective12-title">Objective 12</h4>
+                </div>
+            </a>
+        
+            <a href="#" class="content-item" id="objective13-item"> 
+                <img src="attachment.png" alt="Icon" class="icon" id="objective13-icon" />
+                <div class="text-container" id="objective13-text-container">
+                    <h4 id="objective13-title">Objective 13</h4>
+                </div>
+            </a>
+        
+            <a href="#" class="content-item" id="objective14-item"> 
+                <img src="attachment.png" alt="Icon" class="icon" id="objective14-icon" />
+                <div class="text-container" id="objective14-text-container">
+                    <h4 id="objective14-title">Objective 14</h4>
+                </div>
+            </a>
+        </div>
+
+        <!-- <br>
         <div class="content">
             <div class="left-section">
                 <h2>Teacher Work</h2>
-                <!--<label><input type="checkbox"> All teachers</label>
+                <label><input type="checkbox"> All teachers</label>
                 <br><br>
                 <label for="status">Sort by status:</label>
                 <select id="status">
@@ -82,11 +121,11 @@
                 </select>
 
                 <br><br>
-                <label><input type="checkbox"><b> Turned in</b></label>-->
+                <label><input type="checkbox"><b> Turned in</b></label>
 
                 <br><br>
                 <div class="name-points-container">
-                    <label id="name"><!--<input type="checkbox" id="name">--></label>
+                    <label id="name"><input type="checkbox" id="name"></label>
                     <span class="divider-line"></span>
                     <span class="points-with-border" id="kra4Score">__ / 21</span>
                 </div>
@@ -96,7 +135,7 @@
             <div class="right-section">
                 <h2>KRA 4:  Curriculum and Planning & Assessment and Reporting</h2>
                 
-                <!--<div class="submission-status">
+                <div class="submission-status">
                     <div class="status-item">
                         <strong class="status-number" id="statusNumberTurnedIn">1</strong>
                         <span class="status-text">Turned In</span>
@@ -112,7 +151,7 @@
                 <div class="toggle-container" id="toggleContainer" onclick="toggleStatus()">
                     <div class="toggle-circle" id="toggleCircle"></div>
                 </div>
-                <span id="toggleText">Accepting submissions</span>-->
+                <span id="toggleText">Accepting submissions</span>
                 <br>
                 <div class="teacher-submission">
                     <h3 id="name1"></h3>
@@ -123,7 +162,7 @@
                     <p id="status" class="turned-in">Turned in</p>
                 </div>                               
             </div>
-        </div>
+        </div> -->
     </div>
 
     <!-- Logout Confirmation Modal -->
