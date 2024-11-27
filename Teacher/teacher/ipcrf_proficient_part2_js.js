@@ -132,7 +132,7 @@ async function updateIPCRF2(){
             console.log("Success Data : ", data);  
             alert("Form submitted successfully!");
             setTimeout(() => {
-                window.location.href = 'teacher_forms.html';
+                location.href = 'teacher_choices_form.html';
             }, 2000);
         } else {
             console.log("Error Data : ", data);

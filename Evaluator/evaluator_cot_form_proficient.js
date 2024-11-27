@@ -299,6 +299,7 @@ async function updateCot() {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
+            window.location.href = 'cot_t1-3.html'; 
         } else {
             console.log("Error Data : ", data);
             alert("Something went wrong.");
