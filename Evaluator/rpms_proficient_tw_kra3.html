@@ -68,11 +68,50 @@
             <span class="points">__ points</span>-->
         </div>
 
-        <br>
+        <div class="stepper-wrapper">
+            <div class="stepper-item completed">
+              <div class="step-counter">9</div>
+              <div class="step-name">Objective 9</div>
+            </div>
+            <div class="stepper-item completed">
+              <div class="step-counter">10</div>
+              <div class="step-name">Objective 10</div>
+            </div>
+            <div class="stepper-item active">
+              <div class="step-counter">11</div>
+              <div class="step-name">Objective 11</div>
+            </div>
+        </div>
+
+        <!-- Main Content section -->
+        <div class="main-content-list" id="main-content-list" style="cursor: pointer;">
+            <a href="#" class="content-item" id="objective9-item"> 
+                <img src="attachment.png" alt="Icon" class="icon" id="objective9-icon" />
+                <div class="text-container" id="objective9-text-container">
+                    <h4 id="objective9-title">Objective 9</h4>
+                </div>
+            </a>
+        
+            <a href="#" class="content-item" id="objective10-item"> 
+                <img src="attachment.png" alt="Icon" class="icon" id="objective10-icon" />
+                <div class="text-container" id="objective10-text-container">
+                    <h4 id="objective10-title">Objective 10</h4>
+                </div>
+            </a>
+        
+            <a href="#" class="content-item" id="objective11-item"> 
+                <img src="attachment.png" alt="Icon" class="icon" id="objective11-icon" />
+                <div class="text-container" id="objective12-text-container">
+                    <h4 id="objective11-title">Objective 11</h4>
+                </div>
+            </a>
+        </div>     
+
+        <!-- <br>
         <div class="content">
             <div class="left-section">
                 <h2>Teacher Work</h2>
-                <!--<label><input type="checkbox"> All teachers</label>
+                <label><input type="checkbox"> All teachers</label>
                 <br><br>
                 <label for="status">Sort by status:</label>
                 <select id="status">
@@ -81,11 +120,11 @@
                 </select>
 
                 <br><br>
-                <label><input type="checkbox"><b> Turned in</b></label>-->
+                <label><input type="checkbox"><b> Turned in</b></label>
 
                 <br><br>
                 <div class="name-points-container">
-                    <label id="name"><!--<input type="checkbox" id="name">--></label>
+                    <label id="name"><input type="checkbox" id="name"></label>
                     <span class="divider-line"></span>
                     <span class="points-with-border" id="kra3Score">__ / 21</span>
                 </div>
@@ -95,7 +134,7 @@
             <div class="right-section">
                 <h2>KRA 3:  Curriculum and Planning</h2>
                 
-                <!--<div class="submission-status">
+                <div class="submission-status">
                     <div class="status-item">
                         <strong class="status-number" id="statusNumberTurnedIn">1</strong>
                         <span class="status-text">Turned In</span>
@@ -111,7 +150,7 @@
                 <div class="toggle-container" id="toggleContainer" onclick="toggleStatus()">
                     <div class="toggle-circle" id="toggleCircle"></div>
                 </div>
-                <span id="toggleText">Accepting submissions</span>-->
+                <span id="toggleText">Accepting submissions</span>
                 <br>
                 <div class="teacher-submission" id="teacher-submission">
                     <h3 id="name1"></h3>
@@ -122,7 +161,7 @@
                     <p id="status" class="turned-in">Turned in</p>
                 </div>                               
             </div>
-        </div>
+        </div> -->
     </div>
 
     <!-- Logout Confirmation Modal -->

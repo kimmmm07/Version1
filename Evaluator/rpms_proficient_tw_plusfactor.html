@@ -69,11 +69,32 @@
             <span class="points" id="plusFactorScore">__ points</span>-->
         </div>
 
-        <br>
+        <div class="stepper-wrapper">
+            <div class="stepper-item completed">
+              <div class="step-counter"></div>
+              <div class="step-name"></div>
+            </div>
+            <div class="stepper-item completed">
+              <div class="step-counter">15</div>
+              <div class="step-name">Objective 15</div>
+            </div>
+        </div>
+
+        <!-- Main Content section -->
+        <div class="main-content-list" id="main-content-list" style="cursor: pointer;">
+            <a href="#" class="content-item" id="objective15-item"> 
+                <img src="attachment.png" alt="Icon" class="icon" id="objective15-icon" />
+                <div class="text-container" id="objective15-text-container">
+                    <h4 id="objective15-title">Objective 15</h4>
+                </div>
+            </a>
+        </div>
+
+        <!-- <br>
         <div class="content">
             <div class="left-section">
                 <h2>Teacher Work</h2>
-                <!--<label><input type="checkbox"> All teachers</label>
+                <label><input type="checkbox"> All teachers</label>
                 <br><br>
                 <label for="status">Sort by status:</label>
                 <select id="status">
@@ -82,11 +103,11 @@
                 </select>
 
                 <br><br>
-                <label><input type="checkbox" id="turnedIn"><b> Turned in</b></label>-->
+                <label><input type="checkbox" id="turnedIn"><b> Turned in</b></label>
 
                 <br><br>
                 <div class="name-points-container">
-                    <label id="name"><!--<input type="checkbox" id="name">--></label>
+                    <label id="name"><input type="checkbox" id="name"></label>
                     <span class="divider-line"></span>
                     <span class="points-with-border" id="plusFactorScore">__ / 2</span>
                 </div>
@@ -96,7 +117,7 @@
             <div class="right-section">
                 <h2>Plus Factor</h2>
                 
-                <!--<div class="submission-status">
+                <div class="submission-status">
                     <div class="status-item">
                         <strong class="status-number" id="statusNumberTurnedIn">1</strong>
                         <span class="status-text">Turned In</span>
@@ -112,7 +133,7 @@
                 <div class="toggle-container" id="toggleContainer" onclick="toggleStatus()">
                     <div class="toggle-circle" id="toggleCircle"></div>
                 </div>
-                <span id="toggleText">Accepting submissions</span>-->
+                <span id="toggleText">Accepting submissions</span>
                 <br>
                 <div class="teacher-submission">
                     <h3 id="name1"></h3>
@@ -123,7 +144,7 @@
                     <p id="status" class="turned-in">Turned in</p>
                 </div>                               
             </div>
-        </div>
+        </div> -->
     </div>
 
     <!-- Logout Confirmation Modal -->
