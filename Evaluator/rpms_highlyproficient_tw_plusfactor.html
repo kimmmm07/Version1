@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPMS Highly Proficient Teacher Work Plus Factor</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="rpms_highlyproficient_tw_plusfactor.css">
+    <link rel="stylesheet" href="rpms_highlyproficient_tw_kra.css">
 </head>
 <body>
     <!-- Sidebar -->
@@ -69,11 +69,32 @@
         <span class="points" id="plusFactorScore">__ points</span> -->
     </div>
 
-    <br>
+    <div class="stepper-wrapper">
+        <div class="stepper-item completed">
+          <div class="step-counter"></div>
+          <div class="step-name"></div>
+        </div>
+        <div class="stepper-item completed">
+          <div class="step-counter">15</div>
+          <div class="step-name">Objective 15</div>
+        </div>
+    </div>
+
+    <!-- Main Content section -->
+    <div class="main-content-list" id="main-content-list" style="cursor: pointer;">
+        <a href="#" class="content-item" id="objective15-item"> 
+            <img src="attachment.png" alt="Icon" class="icon" id="objective15-icon" />
+            <div class="text-container" id="objective15-text-container">
+                <h4 id="objective15-title">Objective 15</h4>
+            </div>
+        </a>
+    </div>
+
+    <!-- <br>
     <div class="content" id="content">
         <div class="left-section" id="left-section">
             <h2 id="teacher-work-heading">Teacher Work</h2>
-            <!-- <label><input type="checkbox" id="all-teachers-checkbox"> All teachers</label>
+            <label><input type="checkbox" id="all-teachers-checkbox"> All teachers</label>
             <br><br>
             <label for="status" id="sort-label">Sort by status:</label>
             <select id="status">
@@ -82,7 +103,7 @@
             </select>
 
             <br><br>
-            <label><input type="checkbox" id="turned-in-checkbox"><b> Turned in</b></label> -->
+            <label><input type="checkbox" id="turned-in-checkbox"><b> Turned in</b></label>
 
             <br><br>
             <div class="name-points-container" id="name-points-container">
@@ -96,7 +117,7 @@
         <div class="right-section" id="right-section">
             <h2 id="plus-factor-heading">Plus Factor</h2>
             
-            <!-- <div class="submission-status" id="submission-status">
+            <div class="submission-status" id="submission-status">
                 <div class="status-item" id="status-item-1">
                     <strong class="status-number" id="status-number-1">1</strong>
                     <span class="status-text" id="status-text-1">Turned In</span>
@@ -112,7 +133,7 @@
             <div class="toggle-container" id="toggleContainer" onclick="toggleStatus()">
                 <div class="toggle-circle" id="toggleCircle"></div>
             </div>
-            <span id="toggleText">Accepting submissions</span> -->
+            <span id="toggleText">Accepting submissions</span>
             <br>
             <div class="teacher-submission" id="teacher-submission">
                 <h3 id="name1"></h3>
@@ -123,7 +144,7 @@
                 <p class="turned-in" id="status">Turned in</p>
             </div>                               
         </div>
-    </div>
+    </div> -->
 </div>
 
 

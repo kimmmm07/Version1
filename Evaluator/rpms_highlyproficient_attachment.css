@@ -296,7 +296,7 @@ main {
     flex: 1;
     border-left: 1px solid #ddd;
     padding-left: 20px;
-    display: flex;
+    display: flex-top;
     flex-direction: column;
   }
   

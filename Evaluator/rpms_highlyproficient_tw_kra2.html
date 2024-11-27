@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RPMS Highly Proficient Teacher Work KRA 2</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="rpms_highlyproficient_tw_kra2.css">
+    <link rel="stylesheet" href="rpms_highlyproficient_tw_kra.css">
 </head>
 <body>
     <!-- Sidebar -->
@@ -70,11 +70,61 @@
         <span class="points" id="kra2Score">__ points</span> -->
     </div>
 
-    <br>
+    <div class="stepper-wrapper">
+        <div class="stepper-item completed">
+          <div class="step-counter">5</div>
+          <div class="step-name">Objective 5</div>
+        </div>
+        <div class="stepper-item completed">
+          <div class="step-counter">6</div>
+          <div class="step-name">Objective 6</div>
+        </div>
+        <div class="stepper-item active">
+          <div class="step-counter">7</div>
+          <div class="step-name">Objective 7</div>
+        </div>
+        <div class="stepper-item">
+          <div class="step-counter">8</div>
+          <div class="step-name">Objective 8</div>
+        </div>
+    </div>
+
+    <!-- Main Content section -->
+    <div class="main-content-list" id="main-content-list" style="cursor: pointer;">
+        <a href="#" class="content-item" id="objective5-item"> 
+            <img src="attachment.png" alt="Icon" class="icon" id="objective5-icon" />
+            <div class="text-container" id="objective5-text-container">
+                <h4 id="objective5-title">Objective 5</h4>
+            </div>
+        </a>
+    
+        <a href="#" class="content-item" id="objective6-item"> 
+            <img src="attachment.png" alt="Icon" class="icon" id="objective6-icon" />
+            <div class="text-container" id="objective6-text-container">
+                <h4 id="objective6-title">Objective 6</h4>
+            </div>
+        </a>
+    
+        <a href="#" class="content-item" id="objective7-item"> 
+            <img src="attachment.png" alt="Icon" class="icon" id="objective7-icon" />
+            <div class="text-container" id="objective7-text-container">
+                <h4 id="objective7-title">Objective 7</h4>
+            </div>
+        </a>
+    
+        <a href="#" class="content-item" id="objective8-item"> 
+            <img src="attachment.png" alt="Icon" class="icon" id="objective8-icon" />
+            <div class="text-container" id="objective8-text-container">
+                <h4 id="objective8-title">Objective 8</h4>
+            </div>
+        </a>
+    </div>    
+
+    <!-- <br>
     <div class="content" id="content">
         <div class="left-section" id="left-section">
             <h2 id="teacher-work-heading">Teacher Work</h2>
-            <!-- <label><input type="checkbox" id="all-teachers-checkbox"> All teachers</label>
+            <label><input type="checkbox" id="all-teachers-checkbox"> All teachers</label>
             <br><br>
             <label for="status" id="sort-label">Sort by status:</label>
             <select id="status">
@@ -83,7 +133,7 @@
             </select>
 
             <br><br>
-            <label><input type="checkbox" id="turned-in-checkbox"><b> Turned in</b></label> -->
+            <label><input type="checkbox" id="turned-in-checkbox"><b> Turned in</b></label>
 
             <br><br>
             <div class="name-points-container" id="name-points-container">
@@ -97,7 +147,7 @@
         <div class="right-section" id="right-section">
             <h2 id="kra-heading">KRA 2: Learning Environment and Diversity of Learners</h2>
             
-            <!-- <div class="submission-status" id="submission-status">
+            <div class="submission-status" id="submission-status">
                 <div class="status-item" id="status-item-1">
                     <strong class="status-number" id="status-number-1">1</strong>
                     <span class="status-text" id="status-text-1">Turned In</span>
@@ -107,13 +157,13 @@
                     <strong class="status-number" id="status-number-2">0</strong>
                     <span class="status-text" id="status-text-2">Assigned</span>
                 </div>
-            </div>                 -->
+            </div>                
             
     
-            <!-- <div class="toggle-container" id="toggleContainer" onclick="toggleStatus()">
+            <div class="toggle-container" id="toggleContainer" onclick="toggleStatus()">
                 <div class="toggle-circle" id="toggleCircle"></div>
             </div>
-            <span id="toggleText">Accepting submissions</span> -->
+            <span id="toggleText">Accepting submissions</span>
             <br>
             <div class="teacher-submission" id="teacher-submission">
                 <h3 id="name1"></h3>
@@ -124,7 +174,7 @@
                 <p class="turned-in" id="status">Turned in</p>
             </div>                              
         </div>
-    </div>
+    </div> -->
 </div>
 
     <!-- Logout Confirmation Modal -->
