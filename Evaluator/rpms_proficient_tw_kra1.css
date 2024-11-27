@@ -120,6 +120,60 @@ nav a.active {
     color: #0A840E;
 }
 
+/* Main content list styling */
+.main-content-list {
+    width: 80%;
+}
+
+.content-item {
+    margin-left: 100px;
+    display: flex;
+    align-items: center; /* Aligns the items vertically */
+    justify-content: space-between; /* Adds space between the text and the 3 dots */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit color from parent element */
+}
+
+.content-item .icon {
+    width: 30px;  
+    height: 30px; 
+    margin-right: 8px; /* Space between icon and text */
+    position: relative;
+    top: 0; /* Adjust to align with the h4 text */
+}
+
+.text-container {
+    flex-grow: 1; /* Make the text container take up available space */
+}
+
+.menu-dots::after {
+    content: '...'; /* Adds 3 horizontal dots */
+    font-size: 18px;
+    color: #333; /* Adjust color as needed */
+    margin-left: 10px;
+    display: inline-block;
+}
+
+.content-item h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0; /* Ensure there's no extra margin */
+}
+
+.content-item p {
+    font-size: 12px;
+    color: gray;
+    margin-top: 2px;
+}
+
+
 /* Top Bar */
 .top-bar {
     border-top: 1px solid #ccc;
@@ -461,3 +515,80 @@ nav a.active {
     border: 1px solid #082F96 !important;
     font-weight: 700;
 }
+
+.stepper-wrapper {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    margin-top: 20px;
+  }
+  .stepper-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+  
+  .stepper-item::before {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: -50%;
+    z-index: 2;
+  }
+  
+  .stepper-item::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #ccc;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+  }
+  
+  .stepper-item .step-counter {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 6px;
+  }
+  
+  .stepper-item.active {
+    font-weight: bold;
+  }
+  
+  .stepper-item.completed .step-counter {
+    background-color: #4bb543;
+  }
+  
+  .stepper-item.completed::after {
+    position: absolute;
+    content: "";
+    border-bottom: 2px solid #4bb543;
+    width: 100%;
+    top: 20px;
+    left: 50%;
+    z-index: 3;
+  }
+  
+  .stepper-item:first-child::before {
+    content: none;
+  }
+  .stepper-item:last-child::after {
+    content: none;
+  }
