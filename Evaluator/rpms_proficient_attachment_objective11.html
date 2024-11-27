@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KRA 2: Attachment Objective 7</title>
+  <title>KRA 3: Attachment</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23nEy6j5tzbZrD13NQdD5wE3bZ+gV8tZr" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="rpms_proficient_attachment.css">
 </head>
 <body>
-  <!-- Sidebar -->
+<!-- Sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-icon" id="menu-icon">
     <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
@@ -31,7 +31,6 @@
   <ul id="floating-menu-list">
     <li><a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
     <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
-    <!-- Horizontal line between Setting and School Year -->
     <hr class="menu-divider" />
     <li><a href="rpms_proficient_stream.html" id="school-year-link"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
   </ul>
@@ -47,22 +46,21 @@
     <a href="rpms_proficient_records.html" id="records-nav-link"><img src="Folders.png" alt="Records">Records</a>
     <a href="evaluator_summary.html" id="summary-nav-link"><img src="Chart_Pie.png" alt="Summary">Summary</a>
     <a href="evaluator_profile.html" id="profile-nav-link"><img src="User_01.png" alt="Profile">Profile</a>
-    <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
+    <a href="#" id="logoutLink"style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
   </nav>
 </header>
 
 <main id="main-content">
-  <section class="content">
-    <!-- <h1 id="kra-title">KRA 2: Learning Environment and Diversity of Learners</h1> -->
-
+  <section class="content" id="content">
+    <!-- <h1 id="kra-title">KRA 3: Curriculum and Planning</h1> -->
     <div class="kra-header" id="kra-header">
       <div class="kra-icon" id="kra-icon">
           <img src="Clipboard.png" alt="Clipboard Icon" id="kra-icon-img">
       </div>
       <div class="kra-details" id="kra-details">
-          <h2 id="kra-title">KRA 2: Learning Environment and Diversity of Learners</h2>
+          <h2 id="kra-title">KRA 3: Curriculum and Planning</h2>
           <!-- <p class="posted-by" id="posted-by">John Doe • 6:01PM</p> -->
-          <p class="points" id="points">Objective 7</p>
+          <p class="points" id="points">21 points</p>
       </div>
       <!--<div class="dots-menu" id="dots-menu">
           <span id="dots-span">...</span>
@@ -89,21 +87,20 @@
   <div id="instructions-modal" class="modal hidden">
     <div class="modal-content-instruction">
       <span class="close-btn" id="close-modal">&times;</span>
-      <h2 style="text-align: center; color: #082F96; margin-bottom: 50px;">Instructions</h2> 
-      <p><strong>7% | Objective 7</strong> (Established a learner-centered culture by using teaching strategies that respond to their linguistic, cultural, socio-economic and religious backgrounds.)</p>
-      <ul id="Objective7">
+      <h2 style="text-align: center; color: #082F96; margin-bottom: 50px;">Instructions</h2>   
+      <p><strong>7% | Objective 11</strong> (Utilized assessment data to inform the modification of teaching and learning practices and programs.)</p>
+      <ul id="Objective11">
           <li><strong>Means of Verification (MOV)</strong></li>
-          <li>Classroom Observation Tool (COT) rating sheet/s or inter-observer agreement form/s done through onsite / face-to-face / in-person classroom observation
-            <li>Classroom Observation Tool (COT) rating sheet/s or inter-observer agreement form/s done through onsite / face-to-face / in-person classroom observation
-              <br> If onsite / face-to-face / in-person classes are not implemented,
-              <br> - through observation of synchronous / asynchronous teaching in other modalities; or
-              <br> - through observation of a demonstration teaching* via LAC session.</li>
-      </ul><br>
+          <li>A list of identified least/most mastered skills based on the frequency of errors/correct responses with any one (1) of the following supporting MOVs:
+              <br> 1. accomplishment report for remedial/enhancement activities (e.g., remedial sessions, Summer Reading Camp, Phil-IRI-based reading program)
+              <br> 2. intervention material used for remediation/reinforcement/enhancement
+              <br> 3. lesson plan/activity log for remediation/enhancement utilizing assessment data to modify teaching and learning practices or programs</li>
+      </ul>
     </div>
   </div>
 
     <div class="file-preview" id="file-preview">
-      <div id="pdf-container" style="width: 100%; height: 1200px; overflow: auto; border: 1px solid #ccc;"></div>
+      <div id="pdf-container" style="width: 100%; height: 1000px; overflow: auto; border: 1px solid #ccc;"></div>
 
         <div class="file-actions" id="file-actions">
           <button class="three-dots" id="three-dots-btn">⋮</button>
@@ -117,7 +114,6 @@
           </div>
         </div>
     </div>
-
   </section>
 
   <aside class="sidebar1" id="sidebar1">
@@ -126,32 +122,43 @@
       <button id="return-btn" class="return-button">Return</button>
     </div><br>
 
-    <div class="file-section tab" id="file-section">
+    <!-- <div class="file-section tab" id="file-section">
       <h3 id="file-section-title">Files</h3>
           <p id="file-upload-time"></p>
-          <button id="file-btn">
+          <button id="file-btn"
+            style="
+              background-color: #4CAF50; 
+              color: white; 
+              padding: 10px 20px; 
+              text-align: center; 
+              font-size: 16px; 
+              border: none; 
+              border-radius: 5px; 
+              cursor: pointer; 
+              box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);"
+          >
             File
           </button>
-    </div>
+    </div> -->
 
     <div class="grade-section tab" id="grade-section">
       <h3 id="grade-section-title">Grade</h3>
       <ul id="grade-list">
-        <li id="grade-item-3">Objective 7: Established a learner - centered culture by using teaching strategies that respond to their linguistic, cultural, socioeconomic and religious 
-          <span id="kra7Score"><input type="number" id="score3" min="1" max="7"></span><span><input type="text" id="max-score3" value="/7" disabled></span></li>
-          <!-- <div class="file-section tab" id="file-section">
-            <h3 id="file-section-title">Objective 7</h3>
+        <li id="grade-item-3">Objective 11: Utilized assessment data to inform the modification of teaching and learning practices and programs (PPST 5.5.2) 
+          <span id="kra11Score"><input type="number" id="score3" min="1" max="7"></span><span><input type="text" id="max-score3" value="/7" disabled></span></li>
+          <div class="file-section tab" id="file-section">
+            <h3 id="file-section-title">Objective 11</h3>
                 <p id="file-upload-time"></p>
                 <button id="file-btn">
                   File
                 </button>
-          </div><br> -->
+          </div><br>
       </ul>
     </div>
 
     <div class="total-score tab" id="total-score-section">
-      <p><b>Total Score: </b><br><br><span id="total-score"><input type="number" id="score" disabled></span>
-        <span><input type="text" id="max-score" value="/28" disabled></span></p>
+      <p id="total-score-text"><b>Total Score: </b><br><br><span id="total-score"><input type="number" id="score" disabled></span>
+        <span><input type="text" id="max-score" value="/21" disabled></span></p>
     </div>
 
     <div class="private-comments-section tab" id="private-comments-section">
@@ -173,7 +180,7 @@
       </div>
   </div>
   
-  <script src="rpms_proficient_attachment_kra2.js"></script>
+  <script src="rpms_proficient_attachment3.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
 </body>
 </html>
