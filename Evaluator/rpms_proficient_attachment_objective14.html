@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KRA 3: Attachment Objective 9</title>
+  <title>KRA 4: Attachment Objective 14</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMt23nEy6j5tzbZrD13NQdD5wE3bZ+gV8tZr" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="rpms_proficient_attachment.css">
 </head>
 <body>
-<!-- Sidebar -->
+  <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-icon" id="menu-icon">
     <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
@@ -24,14 +24,15 @@
 
 <!-- Floating Menu -->
 <div class="floating-menu" id="floating-menu">
-  <div class="menu-header">
+  <div class="menu-header" id="menu-header">
     <!-- Close button -->
     <button class="close-btn" id="close-btn" onclick="closeMenu()">✖</button>
   </div>
   <ul id="floating-menu-list">
     <li><a href="rpms_proficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
     <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
-    <hr class="menu-divider" />
+    <!-- Horizontal line between Setting and School Year -->
+    <hr class="menu-divider" id="menu-divider"/>
     <li><a href="rpms_proficient_stream.html" id="school-year-link"><span class="sy-circle">SY</span> School Year 2023–2024</a></li>
   </ul>
 </div>
@@ -46,21 +47,21 @@
     <a href="rpms_proficient_records.html" id="records-nav-link"><img src="Folders.png" alt="Records">Records</a>
     <a href="evaluator_summary.html" id="summary-nav-link"><img src="Chart_Pie.png" alt="Summary">Summary</a>
     <a href="evaluator_profile.html" id="profile-nav-link"><img src="User_01.png" alt="Profile">Profile</a>
-    <a href="#" id="logoutLink"style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
+    <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
   </nav>
 </header>
 
 <main id="main-content">
   <section class="content" id="content">
-    <!-- <h1 id="kra-title">KRA 3: Curriculum and Planning</h1> -->
+    <!-- <h1 id="kra-title">KRA 4: Curriculum and Planning & Assessment and Reporting</h1> -->
     <div class="kra-header" id="kra-header">
       <div class="kra-icon" id="kra-icon">
           <img src="Clipboard.png" alt="Clipboard Icon" id="kra-icon-img">
       </div>
       <div class="kra-details" id="kra-details">
-          <h2 id="kra-title">KRA 3: Curriculum and Planning</h2>
+          <h2 id="kra-title">KRA 4: Curriculum and Planning & Assessment and Reporting</h2>
           <!-- <p class="posted-by" id="posted-by">John Doe • 6:01PM</p> -->
-          <p class="points" id="points">Objective 9</p>
+          <p class="points" id="points">Objective 14</p>
       </div>
       <!--<div class="dots-menu" id="dots-menu">
           <span id="dots-span">...</span>
@@ -88,15 +89,13 @@
     <div class="modal-content-instruction">
       <span class="close-btn" id="close-modal">&times;</span>
       <h2 style="text-align: center; color: #082F96; margin-bottom: 50px;">Instructions</h2>
-      <p><strong>7% | Objective 9</strong> (Set achievable and appropriate learning outcomes that are aligned with learning competencies.)</p>
-      <ul id="Objective9">
+      <p><strong>7% | Objective 14</strong> (Developed a personal improvement plan based on reflection of one’s practice and ongoing professional learning)</p>
+      <ul id="Objective14">
           <li><strong>Means of Verification (MOV)</strong></li>
-          <li>At least one (1) lesson plan (e.g., DLP, DLL, WHLP, WLP, WLL, Lesson Exemplars, and the likes) or one lesson from a self-learning module, developed by the ratee* and used in instruction, with achievable and appropriate learning outcomes that are aligned with the learning competencies as shown in any one (1) of the following:
-              <br> 1. lecture/discussion
-              <br> 2. activity/activity sheet
-              <br> 3. performance task
-              <br> rubric for assessing performance using criteria that appropriately describe the target output</li>    
-      </ul><br>
+          <li>1. Certification from the ICT Coordinator / School Head / Focal Person in charge of e-SAT
+              <br> 2. IPCRF-DP
+              <br> 3. Mid-year Review Form (MRF) Updated IPCRF-DP from Phase II</li>
+      </ul>
     </div>
   </div>
 
@@ -134,20 +133,21 @@
     <div class="grade-section tab" id="grade-section">
       <h3 id="grade-section-title">Grade</h3>
       <ul id="grade-list">
-        <li id="grade-item-1">Objective 9: Set achievable and appropriate learning outcomes that are aligned with learning competencies (PPST 4.4.2) 
-          <span id="kra9Score"><input type="number" id="score1" min="1" max="7"></span><span><input type="text" id="max-score1" value="/7" disabled></span></li>
+        <li id="grade-item-3">Objective 14: Developed a personal improvement plan based on reflection of one’s practice and ongoing professional learning (PPST 7.4.2) 
+          <span id="kra14Score"><input type="number" id="score3" min="1" max="7"></span><span><input type="text" id="max-score3" value="/7" disabled></span></li>
           <!-- <div class="file-section tab" id="file-section">
-            <h3 id="file-section-title">Objective 9</h3>
+            <h3 id="file-section-title">Objective 14</h3>
                 <p id="file-upload-time"></p>
                 <button id="file-btn">
                   File
                 </button>
           </div><br> -->
-      </ul>
+          
+        </ul>
     </div>
 
     <!-- <div class="total-score tab" id="total-score-section">
-      <p id="total-score-text"><b>Total Score: </b><br><br><span id="total-score"><input type="number" id="score" disabled></span>
+      <p id="total-score-text"><b>Total Score: </b><br><br><span id="total-score-value"><input type="number" id="score" disabled></span>
         <span><input type="text" id="max-score" value="/21" disabled></span></p>
     </div> -->
 
@@ -170,7 +170,7 @@
       </div>
   </div>
   
-  <script src="rpms_proficient_attachment_kra3.js"></script>
+  <script src="rpms_proficient_attachment_kra4.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
 </body>
 </html>
