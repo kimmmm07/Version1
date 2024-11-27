@@ -955,7 +955,7 @@ async function updateIPCRF() {
             console.log("Success Data : ", result);
             alert("Form is submitted successfully");
             setTimeout(()=>{
-                location.href = 'ipcrf_t1-3.html';
+                location.href = 'ipcrf_mt1-4.html';
 
             },1000)
 

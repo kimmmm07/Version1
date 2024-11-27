@@ -324,3 +324,44 @@ document.getElementById("instructions-link").addEventListener("click", function 
       this.classList.add("hidden");
     }
   });
+
+
+// Selectors
+const contentField = document.getElementById('content');
+const statusText = document.getElementById('status');
+
+// Function to simulate saving data
+const saveData = async () => {
+  const data = contentField.value;
+
+  try {
+    // Example: Save to localStorage (pwede ding sa API)
+    localStorage.setItem('autosaveData', data);
+
+    // If saving to a server:
+    // const response = await fetch('/save', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ content: data }),
+    // });
+    // if (!response.ok) throw new Error('Failed to save');
+
+    // Update status
+    statusText.textContent = 'Status: Saved';
+    statusText.classList.add('saved');
+    setTimeout(() => statusText.classList.remove('saved'), 2000); // Reset status after 2 seconds
+  } catch (error) {
+    // Handle errors
+    statusText.textContent = 'Status: Error saving';
+    statusText.classList.add('error');
+  }
+};
+
+// Auto-save every 5 seconds
+setInterval(saveData, 5000);
+
+// Optional: Load saved data when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  const savedData = localStorage.getItem('autosaveData');
+  if (savedData) contentField.value = savedData;
+});
