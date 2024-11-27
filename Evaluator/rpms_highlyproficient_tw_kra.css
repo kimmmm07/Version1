@@ -593,3 +593,11 @@ nav a.active {
   .stepper-item:last-child::after {
     content: none;
   }
+
+  .back-link {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    padding: 10px 20px;
+    margin-left: -50px;
+}

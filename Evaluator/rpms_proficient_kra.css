@@ -366,3 +366,11 @@ nav a.active {
     border: 1px solid #082F96 !important;
     font-weight: 700;
 }
+
+.back-link {
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    padding: 10px 20px;
+    margin-left: -50px;
+}

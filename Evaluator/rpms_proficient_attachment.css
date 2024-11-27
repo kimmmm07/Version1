@@ -94,7 +94,7 @@ main {
     padding-right: 20px;
   }
   
-  .kra-header {
+  /* .kra-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -122,11 +122,11 @@ main {
 .kra-details p {
     font-size: 14px;
     margin: 5px 0;
-}
-  /* .content h1 {
+} */
+  .content h1 {
     font-size: 24px;
-    margin-bottom: 10px;
-  } */
+    margin-bottom: 30px;
+  }
   
   .teacher-info .dropdown {
     width: 320px;
@@ -599,4 +599,12 @@ main {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   pointer-events: none;
+}
+
+.back-link {
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  padding: 10px 20px;
+  margin-left: -50px;
 }
