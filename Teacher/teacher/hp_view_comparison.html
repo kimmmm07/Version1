@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="hp_view_comparison.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.14/jspdf.plugin.autotable.min.js"></script>
+</head>
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="asset/image 6.png" alt="DepED Logo" />
+        </div>
+        <ul class="navbar-menu">
+            <li><a href="teacher_home.html" class="nav-link"><img src="asset/House_01.png" alt="Home Icon" class="nav-icon"> Home</a></li>
+            <li><a href="teacher_evaluation.html" class="nav-link"><img src="asset/Test Passed.png" alt="Evaluation Icon" class="nav-icon"> Evaluation</a></li>
+            <li><a href="teacher_forms.html" class="nav-link"><img src="asset/Documents.png" alt="Forms Icon" class="nav-icon"> Forms</a></li>
+            <li><a href="teacher_summary.html" class="nav-link summary active"><img src="asset/Chart_Pie1.png" alt="Summary Icon" class="nav-icon"> Summary</a></li>
+            <li><a href="teacher_records.html" class="nav-link"><img src="asset/Folders1.png" alt="Records Icon" class="nav-icon"> Records</a></li>
+            <li><a href="teacher_profile.html" class="nav-link"><img src="asset/User_01.png" alt="Profile Icon" class="nav-icon"> Profile</a></li>
+            <li id="logoutLink" class="logout-btn">
+                <a href="../../index.html">
+                    <img src="asset/Log_Out.png" alt="Logout Icon" class="nav-icon"> Logout
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="welcome-message">
+        Teacher's Dashboard
+    </div>
+
+   
+
+    <div class="objective kras-objective">
+        <hr>
+        <div class="title">IPCRF Self Assessment and Evaluator Comparison</div>
+        <hr>
+        <h2>KRA 1: Content Knowledge and Pedagogy</h2>
+        <h3>1. Applied knowledge of content within and across curriculum teaching areas (PPST 1.1.2)</h3>
+        <div class="ratings">
+            <div>
+                <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>EFFICIENCY</strong></label>
+                <div class="self-score">Self Assessment Score</div>
+                <div class="rating-answered">
+                    <div style="background-color: rgba(245, 245, 245, 0.89);">
+                        <label id="Efficiency1_5" style="color: gray; pointer-events: none;">
+                            <input type="radio" value="5" checked disabled>
+                            5 - Objective was met within the allotted time
+                        </label>
+                    </div>
+                </div>
+                  
+                <div class="evaluator-score">Evaluator Score</div>
+                <div class="rating-options">
+                    <div class="rating-wrapper">
+                        <div style="background-color: rgba(245, 245, 245, 0.89);">
+                            <label id="Efficiency1_5" style="color: gray; pointer-events: none;">
+                                <input type="radio" value="5" checked disabled>
+                                5 - Objective was met within the allotted time
+                            </label>
+                        </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <div class="objective kras1-objective">
+        <h3>2. Used a range of teaching strategies that enhance learner achievement in literacy and numeracy skills (PPST 1.4.2)</h3>
+        <div class="ratings">
+            <div>
+                <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>EFFICIENCY</strong></label>
+                <div class="self-score">Self Assessment Score</div>
+                <div class="rating-answered">
+                    <div style="background-color: rgba(245, 245, 245, 0.89);">
+                        <label  id="Efficiency2_5" style="color: gray; pointer-events: none;">
+                            <input type="radio" value="5" checked disabled>
+                            5 - Objective was met within the allotted time
+                        </label>
+                    </div>
+                </div>  
+                <div class="evaluator-score">Evaluator Score</div>
+                <div class="rating-options">
+                    <div class="rating-wrapper">
+                        <div style="background-color: rgba(245, 245, 245, 0.89);">
+                            <label  id="Efficiency2_5" style="color: gray; pointer-events: none;">
+                                <input type="radio" value="5" checked disabled>
+                                5 - Objective was met within the allotted time
+                            </label>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<div class="objective kras1-objective">
+<h3>3. Applied a range of teaching strategies to develop critical and creative thinking, as well as other higher-order thinking skills (PPST 1.5.2)</h3>
+<div class="ratings">
+    <div>
+        <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>EFFICIENCY</strong></label>
+        <div class="self-score">Self Assessment Score</div>
+        <div class="rating-answered">
+            <div style="background-color: rgba(245, 245, 245, 0.89);">
+                <label  id="Efficiency3_5" style="color: gray; pointer-events: none;">
+                    <input type="radio" value="5" checked disabled>
+                    5 - Objective was met within the allotted time
+                </label>
+            </div>
+        </div> 
+        <div class="evaluator-score">Evaluator Score</div>
+        <div class="rating-options">
+            <div class="rating-wrapper">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label  id="Efficiency3_5" style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="objective kras1-objective">
+<h3>4. Displayed proficient use of Mother Tongue, Filipino and English to facilitate teaching and learning (PPST 1.6.2)</h3>
+<div class="ratings">
+    <div>
+        <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>EFFICIENCY</strong></label>
+        <div class="self-score">Self Assessment Score</div>
+        <div class="rating-answered">
+            <div style="background-color: rgba(245, 245, 245, 0.89);">
+                <label  id="Efficiency4_5" style="color: gray; pointer-events: none;">
+                    <input type="radio" value="5" checked disabled>
+                    5 - Objective was met within the allotted time
+                </label>
+            </div>
+        </div>  
+        <div class="evaluator-score">Evaluator Score</div>
+        <div class="rating-options">
+            <div class="rating-wrapper">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label  id="Efficiency4_5" style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- KRA 2 objectives -->
+<div class="objective kras1-objective">
+<hr>
+<h2>KRA 2: Learning Environment & Diversity of Learners</h2>
+<h3>5. Established safe and secure learning environments to enhance learning through the consistent implementation of policies (PPST 2.1.2)</h3>
+<div class="ratings">
+    <div>
+        <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>EFFICIENCY</strong></label>
+        <div class="self-score">Self Assessment Score</div>
+        <div class="rating-answered">
+            <div style="background-color: rgba(245, 245, 245, 0.89);">
+                <label  id="Efficiency5_5" style="color: gray; pointer-events: none;">
+                    <input type="radio" value="5" checked disabled>
+                    5 - Objective was met within the allotted time
+                </label>
+            </div>
+        </div>  
+        <div class="evaluator-score">Evaluator Score</div>
+        <div class="rating-options">
+            <div class="rating-wrapper">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label  id="Efficiency5_5" style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="objective kras1-objective">
+<h3>6. Maintained learning environment that promote fairness, respect and care to encourage learning (PPST 2.2.2)</h3>
+<div class="ratings">
+    <div>
+        <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>EFFICIENCY</strong></label>
+        <div class="self-score">Self Assessment Score</div>
+        <div class="rating-answered">
+            <div style="background-color: rgba(245, 245, 245, 0.89);">
+                <label id="Efficiency6_5" style="color: gray; pointer-events: none;">
+                    <input type="radio" value="5" checked disabled>
+                    5 - Objective was met within the allotted time
+                </label>
+            </div>
+        </div>  
+        <div class="evaluator-score">Evaluator Score</div>
+        <div class="rating-options">
+            <div class="rating-wrapper">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label id="Efficiency6_5" style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="objective kras1-objective">
+<h3>7. Established a learner - centered culture by using teaching strategies that respond to their linguistic, cultural, socioeconomic and religious</h3>
+<div class="ratings">
+
+<div>
+    <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>EFFICIENCY</strong></label>
+    <div class="self-score">Self Assessment Score</div>
+<div class="rating-answered">
+    <div style="background-color: rgba(245, 245, 245, 0.89);">
+        <label id="Efficiency7_5" style="color: gray; pointer-events: none;">
+            <input type="radio" value="5" checked disabled>
+            5 - Objective was met within the allotted time
+        </label>
+    </div>
+</div>  
+<div class="evaluator-score">Evaluator Score</div>
+<div class="rating-options">
+    <div class="rating-wrapper">
+        <div style="background-color: rgba(245, 245, 245, 0.89);">
+            <label id="Efficiency7_5" style="color: gray; pointer-events: none;">
+                <input type="radio" value="5" checked disabled>
+                5 - Objective was met within the allotted time
+            </label>
+        </div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="objective kras1-objective">
+<h3>8. Adapted and used culturally appropriate teaching strategies to address the needs of learners from indigenous groups (PPST 3.5.2) </h3>
+<div class="ratings">
+
+<div>
+    <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>EFFICIENCY</strong></label>
+    <div class="self-score">Self Assessment Score</div>
+<div class="rating-answered">
+    <div style="background-color: rgba(245, 245, 245, 0.89);">
+        <label id="Efficiency8_5" style="color: gray; pointer-events: none;">
+            <input type="radio"  value="5" checked disabled>
+            5 - Objective was met within the allotted time
+        </label>
+    </div>
+</div>  
+<div class="evaluator-score">Evaluator Score</div>
+<div class="rating-options">
+    <div class="rating-wrapper">
+        <div style="background-color: rgba(245, 245, 245, 0.89);">
+            <label id="Efficiency8_5" style="color: gray; pointer-events: none;">
+                <input type="radio"  value="5" checked disabled>
+                5 - Objective was met within the allotted time
+            </label>
+        </div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- KRA 3 objectives -->
+<div class="objective kras1-objective">
+<hr>
+<h2>KRA 3: Curriculum and Planning & Assessment and Reporting</h2>
+<h3>9. Set achievable and appropriate learning outcomes that are aligned with learning competencies  (PPST 4.4.2)</h3>
+<div class="ratings">
+    <div>
+        <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>QUALITY</strong></label>
+        <div class="self-score">Self Assessment Score</div>
+        <div class="rating-answered">
+            <div style="background-color: rgba(245, 245, 245, 0.89);">
+                <label id="Quality9_5" style="color: gray; pointer-events: none;">
+                    <input type="radio" value="5" checked disabled>
+                    5 - Objective was met within the allotted time
+                </label>
+            </div>
+        </div>  
+        <div class="evaluator-score">Evaluator Score</div>
+        <div class="rating-options">
+            <div class="rating-wrapper">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label id="Quality9_5" style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+        </div>                    
+    </div>
+
+    <div>
+        <br>
+        <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>EFFICIENCY</strong></label>
+        <div class="self-score">Self Assessment Score</div>
+        <div class="rating-answered">
+            <div style="background-color: rgba(245, 245, 245, 0.89);">
+                <label id="Efficiency9_5" style="color: gray; pointer-events: none;">
+                    <input type="radio" value="5" checked disabled>
+                    5 - Objective was met within the allotted time
+                </label>
+            </div>
+        </div> 
+        <div class="evaluator-score">Evaluator Score</div>
+        <div class="rating-options">
+            <div class="rating-wrapper">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label id="Efficiency9_5" style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="objective kras2-objective">
+<h3>10. Used strategies for  providing timely, accurate and constructive feedback to improve learner performance  (PPST 5.3.2)</h3>
+<div class="ratings">
+
+    <div>
+        <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>EFFICIENCY</strong></label>
+        <div class="self-score">Self Assessment Score</div>
+        <div class="rating-answered">
+            <div style="background-color: rgba(245, 245, 245, 0.89);">
+                <label id="Efficiency10_5"  style="color: gray; pointer-events: none;">
+                    <input type="radio" value="5" checked disabled>
+                    5 - Objective was met within the allotted time
+                </label>
+            </div>
+        </div>  
+        <div class="evaluator-score">Evaluator Score</div>
+        <div class="rating-options">
+            <div class="rating-wrapper">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label id="Efficiency10_5"  style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="objective kras1-objective">
+<h3>11. Utilized  assessment data to inform the modification of teaching and learning practices and programs (PPST 5.5.2)</h3>
+<div class="ratings">
+<div>
+    <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>QUALITY</strong></label>
+    <div class="self-score">Self Assessment Score</div>
+<div class="rating-answered">
+    <div style="background-color: rgba(245, 245, 245, 0.89);">
+        <label id="Quality11_5" style="color: gray; pointer-events: none;">
+            <input type="radio" value="5" checked disabled>
+            5 - Objective was met within the allotted time
+        </label>
+    </div>
+</div>  
+<div class="evaluator-score">Evaluator Score</div>
+<div class="rating-options">
+    <div class="rating-wrapper">
+        <div style="background-color: rgba(245, 245, 245, 0.89);">
+            <label id="Quality11_5" style="color: gray; pointer-events: none;">
+                <input type="radio" value="5" checked disabled>
+                5 - Objective was met within the allotted time
+            </label>
+        </div>
+</div>
+</div>
+
+<div>
+<br>
+<label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>TIMELINESS</strong></label>
+<div class="self-score">Self Assessment Score</div>
+<div class="rating-answered">
+    <div style="background-color: rgba(245, 245, 245, 0.89);">
+        <label id="Timeliness11_5"  style="color: gray; pointer-events: none;">
+            <input type="radio" value="5" checked disabled>
+            5 - Objective was met within the allotted time
+        </label>
+    </div>
+</div>  
+<div class="evaluator-score">Evaluator Score</div>
+<div class="rating-options">
+    <div class="rating-wrapper">
+        <div style="background-color: rgba(245, 245, 245, 0.89);">
+            <label id="Timeliness11_5"  style="color: gray; pointer-events: none;">
+                <input type="radio" value="5" checked disabled>
+                5 - Objective was met within the allotted time
+            </label>
+        </div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- KRA 4 objectives -->
+<div class="objective kras2-objective">
+<hr>
+<h2>KRA 4: Community Linkages and Professional Engagement & Personal Growth and <br> Professional Development</h2>
+<h3>12. Built relationships with parents/guardians and the wider school community to facilitate involvement in the educative process (PSST 6.2.2.) </h3>
+<div class="ratings">
+<div>
+    <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>QUALITY</strong></label>
+    <div class="self-score">Self Assessment Score</div>
+<div class="rating-answered">
+    <div style="background-color: rgba(245, 245, 245, 0.89);">
+        <label id="Quality12_5" style="color: gray; pointer-events: none;">
+            <input type="radio" value="5" checked disabled>
+            5 - Objective was met within the allotted time
+        </label>
+    </div>
+</div>  
+<div class="evaluator-score">Evaluator Score</div>
+<div class="rating-options">
+    <div class="rating-wrapper">
+        <div style="background-color: rgba(245, 245, 245, 0.89);">
+            <label id="Quality12_5" style="color: gray; pointer-events: none;">
+                <input type="radio" value="5" checked disabled>
+                5 - Objective was met within the allotted time
+            </label>
+        </div>
+</div>                    
+</div>
+
+<div>
+<br>
+<label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>TIMELINESS</strong></label>
+<div class="self-score">Self Assessment Score</div>
+<div class="rating-answered">
+    <div style="background-color: rgba(245, 245, 245, 0.89);">
+        <label id="Timeliness12_5" style="color: gray; pointer-events: none;">
+            <input type="radio" value="5" checked disabled>
+            5 - Objective was met within the allotted time
+        </label>
+    </div>
+</div>  
+<div class="evaluator-score">Evaluator Score</div>
+<div class="rating-options">
+    <div class="rating-wrapper">
+        <div style="background-color: rgba(245, 245, 245, 0.89);">
+            <label id="Timeliness12_5" style="color: gray; pointer-events: none;">
+                <input type="radio" value="5" checked disabled>
+                5 - Objective was met within the allotted time
+            </label>
+        </div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="objective kras2-objective">
+<h3>13. Participated in professional networks to share knowledge and to enhance practice (PPST 7.3.2)</h3>
+<div class="ratings">
+<div>
+    <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>QUALITY</strong></label>
+    <div class="self-score">Self Assessment Score</div>
+    <div class="rating-answered">
+        <div style="background-color: rgba(245, 245, 245, 0.89);">
+            <label id="Quality13_5" style="color: gray; pointer-events: none;">
+                <input type="radio" value="5" checked disabled>
+                5 - Objective was met within the allotted time
+            </label>
+        </div>
+    </div>  
+    <div class="evaluator-score">Evaluator Score</div>
+    <div class="rating-options">
+        <div class="rating-wrapper">
+            <div style="background-color: rgba(245, 245, 245, 0.89);">
+                <label id="Quality13_5" style="color: gray; pointer-events: none;">
+                    <input type="radio" value="5" checked disabled>
+                    5 - Objective was met within the allotted time
+                </label>
+            </div>
+    </div>
+</div>
+
+<div>
+    <br>
+    <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>TIMELINESS</strong></label>
+    <div class="self-score">Self Assessment Score</div>
+    <div class="rating-answered">
+        <div style="background-color: rgba(245, 245, 245, 0.89);">
+            <label id="Timeliness13_5" style="color: gray; pointer-events: none;">
+                <input type="radio" value="5" checked disabled>
+                5 - Objective was met within the allotted time
+            </label>
+        </div>
+    </div>  
+    <div class="evaluator-score">Evaluator Score</div>
+    <div class="rating-options">
+        <div class="rating-wrapper">
+            <div style="background-color: rgba(245, 245, 245, 0.89);">
+                <label id="Timeliness13_5" style="color: gray; pointer-events: none;">
+                    <input type="radio" value="5" checked disabled>
+                    5 - Objective was met within the allotted time
+                </label>
+            </div>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="objective kras2-objective">
+    <h3>14. Developed a personal improvement plan based on reflection of one’s practice and ongoing professional learning (PPST 7.4.2)</h3>
+    
+    <div class="ratings">
+        <!-- Quality Rating -->
+        <div>
+            <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>QUALITY</strong></label>
+            <div class="self-score">Self Assessment Score</div>
+            <div class="rating-answered">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label id="Quality14_5" style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+            </div>  
+            <div class="evaluator-score">Evaluator Score</div>
+            <div class="rating-options">
+                <div class="rating-wrapper">
+                    <div style="background-color: rgba(245, 245, 245, 0.89);">
+                        <label id="Quality14_5" style="color: gray; pointer-events: none;">
+                            <input type="radio" value="5" checked disabled>
+                            5 - Objective was met within the allotted time
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Efficiency Rating -->
+        <div>
+            <br>
+            <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>EFFICIENCY</strong></label>
+            <div class="self-score">Self Assessment Score</div>
+            <div class="rating-answered">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label id="Efficiency14_5" style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+            </div>
+            <div class="evaluator-score">Evaluator Score</div>  
+            <div class="rating-options">
+                <div class="rating-wrapper">
+                    <div style="background-color: rgba(245, 245, 245, 0.89);">
+                        <label id="Efficiency14_5" style="color: gray; pointer-events: none;">
+                            <input type="radio" value="5" checked disabled>
+                            5 - Objective was met within the allotted time
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeliness Rating -->
+        <div>
+            <br>
+            <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>TIMELINESS</strong></label>
+            <div class="self-score">Self Assessment Score</div>
+            <div class="rating-answered">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label id="Timeliness14_5" style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+            </div>  
+            <div class="evaluator-score">Evaluator Score</div>
+            <div class="rating-options">
+                <div class="rating-wrapper">
+                    <div style="background-color: rgba(245, 245, 245, 0.89);">
+                        <label id="Timeliness14_5" style="color: gray; pointer-events: none;">
+                            <input type="radio" value="5" checked disabled>
+                            5 - Objective was met within the allotted time
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- PLUS FACTOR -->
+<div class="objective plus-factor-objective">
+<hr style="margin-left: -270px;">
+<h2 style="margin-left: -150px;">PLUS FACTOR</h2>
+<h3 style="margin-left: -150px;">15. Performed various related works/activities that contribute to the teaching-learning process</h3>
+<div class="ratings">
+    <div>
+        <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>QUALITY</strong></label>
+        <div class="self-score">Self Assessment Score</div>
+        <div class="rating-answered">
+            <div style="background-color: rgba(245, 245, 245, 0.89);">
+                <label id="Quality15_5" style="color: gray; pointer-events: none;">
+                    <input type="radio" value="5" checked disabled>
+                    5 - Objective was met within the allotted time
+                </label>
+            </div>
+        </div> 
+        <div class="evaluator-score">Evaluator Score</div> 
+        <div class="rating-options">
+            <div class="rating-wrapper">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label id="Quality15_5" style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+        </div>
+    </div>
+    
+    <div>
+        <br>
+        <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>EFFICIENCY</strong></label>
+        <div class="self-score">Self Assessment Score</div>
+        <div class="rating-answered">
+            <div style="background-color: rgba(245, 245, 245, 0.89);">
+                <label id="Efficiency15_5" style="color: gray; pointer-events: none;">
+                    <input type="radio" value="5" checked disabled>
+                    5 - Objective was met within the allotted time
+                </label>
+            </div>
+        </div>  
+        <div class="evaluator-score">Evaluator Score</div>
+        <div class="rating-options">
+            <div class="rating-wrapper">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label id="Efficiency15_5" style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+        </div>
+    </div>
+    
+    <div>
+        <br>
+        <label style="margin-bottom: -25px; margin-top: 20px; margin-left: -110px; font-size: 14px; "><strong>TIMELINESS</strong></label>
+        <div class="self-score">Self Assessment Score</div>
+        <div class="rating-answered">
+            <div style="background-color: rgba(245, 245, 245, 0.89);">
+                <label id="Timeliness15_5" style="color: gray; pointer-events: none;">
+                    <input type="radio" value="5" checked disabled>
+                    5 - Objective was met within the allotted time
+                </label>
+            </div>
+        </div>  
+        <div class="evaluator-score">Evaluator Score</div>
+        <div class="rating-options">
+            <div class="rating-wrapper">
+                <div style="background-color: rgba(245, 245, 245, 0.89);">
+                    <label id="Timeliness15_5" style="color: gray; pointer-events: none;">
+                        <input type="radio" value="5" checked disabled>
+                        5 - Objective was met within the allotted time
+                    </label>
+                </div>
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+</form>
+
+<div class="ratings-container">
+<!-- Teacher's Adjectival Rating Section -->
+<div class="TAverage-score-container">
+    <div class="TAverage-score-header">Teacher's Adjectival Rating</div>
+    <div class="score-rating">
+        <label id="teacher-average-score" class="average-score" readonly></label>
+        <div id="teacher-rating" class="rating"></div>
+    </div>
+</div>
+
+<!-- Evaluator's Adjectival Rating Section -->
+<div class="average-score-container">
+    <div class="average-score-header">Evaluator's Adjectival Rating</div>
+    <div class="score-rating">
+        <label id="evaluator-average-score" class="average-score" readonly></label>
+        <div id="evaluator-rating" class="rating"></div>
+    </div>
+</div>
+</div>
