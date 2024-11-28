@@ -83,7 +83,7 @@ h2 {
     margin-top: 50px;
     margin-bottom: 10px;
     margin-left: -110px;
-    color: #4CAF50;
+    color: #16abe0;
     width: 880px;
     overflow: hidden;
 }
@@ -390,7 +390,7 @@ label {
 
 /* Header for the rating sections */
 .average-score-header {
-    background-color: #28a745;
+    background-color: #16abe0;
     color: white;
     font-size: 14px;
     font-weight: bold;
