@@ -82,6 +82,11 @@
             </table>
 
             <h1 class="tables-comparison-header">Evaluator and Self Evaluation Comparison Score</h1>
+            <div class="comparison-button">
+                <a href="view_comparison.html">
+                    <button>View Comparison</button>
+                </a>                
+            </div>
             <div class="tables-comparison">
                 <!-- Evaluator Score Table -->
                 <table class="evaluation-table">
@@ -166,123 +171,6 @@
             </div>
         </div>
     </div>
-    <script>
-
-
-        function getRating(averageScore) {
-            if (averageScore >= 4.500) return "Outstanding";
-            if (averageScore >= 3.500) return "Very Satisfactory";
-            if (averageScore >= 2.500) return "Satisfactory";
-            if (averageScore >= 1.500) return "Unsatisfactory";
-            return "Poor"; // below 1.499
-        }
-        
-        function generatePDF() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            // Add header and logo
-            const pageWidth = doc.internal.pageSize.width;
-
-            // Center the main title
-            doc.setFont("Poppins", "bold");
-            doc.setFontSize(12);
-            const titleText = "INDIVIDUAL PERFORMANCE COMMITMENT AND REVIEW FORM (IPCRF) SUMMARY SHEET";
-            const titleX = (pageWidth - doc.getTextWidth(titleText)) / 2;
-            doc.text(titleText, titleX, 20);
-
-            // // Center the subtitle
-            // doc.setFont("Poppins", "normal");
-            // doc.setFontSize(12);
-            // const subtitleText = "Regular Teachers in Proficient Stage";
-            // const subtitleX = (pageWidth - doc.getTextWidth(subtitleText)) / 2;
-            // doc.text(subtitleText, subtitleX, 30);
-            
-            let dateObject3 = undefined
-            try{
-                dateObject3 = new Date(data.rating.created_at );
-            } catch(e) {
-                console.log(e);
-            }
-            
-
-            // Format the date object into the desired format
-            let options = { year: 'numeric', month: 'long', day: 'numeric' };
-            
-
-            // ipcrfDateSubmitted.textContent =  data.ipcrf.date_submitted != null ? "Date Submitted: " + : 'Date Submitted: Not yet submitted';
-            
-
-            // Information Table
-            doc.autoTable({
-            startY: 40,
-            body: [
-                ['Name of Employee:', teacher_data.teacher.fullname ?? ''],
-                ['Position:', teacher_data.teacher.position ?? ''],
-                ['Bureau/Center/Service/Division:', ''],
-                ['Rating Period:', ''],
-                ['Name of Rater:', teacher_data.rater ? teacher_data.rater.fullname : 'N/A'],
-                ['Position of Rater:', teacher_data.rater ? teacher_data.rater.position : 'N/A'],
-                ['Date of Review:', dateObject3 ? dateObject3.toLocaleDateString('en-US', options) : 'N/A'],
-            ],
-            theme: 'grid',
-            styles: { fontSize: 10 },
-            columnStyles: {
-                0: { cellWidth: 80 },
-                1: { cellWidth: 100 },
-            },
-            margin: { top: 20 }
-        });
-            // Table Section
-            doc.autoTable({
-                startY: 100,
-                head: [['KRA', 'Weight per KRA', 'Objectives', 'Weight per Objectives', 'Score', 'Adjectival Rating']],
-                body: [
-                    ['KRA1', '28%', 'Objectives 1', '7%', '', ''],
-                    ['', '', 'Objectives 2', '7%', '', ''],
-                    ['', '', 'Objectives 3', '7%', '', ''],
-                    ['', '', 'Objectives 4', '7%', '', ''],
-                    ['KRA2', '28%', 'Objectives 5', '7%', '', ''],
-                    ['', '', 'Objectives 6', '7%', '', ''],
-                    ['', '', 'Objectives 7', '7%', '', ''],
-                    ['', '', 'Objectives 8', '7%', '', ''],
-                    ['KRA3', '21%', 'Objectives 9', '7%', '', ''],
-                    ['', '', 'Objectives 10', '7%', '', ''],
-                    ['', '', 'Objectives 11', '7%', '', ''],
-                    ['KRA4', '21%', 'Objectives 12', '7%', '', ''],
-                    ['', '', 'Objectives 13', '7%', '', ''],
-                    ['', '', 'Objectives 14', '7%', '', ''],
-                    ['PLUS FACTOR', '2%', 'Objectives 15', '2%', '', ''],
-                ],
-                theme: 'grid',
-                styles: { fontSize: 10, halign: 'center' },
-            });
-
-             // Final Performance Section
-            doc.setFontSize(12);
-            doc.setTextColor(0, 128, 0); // Set green color for this section
-            doc.text("FINAL PERFORMANCE RESULTS", 10, doc.autoTable.previous.finalY + 10);
-            doc.setFontSize(10);
-            doc.text(`FINAL RATING: ${teacher_data.rating ? teacher_data.rating.evaluator_rating : 'N/A'}`, 10, doc.autoTable.previous.finalY + 30);
-            doc.text(`ADJECTIVAL RATING: ${teacher_data.rating ? getRating(teacher_data.rating.evaluator_rating) : 'N/A'} `, 10, doc.autoTable.previous.finalY + 40);
-
-           // Signature Section
-            doc.setFontSize(10); // Slightly reduce font size
-            doc.setTextColor(0); // Reset to black
-
-            const startY = doc.autoTable.previous.finalY + 50; // Adjust Y position
-            const signatureY = startY + 10; // Increase spacing for clarity
-
-            doc.text(`Ratee: ${teacher_data.teacher.fullname}`, 30, signatureY);
-            doc.text(`Rater: ${teacher_data.rater ? teacher_data.rater.fullname : 'N/A'} `, 90, signatureY); // Adjust horizontal position
-            doc.text("Approving Authority: __________________", 140, signatureY); // Adjust horizontal position
-
-
-
-            // Save PDF
-            doc.save("IPCRF_Summary_Sheet.pdf");
-        }
-    </script>
     <script> 
         // Modal logic
         const logoutButton = document.getElementById('logoutLink');  // Logout button

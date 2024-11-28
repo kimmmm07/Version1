@@ -384,3 +384,24 @@ table + .ipcrf-rating {
     border: 1px solid #082F96 !important;
     font-weight: 700;
 }
+
+.comparison-button {
+    text-align: center; /* Aligns the button to the right */
+    margin-top: 20px; /* Optional: Adds some space above the button */
+}
+
+.comparison-button button {
+    background-color: #082F96; /* Custom blue color */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.comparison-button button:hover {
+    background-color: #061F66; /* Darker shade of the custom blue on hover */
+}
