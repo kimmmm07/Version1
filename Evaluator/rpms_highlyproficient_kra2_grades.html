@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPMS Highly Proficient Grades</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="rpms_highlyproficient_kra_grades.css">
+</head>
+<body>
+    <!-- Sidebar --> 
+    <div class="sidebar">
+        <div class="sidebar-icon" id="menu-icon">
+            <a href="#"><img src="Menu.png" alt="Menu Icon" /></a>
+        </div> 
+        <div class="sidebar-icon active">
+            <a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon" /></a>
+        </div>
+        <div class="sidebar-icon">
+            <a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon" /></a>
+        </div>
+    </div>
+
+<!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+    <div class="menu-header">
+        <!-- Close button -->
+        <button class="close-btn" onclick="closeMenu()">✖</button>
+    </div>
+    <ul>
+        <li><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
+        <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
+        <hr class="menu-divider">
+    </ul>
+</div>
+
+    <!-- Floating Menu -->
+<div class="floating-menu" id="floating-menu">
+    <div class="menu-header">
+        <!-- Close button -->
+        <button class="close-btn" onclick="closeMenu()">✖</button>
+    </div>
+    <ul>
+        <li><a href="rpms_highlyproficient_homepage.html"><img src="Home.png" alt="Home Icon"/> Home</a></li>
+        <li><a href="rpms_setting.html"><img src="Settings.png" alt="Settings Icon"/> Setting</a></li>
+        <!-- Horizontal line between Setting and School Year -->
+        <hr class="menu-divider">
+        <!-- <li><a href="rpms_highlyproficient_stream.html"><span class="sy-circle">SY</span> School Year 2023–2024</a></li> -->
+    </ul>
+</div>
+
+    <!-- Header Section -->
+    <header>
+        <div>
+            <img src="DepEd_01.png" alt="DepED Logo">
+        </div>
+        <nav>
+            <a href="evaluator_dashboard.html"><img src="House_01.png" alt="Home">Home</a>
+            <a href="highlyproficient_form.html" class="active"><img src="Documents.png" alt="Forms">Forms</a>
+            <a href="rpms_highlyproficient_records.html"><img src="Folders.png" alt="Records">Records</a>
+            <a href="evaluator_summary.html"><img src="Chart_Pie.png" alt="Summary">Summary</a>
+            <a href="evaluator_profile.html"><img src="User_01.png" alt="Profile">Profile</a>
+            <a href="#" id="logoutLink" style="color: #d00000; font-weight: bold;"><img src="Log_Out.png" alt="Logout">Logout</a>
+        </nav>
+    </header>
+
+<div class="breadcrumb" id="breadcrumb">
+    <a href="rpms_highlyproficient_stream.html" class="back-link"><span><b>← Results-Based Performance Management System (RPMS)</b></span></a>
+</div>
+
+<br>
+<div class="tabs" id="tabs">
+    <a href="rpms_highlyproficient_kra1.html" class="tab" id="instructions-tab">Instructions</a>
+    <a href="rpms_highlyproficient_tw_kra1.html" class="tab" id="teacher-work-tab">Teacher work</a>
+    <a href="rpms_highlyproficient_kra1_grades.html" class="tab active">Grades</a>
+</div>
+
+<br>
+<div class="top-bar"></div>
+
+<main>
+    <table id="grades-table">
+        <tr>
+            <th rowspan="1" id="objective5Title">Objective 5</th>
+            <th rowspan="1" id="objective6Title">Objective 6</th>
+            <th rowspan="1" id="objective7Title">Objective 7</th>
+            <th rowspan="1" id="objective8Title">Objective 8</th>           
+        </tr>
+        <tr>
+            <td class="highlight" id="objective5Score"><span id="objective5">/7</span></td>
+            <td class="highlight" id="objective6Score"><span id="objective6">/7</span></td>
+            <td class="highlight" id="objective7Score"><span id="objective7">/7</span></td>
+            <td class="highlight" id="objective8Score"><span id="objective7">/7</span></td>
+        
+            <td class="highlight" id="kra2totalScore"><span id="kra2total-score">/28</span></td>
+        </tr>
+    </table>
+</main>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+        <div class="modal-content">
+            <p>Are you sure you want to logout?</p>
+            <div class="modal-buttons">
+                <button class="yes-btn">Yes</button>
+                <button class="no-btn">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="rpms_highlyproficient_kra_grades.js"></script>
+</body>
+</html>
