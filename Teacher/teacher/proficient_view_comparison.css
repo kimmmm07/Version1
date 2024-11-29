@@ -540,3 +540,23 @@ label {
     border: 1px solid #082F96 !important;
     font-weight: 700;
 }
+
+.back-button {
+    margin-right: 450px;
+    margin-top: 20px; /* Optional: Adds some space above the button */
+}
+
+.back-button button {
+    background-color: #082F96; /* Custom blue color */
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.back-button button:hover {
+    background-color: #061F66; /* Darker shade of the custom blue on hover */
+}
