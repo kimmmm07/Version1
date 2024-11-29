@@ -547,7 +547,7 @@ label {
 }
 
 .back-button button {
-    background-color: #082F96; /* Custom blue color */
+    background-color: #159633; /* Custom blue color */
     border: none;
     color: white;
     width: 90px;
@@ -561,5 +561,5 @@ label {
 }
 
 .back-button button:hover {
-    background-color: #061F66; /* Darker shade of the custom blue on hover */
+    background-color: #0a7e25; /* Darker shade of the custom blue on hover */
 }
