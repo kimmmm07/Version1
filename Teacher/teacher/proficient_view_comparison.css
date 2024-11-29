@@ -550,9 +550,12 @@ label {
     background-color: #082F96; /* Custom blue color */
     border: none;
     color: white;
-    padding: 10px 10px;
-    font-size: 12px;
+    width: 90px;
+    padding: 6px 8px;
+    font-size: 15px;
     cursor: pointer;
+    margin-top: 30px;
+    margin-left: 33%;
     border-radius: 25px;
     transition: background-color 0.3s;
 }
