@@ -37,6 +37,16 @@ const submissionModalTitle = document.getElementById('submissionModalTitle');
 const class_work_id = sessionStorage.getItem('plus_factor_id');
 console.log(class_work_id);
 
+// Stepper Item 1 Elements
+const stepItem = document.getElementById('step-item');
+const stepCounter = document.getElementById('step-counter');
+const stepName = document.getElementById('step-name');
+
+// Stepper Item 15 Elements
+const stepItem15 = document.getElementById('step-item15');
+const stepCounter15 = document.getElementById('step-counter15');
+const stepName15 = document.getElementById('step-name15');
+
 
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
@@ -48,15 +58,24 @@ function closeMenu() {
 document.getElementById('floating-menu').style.display = 'none';
 }
 
-const fileInput = document.getElementById('fileInput');
-const addCreateBtn = document.getElementById('addCreateBtn');
-const turnInBtn = document.getElementById('turnInBtn');
+// Objective 15 Elements
+const overallScore15 = document.getElementById('overall-score15');
+const reflectedScore15 = document.getElementById('reflected-score15');
+const fileList15 = document.getElementById('fileList15');
+const fileInput15 = document.getElementById('fileInput15');
+const addCreateBtn15 = document.getElementById('addCreateBtn15');
+const turnInBtn15 = document.getElementById('turnInBtn15');
+
+// Total Score Elements (Plus Factor)
+const overallScorePlusFactor = document.getElementById('overall-score-plusfactor');
+const reflectedScorePlusFactor = document.getElementById('reflected-score-plusfactor');
+
 const unsubmitBtn = document.createElement('button'); // Create Unsubmit button dynamically
 unsubmitBtn.classList.add('btn-secondary'); // Add class for styling
 unsubmitBtn.textContent = 'Unsubmit'; // Set button text
 unsubmitBtn.style.display = 'none'; // Hide it initially
 document.querySelector('.turn-in-panel').appendChild(unsubmitBtn); // Append it to the panel
-const fileList = document.getElementById('fileList');
+
 const fileModal = document.getElementById('fileModal');
 const modalBody = document.getElementById('modalBody');
 const submitCommentBtn = document.getElementById('submitCommentBtn');

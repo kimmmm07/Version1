@@ -37,6 +37,25 @@ const submissionModalTitle = document.getElementById('submissionModalTitle');
 const class_work_id = sessionStorage.getItem('kra_1_id');
 console.log(class_work_id);
 
+// Stepper Item 1 Elements
+const stepItem1 = document.getElementById('step-item1');
+const stepCounter1 = document.getElementById('step-counter1');
+const stepName1 = document.getElementById('step-name1');
+
+// Stepper Item 2 Elements
+const stepItem2 = document.getElementById('step-item2');
+const stepCounter2 = document.getElementById('step-counter2');
+const stepName2 = document.getElementById('step-name2');
+
+// Stepper Item 3 Elements
+const stepItem3 = document.getElementById('step-item3');
+const stepCounter3 = document.getElementById('step-counter3');
+const stepName3 = document.getElementById('step-name3');
+
+// Stepper Item 4 Elements
+const stepItem4 = document.getElementById('step-item4');
+const stepCounter4 = document.getElementById('step-counter4');
+const stepName4 = document.getElementById('step-name4');
 
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
@@ -48,15 +67,47 @@ function closeMenu() {
 document.getElementById('floating-menu').style.display = 'none';
 }
 
-const fileInput = document.getElementById('fileInput');
-const addCreateBtn = document.getElementById('addCreateBtn');
-const turnInBtn = document.getElementById('turnInBtn');
+// Objective 1 Elements
+const overallScore1 = document.getElementById('overall-score1');
+const reflectedScore1 = document.getElementById('reflected-score1');
+const fileList1 = document.getElementById('fileList1');
+const fileInput1 = document.getElementById('fileInput1');
+const addCreateBtn1 = document.getElementById('addCreateBtn1');
+const turnInBtn1 = document.getElementById('turnInBtn1');
+
+// Objective 2 Elements
+const overallScore2 = document.getElementById('overall-score2');
+const reflectedScore2 = document.getElementById('reflected-score2');
+const fileList2 = document.getElementById('fileList2');
+const fileInput2 = document.getElementById('fileInput2');
+const addCreateBtn2 = document.getElementById('addCreateBtn2');
+const turnInBtn2 = document.getElementById('turnInBtn2');
+
+// Objective 3 Elements
+const overallScore3 = document.getElementById('overall-score3');
+const reflectedScore3 = document.getElementById('reflected-score3');
+const fileList3 = document.getElementById('fileList3');
+const fileInput3 = document.getElementById('fileInput3');
+const addCreateBtn3 = document.getElementById('addCreateBtn3');
+const turnInBtn3 = document.getElementById('turnInBtn3');
+
+// Objective 4 Elements
+const overallScore4 = document.getElementById('overall-score4');
+const reflectedScore4 = document.getElementById('reflected-score4');
+const fileList4 = document.getElementById('fileList4');
+const fileInput4 = document.getElementById('fileInput4');
+const addCreateBtn4 = document.getElementById('addCreateBtn4');
+const turnInBtn4 = document.getElementById('turnInBtn4');
+
+// Total Score Elements
+const overallScoreKRA1 = document.getElementById('overall-score-kra1');
+const reflectedScoreKRA1 = document.getElementById('reflected-score-kra1');
+
 const unsubmitBtn = document.createElement('button'); // Create Unsubmit button dynamically
 unsubmitBtn.classList.add('btn-secondary'); // Add class for styling
 unsubmitBtn.textContent = 'Unsubmit'; // Set button text
 unsubmitBtn.style.display = 'none'; // Hide it initially
 document.querySelector('.turn-in-panel').appendChild(unsubmitBtn); // Append it to the panel
-const fileList = document.getElementById('fileList');
 const fileModal = document.getElementById('fileModal');
 const modalBody = document.getElementById('modalBody');
 const submitCommentBtn = document.getElementById('submitCommentBtn');
