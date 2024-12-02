@@ -112,6 +112,12 @@ yesButton.addEventListener('click', async function() {
 
 
 
+// Status Icon
+const kra1Status = document.getElementById("kra1Status");
+const kra2Status = document.getElementById("kra2Status");
+const kra3Status = document.getElementById("kra3Status");
+const kra4Status = document.getElementById("kra4Status");
+const plusfactorStatus = document.getElementById("plusfactorStatus");
 
 
 
