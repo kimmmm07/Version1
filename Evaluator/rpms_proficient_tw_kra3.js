@@ -55,6 +55,22 @@ function toggleStatus() {
     }
 }
 
+// Stepper Item 9 Elements
+const stepItem9 = document.getElementById('step-item9');
+const stepCounter9 = document.getElementById('step-counter9');
+const stepName9 = document.getElementById('step-name9');
+
+// Stepper Item 10 Elements
+const stepItem10 = document.getElementById('step-item10');
+const stepCounter10 = document.getElementById('step-counter10');
+const stepName10 = document.getElementById('step-name10');
+
+// Stepper Item 11 Elements
+const stepItem11 = document.getElementById('step-item11');
+const stepCounter11 = document.getElementById('step-counter11');
+const stepName11 = document.getElementById('step-name11');
+
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');
