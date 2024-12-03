@@ -107,6 +107,7 @@ document.querySelectorAll('#records-tbody tr').forEach(row => {
 
 
 
+
 function clickToRate( employee_id ){
     sessionStorage.setItem('teacher_id', employee_id);
     window.location.href = 'evaluator_IPCRF_HighlyProficient_EPart1.html';
@@ -132,7 +133,7 @@ function addRecord(record) {
         <td>${teacher.grade_level}</td>
         <td>${ipcrf.rater ?? "Waiting To Be Rated"}</td>
         <td class="status ${ipcrf.is_checked ? "submitted" : "pending"}">${ipcrf.is_checked ? "Submitted" : "Pending"}</td>
-        <td><a onclick="clickToRate(${teacher.employee_id})" class="review" style="cursor: pointer; text-decoration: none;">Review</a></td>
+        <td><a ${ ipcrf.is_checked ? `onclick="clickToRate(${teacher.employee_id})"` : ""} style="cursor: pointer; text-decoration: none; ${ ipcrf.is_checked ? "" : "color: gray;"}">Review</a></td>
     `;
     tbody.appendChild(tr);
 }
