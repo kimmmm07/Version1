@@ -82,6 +82,15 @@ const teacherRating = document.getElementById("teacher-rating");
 const evaluatorAverageScore = document.getElementById("evaluator-average-score");
 const evaluatorRating = document.getElementById("evaluator-rating");
 
+// Function to get adjectival rating based on average score
+function getRating(averageScore) {
+    if (averageScore >= 4.500) return "Outstanding";
+    if (averageScore >= 3.500) return "Very Satisfactory";
+    if (averageScore >= 2.500) return "Satisfactory";
+    if (averageScore >= 1.500) return "Unsatisfactory";
+    return "Poor"; // below 1.499
+}
+
 let ipcrf_content = undefined;
 
 async function getIPCRF(){
@@ -229,6 +238,13 @@ async function getIPCRF(){
             evaluatorEfficiency15.innerHTML = `<input type="radio"   value="5" checked disabled>
             ${e_con5["15"]["EFFICIENCY"]["Rate"]} - ${e_con5["15"]["EFFICIENCY"][e_con5["15"]["EFFICIENCY"]["Rate"]]}`;
  
+
+            teacherAverageScore.textContent = ipcrf.rating.toFixed(2);
+            teacherRating.textContent = getRating(ipcrf.rating);
+
+
+            teacherAverageScore.textContent = ipcrf.rating.toFixed(2);
+            teacherRating.textContent = getRating(ipcrf.rating);
 
 
 
