@@ -668,13 +668,14 @@ async function updateIPCRF1(){
         teacher_content['Learning Environment & Diversity of Learners']['8']["QUALITY"]["Rate"] = getRateQuality8();
         teacher_content['Curriculum and Planning & Assessment and Reporting']['9']["QUALITY"]["Rate"] = getRateQuality9();
         teacher_content['Curriculum and Planning & Assessment and Reporting']['9']["TIMELINESS"]["Rate"] = getRateTimeliness9();
+        teacher_content['Curriculum and Planning & Assessment and Reporting']['10']["EFFICIENCY"]["Rate"] = getRateEfficiency10();
         teacher_content['Curriculum and Planning & Assessment and Reporting']['11']["QUALITY"]["Rate"] = getRateQuality11();
         teacher_content['Curriculum and Planning & Assessment and Reporting']['11']["TIMELINES"]["Rate"] = getRateTimeliness11();
         teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']["QUALITY"]["Rate"] = getRateQuality12();
         teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']["TIMELINES"]["Rate"] = getRateTimeliness12();
         teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']["QUALITY"]["Rate"] = getRateQuality13();
         teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']["TIMELINES"]["Rate"] = getRateTimeliness13();
-        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["QUALITY"]["Rate"] = getRateEfficiency4();
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["QUALITY"]["Rate"] = getRateQuality14();
         teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["EFFICIENCY"]["Rate"] = getRateEfficiency14();
         teacher_content['PLUS FACTOR']['15']["QUALITY"]["Rate"] = getRateQuality15();
         teacher_content['PLUS FACTOR']['15']["EFFICIENCY"]["Rate"] = getRateEfficiency15();

@@ -842,12 +842,10 @@ async function getIPCRF() {
             Quality14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
             ${con4["14"]["QUALITY"]["Rate"]} - ${con4["14"]["QUALITY"][con4["14"]["QUALITY"]["Rate"]]}`; 
             Efficiency14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con5["14"]["EFFICIENCY"]["Rate"]} - ${con5["14"]["EFFICIENCY"][con5["14"]["EFFICIENCY"]["Rate"]]}`;
-            Timeliness14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con5["14"]["TIMELINES"]["Rate"]} - ${con5["14"]["TIMELINES"][con5["14"]["TIMELINES"]["Rate"]]}`;
+            ${con4["14"]["EFFICIENCY"]["Rate"]} - ${con4["14"]["EFFICIENCY"][con4["14"]["EFFICIENCY"]["Rate"]]}`;
 
             Quality15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con4["15"]["QUALITY"]["Rate"]} - ${con4["15"]["QUALITY"][con4["15"]["QUALITY"]["Rate"]]}`; 
+            ${con4["15"]["QUALITY"]["Rate"]} - ${con5["15"]["QUALITY"][con5["15"]["QUALITY"]["Rate"]]}`; 
             Efficiency15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
             ${con5["15"]["EFFICIENCY"]["Rate"]} - ${con5["15"]["EFFICIENCY"][con5["15"]["EFFICIENCY"]["Rate"]]}`;
             Timeliness15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
@@ -889,7 +887,7 @@ async function updateIPCRF() {
         content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']["TIMELINES"]["Rate"] = getRateTimeliness12();
         content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']["QUALITY"]["Rate"] = getRateQuality13();
         content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']["TIMELINES"]["Rate"] = getRateTimeliness13();
-        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["QUALITY"]["Rate"] = getRateEfficiency4();
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["QUALITY"]["Rate"] = getRateQuality14();
         content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["EFFICIENCY"]["Rate"] = getRateEfficiency14();
         content['PLUS FACTOR']['15']["QUALITY"]["Rate"] = getRateQuality15();
         content['PLUS FACTOR']['15']["EFFICIENCY"]["Rate"] = getRateEfficiency15();
