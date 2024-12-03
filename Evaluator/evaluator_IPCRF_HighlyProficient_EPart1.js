@@ -802,6 +802,8 @@ async function getIPCRF() {
  
             Efficiency1_5.innerHTML = `<input type="radio"   value="5" checked disabled>  
             ${con1["1"]["EFFICIENCY"]["Rate"]} - ${con1["1"]["EFFICIENCY"][con1["1"]["EFFICIENCY"]["Rate"]]}`;
+            Quality2_5.innerHTML = `<input type="radio"  value="5" checked disabled>  
+            ${con1["2"]["QUALITY"]["Rate"]} - ${con1["2"]["QUALITY"][con1["2"]["QUALITY"]["Rate"]]}`;
             Timeliness2_5.innerHTML = `<input type="radio"  value="5" checked disabled>  
             ${con1["2"]["TIMELINESS"]["Rate"]} - ${con1["2"]["TIMELINESS"][con1["2"]["TIMELINESS"]["Rate"]]}`;
             Efficiency3_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
@@ -895,7 +897,10 @@ async function updateIPCRF() {
         let content = ipcrf['content_for_evaluator']
                 
         content['Content Knowledge and Pedagogy']['1']['EFFICIENCY']['Rate'] = Efficiency1_5_result();
+
         content['Content Knowledge and Pedagogy']['2']['QUALITY']['Rate'] = Quality2_5_result();
+        content['Content Knowledge and Pedagogy']['2']['TIMELINESS']['Rate'] = Timeliness2_5_result();
+
         content['Content Knowledge and Pedagogy']['3']['EFFICIENCY']['Rate'] = getRateEfficiency3();
         content['Content Knowledge and Pedagogy']['4']['EFFICIENCY']['Rate'] = getRateEfficiency4();
 
