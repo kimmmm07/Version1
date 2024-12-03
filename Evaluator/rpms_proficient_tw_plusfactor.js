@@ -172,21 +172,15 @@ async function getTeacherAttachments() {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
-            const teacher = data.teacher;
-            document.getElementById("name").textContent = teacher.fullname; 
-            document.getElementById("name1").textContent = teacher.fullname; 
-            const submitted = data.submitted;
-            if(submitted.length === 0){
-                document.getElementById("attachmentPlusFactor").textContent = '';
-                document.getElementById('status').textContent = 'No Attachment';
-                document.getElementById('attachment-anchor').removeAttribute('href');
-            }
-            if(parseInt(submitted[0]["Overall Score"]) > 0){
-                document.getElementById('plusFactorScore').textContent = String(submitted[0]["Overall Score"]) + " /2"
-            }
+            teacher = data.teacher;
+            submitted = data.submitted?.[0];
             
             console.log(teacher);
             console.log(submitted);
+
+
+
+            
 
         } else {
             console.log("Error Data : ", data);
@@ -195,6 +189,5 @@ async function getTeacherAttachments() {
         console.error("Error during fetch:", error);
     }
 }
-
 
 getTeacherAttachments();
