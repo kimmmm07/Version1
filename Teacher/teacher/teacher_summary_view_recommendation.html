@@ -84,7 +84,7 @@
             <h1 class="tables-comparison-header">Evaluator and Self Evaluation Comparison Score</h1>
             <div class="comparison-button">
                 <a id="comparisonLink">
-                    <button>View Comparison</button>
+                    <button id="comparisonLinkButton">View Comparison</button>
                 </a>                
             </div>
             <div class="tables-comparison">
@@ -286,6 +286,23 @@ async function getReport(){
             document.getElementById('kra4Score').textContent = rating ? rating.kra2_teacher.toFixed(2) : "N/A";
             document.getElementById('plusFactorScore').textContent = rating ? rating.kra2_teacher.toFixed(2) : "N/A";
             
+            const button = document.getElementById("comparisonLink");
+            if (rating.is_checked_by_evaluator){ 
+                button.addEventListener("click", function() {
+                    if (profile_teacher?.is_proficient){
+                        window.location.href = 'proficient_view_comparison.html'; // Pag proffient 
+                    } else { 
+                        window.location.href = 'hp_view_comparison.html'; // pag hindi proficient
+                    }
+                });
+            } else {
+                document.getElementById("comparisonLinkButton").style.opacity  = "0.5";
+                document.getElementById("comparisonLinkButton").style.pointerEvents = "none"; 
+                document.getElementById("comparisonLinkButton").style.cursor = "not-allowed";
+                document.getElementById("comparisonLinkButton").style.backgroundColor = "gray";
+            }
+
+
             
 
         } else {
@@ -301,15 +318,7 @@ getReport();
 
 
 
-
-document.getElementById("comparisonLink").addEventListener("click", function() {
-    if (profile_teacher?.is_proficient){
-        window.location.href = 'proficient_view_comparison.html'; // Pag proffient 
-    } else { 
-        window.location.href = 'hp_view_comparison.html'; // pag hindi proficient
-    }
-});
-
+ 
 
 const generateReport = document.getElementById("generateReport");
 
