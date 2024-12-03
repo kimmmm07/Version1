@@ -83,7 +83,7 @@
 
             <h1 class="tables-comparison-header">Evaluator and Self Evaluation Comparison Score</h1>
             <div class="comparison-button">
-                <a href="proficient_view_comparison.html">
+                <a id="comparisonLink">
                     <button>View Comparison</button>
                 </a>                
             </div>
@@ -216,6 +216,8 @@
 
 });
 
+let profile_teacher = undefined;
+
 window.addEventListener('load', async function () {
     const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/profile/',
         {
@@ -227,6 +229,7 @@ window.addEventListener('load', async function () {
     const data = await response.json();
     if (response.ok) {
         console.log("Success Data : ",data);
+        profile_teacher = data.user;
         const teacherData = data.user;
 
         // Populate the profile details
@@ -238,6 +241,10 @@ window.addEventListener('load', async function () {
     }
       
 });
+
+
+
+
 
 
 let teacher_data = undefined;
@@ -292,6 +299,16 @@ async function getReport(){
 
 getReport();
 
+
+
+
+document.getElementById("comparisonLink").addEventListener("click", function() {
+    if (profile_teacher?.is_proficient){
+        window.location.href = 'proficient_view_comparison.html'; // Pag proffient 
+    } else { 
+        window.location.href = 'dsfsdf.html'; // pag hindi proficient
+    }
+});
 
 
 
