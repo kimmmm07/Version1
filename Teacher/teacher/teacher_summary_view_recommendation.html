@@ -55,7 +55,7 @@
             </select>
         
             <div class="report-button">
-                <button onclick="generatePDF()">Generate Report</button>
+                <button id="generateReport">Generate Report</button>
             </div>          
 
             <table>
@@ -311,8 +311,31 @@ document.getElementById("comparisonLink").addEventListener("click", function() {
 });
 
 
+const generateReport = document.getElementById("generateReport");
 
-
+generateReport.addEventListener('click', function() {
+    // Generate report logic here
+    // school/generate/report/
+    fetch('https://bnahs.pythonanywhere.com/api/teacher/download/summary/report', {
+        method: 'POST',
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+        },
+        credentials: 'include',
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'school_report.pdf';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+    })
+    .catch(error => console.error('Error:', error));
+});
 
         </script>
 </body>
