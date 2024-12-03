@@ -882,7 +882,7 @@ async function updateIPCRF() {
         content['Learning Environment & Diversity of Learners']['8']["QUALITY"]["Rate"] = getRateQuality8();
         content['Curriculum and Planning & Assessment and Reporting']['9']["QUALITY"]["Rate"] = getRateQuality9();
         content['Curriculum and Planning & Assessment and Reporting']['9']["TIMELINESS"]["Rate"] = getRateTimeliness9();
-        content['Curriculum and Planning & Assessment and Reporting']['10']["EFFICIENCY"]["Rate"] = getRateEfficiency11();
+        content['Curriculum and Planning & Assessment and Reporting']['10']["EFFICIENCY"]["Rate"] = getRateEfficiency10();
         content['Curriculum and Planning & Assessment and Reporting']['11']["QUALITY"]["Rate"] = getRateQuality11();
         content['Curriculum and Planning & Assessment and Reporting']['11']["TIMELINES"]["Rate"] = getRateTimeliness11();
         content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']["QUALITY"]["Rate"] = getRateQuality12();
