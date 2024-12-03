@@ -845,7 +845,7 @@ async function getIPCRF() {
             ${con4["14"]["EFFICIENCY"]["Rate"]} - ${con4["14"]["EFFICIENCY"][con4["14"]["EFFICIENCY"]["Rate"]]}`;
 
             Quality15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con4["15"]["QUALITY"]["Rate"]} - ${con5["15"]["QUALITY"][con5["15"]["QUALITY"]["Rate"]]}`; 
+            ${con5["15"]["QUALITY"]["Rate"]} - ${con5["15"]["QUALITY"][con5["15"]["QUALITY"]["Rate"]]}`; 
             Efficiency15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
             ${con5["15"]["EFFICIENCY"]["Rate"]} - ${con5["15"]["EFFICIENCY"][con5["15"]["EFFICIENCY"]["Rate"]]}`;
             Timeliness15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
