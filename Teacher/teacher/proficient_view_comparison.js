@@ -69,7 +69,7 @@ const evaluatorQuality14 = document.getElementById("EvaluatorQuality14_5");
 const efficiency14Self = document.getElementById("TeacherEfficiency14_5");
 const evaluatorEfficiency14 = document.getElementById("EvaluatorEfficiency14_5");
 
-const timeliness14Self = document.getElementById("Timeliness14_5");
+const timeliness14Self = document.getElementById("TeacherTimeliness14_5");
 const evaluatorTimeliness14 = document.getElementById("EvaluatorTimeliness14_5");
 
 // PLUS FACTOR Objective 15 Variables
@@ -258,12 +258,12 @@ async function getIPCRF(){
  
 
 
-            teacherAverageScore.textContent = ipcrf.rating.toFixed(2);
-            teacherRating.textContent = getRating(ipcrf.rating);
+            teacherAverageScore.textContent = ipcrf_content.rating.toFixed(2);
+            teacherRating.textContent = getRating(ipcrf_content.rating);
 
 
-            teacherAverageScore.textContent = ipcrf.rating.toFixed(2);
-            teacherRating.textContent = getRating(ipcrf.rating);
+            evaluatorAverageScore.textContent = ipcrf_content.evaluator_rating.toFixed(2);
+            evaluatorRating.textContent = getRating(ipcrf_content.evaluator_rating);
 
 
         } else {
