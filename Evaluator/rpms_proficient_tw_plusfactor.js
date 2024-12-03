@@ -131,7 +131,7 @@ yesButton.addEventListener('click', async function() {
 
 
 
-
+const objective15_item = document.getElementById('objective15-item');
 
 
 // Get the element by its ID
@@ -179,8 +179,19 @@ async function getTeacherAttachments() {
             console.log(submitted);
 
 
+            objective15_item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
+            objective15_item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
+            objective15_item.addEventListener("click", () => {
+                if (submitted?.is_submitted) {
+                    window.location.href = "rpms_proficient_attachment_objective15.html";
+                } 
+            })
 
-            
+            if (submitted?.file_is_checked) {
+                stepItem.classList.add('completed');
+                stepItem15.classList.add('completed');
+            }
+
 
         } else {
             console.log("Error Data : ", data);
