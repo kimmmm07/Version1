@@ -120,6 +120,11 @@ function addRecord(record) {
         is_open = false;
     } else {
         status = "Pending"
+
+    }
+
+    if (!ipcrf.is_checked){
+        is_open = false;
     }
 
     const tbody = document.getElementById("ipcrf-tbody");
@@ -132,7 +137,7 @@ function addRecord(record) {
         <td>${teacher.position}</td>
         <td>${teacher.grade_level}</td>
         <td>${ipcrf.rater ?? "Waiting To Be Rated"}</td>
-        <td class="status ${is_open ? "pending" : "submitted"}">${status}</td>
+        <td class="status ${!is_open ? "pending" : "submitted"}">${status}</td>
         <td>
         <a 
             ${is_open ? `onclick="clickToRate(${teacher.employee_id})"` : ""} 
