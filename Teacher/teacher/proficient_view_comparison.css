@@ -407,7 +407,6 @@ label {
     border: none;
     font-size: 35px; 
     border-radius: 5px;
-
     margin-top: 10px; 
     margin-right: -580px;
 }
@@ -424,7 +423,7 @@ label {
     align-items: center;
     justify-content: flex-start;
     margin-top: 10px;
-    
+    gap: 80px !important;
 }
 
 /* Button styling */
