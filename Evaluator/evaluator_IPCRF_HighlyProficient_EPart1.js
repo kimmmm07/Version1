@@ -38,7 +38,7 @@ const efficiency1_5_option = document.getElementById("efficiency1_5_option");
 const efficiency1_3_option = document.getElementById("efficiency1_3_option");
 const efficiency1_1_option = document.getElementById("efficiency1_1_option");
 
-function Efficiency1_5_result(){
+function getRateEfficiency1(){
     if (efficiency1_5_option.checked) {
         return 5;
     } else if (efficiency1_3_option.checked) {
@@ -60,7 +60,7 @@ const quality2_3_option = document.getElementById("quality2_3_option");
 const quality2_2_option = document.getElementById("quality2_2_option");
 const quality2_1_option = document.getElementById("quality2_1_option");
 
-function Quality2_5_result(){
+function getRateQuality2(){
     if (quality2_5_option.checked) {
         return 5;
     } else if (quality2_4_option.checked) {
@@ -84,7 +84,7 @@ const timeliness2_3_option = document.getElementById("timeliness2_3_option");
 const timeliness2_2_option = document.getElementById("timeliness2_2_option");
 const timeliness2_1_option = document.getElementById("timeliness2_1_option");
 
-function Timeliness2_5_result(){
+function getRateTimeliness2(){
     if (timeliness2_5_option.checked) {
         return 5;
     } else if (timeliness2_4_option.checked) {
@@ -106,7 +106,7 @@ const efficiency3_5_option = document.getElementById("efficiency3_5_option");
 const efficiency3_3_option = document.getElementById("efficiency3_3_option");
 const efficiency3_1_option = document.getElementById("efficiency3_1_option");
 
-function Efficiency3_5_result(){
+function getRateEfficiency3(){
     if (efficiency3_5_option.checked) {
         return 5;
     } else if (efficiency3_3_option.checked) {
@@ -119,18 +119,18 @@ function Efficiency3_5_result(){
 }
 
 // KRA 4: Modeled and supported colleagues - Efficiency Ratings
-const Quality4_5 = document.getElementById('Quality2_5');
-const quality4_5_option = document.getElementById("quality4_5_option");
-const quality4_3_option = document.getElementById("quality4_3_option");
-const quality4_1_option = document.getElementById("quality4_1_option");
+const Efficiency4_5 = document.getElementById('Efficiency4_5');
+const efficiency4_5_option = document.getElementById("efficiency4_5_option");
+const efficiency4_3_option = document.getElementById("efficiency4_3_option");
+const efficiency4_1_option = document.getElementById("efficiency4_1_option");
 
 
-function getQuality4_5_result(){
-    if (quality4_5_option.checked) {
+function getRateEfficiency4(){
+    if (efficiency4_5_option.checked) {
         return 5;
-    } else if (quality4_3_option.checked) {
+    } else if (efficiency4_3_option.checked) {
         return 3;
-    } else if (quality4_1_option.checked) {
+    } else if (efficiency4_1_option.checked) {
         return 1;
     } else {
         return 0; // Default case if none are checked
@@ -143,7 +143,7 @@ const efficiency5_5_option = document.getElementById("efficiency5_5_option");
 const efficiency5_3_option = document.getElementById("efficiency5_3_option");
 const efficiency5_1_option = document.getElementById("efficiency5_1_option");
 
-function Efficiency5_5_result(){
+function getRateEfficiency5(){
     if (efficiency5_5_option.checked) {
         return 5;
     } else if (efficiency5_3_option.checked) {
@@ -161,7 +161,7 @@ const efficiency6_5_option = document.getElementById("efficiency6_5_option");
 const efficiency6_3_option = document.getElementById("efficiency6_3_option");
 const efficiency6_1_option = document.getElementById("efficiency6_1_option");
 
-function Efficiency6_5_result(){
+function getRateEfficiency6(){
     if (efficiency6_5_option.checked) {
         return 5;
     } else if (efficiency6_3_option.checked) {
@@ -180,7 +180,7 @@ const efficiency7_3_option = document.getElementById("efficiency7_3_option");
 const efficiency7_1_option = document.getElementById("efficiency7_1_option");
 
 
-function Efficiency7_5_result(){
+function getRateEfficiency7(){
     if (efficiency7_5_option.checked) {
         return 5;
     } else if (efficiency7_3_option.checked) {
@@ -201,7 +201,7 @@ const quality8_2_option = document.getElementById("quality8_2_option");
 const quality8_1_option = document.getElementById("quality8_1_option");
 
 
-function Quality8_5_result(){
+function getRateQuality8(){
     if (quality8_5_option.checked) {
         return 5;
     } else if (quality8_4_option.checked) {
@@ -226,7 +226,7 @@ const quality9_2_option = document.getElementById("quality9_2_option");
 const quality9_1_option = document.getElementById("quality9_1_option");
 
 
-function Quality9_5_result(){
+function getRateQuality9(){
     if (quality9_5_option.checked) {
         return 5;
     } else if (quality9_4_option.checked) {
@@ -251,7 +251,7 @@ const timeliness9_2_option = document.getElementById("timeliness9_2_option");
 const timeliness9_1_option = document.getElementById("timeliness9_1_option");
 
 
-function Timeliness9_5_result(){
+function getRateTimeliness9(){
     if (timeliness9_5_option.checked) {
         return 5;
     } else if (timeliness9_4_option.checked) {
@@ -273,7 +273,7 @@ const efficiency10_5_option = document.getElementById("efficiency10_5_option");
 const efficiency10_3_option = document.getElementById("efficiency10_3_option");
 const efficiency10_1_option = document.getElementById("efficiency10_1_option");
 
-function Efficiency10_5_result(){
+function getRateEfficiency10(){
     if (efficiency10_5_option.checked) {
         return 5;
     } else if (efficiency10_3_option.checked) {
@@ -293,7 +293,7 @@ const quality11_3_option = document.getElementById("quality11_3_option");
 const quality11_2_option = document.getElementById("quality11_2_option");
 const quality11_1_option = document.getElementById("quality11_1_option");
 
-function Quality11_5_result(){
+function getRateQuality11(){
     if (quality11_5_option.checked) {
         return 5;
     } else if (quality11_4_option.checked) {
@@ -318,7 +318,7 @@ const timeliness11_2_option = document.getElementById("timeliness11_2_option");
 const timeliness11_1_option = document.getElementById("timeliness11_1_option");
 
 
-function Timeliness11_5_result(){
+function getRateTimeliness11(){
     if (timeliness11_5_option.checked) {
         return 5;
     } else if (timeliness11_4_option.checked) {
@@ -335,14 +335,14 @@ function Timeliness11_5_result(){
 }
 
 // KRA 4, Objective 12 Variables
-const quality12_5 = document.getElementById('Quality12_5');
+const Quality12_5 = document.getElementById('Quality12_5');
 const quality12_5_option = document.getElementById('quality12_5_option');
 const quality12_4_option = document.getElementById('quality12_4_option');
 const quality12_3_option = document.getElementById('quality12_3_option');
 const quality12_2_option = document.getElementById('quality12_2_option');
 const quality12_1_option = document.getElementById('quality12_1_option');
 
-function Quality12_5_result(){
+function getRateQuality12(){
     if (quality12_5_option.checked) {
         return 5;
     } else if (quality12_4_option.checked) {
@@ -358,14 +358,14 @@ function Quality12_5_result(){
     }
 }
 
-const timeliness12_5 = document.getElementById('Timeliness12_5');
+const Timeliness12_5 = document.getElementById('Timeliness12_5');
 const timeliness12_5_option = document.getElementById('timeliness12_5_option');
 const timeliness12_4_option = document.getElementById('timeliness12_4_option');
 const timeliness12_3_option = document.getElementById('timeliness12_3_option');
 const timeliness12_2_option = document.getElementById('timeliness12_2_option');
 const timeliness12_1_option = document.getElementById('timeliness12_1_option');
 
-function timeliness12_5_result(){
+function getRateTimeliness12(){
     if (timeliness12_5_option.checked) {
         return 5;
     } else if (timeliness12_4_option.checked) {
@@ -382,14 +382,14 @@ function timeliness12_5_result(){
 }
 
 // KRA 4, Objective 13 Variables
-const quality13_5 = document.getElementById('Quality13_5');
+const Quality13_5 = document.getElementById('Quality13_5');
 const quality13_5_option = document.getElementById('quality13_5_option');
 const quality13_4_option = document.getElementById('quality13_4_option');
 const quality13_3_option = document.getElementById('quality13_3_option');
 const quality13_2_option = document.getElementById('quality13_2_option');
 const quality13_1_option = document.getElementById('quality13_1_option');
 
-function Quality13_5_result(){
+function getRateQuality13(){
     if (quality13_5_option.checked) {
         return 5;
     } else if (quality13_4_option.checked) {
@@ -405,14 +405,14 @@ function Quality13_5_result(){
     }
 }
 
-const timeliness13_5 = document.getElementById('Timeliness13_5');
+const Timeliness13_5 = document.getElementById('Timeliness13_5');
 const timeliness13_5_option = document.getElementById('timeliness13_5_option');
 const timeliness13_4_option = document.getElementById('timeliness13_4_option');
 const timeliness13_3_option = document.getElementById('timeliness13_3_option');
 const timeliness13_2_option = document.getElementById('timeliness13_2_option');
 const timeliness13_1_option = document.getElementById('timeliness13_1_option');
 
-function timeliness13_5_result(){
+function getRateTimeliness13(){
     if (timeliness13_5_option.checked) {
         return 5;
     } else if (timeliness13_4_option.checked) {
@@ -429,14 +429,14 @@ function timeliness13_5_result(){
 }
 
 // KRA 4, Objective 14 Variables
-const quality14_5 = document.getElementById('Quality14_5');
+const Quality14_5 = document.getElementById('Quality14_5');
 const quality14_5_option = document.getElementById('quality14_5_option');
 const quality14_4_option = document.getElementById('quality14_4_option');
 const quality14_3_option = document.getElementById('quality14_3_option');
 const quality14_2_option = document.getElementById('quality14_2_option');
 const quality14_1_option = document.getElementById('quality14_1_option');
 
-function quality14_5_result(){
+function getRateQuality14(){
     if (quality14_5_option.checked) {
         return 5;
     } else if (quality14_4_option.checked) {
@@ -452,14 +452,14 @@ function quality14_5_result(){
     }
 }
 
-const efficiency14_5 = document.getElementById('Efficiency14_5');
+const Efficiency14_5 = document.getElementById('Efficiency14_5');
 const efficiency14_5_option = document.getElementById('efficiency14_5_option');
 const efficiency14_4_option = document.getElementById('efficiency14_4_option');
 const efficiency14_3_option = document.getElementById('efficiency14_3_option');
 const efficiency14_2_option = document.getElementById('efficiency14_2_option');
 const efficiency14_1_option = document.getElementById('efficiency14_1_option');
 
-function efficiency14_5_result(){
+function getRateEfficiency14(){
     if (efficiency14_5_option.checked) {
         return 5;
     } else if (efficiency14_4_option.checked) {
@@ -475,14 +475,14 @@ function efficiency14_5_result(){
     }
 }
 
-const timeliness14_5 = document.getElementById('Timeliness14_5');
+const Timeliness14_5 = document.getElementById('Timeliness14_5');
 const timeliness14_5_option = document.getElementById('timeliness14_5_option');
 const timeliness14_4_option = document.getElementById('timeliness14_4_option');
 const timeliness14_3_option = document.getElementById('timeliness14_3_option');
 const timeliness14_2_option = document.getElementById('timeliness14_2_option');
 const timeliness14_1_option = document.getElementById('timeliness14_1_option');
 
-function timeliness14_5_result(){
+function getRateTimeliness14(){
     if (timeliness14_5_option.checked) {
         return 5;
     } else if (timeliness14_4_option.checked) {
@@ -499,14 +499,14 @@ function timeliness14_5_result(){
 }
 
 // PLUS FACTOR Variables
-const quality15_5 = document.getElementById('Quality15_5');
+const Quality15_5 = document.getElementById('Quality15_5');
 const quality15_5_option = document.getElementById('quality15_5_option');
 const quality15_4_option = document.getElementById('quality15_4_option');
 const quality15_3_option = document.getElementById('quality15_3_option');
 const quality15_2_option = document.getElementById('quality15_2_option');
 const quality15_1_option = document.getElementById('quality15_1_option');
 
-function quality15_5_result(){
+function getRateQuality15(){
     if (quality15_5_option.checked) {
         return 5;
     } else if (quality15_4_option.checked) {
@@ -522,14 +522,14 @@ function quality15_5_result(){
     }
 }
 
-const efficiency15_5 = document.getElementById('Efficiency15_5');
+const Efficiency15_5 = document.getElementById('Efficiency15_5');
 const efficiency15_5_option = document.getElementById('efficiency15_5_option');
 const efficiency15_4_option = document.getElementById('efficiency15_4_option');
 const efficiency15_3_option = document.getElementById('efficiency15_3_option');
 const efficiency15_2_option = document.getElementById('efficiency15_2_option');
 const efficiency15_1_option = document.getElementById('efficiency15_1_option');
 
-function efficiency15_5_result(){
+function getRateEfficiency15(){
     if (efficiency15_5_option.checked) {
         return 5;
     } else if (efficiency15_4_option.checked) {
@@ -545,14 +545,14 @@ function efficiency15_5_result(){
     }
 }
 
-const timeliness15_5 = document.getElementById('Timeliness15_5');
+const Timeliness15_5 = document.getElementById('Timeliness15_5');
 const timeliness15_5_option = document.getElementById('timeliness15_5_option');
 const timeliness15_4_option = document.getElementById('timeliness15_4_option');
 const timeliness15_3_option = document.getElementById('timeliness15_3_option');
 const timeliness15_2_option = document.getElementById('timeliness15_2_option');
 const timeliness15_1_option = document.getElementById('timeliness15_1_option');
 
-function timeliness15_5_result(){
+function getRateTimeliness15(){
     if (timeliness15_5_option.checked) {
         return 5;
     } else if (timeliness15_4_option.checked) {
@@ -807,68 +807,52 @@ async function getIPCRF() {
             Timeliness2_5.innerHTML = `<input type="radio"  value="5" checked disabled>  
             ${con1["2"]["TIMELINESS"]["Rate"]} - ${con1["2"]["TIMELINESS"][con1["2"]["TIMELINESS"]["Rate"]]}`;
             Efficiency3_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con1["3"]["EFFICIENCY"]["Rate"]} -
-            ${con1["3"]["EFFICIENCY"][con1["3"]["EFFICIENCY"]["Rate"]]}`;
+            ${con1["3"]["EFFICIENCY"]["Rate"]} - ${con1["3"]["EFFICIENCY"][con1["3"]["EFFICIENCY"]["Rate"]]}`;
             Quality4_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
-            ${con1["4"]["QUALITY"]["Rate"]} -
-            ${con1["4"]["QUALITY"][con1["4"]["QUALITY"]["Rate"]]}`;
-            Efficiency5_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con2["5"]["EFFICIENCY"]["Rate"]} -
-            ${con2["5"]["EFFICIENCY"][con2["5"]["EFFICIENCY"]["Rate"]]}`;
-            Efficiency6_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con2["6"]["EFFICIENCY"]["Rate"]} -
-            ${con2["6"]["EFFICIENCY"][con2["6"]["EFFICIENCY"]["Rate"]]}`;
-            Efficiency7_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
-            ${con2["7"]["EFFICIENCY"]["Rate"]} -
-            ${con2["7"]["EFFICIENCY"][con2["7"]["EFFICIENCY"]["Rate"]]}`;
-            Quality8_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
-            ${con2["8"]["QUALITY"]["Rate"]} -
-            ${con2["8"]["QUALITY"][con2["8"]["QUALITY"]["Rate"]]}`;
-            Quality9_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
-            ${con3["9"]["QUALITY"]["Rate"]} -
-            ${con3["9"]["QUALITY"][con3["9"]["QUALITY"]["Rate"]]}`;
-            Timeliness9_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con3["9"]["TIMELINESS"]["Rate"]} -
-            ${con3["9"]["TIMELINESS"][con3["9"]["TIMELINESS"]["Rate"]]}`;
-            Efficiency10_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con3["10"]["EFFICIENCY"]["Rate"]} -
-            ${con3["10"]["EFFICIENCY"][con3["10"]["EFFICIENCY"]["Rate"]]}`;
-            Quality11_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con3["11"]["QUALITY"]["Rate"]} -
-            ${con3["11"]["QUALITY"][con3["11"]["QUALITY"]["Rate"]]}`;
-            Timeliness11_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
-            ${con3["11"]["TIMELINES"]["Rate"]} -
-            ${con3["11"]["TIMELINES"][con3["11"]["TIMELINES"]["Rate"]]}`; 
-            quality12_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con4["12"]["QUALITY"]["Rate"]} -
-            ${con4["12"]["QUALITY"][con4["12"]["QUALITY"]["Rate"]]}`;
-            timeliness12_5.innerHTML = `<input type="radio" value="5" checked disabled> 
-            ${con4["12"]["TIMELINES"]["Rate"]} -
-            ${con4["12"]["TIMELINES"][con4["12"]["TIMELINES"]["Rate"]]}`;
-            quality13_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con4["13"]["QUALITY"]["Rate"]} -
-            ${con4["13"]["QUALITY"][con4["13"]["QUALITY"]["Rate"]]}`;
-            timeliness13_5.innerHTML = `<input type="radio"  _5" value="5" checked disabled> 
-            ${con4["13"]["TIMELINES"]["Rate"]} -
-            ${con4["13"]["TIMELINES"][con4["13"]["TIMELINES"]["Rate"]]}`;
-            quality14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con4["14"]["QUALITY"]["Rate"]} -
-            ${con4["14"]["QUALITY"][con4["14"]["QUALITY"]["Rate"]]}`; 
-            quality15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con5["15"]["QUALITY"]["Rate"]} -
-            ${con5["15"]["QUALITY"][con5["15"]["QUALITY"]["Rate"]]}`;
-            efficiency15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con5["15"]["EFFICIENCY"]["Rate"]} -
-            ${con5["15"]["EFFICIENCY"][con5["15"]["EFFICIENCY"]["Rate"]]}`;
-            timeliness15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con5["15"]["TIMELINES"]["Rate"]} - ${con5["15"]["TIMELINES"][con5["15"]["TIMELINES"]["Rate"]]}`;
-            efficiency14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
-            ${con4["14"]["EFFICIENCY"]["Rate"]} -
-            ${con4["14"]["EFFICIENCY"][con4["14"]["EFFICIENCY"]["Rate"]]}`;
- 
+            ${con1["4"]["EFFICIENCY"]["Rate"]} - ${con1["4"]["EFFICIENCY"][con1["4"]["EFFICIENCY"]["Rate"]]}`;
             
-            Quality2_5.innerHTML = `<input type="radio" checked disabled>  
-            ${con1["2"]["QUALITY"]["Rate"]} - ${con1["1"]["QUALITY"][con1["2"]["QUALITY"]["Rate"]]}`;
+            Efficiency5_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con2["5"]["EFFICIENCY"]["Rate"]} - ${con2["5"]["EFFICIENCY"][con2["5"]["EFFICIENCY"]["Rate"]]}`;
+            Efficiency6_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con2["6"]["EFFICIENCY"]["Rate"]} - ${con2["6"]["EFFICIENCY"][con2["6"]["EFFICIENCY"]["Rate"]]}`;
+            Efficiency7_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
+            ${con2["7"]["EFFICIENCY"]["Rate"]} - ${con2["7"]["EFFICIENCY"][con2["7"]["EFFICIENCY"]["Rate"]]}`;
+            Quality8_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
+            ${con2["8"]["QUALITY"]["Rate"]} - ${con2["8"]["QUALITY"][con2["8"]["QUALITY"]["Rate"]]}`;
+            
+            Quality9_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
+            ${con3["9"]["QUALITY"]["Rate"]} - ${con3["9"]["QUALITY"][con3["9"]["QUALITY"]["Rate"]]}`;
+            Timeliness9_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con3["9"]["TIMELINESS"]["Rate"]} - ${con3["9"]["TIMELINESS"][con3["9"]["TIMELINESS"]["Rate"]]}`;
+            Efficiency10_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con3["10"]["EFFICIENCY"]["Rate"]} - ${con3["10"]["EFFICIENCY"][con3["10"]["EFFICIENCY"]["Rate"]]}`;
+            Quality11_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con3["11"]["QUALITY"]["Rate"]} - ${con3["11"]["QUALITY"][con3["11"]["QUALITY"]["Rate"]]}`;
+            Timeliness11_5.innerHTML = `<input type="radio"  value="5" checked disabled> 
+            ${con3["11"]["TIMELINES"]["Rate"]} -${con3["11"]["TIMELINES"][con3["11"]["TIMELINES"]["Rate"]]}`; 
+            
+            Quality12_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con4["12"]["QUALITY"]["Rate"]} - ${con4["12"]["QUALITY"][con4["12"]["QUALITY"]["Rate"]]}`;
+            Timeliness12_5.innerHTML = `<input type="radio" value="5" checked disabled> 
+            ${con4["12"]["TIMELINES"]["Rate"]} - ${con4["12"]["TIMELINES"][con4["12"]["TIMELINES"]["Rate"]]}`;
+            Quality13_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con4["13"]["QUALITY"]["Rate"]} - ${con4["13"]["QUALITY"][con4["13"]["QUALITY"]["Rate"]]}`;
+            Timeliness13_5.innerHTML = `<input type="radio"  _5" value="5" checked disabled> 
+            ${con4["13"]["TIMELINES"]["Rate"]} - ${con4["13"]["TIMELINES"][con4["13"]["TIMELINES"]["Rate"]]}`;
+            Quality14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con4["14"]["QUALITY"]["Rate"]} - ${con4["14"]["QUALITY"][con4["14"]["QUALITY"]["Rate"]]}`; 
+            Efficiency14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con5["14"]["EFFICIENCY"]["Rate"]} - ${con5["14"]["EFFICIENCY"][con5["14"]["EFFICIENCY"]["Rate"]]}`;
+            Timeliness14_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con5["14"]["TIMELINES"]["Rate"]} - ${con5["14"]["TIMELINES"][con5["14"]["TIMELINES"]["Rate"]]}`;
+
+            Quality15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con4["15"]["QUALITY"]["Rate"]} - ${con4["15"]["QUALITY"][con4["15"]["QUALITY"]["Rate"]]}`; 
+            Efficiency15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con5["15"]["EFFICIENCY"]["Rate"]} - ${con5["15"]["EFFICIENCY"][con5["15"]["EFFICIENCY"]["Rate"]]}`;
+            Timeliness15_5.innerHTML = `<input type="radio"   value="5" checked disabled> 
+            ${con5["15"]["TIMELINES"]["Rate"]} - ${con5["15"]["TIMELINES"][con5["15"]["TIMELINES"]["Rate"]]}`;
+ 
 
         } else {
             console.log("Error Data : ", ipcrf);
@@ -882,54 +866,36 @@ async function getIPCRF() {
 getIPCRF();
 
 
-
-
-
-
-
-
-
-
-
 async function updateIPCRF() {
     try {
         
         let content = ipcrf['content_for_evaluator']
                 
-        content['Content Knowledge and Pedagogy']['1']['EFFICIENCY']['Rate'] = Efficiency1_5_result();
+        content['Content Knowledge and Pedagogy']['1']["EFFICIENCY"]["Rate"] = getRateEfficiency1();
+        content['Content Knowledge and Pedagogy']['2']["QUALITY"]["Rate"] = getRateQuality2();
+        content['Content Knowledge and Pedagogy']['2']["TIMELINESS"]["Rate"] = getRateTimeliness2();
+        content['Content Knowledge and Pedagogy']['3']["EFFICIENCY"]["Rate"] = getRateEfficiency3();
+        content['Content Knowledge and Pedagogy']['4']["EFFICIENCY"]["Rate"] = getRateEfficiency4();
+        content['Learning Environment & Diversity of Learners']['5']["EFFICIENCY"]["Rate"] = getRateEfficiency5();
+        content['Learning Environment & Diversity of Learners']['6']["EFFICIENCY"]["Rate"] = getRateEfficiency6();
+        content['Learning Environment & Diversity of Learners']['7']["EFFICIENCY"]["Rate"] = getRateEfficiency7();
+        content['Learning Environment & Diversity of Learners']['8']["QUALITY"]["Rate"] = getRateQuality8();
+        content['Curriculum and Planning & Assessment and Reporting']['9']["QUALITY"]["Rate"] = getRateQuality9();
+        content['Curriculum and Planning & Assessment and Reporting']['9']["TIMELINESS"]["Rate"] = getRateTimeliness9();
+        content['Curriculum and Planning & Assessment and Reporting']['10']["EFFICIENCY"]["Rate"] = getRateEfficiency11();
+        content['Curriculum and Planning & Assessment and Reporting']['11']["QUALITY"]["Rate"] = getRateQuality11();
+        content['Curriculum and Planning & Assessment and Reporting']['11']["TIMELINES"]["Rate"] = getRateTimeliness11();
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']["QUALITY"]["Rate"] = getRateQuality12();
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']["TIMELINES"]["Rate"] = getRateTimeliness12();
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']["QUALITY"]["Rate"] = getRateQuality13();
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']["TIMELINES"]["Rate"] = getRateTimeliness13();
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["QUALITY"]["Rate"] = getRateEfficiency4();
+        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["EFFICIENCY"]["Rate"] = getRateEfficiency14();
+        content['PLUS FACTOR']['15']["QUALITY"]["Rate"] = getRateQuality15();
+        content['PLUS FACTOR']['15']["EFFICIENCY"]["Rate"] = getRateEfficiency15();
+        content['PLUS FACTOR']['15']["TIMELINES"]["Rate"] = getRateTimeliness15();
 
-        content['Content Knowledge and Pedagogy']['2']['QUALITY']['Rate'] = Quality2_5_result();
-        content['Content Knowledge and Pedagogy']['2']['TIMELINESS']['Rate'] = Timeliness2_5_result();
 
-        content['Content Knowledge and Pedagogy']['3']['EFFICIENCY']['Rate'] = getRateEfficiency3();
-        content['Content Knowledge and Pedagogy']['4']['EFFICIENCY']['Rate'] = getRateEfficiency4();
-
-        content['Learning Environment & Diversity of Learners']['5']['EFFICIENCY']['Rate'] = getRateEfficiency5();
-        content['Learning Environment & Diversity of Learners']['6']['EFFICIENCY']['Rate'] = getRateEfficiency6();
-        content['Learning Environment & Diversity of Learners']['7']['EFFICIENCY']['Rate'] = getRateEfficiency7();
-        content['Learning Environment & Diversity of Learners']['8']['EFFICIENCY']['Rate'] = getRateEfficiency8();
-
-        content['Curriculum and Planning & Assessment and Reporting']['9']['EFFICIENCY']['Rate'] = getRateEfficiency9();
-        content['Curriculum and Planning & Assessment and Reporting']['9']['QUALITY']['Rate'] = getRateQuality9();
-        
-        content['Curriculum and Planning & Assessment and Reporting']['10']['EFFICIENCY']['Rate'] = getRateEfficiency10();
-
-        content['Curriculum and Planning & Assessment and Reporting']['11']['QUALITY']['Rate'] = getRateQuality11();
-        content['Curriculum and Planning & Assessment and Reporting']['11']['TIMELINES']['Rate'] = getRateTimeliness11();
-
-        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['QUALITY']['Rate'] = getRateQuality12();
-        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['TIMELINES']['Rate'] = getRateTimeliness12();
-
-        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['QUALITY']['Rate'] = getRateQuality13();
-        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['TIMELINES']['Rate'] = getRateTimeliness13();
-
-        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['QUALITY']['Rate'] = getRateQuality14();
-        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['TIMELINES']['Rate'] = getRateTimeliness14();
-        content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['EFFICIENCY']['Rate'] = getRateEfficiency14();
-
-        content['PLUS FACTOR']['15']['EFFICIENCY']['Rate'] = getRateEfficiency15();
-        content['PLUS FACTOR']['15']['TIMELINES']['Rate'] = getRatetimeliness15();
-        content['PLUS FACTOR']['15']['QUALITY']['Rate'] = getRateQuality15();
 
 
         const formData = new FormData();
