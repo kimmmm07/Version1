@@ -490,7 +490,7 @@ const ratingDiv = document.getElementById('rating');
 
 // Buttons
 const backBtn = document.querySelector('.back-btn');
-// const saveButton = document.getElementById('saveButton');
+const saveButton = document.getElementById('saveButton');
 
 
 let kra1 = 0;
@@ -652,49 +652,50 @@ getIPCRF();
 
 
 async function updateIPCRF1(){
-    const formData = new FormData();
-    // formData.append('employee_id', employeeId); 
-    // formData.append('password', password); 
-
-    let teacher_content = ipcrf_content['ipcrf']['content_for_teacher'];
-
-    teacher_content['Content Knowledge and Pedagogy']['1']["EFFICIENCY"]["Rate"] = getRateEfficiency1();
-    teacher_content['Content Knowledge and Pedagogy']['2']["QUALITY"]["Rate"] = getRateQuality2();
-    teacher_content['Content Knowledge and Pedagogy']['2']["TIMELINESS"]["Rate"] = getRateTimeliness2();
-    teacher_content['Content Knowledge and Pedagogy']['3']["EFFICIENCY"]["Rate"] = getRateEfficiency3();
-    teacher_content['Content Knowledge and Pedagogy']['4']["EFFICIENCY"]["Rate"] = getRateEfficiency4();
-    teacher_content['Learning Environment & Diversity of Learners']['5']["EFFICIENCY"]["Rate"] = getRateEfficiency5();
-    teacher_content['Learning Environment & Diversity of Learners']['6']["EFFICIENCY"]["Rate"] = getRateEfficiency6();
-    teacher_content['Learning Environment & Diversity of Learners']['7']["EFFICIENCY"]["Rate"] = getRateEfficiency7();
-    teacher_content['Learning Environment & Diversity of Learners']['8']["QUALITY"]["Rate"] = getRateQuality8();
-    teacher_content['Curriculum and Planning & Assessment and Reporting']['9']["QUALITY"]["Rate"] = getRateQuality9();
-    teacher_content['Curriculum and Planning & Assessment and Reporting']['9']["TIMELINESS"]["Rate"] = getRateTimeliness9();
-    teacher_content['Curriculum and Planning & Assessment and Reporting']['10']["EFFICIENCY"]["Rate"] = getRateEfficiency11();
-    teacher_content['Curriculum and Planning & Assessment and Reporting']['11']["QUALITY"]["Rate"] = getRateQuality11();
-    teacher_content['Curriculum and Planning & Assessment and Reporting']['11']["TIMELINES"]["Rate"] = getRateTimeliness11();
-    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']["QUALITY"]["Rate"] = getRateQuality12();
-    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']["TIMELINES"]["Rate"] = getRateTimeliness12();
-    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']["QUALITY"]["Rate"] = getRateQuality13();
-    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']["TIMELINES"]["Rate"] = getRateTimeliness13();
-    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["QUALITY"]["Rate"] = getRateEfficiency4();
-    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["EFFICIENCY"]["Rate"] = getRateEfficiency14();
-    teacher_content['PLUS FACTOR']['15']["QUALITY"]["Rate"] = getRateQuality15();
-    teacher_content['PLUS FACTOR']['15']["EFFICIENCY"]["Rate"] = getRateEfficiency15();
-    teacher_content['PLUS FACTOR']['15']["TIMELINES"]["Rate"] = getRateTimeliness15();
-
-
-    formData.append('ipcrf_id', ipcrf_content['ipcrf']['connection_to_other']); // TODO: Get from IPCRF
-    formData.append('average_score', averageScore); 
-    formData.append('plus_factor', plusFactor); 
-    formData.append('total_score', totalScore);
-    formData.append('content', JSON.stringify(teacher_content));
-    formData.append('plus_factor_main', plus_factor_main);
-    formData.append('kra1', kra1);
-    formData.append('kra2', kra2);
-    formData.append('kra3', kra3);
-    formData.append('kra4', kra4);
-
     try {
+    
+
+        let teacher_content = ipcrf_content['ipcrf']['content_for_teacher'];
+
+        teacher_content['Content Knowledge and Pedagogy']['1']["EFFICIENCY"]["Rate"] = getRateEfficiency1();
+        teacher_content['Content Knowledge and Pedagogy']['2']["QUALITY"]["Rate"] = getRateQuality2();
+        teacher_content['Content Knowledge and Pedagogy']['2']["TIMELINESS"]["Rate"] = getRateTimeliness2();
+        teacher_content['Content Knowledge and Pedagogy']['3']["EFFICIENCY"]["Rate"] = getRateEfficiency3();
+        teacher_content['Content Knowledge and Pedagogy']['4']["EFFICIENCY"]["Rate"] = getRateEfficiency4();
+        teacher_content['Learning Environment & Diversity of Learners']['5']["EFFICIENCY"]["Rate"] = getRateEfficiency5();
+        teacher_content['Learning Environment & Diversity of Learners']['6']["EFFICIENCY"]["Rate"] = getRateEfficiency6();
+        teacher_content['Learning Environment & Diversity of Learners']['7']["EFFICIENCY"]["Rate"] = getRateEfficiency7();
+        teacher_content['Learning Environment & Diversity of Learners']['8']["QUALITY"]["Rate"] = getRateQuality8();
+        teacher_content['Curriculum and Planning & Assessment and Reporting']['9']["QUALITY"]["Rate"] = getRateQuality9();
+        teacher_content['Curriculum and Planning & Assessment and Reporting']['9']["TIMELINESS"]["Rate"] = getRateTimeliness9();
+        teacher_content['Curriculum and Planning & Assessment and Reporting']['10']["EFFICIENCY"]["Rate"] = getRateEfficiency11();
+        teacher_content['Curriculum and Planning & Assessment and Reporting']['11']["QUALITY"]["Rate"] = getRateQuality11();
+        teacher_content['Curriculum and Planning & Assessment and Reporting']['11']["TIMELINES"]["Rate"] = getRateTimeliness11();
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']["QUALITY"]["Rate"] = getRateQuality12();
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']["TIMELINES"]["Rate"] = getRateTimeliness12();
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']["QUALITY"]["Rate"] = getRateQuality13();
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']["TIMELINES"]["Rate"] = getRateTimeliness13();
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["QUALITY"]["Rate"] = getRateEfficiency4();
+        teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']["EFFICIENCY"]["Rate"] = getRateEfficiency14();
+        teacher_content['PLUS FACTOR']['15']["QUALITY"]["Rate"] = getRateQuality15();
+        teacher_content['PLUS FACTOR']['15']["EFFICIENCY"]["Rate"] = getRateEfficiency15();
+        teacher_content['PLUS FACTOR']['15']["TIMELINES"]["Rate"] = getRateTimeliness15();
+
+        const formData = new FormData();
+        // formData.append('employee_id', employeeId); 
+        // formData.append('password', password); 
+
+        formData.append('ipcrf_id', ipcrf_content['ipcrf']['connection_to_other']); // TODO: Get from IPCRF
+        formData.append('average_score', averageScore); 
+        formData.append('plus_factor', plusFactor); 
+        formData.append('total_score', totalScore);
+        formData.append('content', JSON.stringify(teacher_content));
+        formData.append('plus_factor_main', plus_factor_main);
+        formData.append('kra1', kra1);
+        formData.append('kra2', kra2);
+        formData.append('kra3', kra3);
+        formData.append('kra4', kra4);
+
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/update/ipcrf/part1/', {
             method: 'POST',
             headers: {
@@ -715,6 +716,9 @@ async function updateIPCRF1(){
         console.error("Error during fetch:", error);
     }
 }
+
+
+
 
 
 
