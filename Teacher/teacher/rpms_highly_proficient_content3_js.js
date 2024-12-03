@@ -37,6 +37,21 @@ const submissionModalTitle = document.getElementById('submissionModalTitle');
 const class_work_id = sessionStorage.getItem('kra_3_id');
 console.log(class_work_id);
 
+// Stepper Item 9 Elements
+const stepItem9 = document.getElementById('step-item9');
+const stepCounter9 = document.getElementById('step-counter9');
+const stepName9 = document.getElementById('step-name9');
+
+// Stepper Item 10 Elements
+const stepItem10 = document.getElementById('step-item10');
+const stepCounter10 = document.getElementById('step-counter10');
+const stepName10 = document.getElementById('step-name10');
+
+// Stepper Item 11 Elements
+const stepItem11 = document.getElementById('step-item11');
+const stepCounter11 = document.getElementById('step-counter11');
+const stepName11 = document.getElementById('step-name11');
+
 
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
@@ -48,15 +63,40 @@ function closeMenu() {
 document.getElementById('floating-menu').style.display = 'none';
 }
 
-const fileInput = document.getElementById('fileInput');
-const addCreateBtn = document.getElementById('addCreateBtn');
-const turnInBtn = document.getElementById('turnInBtn');
+// Objective 9 Elements
+const overallScore9 = document.getElementById('overall-score9');
+const reflectedScore9 = document.getElementById('reflected-score9');
+const fileList9 = document.getElementById('fileList9');
+const fileInput9 = document.getElementById('fileInput9');
+const addCreateBtn9 = document.getElementById('addCreateBtn9');
+const turnInBtn9 = document.getElementById('turnInBtn9');
+
+// Objective 10 Elements
+const overallScore10 = document.getElementById('overall-score10');
+const reflectedScore10 = document.getElementById('reflected-score10');
+const fileList10 = document.getElementById('fileList10');
+const fileInput10 = document.getElementById('fileInput10');
+const addCreateBtn10 = document.getElementById('addCreateBtn10');
+const turnInBtn10 = document.getElementById('turnInBtn10');
+
+// Objective 11 Elements
+const overallScore11 = document.getElementById('overall-score11');
+const reflectedScore11 = document.getElementById('reflected-score11');
+const fileList11 = document.getElementById('fileList11');
+const fileInput11 = document.getElementById('fileInput11');
+const addCreateBtn11 = document.getElementById('addCreateBtn11');
+const turnInBtn11 = document.getElementById('turnInBtn11');
+
+// Total Score Elements (KRA 3)
+const overallScoreKRA3 = document.getElementById('overall-score-kra3');
+const reflectedScoreKRA3 = document.getElementById('reflected-score-kra3');
+
 const unsubmitBtn = document.createElement('button'); // Create Unsubmit button dynamically
 unsubmitBtn.classList.add('btn-secondary'); // Add class for styling
 unsubmitBtn.textContent = 'Unsubmit'; // Set button text
 unsubmitBtn.style.display = 'none'; // Hide it initially
 document.querySelector('.turn-in-panel').appendChild(unsubmitBtn); // Append it to the panel
-const fileList = document.getElementById('fileList');
+
 const fileModal = document.getElementById('fileModal');
 const modalBody = document.getElementById('modalBody');
 const submitCommentBtn = document.getElementById('submitCommentBtn');

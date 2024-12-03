@@ -54,6 +54,26 @@ function toggleStatus() {
     }
 }
 
+// Stepper Item 1 Elements
+const stepItem1 = document.getElementById('step-item1');
+const stepCounter1 = document.getElementById('step-counter1');
+const stepName1 = document.getElementById('step-name1');
+
+// Stepper Item 2 Elements
+const stepItem2 = document.getElementById('step-item2');
+const stepCounter2 = document.getElementById('step-counter2');
+const stepName2 = document.getElementById('step-name2');
+
+// Stepper Item 3 Elements
+const stepItem3 = document.getElementById('step-item3');
+const stepCounter3 = document.getElementById('step-counter3');
+const stepName3 = document.getElementById('step-name3');
+
+// Stepper Item 4 Elements
+const stepItem4 = document.getElementById('step-item4');
+const stepCounter4 = document.getElementById('step-counter4');
+const stepName4 = document.getElementById('step-name4');
+
 // Floating menu toggle
 document.getElementById('menu-icon').addEventListener('click', function() {
 const floatingMenu = document.getElementById('floating-menu');

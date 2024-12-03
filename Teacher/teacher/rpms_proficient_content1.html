@@ -58,22 +58,22 @@
         </nav>
 
         <div class="stepper-wrapper">
-            <div class="stepper-item completed">
-              <div class="step-counter">1</div>
-              <div class="step-name">Objective 1</div>
-            </div>
-            <div class="stepper-item completed">
-              <div class="step-counter">2</div>
-              <div class="step-name">Objective 2</div>
-            </div>
-            <div class="stepper-item active">
-              <div class="step-counter">3</div>
-              <div class="step-name">Objective 3</div>
-            </div>
-            <div class="stepper-item">
-              <div class="step-counter">4</div>
-              <div class="step-name">Objective 4</div>
-            </div>
+            <div class="stepper-item completed" id="step-item1">
+                <div class="step-counter" id="step-counter1">1</div>
+                <div class="step-name" id="step-name1">Objective 1</div>
+              </div>
+              <div class="stepper-item completed" id="step-item2">
+                <div class="step-counter" id="step-counter2">2</div>
+                <div class="step-name" id="step-name2">Objective 2</div>
+              </div>
+              <div class="stepper-item active" id="step-item3">
+                <div class="step-counter" id="step-counter2">3</div>
+                <div class="step-name" id="step-name3">Objective 3</div>
+              </div>
+              <div class="stepper-item" id="step-item4">
+                <div class="step-counter" id="step-counter2">4</div>
+                <div class="step-name" id="step-name4">Objective 4</div>
+              </div>
         </div>
 
         <!-- Breadcrumbs -->
@@ -137,82 +137,82 @@
                 <div class="turn-in-panel">
                     <h4>Objective 1</h4>
                     <!-- <p class="overall-score">/28</p> -->
-                    <span><input type="text" id="overall-score" class="overall-score" placeholder="/7" disabled></span>
+                    <span><input type="text" id="overall-score1" class="overall-score" placeholder="/7" disabled></span>
                     <!-- <p class="reflected-score">0</p> -->
-                   <span><input type="text" id="reflected-score" class="reflected-score" placeholder="0" disabled></span>
+                   <span><input type="text" id="reflected-score1" class="reflected-score" placeholder="0" disabled></span>
                     
                     <!-- Display Uploaded Files -->
-                    <div id="fileList"></div> <!-- This is where the uploaded files will appear -->
+                    <div id="fileList1"></div> <!-- This is where the uploaded files will appear -->
                     
                     <!-- File Upload Section -->
-                    <input type="file" id="fileInput" style="display: none;" multiple />
-                    <button class="btn-primary" id="addCreateBtn">+ Add or Create</button>
+                    <input type="file" id="fileInput1" style="display: none;" multiple />
+                    <button class="btn-primary" id="addCreateBtn1">+ Add or Create</button>
                     
                     <!-- Turn In Button -->
-                    <button class="btn-secondary" id="turnInBtn" disabled>Turn In</button>
+                    <button class="btn-secondary" id="turnInBtn1" disabled>Turn In</button>
                 </div>
 
                 <div class="turn-in-panel">
                     <h4>Objective 2</h4>
                     <!-- <p class="overall-score">/28</p> -->
-                    <span><input type="text" id="overall-score" class="overall-score" placeholder="/7" disabled></span>
+                    <span><input type="text" id="overall-score2" class="overall-score" placeholder="/7" disabled></span>
                     <!-- <p class="reflected-score">0</p> -->
-                   <span><input type="text" id="reflected-score" class="reflected-score" placeholder="0" disabled></span>
+                   <span><input type="text" id="reflected-score2" class="reflected-score" placeholder="0" disabled></span>
                     
                     <!-- Display Uploaded Files -->
-                    <div id="fileList"></div> <!-- This is where the uploaded files will appear -->
+                    <div id="fileList2"></div> <!-- This is where the uploaded files will appear -->
                     
                     <!-- File Upload Section -->
-                    <input type="file" id="fileInput" style="display: none;" multiple />
-                    <button class="btn-primary" id="addCreateBtn">+ Add or Create</button>
+                    <input type="file" id="fileInput2" style="display: none;" multiple />
+                    <button class="btn-primary" id="addCreateBtn2">+ Add or Create</button>
                     
                     <!-- Turn In Button -->
-                    <button class="btn-secondary" id="turnInBtn" disabled>Turn In</button>
+                    <button class="btn-secondary" id="turnInBtn2" disabled>Turn In</button>
                 </div>
 
                 <div class="turn-in-panel">
                     <h4>Objective 3</h4>
                     <!-- <p class="overall-score">/28</p> -->
-                    <span><input type="text" id="overall-score" class="overall-score" placeholder="/7" disabled></span>
+                    <span><input type="text" id="overall-score3" class="overall-score" placeholder="/7" disabled></span>
                     <!-- <p class="reflected-score">0</p> -->
-                   <span><input type="text" id="reflected-score" class="reflected-score" placeholder="0" disabled></span>
+                   <span><input type="text" id="reflected-score3" class="reflected-score" placeholder="0" disabled></span>
                     
                     <!-- Display Uploaded Files -->
-                    <div id="fileList"></div> <!-- This is where the uploaded files will appear -->
+                    <div id="fileList3"></div> <!-- This is where the uploaded files will appear -->
                     
                     <!-- File Upload Section -->
-                    <input type="file" id="fileInput" style="display: none;" multiple />
-                    <button class="btn-primary" id="addCreateBtn">+ Add or Create</button>
+                    <input type="file" id="fileInput3" style="display: none;" multiple />
+                    <button class="btn-primary" id="addCreateBtn3">+ Add or Create</button>
                     
                     <!-- Turn In Button -->
-                    <button class="btn-secondary" id="turnInBtn" disabled>Turn In</button>
+                    <button class="btn-secondary" id="turnInBtn3" disabled>Turn In</button>
                 </div>
                         
 
                 <div class="turn-in-panel">
                     <h4>Objective 4</h4>
                     <!-- <p class="overall-score">/28</p> -->
-                    <span><input type="text" id="overall-score" class="overall-score" placeholder="/7" disabled></span>
+                    <span><input type="text" id="overall-score4" class="overall-score" placeholder="/7" disabled></span>
                     <!-- <p class="reflected-score">0</p> -->
-                   <span><input type="text" id="reflected-score" class="reflected-score" placeholder="0" disabled></span>
+                   <span><input type="text" id="reflected-score4" class="reflected-score" placeholder="0" disabled></span>
                     
                     <!-- Display Uploaded Files -->
-                    <div id="fileList"></div> <!-- This is where the uploaded files will appear -->
+                    <div id="fileList4"></div> <!-- This is where the uploaded files will appear -->
                     
                     <!-- File Upload Section -->
-                    <input type="file" id="fileInput" style="display: none;" multiple />
-                    <button class="btn-primary" id="addCreateBtn">+ Add or Create</button>
+                    <input type="file" id="fileInput4" style="display: none;" multiple />
+                    <button class="btn-primary" id="addCreateBtn4">+ Add or Create</button>
                     
                     <!-- Turn In Button -->
-                    <button class="btn-secondary" id="turnInBtn" disabled>Turn In</button>
+                    <button class="btn-secondary" id="turnInBtn4" disabled>Turn In</button>
                 </div>
 
                 <div class="turn-in-panel_ts">
                     <h4>Total Score: </h4>
                     <!-- <p class="overall-score">/28</p> -->
-                    <span><input type="text" id="overall-score" class="overall-score_ts" placeholder="/28" disabled></span>
+                    <span><input type="text" id="overall-score-kra1" class="overall-score_ts" placeholder="/28" disabled></span>
                     <!-- <p class="reflected-score">0</p> -->
-                   <span><input type="text" id="reflected-score" class="reflected-score_ts" placeholder="0" disabled></span>
+                   <span><input type="text" id="reflected-score-kra1" class="reflected-score_ts" placeholder="0" disabled></span>
                     <br>
                 </div>
 

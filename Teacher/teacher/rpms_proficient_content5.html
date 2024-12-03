@@ -58,14 +58,14 @@
         </nav>
 
         <div class="stepper-wrapper">
-            <div class="stepper-item completed">
-              <div class="step-counter"></div>
-              <div class="step-name"></div>
-            </div>
-            <div class="stepper-item completed">
-              <div class="step-counter">15</div>
-              <div class="step-name">Objective 15</div>
-            </div>
+            <div class="stepper-item completed" id="step-item">
+                <div class="step-counter" id="step-counter"></div>
+                <div class="step-name" id="step-name"></div>
+              </div>
+              <div class="stepper-item completed" id="step-item15">
+                <div class="step-counter" id="step-counter15">15</div>
+                <div class="step-name" id="step-name15">Objective 15</div>
+              </div>
         </div>
 
         <!-- Breadcrumbs -->
@@ -104,27 +104,27 @@
                 <div class="turn-in-panel">
                     <h4>Objective 15</h4>
                     <!-- <p class="overall-score">/28</p> -->
-                    <span><input type="text" id="overall-score" class="overall-score" placeholder="/2" disabled></span>
+                    <span><input type="text" id="overall-score15" class="overall-score" placeholder="/2" disabled></span>
                     <!-- <p class="reflected-score">0</p> -->
-                   <span><input type="text" id="reflected-score" class="reflected-score" placeholder="0" disabled></span>
+                   <span><input type="text" id="reflected-score15" class="reflected-score" placeholder="0" disabled></span>
                     
                     <!-- Display Uploaded Files -->
-                    <div id="fileList"></div> <!-- This is where the uploaded files will appear -->
+                    <div id="fileList15"></div> <!-- This is where the uploaded files will appear -->
                     
                     <!-- File Upload Section -->
-                    <input type="file" id="fileInput" style="display: none;" multiple />
-                    <button class="btn-primary" id="addCreateBtn">+ Add or Create</button>
+                    <input type="file" id="fileInput15" style="display: none;" multiple />
+                    <button class="btn-primary" id="addCreateBtn15">+ Add or Create</button>
                     
                     <!-- Turn In Button -->
-                    <button class="btn-secondary" id="turnInBtn" disabled>Turn In</button>
+                    <button class="btn-secondary" id="turnInBtn15" disabled>Turn In</button>
                 </div>
 
                 <div class="turn-in-panel_ts">
                     <h4>Total Score: </h4>
                     <!-- <p class="overall-score">/28</p> -->
-                    <span><input type="text" id="overall-score" class="overall-score_ts" placeholder="/2" disabled></span>
+                    <span><input type="text" id="overall-score-plusfactor" class="overall-score_ts" placeholder="/2" disabled></span>
                     <!-- <p class="reflected-score">0</p> -->
-                   <span><input type="text" id="reflected-score" class="reflected-score_ts" placeholder="0" disabled></span>
+                   <span><input type="text" id="reflected-score-plusfactor" class="reflected-score_ts" placeholder="0" disabled></span>
                     <br>
                 </div>
         
