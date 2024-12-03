@@ -1013,79 +1013,11 @@
             }
         
             // Function to update IPCRF data
-            async function updateIPCRF1() { 
-                try {
-                    let teacher_content = ipcrf_content['ipcrf']['content_for_teacher'];
-        
-                    teacher_content['Content Knowledge and Pedagogy']['1']['EFFICIENCY']['Rate'] = getRateEfficiency1();
-                    teacher_content['Content Knowledge and Pedagogy']['2']['EFFICIENCY']['Rate'] = getRateEfficiency2();
-                    teacher_content['Content Knowledge and Pedagogy']['3']['EFFICIENCY']['Rate'] = getRateEfficiency3();
-                    teacher_content['Content Knowledge and Pedagogy']['4']['EFFICIENCY']['Rate'] = getRateEfficiency4();
-        
-                    teacher_content['Learning Environment & Diversity of Learners']['5']['EFFICIENCY']['Rate'] = getRateEfficiency5();
-                    teacher_content['Learning Environment & Diversity of Learners']['6']['EFFICIENCY']['Rate'] = getRateEfficiency6();
-                    teacher_content['Learning Environment & Diversity of Learners']['7']['EFFICIENCY']['Rate'] = getRateEfficiency7();
-                    teacher_content['Learning Environment & Diversity of Learners']['8']['EFFICIENCY']['Rate'] = getRateEfficiency8();
-        
-                    teacher_content['Curriculum and Planning & Assessment and Reporting']['9']['EFFICIENCY']['Rate'] = getRateEfficiency9();
-                    teacher_content['Curriculum and Planning & Assessment and Reporting']['9']['QUALITY']['Rate'] = getRateQuality9();
-                    
-                    teacher_content['Curriculum and Planning & Assessment and Reporting']['10']['EFFICIENCY']['Rate'] = getRateEfficiency10();
-        
-                    teacher_content['Curriculum and Planning & Assessment and Reporting']['11']['QUALITY']['Rate'] = getRateQuality11();
-                    teacher_content['Curriculum and Planning & Assessment and Reporting']['11']['TIMELINES']['Rate'] = getRateTimeliness11();
-        
-                    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['QUALITY']['Rate'] = getRateQuality12();
-                    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['12']['TIMELINES']['Rate'] = getRateTimeliness12();
-        
-                    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['QUALITY']['Rate'] = getRateQuality13();
-                    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['13']['TIMELINES']['Rate'] = getRateTimeliness13();
-        
-                    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['QUALITY']['Rate'] = getRateQuality14();
-                    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['TIMELINES']['Rate'] = getRateTimeliness14();
-                    teacher_content['Community Linkages and Professional Engagement & Personal Growth and Professional Development']['14']['EFFICIENCY']['Rate'] = getRateEfficiency14();
-        
-                    teacher_content['PLUS FACTOR']['15']['EFFICIENCY']['Rate'] = getRateEfficiency15();
-                    teacher_content['PLUS FACTOR']['15']['TIMELINES']['Rate'] = getRateTimeliness15();
-                    teacher_content['PLUS FACTOR']['15']['QUALITY']['Rate'] = getRateQuality15();
-        
-                    const formData = new FormData();
-                    formData.append('ipcrf_id', ipcrf_content['ipcrf']['connection_to_other']); // TODO: Get from IPCRF
-                    formData.append('average_score', averageScore); 
-                    formData.append('plus_factor', plusFactor); 
-                    formData.append('total_score', totalScore);
-                    formData.append('content', JSON.stringify(teacher_content));
-                    formData.append('plus_factor_main', plus_factor_main);
-                    formData.append('kra1', kra1);
-                    formData.append('kra2', kra2);
-                    formData.append('kra3', kra3);
-                    formData.append('kra4', kra4);
 
-        
-                    const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/update/ipcrf/part1/', {
-                        method: 'POST',
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                        },  
-                        credentials: 'include',
-                        body: formData,
-                    });
-        
-                    const data = await response.json();
-                    if (response.ok) {
-                        console.log("Success Data : ", data);  
-                    } else {
-                        console.log("Error Data : ", data);
-                    }
-                } catch (error) {
-                    console.error("Error during fetch:", error);
-                }
-            }
-        
             // Add click event listener to the "Save" button
             saveButton.addEventListener("click", async function () {
                 const isFormValid = validateForm();
-        
+                updateIPCRF1();
                 // If the form is valid, submit using updateIPCRF1 function
                 if (isFormValid) {
                     updateIPCRF1();  // Call the async update function

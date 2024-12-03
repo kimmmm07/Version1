@@ -743,7 +743,7 @@ async function getIPCRF() {
 getIPCRF();
 
 
-async function updateIPCRF() {
+async function updateIPCRF1() {
     try {
         
         let content = ipcrf['content_for_evaluator']
