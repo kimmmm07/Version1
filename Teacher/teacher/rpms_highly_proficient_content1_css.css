@@ -836,7 +836,6 @@ textarea:focus {
     margin-top: 50px;
   }
   .stepper-item {
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
