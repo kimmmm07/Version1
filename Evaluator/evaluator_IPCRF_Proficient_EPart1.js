@@ -292,7 +292,6 @@ function calculateAverageScore() {
 
 
 
-
 function getRateEfficiency1() {
     if (efficiency1_5_option.checked) {
         return 5;

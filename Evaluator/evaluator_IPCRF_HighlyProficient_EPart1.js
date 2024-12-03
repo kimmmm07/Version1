@@ -785,7 +785,7 @@ async function getIPCRF() {
             console.log("Success Data : ", ipcrf); 
 
             teacherAverageScore.textContent = ipcrf.rating.toFixed(2);
-            teacherRating.textContent = getRating(ipcrf.rating);
+            teacherRating.textContent = getRating(ipcrf.rating); 
             
             const content = ipcrf["content_for_teacher"];
             const con1 = content["Content Knowledge and Pedagogy"];
