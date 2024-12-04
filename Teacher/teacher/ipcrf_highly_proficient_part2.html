@@ -554,13 +554,13 @@ async function updateIPCRF2(){
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
-        } else {
-            console.log("Error Data : ", data);
-            
             alert("Form submitted successfully!");
             setTimeout(() => {
                 location.href = 'teacher_choices_hp.html';
             }, 2000);
+        } else {
+            console.log("Error Data : ", data);
+            
             // alert("Login Failed.")
         }
     } catch (error) {
