@@ -110,6 +110,11 @@ yesButton.addEventListener('click', async function() {
 
  
 
+const checkkra1Status = document.getElementById("kra1Status");
+const checkkra2Status = document.getElementById("kra2Status");
+const checkkra3Status = document.getElementById("kra3Status");
+const checkkra4Status = document.getElementById("kra4Status");
+const checkplusfactorStatus = document.getElementById("plusfactorStatus");
 
 let kra_1_id = undefined;
 let kra_2_id = undefined;
@@ -171,14 +176,19 @@ async function getClassworks(){
             folder.rpms_classworks.forEach(classwork => {
                 if (classwork.title == "PLUS FACTOR") {
                     plus_factor_id = classwork.class_work_id;
+                    checkplusfactorStatus.src = classwork?.attachment?.is_checked ? "Assets/Check Mark1.png" : "Assets/Check Mark.png";
                 } else if (classwork.title == "KRA 4:  Curriculum and Planning & Assessment and Reporting") {
                     kra_4_id = classwork.class_work_id;
+                    checkkra4Status.src = classwork?.attachment?.is_checked ? "Assets/Check Mark1.png" : "Assets/Check Mark.png";
                 } else if (classwork.title == "KRA 3: Curriculum and Planning") {
                     kra_3_id = classwork.class_work_id;
+                    checkkra3Status.src = classwork?.attachment?.is_checked ? "Assets/Check Mark1.png" : "Assets/Check Mark.png";
                 } else if (classwork.title == "KRA 2: Learning Environment and Diversity of Learners") {
                     kra_2_id = classwork.class_work_id;
+                    checkkra2Status.src = classwork?.attachment?.is_checked ? "Assets/Check Mark1.png" : "Assets/Check Mark.png";
                 } else if (classwork.title == "KRA 1: Content Knowledge and Pedagogy") {
                     kra_1_id = classwork.class_work_id;
+                    checkkra1Status.src = classwork?.attachment?.is_checked ? "Assets/Check Mark1.png" : "Assets/Check Mark.png";
                 }
             })
 
