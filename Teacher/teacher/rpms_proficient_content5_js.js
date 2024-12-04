@@ -308,11 +308,10 @@ async function getAttachments() {
             
             const submit = responseData.submitted;
 
-            const score = parseInt(submit['0']['Overall Score']);
+            if(submit['0']['file_is_checked'] === true){
 
-            if(score > 0){
-
-                document.getElementById('reflected-score').value = String(submit['0']['Overall Score']);
+                document.getElementById('reflected-score15').value = String(submit['0']['15']['Score']);
+                document.getElementById('reflected-score-plusfactor').value = String(submit['0']['Overall Score']);
 
                 unsubmitBtn.style.display = 'none';
 
@@ -371,6 +370,7 @@ async function unSubmitAttachment() {
         // Create a FormData object for unsubmit request
         const formData = new FormData();
         formData.append('class_work_id', class_work_id); // Include the classwork ID
+        formData.append('index', '1');
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/rpms/folder/classwork/unsubmit/', {
             method: 'POST',
@@ -383,7 +383,6 @@ async function unSubmitAttachment() {
 
         if (response.ok) {
             const responseData = await response.json();
-            console.log('Files successfully unsubmitted:', responseData);
             location.reload();
         } else {
             console.error('Failed to unsubmit files:', response.statusText);
