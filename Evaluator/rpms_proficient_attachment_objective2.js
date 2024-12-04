@@ -270,7 +270,7 @@ returnBtn.addEventListener('click', async function(){
         alert("Grade should not be 0 and is lower or equal to the max score.");
         return;
     }  
-    content['2'].Score = String(score2.value); 
+    content['2'].Score = parseInt(score2.value); 
     console.log(content); 
     
 
