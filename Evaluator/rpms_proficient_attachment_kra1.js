@@ -56,8 +56,7 @@ const totalScore = document.getElementById('total-score');
 const totalScoreValue = document.getElementById('total-score-value');
 
 // Private comment and post button
-const privateCommentsTextarea = document.getElementById('private-comments-textarea');
-const postButton = document.getElementById('post-button');
+const privateCommentsTextarea = document.getElementById('private-comments-textarea'); 
 
 
 const class_work_id = sessionStorage.getItem('kra_1_id');
@@ -91,20 +90,7 @@ function downloadFile() {
 }
 
 downloadBtn.addEventListener('click', downloadFile);
-
-
-// Dropdown
-
-// teacherDropdownSelect.addEventListener('change', function() {
-//     console.log("Selected teacher: " + teacherDropdownSelect.value);
-// });
-
-
-postButton.addEventListener('click', function() {
-    const comment = privateCommentsTextarea.value;
-    console.log("Posted comment: " + comment);
-});
-
+ 
 
 
 // Modal logic

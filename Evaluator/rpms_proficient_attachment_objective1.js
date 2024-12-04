@@ -268,7 +268,7 @@ returnBtn.addEventListener('click', async function(){
         return;
     }
 
-    content['1'].Score = parseInt(score1.value); 
+    content['1'].Score = String(score1.value); 
     console.log(content); 
 
     const formData = new FormData();

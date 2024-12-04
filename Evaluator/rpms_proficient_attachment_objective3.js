@@ -271,7 +271,7 @@ returnBtn.addEventListener('click', async function(){
         alert("Grade should not be 0 and is lower or equal to the max score.");
         return;
     } 
-    content['3'].Score = parseInt(score3.value); 
+    content['3'].Score = String(score3.value); 
     console.log(content); 
 
     const formData = new FormData();
