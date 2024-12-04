@@ -1,5 +1,9 @@
 // KRA 1: Content Knowledge and Pedagogy
 const efficiency1_5 = document.getElementById('Efficiency1_5');
+efficiency1_5.addEventListener('change', function () {
+    if (efficiency1_5.checked) { 
+    }
+});
 const efficiency1_3 = document.getElementById('Efficiency1_3');
 const efficiency1_1 = document.getElementById('Efficiency1_1');
 
@@ -709,4 +713,8 @@ async function updateIPCRF1(){
     }
 }
 
+
+function autofill(){
+    
+}
 

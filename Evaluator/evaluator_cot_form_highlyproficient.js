@@ -45,12 +45,12 @@ const q2Rating7 = document.getElementById('q2-rating-7');
 const q2Rating8 = document.getElementById('q2-rating-8');
 const q2RatingNo = document.getElementById('q2-rating-no');
 
-// Variables for Question 3 rating buttons
-const q3Rating3 = document.getElementById('q3-rating-3');
+// Variables for Question 3 rating buttons 
 const q3Rating4 = document.getElementById('q3-rating-4');
 const q3Rating5 = document.getElementById('q3-rating-5');
 const q3Rating6 = document.getElementById('q3-rating-6');
 const q3Rating7 = document.getElementById('q3-rating-7');
+const q3Rating8 = document.getElementById('q3-rating-8');
 const q3RatingNo = document.getElementById('q3-rating-no');
 
 // Variables for Question 4 rating buttons
@@ -445,6 +445,8 @@ function autoFill(teacher_id) {
             q1Rating7.classList.add('active');
         } else if (q1 == 0){
             q1RatingNo.classList.add('active');
+        } else if (q1 == 8){
+            q1Rating8.classList.add('active');
         }
     }
 
@@ -462,6 +464,8 @@ function autoFill(teacher_id) {
             q2Rating7.classList.add('active');
         } else if (q2 == 0){
             q2RatingNo.classList.add('active');
+        } else if (q2 == 8){
+            q2Rating8.classList.add('active');
         }
     }
 
@@ -479,6 +483,8 @@ function autoFill(teacher_id) {
             q3Rating7.classList.add('active');
         } else if (q3 == 0){
             q3RatingNo.classList.add('active');
+        } else if (q3 == 8){
+            q3Rating8.classList.add('active');
         }
     }
 
@@ -496,6 +502,8 @@ function autoFill(teacher_id) {
             q4Rating7.classList.add('active');
         } else if (q4 == 0){
             q4RatingNo.classList.add('active');
+        } else if (q4 == 8){
+            q4Rating8.classList.add('active');
         }
     }
 
@@ -513,6 +521,8 @@ function autoFill(teacher_id) {
             q5Rating7.classList.add('active');
         } else if (q5 == 0){
             q5RatingNo.classList.add('active');
+        } else if (q5 == 8){
+            q5Rating8.classList.add('active');
         }
     }
 
@@ -531,6 +541,8 @@ function autoFill(teacher_id) {
             q6Rating7.classList.add('active');
         } else if (q6 == 0){
             q6RatingNo.classList.add('active');
+        } else if (q6 == 8){
+            q6Rating8.classList.add('active');
         }
     }
 
@@ -548,6 +560,8 @@ function autoFill(teacher_id) {
             q7Rating7.classList.add('active');
         } else if (q7 == 0){
             q7RatingNo.classList.add('active');
+        } else if (q7 == 8){
+            q7Rating8.classList.add('active');
         }
     }
 
@@ -565,6 +579,8 @@ function autoFill(teacher_id) {
             q8Rating7.classList.add('active');
         } else if (q8 == 0){
             q8RatingNo.classList.add('active');
+        } else if (q8 == 8){
+            q8Rating8.classList.add('active');
         }
     }
  
