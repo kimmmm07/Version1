@@ -101,15 +101,14 @@ let q5 = 0;
 let q6 = 0;
 let q7 = 0;
 let q8 = 0;
-
-// Function to handle rating selection
-function selectRating(button, questionId, rating) {
-    console.log(`Question ${questionId} rated: ${rating}`);
-    // Add your validation or processing logic here
-}
+ 
 
 // Comments section
 const commentsTextarea = document.getElementById("comments");
+
+commentsTextarea.addEventListener('change', function() {
+    localStorage.setItem(teacher?.employee_id + 'cot_hp_comment', commentsTextarea.value);
+})
 
 // Buttons
 const backBtn = document.getElementById("backBtn");
@@ -120,20 +119,36 @@ function selectRating(button, questionId, rating) {
     console.log(`Question ${questionId} rated: ${rating}`);
     if (questionId === 'q1') {
         q1 = rating;
+        // Save data to localStorage
+        localStorage.setItem(teacher?.employee_id + 'hp_q1', rating); 
     } else if (questionId === 'q2') {
         q2 = rating;
+        // Save data to localStorage
+        localStorage.setItem(teacher?.employee_id + 'hp_q2', rating); 
     } else if (questionId === 'q3') {
         q3 = rating;
+        // Save data to localStorage
+        localStorage.setItem(teacher?.employee_id + 'hp_q3', rating); 
     } else if (questionId === 'q4') {
         q4 = rating;
+        // Save data to localStorage
+        localStorage.setItem(teacher?.employee_id + 'hp_q4', rating); 
     } else if (questionId === 'q5') {
         q5 = rating;
+        // Save data to localStorage
+        localStorage.setItem(teacher?.employee_id + 'hp_q5', rating); 
     } else if (questionId === 'q6') {
         q6 = rating;
+        // Save data to localStorage
+        localStorage.setItem(teacher?.employee_id + 'hp_q6', rating); 
     } else if (questionId === 'q7') {
         q7 = rating;
+        // Save data to localStorage
+        localStorage.setItem(teacher?.employee_id + 'hp_q7', rating); 
     } else if (questionId === 'q8') {
         q8 = rating;
+        // Save data to localStorage
+        localStorage.setItem(teacher?.employee_id + 'hp_q8', rating); 
     }
 
     // Get all buttons in the same question group
@@ -224,8 +239,11 @@ async function getCot() {
             console.log("Success Data : ", data); 
             cot = data.cot;
             teacher = data.teacher;
-            cot_content = data.cot.content;
-            console.log(cot_content);
+            cot_content = data.cot.content; 
+
+            
+            teacher && autoFill(teacher?.employee_id);
+
         } else {
             console.log("Error Data : ", data);
         }
@@ -389,3 +407,190 @@ yesButton.addEventListener('click', async function() {
 // document.getElementById('ratingForm').addEventListener('submit', function(e) {
 //     e.preventDefault();  
 // });
+
+
+departmentSelect.addEventListener('change' , function() {
+    // Save data to localStorage
+    localStorage.setItem(teacher?.employee_id + 'hp_department', departmentSelect.value); 
+})
+
+function autoFill(teacher_id) {
+    // Retrieve data from localStorage
+    const savedDepartment = localStorage.getItem(teacher_id +'hp_department');
+    if (savedDepartment) {
+        departmentSelect.value = savedDepartment;
+    }
+
+    const hp_q1 = localStorage.getItem(teacher_id + 'hp_q1');
+    const hp_q2 = localStorage.getItem(teacher_id + 'hp_q2');
+    const hp_q3 = localStorage.getItem(teacher_id +'hp_q3');
+    const hp_q4 = localStorage.getItem(teacher_id + 'hp_q4');
+    const hp_q5 = localStorage.getItem(teacher_id + 'hp_q5');
+    const hp_q6 = localStorage.getItem(teacher_id + 'hp_q6');
+    const hp_q7 = localStorage.getItem(teacher_id + 'hp_q7');
+    const hp_q8 = localStorage.getItem(teacher_id + 'hp_q8');
+    const p_q9 = localStorage.getItem(teacher_id + 'p_q9');
+    const p_comment = localStorage.getItem(teacher_id + 'cot_hp_comment');
+
+    if (hp_q1) {
+        q1 = hp_q1;
+        if (q1 == 3){
+            q1Rating3.classList.add('active');
+        } else if (q1 == 4){
+            q1Rating4.classList.add('active');
+        } else if (q1 == 5){
+            q1Rating5.classList.add('active');
+        } else if (q1 == 6){
+            q1Rating6.classList.add('active');
+        } else if (q1 == 7){
+            q1Rating7.classList.add('active');
+        } else if (q1 == 0){
+            q1RatingNo.classList.add('active');
+        }
+    }
+
+    if (hp_q2) {
+        q2 = hp_q2;
+        if (q2 == 3){
+            q2Rating3.classList.add('active');
+        } else if (q2 == 4){
+            q2Rating4.classList.add('active');
+        } else if (q2 == 5){
+            q2Rating5.classList.add('active');
+        } else if (q2 == 6){
+            q2Rating6.classList.add('active');
+        } else if (q2 == 7){
+            q2Rating7.classList.add('active');
+        } else if (q2 == 0){
+            q2RatingNo.classList.add('active');
+        }
+    }
+
+    if (hp_q3) {
+        q3 = hp_q3;
+        if (q3 == 3){
+            q3Rating3.classList.add('active');
+        } else if (q3 == 4){
+            q3Rating4.classList.add('active');
+        } else if (q3 == 5){
+            q3Rating5.classList.add('active');
+        } else if (q3 == 6){
+            q3Rating6.classList.add('active');
+        } else if (q3 == 7){
+            q3Rating7.classList.add('active');
+        } else if (q3 == 0){
+            q3RatingNo.classList.add('active');
+        }
+    }
+
+    if (hp_q4) {
+        q4 = hp_q4;
+        if (q4 == 3){
+            q4Rating3.classList.add('active');
+        } else if (q4 == 4){
+            q4Rating4.classList.add('active');
+        } else if (q4 == 5){
+            q4Rating5.classList.add('active');
+        } else if (q4 == 6){
+            q4Rating6.classList.add('active');
+        } else if (q4 == 7){
+            q4Rating7.classList.add('active');
+        } else if (q4 == 0){
+            q4RatingNo.classList.add('active');
+        }
+    }
+
+    if (hp_q5) {
+        q5 = hp_q5;
+        if (q5 == 3){
+            q5Rating3.classList.add('active');
+        } else if (q5 == 4){
+            q5Rating4.classList.add('active');
+        } else if (q5 == 5){
+            q5Rating5.classList.add('active');
+        } else if (q5 == 6){
+            q5Rating6.classList.add('active');
+        } else if (q5 == 7){
+            q5Rating7.classList.add('active');
+        } else if (q5 == 0){
+            q5RatingNo.classList.add('active');
+        }
+    }
+
+
+    if (hp_q6) {
+        q6 = hp_q6;
+        if (q6 == 3){
+            q6Rating3.classList.add('active');
+        } else if (q6 == 4){
+            q6Rating4.classList.add('active');
+        } else if (q6 == 5){
+            q6Rating5.classList.add('active');
+        } else if (q6 == 6){
+            q6Rating6.classList.add('active');
+        } else if (q6 == 7){
+            q6Rating7.classList.add('active');
+        } else if (q6 == 0){
+            q6RatingNo.classList.add('active');
+        }
+    }
+
+    if (hp_q7) {
+        q7 = hp_q7;
+        if (q7 == 3){
+            q7Rating3.classList.add('active');
+        } else if (q7 == 4){
+            q7Rating4.classList.add('active');
+        } else if (q7 == 5){
+            q7Rating5.classList.add('active');
+        } else if (q7 == 6){
+            q7Rating6.classList.add('active');
+        } else if (q7 == 7){
+            q7Rating7.classList.add('active');
+        } else if (q7 == 0){
+            q7RatingNo.classList.add('active');
+        }
+    }
+
+    if (hp_q8) {
+        q8 = hp_q8;
+        if (q8 == 3){
+            q8Rating3.classList.add('active');
+        } else if (q8 == 4){
+            q8Rating4.classList.add('active');
+        } else if (q8 == 5){
+            q8Rating5.classList.add('active');
+        } else if (q8 == 6){
+            q8Rating6.classList.add('active');
+        } else if (q8 == 7){
+            q8Rating7.classList.add('active');
+        } else if (q8 == 0){
+            q8RatingNo.classList.add('active');
+        }
+    }
+
+    if (p_q9) {
+        q9 = p_q9;
+        if (q9 == 3){
+            q9Rating3.classList.add('active');
+        } else if (q9 == 4){
+            q9Rating4.classList.add('active');
+        } else if (q9 == 5){
+            q9Rating5.classList.add('active');
+        } else if (q9 == 6){
+            q9Rating6.classList.add('active');
+        } else if (q9 == 7){
+            q9Rating7.classList.add('active');
+        } else if (q9 == 0){
+            q9RatingNo.classList.add('active');
+        }
+    }
+
+    if (p_comment) {
+        commentsTextarea.value = p_comment;
+    }
+
+
+};
+
+
