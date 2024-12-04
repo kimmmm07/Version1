@@ -180,7 +180,7 @@ async function getTeacherAttachments() {
             objective1Item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
                     if (!submitted?.file_is_checked) {
-                        window.location.href = "rpms_proficient_attachment_objective5.html"; 
+                        window.location.href = "rpms_highlyproficient_attachment_objective1.html"; 
                     }
                 } 
             })
@@ -190,7 +190,7 @@ async function getTeacherAttachments() {
             objective2Item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
                     if (!submitted?.file2_is_checked) {
-                        window.location.href = "rpms_proficient_attachment_objective6.html";
+                        window.location.href = "rpms_highlyproficient_attachment_objective2.html";
                     }
                 } 
             })
@@ -200,7 +200,7 @@ async function getTeacherAttachments() {
             objective3Item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
                     if (!submitted?.file3_is_checked) {
-                        window.location.href = "rpms_proficient_attachment_objective7.html";
+                        window.location.href = "rpms_highlyproficient_attachment_objective3.html";
                     }
                 } 
             })
@@ -211,7 +211,7 @@ async function getTeacherAttachments() {
             objective4Item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
                     if (!submitted?.file4_is_checked) {
-                        window.location.href = "rpms_proficient_attachment_objective8.html";
+                        window.location.href = "rpms_highlyproficient_attachment_objective4.html";
                     }
                 } 
             })
