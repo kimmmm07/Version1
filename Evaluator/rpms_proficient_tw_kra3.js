@@ -15,11 +15,7 @@ const statusDropdown = document.getElementById("status");
 // Content Section
 const nameCheckbox = document.getElementById("name"); 
 
-const class_work_id = sessionStorage.getItem('kra_3_id');
-console.log(class_work_id);
-const teacher_id = sessionStorage.getItem('teacher_id');
-console.log(teacher_id);
-let teacher_name = undefined;
+
 
 // Right Section (KRA 3: Curriculum and Planning)
 const statusNumberTurnedIn = document.getElementById("statusNumberTurnedIn");
@@ -155,10 +151,11 @@ let teacher = undefined;
 let submitted = undefined;
 
 
-function openAttachment(){
-    window.location.href = "rpms_proficient_attachment3.html";
-}
-
+const class_work_id = sessionStorage.getItem('kra_3_id');
+console.log(class_work_id);
+const teacher_id = sessionStorage.getItem('teacher_id');
+console.log(teacher_id);
+let teacher_name = undefined;
 
 async function getTeacherAttachments() {
     try {
