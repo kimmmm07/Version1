@@ -182,7 +182,7 @@ async function getTeacherAttachments() {
             const dateStr = String(submitted['0'].created_at); 
             const date = new Date(dateStr); 
 
-            const url = 'https://bnahs.pythonanywhere.com'+submitted['0']['file'];
+            const url = 'https://bnahs.pythonanywhere.com'+submitted['0']['file3'];
             console.log(url);
             const pdfContainer = document.getElementById('pdf-container');
             document.getElementById('file-btn').addEventListener('click', function(){

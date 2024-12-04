@@ -56,8 +56,7 @@ const totalScore = document.getElementById('total-score');
 const totalScoreValue = document.getElementById('total-score-value');
 
 // Private comment section
-const privateCommentsTextarea = document.getElementById('private-comments-textarea');
-const postButton = document.getElementById('post-button');
+const privateCommentsTextarea = document.getElementById('private-comments-textarea'); 
 
 
 const class_work_id = sessionStorage.getItem('kra_4_id');
@@ -255,7 +254,8 @@ returnBtn.addEventListener('click', async function(){
     const formData = new FormData();
     formData.append('rpms_id', rpms_id);
     formData.append('content', JSON.stringify(content));
-    formData.append('comment', String(document.getElementById('private-comments-textarea')));
+    formData.append('comment', String(document.getElementById('private-comments-textarea').value));
+    formData.append('rpms_id', rpms_id);
 
     const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/check/rpms/attachment/',
         {
@@ -272,7 +272,7 @@ returnBtn.addEventListener('click', async function(){
     const data = await response.json();
     if (response.ok) {
         console.log("Success Data : ",data);
-        location.reload();
+        setTimeout(function(){window.location.href = "rpms_proficient_tw_kra4.html";}, 1000);
     } else {
         console.log("Error Data : ",data);
     }
