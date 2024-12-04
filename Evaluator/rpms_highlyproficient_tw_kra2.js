@@ -41,6 +41,36 @@ const attachmentKra2 = document.getElementById("attachmentKra2");
 
 
 
+// Main Content List
+const mainContentList = document.getElementById('main-content-list');
+
+// Objective 5 Elements
+const objective5Item = document.getElementById('objective5-item');
+const objective5Icon = document.getElementById('objective5-icon');
+const objective5TextContainer = document.getElementById('objective5-text-container');
+const objective5Title = document.getElementById('objective5-title');
+
+// Objective 6 Elements
+const objective6Item = document.getElementById('objective6-item');
+const objective6Icon = document.getElementById('objective6-icon');
+const objective6TextContainer = document.getElementById('objective6-text-container');
+const objective6Title = document.getElementById('objective6-title');
+
+// Objective 7 Elements
+const objective7Item = document.getElementById('objective7-item');
+const objective7Icon = document.getElementById('objective7-icon');
+const objective7TextContainer = document.getElementById('objective7-text-container');
+const objective7Title = document.getElementById('objective7-title');
+
+// Objective 8 Elements
+const objective8Item = document.getElementById('objective8-item');
+const objective8Icon = document.getElementById('objective8-icon');
+const objective8TextContainer = document.getElementById('objective8-text-container');
+const objective8Title = document.getElementById('objective8-title');
+
+
+
+
 function toggleStatus() {
     const toggleContainer = document.getElementById('toggleContainer');
     const toggleCircle = document.getElementById('toggleCircle');
