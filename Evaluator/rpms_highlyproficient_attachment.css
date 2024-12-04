@@ -347,13 +347,13 @@ main {
     color: gray
   }
   
-  .total-score {
+  /* .total-score {
     margin: 10px 0;
   }
 
   .total-score span{
     color: gray;
-  }
+  } */
   
   .private-comments-section textarea {
     color: gray;
@@ -579,7 +579,9 @@ main {
   align-items: center;
 }
 
-#score, #score1, #score2, #score3, #score4 {
+#score1, #score2, #score3, #score4, #score5,
+#score6, #score7, #score8, #score9, #score10,
+#score11, #score12, #score13, #score14, #score15 {
   width: 50px;
   padding: 5px;
   text-align: center;
@@ -590,7 +592,9 @@ main {
   margin-right: -18px; /* Ensures no visible gap */
 }
 
-#max-score {
+#max-score1, #max-score2, #max-score3, #max-score4, #max-score5,
+#max-score6, #max-score7, #max-score8, #max-score9, #max-score10,
+#max-score11, #max-score12, #max-score13, #max-score14, #max-score15 {
   width: 30px;
   padding: 5px;
   text-align: center;
