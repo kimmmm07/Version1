@@ -761,6 +761,7 @@ yesButton.addEventListener('click', async function() {
 
 
 
+let employee_id = undefined;
 let ipcrf = undefined;
 
 async function getIPCRF() {
@@ -783,6 +784,8 @@ async function getIPCRF() {
         ipcrf = await response.json();
         if (response.ok) {
             console.log("Success Data : ", ipcrf); 
+            employee_id = ipcrf.employee_id;
+            console.log("Success Data : ", employee_id); 
 
             teacherAverageScore.textContent = ipcrf.rating.toFixed(2);
             teacherRating.textContent = getRating(ipcrf.rating); 

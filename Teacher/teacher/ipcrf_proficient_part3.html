@@ -170,6 +170,53 @@
         });
 
 
+const learningA = document.getElementById('learning-objectives-A');
+learningA.addEventListener('change', function(){
+    employee_id && localStorage.setItem(employee_id + 'learningA' , learningA.value);
+});
+const interventionA = document.getElementById('intervention-A');
+interventionA.addEventListener('change', function(){
+    employee_id && localStorage.setItem(employee_id + 'interventionA' , interventionA.value);
+});
+const timelinessA = document.getElementById('timeliness-A');
+timelinessA.addEventListener('change', function(){
+    employee_id && localStorage.setItem(employee_id + 'timelinessA' , timelinessA.value);
+})
+const resourcesA = document.getElementById('resources-needs-A');
+resourcesA.addEventListener('change', function(){
+    employee_id && localStorage.setItem(employee_id + 'resourcesA' , resourcesA.value);
+})
+
+const learningB = document.getElementById('learning-objectives-B');
+ learningB.addEventListener('change', function(){
+    employee_id && localStorage.setItem(employee_id + 'learningB' , learningB.value);
+});
+const interventionB = document.getElementById('intervention-B');
+ interventionB.addEventListener('change', function(){
+    employee_id && localStorage.setItem(employee_id + 'interventionB' , interventionB.value);
+});
+const timelinessB = document.getElementById('timeliness-B');
+ timelinessB.addEventListener('change', function(){
+    employee_id && localStorage.setItem(employee_id + 'timelinessB' , timelinessB.value);
+})
+const resourcesB = document.getElementById('resources-needs-B');
+ resourcesB.addEventListener('change', function(){
+    employee_id && localStorage.setItem(employee_id + 'resourcesB' , resourcesB.value);
+})
+
+
+        function autofill(){
+            learningA.value = localStorage.getItem(employee_id + 'learningA');
+            interventionA.value = localStorage.getItem(employee_id + 'interventionA');
+            timelinessA.value = localStorage.getItem(employee_id + 'timelinessA');
+            resourcesA.value = localStorage.getItem(employee_id + 'resourcesA');
+            learningB.value = localStorage.getItem(employee_id + 'learningB');
+            interventionB.value = localStorage.getItem(employee_id + 'interventionB');
+            timelinessB.value = localStorage.getItem(employee_id + 'timelinessB');
+            resourcesB.value = localStorage.getItem(employee_id + 'resourcesB');
+        }
+
+        let employee_id = null;
         let ipcrf_3 = undefined;
         async function getIPCRF(){
             try { 
@@ -186,6 +233,9 @@
 
                 if (response.ok) {
                     console.log("Success Data : ", ipcrf_3);  
+                    employee_id = ipcrf_3['ipcrf']['employee_id'];
+                            
+                    employee_id && autofill();
                     const content = ipcrf_3['ipcrf']['content_for_teacher']; 
                     const A = content['A'][0];
                     const B = content['B'];

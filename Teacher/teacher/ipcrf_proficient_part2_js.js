@@ -38,6 +38,24 @@ function getSelectedCheckboxValues(element) {
     return selectedValues;
 }
 
+function checkTheBoxValues(element , value) {
+    element.forEach(checkbox => {
+        if (checkbox.value == value) {
+            checkbox.checked = true;
+        }
+    });
+}
+
+setInterval(function() {
+    employee_id && localStorage.setItem(employee_id + 'self_management_selected', JSON.stringify(getSelectedCheckboxValues(obj1Checkboxes)));
+    employee_id && localStorage.setItem(employee_id + 'professional_ethics_selected', JSON.stringify(getSelectedCheckboxValues(obj2Checkboxes)));
+    employee_id && localStorage.setItem(employee_id + 'results_focus_selected', JSON.stringify(getSelectedCheckboxValues(obj3Checkboxes)));
+    employee_id && localStorage.setItem(employee_id + 'teamwork_selected', JSON.stringify(getSelectedCheckboxValues(obj4Checkboxes)));
+    employee_id && localStorage.setItem(employee_id + 'service_orientation_selected', JSON.stringify(getSelectedCheckboxValues(obj5Checkboxes)));
+    employee_id && localStorage.setItem(employee_id + 'innovation_selected', JSON.stringify(getSelectedCheckboxValues(obj6Checkboxes)));
+}, 100);
+
+
 // Example usage
 // const selectedValues = getSelectedCheckboxValues();
 // console.log(selectedValues); // Logs an array of selected checkbox values
@@ -72,6 +90,7 @@ function saveCompetencies() {
     // window.location.href = 'ipcrf_proficient_part3.html';
 }
 
+let employee_id = null;
 
 async function getIPCRF(){
     const formData = new FormData();
@@ -90,7 +109,10 @@ async function getIPCRF(){
 
         ipcrf_content = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", ipcrf_content);  
+            console.log("Success Data : ", ipcrf_content);
+            employee_id = ipcrf_content.ipcrf.employee_id;
+
+            employee_id && autofill()
         } else {
             console.log("Error Data : ", ipcrf_content);
             // alert("Login Failed.")
@@ -140,5 +162,53 @@ async function updateIPCRF2(){
         }
     } catch (error) {
         console.error("Error during fetch:", error);
+    }
+}
+
+
+
+function autofill(){
+    self_management_selected = JSON.parse(localStorage.getItem(employee_id + 'self_management_selected'));
+    professional_ethics_selected = JSON.parse(localStorage.getItem(employee_id + 'professional_ethics_selected'));
+    results_focus_selected = JSON.parse(localStorage.getItem(employee_id + 'results_focus_selected'));
+    teamwork_selected = JSON.parse(localStorage.getItem(employee_id + 'teamwork_selected'));
+    service_orientation_selected = JSON.parse(localStorage.getItem(employee_id + 'service_orientation_selected'));
+    innovation_selected = JSON.parse(localStorage.getItem(employee_id + 'innovation_selected'));
+
+    console.log(self_management_selected)
+    if(self_management_selected){
+        self_management_selected.forEach(item => {
+            checkTheBoxValues(obj1Checkboxes, item);
+        });
+    }
+
+    if(professional_ethics_selected){
+        professional_ethics_selected.forEach(item => {
+            checkTheBoxValues(obj2Checkboxes, item);
+        });
+    }
+    
+    if(results_focus_selected){
+        results_focus_selected.forEach(item => {
+            checkTheBoxValues(obj3Checkboxes, item);
+        }); 
+    }
+
+    if(teamwork_selected){
+        teamwork_selected.forEach(item => {
+            checkTheBoxValues(obj4Checkboxes, item);
+        });
+    }
+
+    if(service_orientation_selected){
+        service_orientation_selected.forEach(item => {
+            checkTheBoxValues(obj5Checkboxes, item);
+        });
+    }
+
+    if(innovation_selected){
+        innovation_selected.forEach(item => {   
+            checkTheBoxValues(obj6Checkboxes, item);
+        });
     }
 }
