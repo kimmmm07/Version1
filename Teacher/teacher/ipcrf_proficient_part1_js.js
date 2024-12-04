@@ -525,13 +525,13 @@ const timeliness14_1 = document.getElementById('Timeliness14_1');
 const quality15_5 = document.getElementById('Quality15_5');
  quality15_5.addEventListener('change', function () {
     if (quality15_5.checked) {
-        employee_id && localStorage.setItem(employee_id + 'Quality15', '1');
+        employee_id && localStorage.setItem(employee_id + 'Quality15', '5');
     }
 })
 const quality15_4 = document.getElementById('Quality15_4');
 quality15_4.addEventListener('change', function () {
     if (quality15_4.checked) {
-        employee_id && localStorage.setItem(employee_id + 'Quality15', '2');
+        employee_id && localStorage.setItem(employee_id + 'Quality15', '4');
     }
 })
 
@@ -544,13 +544,13 @@ const quality15_3 = document.getElementById('Quality15_3');
 const quality15_2 = document.getElementById('Quality15_2');
  quality15_2.addEventListener('change', function () {
     if (quality15_2.checked) {
-        employee_id && localStorage.setItem(employee_id + 'Quality15', '4');
+        employee_id && localStorage.setItem(employee_id + 'Quality15', '2');
     }
 })
 const quality15_1 = document.getElementById('Quality15_1');
  quality15_1.addEventListener('change', function () {
     if (quality15_1.checked) {
-     employee_id && localStorage.setItem(employee_id + 'Quality15', '5');
+     employee_id && localStorage.setItem(employee_id + 'Quality15', '1');
     }
  });
 
@@ -558,13 +558,13 @@ const quality15_1 = document.getElementById('Quality15_1');
 const efficiency15_5 = document.getElementById('Efficiency15_5');
  efficiency15_5.addEventListener('change', function () {
     if (efficiency15_5.checked) {
-        employee_id && localStorage.setItem(employee_id + 'Efficiency15', '1');
+        employee_id && localStorage.setItem(employee_id + 'Efficiency15', '5');
     }
 })
 const efficiency15_4 = document.getElementById('Efficiency15_4');
  efficiency15_4.addEventListener('change', function () {
     if (efficiency15_4.checked) {
-        employee_id && localStorage.setItem(employee_id + 'Efficiency15', '2');
+        employee_id && localStorage.setItem(employee_id + 'Efficiency15', '4');
     }
 })
 const efficiency15_3 = document.getElementById('Efficiency15_3');
@@ -576,27 +576,27 @@ efficiency15_3.addEventListener('change', function () {
 const efficiency15_2 = document.getElementById('Efficiency15_2');
     efficiency15_2.addEventListener('change', function () {
     if (efficiency15_2.checked) {
-        employee_id && localStorage.setItem(employee_id + 'Efficiency15', '4');
+        employee_id && localStorage.setItem(employee_id + 'Efficiency15', '2');
     }
 })
 const efficiency15_1 = document.getElementById('Efficiency15_1');
     efficiency15_1.addEventListener('change', function () {
     if (efficiency15_1.checked) {
-        employee_id && localStorage.setItem(employee_id + 'Efficiency15', '5');
+        employee_id && localStorage.setItem(employee_id + 'Efficiency15', '1');
     }
 });
 
 // Timeliness
 const timeliness15_5 = document.getElementById('Timeliness15_5');
- quality15_5.addEventListener('change', function () {
-    if (quality15_5.checked) {
-        employee_id && localStorage.setItem(employee_id + 'Timeliness15', '1');
+timeliness15_5.addEventListener('change', function () {
+    if (timeliness15_5.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Timeliness15', '5');
     }
 })
 const timeliness15_4 = document.getElementById('Timeliness15_4');
     timeliness15_4.addEventListener('change', function () {
     if (timeliness15_4.checked) {
-        employee_id && localStorage.setItem(employee_id + 'Timeliness15', '2');
+        employee_id && localStorage.setItem(employee_id + 'Timeliness15', '4');
     }
 })
 const timeliness15_3 = document.getElementById('Timeliness15_3');
@@ -608,13 +608,13 @@ const timeliness15_3 = document.getElementById('Timeliness15_3');
 const timeliness15_2 = document.getElementById('Timeliness15_2');
     timeliness15_2.addEventListener('change', function () {
     if (timeliness15_2.checked) {
-        employee_id && localStorage.setItem(employee_id + 'Timeliness15', '4');
+        employee_id && localStorage.setItem(employee_id + 'Timeliness15', '2');
     }
 })
 const timeliness15_1 = document.getElementById('Timeliness15_1');
     timeliness15_2.addEventListener('change', function () {
     if (timeliness15_1.checked) {
-        employee_id && localStorage.setItem(employee_id + 'Timeliness15', '5');
+        employee_id && localStorage.setItem(employee_id + 'Timeliness15', '1');
     }
 });
 
