@@ -187,7 +187,7 @@ async function getTeacherAttachments() {
             const dateStr = String(submitted['0'].created_at); 
             const date = new Date(dateStr); 
 
-            const url = 'https://bnahs.pythonanywhere.com'+submitted['0']['file'];
+            const url = 'https://bnahs.pythonanywhere.com'+submitted['0']['file2'];
             console.log(url);
             const pdfContainer = document.getElementById('pdf-container');
             document.getElementById('file-btn').addEventListener('click', function(){
@@ -230,14 +230,9 @@ async function getTeacherAttachments() {
             document.getElementById("file-upload-time").textContent = "Turned in on " +formattedDate;
          
             if(submitted['0'].is_checked === true){
-                returnBtn.style.display = 'none';
-                score1.value = content['9'].Score;
-                score1.disabled = true;
-                score2.value = content['10'].Score;
-                score2.disabled = true;
-                score3.value = content['11'].Score;
-                score3.disabled = true;
-                score.value = String(submitted[0]["Overall Score"]);
+                returnBtn.style.display = 'none'; 
+                score10.value = content['10'].Score;
+                score10.disabled = true; 
             }
 
         } else {
@@ -258,27 +253,19 @@ returnBtn.addEventListener('click', async function(){
     let content = submitted['0'].grade;
     console.log(rpms_id);
     console.log(content);
-    if(!parseInt(score1.value) || parseInt(score1.value) > 7){
-        alert("Grade should not be 0 and is lower or equal to the max score.");
-        return;
-    }
-    if(!parseInt(score2.value) || parseInt(score2.value) > 7){
-        alert("Grade should not be 0 and is lower or equal to the max score.");
-        return;
-    }
-    if(!parseInt(score3.value) || parseInt(score3.value) > 7){
+    if(!parseInt(score10.value) || parseInt(score10.value) > 7){
         alert("Grade should not be 0 and is lower or equal to the max score.");
         return;
     } 
-    content['10'].Score = String(score2.value); 
-    console.log(content);
-    score.value = String(parseInt(score1.value)+parseInt(score2.value)+parseInt(score3.value));
+    content['10'].Score = String(score10.value); 
+    console.log(content); 
     
 
     const formData = new FormData();
     formData.append('rpms_id', rpms_id);
     formData.append('content', JSON.stringify(content));
     formData.append('comment', String(document.getElementById('private-comments-textarea').value));
+    formData.append('index', '2');
 
     const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/check/rpms/attachment/',
         {
