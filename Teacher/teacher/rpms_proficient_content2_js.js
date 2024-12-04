@@ -1381,7 +1381,7 @@ async function getAttachments4() {
             turnInBtn4.disabled = uploadedFiles4.length === 0;
 
             renderFileList4();
-            if(submit['0']['file_is_checked'] === true){
+            if(submit['0']['file4_is_checked'] === true){
 
                 document.getElementById('reflected-score4').value = String(submit['0']['8']['Score']);
                 unsubmitBtn4.style.display = 'none';
