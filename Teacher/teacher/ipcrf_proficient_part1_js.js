@@ -2,30 +2,111 @@
 const efficiency1_5 = document.getElementById('Efficiency1_5');
 efficiency1_5.addEventListener('change', function () {
     if (efficiency1_5.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
     }
 });
 const efficiency1_3 = document.getElementById('Efficiency1_3');
+efficiency1_3.addEventListener('change', function () {
+    if (efficiency1_3.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '3');
+    }
+});
 const efficiency1_1 = document.getElementById('Efficiency1_1');
+efficiency1_1.addEventListener('change', function () {
+    if (efficiency1_1.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '1');
+    }
+});
 
 const efficiency2_5 = document.getElementById('Efficiency2_5');
+efficiency2_5.addEventListener('change', function () {
+    if (efficiency2_5.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency2', '5');
+    }
+});
 const efficiency2_3 = document.getElementById('Efficiency2_3');
+efficiency2_3.addEventListener('change', function () {
+    if (efficiency2_3.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency2', '3');
+    }
+})
 const efficiency2_1 = document.getElementById('Efficiency2_1');
+efficiency2_1.addEventListener('change', function () {
+    if (efficiency2_1.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency2', '1');
+    }
+});
 
 const efficiency3_5 = document.getElementById('Efficiency3_5');
+efficiency3_5.addEventListener('change', function () {
+    if (efficiency3_5.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency3', '5');
+    }
+}); 
 const efficiency3_3 = document.getElementById('Efficiency3_3');
+efficiency3_3.addEventListener('change', function () {
+    if (efficiency3_3.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency3', '3');
+    }
+})
 const efficiency3_1 = document.getElementById('Efficiency3_1');
+efficiency3_1.addEventListener('change', function () {
+    if (efficiency3_1.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency3', '1');
+    }
+});
 
 const efficiency4_5 = document.getElementById('Efficiency4_5');
+efficiency4_5.addEventListener('change', function () {
+    if (efficiency4_5.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency4', '5');
+    }
+}); 
 const efficiency4_3 = document.getElementById('Efficiency4_3');
+efficiency4_3.addEventListener('change', function () {
+    if (efficiency4_3.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency4', '3');
+    }
+})
 const efficiency4_1 = document.getElementById('Efficiency4_1');
+efficiency4_1.addEventListener('change', function () {
+    if (efficiency4_1.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency4', '1');
+    }
+});
 
 // KRA 2: Learning Environment & Diversity of Learners
 const efficiency5_5 = document.getElementById('Efficiency5_5');
+efficiency5_5.addEventListener('change', function () {
+    if (efficiency5_5.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency5', '5');
+    }
+}); 
 const efficiency5_3 = document.getElementById('Efficiency5_3');
+efficiency5_3.addEventListener('change', function () {
+    if (efficiency5_3.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency5', '3');
+    }
+})
 const efficiency5_1 = document.getElementById('Efficiency5_1');
+efficiency5_1.addEventListener('change', function () {
+    if (efficiency5_1.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency5', '1');
+    }
+});
 
 const efficiency6_5 = document.getElementById('Efficiency6_5');
+ efficiency6_5.addEventListener('change', function () {
+    if (efficiency6_5.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency6', '5');
+    }
+});
 const efficiency6_3 = document.getElementById('Efficiency6_3');
+efficiency6_3.addEventListener('change', function () {
+    if (efficiency6_3.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency6', '3');
+    }
+})
 const efficiency6_1 = document.getElementById('Efficiency6_1');
 
 const efficiency7_5 = document.getElementById('Efficiency7_5');
@@ -601,6 +682,7 @@ function getRateQuality15() {
     }
 }
 
+let employee_id = undefined;
 
 async function getIPCRF(){
     const formData = new FormData();
@@ -621,6 +703,7 @@ async function getIPCRF(){
         if (response.ok) {
             console.log("Success Data : ", ipcrf_content);  
             console.log('ipcrf :', ipcrf_content['ipcrf']['content_for_teacher']);
+            employee_id = ipcrf_content['ipcrf']['employee_id']
         } else {
             console.log("Error Data : ", ipcrf_content);
             // alert("Login Failed.")
