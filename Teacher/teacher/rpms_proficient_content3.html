@@ -131,56 +131,55 @@
                 <div class="turn-in-panel">
                     <h4>Objective 9</h4>
                     <!-- <p class="overall-score">/28</p> -->
-                    <span><input type="text" id="overall-score9" class="overall-score" placeholder="/7" disabled></span>
+                    <span><input type="text" id="overall-score" class="overall-score" placeholder="/7" disabled></span>
                     <!-- <p class="reflected-score">0</p> -->
-                   <span><input type="text" id="reflected-score9" class="reflected-score" placeholder="0" disabled></span>
+                   <span><input type="text" id="reflected-score" class="reflected-score" placeholder="0" disabled></span>
                     
                     <!-- Display Uploaded Files -->
-                    <div id="fileList9"></div> <!-- This is where the uploaded files will appear -->
+                    <div id="fileList"></div> <!-- This is where the uploaded files will appear -->
                     
                     <!-- File Upload Section -->
-                    <input type="file" id="fileInput9" style="display: none;" multiple />
-                    <button class="btn-primary" id="addCreateBtn9">+ Add or Create</button>
+                    <input type="file" id="fileInput" style="display: none;" multiple />
+                    <button class="btn-primary" id="addCreateBtn">+ Add or Create</button>
                     
                     <!-- Turn In Button -->
-                    <button class="btn-secondary" id="turnInBtn9" disabled>Turn In</button>
+                    <button class="btn-secondary" id="turnInBtn" disabled>Turn In</button>
                 </div>
 
-                
-                <div class="turn-in-panel">
+                <div class="turn-in-panel2">
                     <h4>Objective 10</h4>
                     <!-- <p class="overall-score">/28</p> -->
-                    <span><input type="text" id="overall-score10" class="overall-score" placeholder="/7" disabled></span>
+                    <span><input type="text" id="overall-score2" class="overall-score" placeholder="/7" disabled></span>
                     <!-- <p class="reflected-score">0</p> -->
-                   <span><input type="text" id="reflected-score10" class="reflected-score" placeholder="0" disabled></span>
+                   <span><input type="text" id="reflected-score2" class="reflected-score" placeholder="0" disabled></span>
                     
                     <!-- Display Uploaded Files -->
-                    <div id="fileList10"></div> <!-- This is where the uploaded files will appear -->
+                    <div id="fileList2"></div> <!-- This is where the uploaded files will appear -->
                     
                     <!-- File Upload Section -->
-                    <input type="file" id="fileInput10" style="display: none;" multiple />
-                    <button class="btn-primary" id="addCreateBtn10">+ Add or Create</button>
+                    <input type="file" id="fileInput2" style="display: none;" multiple />
+                    <button class="btn-primary" id="addCreateBtn2">+ Add or Create</button>
                     
                     <!-- Turn In Button -->
-                    <button class="btn-secondary" id="turnInBtn10" disabled>Turn In</button>
+                    <button class="btn-secondary" id="turnInBtn2" disabled>Turn In</button>
                 </div>
 
-                <div class="turn-in-panel">
+                <div class="turn-in-panel3">
                     <h4>Objective 11</h4>
                     <!-- <p class="overall-score">/28</p> -->
-                    <span><input type="text" id="overall-score11" class="overall-score" placeholder="/7" disabled></span>
+                    <span><input type="text" id="overall-score3" class="overall-score" placeholder="/7" disabled></span>
                     <!-- <p class="reflected-score">0</p> -->
-                   <span><input type="text" id="reflected-score11" class="reflected-score" placeholder="0" disabled></span>
+                   <span><input type="text" id="reflected-score3" class="reflected-score" placeholder="0" disabled></span>
                     
                     <!-- Display Uploaded Files -->
-                    <div id="fileList11"></div> <!-- This is where the uploaded files will appear -->
+                    <div id="fileList3"></div> <!-- This is where the uploaded files will appear -->
                     
                     <!-- File Upload Section -->
-                    <input type="file" id="fileInput11" style="display: none;" multiple />
-                    <button class="btn-primary" id="addCreateBtn11">+ Add or Create</button>
+                    <input type="file" id="fileInput3" style="display: none;" multiple />
+                    <button class="btn-primary" id="addCreateBtn3">+ Add or Create</button>
                     
                     <!-- Turn In Button -->
-                    <button class="btn-secondary" id="turnInBtn11" disabled>Turn In</button>
+                    <button class="btn-secondary" id="turnInBtn3" disabled>Turn In</button>
                 </div>
 
                 <div class="turn-in-panel_ts">
@@ -261,6 +260,65 @@
             </div>
             </div>
         </div>
+
+        <div id="fileModal2" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close2">&times;</span>
+                <h4>File Preview</h4>
+                <div id="modalBody2"></div>
+            </div>
+        </div>
+
+        <!-- Modal HTML Structure -->
+        <div id="submissionModal2" class="modal-2">
+            <div class="modal-content-2">
+                <span class="close2" style="cursor:pointer;">&times;</span> <!-- Close button -->
+                <h3>Turn in your work?</h3>
+                <p id="fileCount2"></p>
+                
+                <!-- File list preview will go here -->
+                <div id="fileListPreview2">
+                    <!-- File details will be dynamically injected here -->
+                </div> 
+                
+                <div class="modal-buttons">
+                    <button id="cancelBtn2" class="btn btn-secondary">Cancel</button>
+                    <button id="confirmBtn2" class="btn btn-primary">Turn In</button>
+                </div>
+                
+            </div>
+            </div>
+        </div>
+
+        <div id="fileModal3" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close3">&times;</span>
+                <h4>File Preview</h4>
+                <div id="modalBody3"></div>
+            </div>
+        </div>
+
+        <!-- Modal HTML Structure -->
+        <div id="submissionModal3" class="modal-2">
+            <div class="modal-content-2">
+                <span class="close3" style="cursor:pointer;">&times;</span> <!-- Close button -->
+                <h3>Turn in your work?</h3>
+                <p id="fileCount3"></p>
+                
+                <!-- File list preview will go here -->
+                <div id="fileListPreview3">
+                    <!-- File details will be dynamically injected here -->
+                </div> 
+                
+                <div class="modal-buttons">
+                    <button id="cancelBtn3" class="btn btn-secondary">Cancel</button>
+                    <button id="confirmBtn3" class="btn btn-primary">Turn In</button>
+                </div>
+                
+            </div>
+            </div>
+
+
         <!-- Logout Confirmation Modal -->
     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
         <div class="modal-content">
