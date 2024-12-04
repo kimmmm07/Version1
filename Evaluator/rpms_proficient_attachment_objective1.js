@@ -70,12 +70,8 @@ const gradeSection = document.getElementById('grade-section');
 const totalScoreSection = document.getElementById('total-score-section');
 const privateCommentsSection = document.getElementById('private-comments-section');
 
-
-const score = document.getElementById("score");
-const score1 = document.getElementById("score1");
-const score2 = document.getElementById("score2");
-const score3 = document.getElementById("score3");
-const score4 = document.getElementById("score4");
+ 
+const score1 = document.getElementById("score1"); 
 
 // Grade items and score
 const gradeList = document.getElementById('grade-list');
@@ -248,14 +244,7 @@ async function getTeacherAttachments() {
             if(submitted['0'].is_checked === true){
                 returnBtn.style.display = 'none';
                 score1.value = content['1'].Score;
-                score1.disabled = true;
-                score2.value = content['2'].Score;
-                score2.disabled = true;
-                score3.value = content['3'].Score;
-                score3.disabled = true;
-                score4.value = content['4'].Score;
-                score4.disabled = true;
-                score.value = String(submitted[0]["Overall Score"]);
+                score1.disabled = true; 
             }
 
         } else {
