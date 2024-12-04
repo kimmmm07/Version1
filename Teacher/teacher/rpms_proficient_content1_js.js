@@ -111,7 +111,7 @@ document.querySelector('.turn-in-panel3').appendChild(unsubmitBtn3);
 const fileModal3 = document.getElementById('fileModal3');
 const modalBody3 = document.getElementById('modalBody3');
 const submissionModal3 = document.getElementById('submissionModal3');
-const closeSubmissionModal3 = submissionModal2.querySelector('.close3'); 
+const closeSubmissionModal3 = submissionModal3.querySelector('.close3'); 
 const cancelBtn3 = document.getElementById('cancelBtn3');
 const confirmBtn3 = document.getElementById('confirmBtn3');
 const fileCount3 = document.getElementById('fileCount3');
@@ -132,7 +132,7 @@ document.querySelector('.turn-in-panel4').appendChild(unsubmitBtn4);
 const fileModal4 = document.getElementById('fileModal4');
 const modalBody4 = document.getElementById('modalBody4');
 const submissionModal4 = document.getElementById('submissionModal4');
-const closeSubmissionModal4 = submissionModal2.querySelector('.close4'); 
+const closeSubmissionModal4 = submissionModal4.querySelector('.close4'); 
 const cancelBtn4 = document.getElementById('cancelBtn4');
 const confirmBtn4 = document.getElementById('confirmBtn4');
 const fileCount4 = document.getElementById('fileCount4');
@@ -173,6 +173,41 @@ let isSubmitted2 = false;
 let isSubmitted3 = false;
 let isSubmitted4 = false;
 
+
+async function getTotalScore() {
+    try {
+        const formData = new FormData();
+        formData.append('class_work_id', class_work_id);
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folder/classwork/attachments/', {
+            method: 'POST',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            credentials: 'include',
+            body: formData
+        });
+
+        if (response.ok) {
+            const responseData = await response.json();
+            console.log('Fetched attachments:', responseData);
+            
+            const submit = responseData.submitted;
+            
+            if(submit['0']['is_checked'] === true){
+
+                reflectedScoreKRA1.value = String(submit['0']['Overall Score']);
+            }
+        } else {
+            console.error('Failed to fetch attachments:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error during fetch:', error);
+    }
+}
+
+
+getTotalScore();
+
+
 // Trigger file upload dialog when "Add or Create" is clicked
 addCreateBtn.addEventListener('click', () => {
     fileInput.click();
@@ -210,7 +245,7 @@ function renderFileList() {
     uploadedFiles.forEach((file, index) => {
         const fileDiv = document.createElement('div');
         fileDiv.classList.add('file-preview');
-
+a
         // Create an icon for the file type
         const icon = document.createElement('img');
         icon.classList.add('file-icon');
@@ -272,12 +307,20 @@ let mainfile = undefined;
 function showModal(fileURL, fileType) {
     if (fileType.startsWith('image/')) {
         modalBody.innerHTML = `<img src="${fileURL}" style="max-width: 100%; height: auto;"/>`;
+        fileModal.style.display = 'block';
+        return;
     } else if (fileType.startsWith('application/pdf')) {
         modalBody.innerHTML = `<iframe src="${fileURL}" style="width: 100%; height: 500px;" frameborder="0"></iframe>`;
+        fileModal.style.display = 'block';
+        return;
     } else if (fileType.startsWith('application/msword') || fileType.startsWith('application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
         modalBody.innerHTML = `<iframe src="${fileURL}" style="width: 100%; height: 500px;" frameborder="0"></iframe>`;
+        fileModal.style.display = 'block';
+        return;
     } else if (fileType.startsWith('application/vnd.ms-excel') || fileType.startsWith('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {
         modalBody.innerHTML = `<iframe src="${fileURL}" style="width: 100%; height: 500px;" frameborder="0"></iframe>`;
+        fileModal.style.display = 'block';
+        return;
     } else {
         modalBody.innerHTML = `<p>Preview not available for this file type.</p>`;
     }
@@ -353,7 +396,6 @@ async function getAttachments() {
             mainfile = responseData.submitted?.[0];
             
             const submit = responseData.submitted;
-                       
             // Handle fetched submitted files
             const submitted = responseData.submitted.map(item => {
                 const cleanedFileName = item.file.replace('/media/rpms_attachments/', '');
@@ -361,7 +403,7 @@ async function getAttachments() {
                 // Create a new File object with the cleaned name
                 return new File([cleanedFileName], cleanedFileName, { type: item.streams_type || '' });
             });
-            
+            console.log(submitted);
             // Choose either submitted or unsubmitted, not both
             if (submitted.length > 0) {
                 uploadedFiles = submitted;
@@ -373,7 +415,6 @@ async function getAttachments() {
             unsubmitBtn.style.display = isSubmitted ? 'block' : 'none';
 
             turnInBtn.disabled = uploadedFiles.length === 0;
-
             renderFileList();
             if(submit['0']['file_is_checked'] === true){
 
@@ -587,12 +628,20 @@ let mainfile2 = undefined;
 function showModal2(fileURL, fileType) {
     if (fileType.startsWith('image/')) {
         modalBody2.innerHTML = `<img src="${fileURL}" style="max-width: 100%; height: auto;"/>`;
+        fileModal2.style.display = 'block';
+        return;
     } else if (fileType.startsWith('application/pdf')) {
         modalBody2.innerHTML = `<iframe src="${fileURL}" style="width: 100%; height: 500px;" frameborder="0"></iframe>`;
+        fileModal2.style.display = 'block';
+        return;
     } else if (fileType.startsWith('application/msword') || fileType.startsWith('application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
         modalBody2.innerHTML = `<iframe src="${fileURL}" style="width: 100%; height: 500px;" frameborder="0"></iframe>`;
+        fileModal2.style.display = 'block';
+        return;
     } else if (fileType.startsWith('application/vnd.ms-excel') || fileType.startsWith('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {
         modalBody2.innerHTML = `<iframe src="${fileURL}" style="width: 100%; height: 500px;" frameborder="0"></iframe>`;
+        fileModal2.style.display = 'block';
+        return;
     } else {
         modalBody2.innerHTML = `<p>Preview not available for this file type.</p>`;
     }
@@ -980,8 +1029,12 @@ async function unSubmitAttachment3() {
 function showModal3(fileURL, fileType) {
     if (fileType.startsWith('image/')) {
         modalBody3.innerHTML = `<img src="${fileURL}" style="max-width: 100%; height: auto;"/>`;
+        fileModal3.style.display = 'block';
+        return;
     } else if (fileType.startsWith('application/pdf')) {
         modalBody3.innerHTML = `<iframe src="${fileURL}" style="width: 100%; height: 500px;" frameborder="0"></iframe>`;
+        fileModal3.style.display = 'block';
+        return;
     } else {
         modalBody3.innerHTML = `<p>Preview not available for this file type.</p>`;
     }
@@ -1125,12 +1178,6 @@ unsubmitBtn3.addEventListener('click', function () {
 
 
 
-
-
-
-
-
-
 addCreateBtn4.addEventListener('click', () => {
     fileInput4.click();
 });
@@ -1226,12 +1273,20 @@ let mainfile4 = undefined;
 function showModal4(fileURL, fileType) {
     if (fileType.startsWith('image/')) {
         modalBody4.innerHTML = `<img src="${fileURL}" style="max-width: 100%; height: auto;"/>`;
+        fileModal4.style.display = 'block';
+        return;
     } else if (fileType.startsWith('application/pdf')) {
         modalBody4.innerHTML = `<iframe src="${fileURL}" style="width: 100%; height: 500px;" frameborder="0"></iframe>`;
+        fileModal4.style.display = 'block';
+        return;
     } else if (fileType.startsWith('application/msword') || fileType.startsWith('application/vnd.openxmlformats-officedocument.wordprocessingml.document')) {
         modalBody4.innerHTML = `<iframe src="${fileURL}" style="width: 100%; height: 500px;" frameborder="0"></iframe>`;
+        fileModal4.style.display = 'block';
+        return;
     } else if (fileType.startsWith('application/vnd.ms-excel') || fileType.startsWith('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {
         modalBody4.innerHTML = `<iframe src="${fileURL}" style="width: 100%; height: 500px;" frameborder="0"></iframe>`;
+        fileModal4.style.display = 'block';
+        return;
     } else {
         modalBody4.innerHTML = `<p>Preview not available for this file type.</p>`;
     }
@@ -1242,7 +1297,7 @@ function showModal4(fileURL, fileType) {
 }
 
 // Close the modal when the close button is clicked for submission modal
-closeSubmissionModal.addEventListener('click', () => {
+closeSubmissionModal4.addEventListener('click', () => {
     submissionModal4.style.display = 'none'; // Hide the submission modal
 });
 
@@ -1309,7 +1364,7 @@ async function getAttachments4() {
                        
             // Handle fetched submitted files
             const submitted = responseData.submitted.map(item => {
-                const cleanedFileName = item.file.replace('/media/rpms_attachments/', '');
+                const cleanedFileName = item.file4.replace('/media/rpms_attachments/', '');
                 
                 // Create a new File object with the cleaned name
                 return new File([cleanedFileName], cleanedFileName, { type: item.streams_type || '' });
@@ -1330,7 +1385,7 @@ async function getAttachments4() {
             renderFileList4();
             if(submit['0']['file_is_checked'] === true){
 
-                document.getElementById('reflected-score4').value = String(submit['0']['1']['Score']);
+                document.getElementById('reflected-score4').value = String(submit['0']['8']['Score']);
                 unsubmitBtn4.style.display = 'none';
             }
         } else {
@@ -1349,11 +1404,11 @@ async function sendFilesToBackend4() {
         // Create a FormData object for sending files
         const formData = new FormData();
         formData.append('class_work_id', class_work_id); // Include the classwork ID
-        formData.append('index', '1')
+        formData.append('index', '4')
 
         // Append each file to the FormData object (as actual file objects)
         uploadedFiles4.forEach(file => {
-            formData.append('file1', file);
+            formData.append('file4', file);
         });
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/rpms/folder/classwork/turnin/', {
@@ -1376,6 +1431,64 @@ async function sendFilesToBackend4() {
         console.error('Error during file submission:', error);
     }
 }
+
+async function unSubmitAttachment4() {
+    try {
+        const formData3 = new FormData();
+        formData3.append('class_work_id', class_work_id);
+        formData3.append('index', '4');
+
+        const response3 = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/rpms/folder/classwork/unsubmit/', {
+            method: 'POST',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            credentials: 'include',
+            body: formData3
+        });
+
+        if (response3.ok) {
+            const responseData3 = await response3.json();
+            console.log('Files successfully unsubmitted:', responseData3);
+            location.reload();
+        } else {
+            console.error('Failed to unsubmit files:', response3.statusText);
+        }
+    } catch (error3) {
+        console.error('Error during fetch:', error3);
+    }
+}
+
+confirmBtn4.addEventListener('click', function () {
+    isSubmitted4 = true;
+
+    sendFilesToBackend4();
+
+    addCreateBtn4.style.display = 'none';
+    turnInBtn4.style.display = 'none';
+
+    document.querySelectorAll('.remove-file').forEach(button => {
+        button.style.display = 'none';
+    });
+
+    unsubmitBtn4.style.display = 'block';
+    submissionModal4.style.display = 'none';
+});
+
+unsubmitBtn4.addEventListener('click', function () {
+    isSubmitted4 = false;
+
+    unSubmitAttachment4();
+
+    addCreateBtn4.style.display = 'block';
+    turnInBtn4.style.display = 'block';
+
+    document.querySelectorAll('.remove-file').forEach(button => {
+        button.style.display = 'inline';
+    });
+
+    unsubmitBtn4.style.display = 'none';
+    turnInBtn4.disabled = false;
+});
+
 
 
 
