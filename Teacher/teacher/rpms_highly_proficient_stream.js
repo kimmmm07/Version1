@@ -138,9 +138,13 @@ async function getClassworks(){
         });
 
         folder = await response.json();
+        
+
 
         if (response.ok) {
             console.log("Success Data : ", folder);  
+            headerSubtitle.innerHTML = folder.rpms_folder.rpms_folder_school_year;
+
             folder.rpms_classworks.forEach(classwork => {
                 if (classwork.title == "PLUS FACTOR") {
                     plus_factor_id = classwork.class_work_id;

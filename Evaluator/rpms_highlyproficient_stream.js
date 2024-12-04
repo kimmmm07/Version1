@@ -155,7 +155,7 @@ async function getClassworks(){
 
         const formData = new FormData();
         formData.append('rpms_folder_id', rpms_folder_id);
-        formData.append('folder_type', 'proficient' );
+        formData.append('folder_type', 'proficient' ); 
 
         
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/rpms/folder/', {
@@ -172,7 +172,7 @@ async function getClassworks(){
 
         if (response.ok) {
             console.log("Success Data : ", folder);  
-            headerSubtitle.textContext = folder.rpms_folder.rpms_folder_school_year;
+            headerSubtitle.innerHTML = folder.rpms_folder.rpms_folder_school_year;
 
             folder.rpms_classworks.forEach(classwork => {
                 if (classwork.title == "PLUS FACTOR") {

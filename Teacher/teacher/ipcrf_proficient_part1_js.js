@@ -120,6 +120,7 @@ efficiency7_5.addEventListener('change', function () {
         employee_id && localStorage.setItem(employee_id + 'Efficiency7', '5');
     }
 })
+
 const efficiency7_3 = document.getElementById('Efficiency7_3');
 const efficiency7_1 = document.getElementById('Efficiency7_1');
 

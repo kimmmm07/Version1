@@ -4,7 +4,7 @@ const efficiency1_3 = document.getElementById('Efficiency1_3');
 const efficiency1_1 = document.getElementById('Efficiency1_1');
 
 function getRateEfficiency1(){
-    console.log("GgGGGGG");
+    console.log("GGGGGG");
     if(efficiency1_5.checked){
         return 5;
     }else if(efficiency1_3.checked){

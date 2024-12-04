@@ -3,26 +3,96 @@
 // Efficiency for 1
 const Efficiency1_5 = document.getElementById('Efficiency1_5');
 const efficiency1_5_option = document.getElementById('efficiency1_5_option');
+efficiency1_5_option.addEventListener('change', function () {
+    if (efficiency1_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency1_3_option = document.getElementById('efficiency1_3_option');
+efficiency1_3_option.addEventListener('change', function () {
+    if (efficiency1_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency1_1_option = document.getElementById('efficiency1_1_option');
+efficiency1_1_option.addEventListener('change', function () {
+    if (efficiency1_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 
 // Efficiency for 2
 const Efficiency2_5 = document.getElementById('Efficiency2_5');
 const efficiency2_5_option = document.getElementById('efficiency2_5_option');
+efficiency2_5_option.addEventListener('change', function () {
+    if (efficiency1_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency2_3_option = document.getElementById('efficiency2_3_option');
+efficiency2_3_option.addEventListener('change', function () {
+    if (efficiency2_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency2_1_option = document.getElementById('efficiency2_1_option');
+efficiency2_1_option.addEventListener('change', function () {
+    if (efficiency2_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 
 // Efficiency for 3
 const Efficiency3_5 = document.getElementById('Efficiency3_5');
 const efficiency3_5_option = document.getElementById('efficiency3_5_option');
+efficiency3_5_option.addEventListener('change', function () {
+    if (efficiency3_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency3_3_option = document.getElementById('efficiency3_3_option');
+efficiency3_3_option.addEventListener('change', function () {
+    if (efficiency3_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency3_1_option = document.getElementById('efficiency3_1_option');
+efficiency3_1_option.addEventListener('change', function () {
+    if (efficiency3_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
 
 // Efficiency for 4
 const Efficiency4_5 = document.getElementById('Efficiency4_5');
 const efficiency4_5_option = document.getElementById('efficiency4_5_option');
+efficiency4_5_option.addEventListener('change', function () {
+    if (efficiency4_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency4_3_option = document.getElementById('efficiency4_3_option');
+efficiency4_3_option.addEventListener('change', function () {
+    if (efficiency4_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency4_1_option = document.getElementById('efficiency4_1_option');
+efficiency4_1_option.addEventListener('change', function () {
+    if (efficiency4_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
 
 
 // KRA 2 Efficiency options
@@ -30,26 +100,96 @@ const efficiency4_1_option = document.getElementById('efficiency4_1_option');
 // 5
 const Efficiency5_5 = document.getElementById('Efficiency5_5');
 const efficiency5_5_option = document.getElementById('efficiency5_5_option');
+efficiency5_5_option.addEventListener('change', function () {
+    if (efficiency1_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency5_3_option = document.getElementById('efficiency5_3_option');
+efficiency5_3_option.addEventListener('change', function () {
+    if (efficiency5_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency5_1_option = document.getElementById('efficiency5_1_option');
+efficiency5_1_option.addEventListener('change', function () {
+    if (efficiency5_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
 
 // 6
 const Efficiency6_5 = document.getElementById('Efficiency6_5');
 const efficiency6_5_option = document.getElementById('efficiency6_5_option');
+efficiency6_5_option.addEventListener('change', function () {
+    if (efficiency6_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency6_3_option = document.getElementById('efficiency6_3_option');
+efficiency6_3_option.addEventListener('change', function () {
+    if (efficiency6_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency6_1_option = document.getElementById('efficiency6_1_option');
+efficiency6_1_option.addEventListener('change', function () {
+    if (efficiency6_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 
 // 7
 const Efficiency7_5 = document.getElementById('Efficiency7_5');
 const efficiency7_5_option = document.getElementById('efficiency7_5_option');
+efficiency7_5_option.addEventListener('change', function () {
+    if (efficiency7_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency7_3_option = document.getElementById('efficiency7_3_option');
+efficiency7_3_option.addEventListener('change', function () {
+    if (efficiency7_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency7_1_option = document.getElementById('efficiency7_1_option');
+efficiency7_1_option.addEventListener('change', function () {
+    if (efficiency7_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 
 // 8
 const Efficiency8_5 = document.getElementById('Efficiency8_5');
 const efficiency8_5_option = document.getElementById('efficiency8_5_option');
+efficiency8_5_option.addEventListener('change', function () {
+    if (efficiency8_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency8_3_option = document.getElementById('efficiency8_3_option');
+efficiency8_3_option.addEventListener('change', function () {
+    if (efficiency8_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency8_1_option = document.getElementById('efficiency8_1_option');
+efficiency8_1_option.addEventListener('change', function () {
+    if (efficiency8_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
 
 
 // KRA 3 Quality and Efficiency options
@@ -57,95 +197,441 @@ const efficiency8_1_option = document.getElementById('efficiency8_1_option');
 // 9
 const Quality9_5 = document.getElementById('Quality9_5');
 const quality9_5_option = document.getElementById('quality9_5_option');
+quality9_5_option.addEventListener('change', function () {
+    if (quality9_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality9_4_option = document.getElementById('quality9_4_option');
+quality9_4_option.addEventListener('change', function () {
+    if (quality9_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality9_3_option = document.getElementById('quality9_3_option');
+quality9_3_option.addEventListener('change', function () {
+    if (quality9_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality9_2_option = document.getElementById('quality9_2_option');
+quality9_2_option.addEventListener('change', function () {
+    if (quality9_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality9_1_option = document.getElementById('quality9_1_option');
+quality9_1_option.addEventListener('change', function () {
+    if (quality9_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 
 const Efficiency9_5 = document.getElementById('Efficiency9_5');
 const efficiency9_5_option = document.getElementById('efficiency9_5_option');
+efficiency9_5_option.addEventListener('change', function () {
+    if (efficiency9_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency9_4_option = document.getElementById('efficiency9_4_option');
+efficiency9_4_option.addEventListener('change', function () {
+    if (efficiency9_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency9_3_option = document.getElementById('efficiency9_3_option');
+efficiency9_3_option.addEventListener('change', function () {
+    if (efficiency9_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency9_2_option = document.getElementById('efficiency9_2_option');
+efficiency9_2_option.addEventListener('change', function () {
+    if (efficiency9_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency9_1_option = document.getElementById('efficiency9_1_option');
+efficiency9_1_option.addEventListener('change', function () {
+    if (efficiency9_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 
 // 10
 const Efficiency10_5 = document.getElementById('Efficiency10_5');
 const efficiency10_5_option = document.getElementById('efficiency10_5_option');
-const efficiency10_3_option = document.getElementById('efficiency10_3_option');
-const efficiency10_1_option = document.getElementById('efficiency10_1_option');
+efficiency10_5_option.addEventListener('change', function () {
+    if (efficiency10_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
 
+const efficiency10_3_option = document.getElementById('efficiency10_3_option');
+efficiency10_3_option.addEventListener('change', function () {
+    if (efficiency10_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
+const efficiency10_1_option = document.getElementById('efficiency10_1_option');
+efficiency10_1_option.addEventListener('change', function () {
+    if (efficiency10_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
 
 // KRA 3 Quality and Timeliness options
 
 // 11
 const Quality11_5 = document.getElementById('Quality11_5');
 const quality11_5_option = document.getElementById('quality11_5_option');
+quality11_5_option.addEventListener('change', function () {
+    if (quality11_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality11_4_option = document.getElementById('quality11_4_option');
+quality11_4_option.addEventListener('change', function () {
+    if (quality11_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality11_3_option = document.getElementById('quality11_3_option');
+quality11_3_option.addEventListener('change', function () {
+    if (quality11_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality11_2_option = document.getElementById('quality11_2_option');
+quality11_2_option.addEventListener('change', function () {
+    if (quality11_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality11_1_option = document.getElementById('quality11_1_option');
+quality11_1_option.addEventListener('change', function () {
+    if (quality11_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 
 const Timeliness11_5 = document.getElementById('Timeliness11_5');
 const timeliness11_5_option = document.getElementById('timeliness11_5_option');
+timeliness11_5_option.addEventListener('change', function () {
+    if (timeliness11_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness11_4_option = document.getElementById('timeliness11_4_option');
+timeliness11_4_option.addEventListener('change', function () {
+    if (timeliness11_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness11_3_option = document.getElementById('timeliness11_3_option');
+timeliness11_3_option.addEventListener('change', function () {
+    if (timeliness11_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness11_2_option = document.getElementById('timeliness11_2_option');
+timeliness11_2_option.addEventListener('change', function () {
+    if (timeliness11_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness11_1_option = document.getElementById('timeliness11_1_option');
+timeliness11_1_option.addEventListener('change', function () {
+    if (timeliness11_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
+
 
 // KRA 4: Community Linkages and Professional Engagement & Personal Growth and Professional Development
 
 // 12
 const Quality12_5 = document.getElementById('Quality12_5');
 const quality12_5_option = document.getElementById("quality12_5_option");
+quality12_5_option.addEventListener('change', function () {
+    if (quality12_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
+
 const quality12_4_option = document.getElementById("quality12_4_option");
+quality12_4_option.addEventListener('change', function () {
+    if (quality12_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality12_3_option = document.getElementById("quality12_3_option");
+quality12_3_option.addEventListener('change', function () {
+    if (quality12_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality12_2_option = document.getElementById("quality12_2_option");
+quality12_2_option.addEventListener('change', function () {
+    if (quality12_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality12_1_option = document.getElementById("quality12_1_option");
+quality12_1_option.addEventListener('change', function () {
+    if (quality12_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
 
 const TImeliness12_5 = document.getElementById('Timeliness12_5');
 const timeliness12_5_option = document.getElementById("timeliness12_5_option");
+timeliness12_5_option.addEventListener('change', function () {
+    if (timeliness12_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness12_4_option = document.getElementById("timeliness12_4_option");
+timeliness12_4_option.addEventListener('change', function () {
+    if (timeliness12_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness12_3_option = document.getElementById("timeliness12_3_option");
+timeliness12_3_option.addEventListener('change', function () {
+    if (timeliness12_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness12_2_option = document.getElementById("timeliness12_2_option");
+timeliness12_2_option.addEventListener('change', function () {
+    if (timeliness12_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness12_1_option = document.getElementById("timeliness12_1_option");
+timeliness12_1_option.addEventListener('change', function () {
+    if (timeliness12_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
+
 
 // 13
 const Quality13_5 = document.getElementById('Quality13_5');
 const quality13_5_option = document.getElementById("quality13_5_option");
+quality13_5_option.addEventListener('change', function () {
+    if (quality13_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality13_4_option = document.getElementById("quality13_4_option");
+quality13_4_option.addEventListener('change', function () {
+    if (quality13_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality13_3_option = document.getElementById("quality13_3_option");
+quality13_3_option.addEventListener('change', function () {
+    if (quality13_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality13_2_option = document.getElementById("quality13_2_option");
+quality13_2_option.addEventListener('change', function () {
+    if (quality13_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality13_1_option = document.getElementById("quality13_1_option");
+quality13_1_option.addEventListener('change', function () {
+    if (quality13_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
 
 const Timeliness13_5 = document.getElementById('Timeliness13_5');
 const timeliness13_5_option = document.getElementById("timeliness13_5_option");
+timeliness13_5_option.addEventListener('change', function () {
+    if (timeliness13_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness13_4_option = document.getElementById("timeliness13_4_option");
+timeliness13_4_option.addEventListener('change', function () {
+    if (timeliness13_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness13_3_option = document.getElementById("timeliness13_3_option");
+timeliness13_3_option.addEventListener('change', function () {
+    if (timeliness13_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness13_2_option = document.getElementById("timeliness13_2_option");
+timeliness13_2_option.addEventListener('change', function () {
+    if (timeliness13_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness13_1_option = document.getElementById("timeliness13_1_option");
+timeliness13_1_option.addEventListener('change', function () {
+    if (timeliness13_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 
 // 14
 const Quality14_5 = document.getElementById('Quality14_5');
 const quality14_5_option = document.getElementById("quality14_5_option");
+quality14_5_option.addEventListener('change', function () {
+    if (quality14_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality14_4_option = document.getElementById("quality14_4_option");
+quality14_4_option.addEventListener('change', function () {
+    if (quality14_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality14_3_option = document.getElementById("quality14_3_option");
+quality14_3_option.addEventListener('change', function () {
+    if (quality14_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality14_2_option = document.getElementById("quality14_2_option");
+quality14_2_option.addEventListener('change', function () {
+    if (quality14_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality14_1_option = document.getElementById("quality14_1_option");
+quality14_1_option.addEventListener('change', function () {
+    if (quality14_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 
 const Efficiency14_5 = document.getElementById('Efficiency14_5');
 const efficiency14_5_option = document.getElementById("efficiency14_5_option");
+quality14_5_option.addEventListener('change', function () {
+    if (quality14_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency14_4_option = document.getElementById("efficiency14_4_option");
+quality14_4_option.addEventListener('change', function () {
+    if (quality14_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency14_3_option = document.getElementById("efficiency14_3_option");
+quality14_3_option.addEventListener('change', function () {
+    if (quality14_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency14_2_option = document.getElementById("efficiency14_2_option");
+quality14_2_option.addEventListener('change', function () {
+    if (quality14_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency14_1_option = document.getElementById("efficiency14_1_option");
+quality14_1_option.addEventListener('change', function () {
+    if (quality14_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 
 const Timeliness14_5 = document.getElementById('Timeliness14_5');
 const timeliness14_5_option = document.getElementById("timeliness14_5_option");
+timeliness14_5_option.addEventListener('change', function () {
+    if (timeliness14_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness14_4_option = document.getElementById("timeliness14_4_option");
+timeliness14_4_option.addEventListener('change', function () {
+    if (timeliness14_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness14_3_option = document.getElementById("timeliness14_3_option");
+timeliness14_3_option.addEventListener('change', function () {
+    if (timeliness14_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness14_2_option = document.getElementById("timeliness14_2_option");
+timeliness14_2_option.addEventListener('change', function () {
+    if (timeliness14_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness14_1_option = document.getElementById("timeliness14_1_option");
+timeliness14_1_option.addEventListener('change', function () {
+    if (timeliness14_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
 
 
 // plus factor
@@ -153,24 +639,111 @@ const timeliness14_1_option = document.getElementById("timeliness14_1_option");
 // 15
 const Quality15_5 = document.getElementById('Quality15_5');
 const quality15_5_option = document.getElementById("quality15_5_option");
+quality15_5_option.addEventListener('change', function () {
+    if (quality15_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality15_4_option = document.getElementById("quality15_4_option");
+quality15_4_option.addEventListener('change', function () {
+    if (quality15_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality15_3_option = document.getElementById("quality15_3_option");
+quality15_3_option.addEventListener('change', function () {
+    if (quality15_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality15_2_option = document.getElementById("quality15_2_option");
+quality15_2_option.addEventListener('change', function () {
+    if (quality15_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const quality15_1_option = document.getElementById("quality15_1_option");
+quality15_1_option.addEventListener('change', function () {
+    if (quality15_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
 
 const Efficiency15_5 = document.getElementById('Efficiency15_5');
 const efficiency15_5_option = document.getElementById("efficiency15_5_option");
+efficiency15_5_option.addEventListener('change', function () {
+    if (efficiency15_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency15_4_option = document.getElementById("efficiency15_4_option");
+efficiency15_4_option.addEventListener('change', function () {
+    if (efficiency15_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency15_3_option = document.getElementById("efficiency15_3_option");
+efficiency15_3_option.addEventListener('change', function () {
+    if (efficiency15_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const efficiency15_2_option = document.getElementById("efficiency15_2_option");
+efficiency15_2_option.addEventListener('change', function () {
+    if (efficiency15_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
 const efficiency15_1_option = document.getElementById("efficiency15_1_option");
+efficiency15_1_option.addEventListener('change', function () {
+    if (efficiency15_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 
 const Timeliness15_5 = document.getElementById('Timeliness15_5');
 const timeliness15_5_option = document.getElementById("timeliness15_5_option");
+timeliness15_5_option.addEventListener('change', function () {
+    if (timeliness15_5_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness15_4_option = document.getElementById("timeliness15_4_option");
+timeliness15_4_option.addEventListener('change', function () {
+    if (timeliness15_4_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness15_3_option = document.getElementById("timeliness15_3_option");
+timeliness15_3_option.addEventListener('change', function () {
+    if (timeliness15_3_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness15_2_option = document.getElementById("timeliness15_2_option");
+timeliness15_2_option.addEventListener('change', function () {
+    if (timeliness15_2_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
+
 const timeliness15_1_option = document.getElementById("timeliness15_1_option");
+timeliness15_1_option.addEventListener('change', function () {
+    if (timeliness15_1_option.checked) { 
+        employee_id && localStorage.setItem(employee_id + 'Efficiency1', '5');
+    }
+});
 
 
 
