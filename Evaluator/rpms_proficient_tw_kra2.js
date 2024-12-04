@@ -186,7 +186,7 @@ async function getTeacherAttachments() {
             objective6_item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
             objective6_item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
-                    if (!submitted?.file2_is_checked) {
+                    if (!submitted?.file2_is_checked && submitted?.file_is_checked) {
                         window.location.href = "rpms_proficient_attachment_objective6.html";
                     }
                 } 
@@ -196,7 +196,7 @@ async function getTeacherAttachments() {
             objective7_item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
             objective7_item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
-                    if (!submitted?.file3_is_checked) {
+                    if (!submitted?.file3_is_checked && submitted?.file2_is_checked) {
                         window.location.href = "rpms_proficient_attachment_objective7.html";
                     }
                 } 
@@ -207,7 +207,7 @@ async function getTeacherAttachments() {
             objective8_item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
             objective8_item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
-                    if (!submitted?.file4_is_checked) {
+                    if (!submitted?.file4_is_checked && submitted?.file3_is_checked) {
                         window.location.href = "rpms_proficient_attachment_objective8.html";
                     }
                 } 
@@ -217,8 +217,8 @@ async function getTeacherAttachments() {
             let has_active = true;
             if (submitted?.file_is_checked) {
                 stepItem5.classList.add('completed');
-                objective5_item.style.opacity = !submitted?.file_is_checked ? 1 : 0.5;
-                objective5_item.style.cursor = !submitted?.file_is_checked ? "pointer" : "not-allowed";
+                objective5_item.style.opacity =   0.5;
+                objective5_item.style.cursor =   "not-allowed";
             } else {
                 has_active && stepItem5.classList.add('active'); 
                 has_active = false;
@@ -226,29 +226,41 @@ async function getTeacherAttachments() {
             
             if (submitted?.file2_is_checked) {
                 stepItem6.classList.add('completed');
-                objective6_item.style.opacity = !submitted?.file2_is_checked ? 1 : 0.5;
-                objective6_item.style.cursor = !submitted?.file2_is_checked ? "pointer" : "not-allowed";
+                objective6_item.style.opacity =   0.5;
+                objective6_item.style.cursor =  "not-allowed";
             } else {
                 has_active && stepItem6.classList.add('active'); 
                 has_active = false;
+                if (!submitted?.file_is_checked) { 
+                    objective6_item.style.opacity =  0.5;
+                    objective6_item.style.cursor =  "not-allowed";
+                }  
             }
 
             if (submitted?.file3_is_checked) {
                 stepItem7.classList.add('completed');
-                objective7_item.style.opacity = !submitted?.file3_is_checked ? 1 : 0.5;
-                objective7_item.style.cursor = !submitted?.file3_is_checked ? "pointer" : "not-allowed";
+                objective7_item.style.opacity = 0.5;
+                objective7_item.style.cursor =   "not-allowed";
             } else {
                 has_active && stepItem7.classList.add('active'); 
                 has_active = false;
+                if (!submitted?.file2_is_checked) { 
+                    objective7_item.style.opacity =  0.5;
+                    objective7_item.style.cursor =  "not-allowed";
+                }  
             }
 
             if (submitted?.file4_is_checked) {
                 stepItem8.classList.add('completed');
-                objective8_item.style.opacity = !submitted?.file4_is_checked ? 1 : 0.5;
-                objective8_item.style.cursor = !submitted?.file4_is_checked ? "pointer" : "not-allowed";
+                objective8_item.style.opacity = 0.5;
+                objective8_item.style.cursor =   "not-allowed";
             } else {
                 has_active && stepItem8.classList.add('active'); 
                 has_active = false;
+                if (!submitted?.file3_is_checked) { 
+                    objective8_item.style.opacity =  0.5;
+                    objective8_item.style.cursor =  "not-allowed";
+                }  
             }
 
 
