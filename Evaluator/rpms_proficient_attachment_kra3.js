@@ -56,8 +56,7 @@ const totalScore = document.getElementById('total-score');
 const totalScoreValue = document.getElementById('total-score-value');
 
 // Private comment section
-const privateCommentsTextarea = document.getElementById('private-comments-textarea');
-const postButton = document.getElementById('post-button');
+const privateCommentsTextarea = document.getElementById('private-comments-textarea'); 
 
 
 const class_work_id = sessionStorage.getItem('kra_3_id');
