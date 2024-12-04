@@ -428,8 +428,7 @@ function autoFill(teacher_id) {
     const hp_q5 = localStorage.getItem(teacher_id + 'hp_q5');
     const hp_q6 = localStorage.getItem(teacher_id + 'hp_q6');
     const hp_q7 = localStorage.getItem(teacher_id + 'hp_q7');
-    const hp_q8 = localStorage.getItem(teacher_id + 'hp_q8');
-    const p_q9 = localStorage.getItem(teacher_id + 'p_q9');
+    const hp_q8 = localStorage.getItem(teacher_id + 'hp_q8'); 
     const p_comment = localStorage.getItem(teacher_id + 'cot_hp_comment');
 
     if (hp_q1) {
@@ -568,24 +567,7 @@ function autoFill(teacher_id) {
             q8RatingNo.classList.add('active');
         }
     }
-
-    if (p_q9) {
-        q9 = p_q9;
-        if (q9 == 3){
-            q9Rating3.classList.add('active');
-        } else if (q9 == 4){
-            q9Rating4.classList.add('active');
-        } else if (q9 == 5){
-            q9Rating5.classList.add('active');
-        } else if (q9 == 6){
-            q9Rating6.classList.add('active');
-        } else if (q9 == 7){
-            q9Rating7.classList.add('active');
-        } else if (q9 == 0){
-            q9RatingNo.classList.add('active');
-        }
-    }
-
+ 
     if (p_comment) {
         commentsTextarea.value = p_comment;
     }
