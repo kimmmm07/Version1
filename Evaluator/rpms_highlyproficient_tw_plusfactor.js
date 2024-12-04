@@ -181,7 +181,7 @@ async function getTeacherAttachments() {
             objective15Item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
             objective15Item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
             objective15Item.addEventListener("click", () => {
-                if (submitted?.is_submitted) {
+                if (submitted?.is_submitted && !submitted?.file_is_checked) {
                     window.location.href = "rpms_highlyproficient_attachment_objective15.html" ;
                 } 
             })
@@ -189,6 +189,8 @@ async function getTeacherAttachments() {
             if (submitted?.file_is_checked) {
                 stepItem.classList.add('completed');
                 stepItem15.classList.add('completed');
+                objective15Item.style.opacity =   0.5;
+                objective15Item.style.cursor =  "not-allowed";
             }
 
         } else {

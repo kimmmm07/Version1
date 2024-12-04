@@ -189,7 +189,7 @@ async function getTeacherAttachments() {
             objective2Item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
             objective2Item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
-                    if (!submitted?.file2_is_checked) {
+                    if (!submitted?.file2_is_checked && submitted?.file_is_checked) {
                         window.location.href = "rpms_highlyproficient_attachment_objective2.html";
                     }
                 } 
@@ -199,7 +199,7 @@ async function getTeacherAttachments() {
             objective3Item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
             objective3Item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
-                    if (!submitted?.file3_is_checked) {
+                    if (!submitted?.file3_is_checked && submitted?.file2_is_checked){
                         window.location.href = "rpms_highlyproficient_attachment_objective3.html";
                     }
                 } 
@@ -210,7 +210,7 @@ async function getTeacherAttachments() {
             objective4Item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
             objective4Item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
-                    if (!submitted?.file4_is_checked) {
+                    if (!submitted?.file4_is_checked  && submitted?.file3_is_checked) {
                         window.location.href = "rpms_highlyproficient_attachment_objective4.html";
                     }
                 } 
@@ -234,6 +234,10 @@ async function getTeacherAttachments() {
             } else {
                 has_active && stepItem2.classList.add('active'); 
                 has_active = false;
+                if (!submitted?.file_is_checked) { 
+                    objective2Item.style.opacity =  0.5;
+                    objective2Item.style.cursor =  "not-allowed";
+                }  
             }
 
             if (submitted?.file3_is_checked) {
@@ -243,6 +247,10 @@ async function getTeacherAttachments() {
             } else {
                 has_active && stepItem3.classList.add('active'); 
                 has_active = false;
+                if (!submitted?.file2_is_checked) { 
+                    objective3Item.style.opacity =  0.5;
+                    objective3Item.style.cursor =  "not-allowed";
+                }  
             }
 
             if (submitted?.file4_is_checked) {
@@ -252,6 +260,10 @@ async function getTeacherAttachments() {
             } else {
                 has_active && stepItem4.classList.add('active'); 
                 has_active = false;
+                if (!submitted?.file3_is_checked) { 
+                    objective4Item.style.opacity =  0.5;
+                    objective4Item.style.cursor =  "not-allowed";
+                }  
             }
 
         } else {
