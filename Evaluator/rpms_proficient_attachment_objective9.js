@@ -277,7 +277,9 @@ returnBtn.addEventListener('click', async function(){
     const data = await response.json();
     if (response.ok) {
         console.log("Success Data : ",data);
-        location.reload();
+        setTimeout(() => {
+            window.location.href = 'rpms_proficient_tw_kra3.html';
+        }, 1000);
     } else {
         console.log("Error Data : ",data);
     }
