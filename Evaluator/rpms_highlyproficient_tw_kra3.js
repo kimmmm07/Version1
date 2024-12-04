@@ -40,6 +40,28 @@ const attachmentKra3 = document.getElementById("attachmentKra3");
 
 
 
+// Main Content List
+const mainContentList = document.getElementById('main-content-list');
+
+// Objective 9 Elements
+const objective9Item = document.getElementById('objective9-item');
+const objective9Icon = document.getElementById('objective9-icon');
+const objective9TextContainer = document.getElementById('objective9-text-container');
+const objective9Title = document.getElementById('objective9-title');
+
+// Objective 10 Elements
+const objective10Item = document.getElementById('objective10-item');
+const objective10Icon = document.getElementById('objective10-icon');
+const objective10TextContainer = document.getElementById('objective10-text-container');
+const objective10Title = document.getElementById('objective10-title');
+
+// Objective 11 Elements
+const objective11Item = document.getElementById('objective11-item');
+const objective11Icon = document.getElementById('objective11-icon');
+const objective11TextContainer = document.getElementById('objective11-text-container');
+const objective11Title = document.getElementById('objective11-title');
+
+
 
 
 function toggleStatus() {

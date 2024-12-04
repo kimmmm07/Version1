@@ -41,6 +41,18 @@ const attachmentKra3 = document.getElementById("attachmentKra3");
 
 
 
+// Main Content List
+const mainContentList = document.getElementById('main-content-list');
+
+// Objective 15 Elements
+const objective15Item = document.getElementById('objective15-item');
+const objective15Icon = document.getElementById('objective15-icon');
+const objective15TextContainer = document.getElementById('objective15-text-container');
+const objective15Title = document.getElementById('objective15-title');
+
+
+
+
 
 function toggleStatus() {
     const toggleContainer = document.getElementById('toggleContainer');

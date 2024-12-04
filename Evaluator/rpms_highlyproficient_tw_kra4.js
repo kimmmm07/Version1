@@ -42,6 +42,32 @@ const attachmentKra3 = document.getElementById("attachmentKra3");
 
 
 
+// Main Content List
+const mainContentList = document.getElementById('main-content-list');
+
+// Objective 12 Elements
+const objective12Item = document.getElementById('objective12-item');
+const objective12Icon = document.getElementById('objective12-icon');
+const objective12TextContainer = document.getElementById('objective12-text-container');
+const objective12Title = document.getElementById('objective12-title');
+
+// Objective 13 Elements
+const objective13Item = document.getElementById('objective13-item');
+const objective13Icon = document.getElementById('objective13-icon');
+const objective13TextContainer = document.getElementById('objective13-text-container');
+const objective13Title = document.getElementById('objective13-title');
+
+// Objective 14 Elements
+const objective14Item = document.getElementById('objective14-item');
+const objective14Icon = document.getElementById('objective14-icon');
+const objective14TextContainer = document.getElementById('objective14-text-container');
+const objective14Title = document.getElementById('objective14-title');
+
+
+
+
+
+
 function toggleStatus() {
     const toggleContainer = document.getElementById('toggleContainer');
     const toggleCircle = document.getElementById('toggleCircle');
@@ -187,3 +213,6 @@ async function getTeacherAttachments() {
 
 
 getTeacherAttachments();
+
+
+
