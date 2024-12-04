@@ -108,8 +108,18 @@ efficiency6_3.addEventListener('change', function () {
     }
 })
 const efficiency6_1 = document.getElementById('Efficiency6_1');
+efficiency6_1.addEventListener('change', function () {
+    if (efficiency6_1.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency6', '1');
+    }
+});
 
 const efficiency7_5 = document.getElementById('Efficiency7_5');
+efficiency7_5.addEventListener('change', function () {
+    if (efficiency7_5.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Efficiency7', '5');
+    }
+})
 const efficiency7_3 = document.getElementById('Efficiency7_3');
 const efficiency7_1 = document.getElementById('Efficiency7_1');
 

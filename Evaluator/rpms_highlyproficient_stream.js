@@ -172,6 +172,7 @@ async function getClassworks(){
 
         if (response.ok) {
             console.log("Success Data : ", folder);  
+            headerSubtitle.textContext = folder.rpms_folder.rpms_folder_school_year;
 
             folder.rpms_classworks.forEach(classwork => {
                 if (classwork.title == "PLUS FACTOR") {
