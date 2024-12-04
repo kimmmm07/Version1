@@ -155,6 +155,9 @@ const nameTag = document.getElementById('name');
 
 let teacher = undefined;
 let submitted = undefined;
+const stepItem9 = document.getElementById('step-item9');
+const stepItem10 = document.getElementById('step-item10');
+const stepItem11 = document.getElementById('step-item11');
 
 
 function openAttachment(){
@@ -183,21 +186,71 @@ async function getTeacherAttachments() {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
-            const teacher = data.teacher;
-            document.getElementById("name").textContent = teacher.fullname; 
-            document.getElementById("name1").textContent = teacher.fullname; 
-            const submitted = data.submitted;
-            if(submitted.length === 0){
-                document.getElementById("attachmentKra3").textContent = '';
-                document.getElementById('status').textContent = 'No Attachment';
-                document.getElementById('attachment-anchor').removeAttribute('href');
-            }
-            if(parseInt(submitted[0]["Overall Score"]) > 0){
-                document.getElementById('kra3Score').textContent = String(submitted[0]["Overall Score"]) + " /21"
+            teacher = data.teacher;
+            submitted = data.submitted?.[0];
+
+                
+            objective9Item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
+            objective9Item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
+            objective9Item.addEventListener("click", () => {
+                if (submitted?.is_submitted) {
+                    if (!submitted?.file_is_checked) {
+                        window.location.href = "rpms_highlyproficient_attachment_objective9.html" ; 
+                    }
+                } 
+            })
+
+            objective10Item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
+            objective10Item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
+            objective10Item.addEventListener("click", () => {
+                if (submitted?.is_submitted) {
+                    if (!submitted?.file2_is_checked) {
+                        window.location.href = "rpms_highlyproficient_attachment_objective10.html";
+                    }
+                } 
+            })
+
+            objective11Item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
+            objective11Item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
+            objective11Item.addEventListener("click", () => {
+                if (submitted?.is_submitted) {
+                    if (!submitted?.file3_is_checked) {
+                        window.location.href = "rpms_highlyproficient_attachment_objective11.html";
+                    }
+                } 
+            })
+
+
+            
+
+            let has_active = true;
+            if (submitted?.file_is_checked) {
+                stepItem9.classList.add('completed');
+                objective9Item.style.opacity = !submitted?.file_is_checked ? 1 : 0.5;
+                objective9Item.style.cursor = !submitted?.file_is_checked ? "pointer" : "not-allowed";
+            } else {
+                has_active && stepItem9.classList.add('active'); 
+                has_active = false;
             }
             
-            console.log(teacher);
-            console.log(submitted);
+            if (submitted?.file2_is_checked) {
+                stepItem10.classList.add('completed');
+                objective10Item.style.opacity = !submitted?.file2_is_checked ? 1 : 0.5;
+                objective10Item.style.cursor = !submitted?.file2_is_checked ? "pointer" : "not-allowed";
+            } else {
+                has_active && stepItem10.classList.add('active'); 
+                has_active = false;
+            }
+
+            if (submitted?.file3_is_checked) {
+                stepItem11.classList.add('completed');
+                objective11Item.style.opacity = !submitted?.file3_is_checked ? 1 : 0.5;
+                objective11Item.style.cursor = !submitted?.file3_is_checked ? "pointer" : "not-allowed";
+            } else {
+                has_active && stepItem11.classList.add('active'); 
+                has_active = false;
+            }
+
 
         } else {
             console.log("Error Data : ", data);

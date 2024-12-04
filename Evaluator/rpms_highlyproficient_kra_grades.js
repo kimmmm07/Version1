@@ -1,3 +1,4 @@
+
 // Report Table Titles
 const objective1Title = document.getElementById("objective1Title");
 const objective2Title = document.getElementById("objective2Title");

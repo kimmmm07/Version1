@@ -1,3 +1,5 @@
+//Grades
+
 // Report Table Titles
 const objective1Title = document.getElementById("objective1Title");
 const objective2Title = document.getElementById("objective2Title");
@@ -38,6 +40,7 @@ const kra2totalScore = document.getElementById("kra2totalScore");
 const kra3totalScore = document.getElementById("kra3totalScore");
 const kra4totalScore = document.getElementById("kra4totalScore");
 const plusfactortotalScore = document.getElementById("plusfactortotalScore");
+
 
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
