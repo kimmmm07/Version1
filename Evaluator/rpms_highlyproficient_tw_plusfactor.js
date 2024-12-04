@@ -142,14 +142,12 @@ const aElement = document.getElementById('teacher-submission-name');
 const nameTag = document.getElementById('name');
 
 
+const stepItem15 = document.getElementById('step-item15');
 
 let teacher = undefined;
 let submitted = undefined;
 
-
-function openAttachment(){
-    window.location.href = "rpms_proficient_attachment3.html";
-}
+ 
 
 
 async function getTeacherAttachments() {
@@ -173,21 +171,25 @@ async function getTeacherAttachments() {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
-            const teacher = data.teacher;
-            document.getElementById("name").textContent = teacher.fullname; 
-            document.getElementById("name1").textContent = teacher.fullname; 
-            const submitted = data.submitted;
-            if(submitted.length === 0){
-                document.getElementById("attachmentPlusFactor").textContent = '';
-                document.getElementById('status').textContent = 'No Attachment';
-                document.getElementById('attachment-anchor').removeAttribute('href');
-            }
-            if(parseInt(submitted[0]["Overall Score"]) > 0){
-                document.getElementById('plusFactorScore').textContent = String(submitted[0]["Overall Score"]) + " /2"
-            }
+            teacher = data.teacher;
+            submitted = data.submitted?.[0];
             
             console.log(teacher);
             console.log(submitted);
+
+
+            objective15Item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
+            objective15Item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
+            objective15Item.addEventListener("click", () => {
+                if (submitted?.is_submitted) {
+                    window.location.href = "rpms_highlyproficient_attachment_objective15.html" ;
+                } 
+            })
+
+            if (submitted?.file_is_checked) {
+                stepItem.classList.add('completed');
+                stepItem15.classList.add('completed');
+            }
 
         } else {
             console.log("Error Data : ", data);
