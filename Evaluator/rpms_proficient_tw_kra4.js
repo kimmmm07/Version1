@@ -61,6 +61,10 @@ const stepItem12 = document.getElementById('step-item12');
 const stepCounter12 = document.getElementById('step-counter12');
 const stepName12 = document.getElementById('step-name12');
 
+const objective12_item = document.getElementById("objective12-item");
+const objective13_item = document.getElementById("objective13-item");
+const objective14_item = document.getElementById("objective14-item");
+
 // Stepper Item 13 Elements
 const stepItem13 = document.getElementById('step-item13');
 const stepCounter13 = document.getElementById('step-counter13');
@@ -178,21 +182,71 @@ async function getTeacherAttachments() {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
-            const teacher = data.teacher;
-            document.getElementById("name").textContent = teacher.fullname; 
-            document.getElementById("name1").textContent = teacher.fullname; 
-            const submitted = data.submitted;
-            if(submitted.length === 0){
-                document.getElementById("attachmentKra4").textContent = '';
-                document.getElementById('status').textContent = 'No Attachment';
-                document.getElementById('attachment-anchor').removeAttribute('href');
-            }
-            if(parseInt(submitted[0]["Overall Score"]) > 0){
-                document.getElementById('kra4Score').textContent = String(submitted[0]["Overall Score"]) + " /21"
+            teacher = data.teacher;
+            submitted = data.submitted?.[0];
+
+            objective12_item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
+            objective12_item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
+            objective12_item.addEventListener("click", () => {
+                if (submitted?.is_submitted) {
+                    if (!submitted?.file_is_checked) {
+                        window.location.href = "rpms_proficient_attachment_objective12.html"; 
+                    }
+                } 
+            })
+
+            objective13_item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
+            objective13_item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
+            objective13_item.addEventListener("click", () => {
+                if (submitted?.is_submitted) {
+                    if (!submitted?.file2_is_checked) {
+                        window.location.href = "rpms_proficient_attachment_objective13.html";
+                    }
+                } 
+            })
+
+            objective14_item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
+            objective14_item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
+            objective14_item.addEventListener("click", () => {
+                if (submitted?.is_submitted) {
+                    if (!submitted?.file3_is_checked) {
+                        window.location.href = "rpms_proficient_attachment_objective14.html";
+                    }
+                } 
+            })
+
+
+            
+
+            let has_active = true;
+            if (submitted?.file_is_checked) {
+                stepItem12.classList.add('completed');
+                objective13_item.style.opacity = !submitted?.file_is_checked ? 1 : 0.5;
+                objective13_item.style.cursor = !submitted?.file_is_checked ? "pointer" : "not-allowed";
+            } else {
+                has_active && stepItem12.classList.add('active'); 
+                has_active = false;
             }
             
-            console.log(teacher);
-            console.log(submitted);
+            if (submitted?.file2_is_checked) {
+                stepItem13.classList.add('completed');
+                objective13_item.style.opacity = !submitted?.file2_is_checked ? 1 : 0.5;
+                objective13_item.style.cursor = !submitted?.file2_is_checked ? "pointer" : "not-allowed";
+            } else {
+                has_active && stepItem13.classList.add('active'); 
+                has_active = false;
+            }
+
+            if (submitted?.file3_is_checked) {
+                stepItem14.classList.add('completed');
+                objective13_item.style.opacity = !submitted?.file3_is_checked ? 1 : 0.5;
+                objective13_item.style.cursor = !submitted?.file3_is_checked ? "pointer" : "not-allowed";
+            } else {
+                has_active && stepItem14.classList.add('active'); 
+                has_active = false;
+            }
+
+
 
         } else {
             console.log("Error Data : ", data);
