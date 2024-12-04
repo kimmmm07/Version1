@@ -619,6 +619,8 @@ function getRating(averageScore) {
 }
 
 
+let employee_id = undefined;
+
 async function getIPCRF(){
     // const formData = new FormData();
     // formData.append('employee_id', employeeId); 
@@ -637,6 +639,7 @@ async function getIPCRF(){
         ipcrf_content = await response.json();
         if (response.ok) {
             console.log("Success Data : ", ipcrf_content);  
+            employee_id = ipcrf_content['ipcrf']['employee_id']
         } else {
             console.log("Error Data : ", ipcrf_content);
             // alert("Login Failed.")
