@@ -41,6 +41,37 @@ nameCheckbox.addEventListener("change", () => {
 
 
 
+
+// Main Content List
+const mainContentList = document.getElementById('main-content-list');
+
+// Objective 1 Elements
+const objective1Item = document.getElementById('objective1-item');
+const objective1Icon = document.getElementById('objective1-icon');
+const objective1TextContainer = document.getElementById('objective1-text-container');
+const objective1Title = document.getElementById('objective1-title');
+
+// Objective 2 Elements
+const objective2Item = document.getElementById('objective2-item');
+const objective2Icon = document.getElementById('objective2-icon');
+const objective2TextContainer = document.getElementById('objective2-text-container');
+const objective2Title = document.getElementById('objective2-title');
+
+// Objective 3 Elements
+const objective3Item = document.getElementById('objective3-item');
+const objective3Icon = document.getElementById('objective3-icon');
+const objective3TextContainer = document.getElementById('objective3-text-container');
+const objective3Title = document.getElementById('objective3-title');
+
+// Objective 4 Elements
+const objective4Item = document.getElementById('objective4-item');
+const objective4Icon = document.getElementById('objective4-icon');
+const objective4TextContainer = document.getElementById('objective4-text-container');
+const objective4Title = document.getElementById('objective4-title');
+
+
+
+
 function toggleStatus() {
     const toggleContainer = document.getElementById('toggleContainer');
     const toggleCircle = document.getElementById('toggleCircle');
