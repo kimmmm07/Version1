@@ -207,5 +207,158 @@ async function getClassworks(){
     }
 }
 
+document.addEventListener('DOMContentLoaded', async function() {
+    await getClassworks();
+    
+    async function checkKra1() {
+        try {
+            const formData = new FormData();
+            formData.append('class_work_id', kra_1_id);
+    
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folder/classwork/attachments/', {
+                method: 'POST',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                credentials: 'include',
+                body: formData
+            });
+    
+            if (response.ok) {
+                const responseData = await response.json();
+                
+                const submit = responseData.submitted;
+                
+                if(submit['0']['is_submitted']){
+                    document.getElementById('kra1Status').src = 'asset/Check Mark1.png'
+                }
+                
+            } else {
+                console.error('Failed to fetch attachments:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error during fetch:', error);
+        }
+    }
 
-getClassworks();
+    async function checkKra2() {
+        try {
+            const formData = new FormData();
+            formData.append('class_work_id', kra_2_id);
+    
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folder/classwork/attachments/', {
+                method: 'POST',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                credentials: 'include',
+                body: formData
+            });
+    
+            if (response.ok) {
+                const responseData = await response.json();
+                const submit = responseData.submitted;
+                
+                if(submit['0']['is_submitted']){
+                    document.getElementById('kra2Status').src = 'asset/Check Mark1.png'
+                }
+                
+            } else {
+                console.error('Failed to fetch attachments:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error during fetch:', error);
+        }
+    }
+
+    async function checkKra3() {
+        try {
+            const formData = new FormData();
+            formData.append('class_work_id', kra_3_id);
+    
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folder/classwork/attachments/', {
+                method: 'POST',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                credentials: 'include',
+                body: formData
+            });
+    
+            if (response.ok) {
+                const responseData = await response.json();
+                
+                const submit = responseData.submitted;
+                
+                if(submit['0']['is_submitted']){
+                    document.getElementById('kra3Status').src = 'asset/Check Mark1.png'
+                }
+                
+            } else {
+                console.error('Failed to fetch attachments:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error during fetch:', error);
+        }
+    }
+
+    async function checkKra4() {
+        try {
+            const formData = new FormData();
+            formData.append('class_work_id', kra_4_id);
+    
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folder/classwork/attachments/', {
+                method: 'POST',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                credentials: 'include',
+                body: formData
+            });
+    
+            if (response.ok) {
+                const responseData = await response.json();
+                
+                const submit = responseData.submitted;
+                
+                if(submit['0']['is_submitted']){
+                    document.getElementById('kra4Status').src = 'asset/Check Mark1.png'
+                }
+                
+            } else {
+                console.error('Failed to fetch attachments:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error during fetch:', error);
+        }
+    }
+
+    async function checkPlusFactor() {
+        try {
+            const formData = new FormData();
+            formData.append('class_work_id', plus_factor_id);
+    
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/get/rpms/folder/classwork/attachments/', {
+                method: 'POST',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                credentials: 'include',
+                body: formData
+            });
+    
+            if (response.ok) {
+                const responseData = await response.json();
+                
+                const submit = responseData.submitted;
+                
+                if(submit['0']['is_submitted']){
+                    document.getElementById('plusfactorStatus').src = 'asset/Check Mark1.png'
+                }
+                
+            } else {
+                console.error('Failed to fetch attachments:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error during fetch:', error);
+        }
+    }
+
+    checkKra1();
+    checkKra2();
+    checkKra3();
+    checkKra4();
+    checkPlusFactor();
+});
+
+

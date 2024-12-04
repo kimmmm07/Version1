@@ -174,7 +174,7 @@ let isSubmitted3 = false;
 let isSubmitted4 = false;
 
 
-async function getTotalScore() {
+async function getScoreAndMilestone() {
     try {
         const formData = new FormData();
         formData.append('class_work_id', class_work_id);
@@ -191,6 +191,23 @@ async function getTotalScore() {
             console.log('Fetched attachments:', responseData);
             
             const submit = responseData.submitted;
+
+            if(submit['0']['file']){
+                document.getElementById(`step-item1`).classList.add('active');
+                document.getElementById(`obj1-img`).src = "asset/Check Mark1.png";
+            }
+            if(submit['0']['file2']){
+                document.getElementById(`step-item2`).classList.add('active');
+                document.getElementById(`obj2-img`).src = "asset/Check Mark1.png";
+            }
+            if(submit['0']['file3']){
+                document.getElementById(`step-item3`).classList.add('active');
+                document.getElementById(`obj3-img`).src = "asset/Check Mark1.png";
+            }
+            if(submit['0']['file4']){
+                document.getElementById(`step-item4`).classList.add('active');
+                document.getElementById(`obj4-img`).src = "asset/Check Mark1.png";
+            }
             
             if(submit['0']['is_checked'] === true){
 
@@ -205,7 +222,7 @@ async function getTotalScore() {
 }
 
 
-getTotalScore();
+getScoreAndMilestone();
 
 
 // Trigger file upload dialog when "Add or Create" is clicked
