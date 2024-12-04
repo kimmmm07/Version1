@@ -834,7 +834,7 @@ textarea:focus {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
-    margin-top: 50px;
+    margin-top: 80px;
   }
   .stepper-item {
     display: flex;
@@ -876,7 +876,6 @@ textarea:focus {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #ccc;
     margin-bottom: 6px;
   }
   
@@ -884,9 +883,6 @@ textarea:focus {
     font-weight: bold;
   }
   
-  .stepper-item.completed .step-counter {
-    background-color: #4bb543;
-  }
   
   .stepper-item.completed::after {
     position: absolute;
