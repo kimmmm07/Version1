@@ -83,3 +83,92 @@ yesButton.addEventListener('click', async function() {
         console.error("Error during fetch:", error);
     }
 });
+
+
+
+
+
+
+
+
+const class_work_id = sessionStorage.getItem('plus_factor_id');
+console.log(class_work_id);
+const teacher_id = sessionStorage.getItem('teacher_id');
+console.log(teacher_id);
+let teacher_name = undefined;
+
+
+
+
+let teacher = undefined;
+let submitted = undefined;
+ 
+
+async function getTeacherAttachments() {
+    try {
+
+        const formData = new FormData();
+        formData.append('class_work_id ', class_work_id);
+        formData.append('teacher_id', teacher_id);
+
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/rpms/folder/classwork/attachments/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData,
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);  
+            teacher = data.teacher;
+            submitted = data.submitted?.[0];
+            
+            console.log(teacher);
+            console.log(submitted);
+
+            if (submitted?.file_is_checked){
+                objective15Score.innerHTML = `<span id="objective15">${submitted.grade['15']['Score']}/2</span>`;
+            }
+
+            if (submitted?.is_checked){
+                plusfactortotalScore.innerHTML = `<span id="objective15">${submitted.grade['15']['Score']}/2</span>`; 
+            }
+
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+getTeacherAttachments();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
