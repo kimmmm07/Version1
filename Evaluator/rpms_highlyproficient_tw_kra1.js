@@ -13,7 +13,7 @@ const kra1Score = document.getElementById("kra1Score"); // kra 1
 const statusDropdown = document.getElementById("status");
 
 // Content Section
-const nameCheckbox = document.getElementById("name"); 
+// const nameCheckbox = document.getElementById("name"); 
 
 const class_work_id = sessionStorage.getItem('kra_1_id');
 console.log(class_work_id);
@@ -35,9 +35,9 @@ const attachmentKra1 = document.getElementById("attachmentKra1");
 //     console.log("Toggle clicked!");
 // });
 
-nameCheckbox.addEventListener("change", () => {
-    console.log(`Checkbox for ${teacherName.textContent} changed: ${nameCheckbox.checked}`);
-});
+// nameCheckbox.addEventListener("change", () => {
+//     console.log(`Checkbox for ${teacherName.textContent} changed: ${nameCheckbox.checked}`);
+// });
 
 
 
@@ -140,6 +140,16 @@ yesButton.addEventListener('click', async function() {
 
 
 
+
+
+const stepItem1 = document.getElementById('step-item1');
+const stepItem2 = document.getElementById('step-item2');
+const stepItem3 = document.getElementById('step-item3');
+const stepItem4 = document.getElementById('step-item4');
+
+
+
+
 async function getTeacherAttachments() {
     try {
 
@@ -161,21 +171,88 @@ async function getTeacherAttachments() {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);  
-            const teacher = data.teacher;
-            document.getElementById("name").textContent = teacher.fullname; 
-            document.getElementById("name1").textContent = teacher.fullname; 
-            const submitted = data.submitted;
-            if(submitted.length === 0){
-                document.getElementById("attachmentKra1").textContent = ''
-                document.getElementById('status').textContent = 'No Attachment';
-                document.getElementById('attachment-anchor').removeAttribute('href');
-            }
-            if(parseInt(submitted[0]["Overall Score"]) > 0){
-                document.getElementById('kra1Score').textContent = String(submitted[0]["Overall Score"]) + " /28"
+            teacher = data.teacher;
+            submitted = data.submitted?.[0];
+
+                
+            objective1Item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
+            objective1Item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
+            objective1Item.addEventListener("click", () => {
+                if (submitted?.is_submitted) {
+                    if (!submitted?.file_is_checked) {
+                        window.location.href = "rpms_proficient_attachment_objective5.html"; 
+                    }
+                } 
+            })
+
+            objective2Item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
+            objective2Item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
+            objective2Item.addEventListener("click", () => {
+                if (submitted?.is_submitted) {
+                    if (!submitted?.file2_is_checked) {
+                        window.location.href = "rpms_proficient_attachment_objective6.html";
+                    }
+                } 
+            })
+
+            objective3Item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
+            objective3Item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
+            objective3Item.addEventListener("click", () => {
+                if (submitted?.is_submitted) {
+                    if (!submitted?.file3_is_checked) {
+                        window.location.href = "rpms_proficient_attachment_objective7.html";
+                    }
+                } 
+            })
+
+ 
+            objective4Item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
+            objective4Item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
+            objective4Item.addEventListener("click", () => {
+                if (submitted?.is_submitted) {
+                    if (!submitted?.file4_is_checked) {
+                        window.location.href = "rpms_proficient_attachment_objective8.html";
+                    }
+                } 
+            })
+            
+
+            let has_active = true;
+            if (submitted?.file_is_checked) {
+                stepItem1.classList.add('completed');
+                objective1Item.style.opacity = !submitted?.file_is_checked ? 1 : 0.5;
+                objective1Item.style.cursor = !submitted?.file_is_checked ? "pointer" : "not-allowed";
+            } else {
+                has_active && stepItem1.classList.add('active'); 
+                has_active = false;
             }
             
-            console.log(teacher);
-            console.log(submitted);
+            if (submitted?.file2_is_checked) {
+                stepItem2.classList.add('completed');
+                objective2Item.style.opacity = !submitted?.file2_is_checked ? 1 : 0.5;
+                objective2Item.style.cursor = !submitted?.file2_is_checked ? "pointer" : "not-allowed";
+            } else {
+                has_active && stepItem2.classList.add('active'); 
+                has_active = false;
+            }
+
+            if (submitted?.file3_is_checked) {
+                stepItem3.classList.add('completed');
+                objective3Item.style.opacity = !submitted?.file3_is_checked ? 1 : 0.5;
+                objective3Item.style.cursor = !submitted?.file3_is_checked ? "pointer" : "not-allowed";
+            } else {
+                has_active && stepItem3.classList.add('active'); 
+                has_active = false;
+            }
+
+            if (submitted?.file4_is_checked) {
+                stepItem4.classList.add('completed');
+                objective4Item.style.opacity = !submitted?.file4_is_checked ? 1 : 0.5;
+                objective4Item.style.cursor = !submitted?.file4_is_checked ? "pointer" : "not-allowed";
+            } else {
+                has_active && stepItem4.classList.add('active'); 
+                has_active = false;
+            }
 
         } else {
             console.log("Error Data : ", data);
