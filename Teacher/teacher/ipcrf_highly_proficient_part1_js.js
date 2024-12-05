@@ -18,6 +18,19 @@ efficiency1_1.addEventListener('change', function () {
     }
 });
 
+
+function autofillEfficiency1(){
+    const efficiency1 = localStorage.getItem(employee_id + 'Efficiency1');
+
+    if(efficiency1 == '5'){
+        efficiency1_5.checked = true;
+    } else if(efficiency1 == '3'){
+        efficiency1_3.checked = true;
+    } else if(efficiency1 == '1'){
+        efficiency1_1.checked = true;
+    }
+}
+
 function getRateEfficiency1(){
     console.log("GGGGGG");
     if(efficiency1_5.checked){
