@@ -18,6 +18,23 @@ efficiency1_1.addEventListener('change', function () {
     }
 });
 
+function autofillEfficiency1(){
+    const efficiency1 = localStorage.getItem(employee_id + 'Efficiency1');
+
+    if(efficiency1 == '5'){
+        efficiency1_5.checked = true;
+    } else if(efficiency1 == '3'){
+        efficiency1_3.checked = true;
+    } else if(efficiency1 == '1'){
+        efficiency1_1.checked = true;
+    }
+}
+
+
+
+
+
+
 const efficiency2_5 = document.getElementById('Efficiency2_5');
 efficiency2_5.addEventListener('change', function () {
     if (efficiency2_5.checked) {
@@ -36,6 +53,21 @@ efficiency2_1.addEventListener('change', function () {
         employee_id && localStorage.setItem(employee_id + 'Efficiency2', '1');
     }
 });
+
+
+function autofillEfficiency2(){
+    const efficiency2 = localStorage.getItem(employee_id + 'Efficiency2');
+
+    if(efficiency2 == '5'){
+        efficiency2_5.checked = true;
+    } else if(efficiency2 == '3'){
+        efficiency2_3.checked = true;
+    } else if(efficiency2 == '1'){
+        efficiency2_1.checked = true;
+    }
+}
+ 
+
 
 const efficiency3_5 = document.getElementById('Efficiency3_5');
 efficiency3_5.addEventListener('change', function () {
@@ -56,6 +88,18 @@ efficiency3_1.addEventListener('change', function () {
     }
 });
 
+function autofillEfficiency3(){
+    const efficiency3 = localStorage.getItem(employee_id + 'Efficiency3');
+
+    if(efficiency3 == '5'){
+        efficiency3_5.checked = true;
+    } else if(efficiency3 == '3'){
+        efficiency3_3.checked = true;
+    } else if(efficiency3 == '1'){
+        efficiency3_1.checked = true;
+    }
+}
+
 const efficiency4_5 = document.getElementById('Efficiency4_5');
 efficiency4_5.addEventListener('change', function () {
     if (efficiency4_5.checked) {
@@ -74,6 +118,18 @@ efficiency4_1.addEventListener('change', function () {
         employee_id && localStorage.setItem(employee_id + 'Efficiency4', '1');
     }
 });
+
+function autofillEfficiency4(){
+    const efficiency4 = localStorage.getItem(employee_id + 'Efficiency4');
+
+    if(efficiency4 == '5'){
+        efficiency4_5.checked = true;
+    } else if(efficiency4 == '3'){
+        efficiency4_3.checked = true;
+    } else if(efficiency4 == '1'){
+        efficiency4_1.checked = true;
+    }
+}
 
 // KRA 2: Learning Environment & Diversity of Learners
 const efficiency5_5 = document.getElementById('Efficiency5_5');
@@ -95,6 +151,18 @@ efficiency5_1.addEventListener('change', function () {
     }
 });
 
+function autofillEfficiency5(){
+    const efficiency5 = localStorage.getItem(employee_id + 'Efficiency5');
+
+    if(efficiency5 == '5'){
+        efficiency5_5.checked = true;
+    } else if(efficiency5 == '3'){
+        efficiency5_3.checked = true;
+    } else if(efficiency5 == '1'){
+        efficiency5_1.checked = true;
+    }
+}
+
 const efficiency6_5 = document.getElementById('Efficiency6_5');
  efficiency6_5.addEventListener('change', function () {
     if (efficiency6_5.checked) {
@@ -113,6 +181,23 @@ efficiency6_1.addEventListener('change', function () {
         employee_id && localStorage.setItem(employee_id + 'Efficiency6', '1');
     }
 });
+
+function autofillEfficiency6(){
+    const efficiency6 = localStorage.getItem(employee_id + 'Efficiency6');
+
+    if(efficiency6 == '5'){
+        efficiency6_5.checked = true;
+    } else if(efficiency6 == '3'){
+        efficiency6_3.checked = true;
+    } else if(efficiency6 == '1'){
+        efficiency6_1.checked = true;
+    }
+}
+
+
+
+
+
 
 const efficiency7_5 = document.getElementById('Efficiency7_5');
 efficiency7_5.addEventListener('change', function () {
@@ -134,6 +219,18 @@ efficiency7_1.addEventListener('change', function () {
     }
 })
 
+function autofillEfficiency7(){
+    const efficiency7 = localStorage.getItem(employee_id + 'Efficiency7');
+
+    if(efficiency7 == '5'){
+        efficiency7_5.checked = true;
+    } else if(efficiency7 == '3'){
+        efficiency7_3.checked = true;
+    } else if(efficiency7 == '1'){
+        efficiency7_1.checked = true;
+    }
+}
+
 const efficiency8_5 = document.getElementById('Efficiency8_5');
  efficiency8_5.addEventListener('change', function () {
     if (efficiency8_5.checked) {
@@ -152,6 +249,19 @@ const efficiency8_1 = document.getElementById('Efficiency8_1');
         employee_id && localStorage.setItem(employee_id + 'Efficiency8', '1');
     }
 });
+
+
+function autofillEfficiency8(){
+    const efficiency8 = localStorage.getItem(employee_id + 'Efficiency8');
+
+    if(efficiency8 == '5'){
+        efficiency8_5.checked = true;
+    } else if(efficiency8 == '3'){
+        efficiency8_3.checked = true;
+    } else if(efficiency8 == '1'){
+        efficiency8_1.checked = true;
+    }
+}
 
 // KRA 3: Curriculum and Planning & Assessment and Reporting
 const quality9_5 = document.getElementById('Quality9_5');
@@ -185,6 +295,22 @@ const quality9_1 = document.getElementById('Quality9_1');
     }
 });
 
+function autofillQuality9(){
+    const quality9 = localStorage.getItem(employee_id + 'Quality9');
+
+    if(quality9 == '5'){
+        quality9_5.checked = true;
+    } else if(quality9 == '4'){
+        quality9_4.checked = true;
+    } else if(quality9 == '3'){
+        quality9_3.checked = true;
+    } else if(quality9 == '2'){
+        quality9_2.checked = true;
+    } else if(quality9 == '1'){
+        quality9_1.checked = true;
+    }
+}
+
 const efficiency9_5 = document.getElementById('Efficiency9_5');
 efficiency9_5.addEventListener('change', function () {
     if (efficiency9_5.checked) {
@@ -215,6 +341,22 @@ const efficiency9_1 = document.getElementById('Efficiency9_1');
         employee_id && localStorage.setItem(employee_id + 'Efficiency9', '1');
     }
 });
+
+function autofillEfficiency9(){
+    const efficiency9 = localStorage.getItem(employee_id + 'Efficiency9');
+
+    if(efficiency9 == '5'){
+        efficiency9_5.checked = true;
+    } else if(efficiency9 == '4'){
+        efficiency9_4.checked = true;
+    } else if(efficiency9 == '3'){
+        efficiency9_3.checked = true;    
+    } else if(efficiency9 == '2'){
+        efficiency9_2.checked = true;
+    } else if(efficiency9 == '1'){
+        efficiency9_1.checked = true;
+    }
+}
 
 // KRA 4: Community Linkages and Professional Engagement & Personal Growth and Professional Development
 const quality12_5 = document.getElementById('Quality12_5');
@@ -248,6 +390,22 @@ const quality12_1 = document.getElementById('Quality12_1');
     }
 });
 
+function autofillQuality12(){
+    const quality12 = localStorage.getItem(employee_id + 'Quality12');
+
+    if(quality12 == '5'){
+        quality12_5.checked = true;
+    } else if(quality12 == '4'){
+        quality12_4.checked = true;
+    } else if(quality12 == '3'){
+        quality12_3.checked = true;
+    } else if(quality12 == '2'){
+        quality12_2.checked = true;
+    } else if(quality12 == '1'){
+        quality12_1.checked = true;
+    }
+}
+
 const timeliness12_5 = document.getElementById('Timeliness12_5');
 timeliness12_5.addEventListener('change', function () {
     if (timeliness12_5.checked) {
@@ -279,6 +437,22 @@ const timeliness12_1 = document.getElementById('Timeliness12_1');
     }
 });
 
+function autofillTimeliness12(){
+    const timeliness12 = localStorage.getItem(employee_id + 'Timeliness12');
+
+    if(timeliness12 == '5'){
+        timeliness12_5.checked = true;
+    } else if(timeliness12 == '4'){
+        timeliness12_4.checked = true;
+    } else if(timeliness12 == '3'){
+        timeliness12_3.checked = true;
+    } else if(timeliness12 == '2'){
+        timeliness12_2.checked = true;
+    } else if(timeliness12 == '1'){
+        timeliness12_1.checked = true;
+    }
+}
+
 // KRA 3: Utilized assessment data
 const efficiency10_5 = document.getElementById('Efficiency10_5');
  efficiency10_5.addEventListener('change', function () {
@@ -298,6 +472,18 @@ const efficiency10_1 = document.getElementById('Efficiency10_1');
         employee_id && localStorage.setItem(employee_id + 'Efficiency10', '1');
     }
 });
+
+function autofillEfficiency10(){
+    const efficiency10 = localStorage.getItem(employee_id + 'Efficiency10');
+
+    if(efficiency10 == '5'){
+        efficiency10_5.checked = true;
+    } else if(efficiency10 == '3'){
+        efficiency10_3.checked = true;
+    } else if(efficiency10 == '1'){
+        efficiency10_1.checked = true;
+    }
+}
 
 
 const quality11_5 = document.getElementById('Quality11_5');
@@ -331,6 +517,22 @@ const quality11_1 = document.getElementById('Quality11_1');
     }
 });
 
+function autofillQuality11(){
+    const quality11 = localStorage.getItem(employee_id + 'Quality11');
+
+    if(quality11 == '5'){
+        quality11_5.checked = true;
+    } else if(quality11 == '4'){
+        quality11_4.checked = true;
+    } else if(quality11 == '3'){
+        quality11_3.checked = true;
+    } else if(quality11 == '2'){
+        quality11_2.checked = true;
+    } else if(quality11 == '1'){
+        quality11_1.checked = true;
+    }
+}
+
 const timeliness11_5 = document.getElementById('Timeliness11_5');
  timeliness11_5.addEventListener('change', function () {
     if (timeliness11_5.checked) {
@@ -361,6 +563,24 @@ const timeliness11_1 = document.getElementById('Timeliness11_1');
         employee_id && localStorage.setItem(employee_id + 'Timeliness11', '1');
     }
 });
+
+
+function autofillTimeliness11(){
+    const timeliness11 = localStorage.getItem(employee_id + 'Timeliness11');
+
+    if(timeliness11 == '5'){
+        timeliness11_5.checked = true;
+    } else if(timeliness11 == '4'){
+        timeliness11_4.checked = true;
+    } else if(timeliness11 == '3'){
+        timeliness11_3.checked = true;
+    } else if(timeliness11 == '2'){
+        timeliness11_2.checked = true;
+    } else if(timeliness11 == '1'){
+        timeliness11_1.checked = true;
+    }
+}
+
 
 // KRA 4: Participated in professional networks
 const quality13_5 = document.getElementById('Quality13_5');
@@ -394,6 +614,24 @@ const quality13_1 = document.getElementById('Quality13_1');
     }
 })
 
+
+function autofillQuality13(){
+    const quality13 = localStorage.getItem(employee_id + 'Quality13');
+
+    if(quality13 == '5'){
+        quality13_5.checked = true;
+    } else if(quality13 == '4'){
+        quality13_4.checked = true;
+    } else if(quality13 == '3'){
+        quality13_3.checked = true;
+    } else if(quality13 == '2'){
+        quality13_2.checked = true;
+    } else if(quality13 == '1'){
+        quality13_1.checked = true;
+    }
+}
+
+
 const timeliness13_5 = document.getElementById('Timeliness13_5');
  timeliness13_5.addEventListener('change', function () {
     if (timeliness13_5.checked) {
@@ -424,6 +662,27 @@ const timeliness13_1 = document.getElementById('Timeliness13_1');
         employee_id && localStorage.setItem(employee_id + 'Timeliness13', '1');
     }
 });
+
+
+
+function autofillTimeliness13(){
+    const timeliness13 = localStorage.getItem(employee_id + 'Timeliness13');
+
+    if(timeliness13 == '5'){
+        timeliness13_5.checked = true;
+    } else if(timeliness13 == '4'){
+        timeliness13_4.checked = true;
+    } else if(timeliness13 == '3'){
+        timeliness13_3.checked = true;
+    } else if(timeliness13 == '2'){
+        timeliness13_2.checked = true;
+    } else if(timeliness13 == '1'){
+        timeliness13_1.checked = true;
+    }
+}
+
+
+
 
 // KRA 4: Developed personal improvement plan
 const quality14_5 = document.getElementById('Quality14_5');
@@ -457,6 +716,28 @@ const quality14_1 = document.getElementById('Quality14_1');
     }
 });
 
+
+function autofillQuality14(){
+    const quality14 = localStorage.getItem(employee_id + 'Quality14');
+
+    if(quality14 == '5'){
+        quality14_5.checked = true;
+    } else if(quality14 == '4'){
+        quality14_4.checked = true;
+    } else if(quality14 == '3'){
+        quality14_3.checked = true;
+    } else if(quality14 == '2'){
+        quality14_2.checked = true;
+    } else if(quality14 == '1'){
+        quality14_1.checked = true;
+    }
+}
+
+
+
+
+
+
 const efficiency14_5 = document.getElementById('Efficiency14_5');
  efficiency14_5.addEventListener('change', function () {
     if (efficiency14_5.checked) {
@@ -488,6 +769,30 @@ const efficiency14_1 = document.getElementById('Efficiency14_1');
     }
 });
 
+
+
+
+function autofillEfficiency14(){
+    const efficiency14 = localStorage.getItem(employee_id + 'Efficiency14');
+
+    if(efficiency14 == '5'){
+        efficiency14_5.checked = true;
+    } else if(efficiency14 == '4'){
+        efficiency14_4.checked = true;
+    } else if(efficiency14 == '3'){
+        efficiency14_3.checked = true;
+    } else if(efficiency14 == '2'){
+        efficiency14_2.checked = true;
+    } else if(efficiency14 == '1'){
+        efficiency14_1.checked = true;
+    }
+}
+
+
+
+
+
+
 const timeliness14_5 = document.getElementById('Timeliness14_5');
  quality14_5.addEventListener('change', function () {
     if (quality14_5.checked) {
@@ -518,6 +823,24 @@ const timeliness14_1 = document.getElementById('Timeliness14_1');
         employee_id && localStorage.setItem(employee_id + 'Timeliness14', '1');
     }
 });
+
+
+function autofillTimeliness14(){
+    const timeliness14 = localStorage.getItem(employee_id + 'Timeliness14');
+
+    if(timeliness14 == '5'){
+        timeliness14_5.checked = true;
+    } else if(timeliness14 == '4'){
+        timeliness14_4.checked = true;
+    } else if(timeliness14 == '3'){
+        timeliness14_3.checked = true;
+    } else if(timeliness14 == '2'){
+        timeliness14_2.checked = true;
+    } else if(timeliness14 == '1'){
+        timeliness14_1.checked = true;
+    }
+}
+
 
 
 // PLUS FACTOR
@@ -555,6 +878,23 @@ const quality15_1 = document.getElementById('Quality15_1');
     }
  });
 
+
+function autofillQuality15(){
+    const quality15 = localStorage.getItem(employee_id + 'Quality15');
+
+    if(quality15 == '5'){
+        quality15_5.checked = true;
+    } else if(quality15 == '4'){
+        quality15_4.checked = true;
+    } else if(quality15 == '3'){
+        quality15_3.checked = true;
+    } else if(quality15 == '2'){
+        quality15_2.checked = true;
+    } else if(quality15 == '1'){
+        quality15_1.checked = true;
+    }
+}
+
 // Efficiency
 const efficiency15_5 = document.getElementById('Efficiency15_5');
  efficiency15_5.addEventListener('change', function () {
@@ -587,6 +927,24 @@ const efficiency15_1 = document.getElementById('Efficiency15_1');
     }
 });
 
+
+function autofillEfficiency15(){
+    const efficiency15 = localStorage.getItem(employee_id + 'Efficiency15');
+
+    if(efficiency15 == '5'){
+        efficiency15_5.checked = true;
+    } else if(efficiency15 == '4'){
+        efficiency15_4.checked = true;
+    } else if(efficiency15 == '3'){
+        efficiency15_3.checked = true;
+    } else if(efficiency15 == '2'){
+        efficiency15_2.checked = true;
+    } else if(efficiency15 == '1'){
+        efficiency15_1.checked = true;
+    }
+}
+
+
 // Timeliness
 const timeliness15_5 = document.getElementById('Timeliness15_5');
 timeliness15_5.addEventListener('change', function () {
@@ -618,6 +976,69 @@ const timeliness15_1 = document.getElementById('Timeliness15_1');
         employee_id && localStorage.setItem(employee_id + 'Timeliness15', '1');
     }
 });
+
+
+function autofillTimeliness15(){
+    const timeliness15 = localStorage.getItem(employee_id + 'Timeliness15');
+
+    if(timeliness15 == '5'){
+        timeliness15_5.checked = true;
+    } else if(timeliness15 == '4'){
+        timeliness15_4.checked = true;
+    } else if(timeliness15 == '3'){
+        timeliness15_3.checked = true;
+    } else if(timeliness15 == '2'){
+        timeliness15_2.checked = true;
+    } else if(timeliness15 == '1'){
+        timeliness15_1.checked = true;
+    }
+}
+
+
+
+function activateAllAutoFill(){
+    autofillEfficiency1();
+    autofillEfficiency2();
+    autofillEfficiency3();
+    autofillEfficiency4();
+    autofillEfficiency5();
+    autofillEfficiency6();
+    autofillEfficiency7();
+    autofillEfficiency8();
+    autofillEfficiency9();
+    autofillEfficiency10();
+    autofillEfficiency14();  
+    autofillEfficiency15(); 
+    autofillQuality9();
+    autofillQuality11();
+    autofillQuality12();
+    autofillQuality13();
+    autofillQuality14();
+    autofillQuality15();
+    autofillTimeliness11();
+    autofillTimeliness12();
+    autofillTimeliness13();
+    autofillTimeliness14();
+    autofillTimeliness15();
+
+    const savedAverageScore = parseFloat(localStorage.getItem(employee_id + 'AverageScore'));
+    if (savedAverageScore) {
+        document.getElementById('average-score').innerText = savedAverageScore.toFixed(3); // Show three decimal places
+        // Determine the adjectival rating based on the average score
+        let rating = getRating(savedAverageScore);
+        document.getElementById('rating').innerText = rating; // Display the rating
+    } 
+}
+
+
+
+
+
+
+
+
+
+
 
 // Average Score Section
 const rating = document.getElementById('rating');
@@ -727,6 +1148,8 @@ function calculateAverageScore() {
     // Determine the adjectival rating based on the average score
     let rating = getRating(totalScore);
     document.getElementById('rating').innerText = rating; // Display the rating
+
+    employee_id && localStorage.setItem(employee_id + 'AverageScore', totalScore.toFixed(3));
 }
 
 // Helper function to retrieve values
@@ -1106,6 +1529,9 @@ async function getIPCRF(){
             console.log("Success Data : ", ipcrf_content);  
             console.log('ipcrf :', ipcrf_content['ipcrf']['content_for_teacher']);
             employee_id = ipcrf_content['ipcrf']['employee_id']
+
+            employee_id && activateAllAutoFill();
+ 
         } else {
             console.log("Error Data : ", ipcrf_content);
             // alert("Login Failed.")
