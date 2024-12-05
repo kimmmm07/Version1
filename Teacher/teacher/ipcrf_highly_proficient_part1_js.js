@@ -46,10 +46,50 @@ function getRateEfficiency1(){
 
 // KRA 1 - Objective 2
 const quality2_5 = document.getElementById('Quality2_5');
+quality2_5.addEventListener('change', function () {
+    if (quality2_5.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Quality2', '5');
+    }
+});
 const quality2_4 = document.getElementById('Quality2_4');
+quality2_4.addEventListener('change', function () {
+    if (quality2_4.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Quality2', '4');
+    }
+});
 const quality2_3 = document.getElementById('Quality2_3');
+quality2_3.addEventListener('change', function () {
+    if (quality2_3.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Quality2', '3');
+    }
+}); 
 const quality2_2 = document.getElementById('Quality2_2');
+quality2_2.addEventListener('change', function () {
+    if (quality2_2.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Quality2', '2');
+    }
+})
 const quality2_1 = document.getElementById('Quality2_1');
+quality2_1.addEventListener('change', function () {
+    if (quality2_1.checked) {
+        employee_id && localStorage.setItem(employee_id + 'Quality2', '1');
+    }
+});
+
+function autofillQuality2(){
+    const quality2 = localStorage.getItem(employee_id + 'Quality2');
+    if(quality2 == '5'){
+        quality2_5.checked = true;
+    } else if(quality2 == '4'){
+        quality2_4.checked = true;
+    } else if(quality2 == '3'){
+        quality2_3.checked = true;
+    } else if(quality2 == '2'){
+        quality2_2.checked = true;
+    } else if(quality2 == '1'){
+        quality2_1.checked = true;
+    }
+}
 
 function getRateQuality2(){
     if(quality2_5.checked){
@@ -98,6 +138,21 @@ timeliness2_1.addEventListener('change', function () {
     }
 });
 
+function autofillTimeliness2(){
+    const timeliness2 = localStorage.getItem(employee_id + 'Timeliness2');
+    if(timeliness2 == '5'){
+        timeliness2_5.checked = true;
+    } else if(timeliness2 == '4'){
+        timeliness2_4.checked = true;
+    } else if(timeliness2 == '3'){
+        timeliness2_3.checked = true;
+    } else if(timeliness2 == '2'){
+        timeliness2_2.checked = true;
+    } else if(timeliness2 == '1'){
+        timeliness2_1.checked = true;
+    }
+}
+
 function getRateTimeliness2(){
     if(timeliness2_5.checked){
         return 5;
@@ -134,6 +189,17 @@ efficiency3_1.addEventListener('change', function () {
     }
 });
 
+function autofillEfficiency3(){
+    const efficiency3 = localStorage.getItem(employee_id + 'Efficiency3');
+    if(efficiency3 == '5'){
+        efficiency3_5.checked = true;
+    } else if(efficiency3 == '3'){
+        efficiency3_3.checked = true;
+    } else if(efficiency3 == '1'){
+        efficiency3_1.checked = true;
+    }
+}
+
 function getRateEfficiency3(){
     if(efficiency3_5.checked){
         return 5;
@@ -165,6 +231,18 @@ efficiency4_1.addEventListener('change', function () {
         employee_id && localStorage.setItem(employee_id + 'Efficiency4', '1');
     }
 });
+
+function autofillEfficiency4(){
+    const efficiency4 = localStorage.getItem(employee_id + 'Efficiency4');
+    if(efficiency4 == '5'){
+        efficiency4_5.checked = true;
+    } else if(efficiency4 == '3'){
+        efficiency4_3.checked = true;
+    } else if(efficiency4 == '1'){
+        efficiency4_1.checked = true;
+    }
+}
+
 
 function getRateEfficiency4(){
     if(efficiency4_5.checked){
@@ -198,6 +276,18 @@ efficiency5_1.addEventListener('change', function () {
     }
 });
 
+
+function autofillEfficiency5(){
+    const efficiency5 = localStorage.getItem(employee_id + 'Efficiency5');
+    if(efficiency5 == '5'){
+        efficiency5_5.checked = true;
+    } else if(efficiency5 == '3'){
+        efficiency5_3.checked = true;
+    } else if(efficiency5 == '1'){
+        efficiency5_1.checked = true;
+    }
+}
+
 function getRateEfficiency5(){
     if(efficiency5_5.checked){
         return 5;
@@ -230,6 +320,18 @@ efficiency6_1.addEventListener('change', function () {
     }
 });
 
+function autofillEfficiency6(){
+    const efficiency6 = localStorage.getItem(employee_id + 'Efficiency6');
+    if(efficiency6 == '5'){
+        efficiency6_5.checked = true;
+    } else if(efficiency6 == '3'){
+        efficiency6_3.checked = true;
+    } else if(efficiency6 == '1'){
+        efficiency6_1.checked = true;
+    }
+}
+
+
 function getRateEfficiency6(){
     if(efficiency6_5.checked){
         return 5;
@@ -261,6 +363,17 @@ efficiency7_1.addEventListener('change', function () {
         employee_id && localStorage.setItem(employee_id + 'Efficiency7', '1');
     }
 });
+
+function autofillEfficiency7(){
+    const efficiency7 = localStorage.getItem(employee_id + 'Efficiency7');
+    if(efficiency7 == '5'){
+        efficiency7_5.checked = true;
+    } else if(efficiency7 == '3'){
+        efficiency7_3.checked = true;
+    } else if(efficiency7 == '1'){
+        efficiency7_1.checked = true;
+    }
+}
 
 function getRateEfficiency7(){
     if(efficiency7_5.checked){
@@ -305,6 +418,21 @@ quality8_1.addEventListener('change', function () {
         employee_id && localStorage.setItem(employee_id + 'Quality8', '1');
     }
 });
+
+function autofillQuality8(){
+    const quality8 = localStorage.getItem(employee_id + 'Quality8');
+    if(quality8 == '5'){
+        quality8_5.checked = true;
+    } else if(quality8 == '4'){
+        quality8_4.checked = true;
+    } else if(quality8 == '3'){
+        quality8_3.checked = true;
+    } else if(quality8 == '2'){
+        quality8_2.checked = true;
+    } else if(quality8 == '1'){
+        quality8_1.checked = true;
+    }
+}
 
 function getRateQuality8(){
     if(quality8_5.checked){
@@ -354,6 +482,22 @@ quality9_5.addEventListener('change', function () {
     }
 });
 
+function autofillQuality9(){
+    const quality9 = localStorage.getItem(employee_id + 'Quality9');
+    if(quality9 == '5'){
+        quality9_5.checked = true;
+    } else if(quality9 == '4'){
+        quality9_4.checked = true;
+    } else if(quality9 == '3'){
+        quality9_3.checked = true;
+    } else if(quality9 == '2'){
+        quality9_2.checked = true;
+    } else if(quality9 == '1'){
+        quality9_1.checked = true;
+    }
+}
+
+
 function getRateQuality9(){
     if(quality9_5.checked){
         return 5;
@@ -401,6 +545,21 @@ timeliness9_5.addEventListener('change', function () {
     }
 });
 
+function autofillTimeliness9(){
+    const timeliness9 = localStorage.getItem(employee_id + 'Timeliness9');
+    if(timeliness9 == '5'){
+        timeliness9_5.checked = true;
+    } else if(timeliness9 == '4'){
+        timeliness9_4.checked = true;
+    } else if(timeliness9 == '3'){
+        timeliness9_3.checked = true;
+    } else if(timeliness9 == '2'){
+        timeliness9_2.checked = true;
+    } else if(timeliness9 == '1'){
+        timeliness9_1.checked = true;
+    }
+}
+
 function getRateTimeliness9(){
     if(timeliness9_5.checked){
         return 5;
@@ -437,6 +596,17 @@ efficiency10_5.addEventListener('change', function () {
         employee_id && localStorage.setItem(employee_id + 'Efficiency10', '5');
     }
 });
+
+function autofillEfficiency10(){
+    const efficiency10 = localStorage.getItem(employee_id + 'Efficiency10');
+    if(efficiency10 == '5'){
+        efficiency10_5.checked = true;
+    } else if(efficiency10 == '3'){
+        efficiency10_3.checked = true;
+    } else if(efficiency10 == '1'){
+        efficiency10_1.checked = true;
+    }
+}
 
 function getRateEfficiency10(){
     if(efficiency10_5.checked){
@@ -481,6 +651,21 @@ quality11_5.addEventListener('change', function () {
         employee_id && localStorage.setItem(employee_id + 'Quality11', '5');
     }
 });
+
+function autofillQuality11(){
+    const quality11 = localStorage.getItem(employee_id + 'Quality11');
+    if(quality11 == '5'){
+        quality11_5.checked = true;
+    } else if(quality11 == '4'){
+        quality11_4.checked = true;
+    } else if(quality11 == '3'){
+        quality11_3.checked = true;
+    } else if(quality11 == '2'){
+        quality11_2.checked = true;
+    } else if(quality11 == '1'){
+        quality11_1.checked = true;
+    }
+}
 
 
 function getRateQuality11(){
@@ -530,6 +715,21 @@ timeliness11_5.addEventListener('change', function () {
     }
 });
 
+function autofillTimeliness11(){
+    const timeliness11 = localStorage.getItem(employee_id + 'Timeliness11');
+    if(timeliness11 == '5'){
+        timeliness11_5.checked = true;
+    } else if(timeliness11 == '4'){
+        timeliness11_4.checked = true;
+    } else if(timeliness11 == '3'){
+        timeliness11_3.checked = true;
+    } else if(timeliness11 == '2'){
+        timeliness11_2.checked = true;
+    } else if(timeliness11 == '1'){
+        timeliness11_1.checked = true;
+    }
+}
+
 function getRateTimeliness11(){
     if(timeliness11_5.checked){
         return 5;
@@ -578,6 +778,21 @@ quality12_5.addEventListener('change', function () {
     }
 });
 
+function autofillQuality12(){
+    const quality12 = localStorage.getItem(employee_id + 'Quality12');
+    if(quality12 == '5'){
+        quality12_5.checked = true;
+    } else if(quality12 == '4'){
+        quality12_4.checked = true;
+    } else if(quality12 == '3'){
+        quality12_3.checked = true;
+    } else if(quality12 == '2'){
+        quality12_2.checked = true;
+    } else if(quality12 == '1'){
+        quality12_1.checked = true;
+    }
+}
+
 function getRateQuality12(){
     if(quality12_5.checked){
         return 5;
@@ -624,6 +839,22 @@ timeliness12_5.addEventListener('change', function () {
         employee_id && localStorage.setItem(employee_id + 'Timeliness12', '5');
     }
 });
+
+function autofillTimeliness12(){
+    const timeliness12 = localStorage.getItem(employee_id + 'Timeliness12');
+    if(timeliness12 == '5'){
+        timeliness12_5.checked = true;
+    } else if(timeliness12 == '4'){
+        timeliness12_4.checked = true;
+    } else if(timeliness12 == '3'){
+        timeliness12_3.checked = true;
+    } else if(timeliness12 == '2'){
+        timeliness12_2.checked = true;
+    } else if(timeliness12 == '1'){
+        timeliness12_1.checked = true;
+    }
+}
+
 
 function getRateTimeliness12(){
     if(timeliness12_5.checked){
@@ -673,6 +904,21 @@ quality13_5.addEventListener('change', function () {
     }
 });
 
+function autofillQuality13(){
+    const quality13 = localStorage.getItem(employee_id + 'Quality13');
+    if(quality13 == '5'){
+        quality13_5.checked = true;
+    } else if(quality13 == '4'){
+        quality13_4.checked = true;
+    } else if(quality13 == '3'){
+        quality13_3.checked = true;
+    } else if(quality13 == '2'){
+        quality13_2.checked = true;
+    } else if(quality13 == '1'){
+        quality13_1.checked = true;
+    }
+}
+
 function getRateQuality13(){
     if(quality13_5.checked){
         return 5;
@@ -719,6 +965,21 @@ timeliness13_5.addEventListener('change', function () {
         employee_id && localStorage.setItem(employee_id + 'Timeliness13', '5');
     }
 });
+
+function autofillTimeliness13(){
+    const timeliness13 = localStorage.getItem(employee_id + 'Timeliness13');
+    if(timeliness13 == '5'){
+        timeliness13_5.checked = true;
+    } else if(timeliness13 == '4'){
+        timeliness13_4.checked = true;
+    } else if(timeliness13 == '3'){
+        timeliness13_3.checked = true;
+    } else if(timeliness13 == '2'){
+        timeliness13_2.checked = true;
+    } else if(timeliness13 == '1'){
+        timeliness13_1.checked = true;
+    }
+}
 
 
 function getRateTimeliness13(){
@@ -769,6 +1030,22 @@ quality14_5.addEventListener('change', function () {
     }
 });
 
+function autofillQuality14(){
+    const quality14 = localStorage.getItem(employee_id + 'Quality14');
+    if(quality14 == '5'){
+        quality14_5.checked = true;
+    } else if(quality14 == '4'){
+        quality14_4.checked = true;
+    } else if(quality14 == '3'){
+        quality14_3.checked = true;
+    } else if(quality14 == '2'){
+        quality14_2.checked = true;
+    } else if(quality14 == '1'){
+        quality14_1.checked = true;
+    }
+}
+
+
 function getRateQuality14(){
     if(quality14_5.checked){
         return 5;
@@ -815,6 +1092,21 @@ efficiency14_5.addEventListener('change', function () {
         employee_id && localStorage.setItem(employee_id + 'Efficiency14', '5');
     }
 });
+
+function autofillEfficiency14(){
+    const efficiency14 = localStorage.getItem(employee_id + 'Efficiency14');
+    if(efficiency14 == '5'){
+        efficiency14_5.checked = true;
+    } else if(efficiency14 == '4'){
+        efficiency14_4.checked = true;
+    } else if(efficiency14 == '3'){
+        efficiency14_3.checked = true;
+    } else if(efficiency14 == '2'){
+        efficiency14_2.checked = true;
+    } else if(efficiency14 == '1'){
+        efficiency14_1.checked = true;
+    }
+}
 
 function getRateEfficiency14(){
     if(efficiency14_5.checked){
@@ -864,6 +1156,21 @@ quality15_1.addEventListener('change', function () {
     }
  });
 
+function autofillQuality15(){
+    const quality15 = localStorage.getItem(employee_id + 'Quality15');
+    if(quality15 == '5'){
+        quality15_5.checked = true;
+    } else if(quality15 == '4'){
+        quality15_4.checked = true;
+    } else if(quality15 == '3'){
+        quality15_3.checked = true;
+    } else if(quality15 == '2'){
+        quality15_2.checked = true;
+    } else if(quality15 == '1'){
+        quality15_1.checked = true;
+    }
+}
+
 function getRateQuality15(){
     if(quality15_5.checked){
         return 5;
@@ -912,6 +1219,21 @@ efficiency15_1.addEventListener('change', function () {
     }
 });
 
+function autofillEfficiency15(){
+    const efficiency15 = localStorage.getItem(employee_id + 'Efficiency15');
+    if(efficiency15 == '5'){
+        efficiency15_5.checked = true;
+    } else if(efficiency15 == '4'){
+        efficiency15_4.checked = true;
+    } else if(efficiency15 == '3'){
+        efficiency15_3.checked = true;
+    } else if(efficiency15 == '2'){
+        efficiency15_2.checked = true;
+    } else if(efficiency15 == '1'){
+        efficiency15_1.checked = true;
+    }
+}   
+
 function getRateEfficiency15(){
     if(efficiency15_5.checked){
         return 5;
@@ -959,6 +1281,21 @@ timeliness15_2.addEventListener('change', function () {
     }
 });
 
+function autofillTimeliness15(){
+    const timeliness15 = localStorage.getItem(employee_id + 'Timeliness15');
+    if(timeliness15 == '5'){
+        timeliness15_5.checked = true;
+    } else if(timeliness15 == '4'){
+        timeliness15_4.checked = true;
+    } else if(timeliness15 == '3'){
+        timeliness15_3.checked = true;
+    } else if(timeliness15 == '2'){
+        timeliness15_2.checked = true;
+    } else if(timeliness15 == '1'){
+        timeliness15_1.checked = true;
+    }
+}
+
 function getRateTimeliness15(){
     console.log("Happen");
     if(timeliness15_5.checked){
@@ -974,6 +1311,41 @@ function getRateTimeliness15(){
     }else{
         return 0;
     }
+}
+
+
+function activateAllAutofillFunction(){
+    autofillEfficiency1(); 
+    autofillEfficiency3();
+    autofillEfficiency4();
+    autofillEfficiency5();
+    autofillEfficiency6();
+    autofillEfficiency7();  
+    autofillEfficiency10(); 
+    autofillEfficiency14();
+    autofillEfficiency15();
+    autofillTimeliness2();
+    autofillTimeliness9();
+    autofillTimeliness11(); 
+    autofillTimeliness12();
+    autofillTimeliness13(); 
+    autofillTimeliness15(); 
+    autofillQuality11();
+    autofillQuality12();
+    autofillQuality13();
+    autofillQuality14(); 
+    autofillQuality15();
+    autofillQuality2();
+    autofillQuality8();
+    autofillQuality9();
+
+    const savedAverageScore = parseFloat(localStorage.getItem(employee_id + 'AverageScore'));
+    if (savedAverageScore) {
+        document.getElementById('average-score').innerText = savedAverageScore.toFixed(3); // Show three decimal places
+        // Determine the adjectival rating based on the average score
+        let rating = getRating(savedAverageScore);
+        document.getElementById('rating').innerText = rating; // Display the rating
+    } 
 }
 
 // Average Score Elements
@@ -1093,6 +1465,8 @@ function calculateAverageScore() {
     // Determine the adjectival rating based on the average score
     let rating = getRating(totalScore);
     document.getElementById('rating').innerText = rating; // Display the rating
+ 
+    employee_id && localStorage.setItem(employee_id + 'AverageScore', totalScore.toFixed(3));
 }
 
 // Helper function to retrieve values
@@ -1132,6 +1506,8 @@ async function getIPCRF(){
         if (response.ok) {
             console.log("Success Data : ", ipcrf_content);  
             employee_id = ipcrf_content['ipcrf']['employee_id']
+
+            employee_id && activateAllAutofillFunction();
         } else {
             console.log("Error Data : ", ipcrf_content);
             // alert("Login Failed.")
