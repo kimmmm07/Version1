@@ -1875,7 +1875,7 @@ yesButton.addEventListener('click', async function() {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data); 
-            window.location.href = '../../get-started.html'; 
+            // window.location.href = '../../get-started.html'; 
         } else {
             console.log("Error Data : ", data);
         }
