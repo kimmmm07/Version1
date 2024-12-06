@@ -142,17 +142,67 @@ nav a.active {
     filter: hue-rotate(190deg) brightness(1.5); 
 }
 
-.comments-section {
-    display: none;
-    margin-top: 10px;
+.like-btn {
+    font-size: 16px;
+    font-weight: normal;
+    display: inline-flex;
+    align-items: center;
+    border: 2px solid black; /* Black border */
+    border-radius: 5px; /* Rounded edges */
+    padding: 5px 10px;
+    background: none;
+    cursor: pointer;
+    color: black; /* Default text color */
+    transition: all 0.3s ease;
+}
+
+.like-btn i {
+    margin-right: 5px;
+    font-size: 20px; /* Adjust the icon size */
+    color: lightgray; /* White color for the icon */
+    transition: color 0.3s ease;
+}
+
+.like-btn.active {
+    color: blue; /* Blue text color when active */
+    border-color: transparent; /* Remove border when active */
+}
+
+.like-btn.active i {
+    color: blue; /* Blue icon color when active */
+}
+
+
+.like-btn.active i {
+    color: blue;
+}
+
+.comment-input-wrapper {
+    position: relative;
+    width: 100%;
 }
 
 .comment-input {
-    width: 95%;
-    padding: 10px;
-    margin-top: 5px;
+    width: 93%;
+    padding: 10px 40px 10px 10px; /* Add right padding to make space for the icon */
     border: 1px solid #ddd;
     border-radius: 5px;
+}
+
+.send-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px; /* Adjust size as needed */
+    height: 25px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.send-icon:hover {
+    opacity: 1;
 }
 
 aside {
