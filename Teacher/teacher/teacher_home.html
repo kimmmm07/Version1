@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="teacher_home_css.css">
 </head>
 <body>
@@ -27,104 +28,66 @@
         </ul>
     </nav>
 
-    <div class="main-content">
+    <main>
+        <div class="container">
+            <div class="feed" id="feed-container">
+                <div class="feeds" id="feeds">
+                    <h2>Feeds</h2>
 
-        
-        <!-- Feed Section with user icon and post options -->
-        <div class="feed-section">
-            <div class="feed-header">
-                <h3>Feeds</h3>
-            </div>
-            <div class="post-box">
-                <!-- <div class="post-box-header">
-                    <img src="assets\User_Circle.png" alt="User Icon" class="user-icon">
-                    <button id="startPostButton" class="start-post-btn">Start a post</button>
-                </div>                 -->
-                <!-- <div class="post-options">
-                    <button class="media-btn">
-                        <img src="C:/Users/kimab/Desktop/school admin/assets/Vector.png" alt="Media Icon" class="post-icon"> Media
-                    </button>
-                    <button class="announcement-btn">
-                        <img src="C:/Users/kimab/Desktop/school admin/assets/Megaphone.png" alt="Announcement Icon" class="post-icon"> Announcement
-                    </button>
-                    <button class="mention-btn">
-                        <img src="C:/Users/kimab/Desktop/school admin/assets/Mention.png" alt="Mention Icon" class="post-icon"> Mention
-                    </button> 
-                </div> -->
-
-                
-                <div class="filter-section">
-                    <!-- <hr class="divider" />  -->
-                    <div class="filter-container">
-                        
-                        <!-- Custom Dropdown -->
-                            <div class="custom-dropdown">
-                                <div class="dropdown-selected">
-                                    <!-- <img src="#" alt="All Icon" class="option-icon" /> -->
-                         
-                                </div>
-                                <!-- <ul class="dropdown-options">
-                                    <li data-value="all">
-                                        <img src="assets\More_Grid_Small.png" alt="All Icon" class="option-icon" /> All
-                                    </li>
-                                    <li data-value="mentions">
-                                        <img src="assets\Mention_black.png" alt="Mentions Icon" class="option-icon" /> Mentions
-                                    </li>
-                                    <li data-value="posts">
-                                        <img src="assets\User_02.png" alt="My Posts Icon" class="option-icon" /> My Posts
-                                    </li>
-                                    <li data-value="announcements">
-                                        <img src="assets\Megaphone1.png" alt="Announcements Icon" class="option-icon" /> Announcements
-                                    </li>
-                                </ul> -->
+                    <div class="feed-post" id="feed-post">
+                        <div class="profile-pic" id="profile-pic">
+                            <img src="asset/User_Circle.png" alt="User Profile">
+                        </div>
+                        <div class="post-content" id="post-content">
+                            <p class="user" id="user">Benjamin Ryan Cruz</p>
+                            <p class="date" id="date">November 22, 2024, 8:48 AM</p>
+                            <p class="text" id="text">Congratulations! <span class="mention">@Ethan Daniel Santiago</span> for being an Employee of the month!</p>
+                            <!-- <p class="likeNum" id="like-num">2 Likes <span class="commentNum" id="comment-num">1 Comment</span></p> -->
+                            <div class="post-actions" id="post-actions">
+                                <button class="like-btn" id="like-btn" onclick="toggleLike(this)">
+                                    <i class="fa fa-thumbs-up" id="like-icon"></i> Like (0) 
+                                </button>
+                                <button class="comment-btn" id="comment-btn" onclick="toggleComments(this)">
+                                    <i><img src="asset/Chat Bubble.png" id="comment-icon"></i> Comment (0)
+                                </button>
                             </div>
-                    </div>
+                            <div class="comments-section" id="comments-section">
+                                <div class="comment-input-wrapper" id="comment-input-wrapper">
+                                    <input type="text" class="comment-input" id="comment-input" placeholder="Write a comment...">
+                                    <img src="asset/Paper_Plane.png" alt="Send" class="send-icon" id="send-icon" onclick="sendComment('comment-input')">
+                                </div>
+                                <!-- Container for displaying comments -->
+                                <div class="comment-list" id="comment-list">
+                                    <!-- Comments will be dynamically added here -->
+                                </div>
+                            </div>                            
+                        </div>
+                    </div>                    
                 </div>
             </div>
 
-            <!-- News Feed Section -->
-            <div id="feed" class="feed-container">
-                
-                
-            </div>
+            <aside>
+                <div class="notifications" id="notifications">
+                    <h2>Notification</h2>
+                </div>
+                <!-- <div class="todo" id="todo">
+                    <h2>To Do</h2>
+                </div> -->
+            </aside>
         </div>
+    </main>
 
-        <!-- Right Sidebar -->
-<div class="right-sidebar">
-    <!-- Notification Section -->
-    <div class="notification-section">
-        <div class="notification-header">
-            <h3>Notification</h3>
-        </div>
-        <ul id="notificationList">
-            <!-- Notifications go here -->
-        </ul>
-    </div>
-
-    <!-- To Do Section -->
-    <!-- <div class="to-do-section">
-        <div class="to-do-header">
-            <h3>To Do</h3>
-        </div>
-        <ul id="toDoList">
-
-        </ul>
-    </div> -->
-</div>
-    
-     
-    </div>
-
-     <!-- Logout Confirmation Modal -->
-     <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
+    <!-- Logout Confirmation Modal -->
+    <div id="logoutModal" class="modal hidden"> <!-- Added 'hidden' class to hide by default -->
         <div class="modal-content">
             <p>Are you sure you want to logout?</p>
             <div class="modal-buttons">
-                <button class="yes-btn">Yes</button>
-                <button class="no-btn">No</button>
+                <button id="yesButton" class="yes-btn">Yes</button>
+                <button id="noButton" class="no-btn">No</button>    
             </div>
         </div>
     </div>
+
     <script src="teacher_home.js" type="module"></script>
 </body>
 </html>
