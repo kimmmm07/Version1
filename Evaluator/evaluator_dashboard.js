@@ -91,3 +91,88 @@ function toggleLike(button) {
     // Toggle the 'active' class on the button
     button.classList.toggle('active');
 }
+
+function sendComment(inputId) {
+    const inputElement = document.getElementById(inputId);
+    const commentText = inputElement.value.trim();
+
+    if (commentText) {
+        const commentList = document.getElementById('comment-list');
+
+        // Create a new comment element
+        const comment = document.createElement('div');
+        comment.classList.add('comment');
+
+        comment.innerHTML = `
+            <div class="profile-pic">
+                <img src="User_Circle.png" alt="User Icon">
+            </div>
+            <div class="comment-content">
+                <p class="user-name">Current User</p>
+                <p class="comment-text">${commentText}</p>
+                <div class="comment-actions">
+                    <button class="like-btn" onclick="toggleLike(this)">Like</button>
+                    <button class="reply-btn" onclick="showReplyInput(this)">Reply</button>
+                </div>
+                <div class="reply-list"></div>
+            </div>
+        `;
+
+        // Append the comment to the list
+        commentList.appendChild(comment);
+
+        // Clear the input field
+        inputElement.value = '';
+    }
+}
+
+function toggleLike(button) {
+    button.classList.toggle('active');
+}
+
+function showReplyInput(button) {
+    const commentContent = button.closest('.comment-content');
+    let replyInputWrapper = commentContent.querySelector('.reply-input-wrapper');
+
+    if (!replyInputWrapper) {
+        // Create the reply input wrapper
+        replyInputWrapper = document.createElement('div');
+        replyInputWrapper.classList.add('reply-input-wrapper');
+
+        replyInputWrapper.innerHTML = `
+            <input type="text" class="reply-input" placeholder="Write a reply...">
+            <img src="Paper_Plane.png" alt="Send" class="reply-icon" onclick="sendReply(this)">
+        `;
+
+        commentContent.appendChild(replyInputWrapper);
+    }
+}
+
+function sendReply(icon) {
+    const replyInput = icon.previousElementSibling;
+    const replyText = replyInput.value.trim();
+
+    if (replyText) {
+        const replyList = icon.closest('.comment-content').querySelector('.reply-list');
+
+        // Create a new reply element
+        const reply = document.createElement('div');
+        reply.classList.add('reply');
+
+        reply.innerHTML = `
+            <div class="profile-pic">
+                <img src="User_Circle.png" alt="User Icon">
+            </div>
+            <div class="reply-content">
+                <p class="user-name">Current User</p>
+                <p class="reply-text">${replyText}</p>
+            </div>
+        `;
+
+        // Append the reply to the list
+        replyList.appendChild(reply);
+
+        // Clear the reply input field
+        replyInput.value = '';
+    }
+}
