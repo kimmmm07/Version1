@@ -378,6 +378,110 @@ function submitComment(event, postId) {
     }
 }
 
+// Function to handle comment submission with Send button
+function submitCommentOnSend(postId, commentText) {
+    if (commentText.trim() !== "") {
+        const currentTime = new Date().toLocaleString('en-US', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+        });
+
+        const user = "John Doe"; // Replace with dynamic user data if available
+
+        const comment = {
+            text: commentText.trim(),
+            user: user,
+            time: currentTime
+        };
+
+        // Add the comment to the appropriate post
+        posts[postId].comments.push(comment);
+
+        // Re-render the posts to show the new comment
+        renderPosts();
+    }
+}
+
+// Update renderPosts function to include a send button for comments
+function renderPosts() {
+    const feed = document.getElementById('feed');
+    feed.innerHTML = ''; // Clear the feed
+
+    posts.forEach((post) => {
+        const postId = post.id;
+        const commentCount = post.comments.length;
+
+        let postHTML = `
+            <div class="post-content">
+                <img src="assets/User_Circle.png" alt="User Icon" class="small-user-icon">
+                <p class="user" class="user" style="margin-left: 45px; margin-top: -35px;"> ${post.user}</p>
+                <p class="date">${post.date}</p>
+                <p class="text">${post.content}</p>
+                <div class="post-actions">
+                    <button class="like-btn" onclick="toggleLike(${postId}, this)">
+                        <i><img src="assets/Facebook Like.png" alt="Like Icon"></i> Like (${post.likes})
+                    </button>
+                    <button class="comment-btn" onclick="toggleComments(${postId})">
+                        <i><img src="assets/Chat Bubble.png" alt="Comment Icon"></i> Comment (${commentCount})
+                    </button>
+                </div>
+                <div class="comments-section" id="comments-${postId}" style="display: ${commentsVisibility[postId] ? 'block' : 'none'};">
+                    <div class="comment-input-wrapper">
+                        <input type="text" class="comment-input" id="commentInput-${postId}" placeholder="Write a comment...">
+                        <button class="send-btn" onclick="submitCommentOnSend(${postId}, document.getElementById('commentInput-${postId}').value)">
+                            <img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">
+                        </button>
+                    </div>
+                    <div class="comment-list">
+        `;
+
+        post.comments.forEach((comment) => {
+            postHTML += `
+                <div class="comment">
+                    <img src="assets/User_Circle.png" alt="User Icon" class="small-user-icon">
+                    <p class="user" style="margin-left: 45px; margin-top: -35px;">${comment.user}</p>
+                    <p style="margin-left:45px; margin-top: 10px">${comment.text}</p>
+                </div>
+                <div class="post-actions">
+                    <button class="like-btn" onclick="toggleLike(${comment.id}, this)">
+                        <i class="fas fa-thumbs-up" style="color:lightgray"></i> Like (${comment.likes})
+                    </button>
+                    <button class="reply-btn" onclick="showReplyInput(${comment.id})">
+                        <i class="fas fa-reply" style="color:lightgray"></i> Reply
+                    </button>
+                </div>
+                <div class="reply-input-container" id="replyInput-${comment.id}" style="display: none;">
+                    <div class="comment-input-wrapper">
+                        <input type="text" class="comment-input" id="commentInput-${comment.id}" placeholder="Write a reply...">
+                        <button class="send-btn" onclick="submitCommentOnSend(${comment.id}, document.getElementById('commentInput-${comment.id}').value)">
+                            <img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">
+                        </button>
+                    </div>
+                </div>
+            `;
+        });
+        
+        postHTML += `</div></div></div>`;
+        feed.innerHTML += postHTML;
+        
+        
+    });
+}
+
+function showReplyInput(commentId) {
+    const replyInput = document.getElementById(`replyInput-${commentId}`);
+    if (replyInput.style.display === "none" || replyInput.style.display === "") {
+        replyInput.style.display = "block"; // Show reply input
+    } else {
+        replyInput.style.display = "none"; // Hide reply input
+    }
+}
+
+
 // Add a notification
 function addNotification(message) {
     notifications.push(message);

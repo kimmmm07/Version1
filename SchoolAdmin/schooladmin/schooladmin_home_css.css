@@ -209,7 +209,7 @@ nav ul li a i {
     color: #d00000;
     border: 1px solid #d00000; /* Border around buttons */
     border-radius: 5px;
-    margin-right: 5px;
+    margin-right: -30px;
     cursor: pointer;
 }
 
@@ -578,29 +578,35 @@ textarea {
 }
 
 .post-content .user {
+    margin-top: -10px;
     font-weight: bold;
 }
 
 .post-content .date {
+    margin-left: 45px; /* Align with user name */
     color: gray;
     font-size: 12px;
     margin-bottom: 10px;
 }
 
 .post-content .text {
+    margin-left: 45px; /* Align with user name */
     font-size: 16px;
     margin-bottom: 10px;
 }
 
 .post-actions {
+    margin-right: 20px;
+    align-items: center;
     display: flex;
     gap: 10px;
 }
 
 .post-actions button {
+    margin-left: 35px; /* Align with user name */
     background-color: transparent;
     border: none;
-    color: #032F97;
+    color: gray;
     font-size: 14px;
     cursor: pointer;
     display: flex;
@@ -611,14 +617,20 @@ textarea {
     margin-right: 5px;
 }
 
+.post-actions button i img {
+    width: 20px;
+}
+
 .comments-section {
+    width: 90%;
     display: flex;
     align-items: center;
     margin-top: 10px;
+    margin-left: 45px;
 }
 
 .comment-input {
-    width: 95%;
+    width: 80%;
     flex-grow: 1;
     padding: 5px;
     border: 1px solid #ccc;
@@ -629,7 +641,8 @@ textarea {
     position: absolute;
     width: 25px;
     height: 25px;
-    margin-left: 10px;
+    margin-left: 5px;
+    margin-top: -10px;
     cursor: pointer;
 }
 
@@ -656,7 +669,7 @@ textarea {
 }
 
 .liked {
-    background-color: #ddd; /* Change the background color to indicate it's liked */
+    background-color: blue; /* Change the background color to indicate it's liked */
     cursor: not-allowed; /* Show that it can't be clicked again */
     pointer-events: none; /* Prevent further clicking */
 }
@@ -752,8 +765,61 @@ textarea {
     font-weight: 700;
 }
 
+.comment-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.send-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 
+.small-user-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    margin-top: auto;
+}
 
+.like-comment-btn {
+    background-color: transparent;
+    border: none;
+    color: #032F97;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+}
 
+.like-comment-btn img {
+    width: 10px;
+    height: 7px;
+}
 
+.post-actions button {
+    background-color: transparent;
+    border: none;
+    color: gray;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s ease;
+}
+
+.post-actions button i {
+    margin-right: 5px;
+}
+
+.post-actions button.liked {
+    color: blue; /* Change text and icon color to blue when liked */
+}
+
+.reply-input-container {
+    margin-top: 10px;
+    margin-left: 45px;
+}
