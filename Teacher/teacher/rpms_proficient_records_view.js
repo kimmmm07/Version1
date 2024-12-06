@@ -92,7 +92,7 @@ yesButton.addEventListener('click', async function() {
 });
 
 
-function kraDisplay( filename , item , element ){
+function kraDisplay( filename , item , element , i ){
     
     const randomInteger = Math.floor(Math.random() * 10000) + 1;
 
@@ -106,6 +106,8 @@ function kraDisplay( filename , item , element ){
         try {
             const formData = new FormData();
             formData.append("rpms_id", item.attachment_id);
+            formData.append("index", i);
+
             const response = await fetch('https://bnahs.pythonanywhere.com/api/download/rpms/', {
                 method: 'POST',
                 headers: {
@@ -151,7 +153,7 @@ function populateKraList( data , element) {
         
                 // console.log(filename);  // Output: IPCRF_Summary_Sheet_8dFHmCw.pdf
         
-                kraDisplay(filename , item , element);
+                kraDisplay(filename , item , element , i);
             }
             
         }
