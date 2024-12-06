@@ -266,6 +266,8 @@ function renderPosts() {
                 </div>
                 <div class="comments-section" id="comments-${post.id}" style="display: ${commentsVisibility[post.id] ? 'block' : 'none'};">
                     <input type="text" class="comment-input" placeholder="Write a comment..." onkeypress="submitComment(event, ${post.id})">
+                    <img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">
+                </div>
         `;
 
         if (commentCount > 0) {
@@ -375,8 +377,6 @@ function submitComment(event, postId) {
         renderPosts();
     }
 }
-
-
 
 // Add a notification
 function addNotification(message) {

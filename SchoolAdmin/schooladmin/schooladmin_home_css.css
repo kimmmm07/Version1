@@ -612,14 +612,25 @@ textarea {
 }
 
 .comments-section {
+    display: flex;
+    align-items: center;
     margin-top: 10px;
 }
 
 .comment-input {
-    width: 100%;
-    padding: 8px;
+    width: 95%;
+    flex-grow: 1;
+    padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
+}
+
+.send-icon {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 .comment {
