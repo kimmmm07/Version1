@@ -104,11 +104,13 @@ nav a.active {
 }
 
 .user {
+    margin-top: 5px;
     font-weight: bold;
 }
 
 .date {
-    font-size: 0.9em;
+    margin-top: -15px;
+    font-size: 0.7em;
     color: gray;
 }
 
@@ -190,6 +192,7 @@ nav a.active {
 }
 
 .comment-input-wrapper {
+    margin-top: 10px;
     position: relative;
     width: 100%;
 }
