@@ -104,11 +104,13 @@ nav a.active {
 }
 
 .user {
+    margin-top: 5px;
     font-weight: bold;
 }
 
 .date {
-    font-size: 0.9em;
+    margin-top: -15px;
+    font-size: 0.7em;
     color: gray;
 }
 
@@ -121,6 +123,18 @@ nav a.active {
     color: #0A840E;
     font-weight: bold;
 }
+
+.likeNum {
+    color: gray;
+    font-size: 12px;
+    display: flex; /* Use flexbox for better control */
+    gap: 10px; /* Add spacing between likeNum and commentNum */
+}
+
+.commentNum {
+    margin-left: 10px; /* Additional spacing if needed */
+}
+
 
 .post-actions button {
     background: none;
@@ -178,6 +192,7 @@ nav a.active {
 }
 
 .comment-input-wrapper {
+    margin-top: 10px;
     position: relative;
     width: 100%;
 }
@@ -188,6 +203,108 @@ nav a.active {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
+
+.comment-list {
+    margin-top: 20px;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+.comment .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.comment .comment-content {
+    flex: 1;
+}
+
+.comment .comment-content .user-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.comment .comment-content .comment-text {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.comment .comment-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.comment .comment-actions button {
+    background: none;
+    border: none;
+    color: gray;
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.comment .comment-actions button.like-btn.active {
+    color: blue;
+}
+
+.reply-input-wrapper {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.reply-input {
+    flex: 1;
+    padding: 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.reply-icon {
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.reply-icon:hover {
+    opacity: 1;
+}
+
+.reply-list {
+    margin-top: 10px;
+    padding-left: 50px;
+    border-left: 1px solid #ddd;
+}
+
+.reply {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.reply .profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+
 
 .send-icon {
     position: absolute;
