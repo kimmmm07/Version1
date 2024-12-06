@@ -112,10 +112,10 @@ function sendComment(inputId) {
                 <p class="comment-text">${commentText}</p>
                 <div class="comment-actions">
                     <button class="like-btn" id="like-btn" onclick="toggleLike(this)">
-                        <i class="fa fa-thumbs-up" id="like-icon" style="color:lightgray;"></i> Like
+                        <i class="fa fa-thumbs-up" id="like-icon" style="color:lightgray;"></i> Like (0)
                     </button>
                     <button class="reply-btn" onclick="showReplyInput(this)">
-                        <i class="fas fa-reply" style="color:lightgray;"></i> Reply
+                        <i class="fas fa-reply" style="color:lightgray;"></i> Reply (0)
                     </button>
                 </div>
                 <div class="reply-list"></div>
@@ -172,10 +172,10 @@ function sendReply(icon) {
                 <p class="reply-text">${replyText}</p>
                 <div class="comment-actions">
                     <button class="like-btn" onclick="toggleLike(this)">
-                        <i class="fas fa-thumbs-up" style="color:lightgray;"></i> Like
+                        <i class="fas fa-thumbs-up" style="color:lightgray;"></i> Like (0)
                     </button>
                     <button class="reply-btn" onclick="showReplyInput(this)">
-                        <i class="fas fa-reply" style="color:lightgray;"></i> Reply
+                        <i class="fas fa-reply" style="color:lightgray;"></i> Reply (0)
                     </button>
                 </div>
                 <div class="reply-list"></div>
