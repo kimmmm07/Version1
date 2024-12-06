@@ -219,8 +219,8 @@ nav a.active {
 }
 
 .comment .profile-pic {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     margin-right: 15px;
 }
@@ -235,6 +235,11 @@ nav a.active {
 }
 
 .comment .comment-content .comment-text {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.reply-text {
     margin: 5px 0;
     font-size: 14px;
 }
