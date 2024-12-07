@@ -232,8 +232,8 @@ async function getTeacherAttachments() {
                 has_active && stepItem6.classList.add('active'); 
                 has_active = false;
                 if (!submitted?.file_is_checked) { 
-                    // objective6_item.style.opacity =  0.5;
-                    // objective6_item.style.cursor =  "not-allowed";
+                    objective6_item.style.opacity =  0.5;
+                    objective6_item.style.cursor =  "not-allowed";
                 }  
             }
 
@@ -241,7 +241,7 @@ async function getTeacherAttachments() {
                 stepItem7.classList.add('completed');
                 // objective7_item.style.opacity = 0.5;
                 // objective7_item.style.cursor =   "not-allowed";
-                
+
             } else {
                 has_active && stepItem7.classList.add('active'); 
                 has_active = false;
@@ -253,8 +253,8 @@ async function getTeacherAttachments() {
 
             if (submitted?.file4_is_checked) {
                 stepItem8.classList.add('completed');
-                objective8_item.style.opacity = 0.5;
-                objective8_item.style.cursor =   "not-allowed";
+                // objective8_item.style.opacity = 0.5;
+                // objective8_item.style.cursor =   "not-allowed";
             } else {
                 has_active && stepItem8.classList.add('active'); 
                 has_active = false;
