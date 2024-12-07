@@ -335,8 +335,10 @@ function updateAnnualRatingChart(data) {
 async function fetchAnnualRatings(){
     try {
         
+        const formData = new FormData();
+        formData.append('school_year', school_year);
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/teachers/annual/ratings/', {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
                 
@@ -429,7 +431,7 @@ chooseYearFilter.addEventListener("change", async function() {
         school_year = selectedYear;
     } 
 
-    
+    fetchAnnualRatings();
 
 });
 
