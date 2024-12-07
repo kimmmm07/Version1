@@ -426,6 +426,7 @@ async function getKRA(selectedName) {
         
         const formData = new FormData();
         formData.append('teacher_id', selectedName);
+        school_year && formData.append('school_year', school_year);
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/summary/teacher/kra/', {
             method: 'POST',
@@ -604,7 +605,7 @@ chooseYearFilter.addEventListener("change", async function() {
         return;
     }
 
-    getKRA()
+    getKRA(selectedName)
 
 });
 
