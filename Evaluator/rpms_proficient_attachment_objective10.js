@@ -229,7 +229,7 @@ async function getTeacherAttachments() {
 
             document.getElementById("file-upload-time").textContent = "Turned in on " +formattedDate;
          
-            if(submitted['0'].is_checked === true){
+            if(submitted['0'].file10_is_checked === true){
                 returnBtn.style.display = 'none'; 
                 score10.value = content['10'].Score;
                 score10.disabled = true; 
