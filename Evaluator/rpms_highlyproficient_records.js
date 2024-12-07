@@ -13,65 +13,6 @@ const filters = document.getElementById("filters");
 const schoolYearSelect = document.getElementById("school-year-select");
 const teacherTypeSelect = document.getElementById("teacher-type-select");
 
-// // Table and Records
-// const recordsTable = document.getElementById("records-table");
-// const recordsBody = document.getElementById("records-body");
-
-// // Teacher Record
-// const teacherRecord1 = document.getElementById("teacher-record-1");
-// const teacherName = document.getElementById("teacher-name");
-// const teacherPosition = document.getElementById("teacher-position");
-// const teacherGradeLevel = document.getElementById("teacher-grade-level");
-// const teacherRater = document.getElementById("teacher-rater");
-// const teacherAction = document.getElementById("teacher-action");
-// const viewRecordLink = document.getElementById("view-record-link");
-
-// School Year Options
-// const sy2023_2024 = document.getElementById("sy2023-2024");
-// const sy2022_2023 = document.getElementById("sy2022-2023");
-// const sy2021_2022 = document.getElementById("sy2021_2022");
-
-// // Teacher Type Options
-// const proficientTeacher = document.getElementById("proficient-teacher");
-// const highlyProficientTeacher = document.getElementById("highly-proficient-teacher");
-
-
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     const schoolYearDropdown = document.querySelector('select[name="school-year"]');
-//     const teacherTypeDropdown = document.querySelector('select[name="teacher-type"]');
-
-//     // Load the selected values from localStorage if they exist
-//     const savedSchoolYear = localStorage.getItem('selectedSchoolYear');
-//     const savedTeacherType = localStorage.getItem('selectedTeacherType');
-
-//     if (savedSchoolYear) {
-//         schoolYearDropdown.value = savedSchoolYear;
-//     }
-
-//     if (savedTeacherType) {
-//         teacherTypeDropdown.value = savedTeacherType;
-//     }
-
-//     // Handle school year selection
-//     schoolYearDropdown.addEventListener("change", function () {
-//         console.log("Selected School Year:", schoolYearDropdown.value);
-//         // Save the selected value to localStorage
-//         localStorage.setItem('selectedSchoolYear', schoolYearDropdown.value);
-//     });
-
-//     // Handle teacher type selection and redirect to the selected page
-//     teacherTypeDropdown.addEventListener("change", function () {
-//         const selectedValue = teacherTypeDropdown.value;
-//         if (selectedValue) {
-//             // Save the selected value to localStorage
-//             localStorage.setItem('selectedTeacherType', selectedValue);
-//             // Redirect to the selected page based on the value
-//             window.location.href = selectedValue;
-//         }
-//     });
-// });
 
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
@@ -116,35 +57,50 @@ yesButton.addEventListener('click', async function() {
 });
 
 
+
+
+
+
+let p_school_year = undefined;
+let hp_school_year = undefined;
 let school_year = undefined;
 let quarter = undefined;
 let takers = undefined;
 
-
 async function fetchData() {
     try{
         
+        const formData = new FormData();
+        school_year && formData.append('school_year', school_year);
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/get/records/rpms/', {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
                 
             },
             credentials: 'include',
+            body: formData, 
         });
         
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data); 
 
-            school_year = data.school_year;
-            quarter = data.quarter;
             takers = data.rpms_taker;
 
+            if (!hp_school_year){
+                hp_school_year = data.hp_school_year;  
+                schoolYearSelect.innerHTML = `<option value="all">All School Year</option> `;
+                hp_school_year.forEach(year => {
+                    addOption(year);
+                }); 
+            }
 
-
+            document.getElementById("teacherTableBody").innerHTML = "";
             takers.forEach(taker => {
-                addTeacherRow(taker);
+                if (taker?.rpms_taker?.is_proficient == false) {
+                    addTeacherRow(taker); 
+                }
             });
 
 
@@ -163,6 +119,22 @@ fetchData();
 
 
 
+function addOption(year) {
+
+
+    // Create a new option element
+    var option = document.createElement('option');
+
+    // Set the value and text of the new option
+    option.value = year;
+    option.text = year;
+
+    // Add the new option to the select element
+    schoolYearSelect.appendChild(option);
+}
+
+
+
 
 
     // {/* <button onclick="addTeacherRow('John Doe', 'Teacher I', 'Elementary', 'Jane Smith', 987654)">Add Row</button> */}
@@ -172,10 +144,6 @@ function addTeacherRow(taker) {
     const taker_evaluator = taker.rpms_evaluator;
     const school_year = taker.school_year;
     const taker_quarter = taker.quarter;
-
-    if (taker_data.is_proficient){
-        return;
-    }
 
     // Get the table body
     var tableBody = document.getElementById('teacherTableBody');
@@ -211,6 +179,8 @@ function addTeacherRow(taker) {
     var anchor = document.createElement('a');
     anchor.classList.add('view-link');
     anchor.id = 'viewLink' + rowCount;
+    anchor.style.cursor = 'pointer';
+    anchor.style.textDecoration = 'none';
 
     // Add the event listener
     anchor.addEventListener('click', function() {
@@ -226,8 +196,6 @@ function addTeacherRow(taker) {
     // Append the image to the anchor
     anchor.appendChild(img);
     anchor.appendChild(document.createTextNode('View'));
-    anchor.style.cursor = 'pointer';
-    anchor.style.textDecoration = 'none';
 
     // Append the anchor to the action cell
     actionCell.appendChild(anchor);
@@ -251,7 +219,7 @@ function addTeacherRow(taker) {
 function viewCOTForm(teacher_id ){
 
     sessionStorage.setItem('teacher_id', teacher_id); 
-    window.location.href = 'rpms_highlyproficient_records_view.html';
+    window.location.href = 'rpms_proficient_records_view.html';
 }
 
 
@@ -283,3 +251,42 @@ teacherTypeSelect.addEventListener("change", function() {
         addTeacherRow(teacher);
     })
 })
+
+
+
+
+
+
+
+
+
+schoolYearSelect.addEventListener("change", async function() {
+    const selectedYear = this.value;
+    
+    if (selectedYear == "all") {
+        school_year = null;
+    } else {
+        school_year = selectedYear;
+    }
+
+        
+    fetchData();
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
