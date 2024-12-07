@@ -139,7 +139,7 @@ async function fetchTenure() {
 
             tenures_data = data;
             user.evaluator.is_proficient && updateTenureChart(data.proficient);
-            !user.evaluator.is_proficient && updateTenureChart(data.high_proficient);
+            !user.evaluator.is_proficient && updateTenureChart(data.highly_proficient);
             
         } else {
             console.log("Error Data : ", data); 
@@ -407,7 +407,7 @@ async function getIPCRFSchoolYears() {
         if (response.ok) {
             console.log("Success Data : ", data); 
             p_school_years = data.school_years.proficient;
-            hp_school_years = data.school_years.high_proficient; 
+            hp_school_years = data.school_years.highly_proficient; 
 
             // Populate the year dropdowns
             populateYearDropdowns();
