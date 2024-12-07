@@ -191,7 +191,7 @@ function populateTable(teachers) {
                 <td>${teacher.grade_level}</td>
                 <td>${new Date(teacher.job_started).toLocaleDateString()}</td>
                 <td><span class="status">Observed</span> | 
-                    <a href="view_cot_form_t1-3.html" style="cursor: pointer; text-decoration: none; font-weight: 'bold';">View</a>
+                    <a href="view_cot_form_mt1-4.html" style="cursor: pointer; text-decoration: none; font-weight: 'bold';">View</a>
                 </td>
             `;
         }
