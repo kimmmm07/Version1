@@ -8,58 +8,13 @@ const tabIPCRF = document.getElementById('tab-ipcrf');
 const tabRPMS = document.getElementById('tab-rpms');
 
 // Filters
-// const schoolYearSelect = document.getElementById('school-year-filter');
+const schoolYearSelect = document.getElementById('school-year-filter');
 const teacherTypeSelect = document.getElementById('teacher-type-filter');
 
 // Table and tbody
 const recordsTable = document.getElementById('records-table');
 const recordsTbody = document.getElementById('records-tbody');
 
-// // Record 1
-// const record1 = document.getElementById('record1');
-// const userIcon1 = document.getElementById('user-icon1');
-// const teacherName1 = document.getElementById('teacher-name1');
-// const teacherPosition1 = document.getElementById('teacher-position1');
-// const teacherGradeLevel1 = document.getElementById('teacher-grade-level1');
-// const raterName1 = document.getElementById('rater-name1');
-// const result1 = document.getElementById('result1');
-// const viewLink1 = document.getElementById('view-link1');
-
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     const schoolYearDropdown = document.querySelector('select[name="school-year"]');
-//     const teacherTypeDropdown = document.querySelector('select[name="teacher-type"]');
-
-//     // Load the selected values from localStorage if they exist
-//     const savedSchoolYear = localStorage.getItem('selectedSchoolYear');
-//     const savedTeacherType = localStorage.getItem('selectedTeacherType');
-
-//     if (savedSchoolYear) {
-//         schoolYearDropdown.value = savedSchoolYear;
-//     }
-
-//     if (savedTeacherType) {
-//         teacherTypeDropdown.value = savedTeacherType;
-//     }
-
-//     // Handle school year selection
-//     schoolYearDropdown.addEventListener("change", function () {
-//         console.log("Selected School Year:", schoolYearDropdown.value);
-//         // Save the selected value to localStorage
-//         localStorage.setItem('selectedSchoolYear', schoolYearDropdown.value);
-//     });
-
-//     // Handle teacher type selection and redirect to the selected page
-//     teacherTypeDropdown.addEventListener("change", function () {
-//         const selectedValue = teacherTypeDropdown.value;
-//         if (selectedValue) {
-//             // Save the selected value to localStorage
-//             localStorage.setItem('selectedTeacherType', selectedValue);
-//             // Redirect to the selected page based on the value
-//             window.location.href = selectedValue;
-//         }
-//     });
-// });
 
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
@@ -107,7 +62,8 @@ yesButton.addEventListener('click', async function() {
 
 
 
-
+let p_school_year = undefined;
+let hp_school_year = undefined;
 let school_year = undefined;
 let quarter = undefined;
 let takers = undefined;
@@ -115,31 +71,40 @@ let takers = undefined;
 
 async function fetchData() {
     try{
+        const formData = new FormData();
+        school_year && formData.append('school_year',school_year);
         
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/get/records/ipcrf/', {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
                 
             },
+            body: formData,
             credentials: 'include',
         });
         
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data); 
-
-            school_year = data.school_year;
+            
+            if (!p_school_year){
+                p_school_year = data.p_school_year; 
+                schoolYearSelect.innerHTML = `<option value="all">All School Year</option> `;
+                p_school_year.forEach(year => {
+                    addOption(year);
+                });
+            } 
             quarter = data.quarter;
             takers = data.ipcrf_taker;
 
 
-            // school_year.forEach(year => {
-            //     addOption(year);
-            // });
-
+ 
+            document.getElementById('teacherTableBody').innerHTML = ``;
             takers.forEach(taker => {
-                addTeacherRow(taker);
+                if(taker?.ipcrf_taker?.is_proficient == false){
+                    addTeacherRow(taker);
+                }
             });
 
 
@@ -158,19 +123,19 @@ fetchData();
 
 
 
-// function addOption(year) {
+function addOption(year) {
 
 
-//     // Create a new option element
-//     var option = document.createElement('option');
+    // Create a new option element
+    var option = document.createElement('option');
 
-//     // Set the value and text of the new option
-//     option.value = year;
-//     option.text = year;
+    // Set the value and text of the new option
+    option.value = year;
+    option.text = year;
 
-//     // Add the new option to the select element
-//     schoolYearSelect.appendChild(option);
-// }
+    // Add the new option to the select element
+    schoolYearSelect.appendChild(option);
+}
 
 
 function getRating(averageScore) {
@@ -182,6 +147,7 @@ function getRating(averageScore) {
 }
 
 
+
     // {/* <button onclick="addTeacherRow('John Doe', 'Teacher I', 'Elementary', 'Jane Smith', 987654)">Add Row</button> */}
 
 function addTeacherRow(taker) {
@@ -189,11 +155,6 @@ function addTeacherRow(taker) {
     const taker_evaluator = taker.ipcrf_rater;
     const school_year = taker.school_year;
     const taker_quarter = taker.quarter;
-
-
-    if (taker_data.is_proficient){
-        return;
-    }
 
     // Get the table body
     var tableBody = document.getElementById('teacherTableBody');
@@ -234,7 +195,7 @@ function addTeacherRow(taker) {
 
     // Add the event listener
     anchor.addEventListener('click', function() {
-        viewCOTForm(taker_data.employee_id, taker.ipcrf.connection_to_other);
+        viewCOTForm(taker_data.employee_id, taker.ipcrf.connection_to_other	);
     });
 
     // Create the image tag
@@ -242,18 +203,12 @@ function addTeacherRow(taker) {
     img.src = 'Eye.png';
     img.classList.add('eye-icon');
     img.id = 'eyeIcon';
-    
- 
-    // Create the anchor element
-    // var anchor = document.createElement('a');
-    // anchor.href = 'records_view_ipcrf.html'; // Add the desired link
-    // anchor.classList.add('pointer-anchor'); // Add the CSS class to apply the pointer style
 
     // Append the image to the anchor
     anchor.appendChild(img);
     anchor.appendChild(document.createTextNode('View'));
     anchor.style.cursor = 'pointer';
-
+    anchor.style.textDecoration = 'none';
 
     // Append the anchor to the action cell
     actionCell.appendChild(anchor);
@@ -292,11 +247,10 @@ teacherTypeSelect.addEventListener("change", function() {
     } 
 
     let new_data = []; 
-    takers.forEach(taker => { 
-        console.log("Result" , taker.ipcrf_taker.is_proficient && selectedValue == "Highly Proficient");
-        if (taker.ipcrf_taker.is_proficient && selectedValue == "Proficient") {
+    takers.forEach(taker => {  
+        if (taker?.ipcrf_taker?.is_proficient && selectedValue == "Proficient") {
             new_data.push(taker);
-        } else if ( !taker.ipcrf_taker.is_proficient && selectedValue == "Highly Proficient") {
+        } else if ( !taker?.ipcrf_taker?.is_proficient && selectedValue == "Highly Proficient") {
             new_data.push(taker);
         } else if(selectedValue == "all") {
             new_data.push(taker);
@@ -316,6 +270,20 @@ teacherTypeSelect.addEventListener("change", function() {
 
 
 
+schoolYearSelect.addEventListener("change", async function() {
+    const selectedYear = this.value;
+    
+    if (selectedYear == "all") {
+        school_year = undefined;
+    } else {
+        school_year = selectedYear;
+    }
+
+        
+    fetchData();
+
+
+});
 
 
 
