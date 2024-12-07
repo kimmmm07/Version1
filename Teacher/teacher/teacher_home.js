@@ -54,8 +54,21 @@ const sendIcon = document.getElementById('send-icon');
 // Notifications Section
 const notifications = document.getElementById('notifications');
 
-// To Do Section
-const todo = document.getElementById('todo');
+
+// Add a notification
+function addNotification(message) {
+    notifications.push(message);
+    renderNotifications();
+}
+
+// Render the notifications
+function renderNotifications() {
+    const notificationList = document.getElementById('notificationList');
+    notificationList.innerHTML = ''; // Clear previous notifications
+    notifications.forEach((notification) => {
+        notificationList.innerHTML += `<li>${notification}</li>`;
+    });
+}
 
 
 function toggleLike(button) {
