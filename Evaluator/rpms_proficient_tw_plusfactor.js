@@ -13,7 +13,7 @@ const kra3Score = document.getElementById("kra3Score"); // kra 3
 const statusDropdown = document.getElementById("status");
 
 // Content Section
-const nameCheckbox = document.getElementById("name"); 
+const nameCheckbox = document.getElementById("name");  
 
 const class_work_id = sessionStorage.getItem('plus_factor_id');
 console.log(class_work_id);
@@ -182,7 +182,7 @@ async function getTeacherAttachments() {
             objective15_item.style.opacity = submitted?.is_submitted ? 1 : 0.5;
             objective15_item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
             objective15_item.addEventListener("click", () => {
-                if (submitted?.is_submitted && !submitted?.file_is_checked) {
+                if (submitted?.is_submitted) {
                     window.location.href = "rpms_proficient_attachment_objective15.html";
                 } 
             })
@@ -190,8 +190,8 @@ async function getTeacherAttachments() {
             if (submitted?.file_is_checked) {
                 stepItem.classList.add('completed');
                 stepItem15.classList.add('completed');
-                objective15_item.style.opacity =   0.5;
-                objective15_item.style.cursor =  "not-allowed";
+                // objective15_item.style.opacity =   0.5;
+                // objective15_item.style.cursor =  "not-allowed";
             }
 
 

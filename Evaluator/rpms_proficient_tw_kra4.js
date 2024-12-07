@@ -13,7 +13,7 @@ const kra3Score = document.getElementById("kra3Score"); // kra 3
 const statusDropdown = document.getElementById("status");
 
 // Content Section
-const nameCheckbox = document.getElementById("name"); 
+const nameCheckbox = document.getElementById("name");  
 
 const class_work_id = sessionStorage.getItem('kra_4_id');
 console.log(class_work_id);
@@ -189,9 +189,9 @@ async function getTeacherAttachments() {
             objective12_item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
             objective12_item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
-                    if (!submitted?.file_is_checked) {
+                    // if (!submitted?.file_is_checked) {
                         window.location.href = "rpms_proficient_attachment_objective12.html"; 
-                    }
+                    // }
                 } 
             })
 
@@ -199,7 +199,7 @@ async function getTeacherAttachments() {
             objective13_item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
             objective13_item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
-                    if (!submitted?.file2_is_checked && submitted?.file_is_checked) {
+                    if (submitted?.file2_is_checked || submitted?.file_is_checked) {
                         window.location.href = "rpms_proficient_attachment_objective13.html";
                     }
                 } 
@@ -209,7 +209,7 @@ async function getTeacherAttachments() {
             objective14_item.style.cursor = submitted?.is_submitted ? "pointer" : "not-allowed";
             objective14_item.addEventListener("click", () => {
                 if (submitted?.is_submitted) {
-                    if (!submitted?.file3_is_checked && submitted?.file2_is_checked) {
+                    if (submitted?.file3_is_checked || submitted?.file2_is_checked) {
                         window.location.href = "rpms_proficient_attachment_objective14.html";
                     }
                 } 
@@ -221,8 +221,8 @@ async function getTeacherAttachments() {
             let has_active = true;
             if (submitted?.file_is_checked) {
                 stepItem12.classList.add('completed');
-                objective12_item.style.opacity =   0.5;
-                objective12_item.style.cursor =   "not-allowed";
+                // objective12_item.style.opacity =   0.5;
+                // objective12_item.style.cursor =   "not-allowed";
             } else {
                 has_active && stepItem12.classList.add('active'); 
                 has_active = false;
@@ -230,21 +230,21 @@ async function getTeacherAttachments() {
             
             if (submitted?.file2_is_checked) {
                 stepItem13.classList.add('completed');
-                objective13_item.style.opacity =  0.5;
-                objective13_item.style.cursor =   "not-allowed";
+                // objective13_item.style.opacity =  0.5;
+                // objective13_item.style.cursor =   "not-allowed";
             } else {
                 has_active && stepItem13.classList.add('active'); 
                 has_active = false;
                 if (!submitted?.file_is_checked) { 
-                    objective13_item.style.opacity =  0.5;
-                    objective13_item.style.cursor =  "not-allowed";
+                    // objective13_item.style.opacity =  0.5;
+                    // objective13_item.style.cursor =  "not-allowed";
                 } 
             }
 
             if (submitted?.file3_is_checked) {
                 stepItem14.classList.add('completed');
-                objective14_item.style.opacity =  0.5;
-                objective14_item.style.cursor =   "not-allowed";
+                // objective14_item.style.opacity =  0.5;
+                // objective14_item.style.cursor =   "not-allowed";
             } else {
                 has_active && stepItem14.classList.add('active'); 
                 has_active = false;
