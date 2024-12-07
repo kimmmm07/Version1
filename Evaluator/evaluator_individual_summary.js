@@ -279,10 +279,15 @@ async function  getTeachers() {
             console.log("Success Data : ", data); 
 
             data.teachers.forEach(teacher => { 
+                if (teacher.is_proficient && user.evaluator.is_proficient){
+                    addOption("choose-name-filter", teacher.employee_id, teacher.fullname); 
+                }
 
+                if (!teacher.is_proficient && !user.evaluator.is_proficient){
+                    addOption("choose-name-filter", teacher.employee_id, teacher.fullname);
+                }
                 // Example usage
                 // addOption("choose-name-filter", "jose", "Jose Rizal");
-                addOption("choose-name-filter", teacher.employee_id, teacher.fullname);
 
             });
 
@@ -294,8 +299,6 @@ async function  getTeachers() {
         console.error("Error during fetch:", error);
     }
 }
-
-getTeachers();
 
 
 
@@ -426,6 +429,7 @@ async function getKRA(selectedName) {
         
         const formData = new FormData();
         formData.append('teacher_id', selectedName);
+        school_year && formData.append('school_year', school_year);
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/summary/teacher/kra/', {
             method: 'POST',
@@ -604,7 +608,7 @@ chooseYearFilter.addEventListener("change", async function() {
         return;
     }
 
-    getKRA()
+    getKRA(selectedName)
 
 });
 
@@ -625,6 +629,9 @@ async function getUser(){
         user = await response.json();
         if (response.ok) {
             console.log("Success Data : ", user); 
+            
+            getTeachers();
+
             getKRASchoolYears();
 
         } else {
