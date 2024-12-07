@@ -28,8 +28,7 @@ async function fixRedirections(){
         console.log(error);
     }
 }
-
-fixRedirections();
+setTimeout(fixRedirections, 0); 
 
 
 // Main Content and Title
@@ -131,15 +130,17 @@ async function fetchData() {
         if (response.ok) {
             console.log("Success Data : ", data); 
 
-            p_school_year = data.p_school_year;
             hp_school_year = data.hp_school_year;
             quarter = data.quarter;
             takers = data.cot_taker;
 
-            schoolYearSelect.innerHTML = "";
-            user.is_proficient && p_school_year.forEach(year => {
-                addOption(year);
-            });
+            if (!p_school_year){
+                p_school_year = data.p_school_year;
+                schoolYearSelect.innerHTML = `<option value="all">All School Year</option> `;
+                user.is_proficient && p_school_year.forEach(year => {
+                    addOption(year);
+                }); 
+            }
  
             
             const tableBody = document.getElementById('teacherTableBody');
@@ -161,8 +162,7 @@ async function fetchData() {
     } 
 }
 
-fetchData();
-
+setTimeout(fetchData, 500);
 
 
 
