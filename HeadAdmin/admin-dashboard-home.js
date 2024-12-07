@@ -3,12 +3,7 @@ const totalSchool = document.getElementById("totalSchool");
 const totalTeacher = document.getElementById("totalTeacher");
 const evaluationConducted = document.getElementById("evaluationConducted");
 const totalPending = document.getElementById("totalPending");
-
-// Dropdown elements for submission and distribution rates
-// const schoolDropdown = document.getElementById("schoolDropdown");
-// const schoolYearDropdown = document.getElementById("schoolYearDropdown");
-// const distributionSchoolDropdown = document.getElementById("distributionSchoolDropdown");
-// const distributionYearDropdown = document.getElementById("distributionYearDropdown");
+ 
 
 // Canvas elements for charts 
 const distributionChart = document.getElementById("distributionChart");
@@ -24,21 +19,7 @@ const terminationRate = document.getElementById("terminationRate");
 const tenure0to3 = document.getElementById("tenure0to3");
 const tenure3to5 = document.getElementById("tenure3to5");
 const tenure5plus = document.getElementById("tenure5plus");
-
-// Example of fetching data dynamically (for demonstration purposes)
-// function updateStatistics() {
-//     // Dummy data fetch simulation
-//     totalSchool.textContent = "5";
-//     totalTeacher.textContent = "200";
-//     evaluationConducted.textContent = "150";
-//     totalPending.textContent = "50";
-// }
-
-// // Call updateStatistics function on page load
-// window.onload = updateStatistics;
-
-
-
+ 
 
 const logoutButton = document.getElementById('logout-nav');
 const logoutModal = document.getElementById('logoutModal');
@@ -85,26 +66,7 @@ yesButton.addEventListener('click', async function() {
 
 
 // Submission Rate Chart
-const submissionRateCtx = document.getElementById('submissionRateChart').getContext('2d');
-// new Chart(submissionRateCtx, {
-//     type: 'bar',
-//     data: {
-//         labels: ['Benigno "Ninoy" Aquino High School', 'Upper Bicutan National High School', 'Taguig National High School', 'Signal Village National High School', 'President Diosdado Macapagal High School', 'Western Bicutan National High School'],
-//         datasets: [{
-//             label: 'Evaluation Submission Rate',
-//             data: [100, 20, 50, 40, 60, 45],
-//             backgroundColor: '#6a41fc',
-//         }]
-//     },
-//     options: {
-//         responsive: true,
-//         maintainAspectRatio: false,
-//     }
-// });
-
-// Distribution of Ratings Chart
-
-
+const submissionRateCtx = document.getElementById('submissionRateChart').getContext('2d'); 
 
 const distributionChartCtx = document.getElementById('distributionChart').getContext('2d');
 
@@ -112,35 +74,7 @@ const distributionChartCtx = document.getElementById('distributionChart').getCon
 // Recommendation Pie Chart
 var ctxRecommendation = document.getElementById('recommendationChart').getContext('2d');
 
-
-// const logout = document.getElementById("logout");
-// logout.addEventListener('click', async function (event) {
-//     try {
-        
-//         const response = await fetch('https://bnahs.pythonanywhere.com/api/user/logout/', {
-//             method: 'POST',
-//             headers: {
-//                 'X-Requested-With': 'XMLHttpRequest',
-                
-//             },
-//             credentials: 'include',
-//         });
-
-//         const data = await response.json();
-//         if (response.ok) {
-//             console.log("Success Data : ", data); 
-//             window.location.href = '../../index.html'; 
-//         } else {
-//             console.log("Error Data : ", data);
-//         }
-//     } catch (error) {
-//         console.error("Error during fetch:", error);
-//     }
-// });
-
-
-
-
+ 
 
 
 
@@ -241,14 +175,71 @@ fetchData4();
 
 
 
+function addOption(year) {
 
+
+    // Create a new option element
+    var option = document.createElement('option');
+
+    // Set the value and text of the new option
+    option.value = year;
+    option.text = year;
+
+    // Add the new option to the select element
+    document.getElementById('schoolYearDropdown').appendChild(option);
+    document.getElementById('distributionYearDropdown').appendChild(option);
+}
+
+
+let school_years = null;
+
+async function getIPCRFSchoolYears() {
+    try {
+         
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/get/school/years/ipcrfs/all/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include', 
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            if (!school_years){
+                school_years = [...new Set([...data.p_school_year, ...data.hp_school_year])];
+                schoolYearSelect.innerHTML = `<option value="all">All School Year</option> `;
+                school_years.forEach(year => {
+                    addOption(year);
+                });
+
+            }
+
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+let school_year = null;
 
 async function fetchData5() {
 
+    await getIPCRFSchoolYears();
+
+
+    const formData = new FormData();
+    school_year && formData.append('school_year', school_year);
     const response4 = await fetch('https://bnahs.pythonanywhere.com/api/admin/school/submission/rate/',
         {
-            method: 'GET',
-            credentials: 'include'
+            method: 'POST',
+            credentials: 'include',
+            body: formData
         }
     );
 
@@ -434,43 +425,4 @@ async function fetchData7() {
 }
 
 fetchData7();
-
-
-// window.addEventListener('load', async function() { 
-
-
-
-//         //Tenure Chart
-//     const ctx3 = document.getElementById('tenureChart').getContext('2d');
-//     const tenureChart = new Chart(ctx3, {
-//         type: 'doughnut',
-//         data: {
-//             labels: ['0-3 years', '5+ years', '3-5 years'],
-//             datasets: [{
-//                 label: 'Tenure',
-//                 data: [39.11, 28.03, 23.13],
-//                 backgroundColor: ['#6a41fc', '#ff6384', '#36a2eb']
-//             }]
-//         },
-//         options: {
-//             plugins: {
-//                 legend: {
-//                     display: false // Hides the default legend
-//                 },
-//                 tooltip: {
-//                     callbacks: {
-//                         label: function(context) {
-//                             return context.label + ': ' + context.raw + '%'; // Adds percentage in tooltip
-//                         }
-//                     }
-//                 }
-//             },
-//             responsive: true,
-//             maintainAspectRatio: true, // Ensures the pie chart keeps its size ratio
-//         }
-//     });
-// });
-
-
-
-
+ 

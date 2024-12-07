@@ -336,7 +336,7 @@ async function fetchAnnualRatings(){
     try {
         
         const formData = new FormData();
-        formData.append('school_year', school_year);
+        school_year && formData.append('school_year', school_year);
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/teachers/annual/ratings/', {
             method: 'POST',
             headers: {
@@ -344,6 +344,7 @@ async function fetchAnnualRatings(){
                 
             },
             credentials: 'include',
+            body: formData
         });
 
         const data = await response.json();
