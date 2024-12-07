@@ -1,54 +1,4 @@
-// window.onload = function() {
-//     // Example SWOT data for different individuals
-
-
-
-//     const swotData = {
-//         'jessica': {
-//             strengths: "Strong content knowledge across curriculum areas and uses multiple languages effectively. Promotes respect.",
-//             weakness: "Needs to improve in fostering critical thinking and numeracy achievement.",
-//             opportunities: "Professional development in literacy, numeracy, and cultural sensitivity.",
-//             threats: "Meeting the diverse needs of students and addressing pressures for critical thinking."
-//         },
-//         'john': {
-//             strengths: "Excellent rapport with students, manages classroom discipline well.",
-//             weakness: "Lacks in utilizing technological tools for enhanced learning.",
-//             opportunities: "Technological upskilling and participation in global educational seminars.",
-//             threats: "Keeping up with fast-paced technological changes in the education system."
-//         },
-//         'maria': {
-//             strengths: "Creative teaching methods and active community engagement.",
-//             weakness: "Needs improvement in time management and setting clear objectives.",
-//             opportunities: "Leadership training and collaboration with international teaching networks.",
-//             threats: "Balancing personal development with teaching responsibilities."
-//         }
-//     };
-
-
-
-
-
-
-
-//     // Handle Name Dropdown Change
-//     document.getElementById('choose-name-filter').addEventListener('change', function() {
-//         const selectedName = this.value;
-//         const swot = swotData[selectedName];
-        
-//         document.getElementById('strengths').textContent = swot.strengths;
-//         document.getElementById('weakness').textContent = swot.weakness;
-//         document.getElementById('opportunities').textContent = swot.opportunities;
-//         document.getElementById('threats').textContent = swot.threats;
-//     });
-
-//     // Initialize SWOT content for first person
-//     const initialSwot = swotData['jessica'];
-//     document.getElementById('strengths').textContent = initialSwot.strengths;
-//     document.getElementById('weakness').textContent = initialSwot.weakness;
-//     document.getElementById('opportunities').textContent = initialSwot.opportunities;
-//     document.getElementById('threats').textContent = initialSwot.threats;
-// };
-
+ 
 // Modal logic
 const logoutButton = document.getElementById('logoutLink');  // Logout button
 const logoutModal = document.getElementById('logoutModal');
@@ -111,6 +61,40 @@ const strengths= document.getElementById('strengths');
 const weaknesses = document.getElementById('weakness');
 const opportunities= document.getElementById('opportunities');
 const threats= document.getElementById('threats');
+
+
+
+let school_years = undefined;
+
+
+async function getIPCRFSchoolYears() {
+    try {
+         
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/get/school/years/ipcrfs/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include', 
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);   
+
+            school_years = [...new Set([...data.school_years.proficient, ...data.school_years.highly_proficient])];
+
+            // Populate the year dropdowns
+            populateYearDropdowns();
+
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
 
 
 
