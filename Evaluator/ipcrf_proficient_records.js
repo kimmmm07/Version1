@@ -115,9 +115,10 @@ let takers = undefined;
 
 async function fetchData() {
     try{
+        const formData = new FormData();
         
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/get/records/ipcrf/', {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
                 
@@ -128,18 +129,21 @@ async function fetchData() {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data); 
-
-            school_year = data.school_year;
+            
+            p_school_year = data.p_school_year;
+            hp_school_year = data.hp_school_year; 
             quarter = data.quarter;
             takers = data.ipcrf_taker;
 
 
-            school_year.forEach(year => {
+            schoolYearSelect.innerHTML = "";
+            p_school_year.forEach(year => {
                 addOption(year);
             });
+ 
 
             takers.forEach(taker => {
-                if(taker.ipcrf_taker.is_proficient){
+                if(taker?.ipcrf_taker?.is_proficient){
                     addTeacherRow(taker);
                 }
             });
@@ -284,11 +288,10 @@ teacherTypeSelect.addEventListener("change", function() {
     } 
 
     let new_data = []; 
-    takers.forEach(taker => { 
-        console.log("Result" , taker.ipcrf_taker.is_proficient && selectedValue == "Highly Proficient");
-        if (taker.ipcrf_taker.is_proficient && selectedValue == "Proficient") {
+    takers.forEach(taker => {  
+        if (taker?.ipcrf_taker?.is_proficient && selectedValue == "Proficient") {
             new_data.push(taker);
-        } else if ( !taker.ipcrf_taker.is_proficient && selectedValue == "Highly Proficient") {
+        } else if ( !taker?.ipcrf_taker?.is_proficient && selectedValue == "Highly Proficient") {
             new_data.push(taker);
         } else if(selectedValue == "all") {
             new_data.push(taker);
