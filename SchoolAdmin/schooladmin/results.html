@@ -153,7 +153,7 @@ function renderFacultyList(data , conditon) {
     
             tr.innerHTML = `
                 <th>
-                    <div class="user-icon"></div>
+                    <img class="user-icon" src="${member.teacher.profile ? `https://bnahs.pythonanywhere.com${member.teacher.profile}` : 'assets/User_Circle.png'}" alt="User Icon">
                     ${member.teacher.fullname}
                 </th>
                 <th>${member.teacher.position}</th>
@@ -171,7 +171,7 @@ function renderFacultyList(data , conditon) {
     
             tr.innerHTML = `
                 <th>
-                    <div class="user-icon"></div>
+                    <img class="user-icon" src="${member.teacher.profile ? `https://bnahs.pythonanywhere.com${member.teacher.profile}` : 'assets/User_Circle.png'}" alt="User Icon">
                     ${member.teacher.fullname}
                 </th>
                 <th>${member.teacher.position}</th>
@@ -189,7 +189,7 @@ function renderFacultyList(data , conditon) {
     
             tr.innerHTML = `
                 <th>
-                    <div class="user-icon"></div>
+                    <img class="user-icon" src="${member.teacher.profile ? `https://bnahs.pythonanywhere.com${member.teacher.profile}` : 'assets/User_Circle.png'}" alt="User Icon">
                     ${member.teacher.fullname}
                 </th>
                 <th>${member.teacher.position}</th>

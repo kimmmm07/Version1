@@ -243,7 +243,7 @@ function renderFacultyList(data) {
         
         tr.innerHTML = `
             <th>
-                <div class="user-icon"></div>
+                <img class="user-icon" src="${member.cot_taker.profile ? `https://bnahs.pythonanywhere.com${member.cot_taker.profile}` : 'assets/User_Circle.png'}" alt="User Icon">
                 ${member.cot_taker.fullname}
             </th>
             <th>${member.cot_taker.position}</th>
