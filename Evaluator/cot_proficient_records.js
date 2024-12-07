@@ -116,7 +116,7 @@ async function fetchData() {
     try{
         
         const formData = new FormData();
-        formData.append('school_year',school_year);
+        school_year && formData.append('school_year',school_year);
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/get/records/cot/', {
             method: 'POST',
             headers: {
@@ -136,14 +136,17 @@ async function fetchData() {
             quarter = data.quarter;
             takers = data.cot_taker;
 
-
+            schoolYearSelect.innerHTML = "";
             user.is_proficient && p_school_year.forEach(year => {
                 addOption(year);
             });
  
-
+            
+            const tableBody = document.getElementById('teacherTableBody');
+            tableBody.innerHTML = "";
             takers.forEach(taker => {
                 if (taker?.cot_taker?.is_proficient){
+
                     addTeacherRow(taker); 
                 }
             });
@@ -327,11 +330,8 @@ schoolYearSelect.addEventListener("change", async function() {
         school_year = selectedYear;
     }
 
-    const selectedName = selectorTeacher.value;
-    if (selectedName == "None") {
-        return;
-    }
+        
+    fetchData();
 
-    getKRA(selectedName)
 
 });
