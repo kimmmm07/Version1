@@ -156,7 +156,7 @@ function renderFacultyList(data) {
         const randomInteger = Math.floor(Math.random() * 1000) + 1;
         tr.innerHTML = `
             <th>
-                <div class="user-icon"></div>
+                <img class="user-icon" src="${member.ipcrf_taker.profile ? `https://bnahs.pythonanywhere.com${member.ipcrf_taker.profile}` : 'assets/User_Circle.png'}" alt="User Icon">
                 ${member.ipcrf_taker.fullname}
             </th>
             <th>${member.ipcrf_taker.position}</th>
