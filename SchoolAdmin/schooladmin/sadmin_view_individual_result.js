@@ -44,7 +44,7 @@ yesButton.addEventListener('click', async function() {
 
 
 const selectorTeacher = document.getElementById('choose-name-filter');
-
+const chooseYearFilter = document.getElementById('choose-year-filter');
 
 
 // Recommendation Pie Chart
@@ -63,14 +63,24 @@ const opportunities= document.getElementById('opportunities');
 const threats= document.getElementById('threats');
 
 
-
 let school_years = undefined;
 
+let school_year = undefined;
+function populateYearDropdowns(){
+    chooseYearFilter.innerHTML = `<option value="all">Latest Academic Year</option>`;
+    for (let i = 0; i < school_years.length; i++) {
+        const option = document.createElement("option");
+        option.value = school_years[i];
+        option.text = school_years[i];
+        chooseYearFilter.appendChild(option);
+    } 
+}
 
-async function getIPCRFSchoolYears() {
+ 
+async function getrpmsSchoolYears() {
     try {
          
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/get/school/years/ipcrfs/', {
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/get/school/years/rpms/', {
             method: 'GET',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
@@ -97,7 +107,7 @@ async function getIPCRFSchoolYears() {
 }
 
 
-
+getrpmsSchoolYears();
 
 
 function addOption(selectId, value, text) {
@@ -279,6 +289,7 @@ async function getKRA(selectedName) {
         
         const formData = new FormData();
         formData.append('teacher_id', selectedName);
+        school_year && formData.append('school_year', school_year);
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/summary/teacher/kra/', {
             method: 'POST',
@@ -375,6 +386,25 @@ selectorTeacher.addEventListener("change", async function() {
     getKRA(selectedName);
     getSwot(selectedName);
 }); 
+
+
+chooseYearFilter.addEventListener("change", async function() {
+    const selectedYear = this.value;
+    
+    if (selectedYear == "all") {
+        school_year = null;
+    } else {
+        school_year = selectedYear;
+    }
+
+    const selectedName = selectorTeacher.value;
+    if (selectedName == "None") {
+        return;
+    }
+
+    getKRA(selectedName)
+
+});
 
 
 
