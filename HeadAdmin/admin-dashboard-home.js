@@ -173,7 +173,7 @@ async function  fetchData4() {
 fetchData4();
 
 
-
+const schoolYearSelect = document.getElementById('schoolYearDropdown');
 
 function addOption(year) {
 
@@ -186,8 +186,7 @@ function addOption(year) {
     option.text = year;
 
     // Add the new option to the select element
-    document.getElementById('schoolYearDropdown').appendChild(option);
-    document.getElementById('distributionYearDropdown').appendChild(option);
+    schoolYearSelect.appendChild(option); 
 }
 
 
@@ -205,11 +204,11 @@ async function getIPCRFSchoolYears() {
             credentials: 'include', 
         });
 
-        const data = await response.json();
-        if (response.ok) {
-            console.log("Success Data : ", data); 
+        if (response.ok) { 
+            const data = await response.json();
+            console.log(data);
             if (!school_years){
-                school_years = [...new Set([...data.p_school_year, ...data.hp_school_year])];
+                school_years = [...new Set([...data.school_years.proficient, ...data.school_years.highly_proficient])];
                 schoolYearSelect.innerHTML = `<option value="all">All School Year</option> `;
                 school_years.forEach(year => {
                     addOption(year);
@@ -227,6 +226,8 @@ async function getIPCRFSchoolYears() {
 
 
 let school_year = null;
+let ratingChart1 = null;
+let ratingChart2 = null;
 
 async function fetchData5() {
 
@@ -248,7 +249,14 @@ async function fetchData5() {
         console.log("Success Data : ",data4);
         const labels = data4.data.labels;
         console.log("Labels : ",labels);
-        new Chart(submissionRateCtx, {
+
+        if (ratingChart1){
+            ratingChart1.destroy()
+            ratingChart2.destroy()
+            
+        }
+
+            ratingChart1 = new Chart(submissionRateCtx, {
             type: 'bar',
             data: {
                 labels: labels,
@@ -274,7 +282,7 @@ async function fetchData5() {
             }
         });
         
-        new Chart(distributionChartCtx, {
+        ratingChart2 = new Chart(distributionChartCtx, {
             type: 'bar',
             data: {
                 labels: labels,
@@ -312,6 +320,16 @@ async function fetchData5() {
 
 fetchData5();
 
+schoolYearSelect.addEventListener('change' , async function (){
+    const selectedYear = this.value;
+    
+    if (selectedYear == "all") {
+        school_year = null;
+    } else {
+        school_year = selectedYear;
+    } 
+    fetchData5();
+});
 
 
 
