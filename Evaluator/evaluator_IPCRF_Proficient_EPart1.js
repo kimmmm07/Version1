@@ -42,7 +42,7 @@ function autofillEfficiency1(){
 const Efficiency2_5 = document.getElementById('Efficiency2_5');
 const efficiency2_5_option = document.getElementById('efficiency2_5_option');
 efficiency2_5_option.addEventListener('change', function () {
-    if (efficiency1_5_option.checked) { 
+    if (efficiency2_5_option.checked) { 
         employee_id && localStorage.setItem(employee_id + 'Efficiency2', '5');
     }
 });
@@ -65,7 +65,7 @@ function autofillEfficiency2(){
     const efficiency2 = localStorage.getItem(employee_id + 'Efficiency2');
 
     if(efficiency2 == '5'){
-        efficiency1_5_option.checked = true;
+        efficiency2_5_option.checked = true;
     } else if(efficiency2 == '3'){
         efficiency2_3_option.checked = true;
     } else if(efficiency2 == '1'){
@@ -148,7 +148,7 @@ function autofillEfficiency4(){
 const Efficiency5_5 = document.getElementById('Efficiency5_5');
 const efficiency5_5_option = document.getElementById('efficiency5_5_option');
 efficiency5_5_option.addEventListener('change', function () {
-    if (efficiency1_5_option.checked) { 
+    if (efficiency5_5_option.checked) { 
         employee_id && localStorage.setItem(employee_id + 'Efficiency5', '5');
     }
 });
@@ -171,7 +171,7 @@ function autofillEfficiency5(){
     const efficiency5 = localStorage.getItem(employee_id + 'Efficiency5');
 
     if(efficiency5 == '5'){
-        efficiency1_5_option.checked = true;
+        efficiency5_5_option.checked = true;
     } else if(efficiency5 == '3'){
         efficiency5_3_option.checked = true;
     } else if(efficiency5 == '1'){
