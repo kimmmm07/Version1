@@ -517,6 +517,13 @@ selectorTeacher.addEventListener("change", async function() {
         return;
     }
 
+    const selectedYear = chooseYearFilter.value;
+    if (selectedYear == "all") {
+        school_year = null;
+    } else {
+        school_year = selectedYear;
+    }
+
     getRecommendations(selectedName);
     getPerformance(selectedName);
     getKRA(selectedName);
@@ -527,6 +534,109 @@ selectorTeacher.addEventListener("change", async function() {
 
 
 
+function populateYearDropdowns(){
+    if (user.evaluator.is_proficient){
+        for (let i = 0; i < p_school_years.length; i++) {
+            const option = document.createElement("option");
+            option.value = p_school_years[i];
+            option.text = p_school_years[i];
+            chooseYearFilter.appendChild(option);
+        }
+    } else {
+        for (let i = 0; i < hp_school_years.length; i++) {
+            const option = document.createElement("option");
+            option.value = hp_school_years[i];
+            option.text = hp_school_years[i];
+            chooseYearFilter.appendChild(option);
+        }
+    }
+}
+
+
+
+let p_school_years = [];
+let hp_school_years = [];
+let school_year = null;
+let user = null;
+
+async function getKRASchoolYears() {
+    try {
+         
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/get/school/years/rpms/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include', 
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            p_school_years = data.school_years.proficient;
+            hp_school_years = data.school_years.high_proficient; 
+
+            // Populate the year dropdowns
+            populateYearDropdowns();
+
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+
+chooseYearFilter.addEventListener("change", async function() {
+    const selectedYear = this.value;
+    
+    if (selectedYear == "all") {
+        school_year = null;
+    } else {
+        school_year = selectedYear;
+    }
+
+    const selectedName = selectorTeacher.value;
+    if (selectedName == "None") {
+        return;
+    }
+
+    getKRA()
+
+});
+
+
+
+
+async function getUser(){
+    try{
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/profile/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+
+            },
+            credentials: 'include',
+        });
+
+        user = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", user); 
+            getKRASchoolYears();
+
+        } else {
+            console.log("Error Data : ", user);
+        }
+    } catch(error){
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getUser();
 
 
 
