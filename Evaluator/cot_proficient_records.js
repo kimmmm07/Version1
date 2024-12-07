@@ -152,6 +152,8 @@ async function fetchData() {
                 }
             });
 
+            document.getElementById("selectQuarter").value = "all";
+
 
  
         } else {

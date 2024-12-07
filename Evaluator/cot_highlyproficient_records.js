@@ -233,7 +233,9 @@ async function fetchData() {
                     addTeacherRow(taker); 
                 }
             });
-
+            
+            
+            document.getElementById("selectQuarter").value = "all";
 
  
         } else {
