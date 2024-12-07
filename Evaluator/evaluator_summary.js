@@ -420,23 +420,18 @@ async function getIPCRFSchoolYears() {
 
 
 
-// chooseYearFilter.addEventListener("change", async function() {
-//     const selectedYear = this.value;
+chooseYearFilter.addEventListener("change", async function() {
+    const selectedYear = this.value;
     
-//     if (selectedYear == "all") {
-//         school_year = null;
-//     } else {
-//         school_year = selectedYear;
-//     }
+    if (selectedYear == "all") {
+        school_year = null;
+    } else {
+        school_year = selectedYear;
+    } 
 
-//     const selectedName = selectorTeacher.value;
-//     if (selectedName == "None") {
-//         return;
-//     }
+    
 
-//     getKRA(selectedName)
-
-// });
+});
 
 
 
