@@ -107,78 +107,7 @@
             </div>
         </div>
     </div>
-
-    <!-- <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Filter button functionality
-            const filterButtons = document.querySelectorAll('.filter');
-    
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove the active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add the active class to the clicked button
-                    this.classList.add('active');
-                });
-            });
-    
-            // Dropdown functionality for "Manage" button
-            const manageButtons = document.querySelectorAll('.three-dots-btn');
-    
-            manageButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    // Prevent the click event from bubbling up to the window
-                    event.stopPropagation();
-                    // Toggle the "show" class on the sibling .dropdown element
-                    const dropdown = this.nextElementSibling; // Get the dropdown that follows the button
-                    dropdown.classList.toggle('show');
-                });
-            });
-    
-            // Close the dropdown if clicking outside of it
-            window.onclick = function(event) {
-                if (!event.target.matches('.three-dots-btn')) {
-                    var dropdowns = document.querySelectorAll('.dropdown');
-                    dropdowns.forEach(function(dropdown) {
-                        dropdown.classList.remove('show');
-                    });
-                }
-            }
-    
-            // Delete button functionality (previously deactivate-btn)
-            const deleteButtons = document.querySelectorAll('.deactivate-btn a'); // Previously deactivate-btn
-    
-            deleteButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    event.preventDefault(); // Prevent default anchor behavior
-    
-                    // Get the faculty row
-                    const facultyRow = this.closest('tr');
-    
-                    // Remove the faculty member completely (delete functionality)
-                    facultyRow.remove(); // Remove the row from the table
-                });
-            });
-    
-            // Download button functionality (previously delete-btn)
-            const downloadButtons = document.querySelectorAll('.delete-btn a'); // Previously delete-btn
-    
-            downloadButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    event.preventDefault(); // Prevent default anchor behavior
-    
-                    // Initiate file download
-                    const fileUrl = 'path/to/your/file.pdf'; // Change this to your file path
-                    const anchor = document.createElement('a');
-                    anchor.href = fileUrl;
-                    anchor.download = 'file.pdf'; // The name of the downloaded file
-                    document.body.appendChild(anchor);
-                    anchor.click();
-                    document.body.removeChild(anchor);
-                });
-            });
-        });
-    </script> -->
+ 
     <script>// Modal logic
         const logoutButton = document.getElementById('logoutLink');  // Logout button
         const logoutModal = document.getElementById('logoutModal');
@@ -224,15 +153,17 @@
 
 
 
+const schoolYearSelect = document.getElementById('schoolYearSelect');
 
 
 
 
 function renderFacultyList(data) {
     const tbody = document.getElementById('faculty-list');
-    tbody.innerHTML = '';  // Clear existing content
-    console.log(data[0])
+    tbody.innerHTML = '';  // Clear existing content 
+
     data.forEach(member => {
+         
         const tr = document.createElement('tr');
         tr.classList.add('second-row');
 
@@ -243,13 +174,13 @@ function renderFacultyList(data) {
         
         tr.innerHTML = `
             <th>
-                <img class="user-icon" src="${member.cot_taker.profile ? `https://bnahs.pythonanywhere.com${member.cot_taker.profile}` : 'assets/User_Circle.png'}" alt="User Icon">
-                ${member.cot_taker.fullname}
+                <img class="user-icon" src="${member?.cot_taker?.profile ? `https://bnahs.pythonanywhere.com${member.cot_taker.profile}` : 'assets/User_Circle.png'}" alt="User Icon">
+                ${member?.cot_taker?.fullname}
             </th>
-            <th>${member.cot_taker.position}</th>
-            <th>${member.cot_taker.grade_level}</th>
-            <th>${member.cot_taker.department}</th>
-            <th>${member.cot_evaluator ? member.cot_evaluator.fullname : "N/A"}</th>
+            <th>${member?.cot_taker?.position}</th>
+            <th>${member?.cot_taker?.grade_level}</th>
+            <th>${member?.cot_taker?.department}</th>
+            <th>${member?.cot_evaluator ? member.cot_evaluator.fullname : "N/A"}</th>
             <th>${testdate.toLocaleDateString('en-US', optionsThing)}</th>
             <th style="color: #032F97; text-align: center;">
                 <a id="view-link-${randomInteger}" style="text-decoration: none; cursor: pointer; color: inherit;">
@@ -277,11 +208,23 @@ function renderFacultyList(data) {
         });
     });
 }
+ 
+function addOption(year) {
 
-// Call the function to render the faculty list
-//renderFacultyList(facultyData);
+
+    // Create a new option element
+    var option = document.createElement('option');
+
+    // Set the value and text of the new option
+    option.value = year;
+    option.text = year;
+
+    // Add the new option to the select element
+    schoolYearSelect.appendChild(option);
+}
 
 
+let school_years = undefined;
 let school_year = undefined;
 let quarter = undefined;
 let takers = undefined;
@@ -289,29 +232,37 @@ let takers = undefined;
 async function fetchData() {
     try{
         
+        const formData = new FormData();
+        school_year && formData.append('school_year',school_year);
+
         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/get/records/cot/', {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
                 
             },
-            credentials: 'include',
+            body: formData,
+            credentials: 'include'
         });
         
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data); 
 
-            school_year = data.school_year;
             quarter = data.quarter;
             takers = data.cot_taker;
 
+            if (!school_years){
+                school_years = [...new Set([...data.p_school_year, ...data.hp_school_year])];
+                schoolYearSelect.innerHTML = `<option value="all">All School Year</option> `;
+                school_years.forEach(year => {
+                    addOption(year);
+                });
 
-            //school_year.forEach(year => {
-            //    addOption(year);
-            //});
+            }
 
             renderFacultyList(takers);
+            document.getElementById("selectQuarter").value = "all";
 
 
  
@@ -364,6 +315,7 @@ document.getElementById("teacherTypeSelect").addEventListener("change", function
 
     console.log(filtered_data);
     renderFacultyList(filtered_data);
+    document.getElementById("selectQuarter").value = "all";
 })
 
 
@@ -415,6 +367,20 @@ document.getElementById("selectQuarter").addEventListener("change", function() {
 
 
 
+schoolYearSelect.addEventListener("change", async function() {
+    const selectedYear = this.value;
+    
+    if (selectedYear == "all") {
+        school_year = null;
+    } else {
+        school_year = selectedYear;
+    }
+
+        
+    fetchData();
+
+
+});
 
 
 
