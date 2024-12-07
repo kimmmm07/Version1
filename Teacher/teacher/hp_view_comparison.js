@@ -131,7 +131,7 @@ async function getIPCRF(){
             efficiency1Self.innerHTML = `<input type="radio"   value="5" checked disabled>  
             ${t_con1["1"]["EFFICIENCY"]["Rate"]} - ${t_con1["1"]["EFFICIENCY"][t_con1["1"]["EFFICIENCY"]["Rate"]]}`;
             efficiency2Self.innerHTML = `<input type="radio"   value="5" checked disabled>  
-            ${t_con1["2"]["EFFICIENCY"]["Rate"]} - ${t_con1["2"]["EFFICIENCY"][t_con1["2"]["EFFICIENCY"]["Rate"]]}`;
+            ${t_con1["2"]["QUALITY"]["Rate"]} - ${t_con1["2"]["QUALITY"][t_con1["2"]["QUALITY"]["Rate"]]}`;
             timeliness2Self.innerHTML = `<input type="radio"   value="5" checked disabled>  
             ${t_con1["2"]["TIMELINESS"]["Rate"]} - ${t_con1["2"]["TIMELINESS"][t_con1["2"]["TIMELINESS"]["Rate"]]}`;
             efficiency3Self.innerHTML = `<input type="radio"   value="5" checked disabled>  
@@ -194,7 +194,7 @@ async function getIPCRF(){
             evaluatorEfficiency1.innerHTML = `<input type="radio"   value="5" checked disabled>  
             ${e_con1["1"]["EFFICIENCY"]["Rate"]} - ${e_con1["1"]["EFFICIENCY"][e_con1["1"]["EFFICIENCY"]["Rate"]]}`;
             evaluatorEfficiency2.innerHTML = `<input type="radio"   value="5" checked disabled>  
-            ${e_con1["2"]["EFFICIENCY"]["Rate"]} - ${e_con1["2"]["EFFICIENCY"][e_con1["2"]["EFFICIENCY"]["Rate"]]}`;
+            ${e_con1["2"]["QUALITY"]["Rate"]} - ${e_con1["2"]["QUALITY"][e_con1["2"]["QUALITY"]["Rate"]]}`;
             evaluatorTimeliness2.innerHTML = `<input type="radio"   value="5" checked disabled>  
             ${e_con1["2"]["TIMELINESS"]["Rate"]} - ${e_con1["2"]["TIMELINESS"][e_con1["2"]["TIMELINESS"]["Rate"]]}`;
             evaluatorEfficiency3.innerHTML = `<input type="radio"   value="5" checked disabled>  
@@ -239,12 +239,12 @@ async function getIPCRF(){
             ${e_con5["15"]["EFFICIENCY"]["Rate"]} - ${e_con5["15"]["EFFICIENCY"][e_con5["15"]["EFFICIENCY"]["Rate"]]}`;
  
 
-            teacherAverageScore.textContent = ipcrf.rating.toFixed(2);
-            teacherRating.textContent = getRating(ipcrf.rating);
+            teacherAverageScore.innerHTML = ipcrf_content.rating.toFixed(2);
+            teacherRating.innerHTML = getRating(ipcrf_content.rating);
 
 
-            teacherAverageScore.textContent = ipcrf.rating.toFixed(2);
-            teacherRating.textContent = getRating(ipcrf.rating);
+            evaluatorAverageScore.innerHTML = ipcrf_content.evaluator_rating.toFixed(2);
+            evaluatorRating.innerHTML = getRating(ipcrf_content.evaluator_rating);
 
 
 

@@ -868,14 +868,14 @@
 
             // Function to update IPCRF data
             // Add click event listener to the "Save" button
-            saveButton.addEventListener("click", function () {
+            saveButton.addEventListener("click", async function () {
                 const isFormValid = validateForm();
 
 
                 //updateIPCRF1(); // FOR TESTING ONLY
                 // If the form is valid, proceed to the next page
                 if (isFormValid) {
-                    updateIPCRF1(); // Uncomment when official
+                    await updateIPCRF1(); // Uncomment when official
                     setTimeout(() => {location.href = 'teacher_choices_hp.html';}, 1000);
             }
             });

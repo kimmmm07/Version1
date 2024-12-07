@@ -335,8 +335,10 @@ function updateAnnualRatingChart(data) {
 async function fetchAnnualRatings(){
     try {
         
+        const formData = new FormData();
+        formData.append('school_year', school_year);
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/teachers/annual/ratings/', {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
                 
@@ -420,23 +422,18 @@ async function getIPCRFSchoolYears() {
 
 
 
-// chooseYearFilter.addEventListener("change", async function() {
-//     const selectedYear = this.value;
+chooseYearFilter.addEventListener("change", async function() {
+    const selectedYear = this.value;
     
-//     if (selectedYear == "all") {
-//         school_year = null;
-//     } else {
-//         school_year = selectedYear;
-//     }
+    if (selectedYear == "all") {
+        school_year = null;
+    } else {
+        school_year = selectedYear;
+    } 
 
-//     const selectedName = selectorTeacher.value;
-//     if (selectedName == "None") {
-//         return;
-//     }
+    fetchAnnualRatings();
 
-//     getKRA(selectedName)
-
-// });
+});
 
 
 
