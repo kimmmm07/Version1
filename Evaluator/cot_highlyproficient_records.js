@@ -348,7 +348,7 @@ function viewCOTForm(teacher_id , quarter){
 
     sessionStorage.setItem('teacher_id', teacher_id);
     sessionStorage.setItem('quarter', quarter);
-    window.location.href = 'view_cot_form_t1-3.html';
+    window.location.href = 'view_cot_form_mt1-4.html';
 }
 
 
