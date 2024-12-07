@@ -236,8 +236,8 @@ async function getTeacherAttachments() {
                 has_active && stepItem13.classList.add('active'); 
                 has_active = false;
                 if (!submitted?.file_is_checked) { 
-                    // objective13_item.style.opacity =  0.5;
-                    // objective13_item.style.cursor =  "not-allowed";
+                    objective13_item.style.opacity =  0.5;
+                    objective13_item.style.cursor =  "not-allowed";
                 } 
             }
 

@@ -232,10 +232,10 @@ async function getTeacherAttachments() {
             } else {
                 has_active && stepItem10.classList.add('active'); 
                 has_active = false;
-                
+
                 if (!submitted?.file_is_checked) { 
-                    // objective10_item.style.opacity =  0.5;
-                    // objective10_item.style.cursor =  "not-allowed";
+                    objective10_item.style.opacity =  0.5;
+                    objective10_item.style.cursor =  "not-allowed";
                 }  
             }
 

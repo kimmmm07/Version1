@@ -398,3 +398,36 @@ header h1 {
     height: 16px;
     margin-right: 4px;
 }
+
+/* Filter buttons styling */
+.filters {
+    display: flex;
+    flex-direction: column; /* Stack filter buttons and search inputs vertically */
+    margin-bottom: 20px;
+}
+
+.filter-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px; /* Space between filter buttons and search inputs */
+}
+
+.filter {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #000000; /* Black border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 15px; /* Padding to keep size consistent */
+    color: #000000; /* Black text color for inactive filters */
+    font-weight: normal; /* Regular font weight */
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s; /* Transition for text and border */
+    display: flex; /* Flexbox to align text and number */
+    align-items: center; /* Center align items vertically */
+}
+
+/* Active filter styling */
+.filter.active {
+    border-color: #0033cc; /* Blue border for active filter */
+    color: #0033cc; /* Blue text color for active filter */
+    background-color: #ffffff; /* Keep the background white */
+}
