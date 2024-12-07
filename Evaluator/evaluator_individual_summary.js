@@ -279,10 +279,15 @@ async function  getTeachers() {
             console.log("Success Data : ", data); 
 
             data.teachers.forEach(teacher => { 
+                if (teacher.is_proficient && user.evaluator.is_proficient){
+                    addOption("choose-name-filter", teacher.employee_id, teacher.fullname); 
+                }
 
+                if (!teacher.is_proficient && !user.evaluator.is_proficient){
+                    addOption("choose-name-filter", teacher.employee_id, teacher.fullname);
+                }
                 // Example usage
                 // addOption("choose-name-filter", "jose", "Jose Rizal");
-                addOption("choose-name-filter", teacher.employee_id, teacher.fullname);
 
             });
 
@@ -294,8 +299,6 @@ async function  getTeachers() {
         console.error("Error during fetch:", error);
     }
 }
-
-getTeachers();
 
 
 
@@ -626,6 +629,9 @@ async function getUser(){
         user = await response.json();
         if (response.ok) {
             console.log("Success Data : ", user); 
+            
+            getTeachers();
+
             getKRASchoolYears();
 
         } else {
