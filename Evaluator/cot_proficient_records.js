@@ -1,4 +1,6 @@
 
+let user = null;
+
 async function fixRedirections(){
     try{
 
@@ -14,6 +16,7 @@ async function fixRedirections(){
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);
+            user = data.evaluator.is_proficient;
             if (!data.evaluator.is_proficient){
                 window.location.href = 'cot_highlyproficient_records.html';
             } 
@@ -134,7 +137,7 @@ async function fetchData() {
             // });
 
             takers.forEach(taker => {
-                if (taker.cot_taker.is_proficient){
+                if (taker?.cot_taker?.is_proficient){
                     addTeacherRow(taker); 
                 }
             });
@@ -317,7 +320,7 @@ document.getElementById("selectQuarter").addEventListener("change", function() {
     let new_data = [];
     let filtered_data = [];
     takers.forEach(taker => { 
-        if (taker.cot_taker.is_proficient) {
+        if (taker?.cot_taker?.is_proficient) {
             new_data.push(taker);
         }
     });
