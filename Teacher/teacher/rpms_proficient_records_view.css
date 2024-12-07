@@ -1,17 +1,24 @@
-body {
-    font-family: 'Poppins', sans-serif;
+/* Universal styling */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: white;
-    padding-top: 100px;     /* Adjust based on the header height */
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Make the header fixed */
-header {
+/* Body styling */
+body {
+    background-color: white; /* Set background to white */
+    padding: 20px;
+}
+
+/* Navbar styling */
+.navbar {
+    left: 0;
     position: fixed;       /* Fixes the header at the top */
     top: 0;                /* Aligns it to the top of the page */
     width: 100%;           /* Ensures the header spans the full width of the page */
-    height: 40px;          /* Adjust the height to fit the content */
+    height: 48px;          /* Adjust the height to fit the content */
     background-color: white;
     padding: 10px;
     display: flex;
@@ -21,37 +28,75 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for better separation */
 }
 
-header img {
-    max-width: 90%;
-    max-height: 80px;      /* Adjust the max height for the logo */
-}
-
-nav {
+.navbar-logo {
     display: flex;
     align-items: center;
 }
 
-nav a {
-    font-size: 14px;
+.navbar-logo img {
+    width: 90px; /* Adjust logo size */
+    height: auto;
+    margin-right: 10px;
+}
+
+.navbar-menu {
     display: flex;
-    align-items: center;
-    margin-right: 15px;
+    list-style: none;
+    margin-left: auto; /* Aligns menu to the right */
+}
+
+.navbar-menu li {
+    margin-right: 15px; /* Space between buttons */
+}
+
+.nav-link {
     text-decoration: none;
     color: black;
-    font-weight: normal;
-    padding: 5px 10px;
+    font-size: 14px; /* Consistent font size for smaller buttons */
+    display: flex;
+    align-items: center; /* Center the icons and text vertically */
+    padding: 6px 10px; /* Consistent padding */
 }
 
-nav a img {
+.nav-icon {
+    width: 20px;  /* Smaller icons */
     height: 20px;
-    margin-right: 5px;
+    margin-right: 6px; /* Adjust icon spacing */
+    display: inline-block;
 }
 
-nav a.active {
+.logout-btn a {
+    text-decoration: none;
+    color: #d00000;
+    font-size: 14px; /* Font size for logout button */
+    font-weight: bold;
+    padding: 6px 10px; /* Padding for button size */
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px; /* Spacing from other items */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.welcome-message {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    color: #082F96;
+    margin-top: 80px;
+    margin-bottom: -30px;
+    margin-left: 38%;
+}
+
+.records {
     color: white;
-    background-color: #C10001;
-    border-radius: 25px; 
-    padding: 5px 20px;   
+    background-color: #d00000;
+    padding: 8px 16px;
+    border-radius: 40px;
+}
+
+.active {
+    font-weight: normal;
 }
 
 main {
