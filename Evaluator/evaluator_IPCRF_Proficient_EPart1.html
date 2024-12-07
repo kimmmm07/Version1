@@ -948,7 +948,7 @@
     <!-- Back and Proceed buttons -->
     <div class="buttons-container">
         <a href="ipcrf_t1-3.html" class="back-btn">Back</a>
-        <button type="button" class="proceed-btn" id="saveButton" onclick="updateIPCRF()">Save</button>
+        <button type="button" class="proceed-btn" id="saveButton" >Save</button>
     </div>
 
     </div>
@@ -1017,7 +1017,7 @@
             // Add click event listener to the "Save" button
             saveButton.addEventListener("click", async function () {
                 const isFormValid = validateForm();
-                updateIPCRF1();
+                //updateIPCRF1();
                 // If the form is valid, submit using updateIPCRF1 function
                 if (isFormValid) {
                     updateIPCRF1();  // Call the async update function

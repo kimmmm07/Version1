@@ -1761,7 +1761,10 @@ async function updateIPCRF1() {
         const result = await response.json();
         if (response.ok) {
             console.log("Success Data : ", result); 
-            location.href = 'ipcrf_t1-3.html';
+            setTimeout(()=>{
+                location.href = 'ipcrf_t1-3.html';
+
+            }, 1000);
 
         } else {
             console.log("Error Data : ", result);
