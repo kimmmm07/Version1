@@ -45,8 +45,8 @@
 
         <div class="filters">
             <div class="filter-box">
-                <select class="filter" id="school-year-filter">
-                    <option>A.Y. 2023 - 2024</option>
+                <select class="filter" id="schoolYearSelect">
+                    <!-- <option>A.Y. 2023 - 2024</option> -->
                     <!-- <option>A.Y. 2022 - 2023</option>
                     <option>A.Y. 2021 - 2022</option> -->
                     <!-- Add more options here if necessary -->
@@ -248,6 +248,8 @@
 
 
 
+const schoolYearSelect = document.getElementById('schoolYearSelect');
+
 
 function renderFacultyList(data) {
     const tbody = document.getElementById('faculty-list');
@@ -281,10 +283,23 @@ function renderFacultyList(data) {
     });
 }
 
-// Call the function to render the faculty list
-//renderFacultyList(facultyData);
+ 
+function addOption(year) {
 
 
+    // Create a new option element
+    var option = document.createElement('option');
+
+    // Set the value and text of the new option
+    option.value = year;
+    option.text = year;
+
+    // Add the new option to the select element
+    schoolYearSelect.appendChild(option);
+}
+
+
+let school_years = undefined;
 let school_year = undefined;
 let quarter = undefined;
 let takers = undefined;
@@ -292,29 +307,36 @@ let takers = undefined;
 async function fetchData() {
     try{
         
+        const formData = new FormData();
+        school_year && formData.append('school_year',school_year);
         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/get/records/rpms/', {
-            method: 'GET',
+            method: 'POST',
             headers: {
                 'X-Requested-With': 'XMLHttpRequest',
                 
             },
-            credentials: 'include',
+            body: formData,
+            credentials: 'include'
         });
         
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data); 
-
-            school_year = data.school_year;
+ 
             quarter = data.quarter;
             takers = data.rpms_taker;
 
+            if (!school_years){
+                school_years = [...new Set([...data.p_school_year, ...data.hp_school_year])];
+                schoolYearSelect.innerHTML = `<option value="all">All School Year</option> `;
+                school_years.forEach(year => {
+                    addOption(year);
+                });
 
-            //school_year.forEach(year => {
-            //    addOption(year);
-            //});
+            } 
 
             renderFacultyList(takers);
+            document.getElementById("teacher-status-filter").value = "all";
 
 
  
@@ -359,6 +381,23 @@ document.getElementById("teacher-status-filter").addEventListener("change", func
 
 
 
+
+
+
+schoolYearSelect.addEventListener("change", async function() {
+    const selectedYear = this.value;
+    
+    if (selectedYear == "all") {
+        school_year = null;
+    } else {
+        school_year = selectedYear;
+    }
+
+        
+    fetchData();
+
+
+});
 
 
 
