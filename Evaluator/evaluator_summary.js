@@ -1,48 +1,8 @@
 
 let tenure_data = [ 32.11 , 23.13 , 28.02]; 
 let recommendations = [39.11, 28.02, 23.13];
-
-// Function to update charts based on selected filters
-// document.getElementById('choose-year-filter').addEventListener('change', updateCharts);
+ 
 const chosser = document.getElementById('choose-proficiency')
-
-// function updateCharts() {
-//     const year = document.getElementById('choose-year-filter').value;
-//     const proficiency = document.getElementById('choose-proficiency').value;
-
-//     // Example Data (Modify as needed)
-//     const annualRatingData = {
-//         '2023-2024': [5, 2, 3, 3, 4, 3],
-//         '2022-2023': [4, 3, 2, 4, 5, 3]
-//     };
-
-//     const recommendationData = {
-//         '2023-2024': [39.11, 28.03, 23.13],
-//         '2022-2023': [40, 30, 30]
-//     };
-
-//     const tenureData = {
-//         '2023-2024': [39.11, 28.03, 23.13],
-//         '2022-2023': [50, 20, 30]
-//     };
-
-//     const performanceData = {
-//         '2023-2024': [60, 80, 90, 100],
-//         '2022-2023': [70, 85, 75, 95]
-//     };
-
-//     // Update the charts with new data
-//     annualRatingChart.data.datasets[0].data = annualRatingData[year];
-//     recommendationChart.data.datasets[0].data = recommendationData[year];
-//     tenureChart.data.datasets[0].data = tenureData[year];
-//     performanceChart.data.datasets[0].data = performanceData[year];
-    
-//     // Refresh charts
-//     annualRatingChart.update();
-//     recommendationChart.update();
-//     tenureChart.update();
-//     performanceChart.update();
-// }
 
 // Create the charts using Chart.js
 const ctx1 = document.getElementById('annualRatingChart').getContext('2d');
@@ -110,6 +70,7 @@ const promotionRate = document.getElementById('promotion') ;
 const retentionRate = document.getElementById('retention') ;
 const terminationRate = document.getElementById('termination') ;
 
+const chooseYearFilter = document.getElementById('choose-year-filter');
 
 let tenures_data = undefined;
 let annual_ratings_data = undefined;
@@ -177,7 +138,8 @@ async function fetchTenure() {
             // tenure_data[2] = data["5+ years"]; 
 
             tenures_data = data;
-            updateTenureChart(data.all)
+            user.evaluator.is_proficient && updateTenureChart(data.proficient);
+            !user.evaluator.is_proficient && updateTenureChart(data.high_proficient);
             
         } else {
             console.log("Error Data : ", data); 
@@ -255,7 +217,8 @@ async function fetchRecommendation() {
             console.log("Success Data : ", data);
 
             recommendation_data = data;
-            updateRecommendationChart(data.all);
+            user.evaluator.is_proficient && updateRecommendationChart(data.proficient);
+            !user.evaluator.is_proficient && updateRecommendationChart(data.highly_proficient);
             
         } else {
             console.log("Error Data : ", data); 
@@ -325,7 +288,8 @@ async function fetchPerformance() {
             console.log("Success Data : ", data); 
 
             performance_data = data;
-            updatePerformanceChart(data.all)
+            user.evaluator.is_proficient && updatePerformanceChart(data.proficient)
+            !user.evaluator.is_proficient && updatePerformanceChart(data.highly_proficient)
             
         } else {
             console.log("Error Data : ", data); 
@@ -383,7 +347,10 @@ async function fetchAnnualRatings(){
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ", data);
-            updateAnnualRatingChart(data.all);
+            
+            user.evaluator.is_proficient && updateAnnualRatingChart(data.proficient);
+            !user.evaluator.is_proficient && updateAnnualRatingChart(data.highly_proficient);
+
         } else {
             console.log("Error Data : ", data);
         }
@@ -394,28 +361,129 @@ async function fetchAnnualRatings(){
 
 
 
-fetchTenure();
-fetchRecommendation();
-fetchPerformance();
-fetchAnnualRatings();
 
 
 
-chosser.addEventListener('change', function() {
-    if (chosser.value == "all"){
-        updateTenureChart(tenures_data.all);
-        updateRecommendationChart(recommendation_data.all);
-        updatePerformanceChart(performance_data.all);
-        updateAnnualRatingChart(annual_ratings_data.all);
-    } else if (chosser.value == "proficient"){
-        updateTenureChart(tenures_data.proficient);
-        updateRecommendationChart(recommendation_data.proficient);
-        updatePerformanceChart(performance_data.proficient);
-        updateAnnualRatingChart(annual_ratings_data.proficient);
-    } else if (chosser.value == "highlyproficient"){
-        updateTenureChart(tenures_data.highly_proficient);
-        updateRecommendationChart(recommendation_data.highly_proficient);
-        updatePerformanceChart(performance_data.highly_proficient);
-        updateAnnualRatingChart(annual_ratings_data.highly_proficient);
+function populateYearDropdowns(){
+    if (user.evaluator.is_proficient){
+        for (let i = 0; i < p_school_years.length; i++) {
+            const option = document.createElement("option");
+            option.value = p_school_years[i];
+            option.text = p_school_years[i];
+            chooseYearFilter.appendChild(option);
+        }
+    } else {
+        for (let i = 0; i < hp_school_years.length; i++) {
+            const option = document.createElement("option");
+            option.value = hp_school_years[i];
+            option.text = hp_school_years[i];
+            chooseYearFilter.appendChild(option);
+        }
     }
-});
+}
+
+
+
+let p_school_years = [];
+let hp_school_years = [];
+let school_year = null;
+let user = null;
+
+async function getIPCRFSchoolYears() {
+    try {
+         
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/user/get/school/years/ipcrfs/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include', 
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data); 
+            p_school_years = data.school_years.proficient;
+            hp_school_years = data.school_years.high_proficient; 
+
+            // Populate the year dropdowns
+            populateYearDropdowns();
+
+        } else {
+            console.log("Error Data : ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+
+// chooseYearFilter.addEventListener("change", async function() {
+//     const selectedYear = this.value;
+    
+//     if (selectedYear == "all") {
+//         school_year = null;
+//     } else {
+//         school_year = selectedYear;
+//     }
+
+//     const selectedName = selectorTeacher.value;
+//     if (selectedName == "None") {
+//         return;
+//     }
+
+//     getKRA(selectedName)
+
+// });
+
+
+
+
+async function getUser(){
+    try{
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/profile/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+
+            },
+            credentials: 'include',
+        });
+
+        user = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", user); 
+             
+
+            await getIPCRFSchoolYears();
+            
+            fetchTenure();
+            fetchRecommendation();
+            fetchPerformance();
+            fetchAnnualRatings();
+
+
+        } else {
+            console.log("Error Data : ", user);
+        }
+    } catch(error){
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getUser();
+
+
+
+
+
+
+
+
+
+
+
+ 
