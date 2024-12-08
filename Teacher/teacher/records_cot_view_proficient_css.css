@@ -228,6 +228,11 @@ textarea {
 }
 
 .observerSignature {
+    text-transform: uppercase;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
     background-color: white;
     width: 100%;
     border-top: none;
@@ -237,6 +242,11 @@ textarea {
 }
 
 .teacherSignature {
+    text-transform: uppercase;
+    color: black;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
     background-color: white;
     width: 100%;
     border-top: none;
