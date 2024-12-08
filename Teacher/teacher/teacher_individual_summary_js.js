@@ -389,7 +389,7 @@ async function getKRA() {
                     labels: data.kra,
                     datasets: [{
                         label: 'KRA Breakdown',
-                        data: data.averages,
+                        data: data.scores,
                         backgroundColor: 'rgba(88, 24, 196, 0.7)',
                         borderColor: 'rgba(88, 24, 196, 1)',
                         borderWidth: 1
