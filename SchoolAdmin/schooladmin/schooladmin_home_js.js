@@ -15,8 +15,7 @@ const uploadImageButton = document.getElementById("uploadImageButton");
 const uploadImageInput = document.getElementById("uploadImage");
 
 // Get the post image preview elements
-const postImagePreview = document.getElementById("postImagePreview");
-const previewImage = document.getElementById("previewImage");
+const postImagePreview = document.getElementById("postImagePreview"); 
 const removeImageBtn = document.getElementById("removeImageBtn");
 
 
@@ -155,83 +154,178 @@ window.onload = function() {
 
 
 // Handle submitting the post from the modal
+// submitModalPostBtn.addEventListener("click", async function() {
+//     const modalPostContent = document.getElementById('modalPostContent').value;
+    
+//     // Collect image sources from the preview
+//     const imageSrcs = Array.from(postImagePreview.getElementsByTagName('img')).map(img => img.src);
+
+//     if (modalPostContent || imageSrcs.length > 0) { // Check if there is content or images
+//         const postId = posts.length; // Use the current length as the post ID
+//         const post = {
+//             content: modalPostContent,
+//             imageSrc: imageSrcs, 
+//             likes: 0,
+//             comments: [],
+//             id: postId,
+//             user: "John Doe", // Replace with dynamic user data if needed
+//             date: new Date().toLocaleDateString('en-US', {
+//                 month: 'long',
+//                 day: 'numeric',
+//                 year: 'numeric'
+//             }) + ', ' + new Date().toLocaleTimeString('en-US', {
+//                 hour: 'numeric',
+//                 minute: 'numeric',
+//                 hour12: true // Makes time 12-hour format (AM/PM)
+//             })
+//         };
+//         posts.push(post);
+//         console.log(post);
+//         const formData = new FormData();
+//         formData.append('content', String(post.content));
+//         imageSrcs.forEach((imageSrc, index) => {
+//             // Create the key name for each image
+//             const keyName = `content_file_${index}`;
+            
+//             // If imageSrc is a URL, fetch it as a Blob; otherwise, if it's already a Blob or File, append directly
+//             if (typeof imageSrc === 'string') {
+//                 // Fetch the image as a Blob for uploading
+//                 fetch(imageSrc)
+//                     .then(response => response.blob())
+//                     .then(blob => {
+//                         formData.append(keyName, blob, `image_${index}.jpg`); // Provide a filename
+//                     })
+//                     .catch(error => console.error("Error fetching image:", error));
+//             } else {
+//                 // If imageSrc is already a File/Blob (like from a file input), directly append it
+//                 formData.append(keyName, imageSrc);
+//             }
+//         });
+
+//         console.log('Uploading images...', formData);
+//         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/',
+//             {
+//                 method: 'POST',
+//                 headers: {
+//                     'X-Requested-With': 'XMLHttpRequest',
+//                 }, 
+//                 body: formData, 
+//                 credentials: 'include', 
+//             }
+//         );
+        
+        
+//         const data = await response.json();
+//         if (response.ok) {
+//             console.log("Success Data : ",data);
+//         } else {
+//             console.log("Error Data : ",data);
+//         }
+        
+
+
+//         commentsVisibility[postId] = false; // Initialize visibility for the new post
+//         renderPosts();
+//         modal.style.display = "none"; // Close the modal
+//         document.getElementById('modalPostContent').value = ''; // Clear the textarea
+//         clearImagePreview(); // Clear the image preview
+//     }
+// });
+
+
+
+
+
+
+
+
+
+
 submitModalPostBtn.addEventListener("click", async function() {
     const modalPostContent = document.getElementById('modalPostContent').value;
     
-    // Collect image sources from the preview
+    // Get image sources from preview
     const imageSrcs = Array.from(postImagePreview.getElementsByTagName('img')).map(img => img.src);
 
-    if (modalPostContent || imageSrcs.length > 0) { // Check if there is content or images
-        const postId = posts.length; // Use the current length as the post ID
+    if (modalPostContent || imageSrcs.length > 0) { // Check for content or images
+        const postId = posts.length;
         const post = {
             content: modalPostContent,
-            imageSrc: imageSrcs, 
+            imageSrc: imageSrcs,
             likes: 0,
             comments: [],
             id: postId,
-            user: "John Doe", // Replace with dynamic user data if needed
-            date: new Date().toLocaleDateString('en-US', {
-                month: 'long',
-                day: 'numeric',
-                year: 'numeric'
-            }) + ', ' + new Date().toLocaleTimeString('en-US', {
-                hour: 'numeric',
-                minute: 'numeric',
-                hour12: true // Makes time 12-hour format (AM/PM)
+            user: "John Doe",
+            date: new Date().toLocaleString('en-US', { 
+                month: 'long', day: 'numeric', year: 'numeric', 
+                hour: 'numeric', minute: 'numeric', hour12: true 
             })
         };
-        posts.push(post);
-        console.log(post);
+        posts.push(post); // Add post to array
+
         const formData = new FormData();
-        formData.append('content', String(post.content));
-        imageSrcs.forEach((imageSrc, index) => {
-            // Create the key name for each image
+        formData.append('content', post.content);
+
+        // Create an array of fetch promises for each image
+        const fetchPromises = imageSrcs.map((imageSrc, index) => {
             const keyName = `content_file_${index}`;
-            
-            // If imageSrc is a URL, fetch it as a Blob; otherwise, if it's already a Blob or File, append directly
-            if (typeof imageSrc === 'string') {
-                // Fetch the image as a Blob for uploading
-                fetch(imageSrc)
-                    .then(response => response.blob())
-                    .then(blob => {
-                        formData.append(keyName, blob, `image_${index}.jpg`); // Provide a filename
-                    })
-                    .catch(error => console.error("Error fetching image:", error));
-            } else {
-                // If imageSrc is already a File/Blob (like from a file input), directly append it
-                formData.append(keyName, imageSrc);
-            }
+            return fetch(imageSrc)
+                .then(response => response.blob())
+                .then(blob => {
+                    formData.append(keyName, blob, `image_${index}.jpg`);
+                })
+                .catch(error => {
+                    console.error("Error fetching image:", error);
+                });
         });
 
+        // Wait for all fetch promises to complete
+        await Promise.all(fetchPromises);
+
         console.log('Uploading images...', formData);
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/',
-            {
-                method: 'POST',
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                }, 
-                body: formData, 
-                credentials: 'include', 
-            }
-        );
-        
+        return;
+        // Send POST request
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/', {
+            method: 'POST',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            body: formData,
+            credentials: 'include',
+        });
         
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ",data);
+            console.log("Success Data: ", data);
         } else {
-            console.log("Error Data : ",data);
+            console.log("Error Data: ", data);
         }
-        
 
-
-        commentsVisibility[postId] = false; // Initialize visibility for the new post
+        commentsVisibility[postId] = false; // Initialize comments visibility
         renderPosts();
-        modal.style.display = "none"; // Close the modal
-        document.getElementById('modalPostContent').value = ''; // Clear the textarea
-        clearImagePreview(); // Clear the image preview
+        modal.style.display = "none"; // Close modal
+        document.getElementById('modalPostContent').value = ''; // Clear textarea
+        clearImagePreview(); // Clear image preview
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function renderPosts() {

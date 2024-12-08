@@ -93,3 +93,65 @@ yesButton.addEventListener('click', async function() {
     }
 });
 
+
+
+async function getClassworksResult(){
+    try {
+        
+        const rpms_folder_id = sessionStorage.getItem('rpms_folder_id'); // 
+        const teacher_id = sessionStorage.getItem('teacher_id');
+
+        const formData = new FormData();
+        formData.append('rpms_folder_id', rpms_folder_id);
+        formData.append('teacher_id', teacher_id);
+
+        
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/rpms/attachment/result/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+            body: formData,
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            console.log("Success Data : ", result);  
+            let overallScoreData = 0;
+            result.scores.forEach(classwork => {
+                if (classwork.title == "PLUS FACTOR") {
+                    plusFactorScore.textContent = `${classwork.grade['Total'] ?? 0}/2`;
+                    overallScoreData += classwork.grade['Total']?? 0;
+                } else if (classwork.title == "KRA 4:  Curriculum and Planning & Assessment and Reporting") {
+                    kra4Score.textContent = `${classwork.grade['Total'] ?? 0}/21`;
+                    overallScoreData += classwork.grade['Total']?? 0;
+                } else if (classwork.title == "KRA 3: Curriculum and Planning") {
+                    kra3Score.textContent = `${classwork.grade['Total'] ?? 0}/21`;
+                    overallScoreData += classwork.grade['Total'] ?? 0;
+                } else if (classwork.title == "KRA 2: Learning Environment and Diversity of Learners") {
+                    kra2Score.textContent = `${classwork.grade['Total'] ?? 0}/28`;
+                    overallScoreData += classwork.grade['Total']?? 0;
+                } else if (classwork.title == "KRA 1: Content Knowledge and Pedagogy") {
+                    kra1Score.textContent = `${classwork.grade['Total'] ?? 0}/28`;
+                    overallScoreData += classwork.grade['Total']?? 0;
+                }
+            });
+
+            totalScore.textContent = `${overallScoreData}/100`;
+
+
+
+
+        } else {
+            console.log("Error Data : ", result);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+}
+
+
+getClassworksResult();
