@@ -17,8 +17,6 @@ const sortSelect = mainTable.querySelector('#sort-select');
 
 // User Info Section
 const userInfo = mainTable.querySelector('#user-info');
-const userIcon = userInfo.querySelector('img');
-const userName = userInfo.querySelector('#user-name');
 
 // Report Table Titles
 const plusFactorTitle = document.getElementById("plusFactorTitle");
