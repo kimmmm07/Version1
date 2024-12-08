@@ -301,7 +301,7 @@ body {
 
 
 /* Turn-in section */
-.turn-in-panel, .turn-in-panel2, .turn-in-panel3, .turn-in-panel4 {
+.turn-in-panel, .turn-in-panel2,.turn-in-panel3,.turn-in-panel4 {
     border: 1px solid #ddd;
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -313,7 +313,13 @@ body {
     transition: all 0.3s ease-in-out;  /* Smooth transition for resizing */
 }
 
-.turn-in-panel, .turn-in-panel2, .turn-in-panel3, .turn-in-panel4, h4 {
+.turn-in-panel,.turn-in-panel2,.turn-in-panel3,.turn-in-panel4 {
+    margin-left: 0px;
+    margin-top: 20px;
+    margin-bottom: -20px;
+}
+
+h4 {
     margin-left: 35px;
     margin-top: 20px;
     margin-bottom: -20px;
