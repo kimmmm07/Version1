@@ -19,7 +19,7 @@ const score2 = document.getElementById('score2');  // This seems to be intended 
 const maxScore2 = document.getElementById('max-score2');
 
 window.addEventListener("load", function() {
-  this.alert("asidad");
+//   this.alert("asidad");
   const savedValue = localStorage.getItem("obj2_hp");
   if (savedValue) {
       document.getElementById("score2").value = savedValue; 
