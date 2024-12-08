@@ -137,7 +137,7 @@ function addRecord(record) {
         <td>${teacher.position}</td>
         <td>${teacher.grade_level}</td>
         <td>${ipcrf.rater ?? "Waiting To Be Rated"}</td>
-        <td class="status ${!is_open ? "pending" : "submitted"}">${status}</td>
+        <td class="status ${!is_open ? "submitted" : "pending"}">${status}</td>
         <td>
         <a 
             ${is_open ? `onclick="clickToRate(${teacher.employee_id})"` : ""} 
