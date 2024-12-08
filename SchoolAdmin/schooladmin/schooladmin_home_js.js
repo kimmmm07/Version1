@@ -21,7 +21,7 @@ const removeImageBtn = document.getElementById("removeImageBtn");
 
 
 
-const SchoolAdminUserIcon = document.getElementById("SchoolAdminUserIcon");
+const SchoolAdminUserIcon = document.getElementById("SchoolAdminUserIcon"); 
 
 
 
@@ -120,6 +120,7 @@ async function getSchoolDetails(){
         school = await response1.json();
         if (response1.ok) {
             console.log("Success Data : ", school); 
+            SchoolAdminUserIcon.src = school.school_logo ? 'https://bnahs.pythonanywhere.com' + school.school_logo : 'assets\User_Circle.png' ; // Update the school admin user icon with the retrieved image URL
         } else {
             console.log("Error Data : ", school);
         }
@@ -202,6 +203,7 @@ submitModalPostBtn.addEventListener("click", async function() {
             }
         });
 
+        console.log('Uploading images...', formData);
         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/',
             {
                 method: 'POST',
@@ -537,7 +539,7 @@ imageButton.addEventListener("click", function() {
     if (imageUploaded) {
         // If an image is already uploaded, collapse the image modal content
         postImagePreview.style.display = "none"; // Hide the image preview
-        clearImagePreview(); // Clear existing images
+        // clearImagePreview(); // Clear existing images
         imageUploaded = false; // Reset the upload state
     } else {
         // Show the image modal content
@@ -554,7 +556,7 @@ function clearImagePreview() {
 // Handle file upload and preview for multiple images
 uploadImageInput.addEventListener("change", function() {
     const files = this.files; // Get the selected files
-    clearImagePreview(); // Clear previous images
+    // clearImagePreview(); // Clear previous images
 
     if (files.length > 0) {
         // Create an image element for each selected file
@@ -575,6 +577,7 @@ uploadImageInput.addEventListener("change", function() {
             reader.readAsDataURL(file); // Read the file
         });
     }
+
 });
 
 // Remove the image from the preview (clear all images)
@@ -639,3 +642,33 @@ yesButton.addEventListener('click', async function() {
     }
 });
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
