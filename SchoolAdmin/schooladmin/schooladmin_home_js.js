@@ -243,8 +243,15 @@ window.onload = function() {
 submitModalPostBtn.addEventListener("click", async function() {
     const modalPostContent = document.getElementById('modalPostContent').value;
     
+    if (!modalPostContent){
+        alert("Please Enter Content");
+        return;
+    }
+
     // Get image sources from preview
     const imageSrcs = Array.from(postImagePreview.getElementsByTagName('img')).map(img => img.src);
+
+    // console.log(imageSrcs)
 
     if (modalPostContent || imageSrcs.length > 0) { // Check for content or images
         const postId = posts.length;
@@ -260,7 +267,8 @@ submitModalPostBtn.addEventListener("click", async function() {
                 hour: 'numeric', minute: 'numeric', hour12: true 
             })
         };
-        posts.push(post); // Add post to array
+        // console.log(post);
+        posts.unshift(post); // Add post to the beginning of the array
 
         const formData = new FormData();
         formData.append('content', post.content);
@@ -276,25 +284,25 @@ submitModalPostBtn.addEventListener("click", async function() {
         await Promise.all(fetchPromises);
 
         // Now log formData after all images have been appended
-        for (let [key, value] of formData.entries()) {
-            console.log(`${key}: ${value}`);
-        }
+        // for (let [key, value] of formData.entries()) {
+        //     console.log(`${key}: ${value}`);
+        // }
          
 
         // Send POST request
-        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/', {
-            method: 'POST',
-            headers: { 'X-Requested-With': 'XMLHttpRequest' },
-            body: formData,
-            credentials: 'include',
-        });
+        // const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/', {
+        //     method: 'POST',
+        //     headers: { 'X-Requested-With': 'XMLHttpRequest' },
+        //     body: formData,
+        //     credentials: 'include',
+        // });
 
-        const data = await response.json();
-        if (response.ok) {
-            console.log("Success Data: ", data);
-        } else {
-            console.log("Error Data: ", data);
-        }
+        // const data = await response.json();
+        // if (response.ok) {
+        //     console.log("Success Data: ", data);
+        // } else {
+        //     console.log("Error Data: ", data);
+        // }
 
         commentsVisibility[postId] = false; // Initialize comments visibility
         renderPosts();
@@ -324,62 +332,63 @@ submitModalPostBtn.addEventListener("click", async function() {
 
 
 
-function renderPosts() {
-    const feed = document.getElementById('feed');
-    feed.innerHTML = ''; // Clear the feed before rendering
-    posts.forEach((post) => {
-        const commentCount = post.comments.length;
+// function renderPosts() {
+//     const feed = document.getElementById('feed');
+//     feed.innerHTML = ''; // Clear the feed before rendering
+//     console.log("sdfsdfdf : ", post.imageSrc);
+//     posts.forEach((post) => {
+//         const commentCount = post.comments.length;
 
-        let postHTML = `
-            <div class="post-content">
-                <p class="user">${post.user}</p>
-                <p class="date">${post.date}</p>
-                <p class="text">${post.content}</p>
-        `;
+//         let postHTML = `
+//             <div class="post-content">
+//                 <p class="user">${post.user}</p>
+//                 <p class="date">${post.date}</p>
+//                 <p class="text">${post.content}</p>
+//         `;
 
-        // Check if the post has images and render them
-        if (post.imageSrc.length > 0) {
-            post.imageSrc.forEach(src => {
-                postHTML += `<img src="${src}" class="uploaded-image" alt="Uploaded Image" onerror="this.style.display='none';" />`;
-            });
-        }
+//         // Check if the post has images and render them 
+//         if (post.imageSrc.length > 0) {
+//             post.imageSrc.forEach(src => {
+//                 postHTML += `<img src="${src}" class="uploaded-image" />`;
+//             });
+//         }
 
-        // Check if the post is liked to adjust the button
-        const likedStatus = likedPosts[post.id] ? 'assets/blue like.png' : 'assets/Facebook Like.png';
+//         // Check if the post is liked to adjust the button
+//         const likedStatus = likedPosts[post.id] ? 'assets/blue like.png' : 'assets/Facebook Like.png';
 
-        postHTML += `
-                <div class="post-actions">
-                    <button class="like-btn" onclick="toggleLike(${post.id}, this)">
-                        <i><img src="${likedStatus}" alt="Like Icon"></i> Like (${post.likes})
-                    </button>
-                    <button class="comment-btn" onclick="toggleComments(${post.id})">
-                        <i><img src="assets/Chat Bubble.png" alt="Comment Icon"></i> Comment (${commentCount})
-                    </button>
-                </div>
-                <div class="comments-section" id="comments-${post.id}" style="display: ${commentsVisibility[post.id] ? 'block' : 'none'};">
-                    <input type="text" class="comment-input" placeholder="Write a comment..." onkeypress="submitComment(event, ${post.id})">
-                    <img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">
-                </div>
-        `;
+//         postHTML += `
+//                 <div class="post-actions">
+//                     <button class="like-btn" onclick="toggleLike(${post.id}, this)">
+//                         <i><img src="${likedStatus}" alt="Like Icon"></i> Like (${post.likes})
+//                     </button>
+//                     <button class="comment-btn" onclick="toggleComments(${post.id})">
+//                         <i><img src="assets/Chat Bubble.png" alt="Comment Icon"></i> Comment (${commentCount})
+//                     </button>
+//                 </div>
+//                 <div class="comments-section" id="comments-${post.id}" style="display: ${commentsVisibility[post.id] ? 'block' : 'none'};">
+//                     <input type="text" class="comment-input" placeholder="Write a comment..." onkeypress="submitComment(event, ${post.id})">
+//                     <img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">
+//                 </div>
+//         `;
 
-        if (commentCount > 0) {
-            postHTML += `<div class="comment-list">`;
-            post.comments.forEach((comment) => {
-                postHTML += `
-                    <div class="comment">
-                        <p><strong>${comment.user}</strong> <em>${comment.time}</em></p>
-                        <p>${comment.text}</p>
-                    </div>
-                `;
-            });
-            postHTML += `</div>`;
-        }
+//         if (commentCount > 0) {
+//             postHTML += `<div class="comment-list">`;
+//             post.comments.forEach((comment) => {
+//                 postHTML += `
+//                     <div class="comment">
+//                         <p><strong>${comment.user}</strong> <em>${comment.time}</em></p>
+//                         <p>${comment.text}</p>
+//                     </div>
+//                 `;
+//             });
+//             postHTML += `</div>`;
+//         }
 
-        postHTML += `</div></div>`;
+//         postHTML += `</div></div>`;
 
-        feed.innerHTML += postHTML;
-    });
-}
+//         feed.innerHTML += postHTML;
+//     });
+// }
 
 
 
@@ -512,7 +521,15 @@ function renderPosts() {
                 <img src="assets/User_Circle.png" alt="User Icon" class="small-user-icon">
                 <p class="user" class="user" style="margin-left: 45px; margin-top: -35px;"> ${post.user}</p>
                 <p class="date">${post.date}</p>
-                <p class="text">${post.content}</p>
+                <p class="text">${post.content}</p>`
+        
+        if (post.imageSrcs.length > 0) {
+            post.imageSrc.forEach(src => {
+                postHTML += `<img src="${src}" class="uploaded-image" />`;
+            });
+        }
+                
+        postHTML += `
                 <div class="post-actions">
                     <button class="like-btn" onclick="toggleLike(${postId}, this)">
                         <i><img src="assets/Facebook Like.png" alt="Like Icon"></i> Like (${post.likes})

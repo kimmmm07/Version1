@@ -130,6 +130,7 @@ async function getCot() {
             cot = data.cot;
             teacher = data.teacher;
             cot_content = data.cot.content;
+            rater = data.rater;
 
 
             
@@ -162,6 +163,8 @@ async function getCot() {
             subjectGradeLevel2.textContent = teacher.grade_level;
             schoolYear2.textContent = cot.school_year;
             additionalComments.value = cot_content["Comments"];
+            teacherSignature2.value = teacher?.fullname ? teacher.fullname : "Not Rated Yet";
+            observerSignature2.value = rater?.fullname ? rater?.fullname : "Not Rated Yet";
 
 
 

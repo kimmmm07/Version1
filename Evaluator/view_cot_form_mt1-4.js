@@ -233,6 +233,8 @@ async function getCot() {
             subjectGradeLevel.textContent = cot.subject;
             schoolYear.textContent = cot.school_year;
             additionalComments.value = cot_content["Comments"];
+            teacherSignature.value = teacher?.fullname ? teacher.fullname : "Not Rated Yet";
+            observerSignature.value = rater?.fullname ? rater?.fullname : "Not Rated Yet";
 
 
 
