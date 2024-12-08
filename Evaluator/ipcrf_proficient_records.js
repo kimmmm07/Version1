@@ -1,3 +1,43 @@
+let user = null;
+
+async function fixRedirections(){
+    try{
+
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/profile/', {
+            method: 'GET',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            credentials: 'include',
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ", data);
+            user = data.evaluator;
+            if (!data.evaluator.is_proficient){
+                window.location.href = 'ipcrf_highlyproficient_records.html';
+            } 
+            //window.location.href = '../../get-started.html'; 
+        } else {
+            console.log("Error Data : ", data);
+        }
+    }catch(error){
+        console.log(error);
+    }
+}
+setTimeout(fixRedirections, 0); 
+
+
+
+
+
+
+
+
+
+
 // Main container and title
 const mainContainer = document.querySelector('main');
 const recordsTitle = document.getElementById('records-title');
