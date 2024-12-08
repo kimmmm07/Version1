@@ -26,13 +26,9 @@ const SchoolAdminUserIcon = document.getElementById("SchoolAdminUserIcon");
 
 
 
-
-
-
-
-
-
 // Array to store posts
+let school_name = "";
+let school_image = "";
 let posts = [];
 let notifications = [];
 const commentsVisibility = {}; // Track visibility of comments sections
@@ -74,13 +70,52 @@ async function getFeeds() {
     
     const data = await response.json();
     if (response.ok) {
-        console.log("Success Data : ",data);
+        console.log("Success Data : ",data); 
+        Object.keys(data).forEach(key => { 
+
+            let attachments = []
+            data[key]?.attachments.map((attachment)=>{
+                const url = attachment?.attachment ? 'https://bnahs.pythonanywhere.com' + attachment?.attachment : '';
+                attachments.push(url)
+            })
+
+            const dateString = data[key]?.post?.created_at ;  // Your date string
+            const dateObject = new Date(dateString);  // Parse the date string into a Date object
+
+            // Format the date using toLocaleString
+            const formattedDate = dateObject.toLocaleString('en-US', { 
+                month: 'long', 
+                day: 'numeric', 
+                year: 'numeric', 
+                hour: 'numeric', 
+                minute: 'numeric', 
+                hour12: true 
+            });
+ 
+
+            const post = {
+                post : data[key]?.post,
+                comments : data[key]?.comments,
+                content: data[key]?.post?.content,
+                imageSrc: attachments,
+                likes: 0,
+                comments: [],
+                id: key,
+                user: school_name,
+                date: formattedDate
+            };
+            // console.log(post);
+            posts.push(post); // Add post to the beginning of the array
+            renderPosts();
+        });
+        
+        
+
     } else {
         console.log("Error Data : ",data);
     }
 };
 
-getFeeds();
 
 async function getlDetailsByActionId(action_id) {
     const formData = new FormData();
@@ -119,7 +154,11 @@ async function getSchoolDetails(){
         school = await response1.json();
         if (response1.ok) {
             console.log("Success Data : ", school); 
-            SchoolAdminUserIcon.src = school.school_logo ? 'https://bnahs.pythonanywhere.com' + school.school_logo : 'assets\User_Circle.png' ; // Update the school admin user icon with the retrieved image URL
+            school_name = school.school_name
+            school_image = school.school_logo ? 'https://bnahs.pythonanywhere.com' + school.school_logo : 'assets\User_Circle.png' ; // Update the school admin user icon with the retrieved image URL
+            SchoolAdminUserIcon.src = school_image;
+                        
+            getFeeds();
         } else {
             console.log("Error Data : ", school);
         }
@@ -131,20 +170,7 @@ async function getSchoolDetails(){
 
 getSchoolDetails();
 
-
-// // Get the announcement and mention buttons
-// const announcementButton = document.querySelector('.announcement-btn');
-// const mentionButton = document.querySelector('.mention-btn');
-
-// // Open the post modal when the announcement or mention button is clicked
-// announcementButton.addEventListener("click", function() {
-//     modal.style.display = "block"; // Show the post modal
-// });
-
-// mentionButton.addEventListener("click", function() {
-//     modal.style.display = "block"; // Show the post modal
-// });
-
+ 
 // Ensure the modals are hidden when the page loads
 window.onload = function() {
     imageModal.style.display = "none"; // Hide image modal on page load
@@ -153,92 +179,7 @@ window.onload = function() {
 };
 
 
-// Handle submitting the post from the modal
-// submitModalPostBtn.addEventListener("click", async function() {
-//     const modalPostContent = document.getElementById('modalPostContent').value;
-    
-//     // Collect image sources from the preview
-//     const imageSrcs = Array.from(postImagePreview.getElementsByTagName('img')).map(img => img.src);
-
-//     if (modalPostContent || imageSrcs.length > 0) { // Check if there is content or images
-//         const postId = posts.length; // Use the current length as the post ID
-//         const post = {
-//             content: modalPostContent,
-//             imageSrc: imageSrcs, 
-//             likes: 0,
-//             comments: [],
-//             id: postId,
-//             user: "John Doe", // Replace with dynamic user data if needed
-//             date: new Date().toLocaleDateString('en-US', {
-//                 month: 'long',
-//                 day: 'numeric',
-//                 year: 'numeric'
-//             }) + ', ' + new Date().toLocaleTimeString('en-US', {
-//                 hour: 'numeric',
-//                 minute: 'numeric',
-//                 hour12: true // Makes time 12-hour format (AM/PM)
-//             })
-//         };
-//         posts.push(post);
-//         console.log(post);
-//         const formData = new FormData();
-//         formData.append('content', String(post.content));
-//         imageSrcs.forEach((imageSrc, index) => {
-//             // Create the key name for each image
-//             const keyName = `content_file_${index}`;
-            
-//             // If imageSrc is a URL, fetch it as a Blob; otherwise, if it's already a Blob or File, append directly
-//             if (typeof imageSrc === 'string') {
-//                 // Fetch the image as a Blob for uploading
-//                 fetch(imageSrc)
-//                     .then(response => response.blob())
-//                     .then(blob => {
-//                         formData.append(keyName, blob, `image_${index}.jpg`); // Provide a filename
-//                     })
-//                     .catch(error => console.error("Error fetching image:", error));
-//             } else {
-//                 // If imageSrc is already a File/Blob (like from a file input), directly append it
-//                 formData.append(keyName, imageSrc);
-//             }
-//         });
-
-//         console.log('Uploading images...', formData);
-//         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/',
-//             {
-//                 method: 'POST',
-//                 headers: {
-//                     'X-Requested-With': 'XMLHttpRequest',
-//                 }, 
-//                 body: formData, 
-//                 credentials: 'include', 
-//             }
-//         );
-        
-        
-//         const data = await response.json();
-//         if (response.ok) {
-//             console.log("Success Data : ",data);
-//         } else {
-//             console.log("Error Data : ",data);
-//         }
-        
-
-
-//         commentsVisibility[postId] = false; // Initialize visibility for the new post
-//         renderPosts();
-//         modal.style.display = "none"; // Close the modal
-//         document.getElementById('modalPostContent').value = ''; // Clear the textarea
-//         clearImagePreview(); // Clear the image preview
-//     }
-// });
-
-
-
-
-
-
-
-
+  
 
 submitModalPostBtn.addEventListener("click", async function() {
     const modalPostContent = document.getElementById('modalPostContent').value;
@@ -261,7 +202,7 @@ submitModalPostBtn.addEventListener("click", async function() {
             likes: 0,
             comments: [],
             id: postId,
-            user: "John Doe",
+            user: school_name,
             date: new Date().toLocaleString('en-US', { 
                 month: 'long', day: 'numeric', year: 'numeric', 
                 hour: 'numeric', minute: 'numeric', hour12: true 
@@ -290,25 +231,25 @@ submitModalPostBtn.addEventListener("click", async function() {
          
 
         // Send POST request
-        // const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/', {
-        //     method: 'POST',
-        //     headers: { 'X-Requested-With': 'XMLHttpRequest' },
-        //     body: formData,
-        //     credentials: 'include',
-        // });
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/', {
+            method: 'POST',
+            headers: { 'X-Requested-With': 'XMLHttpRequest' },
+            body: formData,
+            credentials: 'include',
+        });
 
-        // const data = await response.json();
-        // if (response.ok) {
-        //     console.log("Success Data: ", data);
-        // } else {
-        //     console.log("Error Data: ", data);
-        // }
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data: ", data);
+        } else {
+            console.log("Error Data: ", data);
+        }
 
         commentsVisibility[postId] = false; // Initialize comments visibility
         renderPosts();
         modal.style.display = "none"; // Close modal
         document.getElementById('modalPostContent').value = ''; // Clear textarea
-        // clearImagePreview(); // Clear image preview
+        clearImagePreview(); // Clear image preview
     }
 });
 
@@ -316,81 +257,7 @@ submitModalPostBtn.addEventListener("click", async function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function renderPosts() {
-//     const feed = document.getElementById('feed');
-//     feed.innerHTML = ''; // Clear the feed before rendering
-//     console.log("sdfsdfdf : ", post.imageSrc);
-//     posts.forEach((post) => {
-//         const commentCount = post.comments.length;
-
-//         let postHTML = `
-//             <div class="post-content">
-//                 <p class="user">${post.user}</p>
-//                 <p class="date">${post.date}</p>
-//                 <p class="text">${post.content}</p>
-//         `;
-
-//         // Check if the post has images and render them 
-//         if (post.imageSrc.length > 0) {
-//             post.imageSrc.forEach(src => {
-//                 postHTML += `<img src="${src}" class="uploaded-image" />`;
-//             });
-//         }
-
-//         // Check if the post is liked to adjust the button
-//         const likedStatus = likedPosts[post.id] ? 'assets/blue like.png' : 'assets/Facebook Like.png';
-
-//         postHTML += `
-//                 <div class="post-actions">
-//                     <button class="like-btn" onclick="toggleLike(${post.id}, this)">
-//                         <i><img src="${likedStatus}" alt="Like Icon"></i> Like (${post.likes})
-//                     </button>
-//                     <button class="comment-btn" onclick="toggleComments(${post.id})">
-//                         <i><img src="assets/Chat Bubble.png" alt="Comment Icon"></i> Comment (${commentCount})
-//                     </button>
-//                 </div>
-//                 <div class="comments-section" id="comments-${post.id}" style="display: ${commentsVisibility[post.id] ? 'block' : 'none'};">
-//                     <input type="text" class="comment-input" placeholder="Write a comment..." onkeypress="submitComment(event, ${post.id})">
-//                     <img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">
-//                 </div>
-//         `;
-
-//         if (commentCount > 0) {
-//             postHTML += `<div class="comment-list">`;
-//             post.comments.forEach((comment) => {
-//                 postHTML += `
-//                     <div class="comment">
-//                         <p><strong>${comment.user}</strong> <em>${comment.time}</em></p>
-//                         <p>${comment.text}</p>
-//                     </div>
-//                 `;
-//             });
-//             postHTML += `</div>`;
-//         }
-
-//         postHTML += `</div></div>`;
-
-//         feed.innerHTML += postHTML;
-//     });
-// }
-
-
+ 
 
 // Create a likedPosts object to track liked posts by their IDs
 let likedPosts = {};
@@ -419,22 +286,7 @@ function toggleLike(postId, btn) {
     console.log(`New likes: ${posts[postId].likes}`);
     renderPosts();
 }
-
-
-
-// // Open the image modal when the media button is clicked
-// mediaButton.addEventListener("click", function() {
-//     if (imageUploaded) {
-//         // If an image is already uploaded, collapse the image modal content
-//         postImagePreview.style.display = "none"; // Hide the image preview
-//         clearImagePreview(); // Clear existing images
-//         imageUploaded = false; // Reset the upload state
-//     } else {
-//         // Show the image modal content
-//         imageModal.style.display = "flex"; // Show the image modal
-//     }
-// });
-
+ 
 
 // Toggle comments section
 function toggleComments(postId) {
@@ -512,20 +364,21 @@ function renderPosts() {
     const feed = document.getElementById('feed');
     feed.innerHTML = ''; // Clear the feed
 
-    posts.forEach((post) => {
+    posts.map((post) => {
         const postId = post.id;
         const commentCount = post.comments.length;
 
         let postHTML = `
             <div class="post-content">
-                <img src="assets/User_Circle.png" alt="User Icon" class="small-user-icon">
+                <img src="${school_image}" alt="User Icon" class="small-user-icon">
                 <p class="user" class="user" style="margin-left: 45px; margin-top: -35px;"> ${post.user}</p>
                 <p class="date">${post.date}</p>
                 <p class="text">${post.content}</p>`
         
-        if (post.imageSrcs.length > 0) {
-            post.imageSrc.forEach(src => {
-                postHTML += `<img src="${src}" class="uploaded-image" />`;
+        if (post.imageSrc.length > 0) {
+            post.imageSrc.map(src => {
+                console.log(src);   
+                postHTML += `<img src="${src}" class="feed-image" />`;
             });
         }
                 
@@ -686,12 +539,6 @@ uploadImageInput.addEventListener("change", function() {
 
 });
 
-// Remove the image from the preview (clear all images)
-// removeImageBtn.addEventListener("click", function() {
-//     clearImagePreview(); // Clear all images from the preview
-//     postImagePreview.style.display = "none"; // Hide the preview section
-//     imageUploaded = false; // Reset the image upload state
-// });
 
 // Close the image modal when the close button is clicked and show the post modal again
 closeImageModal.addEventListener("click", function() {
