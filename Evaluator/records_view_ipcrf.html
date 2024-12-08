@@ -190,7 +190,7 @@
                 document.getElementById("ratingPeriod").value = ipcrf?.school_year ?? "Not Rated Yet" ;
                 document.getElementById("dateOfReview").value = ipcrf?.submit_date ? new Date(ipcrf.submit_date).toLocaleDateString(): "Not Rated Yet";
                 document.getElementById("nameOfRater").value = rater ? rater.fullname : "Not Rated Yet";
-                document.getElementById("positionOfRater").value = rater ? rater.fullname : "Not Rated Yet"; 
+                document.getElementById("positionOfRater").value = rater ? rater.position : "Not Rated Yet"; 
                 document.getElementById("position").value = teacher.position; 
  
                 document.getElementById("kra1Score").value = ipcrf ? ipcrf.kra1_evaluator.toFixed(2) : "Not Rated Yet"; 
