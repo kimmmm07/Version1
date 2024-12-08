@@ -19,7 +19,7 @@ const score6 = document.getElementById('score6');
 const maxScore6 = document.getElementById('max-score6');
 
 window.addEventListener("load", function() {
-  this.alert("asidad");
+//   this.alert("asidad");
   const savedValue = localStorage.getItem("obj6_hp");
   if (savedValue) {
       document.getElementById("score6").value = savedValue; 
