@@ -387,7 +387,7 @@ function addOption(year) {
     option.text = year;
 
     // Add the new option to the select element
-    schoolYearSelect.appendChild(option);
+    document.getElementById('schoolYearSelect').appendChild(option);
 }
 
 async function getKRASchoolYears() {
@@ -595,14 +595,23 @@ async function getIPCRF(){
 }
 
 
-schoolYearSelect.addEventListener('change', (event) => {
-    const selectedYear = schoolYearSelect.value; 
-    console.log('Selected Year:', schoolYearSelect);
+document.getElementById('schoolYearSelect').addEventListener('change', (event) => {
+    const selectedYear = document.getElementById('schoolYearSelect').value;  
     if (selectedYear == "all") {
         school_year = null;
     } else {
         school_year = selectedYear;
+    } 
+
+    // Target the specific element below which you want to remove all elements
+    const specificElement = document.getElementById('filters');
+    if (specificElement) {
+        // Remove all next siblings of the specific element
+        while (specificElement.nextSibling) {
+            specificElement.nextSibling.remove();
+        }
     }
+  
     getIPCRF();
     getRPMS();
     getCOT();
