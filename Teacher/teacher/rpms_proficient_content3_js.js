@@ -186,7 +186,7 @@ async function getScoreAndMilestone() {
 
             if(submit['0']['is_checked'] === true){
 
-                reflectedScoreKRA1.value = String(submit['0']['Overall Score']);
+                reflectedScoreKRA3.value = String(submit['0']['Overall Score']);
             }
         } else {
             console.error('Failed to fetch attachments:', response.statusText);
