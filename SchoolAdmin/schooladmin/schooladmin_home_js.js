@@ -539,7 +539,7 @@ imageButton.addEventListener("click", function() {
     if (imageUploaded) {
         // If an image is already uploaded, collapse the image modal content
         postImagePreview.style.display = "none"; // Hide the image preview
-        // clearImagePreview(); // Clear existing images
+        clearImagePreview(); // Clear existing images
         imageUploaded = false; // Reset the upload state
     } else {
         // Show the image modal content
