@@ -59,12 +59,12 @@ document.getElementById('floating-menu').style.display = 'none';
 }
 
 // Objective 15 Elements
-const overallScore15 = document.getElementById('overall-score15');
-const reflectedScore15 = document.getElementById('reflected-score15');
-const fileList15 = document.getElementById('fileList15');
-const fileInput15 = document.getElementById('fileInput15');
-const addCreateBtn15 = document.getElementById('addCreateBtn15');
-const turnInBtn15 = document.getElementById('turnInBtn15');
+const overallScore = document.getElementById('overall-score15');
+const reflectedScore = document.getElementById('reflected-score15');
+const fileList = document.getElementById('fileList15');
+const fileInput = document.getElementById('fileInput15');
+const addCreateBtn = document.getElementById('addCreateBtn15');
+const turnInBtn = document.getElementById('turnInBtn15');
 
 // Total Score Elements (Plus Factor)
 const overallScorePlusFactor = document.getElementById('overall-score-plusfactor');
@@ -307,11 +307,15 @@ async function getAttachments() {
             
             const submit = responseData.submitted;
 
-            const score = parseInt(submit['0']['Overall Score']);
+            if(submit['0']['file']){
+                document.getElementById(`step-item1`).classList.add('active');
+                document.getElementById(`obj1-img`).src = "asset/Check Mark1.png";
+            }
 
-            if(score > 0){
+            if(submit['0']['file_is_checked'] === true){
 
-                document.getElementById('reflected-score').value = String(submit['0']['Overall Score']);
+                document.getElementById('reflected-score15').value = String(submit['0']['15']['Score']);
+                document.getElementById('reflected-score-plusfactor').value = String(submit['0']['Overall Score']);
 
                 unsubmitBtn.style.display = 'none';
 
@@ -339,7 +343,8 @@ async function sendFilesToBackend() {
 
         // Append each file to the FormData object (as actual file objects)
         uploadedFiles.forEach(file => {
-            formData.append('file', file);
+            formData.append('index', '1')
+            formData.append('file1', file);
         });
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/rpms/folder/classwork/turnin/', {
@@ -369,6 +374,7 @@ async function unSubmitAttachment() {
         // Create a FormData object for unsubmit request
         const formData = new FormData();
         formData.append('class_work_id', class_work_id); // Include the classwork ID
+        formData.append('index', '1');
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/rpms/folder/classwork/unsubmit/', {
             method: 'POST',
