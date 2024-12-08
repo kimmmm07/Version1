@@ -638,11 +638,11 @@ textarea {
 }
 
 .send-icon {
-    position: absolute;
+    position: relative;
     width: 25px;
     height: 25px;
     margin-left: 5px;
-    margin-top: -10px;
+    /* margin-top: 10px; */
     cursor: pointer;
 }
 
@@ -670,8 +670,8 @@ textarea {
 
 .liked {
     background-color: blue; /* Change the background color to indicate it's liked */
-    cursor: not-allowed; /* Show that it can't be clicked again */
-    pointer-events: none; /* Prevent further clicking */
+    /* cursor: not-allowed; Show that it can't be clicked again */
+    /* pointer-events: none; Prevent further clicking */
 }
 
 #postImagePreview {
@@ -777,9 +777,8 @@ textarea {
 .send-btn {
     background: none;
     border: none;
-    cursor: pointer;
-}
-
+    cursor: pointer; 
+} 
 .small-user-icon {
     width: 30px;
     height: 30px;
