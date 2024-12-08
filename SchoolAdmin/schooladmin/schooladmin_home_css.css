@@ -676,10 +676,16 @@ textarea {
 
 #postImagePreview {
     /* Set the dimensions of the preview container */
-    width: 100%; /* Adjust as needed */
-    max-width: 500px; /* Set a maximum width */
+    width: 100%; /* Adjust as needed */ 
     height: auto; /* Height will adjust automatically */
     overflow: hidden; /* Hide any overflow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 10px;
+    background-color: red;
 }
 
 #postImagePreview img {
@@ -690,11 +696,11 @@ textarea {
 
 
 .uploaded-image {
-    /* Set the max dimensions for the images */
-    max-width: 100%; /* Image won't exceed the width of its container */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Remove any gaps */
-    margin: 0 auto; /* Center the image */
+    /* Set the max dimensions for the images */  
+    margin: 0 auto; /* Center the image */ 
+    width: 50%;
+    height : 500px;
+    resize : horizontal;
 }
 
 /* Modal styles */
