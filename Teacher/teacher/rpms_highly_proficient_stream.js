@@ -148,14 +148,19 @@ async function getClassworks(){
             folder.rpms_classworks.forEach(classwork => {
                 if (classwork.title == "PLUS FACTOR") {
                     plus_factor_id = classwork.class_work_id;
+                    plusfactorStatus.src = classwork?.attachment?.is_submitted ? "asset/Check Mark1.png" : "asset/Check Mark.png";
                 } else if (classwork.title == "KRA 4:  Curriculum and Planning & Assessment and Reporting") {
                     kra_4_id = classwork.class_work_id;
+                    kra4Status.src = classwork?.attachment?.is_submitted ? "asset/Check Mark1.png" : "asset/Check Mark.png";
                 } else if (classwork.title == "KRA 3: Curriculum and Planning") {
                     kra_3_id = classwork.class_work_id;
+                     kra3Status.src = classwork?.attachment?.is_submitted ? "asset/Check Mark1.png" : "asset/Check Mark.png";
                 } else if (classwork.title == "KRA 2: Learning Environment and Diversity of Learners") {
                     kra_2_id = classwork.class_work_id;
+                     kra2Status.src = classwork?.attachment?.is_submitted ? "asset/Check Mark1.png" : "asset/Check Mark.png";
                 } else if (classwork.title == "KRA 1: Content Knowledge and Pedagogy") {
                     kra_1_id = classwork.class_work_id;
+                     kra1Status.src = classwork?.attachment?.is_submitted ? "asset/Check Mark1.png" : "asset/Check Mark.png";
                 }
             })
         } else {
