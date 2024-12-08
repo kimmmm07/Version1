@@ -308,7 +308,7 @@ async function getAttachments() {
             const submit = responseData.submitted;
 
             if(submit['0']['file']){
-                document.getElementById(`step-item1`).classList.add('active');
+                // document.getElementById(`step-item1`).classList.add('active');
                 document.getElementById(`obj1-img`).src = "asset/Check Mark1.png";
             }
 

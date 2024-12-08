@@ -300,7 +300,7 @@ submitModalPostBtn.addEventListener("click", async function() {
         renderPosts();
         modal.style.display = "none"; // Close modal
         document.getElementById('modalPostContent').value = ''; // Clear textarea
-        clearImagePreview(); // Clear image preview
+        // clearImagePreview(); // Clear image preview
     }
 });
 
@@ -628,7 +628,7 @@ let imageUploaded = false;
 imageButton.addEventListener("click", function() {
     if (imageUploaded) {
         // If an image is already uploaded, collapse the image modal content
-        postImagePreview.style.display = "none"; // Hide the image preview
+        // postImagePreview.style.display = "none"; // Hide the image preview
         // clearImagePreview(); // Clear existing images
         imageUploaded = false; // Reset the upload state
     } else {
@@ -655,17 +655,16 @@ uploadImageInput.addEventListener("change", function() {
             reader.onload = function(e) {
                 const img = document.createElement('img'); // Create an image element
                 img.src = e.target.result; // Set the image source
-                img.className = "uploaded-image"; // Add a class for styling
-                img.style.maxWidth = '100%'; // Optionally style the image
-                img.style.height = 'auto'; // Maintain aspect ratio
-
+                img.className = "uploaded-image"; // Add a class for styling  
                 // Append the image to the preview container
                 postImagePreview.appendChild(img); // Add the image to the preview container
-                postImagePreview.style.display = "block"; // Show the preview section
+                postImagePreview.style.display = "flex"; // Show the preview section
                 imageUploaded = true; // Set the state to indicate an image is uploaded
             };
             reader.readAsDataURL(file); // Read the file
         });
+        imageModal.style.display = "none"; // Hide the image modal
+        modal.style.display = "block"; // Show the post modal again
     }
 
 });
