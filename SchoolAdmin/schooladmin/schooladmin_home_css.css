@@ -682,10 +682,7 @@ textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    column-gap: 10px;
-    row-gap: 10px;
-    background-color: red;
+    flex-wrap: wrap; 
 }
 
 #postImagePreview img {
@@ -696,11 +693,11 @@ textarea {
 
 
 .uploaded-image {
-    /* Set the max dimensions for the images */  
-    margin: 0 auto; /* Center the image */ 
-    width: 50%;
-    height : 500px;
-    resize : horizontal;
+    /* Set the max dimensions for the images */ 
+    max-width: auto; /* Image won't exceed the width of its container */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove any gaps */
+    margin: 0 auto; /* Center the image */
 }
 
 /* Modal styles */
