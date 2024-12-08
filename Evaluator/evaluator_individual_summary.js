@@ -538,6 +538,12 @@ selectorTeacher.addEventListener("change", async function() {
 
 
 
+let p_school_years = [];
+let hp_school_years = [];
+let school_year = null;
+let user = null;
+
+
 function populateYearDropdowns(){
     if (user.evaluator.is_proficient){
         for (let i = 0; i < p_school_years.length; i++) {
@@ -557,12 +563,6 @@ function populateYearDropdowns(){
 }
 
 
-
-let p_school_years = [];
-let hp_school_years = [];
-let school_year = null;
-let user = null;
-
 async function getKRASchoolYears() {
     try {
          
@@ -579,7 +579,7 @@ async function getKRASchoolYears() {
         if (response.ok) {
             console.log("Success Data : ", data); 
             p_school_years = data.school_years.proficient;
-            hp_school_years = data.school_years.high_proficient; 
+            hp_school_years = data.school_years.highly_proficient; 
 
             // Populate the year dropdowns
             populateYearDropdowns();

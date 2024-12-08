@@ -240,7 +240,6 @@ window.onload = function() {
 
 
 
-
 submitModalPostBtn.addEventListener("click", async function() {
     const modalPostContent = document.getElementById('modalPostContent').value;
     
@@ -266,24 +265,22 @@ submitModalPostBtn.addEventListener("click", async function() {
         const formData = new FormData();
         formData.append('content', post.content);
 
-        // Create an array of fetch promises for each image
-        const fetchPromises = imageSrcs.map((imageSrc, index) => {
-            const keyName = `content_file_${index}`;
-            return fetch(imageSrc)
-                .then(response => response.blob())
-                .then(blob => {
-                    formData.append(keyName, blob, `image_${index}.jpg`);
-                })
-                .catch(error => {
-                    console.error("Error fetching image:", error);
-                });
+        // Fetch all images and append them to formData
+        const fetchPromises = imageSrcs.map(async (imageSrc, index) => {
+            const response = await fetch(imageSrc);
+            const blob = await response.blob();
+            formData.append(`content_file_${index}`, blob, `image_${index}.jpg`);
         });
 
-        // Wait for all fetch promises to complete
+        // Wait for all image fetches to complete
         await Promise.all(fetchPromises);
 
-        console.log('Uploading images...', formData);
-        return;
+        // Now log formData after all images have been appended
+        for (let [key, value] of formData.entries()) {
+            console.log(`${key}: ${value}`);
+        }
+         
+
         // Send POST request
         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/', {
             method: 'POST',
@@ -291,7 +288,7 @@ submitModalPostBtn.addEventListener("click", async function() {
             body: formData,
             credentials: 'include',
         });
-        
+
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data: ", data);
@@ -306,7 +303,6 @@ submitModalPostBtn.addEventListener("click", async function() {
         clearImagePreview(); // Clear image preview
     }
 });
-
 
 
 
@@ -633,7 +629,7 @@ imageButton.addEventListener("click", function() {
     if (imageUploaded) {
         // If an image is already uploaded, collapse the image modal content
         postImagePreview.style.display = "none"; // Hide the image preview
-        clearImagePreview(); // Clear existing images
+        // clearImagePreview(); // Clear existing images
         imageUploaded = false; // Reset the upload state
     } else {
         // Show the image modal content
@@ -675,11 +671,11 @@ uploadImageInput.addEventListener("change", function() {
 });
 
 // Remove the image from the preview (clear all images)
-removeImageBtn.addEventListener("click", function() {
-    clearImagePreview(); // Clear all images from the preview
-    postImagePreview.style.display = "none"; // Hide the preview section
-    imageUploaded = false; // Reset the image upload state
-});
+// removeImageBtn.addEventListener("click", function() {
+//     clearImagePreview(); // Clear all images from the preview
+//     postImagePreview.style.display = "none"; // Hide the preview section
+//     imageUploaded = false; // Reset the image upload state
+// });
 
 // Close the image modal when the close button is clicked and show the post modal again
 closeImageModal.addEventListener("click", function() {
