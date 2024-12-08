@@ -44,6 +44,7 @@ const attachmentKra3 = document.getElementById("attachmentKra3");
 // Main Content List
 const mainContentList = document.getElementById('main-content-list');
 
+const stepItem = document.getElementById('step-item');
 // Objective 15 Elements
 const objective15Item = document.getElementById('objective15-item');
 const objective15Icon = document.getElementById('objective15-icon');
