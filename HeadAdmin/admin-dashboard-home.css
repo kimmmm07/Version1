@@ -189,6 +189,7 @@ nav ul li a.active {
 .distribution-rate-hr {
     border: 1px solid #ccc; 
     margin-bottom: 20px;
+    margin-top: 50px;
     width: 100%; 
 }
 
