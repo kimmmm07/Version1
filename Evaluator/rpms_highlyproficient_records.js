@@ -141,7 +141,7 @@ function addOption(year) {
 
 function addTeacherRow(taker) {
     const taker_data = taker.rpms_taker;
-    const taker_evaluator = taker.rpms_evaluator;
+    const taker_evaluator = taker.rpms_rater;
     const school_year = taker.school_year;
     const taker_quarter = taker.quarter;
 
