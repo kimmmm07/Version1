@@ -61,65 +61,101 @@ window.addEventListener("click", function(event) {
 let school = undefined;
 
 async function getFeeds() {
-    const response = await fetch('https://bnahs.pythonanywhere.com/api/school/feeds/',
-        {
-            method: 'GET',
-            credentials: 'include'
-        }
-    );
+    try{
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/feeds/',
+            {
+                method: 'GET',
+                credentials: 'include'
+            }
+        );
+        
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ",data); 
+            posts = [];
+            Object.keys(data).forEach(key => { 
     
-    const data = await response.json();
-    if (response.ok) {
-        console.log("Success Data : ",data); 
-        Object.keys(data).forEach(key => { 
-
-            let attachments = []
-            data[key]?.attachments.map((attachment)=>{
-                const url = attachment?.attachment ? 'https://bnahs.pythonanywhere.com' + attachment?.attachment : '';
-                attachments.push(url)
-            })
-
-            const dateString = data[key]?.post?.created_at ;  // Your date string
-            const dateObject = new Date(dateString);  // Parse the date string into a Date object
-
-            // Format the date using toLocaleString
-            const formattedDate = dateObject.toLocaleString('en-US', { 
-                month: 'long', 
-                day: 'numeric', 
-                year: 'numeric', 
-                hour: 'numeric', 
-                minute: 'numeric', 
-                hour12: true 
+                let attachments = []
+                data[key]?.attachments.map((attachment)=>{
+                    const url = attachment?.attachment ? 'https://bnahs.pythonanywhere.com' + attachment?.attachment : '';
+                    attachments.push(url)
+                })
+    
+                const dateString = data[key]?.post?.created_at ;  // Your date string
+                const dateObject = new Date(dateString);  // Parse the date string into a Date object
+    
+                // Format the date using toLocaleString
+                const formattedDate = dateObject.toLocaleString('en-US', { 
+                    month: 'long', 
+                    day: 'numeric', 
+                    year: 'numeric', 
+                    hour: 'numeric', 
+                    minute: 'numeric', 
+                    hour12: true 
+                });
+                
+                commentsVisibility[key] = false;
+    
+                const post = {
+                    post : data[key]?.post,
+                    comments : data[key]?.comments,
+                    content: data[key]?.post?.content,
+                    imageSrc: attachments,
+                    likes: data[key]?.post?.number_of_likes,
+                    is_liked : data[key]?.post?.liked ? true : false,
+                    comments: data[key]?.comments,
+                    id: key,
+                    user: school_name,
+                    date: formattedDate
+                }; 
+                // console.log(post);
+                posts.push(post); // Add post to the beginning of the array
+                // data[key]?.post?.notifications?.map((notification)=>{
+                //     notifications.push(notification[1]);
+                // })
             });
+            renderPosts();
+            // renderNotifications();
             
-            commentsVisibility[key] = false;
+            
+    
+        } else {
+            console.log("Error Data : ",data);
+        }
+    } catch (e) {
+        console.log(e)
 
-            const post = {
-                post : data[key]?.post,
-                comments : data[key]?.comments,
-                content: data[key]?.post?.content,
-                imageSrc: attachments,
-                likes: data[key]?.post?.number_of_likes,
-                is_liked : data[key]?.post?.liked ? true : false,
-                comments: data[key]?.comments,
-                id: key,
-                user: school_name,
-                date: formattedDate
-            }; 
-            // console.log(post);
-            posts.push(post); // Add post to the beginning of the array
-            data[key]?.post?.notifications?.map((notification)=>{
-                addNotification(notification[1]);
-            })
-        });
-        renderPosts();
-        
-        
-
-    } else {
-        console.log("Error Data : ",data);
     }
+    
 };
+
+
+async function getNotifications(){
+    try{
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/notifications/',
+            {
+                method: 'GET',
+                credentials: 'include'
+            }
+        );
+        
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ",data); 
+            notifications = [];
+            data?.notifications?.map((notification)=>{
+                notifications.push(notification[1]);
+            })
+            renderNotifications();
+        } else {
+            console.log("Error Data : ",data);
+        }
+    } catch (e) {
+        console.log(e)
+
+    }
+}
+
 
 
 async function getlDetailsByActionId(action_id) {
@@ -164,6 +200,7 @@ async function getSchoolDetails(){
             SchoolAdminUserIcon.src = school_image;
                         
             getFeeds();
+            getNotifications();
         } else {
             console.log("Error Data : ", school);
         }
@@ -253,6 +290,7 @@ submitModalPostBtn.addEventListener("click", async function() {
 
         // commentsVisibility[postId] = false; // Initialize comments visibility 
         getFeeds();
+        getNotifications();
         modal.style.display = "none"; // Close modal
         document.getElementById('modalPostContent').value = ''; // Clear textarea
         clearImagePreview(); // Clear image preview
@@ -396,7 +434,7 @@ function showReplyInput(commentId) {
 
 // Add a notification
 function addNotification(message) {
-    notifications.push(message);
+    notifications.unshift(message);
     renderNotifications();
 }
 
