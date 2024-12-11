@@ -21,16 +21,14 @@ const removeImageBtn = document.getElementById("removeImageBtn");
 
 
 const SchoolAdminUserIcon = document.getElementById("SchoolAdminUserIcon"); 
-
-
-
-
+ 
 
 // Array to store posts
 let school_name = "";
 let school_image = "";
 let posts = [];
 let notifications = [];
+let faculties = [];
 const commentsVisibility = {}; // Track visibility of comments sections
 
 // Ensure the modals are hidden when the page loads
@@ -103,7 +101,7 @@ async function getFeeds() {
                     imageSrc: attachments,
                     likes: data[key]?.post?.number_of_likes,
                     is_liked : data[key]?.post?.liked ? true : false,
-                    comments: data[key]?.comments,
+                    comments_count: data[key]?.post?.number_of_comments,
                     id: key,
                     user: school_name,
                     date: formattedDate
@@ -156,7 +154,30 @@ async function getNotifications(){
     }
 }
 
+async function getFaculties(){
+    try{
+        const response = await fetch('https://bnahs.pythonanywhere.com/api/school/faculties/',
+            {
+                method: 'GET',
+                credentials: 'include'
+            }
+        );
+        
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data : ",data); 
+            notifications = [];
+            data?.people?.map((person)=>{
+                faculties.push(person);
+            }) 
+        } else {
+            console.log("Error Data : ",data);
+        }
+    } catch (e) {
+        console.log(e)
 
+    }
+}
 
 async function getlDetailsByActionId(action_id) {
     const formData = new FormData();
@@ -198,9 +219,10 @@ async function getSchoolDetails(){
             school_name = school.school_name
             school_image = school.school_logo ? 'https://bnahs.pythonanywhere.com' + school.school_logo : 'assets\User_Circle.png' ; // Update the school admin user icon with the retrieved image URL
             SchoolAdminUserIcon.src = school_image;
-                        
-            getFeeds();
+            
             getNotifications();
+            await getFaculties();
+            getFeeds();
         } else {
             console.log("Error Data : ", school);
         }
@@ -210,47 +232,11 @@ async function getSchoolDetails(){
     }
 }
 
-getSchoolDetails();
+window.addEventListener('load', async function () {
+    setTimeout(getSchoolDetails, 100); 
+});
 
-
-
-
-
-async function commentOnPost(){
-    try{
-        const formData = new FormData(); 
-        formData.append('post_id', '');
-        formData.append('comment', '');
-        formData.append('replied_to', '');
-
-        const response1 = await fetch('https://bnahs.pythonanywhere.com/api/user/comment/post/', {
-            method: 'POST',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest',
-                
-            },
-            body: formData,
-            credentials: 'include',
-        });
-    
-        const data1 = await response1.json();
-        if (response1.ok) {
-            console.log("Success Data : ", data1); 
-        } else {
-            console.log("Error Data : ", data1);
-        }
-    } catch (e){
-        console.log(e)
-    }
-}
-
-
-
-
-
-
-
-
+ 
  
 // Ensure the modals are hidden when the page loads
 window.onload = function() {
@@ -275,24 +261,8 @@ submitModalPostBtn.addEventListener("click", async function() {
 
     // console.log(imageSrcs)
 
-    if (modalPostContent || imageSrcs.length > 0) { // Check for content or images
-        // const postId = posts.length;
-        // const post = {
-        //     content: modalPostContent,
-        //     imageSrc: imageSrcs,
-        //     likes: 0,
-        //     is_liked : false,
-        //     comments: [],
-        //     id: postId,
-        //     user: school_name,
-        //     date: new Date().toLocaleString('en-US', { 
-        //         month: 'long', day: 'numeric', year: 'numeric', 
-        //         hour: 'numeric', minute: 'numeric', hour12: true 
-        //     })
-        // };
-        // // console.log(post);
-        // posts.unshift(post); // Add post to the beginning of the array
-
+    if (modalPostContent || imageSrcs.length > 0) {  
+ 
         const formData = new FormData();
         formData.append('content', modalPostContent);
 
@@ -302,15 +272,8 @@ submitModalPostBtn.addEventListener("click", async function() {
             const blob = await response.blob();
             formData.append(`content_file_${index}`, blob, `image_${index}.jpg`);
         });
-
-        // Wait for all image fetches to complete
-        await Promise.all(fetchPromises);
-
-        // Now log formData after all images have been appended
-        // for (let [key, value] of formData.entries()) {
-        //     console.log(`${key}: ${value}`);
-        // }
-         
+ 
+        await Promise.all(fetchPromises); 
 
         // Send POST request
         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/', {
@@ -396,44 +359,9 @@ function toggleComments(postId) {
     commentsSection.style.display = commentsVisibility[postId] ? 'block' : 'none'; // Set display based on state
 }
 
-// Function to handle comment submission
-function submitComment(event, postId) {
-    if (event.key === 'Enter' && event.target.value.trim() !== "") {
-        const commentText = event.target.value.trim(); // Get the comment text
-        const currentTime = new Date().toLocaleString('en-US', {
-            month: 'long', // Full month name
-            day: 'numeric',
-            year: 'numeric',
-            hour: 'numeric',
-            minute: 'numeric',
-            second: 'numeric',
-            hour12: true // Makes time 12-hour format (AM/PM)
-        }); // Get current date and time
-        const user = "John Doe"; // Hardcoded user name (replace this with dynamic user info)
-
-        // Create a comment object
-        const comment = {
-            text: commentText,
-            user: user,
-            time: currentTime // Use the formatted currentTime here
-        };
-
-        // Add the comment to the correct post
-        posts[postId].comments.push(comment);
-
-        // Clear the input field after submission
-        event.target.value = '';
-
-        // Add a notification in the format "(Name) commented on your post"
-        addNotification(`${user} commented on your post: "${posts[postId].content}"`);
-
-        // Re-render the posts to show the new comment and updated count
-        renderPosts();
-    }
-}
-
+ 
 // Function to handle comment submission with Send button
-function submitCommentOnSend(postId, commentText) {
+async function submitCommentOnSend(postId, commentText , replied_to) {
     if (commentText.trim() !== "") {
         const currentTime = new Date().toLocaleString('en-US', {
             month: 'long',
@@ -452,11 +380,35 @@ function submitCommentOnSend(postId, commentText) {
             time: currentTime
         };
 
-        // Add the comment to the appropriate post
-        posts[postId].comments.push(comment);
 
-        // Re-render the posts to show the new comment
-        renderPosts();
+        try{
+            const formData = new FormData(); 
+            formData.append('post_id', postId);
+            formData.append('comment', commentText);
+            replied_to && formData.append('replied_to', replied_to);
+    
+            const response1 = await fetch('https://bnahs.pythonanywhere.com/api/user/comment/post/', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    
+                },
+                body: formData,
+                credentials: 'include',
+            });
+        
+            const data1 = await response1.json();
+            if (response1.ok) {
+                console.log("Success Data : ", data1);  
+                getFeeds();
+            } else {
+                console.log("Error Data : ", data1);
+            }
+        } catch (e){
+            console.log(e)
+        }
+
+ 
     }
 }
 
@@ -632,7 +584,7 @@ function renderPosts() {
 
     posts.forEach((post) => {
         const postId = post.id;
-        const commentCount = post.comments.length;
+        const commentCount = post.comments_count;
 
         // Create post container
         const postContent = document.createElement('div');
@@ -717,7 +669,7 @@ function renderPosts() {
 
         const sendButton = document.createElement('button');
         sendButton.classList.add('send-btn');
-        sendButton.onclick = () => submitCommentOnSend(postId, document.getElementById(`commentInput-${postId}`).value);
+        sendButton.onclick = () => submitCommentOnSend(postId, document.getElementById(`commentInput-${postId}`).value , null);
         sendButton.innerHTML = `<img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">`;
         commentInputWrapper.appendChild(sendButton);
 
@@ -725,6 +677,7 @@ function renderPosts() {
 
         const commentList = document.createElement('div');
         commentList.classList.add('comment-list');
+
 
         post.comments.forEach((comment) => {
             const commentDiv = document.createElement('div');
@@ -740,13 +693,13 @@ function renderPosts() {
             commentUser.classList.add('user');
             commentUser.style.marginLeft = '45px';
             commentUser.style.marginTop = '-35px';
-            commentUser.textContent = comment.user;
+            commentUser.textContent = comment?.user;
             commentDiv.appendChild(commentUser);
 
             const commentText = document.createElement('p');
             commentText.style.marginLeft = '45px';
             commentText.style.marginTop = '10px';
-            commentText.textContent = comment.text;
+            commentText.textContent = comment?.text;
             commentDiv.appendChild(commentText);
 
             const commentActions = document.createElement('div');
@@ -754,13 +707,13 @@ function renderPosts() {
 
             const commentLikeButton = document.createElement('button');
             commentLikeButton.classList.add('like-btn');
-            commentLikeButton.onclick = () => toggleLike(comment.id, commentLikeButton);
-            commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up" style="color:lightgray"></i> Like (${comment.likes})`;
+            commentLikeButton.onclick = () => toggleLike(comment?.id, commentLikeButton);
+            commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up" style="color:lightgray"></i> Like (${comment?.likes})`;
             commentActions.appendChild(commentLikeButton);
 
             const replyButton = document.createElement('button');
             replyButton.classList.add('reply-btn');
-            replyButton.onclick = () => showReplyInput(comment.id);
+            replyButton.onclick = () => showReplyInput(comment?.id);
             replyButton.innerHTML = `<i class="fas fa-reply" style="color:lightgray"></i> Reply`;
             commentActions.appendChild(replyButton);
 
@@ -768,7 +721,7 @@ function renderPosts() {
 
             const replyInputContainer = document.createElement('div');
             replyInputContainer.classList.add('reply-input-container');
-            replyInputContainer.id = `replyInput-${comment.id}`;
+            replyInputContainer.id = `replyInput-${comment?.id}`;
             replyInputContainer.style.display = 'none';
 
             const replyInputWrapper = document.createElement('div');
@@ -777,13 +730,13 @@ function renderPosts() {
             const replyInput = document.createElement('input');
             replyInput.type = 'text';
             replyInput.classList.add('comment-input');
-            replyInput.id = `commentInput-${comment.id}`;
+            replyInput.id = `commentInput-${comment?.id}`;
             replyInput.placeholder = 'Write a reply...';
             replyInputWrapper.appendChild(replyInput);
 
             const replySendButton = document.createElement('button');
             replySendButton.classList.add('send-btn');
-            replySendButton.onclick = () => submitCommentOnSend(comment.id, document.getElementById(`commentInput-${comment.id}`).value);
+            replySendButton.onclick = () => submitCommentOnSend(comment?.id, document.getElementById(`commentInput-${comment?.id}`).value , null);
             replySendButton.innerHTML = `<img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">`;
             replyInputWrapper.appendChild(replySendButton);
 
