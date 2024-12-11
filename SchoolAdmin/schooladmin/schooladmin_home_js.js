@@ -212,6 +212,45 @@ async function getSchoolDetails(){
 
 getSchoolDetails();
 
+
+
+
+
+async function commentOnPost(){
+    try{
+        const formData = new FormData(); 
+        formData.append('post_id', '');
+        formData.append('comment', '');
+        formData.append('replied_to', '');
+
+        const response1 = await fetch('https://bnahs.pythonanywhere.com/api/user/comment/post/', {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            body: formData,
+            credentials: 'include',
+        });
+    
+        const data1 = await response1.json();
+        if (response1.ok) {
+            console.log("Success Data : ", data1); 
+        } else {
+            console.log("Error Data : ", data1);
+        }
+    } catch (e){
+        console.log(e)
+    }
+}
+
+
+
+
+
+
+
+
  
 // Ensure the modals are hidden when the page loads
 window.onload = function() {
@@ -237,25 +276,25 @@ submitModalPostBtn.addEventListener("click", async function() {
     // console.log(imageSrcs)
 
     if (modalPostContent || imageSrcs.length > 0) { // Check for content or images
-        const postId = posts.length;
-        const post = {
-            content: modalPostContent,
-            imageSrc: imageSrcs,
-            likes: 0,
-            is_liked : false,
-            comments: [],
-            id: postId,
-            user: school_name,
-            date: new Date().toLocaleString('en-US', { 
-                month: 'long', day: 'numeric', year: 'numeric', 
-                hour: 'numeric', minute: 'numeric', hour12: true 
-            })
-        };
-        // console.log(post);
-        posts.unshift(post); // Add post to the beginning of the array
+        // const postId = posts.length;
+        // const post = {
+        //     content: modalPostContent,
+        //     imageSrc: imageSrcs,
+        //     likes: 0,
+        //     is_liked : false,
+        //     comments: [],
+        //     id: postId,
+        //     user: school_name,
+        //     date: new Date().toLocaleString('en-US', { 
+        //         month: 'long', day: 'numeric', year: 'numeric', 
+        //         hour: 'numeric', minute: 'numeric', hour12: true 
+        //     })
+        // };
+        // // console.log(post);
+        // posts.unshift(post); // Add post to the beginning of the array
 
         const formData = new FormData();
-        formData.append('content', post.content);
+        formData.append('content', modalPostContent);
 
         // Fetch all images and append them to formData
         const fetchPromises = imageSrcs.map(async (imageSrc, index) => {
