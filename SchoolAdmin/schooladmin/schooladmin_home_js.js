@@ -99,16 +99,20 @@ async function getFeeds() {
                 comments : data[key]?.comments,
                 content: data[key]?.post?.content,
                 imageSrc: attachments,
-                likes: 0,
-                comments: [],
+                likes: data[key]?.post?.number_of_likes,
+                is_liked : data[key]?.post?.liked ? true : false,
+                comments: data[key]?.comments,
                 id: key,
                 user: school_name,
                 date: formattedDate
-            };
+            }; 
             // console.log(post);
             posts.push(post); // Add post to the beginning of the array
-            renderPosts();
+            data[key]?.post?.notifications?.map((notification)=>{
+                addNotification(notification[1]);
+            })
         });
+        renderPosts();
         
         
 
@@ -201,6 +205,7 @@ submitModalPostBtn.addEventListener("click", async function() {
             content: modalPostContent,
             imageSrc: imageSrcs,
             likes: 0,
+            is_liked : false,
             comments: [],
             id: postId,
             user: school_name,
@@ -263,10 +268,9 @@ submitModalPostBtn.addEventListener("click", async function() {
 // Create a likedPosts object to track liked posts by their IDs
 let likedPosts = {};
 
-function toggleLike(postId, btn, post) {
+async function toggleLike(postId, btn, post) {
       // Get the src of the likeButtonImg${postId}; 
- 
-    console.log(likedPosts[postId]);
+    
     if (likedPosts[postId]) {
         post.likes -= 1;
         likedPosts[postId] = false; 
@@ -278,6 +282,30 @@ function toggleLike(postId, btn, post) {
         btn.innerHTML = `<i><img src="assets/Blue Like.png" alt="Like Icon"></i> Like (${post.likes})`; 
         btn.classList.add('liked');  
         addNotification(`${post.user} liked your post: "${post.content}"`);
+    }
+
+    try{
+        const formData = new FormData(); 
+        formData.append('post_id', postId);
+        formData.append('liked', likedPosts[postId] ? 'true' : 'false');
+
+        const response = await fetch(`https://bnahs.pythonanywhere.com/api/user/react/post/`, {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            body: formData,
+            credentials: 'include',
+        });
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data: ", data);
+        } else {
+            console.log("Error Data: ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
     }
 
  
@@ -575,8 +603,15 @@ function renderPosts() {
         const likeButton = document.createElement('button');
         likeButton.id = `likeButton-${postId}`;
         likeButton.classList.add('like-btn');
-        likeButton.addEventListener('click', () => toggleLike(postId, likeButton, post)); // Add click event listener = () => toggleLike(postId, likeButton , post);
-        likeButton.innerHTML = `<i><img src="assets/Facebook Like.png" alt="Like Icon"></i> Like (${post.likes})`;
+        likeButton.addEventListener('click', async () => toggleLike(postId, likeButton, post)); // Add click event listener = () => toggleLike(postId, likeButton , post);
+        // likeButton.innerHTML = `<i><img src="assets/Facebook Like.png" alt="Like Icon"></i> Like (${post.likes})`;
+        if (!post.is_liked) {
+            likedPosts[postId] = false; 
+            likeButton.innerHTML = `<i><img src="assets/Facebook Like.png" alt="Like Icon"></i> Like (${post.likes})`; 
+        } else{
+            likedPosts[postId] = true;
+            likeButton.innerHTML = `<i><img src="assets/Blue Like.png" alt="Like Icon"></i> Like (${post.likes})`; 
+        }
         postActions.appendChild(likeButton);
 
         const commentButton = document.createElement('button');
