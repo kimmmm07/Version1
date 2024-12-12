@@ -338,7 +338,7 @@ body {
 
 
 
-.send-icon {
+/* .send-icon {
     position: absolute;
     right: 10px;
     top: 50%;
@@ -352,7 +352,7 @@ body {
 
 .send-icon:hover {
     opacity: 1;
-}
+} */
 
 aside {
     flex: 1;
