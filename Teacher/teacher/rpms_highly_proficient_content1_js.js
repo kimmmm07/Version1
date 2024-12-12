@@ -417,38 +417,10 @@ async function getAttachments() {
             mainfile = responseData.submitted?.[0];
             
             const submit = responseData.submitted;
-            // Handle fetched submitted files
-            const submitted = responseData.submitted.map(item => {
-                const cleanedFileName = item.file.replace('/media/rpms_attachments/', '');
-                
-                // Create a new File object with the cleaned name
-                return new File([cleanedFileName], cleanedFileName, { type: item.streams_type || '' });
-            });
-            console.log(submitted);
-            // Choose either submitted or unsubmitted, not both
-            if (submitted.length > 0) {
-                uploadedFiles = submitted;
-                isSubmitted = true;
-            }
-            // UI adjustments based on the submission status
-            addCreateBtn.style.display = isSubmitted ? 'none' : 'block';
-            turnInBtn.style.display = isSubmitted ? 'none' : 'block';
-            unsubmitBtn.style.display = isSubmitted ? 'block' : 'none';
-
-            turnInBtn.disabled = uploadedFiles.length === 0;
-            renderFileList();
-            if(submit['0']['file_is_checked'] === true){
-
-                document.getElementById('reflected-score').value = String(submit['0']['1']['Score']);
-                unsubmitBtn.style.display = 'none';
-            }
 
 
-
-
-
-
-            const attachment = submit['0'];
+            const attachment = submit?.['0'];
+            document.querySelector('.private-comments').style.display = attachment?.is_submitted ? "block" : "none" ; 
             attachment?.teacher_comments?.map((comment)=>{
                 const dateObject = new Date(comment?.date);  // Parse the date string into a Date object
 
@@ -486,10 +458,36 @@ async function getAttachments() {
             })
 
 
+            // Handle fetched submitted files
+            const submitted = responseData.submitted.map(item => {
+                const cleanedFileName = item.file.replace('/media/rpms_attachments/', '');
+                
+                // Create a new File object with the cleaned name
+                return new File([cleanedFileName], cleanedFileName, { type: item.streams_type || '' });
+            });
+            console.log(submitted);
+            // Choose either submitted or unsubmitted, not both
+            if (submitted.length > 0) {
+                uploadedFiles = submitted;
+                isSubmitted = true;
+            }
+            // UI adjustments based on the submission status
+            addCreateBtn.style.display = isSubmitted ? 'none' : 'block';
+            turnInBtn.style.display = isSubmitted ? 'none' : 'block';
+            unsubmitBtn.style.display = isSubmitted ? 'block' : 'none';
+
+            turnInBtn.disabled = uploadedFiles.length === 0;
+            renderFileList();
+            if(submit['0']['file_is_checked'] === true){
+
+                document.getElementById('reflected-score').value = String(submit['0']['1']['Score']);
+                unsubmitBtn.style.display = 'none';
+            }
 
 
 
 
+ 
 
 
 
