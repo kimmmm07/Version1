@@ -145,6 +145,7 @@ async function getNotifications(){
                 notifications.push(notification[1]);
             })
             renderNotifications();
+            console.log(notifications)
         } else {
             console.log("Error Data : ",data);
         }
@@ -166,7 +167,6 @@ async function getFaculties(){
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data : ",data); 
-            notifications = [];
             data?.people?.map((person)=>{
                 faculties.push(person);
             }) 
@@ -350,7 +350,52 @@ async function toggleLike(postId, btn, post) {
 
  
 }
- 
+
+
+async function toggleLikeComment(commentId, btn, comment , post) {
+    // Get the src of the likeButtonImg${postId}; 
+  
+  if (likedPosts[commentId]) {
+        comment.number_of_likes -= 1;
+      likedPosts[commentId] = false; 
+      btn.innerHTML = `<i><img src="assets/Facebook Like.png" alt="Like Icon"></i> Like (${comment.number_of_likes})`;
+      btn.classList.remove('liked'); 
+  } else {
+    comment.number_of_likes += 1;
+      likedPosts[commentId] = true;
+      btn.innerHTML = `<i><img src="assets/Blue Like.png" alt="Like Icon"></i> Like (${comment.number_of_likes})`; 
+      btn.classList.add('liked');  
+      addNotification(`${post.user} liked your post: "${comment.content}"`);
+  }
+
+  try{
+      const formData = new FormData(); 
+      formData.append('comment_id', commentId);
+      formData.append('liked', likedPosts[commentId] ? 'true' : 'false');
+
+      const response = await fetch(`https://bnahs.pythonanywhere.com/api/user/react/comment/`, {
+          method: 'POST',
+          headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              
+          },
+          body: formData,
+          credentials: 'include',
+      });
+      const data = await response.json();
+      if (response.ok) {
+          console.log("Success Data: ", data);
+      } else {
+          console.log("Error Data: ", data);
+      }
+  } catch (error) {
+      console.error("Error during fetch:", error);
+  }
+
+
+}
+
+
 
 // Toggle comments section
 function toggleComments(postId) { 
@@ -425,7 +470,9 @@ function showReplyInput(commentId) {
 
 // Add a notification
 function addNotification(message) {
+    console.log(notifications);
     notifications.unshift(message);
+    console.log(notifications);
     renderNotifications();
 }
 
@@ -582,7 +629,7 @@ function renderPosts() {
     const feed = document.getElementById('feed');
     feed.innerHTML = ''; // Clear the feed
 
-    posts.forEach((post) => {
+    posts.map((post) => {
         const postId = post.id;
         const commentCount = post.comments_count;
 
@@ -679,12 +726,26 @@ function renderPosts() {
         commentList.classList.add('comment-list');
 
 
-        post.comments.forEach((comment) => {
+        post.comments.map((comment) => {
             const commentDiv = document.createElement('div');
             commentDiv.classList.add('comment');
 
             const commentUserIcon = document.createElement('img');
-            commentUserIcon.src = "assets/User_Circle.png";
+            let selected_faculty = undefined;
+            faculties.map((faculty) => {
+                if (faculty?.action_id == comment?.comment_owner) {
+                    selected_faculty = faculty;
+                }
+            })
+
+            if(selected_faculty?.profile){
+                commentUserIcon.src = `https://bnahs.pythonanywhere.com${selected_faculty?.profile}`;
+            } else if (selected_faculty?.school_logo) {
+                commentUserIcon.src = `https://bnahs.pythonanywhere.com${selected_faculty?.school_logo}`;
+            } else {
+                commentUserIcon.src = "assets/User_Circle.png";
+            }
+            
             commentUserIcon.alt = "User Icon";
             commentUserIcon.classList.add('small-user-icon');
             commentDiv.appendChild(commentUserIcon);
@@ -693,13 +754,31 @@ function renderPosts() {
             commentUser.classList.add('user');
             commentUser.style.marginLeft = '45px';
             commentUser.style.marginTop = '-35px';
-            commentUser.textContent = comment?.user;
+            commentUser.textContent = selected_faculty?.fullname ? selected_faculty.fullname : selected_faculty?.school_name;
             commentDiv.appendChild(commentUser);
+
+            const dateString = comment?.created_at ;  // Your date string
+            const dateObject = new Date(dateString);  // Parse the date string into a Date object
+
+            // Format the date using toLocaleString
+            const formattedDate = dateObject.toLocaleString('en-US', { 
+                month: 'long', 
+                day: 'numeric', 
+                year: 'numeric', 
+                hour: 'numeric', 
+                minute: 'numeric', 
+                hour12: true 
+            }); 
+            // Add post date
+            const commentPostDate = document.createElement('p');
+            commentPostDate.classList.add('date');
+            commentPostDate.textContent = formattedDate; 
+            commentDiv.appendChild(commentPostDate);
 
             const commentText = document.createElement('p');
             commentText.style.marginLeft = '45px';
             commentText.style.marginTop = '10px';
-            commentText.textContent = comment?.text;
+            commentText.textContent = comment?.content;
             commentDiv.appendChild(commentText);
 
             const commentActions = document.createElement('div');
@@ -707,42 +786,53 @@ function renderPosts() {
 
             const commentLikeButton = document.createElement('button');
             commentLikeButton.classList.add('like-btn');
-            commentLikeButton.onclick = () => toggleLike(comment?.id, commentLikeButton);
-            commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up" style="color:lightgray"></i> Like (${comment?.likes})`;
+            commentLikeButton.onclick = () => toggleLikeComment(comment?.comment_id, commentLikeButton, comment , post);
+            // commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up" style="color:lightgray"></i> Like (${comment?.number_of_likes})`;
+
+            if (!comment.liked) {
+                likedPosts[comment?.comment_id] = false; 
+                commentLikeButton.innerHTML = `<i><img src="assets/Facebook Like.png" alt="Like Icon"></i> Like (${comment?.number_of_likes})`; 
+            } else{
+                likedPosts[comment?.comment_id] = true;
+                commentLikeButton.innerHTML = `<i><img src="assets/Blue Like.png" alt="Like Icon"></i> Like (${comment?.number_of_likes})`; 
+            }
+
+
+
             commentActions.appendChild(commentLikeButton);
 
-            const replyButton = document.createElement('button');
-            replyButton.classList.add('reply-btn');
-            replyButton.onclick = () => showReplyInput(comment?.id);
-            replyButton.innerHTML = `<i class="fas fa-reply" style="color:lightgray"></i> Reply`;
-            commentActions.appendChild(replyButton);
+            // const replyButton = document.createElement('button');
+            // replyButton.classList.add('reply-btn');
+            // replyButton.onclick = () => showReplyInput(comment?.id);
+            // replyButton.innerHTML = `<i class="fas fa-reply" style="color:lightgray"></i> Reply`;
+            // commentActions.appendChild(replyButton);
 
             commentDiv.appendChild(commentActions);
 
-            const replyInputContainer = document.createElement('div');
-            replyInputContainer.classList.add('reply-input-container');
-            replyInputContainer.id = `replyInput-${comment?.id}`;
-            replyInputContainer.style.display = 'none';
+            // const replyInputContainer = document.createElement('div');
+            // replyInputContainer.classList.add('reply-input-container');
+            // replyInputContainer.id = `replyInput-${comment?.id}`;
+            // replyInputContainer.style.display = 'none';
 
-            const replyInputWrapper = document.createElement('div');
-            replyInputWrapper.classList.add('comment-input-wrapper');
+            // const replyInputWrapper = document.createElement('div');
+            // replyInputWrapper.classList.add('comment-input-wrapper');
 
-            const replyInput = document.createElement('input');
-            replyInput.type = 'text';
-            replyInput.classList.add('comment-input');
-            replyInput.id = `commentInput-${comment?.id}`;
-            replyInput.placeholder = 'Write a reply...';
-            replyInputWrapper.appendChild(replyInput);
+            // const replyInput = document.createElement('input');
+            // replyInput.type = 'text';
+            // replyInput.classList.add('comment-input');
+            // replyInput.id = `commentInput-${comment?.id}`;
+            // replyInput.placeholder = 'Write a reply...';
+            // replyInputWrapper.appendChild(replyInput);
 
-            const replySendButton = document.createElement('button');
-            replySendButton.classList.add('send-btn');
-            replySendButton.onclick = () => submitCommentOnSend(comment?.id, document.getElementById(`commentInput-${comment?.id}`).value , null);
-            replySendButton.innerHTML = `<img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">`;
-            replyInputWrapper.appendChild(replySendButton);
+            // const replySendButton = document.createElement('button');
+            // replySendButton.classList.add('send-btn');
+            // replySendButton.onclick = () => submitCommentOnSend(comment?.id, document.getElementById(`commentInput-${comment?.id}`).value , null);
+            // replySendButton.innerHTML = `<img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">`;
+            // replyInputWrapper.appendChild(replySendButton);
 
-            replyInputContainer.appendChild(replyInputWrapper);
+            // replyInputContainer.appendChild(replyInputWrapper);
 
-            commentDiv.appendChild(replyInputContainer);
+            // commentDiv.appendChild(replyInputContainer);
 
             commentList.appendChild(commentDiv);
         });
