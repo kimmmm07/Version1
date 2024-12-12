@@ -352,11 +352,11 @@ body {
 
 .send-icon:hover {
     opacity: 1;
-}
+}*/
 
 aside {
     flex: 1;
-} */
+} 
 
 .notifications, .todo {
     background-color: white;
