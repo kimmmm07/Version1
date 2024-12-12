@@ -313,6 +313,7 @@ async function fetchData() {
 
             takers.forEach(taker => {
                 if (taker.cot_taker.employee_id == profile.user.employee_id ){
+                    console.log(profile);
                     addTeacherRow(taker); 
                 }
             });
