@@ -378,42 +378,96 @@ yesButton.addEventListener('click', async function() {
 </script>
 
 
-        <script>
-            // Simulating getting data from teacher_profile.html
-            const teacherProfile = {
-                profilePicture: "asset/User_Circle.png",  // Path to profile picture
-                profileName: "JESSICA SANCHEZ RAMIREZ"    // Name of the user
-            };
-        
-            document.getElementById('submitCommentBtn').addEventListener('click', function() {
-                // Get the value from the textarea
-                const commentText = document.getElementById('privateCommentInput').value;
-                
-                // Get the current time for timestamp
-                const now = new Date();
-                const timestamp = now.toLocaleString(); // You can format this as needed
-                
-                // Create new comment HTML dynamically
-                const commentItem = `
-                    <div class="private-comment-item">
-                        <img src="${teacherProfile.profilePicture}" class="comment-user-icon" alt="User Icon" />
-                        <div>
-                            <div class="comment-header">
-                                <span class="comment-username">${teacherProfile.profileName}</span>
-                                <span class="comment-timestamp">${timestamp}</span>
-                            </div>
-                            <div class="comment-text">${commentText}</div>
-                        </div>
-                    </div>
-                `;
-                
-                // Append the new comment to the comment list
-                document.querySelector('.private-comment-list').insertAdjacentHTML('beforeend', commentItem);
-                
-                // Clear the textarea after submitting
-                document.getElementById('privateCommentInput').value = '';
+<script>
+
+
+    let user = null;
+
+    async function getTeacherProfile(){
+        try{
+
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/profile/', {
+                method: 'GET',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    
+                },
+                credentials: 'include',
             });
-        </script>
+
+            const data = await response.json();
+            if (response.ok) {
+                console.log("Success Data : ", data);
+                user = data.user; 
+            } else {
+                console.log("Error Data : ", data);
+            }
+        }catch(error){
+            console.log(error);
+        }
+    }
+
+    getTeacherProfile();
+
+
+    document.getElementById('submitCommentBtn').addEventListener('click', async function() {
+        // Get the value from the textarea
+        const commentText = document.getElementById('privateCommentInput').value;
+        if (commentText.trim() === '') {
+            return;
+        }
+        
+        // Get the current time for timestamp
+        const now = new Date();
+        const timestamp = now.toLocaleString(); // You can format this as needed
+        
+        const profilePicture = user.profile ? `https://bnahs.pythonanywhere.com${user.profile}` : "asset/User_Circle.png";
+        // Create new comment HTML dynamically
+        const commentItem = `
+            <div class="private-comment-item">
+                <img src="${profilePicture}" class="comment-user-icon" alt="User Icon" />
+                <div>
+                    <div class="comment-header">
+                        <span class="comment-username">${user.fullname}</span>
+                        <span class="comment-timestamp">${timestamp}</span>
+                    </div>
+                    <div class="comment-text">${commentText}</div>
+                </div>
+            </div>
+        `;
+        
+        // Append the new comment to the comment list
+        document.querySelector('.private-comment-list').insertAdjacentHTML('afterbegin', commentItem);
+        
+        // Clear the textarea after submitting
+        document.getElementById('privateCommentInput').value = '';
+        
+        try{ 
+            const formData = new FormData();
+            formData.append('attachment_id', mainfile2?.attachment_id);
+            formData.append('comment', commentText);
+
+            const response = await fetch('https://bnahs.pythonanywhere.com/api/teacher/school/post/rpms/folder/classwork/attachments/comment/', {
+                method: 'POST',
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
+                credentials: 'include',
+                body: formData
+            });
+
+            if (response.ok) {
+                const responseData = await response.json();
+                console.log('Comments successfully ', responseData);
+                
+            } else {
+                console.error('Failed to Comments:', response);
+            }
+        } catch (e){
+            console.log(e);
+        }
+        
+    });
+</script>
+
 
 
     </div>
