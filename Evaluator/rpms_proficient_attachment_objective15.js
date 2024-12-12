@@ -259,8 +259,7 @@ returnBtn.addEventListener('click', async function(){
 
     const formData = new FormData();
     formData.append('rpms_id', rpms_id);
-    formData.append('content', JSON.stringify(content));
-    formData.append('comment', String(document.getElementById('private-comments-textarea').value));
+    formData.append('content', JSON.stringify(content)); 
     formData.append('index', "1");
 
 
