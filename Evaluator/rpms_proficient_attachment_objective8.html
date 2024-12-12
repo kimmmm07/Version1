@@ -154,10 +154,32 @@
         <span><input type="text" id="max-score" value="/28" disabled></span></p>
     </div> -->
 
-    <div class="private-comments-section tab" id="private-comments-section">
-      <textarea id="private-comments-textarea" placeholder="Add private comment..."></textarea>
-      <!-- <button class="post-button" id="post-button">Submit Feedback</button> Centered Post Button -->
-    </div>
+    <!-- Private Comments -->
+    <div class="private-comments">
+      <div class="private-comments-header">
+          <img src="Assets/User_01.png" alt="private-icon" class="private-icon">
+          <h4>Private Comments</h4>
+      </div>
+  
+      <div class="private-comment-item">
+          <img src="Assets/User_Circle.png" class="comment-user-icon" alt="User Icon"/>
+          <div>
+            <div class="comment-header">
+                <span class="comment-username">Username</span>
+                <span class="comment-timestamp">Timestamp</span>
+            </div>
+            <div class="comment-text">This is comment</div>
+        </div> 
+      </div>
+      
+      <!-- Comment input area -->
+      <div class="textarea-icon-container">
+          <textarea id="privateCommentInput" placeholder="Add Private Comment..."></textarea>
+          <button id="submitCommentBtn" class="comment-icon">
+              <img src="Assets/Paper_Plane.png" alt="Comment Icon">
+          </button>
+      </div>
+  </div>
   </aside>
 </main>
 

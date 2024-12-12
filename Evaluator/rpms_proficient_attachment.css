@@ -612,3 +612,147 @@ main {
   padding: 10px 20px;
   margin-left: -50px;
 }
+
+/* Private Comments */
+.private-comments {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  min-height: 120px;  /* Set a minimum height */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;  /* Full width of the parent container */
+  transition: all 0.3s ease-in-out;  /* Smooth transition for resizing */
+  overflow: hidden;  /* Prevent overflow if there are too many comments */
+  overflow-y: auto;  /* Enable vertical scrolling if content exceeds max height */
+}
+
+
+.private-comments, .comments-section {
+  padding: 10px;
+
+}
+
+.private-comments-header {
+  margin-top: 10px;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  margin-left: 20px; /* Adjust as needed */
+  margin-bottom: 10px; /* Space below the header */
+}
+
+.private-comments-header h4 {
+  margin: 0; /* Remove all margins to eliminate space */
+  line-height: 1; /* Remove extra spacing */
+}
+
+.private-comments-header .private-icon {
+  width: 20px; /* Set width for the icon */
+  height: 20px; /* Set height for the icon */
+  margin-right: 10px; /* Ensure there's no margin on the right */
+}
+
+/* Comment */
+
+/* Private Comments */
+.comments-section {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  height: 120px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.comments-header {
+  margin-top: 10px;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  margin-left: 20px; /* Adjust as needed */
+  margin-bottom: 10px; /* Space below the header */
+}
+
+.comments-header h4 {
+  margin: 0; /* Remove all margins to eliminate space */
+  line-height: 1; /* Remove extra spacing */
+}
+
+.comments-header .comment-group-icon {
+  width: 20px; /* Set width for the icon */
+  height: 20px; /* Set height for the icon */
+  margin-right: 10px; /* Ensure there's no margin on the right */
+}
+
+
+/* Adjust the textarea styling */
+textarea {
+  width: 80%; /* Set width for the textarea */
+  height: 45px; /* Set height for the textarea */
+  padding: 10px; /* Padding for textarea */
+  border: 1px solid #ddd; /* Border styling */
+  border-radius: 25px; /* Rounded corners */
+  margin: 0 auto 10px; /* Center horizontally and add bottom margin */
+  display: block; /* Ensures the textarea behaves as a block element */
+  resize: none; /* Disable resizing */
+  margin-right: 35px;
+}
+
+.textarea-icon-container {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center vertically */
+  margin-bottom: 10px; /* Space below the textarea and icon */
+}
+
+/* Adjust the icon styling */
+.comment-icon {
+  width: 20px; /* Set width for the icon */
+  height: 20px; /* Set height for the icon */
+  margin-left: -25px; /* Move the icon to the left */
+  margin-right: 10px; /* Space between icon and textarea */
+}
+
+.comment-icon {
+  width: 20px; /* Set width for the icon */
+  height: 20px; /* Set height for the icon */
+  margin-left: -25px; /* Move the icon to the left */
+  margin-right: 10px; /* Space between icon and textarea */
+  background: transparent; /* Makes the button background transparent */
+  border: none; /* Removes the button border */
+  cursor: pointer; /* Changes the cursor to pointer on hover */
+  padding: 0; /* Removes padding */
+  display: flex; /* Centers the icon inside the button */
+  align-items: center; /* Vertically centers the icon */
+}
+
+.private-comment-item {
+  display: flex;
+  align-items: flex-start; /* Align user image and text */
+  margin-bottom: 10px; /* Space between comments */
+}
+
+.comment-list {
+  margin: 10px 0; /* Space between comments and textarea */
+}
+
+.comment-item {
+  display: flex;
+  align-items: center; /* Center-align items vertically */
+  margin-bottom: 10px; /* Space between each comment */
+}
+
+.comment-header {
+  display: flex;
+  flex-direction: column; /* Stack username and timestamp vertically */
+  align-items: flex-start; /* Align content to the left (or start) */
+}
+
+.comment-username {
+  font-weight: bold; /* Bold username */
+  margin-bottom: 2px; /* Small space below the username */
+}
+
+.comment-timestamp {
+  font-size: 0.8em; /* Smaller font for timestamp */
+  color: gray; /* Gray color for timestamp */
+  margin-bottom:  5px; /* Add space between timestamp and comment text */
+}
+
+.comment-text {
+  padding-left: 0; /* Align text with the username/timestamp */
+}
