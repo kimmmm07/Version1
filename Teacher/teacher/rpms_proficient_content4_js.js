@@ -168,31 +168,8 @@ async function getScoreAndMilestone() {
             console.log('Fetched attachments:', responseData);
             
             const submit = responseData.submitted;
-            
-            if(submit['0']['file']){
-                document.getElementById(`step-item1`).classList.add('active');
-                document.getElementById(`obj1-img`).src = "asset/Check Mark1.png";
-            }
-            if(submit['0']['file2']){
-                document.getElementById(`step-item2`).classList.add('active');
-                document.getElementById(`obj2-img`).src = "asset/Check Mark1.png";
-            }
-            if(submit['0']['file3']){
-                document.getElementById(`step-item3`).classList.add('active');
-                document.getElementById(`obj3-img`).src = "asset/Check Mark1.png";
-            }
-
-
-            if(submit['0']['is_checked'] === true){
-
-                reflectedScoreKRA4.value = String(submit['0']['Overall Score']);
-            }
-
-
-
-
-
-            const attachment = submit['0'];
+            const attachment = submit?.['0'];
+            document.querySelector('.private-comments').style.display = attachment?.is_submitted ? "block" : "none" ; 
             attachment?.teacher_comments?.map((comment)=>{
                 const dateObject = new Date(comment?.date);  // Parse the date string into a Date object
 
@@ -230,10 +207,26 @@ async function getScoreAndMilestone() {
             })
 
 
+            
+            if(submit['0']['file']){
+                document.getElementById(`step-item1`).classList.add('active');
+                document.getElementById(`obj1-img`).src = "asset/Check Mark1.png";
+            }
+            if(submit['0']['file2']){
+                document.getElementById(`step-item2`).classList.add('active');
+                document.getElementById(`obj2-img`).src = "asset/Check Mark1.png";
+            }
+            if(submit['0']['file3']){
+                document.getElementById(`step-item3`).classList.add('active');
+                document.getElementById(`obj3-img`).src = "asset/Check Mark1.png";
+            }
 
 
+            if(submit['0']['is_checked'] === true){
 
-
+                reflectedScoreKRA4.value = String(submit['0']['Overall Score']);
+            }
+ 
 
 
 

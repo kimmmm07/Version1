@@ -283,6 +283,45 @@ async function getAttachments() {
             const responseData = await response.json();
             console.log('Fetched attachments:', responseData);
             mainfile = responseData.submitted?.[0];
+            const attachment = mainfile;
+            document.querySelector('.private-comments').style.display = attachment?.is_submitted ? "block" : "none" ; 
+            attachment?.teacher_comments?.map((comment)=>{
+                const dateObject = new Date(comment?.date);  // Parse the date string into a Date object
+
+                // Create a date formatter
+                const options = { 
+                    month: 'numeric', 
+                    day: 'numeric', 
+                    year: 'numeric', 
+                    hour: 'numeric', 
+                    minute: 'numeric', 
+                    second: 'numeric', 
+                    hour12: true 
+                };
+                const formatter = new Intl.DateTimeFormat('en-US', options);
+
+                // Format the date
+                const formattedDate = formatter.format(dateObject);
+                const profilePicture = comment.image ? `https://bnahs.pythonanywhere.com${comment.image}` : "asset/User_Circle.png";
+
+                const commentItem = `
+                    <div class="private-comment-item">
+                        <img src="${profilePicture}" class="comment-user-icon" alt="User Icon" />
+                        <div>
+                            <div class="comment-header">
+                                <span class="comment-username">${comment.name}</span>
+                                <span class="comment-timestamp">${formattedDate}</span>
+                            </div>
+                            <div class="comment-text">${comment.comment}</div>
+                        </div>
+                    </div>
+                `;
+                
+                // Append the new comment to the comment list
+                document.querySelector('.private-comment-list').insertAdjacentHTML('afterbegin', commentItem);
+            })
+
+
 
             // Handle fetched submitted files
             const submitted = responseData.submitted.map(item => {
@@ -323,48 +362,7 @@ async function getAttachments() {
             }
 
 
-
-
-            const attachment = submit['0'];
-            attachment?.teacher_comments?.map((comment)=>{
-                const dateObject = new Date(comment?.date);  // Parse the date string into a Date object
-
-                // Create a date formatter
-                const options = { 
-                    month: 'numeric', 
-                    day: 'numeric', 
-                    year: 'numeric', 
-                    hour: 'numeric', 
-                    minute: 'numeric', 
-                    second: 'numeric', 
-                    hour12: true 
-                };
-                const formatter = new Intl.DateTimeFormat('en-US', options);
-
-                // Format the date
-                const formattedDate = formatter.format(dateObject);
-                const profilePicture = comment.image ? `https://bnahs.pythonanywhere.com${comment.image}` : "asset/User_Circle.png";
-
-                const commentItem = `
-                    <div class="private-comment-item">
-                        <img src="${profilePicture}" class="comment-user-icon" alt="User Icon" />
-                        <div>
-                            <div class="comment-header">
-                                <span class="comment-username">${comment.name}</span>
-                                <span class="comment-timestamp">${formattedDate}</span>
-                            </div>
-                            <div class="comment-text">${comment.comment}</div>
-                        </div>
-                    </div>
-                `;
-                
-                // Append the new comment to the comment list
-                document.querySelector('.private-comment-list').insertAdjacentHTML('afterbegin', commentItem);
-            })
-
-
-
-
+ 
 
 
         } else {
