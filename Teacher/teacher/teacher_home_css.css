@@ -343,7 +343,7 @@ body {
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    width: 25px; /* Adjust size as needed */
+    width: 25px; 
     height: 25px;
     cursor: pointer;
     opacity: 0.7;
@@ -352,11 +352,11 @@ body {
 
 .send-icon:hover {
     opacity: 1;
-} */
+}
 
 aside {
     flex: 1;
-}
+} */
 
 .notifications, .todo {
     background-color: white;
