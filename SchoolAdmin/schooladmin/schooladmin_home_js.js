@@ -476,14 +476,17 @@ function addNotification(message) {
     renderNotifications();
 }
 
-// Render the notifications
 function renderNotifications() {
     const notificationList = document.getElementById('notificationList');
     notificationList.innerHTML = ''; // Clear previous notifications
-    notifications.forEach((notification) => {
-        notificationList.innerHTML += `<li>${notification}</li>`;
+    notifications.forEach((notification, index) => {
+        notificationList.innerHTML += `
+            <li>${notification}</li>
+            ${index < notifications.length - 1 ? '<hr>' : ''} <!-- Add divider except for the last item -->
+        `;
     });
 }
+
 
 /* Custom Dropdown JavaScript */
 
