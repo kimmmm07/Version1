@@ -748,7 +748,7 @@ function renderPosts() {
             } else if (selected_faculty?.school_logo) {
                 commentUserIcon.src = `https://bnahs.pythonanywhere.com${selected_faculty?.school_logo}`;
             } else {
-                commentUserIcon.src = "assets/User_Circle.png";
+                commentUserIcon.src = "asset/User_Circle.png";
             }
             
             commentUserIcon.alt = "User Icon";
