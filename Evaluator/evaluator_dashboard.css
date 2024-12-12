@@ -101,6 +101,11 @@ nav a.active {
 
 .post-content {
     flex: 1;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 20px;
 }
 
 .user {
@@ -109,9 +114,11 @@ nav a.active {
 }
 
 .date {
+    margin-left: 65px; /* Align with user name */
     margin-top: -15px;
     font-size: 0.7em;
     color: gray;
+    margin-bottom: 10px;
 }
 
 .text {
@@ -191,20 +198,20 @@ nav a.active {
     color: blue;
 }
 
-.comment-input-wrapper {
+/* .comment-input-wrapper {
     margin-top: 10px;
     position: relative;
     width: 100%;
-}
+} */
 
-.comment-input {
+/* .comment-input {
     width: 93%;
-    padding: 10px 40px 10px 10px; /* Add right padding to make space for the icon */
+    padding: 10px 40px 10px 10px; 
     border: 1px solid #ddd;
     border-radius: 5px;
-}
+} */
 
-.comment-list {
+/* .comment-list {
     margin-top: 20px;
 }
 
@@ -237,14 +244,14 @@ nav a.active {
 .comment .comment-content .comment-text {
     margin: 5px 0;
     font-size: 14px;
-}
+} */
 
 .reply-text {
     margin: 5px 0;
     font-size: 14px;
 }
 
-.comment .comment-actions {
+/* .comment .comment-actions {
     display: flex;
     gap: 10px;
     margin-top: 5px;
@@ -261,7 +268,7 @@ nav a.active {
 
 .comment .comment-actions button.like-btn.active {
     color: blue;
-}
+} */
 
 .reply-input-wrapper {
     margin-top: 10px;
@@ -311,12 +318,12 @@ nav a.active {
 
 
 
-.send-icon {
+/* .send-icon {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    width: 25px; /* Adjust size as needed */
+    width: 25px; 
     height: 25px;
     cursor: pointer;
     opacity: 0.7;
@@ -325,7 +332,7 @@ nav a.active {
 
 .send-icon:hover {
     opacity: 1;
-}
+} */
 
 aside {
     flex: 1;
@@ -417,4 +424,117 @@ aside {
     border: 1px solid #082F96 !important;
     font-weight: 700;
 }
+
+
+
+
+
+
+
+
+
+
+
+.small-user-icon {  
+    margin-top: auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+
+
+.feed-image{
+    display: block;
+    width : 100%;
+    height : auto;
+    margin-top: 10px;
+}
+.post-actions {
+    margin-top: 10px;
+}
+
+
+.comments-section {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 45px;
+}
+.comment-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.comment-input {
+    width: 80%;
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.send-icon {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    margin-left: 5px;
+    /* margin-top: 10px; */
+    cursor: pointer;
+}
+
+.send-btn {
+    background: none;
+    border: none;
+    cursor: pointer; 
+} 
+
+
+.comment {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.comment strong {
+    color: #032F97; /* User's name in a different color */
+}
+.comment em {
+    font-size: 0.9em;
+    color: #777; /* Timestamp in a smaller, lighter font */
+}
+.comment-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #555;
+}
+
+
+
+.like-comment-btn {
+    background-color: transparent;
+    border: none;
+    color: #032F97;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.like-comment-btn img {
+    width: 10px;
+    height: 7px;
+}
+
+
+
+
+
+
+
+
+
 

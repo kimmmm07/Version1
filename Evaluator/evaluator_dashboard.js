@@ -442,82 +442,21 @@ window.addEventListener('load', async function () {
 });
 
  
- 
- 
-
   
-
-//     const modalPostContent = document.getElementById('modalPostContent').value;
-    
-//     if (!modalPostContent){
-//         alert("Please Enter Content");
-//         return;
-//     }
-
-//     // Get image sources from preview
-//     const imageSrcs = Array.from(postImagePreview.getElementsByTagName('img')).map(img => img.src);
-
-//     // console.log(imageSrcs)
-
-//     if (modalPostContent || imageSrcs.length > 0) {  
- 
-//         const formData = new FormData();
-//         formData.append('content', modalPostContent);
-
-//         // Fetch all images and append them to formData
-//         const fetchPromises = imageSrcs.map(async (imageSrc, index) => {
-//             const response = await fetch(imageSrc);
-//             const blob = await response.blob();
-//             formData.append(`content_file_${index}`, blob, `image_${index}.jpg`);
-//         });
- 
-//         await Promise.all(fetchPromises); 
-
-//         // Send POST request
-//         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/post/', {
-//             method: 'POST',
-//             headers: { 'X-Requested-With': 'XMLHttpRequest' },
-//             body: formData,
-//             credentials: 'include',
-//         });
-
-//         const data = await response.json();
-//         if (response.ok) {
-//             console.log("Success Data: ", data);
-//         } else {
-//             console.log("Error Data: ", data);
-//         }
-
-//         // commentsVisibility[postId] = false; // Initialize comments visibility 
-//         getFeeds();
-//         getNotifications();
-//         modal.style.display = "none"; // Close modal
-//         document.getElementById('modalPostContent').value = ''; // Clear textarea
-//         clearImagePreview(); // Clear image preview
-//     }
-// });
-
-
-
-
-
- 
-
 // Create a likedPosts object to track liked posts by their IDs
 let likedPosts = {};
 
-async function toggleLike(postId, btn, post) {
-      // Get the src of the likeButtonImg${postId}; 
+async function toggleLike(postId, btn, post) { 
     
     if (likedPosts[postId]) {
         post.likes -= 1;
         likedPosts[postId] = false; 
-        btn.innerHTML = `<i><img src="assets/Facebook Like.png" alt="Like Icon"></i> Like (${post.likes})`;
+        btn.innerHTML = `<i><img src="Facebook Like.png" alt="Like Icon"></i> Like (${post.likes})`;
         btn.classList.remove('liked'); 
     } else {
         post.likes += 1;
         likedPosts[postId] = true;
-        btn.innerHTML = `<i><img src="assets/Blue Like.png" alt="Like Icon"></i> Like (${post.likes})`; 
+        btn.innerHTML = `<i><img src="Blue Like.png" alt="Like Icon"></i> Like (${post.likes})`; 
         btn.classList.add('liked');  
         addNotification(`${post.user} liked your post: "${post.content}"`);
     }
@@ -548,7 +487,50 @@ async function toggleLike(postId, btn, post) {
 
  
 }
- 
+
+
+async function toggleLikeComment(commentId, btn, comment , post) { 
+    if (likedPosts[commentId]) {
+        comment.number_of_likes -= 1;
+        likedPosts[commentId] = false; 
+        btn.innerHTML = `<i><img src="Facebook Like.png" alt="Like Icon"></i> Like (${comment.number_of_likes})`;
+        btn.classList.remove('liked'); 
+    } else {
+        comment.number_of_likes += 1;
+        likedPosts[commentId] = true;
+        btn.innerHTML = `<i><img src="Blue Like.png" alt="Like Icon"></i> Like (${comment.number_of_likes})`; 
+        btn.classList.add('liked');  
+        addNotification(`${post.user} liked your post: "${comment.content}"`);
+    }
+
+    try{
+        const formData = new FormData(); 
+        formData.append('comment_id', commentId);
+        formData.append('liked', likedPosts[commentId] ? 'true' : 'false');
+
+        const response = await fetch(`https://bnahs.pythonanywhere.com/api/user/react/comment/`, {
+            method: 'POST',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                
+            },
+            body: formData,
+            credentials: 'include',
+        });
+        const data = await response.json();
+        if (response.ok) {
+            console.log("Success Data: ", data);
+        } else {
+            console.log("Error Data: ", data);
+        }
+    } catch (error) {
+        console.error("Error during fetch:", error);
+    }
+
+
+}
+
+
 
 // Toggle comments section
 function toggleComments(postId) { 
@@ -611,19 +593,11 @@ async function submitCommentOnSend(postId, commentText , replied_to) {
 }
 
 
-function showReplyInput(commentId) {
-    const replyInput = document.getElementById(`replyInput-${commentId}`);
-    if (replyInput.style.display === "none" || replyInput.style.display === "") {
-        replyInput.style.display = "block"; // Show reply input
-    } else {
-        replyInput.style.display = "none"; // Hide reply input
-    }
-}
-
-
 // Add a notification
 function addNotification(message) {
+    console.log(notifications);
     notifications.unshift(message);
+    console.log(notifications);
     renderNotifications();
 }
 
@@ -635,13 +609,15 @@ function renderNotifications() {
         notificationList.innerHTML += `<li>${notification}</li>`;
     });
 }
- 
+
+
+
 
 function renderPosts() {
     const feed = document.getElementById('feed');
     feed.innerHTML = ''; // Clear the feed
 
-    posts.forEach((post) => {
+    posts.map((post) => {
         const postId = post.id;
         const commentCount = post.comments_count;
 
@@ -659,8 +635,8 @@ function renderPosts() {
         // Add user name
         const userName = document.createElement('p');
         userName.classList.add('user');
-        userName.style.marginLeft = '45px';
-        userName.style.marginTop = '-35px';
+        userName.style.marginLeft = '65px';
+        userName.style.marginTop = '-45px';
         userName.textContent = post.user;
         postContent.appendChild(userName);
 
@@ -695,17 +671,17 @@ function renderPosts() {
         // likeButton.innerHTML = `<i><img src="assets/Facebook Like.png" alt="Like Icon"></i> Like (${post.likes})`;
         if (!post.is_liked) {
             likedPosts[postId] = false; 
-            likeButton.innerHTML = `<i><img src="assets/Facebook Like.png" alt="Like Icon"></i> Like (${post.likes})`; 
+            likeButton.innerHTML = `<i><img src="Facebook Like.png" alt="Like Icon"></i> Like (${post.likes})`; 
         } else{
             likedPosts[postId] = true;
-            likeButton.innerHTML = `<i><img src="assets/Blue Like.png" alt="Like Icon"></i> Like (${post.likes})`; 
+            likeButton.innerHTML = `<i><img src="Blue Like.png" alt="Like Icon"></i> Like (${post.likes})`; 
         }
         postActions.appendChild(likeButton);
 
         const commentButton = document.createElement('button');
         commentButton.classList.add('comment-btn');
         commentButton.onclick = () => toggleComments(postId);
-        commentButton.innerHTML = `<i><img src="assets/Chat Bubble.png" alt="Comment Icon"></i> Comment (${commentCount})`;
+        commentButton.innerHTML = `<i><img src="Chat Bubble.png" alt="Comment Icon"></i> Comment (${commentCount})`;
         postActions.appendChild(commentButton);
 
         postContent.appendChild(postActions);
@@ -729,7 +705,7 @@ function renderPosts() {
         const sendButton = document.createElement('button');
         sendButton.classList.add('send-btn');
         sendButton.onclick = () => submitCommentOnSend(postId, document.getElementById(`commentInput-${postId}`).value , null);
-        sendButton.innerHTML = `<img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">`;
+        sendButton.innerHTML = `<img src="Paper_Plane.png" alt="Send Icon" class="send-icon">`;
         commentInputWrapper.appendChild(sendButton);
 
         commentsSection.appendChild(commentInputWrapper);
@@ -738,27 +714,59 @@ function renderPosts() {
         commentList.classList.add('comment-list');
 
 
-        post.comments.forEach((comment) => {
+        post.comments.map((comment) => {
             const commentDiv = document.createElement('div');
             commentDiv.classList.add('comment');
 
             const commentUserIcon = document.createElement('img');
-            commentUserIcon.src = "assets/User_Circle.png";
+            let selected_faculty = undefined;
+            faculties.map((faculty) => {
+                if (faculty?.action_id == comment?.comment_owner) {
+                    selected_faculty = faculty;
+                }
+            })
+
+            if(selected_faculty?.profile){
+                commentUserIcon.src = `https://bnahs.pythonanywhere.com${selected_faculty?.profile}`;
+            } else if (selected_faculty?.school_logo) {
+                commentUserIcon.src = `https://bnahs.pythonanywhere.com${selected_faculty?.school_logo}`;
+            } else {
+                commentUserIcon.src = "assets/User_Circle.png";
+            }
+            
             commentUserIcon.alt = "User Icon";
             commentUserIcon.classList.add('small-user-icon');
             commentDiv.appendChild(commentUserIcon);
 
             const commentUser = document.createElement('p');
             commentUser.classList.add('user');
-            commentUser.style.marginLeft = '45px';
+            commentUser.style.marginLeft = '65px';
             commentUser.style.marginTop = '-35px';
-            commentUser.textContent = comment?.user;
+            commentUser.textContent = selected_faculty?.fullname ? selected_faculty.fullname : selected_faculty?.school_name;
             commentDiv.appendChild(commentUser);
+
+            const dateString = comment?.created_at ;  // Your date string
+            const dateObject = new Date(dateString);  // Parse the date string into a Date object
+
+            // Format the date using toLocaleString
+            const formattedDate = dateObject.toLocaleString('en-US', { 
+                month: 'long', 
+                day: 'numeric', 
+                year: 'numeric', 
+                hour: 'numeric', 
+                minute: 'numeric', 
+                hour12: true 
+            }); 
+            // Add post date
+            const commentPostDate = document.createElement('p');
+            commentPostDate.classList.add('date');
+            commentPostDate.textContent = formattedDate; 
+            commentDiv.appendChild(commentPostDate);
 
             const commentText = document.createElement('p');
             commentText.style.marginLeft = '45px';
             commentText.style.marginTop = '10px';
-            commentText.textContent = comment?.text;
+            commentText.textContent = comment?.content;
             commentDiv.appendChild(commentText);
 
             const commentActions = document.createElement('div');
@@ -766,42 +774,53 @@ function renderPosts() {
 
             const commentLikeButton = document.createElement('button');
             commentLikeButton.classList.add('like-btn');
-            commentLikeButton.onclick = () => toggleLike(comment?.id, commentLikeButton);
-            commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up" style="color:lightgray"></i> Like (${comment?.likes})`;
+            commentLikeButton.onclick = () => toggleLikeComment(comment?.comment_id, commentLikeButton, comment , post);
+            // commentLikeButton.innerHTML = `<i class="fas fa-thumbs-up" style="color:lightgray"></i> Like (${comment?.number_of_likes})`;
+
+            if (!comment.liked) {
+                likedPosts[comment?.comment_id] = false; 
+                commentLikeButton.innerHTML = `<i><img src="Facebook Like.png" alt="Like Icon"></i> Like (${comment?.number_of_likes})`; 
+            } else{
+                likedPosts[comment?.comment_id] = true;
+                commentLikeButton.innerHTML = `<i><img src="Blue Like.png" alt="Like Icon"></i> Like (${comment?.number_of_likes})`; 
+            }
+
+
+
             commentActions.appendChild(commentLikeButton);
 
-            const replyButton = document.createElement('button');
-            replyButton.classList.add('reply-btn');
-            replyButton.onclick = () => showReplyInput(comment?.id);
-            replyButton.innerHTML = `<i class="fas fa-reply" style="color:lightgray"></i> Reply`;
-            commentActions.appendChild(replyButton);
+            // const replyButton = document.createElement('button');
+            // replyButton.classList.add('reply-btn');
+            // replyButton.onclick = () => showReplyInput(comment?.id);
+            // replyButton.innerHTML = `<i class="fas fa-reply" style="color:lightgray"></i> Reply`;
+            // commentActions.appendChild(replyButton);
 
             commentDiv.appendChild(commentActions);
 
-            const replyInputContainer = document.createElement('div');
-            replyInputContainer.classList.add('reply-input-container');
-            replyInputContainer.id = `replyInput-${comment?.id}`;
-            replyInputContainer.style.display = 'none';
+            // const replyInputContainer = document.createElement('div');
+            // replyInputContainer.classList.add('reply-input-container');
+            // replyInputContainer.id = `replyInput-${comment?.id}`;
+            // replyInputContainer.style.display = 'none';
 
-            const replyInputWrapper = document.createElement('div');
-            replyInputWrapper.classList.add('comment-input-wrapper');
+            // const replyInputWrapper = document.createElement('div');
+            // replyInputWrapper.classList.add('comment-input-wrapper');
 
-            const replyInput = document.createElement('input');
-            replyInput.type = 'text';
-            replyInput.classList.add('comment-input');
-            replyInput.id = `commentInput-${comment?.id}`;
-            replyInput.placeholder = 'Write a reply...';
-            replyInputWrapper.appendChild(replyInput);
+            // const replyInput = document.createElement('input');
+            // replyInput.type = 'text';
+            // replyInput.classList.add('comment-input');
+            // replyInput.id = `commentInput-${comment?.id}`;
+            // replyInput.placeholder = 'Write a reply...';
+            // replyInputWrapper.appendChild(replyInput);
 
-            const replySendButton = document.createElement('button');
-            replySendButton.classList.add('send-btn');
-            replySendButton.onclick = () => submitCommentOnSend(comment?.id, document.getElementById(`commentInput-${comment?.id}`).value , null);
-            replySendButton.innerHTML = `<img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">`;
-            replyInputWrapper.appendChild(replySendButton);
+            // const replySendButton = document.createElement('button');
+            // replySendButton.classList.add('send-btn');
+            // replySendButton.onclick = () => submitCommentOnSend(comment?.id, document.getElementById(`commentInput-${comment?.id}`).value , null);
+            // replySendButton.innerHTML = `<img src="assets/Paper_Plane.png" alt="Send Icon" class="send-icon">`;
+            // replyInputWrapper.appendChild(replySendButton);
 
-            replyInputContainer.appendChild(replyInputWrapper);
+            // replyInputContainer.appendChild(replyInputWrapper);
 
-            commentDiv.appendChild(replyInputContainer);
+            // commentDiv.appendChild(replyInputContainer);
 
             commentList.appendChild(commentDiv);
         });
@@ -812,6 +831,32 @@ function renderPosts() {
         feed.appendChild(postContent);
     });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
