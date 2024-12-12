@@ -458,7 +458,7 @@ async function toggleLike(postId, btn, post) {
         likedPosts[postId] = true;
         btn.innerHTML = `<i><img src="Blue Like.png" alt="Like Icon"></i> Like (${post.likes})`; 
         btn.classList.add('liked');  
-        addNotification(`${post.user} liked your post: "${post.content}"`);
+        // addNotification(`${post.user} liked your post: "${post.content}"`);
     }
 
     try{
@@ -478,6 +478,7 @@ async function toggleLike(postId, btn, post) {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data: ", data);
+            getNotifications();
         } else {
             console.log("Error Data: ", data);
         }
@@ -500,7 +501,7 @@ async function toggleLikeComment(commentId, btn, comment , post) {
         likedPosts[commentId] = true;
         btn.innerHTML = `<i><img src="Blue Like.png" alt="Like Icon"></i> Like (${comment.number_of_likes})`; 
         btn.classList.add('liked');  
-        addNotification(`${post.user} liked your post: "${comment.content}"`);
+        // addNotification(`${post.user} liked your post: "${comment.content}"`);
     }
 
     try{
@@ -520,6 +521,7 @@ async function toggleLikeComment(commentId, btn, comment , post) {
         const data = await response.json();
         if (response.ok) {
             console.log("Success Data: ", data);
+            getNotifications();
         } else {
             console.log("Error Data: ", data);
         }
