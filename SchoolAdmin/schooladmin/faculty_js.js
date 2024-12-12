@@ -20,7 +20,7 @@ window.addEventListener('load', async function () {
 
         // Loop through the people array and filter by role
         people.forEach(person => {
-            if (person.role === 'Teacher' || person.role === 'Evaluator') {
+            if ((person.role === 'Teacher' || person.role === 'Evaluator') && !person.is_deactivated) { 
                 
                 // Create a new table row
                 const row = document.createElement('tr');
