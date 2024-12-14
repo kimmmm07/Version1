@@ -158,7 +158,9 @@ async function getIPCRFTakers(){
         if(response.ok){
             console.log("Success Data : ", data);
             data.ipcrf_forms_data_highly_proficient.forEach(record => {
-                addRecord(record);
+                if(record?.teacher?.is_deactivated == false){
+                    addRecord(record);
+                } 
             });
         } else {
             console.log("Error Data : ", data);
