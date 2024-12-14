@@ -50,6 +50,7 @@ quality2_5.addEventListener('change', function () {
     if (quality2_5.checked) {
         employee_id && localStorage.setItem(employee_id + 'Quality2', '5');
     }
+    console.log(quality2_5);
 });
 const quality2_4 = document.getElementById('Quality2_4');
 quality2_4.addEventListener('change', function () {
