@@ -199,7 +199,29 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
 
   <script>
+document.addEventListener('DOMContentLoaded', function () {
+    const modal = document.getElementById('instructions-modal');
+    const openModalLink = document.getElementById('instructions-link');
+    const closeModalButton = document.getElementById('close-modal');
 
+    // Show modal when the "Instructions" link is clicked
+    openModalLink.addEventListener('click', function (event) {
+      event.preventDefault(); // Prevent default anchor behavior
+      modal.classList.remove('hidden'); // Show modal by removing 'hidden' class
+    });
+
+    // Close modal when the close button is clicked
+    closeModalButton.addEventListener('click', function () {
+      modal.classList.add('hidden'); // Hide modal by adding 'hidden' class
+    });
+
+    // Close modal if the user clicks outside the modal content
+    window.addEventListener('click', function (event) {
+      if (event.target === modal) {
+        modal.classList.add('hidden'); // Hide modal if clicked outside modal content
+      }
+    });
+  });
 
     let user = null;
   
