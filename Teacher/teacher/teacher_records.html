@@ -310,7 +310,7 @@ async function fetchData() {
   
 
             document.getElementById("selectQuarter").value = "all";
-
+            tableBody.innerHTML = "";
             takers?.map(taker => {
                 if (taker?.cot_taker?.employee_id == profile?.user?.employee_id ){
                     addTeacherRow(taker); 
@@ -468,7 +468,10 @@ document.getElementById("selectQuarter").addEventListener("change", async functi
     let new_data = [];
     let filtered_data = [];
     takers.forEach(taker => { 
-        if (!taker?.cot_taker?.is_proficient) {
+        if (taker?.cot_taker?.is_proficient && profile?.user.is_proficient ) {
+            new_data.push(taker);
+        }
+        if (!taker?.cot_taker?.is_proficient && !profile?.user.is_proficient ) {
             new_data.push(taker);
         }
     });
