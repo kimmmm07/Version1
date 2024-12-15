@@ -310,7 +310,7 @@ async function fetchData() {
   
 
             document.getElementById("selectQuarter").value = "all";
-            tableBody.innerHTML = "";
+            document.getElementById('faculty-list').innerHTML = "";
             takers?.map(taker => {
                 if (taker?.cot_taker?.employee_id == profile?.user?.employee_id ){
                     addTeacherRow(taker); 
