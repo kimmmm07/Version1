@@ -312,7 +312,8 @@ async function getFeeds() {
             
     
         } else {
-            console.log("Error Data : ",data);
+            window.location.href = "../get-started.html";
+            console.log("Error Data : Hehehe",data);
         }
     } catch (e) {
         console.log(e)
