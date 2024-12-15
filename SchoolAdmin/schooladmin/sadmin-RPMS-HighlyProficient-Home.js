@@ -219,8 +219,7 @@ function generateCard(folder) {
     const anchor = document.createElement('a');
     anchor.onclick = function (event) {
         event.preventDefault();
-        sessionStorage.setItem('rpms_folder_id', folder.rpms_folder_id);
-        sessionStorage.setItem('rpms_school_year', folder.rpms_folder_school_year);
+        sessionStorage.setItem('rpms_folder_id', folder.rpms_folder_id); 
         window.location.href = 'sadmin-RPMS-Proficient-Landing.html';
     };
     anchor.className = "card-link";

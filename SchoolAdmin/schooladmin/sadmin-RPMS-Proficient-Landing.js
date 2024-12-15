@@ -11,10 +11,10 @@ let plus_factor_id = undefined;
 async function getClassworks() {
     try{
         // const rpms_folder_id = sessionStorage.getItem("rpms_folder_id"); // ito yung gamitin mo
-        const rpms_folder_id = "6b1b789e-12a5-4687-b359-9f86764ec9d2"
-
+        const rpms_folder_id = sessionStorage.getItem('rpms_folder_id'); //  
         const formData = new FormData();
-        formData.append('rpms_folder_id', rpms_folder_id);
+        formData.append('rpms_folder_id', rpms_folder_id); 
+
 
         const response = await fetch('https://bnahs.pythonanywhere.com/api/school/forms/rpms/classworks/', {
             method: 'POST',
