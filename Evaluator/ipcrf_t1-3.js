@@ -99,8 +99,9 @@ document.querySelectorAll('#ipcrf-tbody tr').forEach(row => {
 
 
 
-function clickToRate( employee_id ){
-    sessionStorage.setItem('teacher_id', employee_id);
+function clickToRate( teacher ){ 
+    sessionStorage.setItem('teacher_id', teacher.employee_id);  // Store the value
+
     window.location.href = 'evaluator_IPCRF_Proficient_EPart1.html';
 }
 
@@ -126,28 +127,61 @@ function addRecord(record) {
     if (!ipcrf.is_checked){
         is_open = false;
     }
-
+ 
     const tbody = document.getElementById("ipcrf-tbody");
     const tr = document.createElement("tr");
-    tr.innerHTML = `
-        <td>
-            <img class="user-icon" src="${ teacher.profile ? "https://bnahs.pythonanywhere.com" + teacher.profile : "User_Circle.png"}" alt="User Icon"> 
-            <span>${teacher.fullname}</span>
-        </td>
-        <td>${teacher.position}</td>
-        <td>${teacher.grade_level}</td>
-        <td>${ipcrf.rater ?? "Waiting To Be Rated"}</td>
-        <td class="status ${!is_open ? "submitted" : "pending"}">${status}</td>
-        <td>
-        <a 
-            ${is_open ? `onclick="clickToRate(${teacher.employee_id})"` : ""} 
-            class="review ${!is_open ? "custom-disabled" : ""}" 
-            style="cursor: ${is_open ? 'pointer' : 'default'}; text-decoration: none;">
-            Review
-        </a>
-    </td>
-    `;
+
+    // Create the first cell
+    const td1 = document.createElement("td");
+    const img = document.createElement("img");
+    img.className = "user-icon";
+    img.src = teacher.profile ? "https://bnahs.pythonanywhere.com" + teacher.profile : "User_Circle.png";
+    img.alt = "User Icon";
+    const span = document.createElement("span");
+    span.textContent = teacher.fullname;
+
+    td1.appendChild(img);
+    td1.appendChild(span);
+    tr.appendChild(td1);
+
+    // Create the second cell
+    const td2 = document.createElement("td");
+    td2.textContent = teacher.position;
+    tr.appendChild(td2);
+
+    // Create the third cell
+    const td3 = document.createElement("td");
+    td3.textContent = teacher.grade_level;
+    tr.appendChild(td3);
+
+    // Create the fourth cell
+    const td4 = document.createElement("td");
+    td4.textContent = ipcrf.rater ?? "Waiting To Be Rated";
+    tr.appendChild(td4);
+
+    // Create the fifth cell with a class based on condition
+    const td5 = document.createElement("td");
+    td5.className = `status ${ipcrf.is_checked ? "submitted" : "pending"}`;
+    td5.textContent = ipcrf.is_checked ? "Submitted" : "Pending";
+    tr.appendChild(td5);
+
+    // Create the sixth cell with a link and conditional onclick
+    const td6 = document.createElement("td");
+    const a = document.createElement("a");
+    a.style.cursor = "pointer";
+    a.style.textDecoration = "none";
+    if (!ipcrf.is_checked_by_evaluator) {
+        a.onclick = () => clickToRate(teacher);
+    } else {
+        a.style.color = "gray";
+    }
+    a.textContent = "Review";
+    td6.appendChild(a);
+    tr.appendChild(td6);
+
+    // Append the row to the tbody
     tbody.appendChild(tr);
+
 }
 
 

@@ -1651,7 +1651,7 @@ let ipcrf = undefined;
 async function getIPCRF() {
     try {
 
-        const teacher_id = sessionStorage.getItem('teacher_id');
+        let teacher_id = sessionStorage.getItem('teacher_id');  
         const formData = new FormData();
         formData.append('teacher_id', teacher_id);
         
