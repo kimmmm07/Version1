@@ -297,15 +297,15 @@ async function fetchData() {
 
 
         if (!school_years){
-            school_years = data.school_year; 
+            school_years = data?.school_year; 
             schoolYearSelect.innerHTML = `<option value="all">All School Year</option> `;
-            school_years.forEach(year => {
+            school_years &&school_years.forEach(year => {
                 addOption(year);
             });
         } 
         facultyList.innerHTML = '';
         takers.forEach(taker => {
-            if (taker.ipcrf_taker.employee_id == profile.user.employee_id ){
+            if (taker?.ipcrf_taker?.employee_id == profile?.user?.employee_id ){
                 addTeacherRow(taker); 
             }
         });

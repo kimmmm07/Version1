@@ -342,7 +342,8 @@ async function fetchData() {
         } 
         facultyList.innerHTML = '';
         takers.forEach(taker => {
-            if (taker.rpms_taker.employee_id == profile.user.employee_id ){
+            console.log(taker);
+            if (taker?.rpms_taker?.employee_id == profile?.user?.employee_id ){
                 addTeacherRow(taker); 
             }
         });
