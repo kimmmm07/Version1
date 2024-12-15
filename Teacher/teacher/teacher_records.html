@@ -311,8 +311,8 @@ async function fetchData() {
 
             document.getElementById("selectQuarter").value = "all";
 
-            takers.forEach(taker => {
-                if (taker.cot_taker.employee_id == profile.user.employee_id ){
+            takers?.map(taker => {
+                if (taker?.cot_taker?.employee_id == profile?.user?.employee_id ){
                     addTeacherRow(taker); 
                 }
             });
@@ -356,9 +356,9 @@ function viewCOTForm(form_id , quarter){
 
     // {/* <button onclick="addTeacherRow('John Doe', 'Teacher I', 'Elementary', 'Jane Smith', 987654)">Add Row</button> */}
 function addTeacherRow(taker) {
-    const taker_data = taker.cot_taker;
-    const taker_evaluator = taker.cot_evaluator;
-    const school_year = taker.school_year;
+    const taker_data = taker?.cot_taker;
+    const taker_evaluator = taker?.cot_evaluator;
+    const school_year = taker?.school_year;
     const taker_quarter = taker.quarter;
 
     // Get the table body
@@ -384,10 +384,10 @@ function addTeacherRow(taker) {
     var optionsCell = document.createElement('th');
 
     // Set the inner HTML for each cell
-    nameCell.innerHTML = `<img class="user-icon" id="userIcon${rowCount}" src="${ taker_data.profile ? "https://bnahs.pythonanywhere.com" + taker_data.profile : "asset/User_Circle.png"}" >${taker_data.fullname}`;
-    positionCell.textContent = taker_data.position;
-    gradeLevelCell.textContent = taker_data.grade_level;
-    subjectCell.textContent = taker_data.department	 || "N/A";  // Assuming taker_data has a subject field
+    nameCell.innerHTML = `<img class="user-icon" id="userIcon${rowCount}" src="${ taker_data?.profile ? "https://bnahs.pythonanywhere.com" + taker_data.profile : "asset/User_Circle.png"}" >${taker_data.fullname}`;
+    positionCell.textContent = taker_data?.position;
+    gradeLevelCell.textContent = taker_data?.grade_level;
+    subjectCell.textContent = taker_data?.department	 || "N/A";  // Assuming taker_data has a subject field
     raterCell.textContent = taker_evaluator ? taker_evaluator.fullname : 'N/A';
     
     
@@ -401,7 +401,7 @@ function addTeacherRow(taker) {
     anchor.style.cursor = "pointer";
     anchor.id = 'viewLink' + rowCount;
     anchor.addEventListener("click", (event)=>{
-        viewCOTForm(taker.cot.cot_form_id , taker.cot.quarter)
+        viewCOTForm(taker?.cot.cot_form_id , taker?.cot.quarter)
         if (taker_data.is_proficient){
             window.location.href = 'records_cot_view_proficient.html';
         } else {
@@ -468,7 +468,7 @@ document.getElementById("selectQuarter").addEventListener("change", async functi
     let new_data = [];
     let filtered_data = [];
     takers.forEach(taker => { 
-        if (taker?.cot_taker?.is_proficient) {
+        if (!taker?.cot_taker?.is_proficient) {
             new_data.push(taker);
         }
     });
@@ -493,7 +493,11 @@ document.getElementById("selectQuarter").addEventListener("change", async functi
     tableBody = document.getElementById("faculty-list");
     tableBody.innerHTML = "";
     filtered_data.forEach( teacher =>{
-        addTeacherRow(teacher);
+        console.log("Teacher", teacher);
+        if (teacher?.cot_taker?.employee_id == profile?.user.employee_id ){
+            addTeacherRow(teacher);
+        }
+        
     })
 })
 
