@@ -152,10 +152,13 @@ async function getClassworks(){
     try {
         
         const rpms_folder_id = sessionStorage.getItem('rpms_folder_id'); // 
-
+        const teacher_id = sessionStorage.getItem('teacher_id');
+        const school_year = sessionStorage.getItem('rpms_school_year');
         const formData = new FormData();
         formData.append('rpms_folder_id', rpms_folder_id);
-        formData.append('folder_type', 'proficient' ); 
+        formData.append('folder_type', 'highly_proficient' ); 
+        formData.append('teacher_id', teacher_id ); 
+        formData.append('school_year', school_year);
 
         
         const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/school/get/rpms/folder/', {

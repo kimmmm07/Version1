@@ -57,6 +57,7 @@ function generateCard(folder) {
     anchor.onclick = function(event) {
         event.preventDefault();
         sessionStorage.setItem('rpms_folder_id', folder.rpms_folder_id);
+        sessionStorage.setItem('rpms_school_year', folder.rpms_folder_school_year);
         window.location.href = 'rpms_proficient_stream.html';
     };
     anchor.className = "card-link";
