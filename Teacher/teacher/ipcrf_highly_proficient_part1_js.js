@@ -1579,10 +1579,14 @@ async function updateIPCRF1(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            console.log("Success Data : ", data); 
+            alert("Form is successfully submitted!"); 
+            setTimeout(function() {
+                window.location.href = 'teacher_choices_hp.html';
+            }, 500);
         } else {
             console.log("Error Data : ", data);
-            // alert("Login Failed.")
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
