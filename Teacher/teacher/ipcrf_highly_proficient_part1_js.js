@@ -1510,6 +1510,7 @@ async function getIPCRF(){
 
             employee_id && activateAllAutofillFunction();
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", ipcrf_content);
             // alert("Login Failed.")
         }
