@@ -144,6 +144,7 @@ async function  getRecommendations() {
                 }
             });
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", data);
         }
     } catch (error) {
@@ -196,6 +197,7 @@ async function getPerformance() {
                     }
                 });
             } else {
+                window.location.href = '../../get-started.html'; 
                 console.log("Error Data : ", data);
             }
         } catch (error) {
