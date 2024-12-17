@@ -189,6 +189,7 @@ async function getClassworks(){
         if (response.ok) {
             console.log("Success Data : ", folder);  
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", folder);
         }
     } catch (error) {

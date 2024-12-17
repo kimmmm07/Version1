@@ -254,6 +254,7 @@ async function getFolders(){
                 generateCard(folder);
             })
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", folders);
         }
     } catch (error) {
