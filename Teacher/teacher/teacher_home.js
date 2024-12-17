@@ -312,7 +312,7 @@ async function getFeeds() {
             
     
         } else {
-            window.location.href = "../get-started.html";
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : Hehehe",data);
         }
     } catch (e) {
@@ -341,7 +341,9 @@ async function getNotifications(){
             })
             renderNotifications();
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ",data);
+            
         }
     } catch (e) {
         console.log(e)
@@ -366,6 +368,7 @@ async function getFaculties(){
                 faculties.push(person);
             }) 
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ",data);
         }
     } catch (e) {
@@ -392,6 +395,7 @@ async function getlDetailsByActionId(action_id) {
     if (response1.ok) {
         console.log("Success Data : ", data1); 
     } else {
+        window.location.href = '../../get-started.html'; 
         console.log("Error Data : ", data1);
     }
 }
@@ -415,6 +419,7 @@ async function getSchoolDetails(){
             school_image = school.school_logo ? 'https://bnahs.pythonanywhere.com' + school.school_logo : 'assets\User_Circle.png' ; // Update the school admin user icon with the retrieved image URL
  
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", data);
         }
 
@@ -445,6 +450,7 @@ async function getFacultyDetails(){
             await getFaculties();
             getFeeds();
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", data);
         }
 
