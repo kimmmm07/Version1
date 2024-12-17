@@ -313,9 +313,9 @@ body {
 }
 
 .turn-in-panel h4 {
-    margin-left: 35px;
+    margin-left: 25px;
     margin-top: 20px;
-    margin-bottom: -20px;
+    margin-bottom: 10px;
 }
 
 /* Turn-in section */
