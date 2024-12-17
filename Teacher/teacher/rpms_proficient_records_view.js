@@ -195,6 +195,7 @@ async function fetchRPMSList(){
 
 
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", data);
         }
     } catch (error) {
