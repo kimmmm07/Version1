@@ -470,6 +470,7 @@ async function getAttachments() {
 
             }
         } else {
+            window.location.href = '../../get-started.html'; 
             console.error('Failed to fetch attachments:', response.statusText);
         }
     } catch (error) {
