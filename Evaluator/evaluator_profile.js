@@ -65,6 +65,7 @@ window.addEventListener('load', async function () {
         document.getElementById('job-started').textContent = new Date(evaluatorData.job_started).toLocaleDateString("en-US", { month: 'long', day: 'numeric', year: 'numeric' });
 
     } else {
+        window.location.href = '../../get-started.html'; 
         console.log("Error Data : ",data);
     }
      

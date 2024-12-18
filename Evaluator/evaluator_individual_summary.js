@@ -635,6 +635,7 @@ async function getUser(){
             getKRASchoolYears();
 
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", user);
         }
     } catch(error){

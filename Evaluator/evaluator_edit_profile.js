@@ -135,6 +135,7 @@ async function getProfile() {
         }
     }
     catch (error) {
+        window.location.href = '../../get-started.html'; 
         console.error("Error during fetch:", error);
     }
 }
