@@ -1401,18 +1401,18 @@ function calculateAverageScore() {
     const efficiency15 = getValue('efficiency15');
 
 
-    kra1 =  ((efficiency1 + 1) / 2) * 0.07 +     
+    kra1 =  ((efficiency1 + 5) / 2) * 0.07 +     
     ((quality2 + timeliness2) / 2) * 0.07 +  
-    ((efficiency3 + 1) / 2) * 0.07 +     
-    ((efficiency4 + 1) / 2) * 0.07 ;
+    ((efficiency3 + 5) / 2) * 0.07 +     
+    ((efficiency4 + 5) / 2) * 0.07 ;
 
     kra2 = ((efficiency5 + 1) / 2) * 0.07 +     // KRA 5
-    ((efficiency6 + 1) / 2) * 0.07 +     // KRA 6
-    ((efficiency7 + 1) / 2) * 0.07 +     // KRA 7
-    ((quality8 + 1) / 2) * 0.07;
+    ((efficiency6 + 5) / 2) * 0.07 +     // KRA 6
+    ((efficiency7 + 5) / 2) * 0.07 +     // KRA 7
+    ((quality8 + 5) / 2) * 0.07;
 
     kra3 = ((quality9 + timeliness9) / 2) * 0.07 +  // KRA 9
-    ((efficiency10 + 1) / 2) * 0.07 +    // KRA 10
+    ((efficiency10 + 5) / 2) * 0.07 +    // KRA 10
     ((quality11 + timeliness11) / 2) * 0.07;
 
     kra4 = ((quality12 + timeliness12) / 2) * 0.07 + // KRA 12
