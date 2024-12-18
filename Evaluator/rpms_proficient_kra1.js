@@ -107,20 +107,3 @@ yesButton.addEventListener('click', async function() {
 });
 
 
-async function getAttachments() {
-    const response = await fetch('https://bnahs.pythonanywhere.com/api/evaluator/get/records/rpms/',
-        {
-            method: 'GET',
-            credentials: 'include'
-        }
-    );
-    
-    const data = await response.json();
-    if (response.ok) {
-        console.log("Success Data : ",data);
-    } else {
-        console.log("Error Data : ",data);
-    }
-}
-
-getAttachments();

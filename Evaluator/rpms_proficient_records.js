@@ -104,11 +104,12 @@ async function fetchData() {
             document.getElementById("teacherTableBody").innerHTML = "";
             takers.forEach(taker => {
                 addTeacherRow(taker);
-            });
+            }); 
 
 
  
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", data);
         }
     } catch (error) {

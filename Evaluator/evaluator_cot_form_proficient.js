@@ -260,6 +260,7 @@ async function getCot() {
             teacher && autoFill(teacher?.employee_id);
 
         } else {
+            // window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", data);
         }
     } catch (error) {
