@@ -137,6 +137,7 @@ async function populateFolders() {
                 categoryContainer.insertAdjacentElement('afterbegin', newCategory);
             });
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data: ", data);
         }
     } catch (error) {

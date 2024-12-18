@@ -127,6 +127,7 @@ window.addEventListener('load', async function() {
             }   
         });
     } else {
+        window.location.href = '../../get-started.html'; 
         console.log("Error Data:", data);
     }
     

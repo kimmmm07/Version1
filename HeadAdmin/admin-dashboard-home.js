@@ -93,6 +93,7 @@ async function fetchData1() {
         totalSchool.textContent = data.total_accepted_schools;
 
     } else {
+        window.location.href = '../../get-started.html'; 
         console.log("Error Data : ",data);
     }
 
@@ -117,6 +118,7 @@ async function fetchData2() {
         console.log("Success Data : ",data1); 
         evaluationConducted.textContent = data1.total_evaluation_conducted;
     } else {
+        window.location.href = '../../get-started.html'; 
         console.log("Error Data : ",data1);
     }
 }
@@ -140,6 +142,7 @@ async function  fetchData3() {
         console.log("Success Data : ",data2); 
         totalTeacher.textContent = data2.total_teachers;
     } else {
+        window.location.href = '../../get-started.html'; 
         console.log("Error Data : ",data2);
     }
 
@@ -165,6 +168,7 @@ async function  fetchData4() {
         totalPending.textContent = data3.total_pending_evaluation;
 
     } else {
+        window.location.href = '../../get-started.html'; 
         console.log("Error Data : ",data3);
     }
 }
