@@ -10,6 +10,7 @@ window.addEventListener('load', async function () {
     if (response.ok) {
         console.log("Success Data : ",data);
     } else {
+        window.location.href = '../../get-started.html'; 
         console.log("Error Data : ",data);
     }
     const school_id = String(data.school_id);

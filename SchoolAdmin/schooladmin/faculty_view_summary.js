@@ -203,6 +203,7 @@ async function fetchSummary() {
             evaluationConducted.textContent = data.evaluated_teacher_count;
             totalPending.textContent = data.un_evaluated_teacher_count;
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", data);
         }
     } catch (error) {
