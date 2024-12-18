@@ -429,6 +429,7 @@ async function getFacultyDetails(){
             await getFaculties();
             getFeeds();
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", data);
         }
 
