@@ -1406,7 +1406,7 @@ function calculateAverageScore() {
     ((efficiency3 + 5) / 2) * 0.07 +     
     ((efficiency4 + 5) / 2) * 0.07 ;
 
-    kra2 = ((efficiency5 + 1) / 2) * 0.07 +     // KRA 5
+    kra2 = ((efficiency5 + 5) / 2) * 0.07 +     // KRA 5
     ((efficiency6 + 5) / 2) * 0.07 +     // KRA 6
     ((efficiency7 + 5) / 2) * 0.07 +     // KRA 7
     ((quality8 + 5) / 2) * 0.07;
