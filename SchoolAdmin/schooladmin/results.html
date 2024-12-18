@@ -281,6 +281,7 @@ async function fetchData(){
             main_data = data;  
             renderFacultyList(data , "all"); 
         } else {
+            window.location.href = '../../get-started.html'; 
             console.log("Error Data : ", data);
         }
     } catch (error) {

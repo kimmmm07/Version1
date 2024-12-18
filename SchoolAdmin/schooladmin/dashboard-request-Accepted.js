@@ -33,6 +33,7 @@ window.addEventListener('load', async function () {
                 schoolRowWrapper.appendChild(row); 
         });
     } else {
+        window.location.href = '../../get-started.html'; 
         console.log("Error Data:", data);
     }
  
