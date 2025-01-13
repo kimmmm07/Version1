@@ -253,7 +253,7 @@ function updateTenureChart(data) {
         options: {
             plugins: {
                 legend: {
-                    display: false // Hides the default legend
+                    display: false 
                 },
                 tooltip: {
                     callbacks: {
@@ -471,13 +471,24 @@ function updateKRAChart(data) {
             }]
         },
         options: {
+            plugins: {
+                datalabels: {
+                    anchor: 'end',
+                    align: 'top',
+                    formatter: function(value, context) {
+                        return value.toFixed(2); 
+                    },
+                    color: 'gray' 
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
                     max: 100
                 }
             }
-        } 
+        },
+        plugins: [ChartDataLabels]
     });
     
 }

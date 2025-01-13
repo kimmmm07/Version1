@@ -270,7 +270,17 @@ async function fetchData5() {
                     backgroundColor: '#6a41fc',
                 }]
             },
-            options: { 
+            options: {
+                plugins: {
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'top',
+                        formatter: function(value, context) {
+                            return value.toFixed(3); 
+                        },
+                        color: 'gray' 
+                    }
+                },
                 responsive: true,
                 maintainAspectRatio: true,
                 scales: {
@@ -283,7 +293,8 @@ async function fetchData5() {
                         }
                     }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
         });
         
         ratingChart2 = new Chart(distributionChartCtx, {
@@ -296,7 +307,16 @@ async function fetchData5() {
                     backgroundColor: '#6a41fc',
                 }]
             },
-            options: {
+            options: {plugins: {
+                datalabels: {
+                    anchor: 'end',
+                    align: 'top',
+                    formatter: function(value, context) {
+                        return value.toFixed(3); 
+                    },
+                    color: 'gray' 
+                }
+            },
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
@@ -309,7 +329,8 @@ async function fetchData5() {
                         }
                     }
                 }
-            }
+            },
+            plugins: [ChartDataLabels]
         });
         
 

@@ -321,13 +321,24 @@ function updateAnnualRatingChart(data) {
             }]
         },
         options: {
+            plugins: {
+                datalabels: {
+                    anchor: 'end',
+                    align: 'top',
+                    formatter: function(value, context) {
+                        return value.toFixed(1); 
+                    },
+                    color: 'gray' 
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true,
                     max: 5
                 }
             }
-        }
+        },
+        plugins: [ChartDataLabels]
     });
     
 }

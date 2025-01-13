@@ -323,13 +323,24 @@ async function getKRA(selectedName) {
                     }]
                 },
                 options: {
+                    plugins: {
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'top',
+                            formatter: function(value, context) {
+                                return value; 
+                            },
+                            color: 'gray' 
+                        }
+                    },
                     scales: {
                         y: {
                             beginAtZero: true,
                             max: 100
                         }
                     }
-                }
+                },
+                plugins: [ChartDataLabels]
             });
 
 
