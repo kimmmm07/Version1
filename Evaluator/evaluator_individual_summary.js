@@ -449,27 +449,39 @@ async function getKRA(selectedName) {
                 kraChart.destroy();
             }
                 // KRA Breakdown Bar Chart
-            kraChart = new Chart(ctxKRA, {
-                type: 'bar',
-                data: {
-                    labels: data.kra,
-                    datasets: [{
-                        label: 'KRA Breakdown',
-                        data: data.scores,
-                        backgroundColor: 'rgba(88, 24, 196, 0.7)',
-                        borderColor: 'rgba(88, 24, 196, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            max: 100
+                kraChart = new Chart(ctxKRA, {
+                    type: 'bar',
+                    data: {
+                        labels: data.kra,
+                        datasets: [{
+                            label: 'KRA Breakdown',
+                            data: data.scores,
+                            backgroundColor: 'rgba(88, 24, 196, 0.7)',
+                            borderColor: 'rgba(88, 24, 196, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            datalabels: {
+                                anchor: 'end',
+                                align: 'top',
+                                formatter: function(value, context) {
+                                    return value; 
+                                },
+                                color: 'gray' 
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 100
+                            }
                         }
-                    }
-                }
-            });
+                    },
+                    plugins: [ChartDataLabels]
+                });
+                
 
 
         } else {
