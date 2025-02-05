@@ -157,7 +157,9 @@ async function getCot() {
                 let res = i + 1;
                 // console.log(res)
                 // console.log(cot_content['Questions'][res]['Selected']);
-                if (cot_content['Questions'][res]['Selected'] == 4){
+                if (cot_content['Questions'][res]['Selected'] == 3){
+                    checkRow('indicator'+(res)+'Row', 3);
+                } else if (cot_content['Questions'][res]['Selected'] == 4){
                     checkRow('indicator'+(res)+'Row', 4);
                 } else if (cot_content['Questions'][res]['Selected'] == 5){
                     checkRow('indicator'+(res)+'Row', 5);
@@ -165,8 +167,6 @@ async function getCot() {
                     checkRow('indicator'+(res)+'Row', 6);
                 } else if (cot_content['Questions'][res]['Selected'] == 7){
                     checkRow('indicator'+(res)+'Row', 7);
-                } else if (cot_content['Questions'][res]['Selected'] == 8){
-                    checkRow('indicator'+(res)+'Row', 8);
                 } else {
                     checkRow('indicator'+(res)+'Row', 0);
                 }
