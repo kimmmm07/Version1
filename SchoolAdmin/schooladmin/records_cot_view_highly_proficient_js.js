@@ -84,10 +84,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -160,11 +160,11 @@ async function checkRow(idrow , comparisonValue) {
     // var secondCell = row.cells[1]; // Second cell
 
     // // Manipulate cell data
-    // console.log(firstCell.innerHTML); // Logs the content of the first cell
+    // // Logs the content of the first cell
     // secondCell.innerHTML = "Updated content for second cell"; // Updates the content of the second cell
 
     // Log the updated row content
-    // console.log(row.innerHTML);
+    // 
     
 }
 
@@ -199,7 +199,7 @@ async function getCot() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             cot = data.cot;
             teacher = data.teacher;
             cot_content = data.cot.content;
@@ -209,8 +209,6 @@ async function getCot() {
 
             for (var i = 0; i < 8; i++) {
                 let res = i + 1;
-                // console.log(res)
-                // console.log(cot_content['Questions'][res]['Selected']);
                 if (cot_content['Questions'][res]['Selected'] == 4){
                     checkRow('indicator'+(res)+'Row', 4);
                 } else if (cot_content['Questions'][res]['Selected'] == 5){
@@ -244,9 +242,9 @@ async function getCot() {
 
 
 
-            console.log(cot_content);
+            
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

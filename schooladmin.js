@@ -9,16 +9,16 @@ window.addEventListener('load', async function() {
         const rememberMeCheckbox = document.querySelector('input[name="remember-me"]');
         const rememberMe = rememberMeCheckbox.checked ? true : false;
     
-        console.log('Employee ID:', employeeId);
-        console.log('Password:', password);
-        console.log("Remember:", rememberMe);
+        
+        
+        
     
         const formData = new FormData();
         formData.append('employee_id', employeeId); 
         formData.append('password', password);
         formData.append('remember_me', rememberMe);
         for (const [key, value] of formData.entries()) {
-            console.log(key, value);
+            
         }
     
         try {
@@ -34,10 +34,10 @@ window.addEventListener('load', async function() {
     
             const data = await response.json();
             if (response.ok) {
-                console.log("Success Data : ", data); 
+                
                 window.location.href = 'SchoolAdmin/schooladmin/schooladmin_home.html'; 
             } else {
-                console.log("Error Data : ", data);
+                
                 alert("Login Failed.")
             }
         } catch (error) {

@@ -8,10 +8,10 @@ window.addEventListener('load', async function () {
     
     const data = await response.json();
     if (response.ok) {
-        console.log("Success Data : ",data);
+        
     } else {
         window.location.href = '../../get-started.html'; 
-        console.log("Error Data : ",data);
+        
     }
     const school_id = String(data.school_id);
 
@@ -74,11 +74,11 @@ window.addEventListener('load', async function () {
         const data = await response.json();
     
         if (response.ok) {
-            console.log("Success Data: ", data);
+            
             alert("Registration succeeded");
             window.location.href = 'faculty.html'; 
         } else {
-            console.log("Error Data: ", data);
+            
             alert("Registration failed");
         }
     });

@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('school_logo', schoolLogoInput.files[0]);
     }
   
-    console.log(formData);
+    
     try {
         const response = await fetch('https://bnahs.pythonanywhere.com/api/register/school/', {
             method: 'POST',
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function() {
             alert("School Registered.");
             window.location.href = 'get-started.html';
         } else {
-            console.log("Error Data:", data);
+            
             window.alert("Something went wrong.");
         }
     } catch (error) {

@@ -28,10 +28,10 @@
 
                 const data = await response.json();
                 if (response.ok) {
-                    console.log("Success Data : ", data); 
+                    
                     window.location.href = '../../get-started.html'; // Redirect after successful logout
                 } else {
-                    console.log("Error Data : ", data);
+                    
                 }
             } catch (error) {
                 console.error("Error during fetch:", error);

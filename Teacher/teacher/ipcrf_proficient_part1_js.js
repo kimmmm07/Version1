@@ -1526,15 +1526,15 @@ async function getIPCRF(){
 
         ipcrf_content = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", ipcrf_content);  
-            console.log('ipcrf :', ipcrf_content['ipcrf']['content_for_teacher']);
+            
+            
             employee_id = ipcrf_content['ipcrf']['employee_id']
 
             employee_id && activateAllAutoFill();
  
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", ipcrf_content);
+            
             // alert("Login Failed.")
         }
     } catch (error) {
@@ -1614,10 +1614,10 @@ async function updateIPCRF1(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             location.href = 'teacher_choices_form.html';
         } else {
-            console.log("Error Data : ", data);
+            
             // alert("Login Failed.")
         }
     } catch (error) {

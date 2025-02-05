@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById("emailModal").style.display = "flex";
             return false; 
         } else {
-            console.log("Error Data:", data);
+            
             alert("Something went wrong.");
         }
     } catch (error) {

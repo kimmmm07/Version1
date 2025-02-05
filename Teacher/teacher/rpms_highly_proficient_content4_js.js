@@ -35,7 +35,7 @@ const submissionModalCloseBtn = document.getElementById('submissionModalCloseBtn
 const submissionModalTitle = document.getElementById('submissionModalTitle');
 
 const class_work_id = sessionStorage.getItem('kra_4_id');
-console.log(class_work_id);
+
 
 // Stepper Item 12 Elements
 const stepItem12 = document.getElementById('step-item12');
@@ -168,7 +168,7 @@ async function getScoreAndMilestone() {
 
         if (response.ok) {
             const responseData = await response.json();
-            console.log('Fetched attachments:', responseData);
+            
             
             const submit = responseData.submitted;
 
@@ -277,7 +277,7 @@ function renderFileList() {
     if (uploadedFiles.length > 0) {
         addCreateBtn.style.display = 'none';
     }
-    console.log(uploadedFiles);
+    
 
     uploadedFiles.forEach((file, index) => {
         const fileDiv = document.createElement('div');
@@ -341,9 +341,9 @@ function renderFileList() {
 let mainfile = undefined;
 // Function to show the modal
 function showModal(fileURL, fileType) {
-    console.log("fileType : ", fileType);
-    console.log("fileURL : ", fileURL);
-    console.log("File : ", mainfile);
+    
+    
+    
 
     if (fileType.startsWith('image/')) {
         modalBody.innerHTML = `<img src="${fileURL}" style="max-width: 100%; height: auto;"/>`;
@@ -402,7 +402,6 @@ turnInBtn.addEventListener('click', () => {
         const filePreviewLink = document.createElement('span');
         filePreviewLink.textContent = file.name;
         filePreviewLink.style.cursor = 'pointer';
-        console.log("File : ", file)
         filePreviewLink.addEventListener('click', () => {
             const fileURL = URL.createObjectURL(file);
             showModal(fileURL, file.type);
@@ -435,7 +434,7 @@ async function getAttachments() {
 
         if (response.ok) {
             const responseData = await response.json();
-            console.log('Fetched attachments:', responseData);
+            
             
             mainfile = responseData.submitted?.[0];
 
@@ -508,7 +507,7 @@ async function sendFilesToBackend() {
 
         if (response.ok) {
             const responseData = await response.json();
-            console.log('Files successfully uploaded:', responseData);
+            
             location.reload();
         } else {
             console.error('Failed to upload files:', response.statusText);
@@ -537,7 +536,7 @@ async function unSubmitAttachment() {
 
         if (response.ok) {
             const responseData = await response.json();
-            console.log('Files successfully unsubmitted:', responseData);
+            
             location.reload();
         } else {
             console.error('Failed to unsubmit files:', response.statusText);
@@ -759,7 +758,7 @@ async function getAttachments2() {
 
         if (response2.ok) {
             const responseData2 = await response2.json();
-            console.log('Fetched attachments:', responseData2);
+            
 
             mainfile2 = responseData2.submitted?.[0];
 
@@ -774,7 +773,7 @@ async function getAttachments2() {
                 
             }
 
-            console.log(isSubmitted2);
+            
             addCreateBtn2.style.display = isSubmitted2 ? 'none' : 'block';
             turnInBtn2.style.display = isSubmitted2 ? 'none' : 'block';
             unsubmitBtn2.style.display = isSubmitted2 ? 'block' : 'none';
@@ -818,7 +817,7 @@ async function sendFilesToBackend2() {
 
         if (response2.ok) {
             const responseData2 = await response2.json();
-            console.log('Files successfully uploaded:', responseData2);
+            
             location.reload();
         } else {
             console.error('Failed to upload files:', response2.statusText);
@@ -844,7 +843,7 @@ async function unSubmitAttachment2() {
 
         if (response2.ok) {
             const responseData2 = await response2.json();
-            console.log('Files successfully unsubmitted:', responseData2);
+            
             location.reload();
         } else {
             console.error('Failed to unsubmit files:', response2.statusText);
@@ -980,7 +979,7 @@ async function getAttachments3() {
 
         if (response3.ok) {
             const responseData3 = await response3.json();
-            console.log('Fetched attachments:', responseData3);
+            
 
             mainfile3 = responseData3.submitted?.[0];
 
@@ -1036,7 +1035,7 @@ async function sendFilesToBackend3() {
 
         if (response3.ok) {
             const responseData3 = await response3.json();
-            console.log('Files successfully uploaded:', responseData3);
+            
             location.reload();
         } else {
             console.error('Failed to upload files:', response3.statusText);
@@ -1062,7 +1061,7 @@ async function unSubmitAttachment3() {
 
         if (response3.ok) {
             const responseData3 = await response3.json();
-            console.log('Files successfully unsubmitted:', responseData3);
+            
             location.reload();
         } else {
             console.error('Failed to unsubmit files:', response3.statusText);
@@ -1114,7 +1113,7 @@ async function sendFilesToBackend3() {
 
         if (response3.ok) {
             const responseData3 = await response3.json();
-            console.log('Files successfully uploaded:', responseData3);
+            
             location.reload();
         } else {
             console.error('Failed to upload files:', response3.statusText);

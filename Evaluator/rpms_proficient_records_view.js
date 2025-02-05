@@ -81,10 +81,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -126,10 +126,10 @@ function kraDisplay( filename , item , element , i ){
                 document.body.appendChild(a);
                 a.click();
                 a.remove();
-                console.log("File downloaded successfully"); 
+                
             } else {
                 const errorData = await response.json();
-                console.log("Error Data : ", errorData);
+                
             }
         } catch (error) {
             console.error("Error during fetch:", error);
@@ -144,14 +144,14 @@ function kraDisplay( filename , item , element , i ){
 function populateKraList( data , element) {
     element.innerHTML = ''; // Clear existing list items
     data.forEach((item, index) => {
-        console.log(item); 
+        
         for ( let i = 1; i < 5; i++ ) { 
             selected_item = item[ i > 1 ? 'file' + i : 'file'];
             if ( selected_item ) {
-                console.log(selected_item);
+                
                 const filename = selected_item.substring(selected_item.lastIndexOf('/') + 1);
         
-                // console.log(filename);  // Output: IPCRF_Summary_Sheet_8dFHmCw.pdf
+                // // Output: IPCRF_Summary_Sheet_8dFHmCw.pdf
         
                 kraDisplay(filename , item , element , i);
             }
@@ -185,7 +185,7 @@ async function fetchRPMSList(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
  
             populateKraList(data['KRA 1: Content Knowledge and Pedagogy'] , kra1List); 
             populateKraList(data['KRA 2: Learning Environment and Diversity of Learners'] , kra2List); 
@@ -196,7 +196,7 @@ async function fetchRPMSList(){
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

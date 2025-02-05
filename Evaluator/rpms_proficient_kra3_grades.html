@@ -96,9 +96,9 @@
         
 
         const class_work_id = sessionStorage.getItem('kra_3_id');
-        console.log(class_work_id);
+        
         const teacher_id = sessionStorage.getItem('teacher_id');
-        console.log(teacher_id);
+        
         let teacher_name = undefined;
         
         
@@ -132,12 +132,12 @@ const kra3totalScore = document.getElementById("kra3totalScore");
         
                 const data = await response.json();
                 if (response.ok) {
-                    console.log("Success Data : ", data);  
+                    
                     teacher = data.teacher;
                     submitted = data.submitted?.[0];
                     
-                    console.log(teacher);
-                    console.log(submitted);
+                    
+                    
                      
                     if (submitted?.file_is_checked){
                         objective9Score.innerHTML = `<span >${submitted.grade['9']['Score']}/7</span>`;
@@ -155,7 +155,7 @@ const kra3totalScore = document.getElementById("kra3totalScore");
         
                 } else {
                     window.location.href = '../../get-started.html'; 
-                    console.log("Error Data : ", data);
+                    
                 }
             } catch (error) {
                 console.error("Error during fetch:", error);

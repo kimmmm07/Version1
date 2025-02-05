@@ -52,10 +52,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -89,12 +89,12 @@ async function fetchData1() {
 
     const data = await response.json();
     if (response.ok) {
-        console.log("Success Data : ",data);
+        
         totalSchool.textContent = data.total_accepted_schools;
 
     } else {
         window.location.href = '../../get-started.html'; 
-        console.log("Error Data : ",data);
+        
     }
 
 }
@@ -115,11 +115,11 @@ async function fetchData2() {
 
     const data1 = await response1.json();
     if (response1.ok) {
-        console.log("Success Data : ",data1); 
+        
         evaluationConducted.textContent = data1.total_evaluation_conducted;
     } else {
         window.location.href = '../../get-started.html'; 
-        console.log("Error Data : ",data1);
+        
     }
 }
 
@@ -139,11 +139,11 @@ async function  fetchData3() {
 
     const data2 = await response2.json();
     if (response2.ok) {
-        console.log("Success Data : ",data2); 
+        
         totalTeacher.textContent = data2.total_teachers;
     } else {
         window.location.href = '../../get-started.html'; 
-        console.log("Error Data : ",data2);
+        
     }
 
 }
@@ -164,12 +164,12 @@ async function  fetchData4() {
 
     const data3 = await response3.json();
     if (response3.ok) {
-        console.log("Success Data : ",data3);
+        
         totalPending.textContent = data3.total_pending_evaluation;
 
     } else {
         window.location.href = '../../get-started.html'; 
-        console.log("Error Data : ",data3);
+        
     }
 }
 
@@ -210,7 +210,7 @@ async function getIPCRFSchoolYears() {
 
         if (response.ok) { 
             const data = await response.json();
-            console.log(data);
+            
             if (!school_years){
                 school_years = [...new Set([...data.school_years.proficient, ...data.school_years.highly_proficient])];
                 schoolYearSelect.innerHTML = `<option value="all">All School Year</option> `;
@@ -221,7 +221,7 @@ async function getIPCRFSchoolYears() {
             }
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -250,9 +250,9 @@ async function fetchData5() {
 
     const data4 = await response4.json();
     if (response4.ok) {
-        console.log("Success Data : ",data4);
+        
         const labels = data4.data.labels;
-        console.log("Labels : ",labels);
+        
 
         if (ratingChart1){
             ratingChart1.destroy()
@@ -337,7 +337,7 @@ async function fetchData5() {
 
 
     } else {
-        console.log("Error Data : ",data4);
+        
     }
 
 }
@@ -369,7 +369,7 @@ async function fetchData6() {
 
     const data5 = await response5.json();
     if (response5.ok) {
-        console.log("Success Data : ",data5);
+        
         tenure0to3.textContent = data5['0-3 years'].toFixed(2) + '%';
         tenure3to5.textContent = data5['3-5 years'].toFixed(2) + '%';;
         tenure5plus.textContent = data5['5+ years'].toFixed(2) + '%';
@@ -404,7 +404,7 @@ async function fetchData6() {
         });
         
     } else {
-        console.log("Error Data : ",data5);
+        
     }
 }
 
@@ -424,7 +424,7 @@ async function fetchData7() {
 
     const data6 = await response6.json();
     if (response6.ok) {
-        console.log("Success Data : ",data6);
+        
         promotionRate.textContent =data6['promotion'].toFixed(2) + '%' ;
         terminationRate.textContent =data6['termination'].toFixed(2) + '%';
         retentionRate.textContent =data6['retention'].toFixed(2) + '%'; 
@@ -463,7 +463,7 @@ async function fetchData7() {
         
 
     } else {
-        console.log("Error Data : ",data6);
+        
     }
 }
 

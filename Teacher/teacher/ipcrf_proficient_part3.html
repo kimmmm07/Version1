@@ -159,10 +159,10 @@
 
                 const data = await response.json();
                 if (response.ok) {
-                    console.log("Success Data : ", data); 
+                    
                     window.location.href = '../../get-started.html'; 
                 } else {
-                    console.log("Error Data : ", data);
+                    
                 }
             } catch (error) {
                 console.error("Error during fetch:", error);
@@ -232,7 +232,7 @@ const resourcesB = document.getElementById('resources-needs-B');
                 ipcrf_3 = await response.json();
 
                 if (response.ok) {
-                    console.log("Success Data : ", ipcrf_3);  
+                    
                     employee_id = ipcrf_3['ipcrf']['employee_id'];
                             
                     employee_id && autofill();
@@ -255,7 +255,7 @@ const resourcesB = document.getElementById('resources-needs-B');
                     });
         
                 } else {
-                    console.log("Error Data : ", ipcrf_3);
+                    
                 }
             } catch (error) {
                 console.error("Error during fetch:", error);
@@ -298,14 +298,14 @@ const resourcesB = document.getElementById('resources-needs-B');
                 const result = await response.json();
 
                 if (response.ok) {
-                    console.log("Success Data : ", result);
+                    
                     alert("Form submitted successfully!");
                     setTimeout(() => {
                         location.href = 'teacher_choices_form.html';
                     }, 2000);
                 } else {
                     window.location.href = '../../get-started.html'; 
-                    console.log("Error Data : ", result);
+                    
                 }
             } catch (error) {
                 console.error("Error during fetch:", error);

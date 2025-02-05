@@ -32,7 +32,7 @@ function autofillEfficiency1(){
 }
 
 function getRateEfficiency1(){
-    console.log("GGGGGG");
+    
     if(efficiency1_5.checked){
         return 5;
     }else if(efficiency1_3.checked){
@@ -50,7 +50,7 @@ quality2_5.addEventListener('change', function () {
     if (quality2_5.checked) {
         employee_id && localStorage.setItem(employee_id + 'Quality2', '5');
     }
-    console.log(quality2_5);
+    
 });
 const quality2_4 = document.getElementById('Quality2_4');
 quality2_4.addEventListener('change', function () {
@@ -1298,7 +1298,7 @@ function autofillTimeliness15(){
 }
 
 function getRateTimeliness15(){
-    console.log("Happen");
+    
     if(timeliness15_5.checked){
         return 5;
     }else if(timeliness15_4.checked){
@@ -1505,13 +1505,13 @@ async function getIPCRF(){
 
         ipcrf_content = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", ipcrf_content);  
+            
             employee_id = ipcrf_content['ipcrf']['employee_id']
 
             employee_id && activateAllAutofillFunction();
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", ipcrf_content);
+            
             // alert("Login Failed.")
         }
     } catch (error) {
@@ -1580,13 +1580,13 @@ async function updateIPCRF1(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             alert("Form is successfully submitted!"); 
             setTimeout(function() {
                 window.location.href = 'teacher_choices_hp.html';
             }, 500);
         } else {
-            console.log("Error Data : ", data);
+            
             
         }
     } catch (error) {

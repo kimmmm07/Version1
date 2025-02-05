@@ -251,13 +251,13 @@
 
             const data = await response.json();
             if (response.ok) {
-                console.log("Success Data : ", data);
+                
                 user = data.evaluator; 
             } else {
-                console.log("Error Data : ", data);
+                
             }
         }catch(error){
-            console.log(error);
+            
         }
     }
 
@@ -310,13 +310,13 @@
 
             if (response.ok) {
                 const responseData = await response.json();
-                console.log('Comments successfully ', responseData);
+                
                 
             } else {
                 console.error('Failed to Comments:', response);
             }
         } catch (e){
-            console.log(e);
+            
         }
         
     });

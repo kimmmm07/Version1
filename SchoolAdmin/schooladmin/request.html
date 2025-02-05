@@ -194,10 +194,10 @@
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -263,11 +263,11 @@
         const data = await response.json();
 
         if (response.ok) {
-            console.log("Success Data: ", data);
+            
             alert("Request succeeded.");
             window.location.href = 'declined.html';
         } else {
-            console.log("Error Data: ", data);
+            
             alert("Request denied.");
         }
         
@@ -287,7 +287,7 @@
         }
 
         // Log the selected reason for debugging purposes
-        console.log("Selected reason:", selectedReason);
+        
     }
 </script>
 

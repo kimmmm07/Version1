@@ -91,10 +91,10 @@ async function createFolder() {
         const data = await response.json();
 
         if (response.ok) {
-            console.log("Success Data: ", data);
+            
             selectedYears.push(selectedYear);  // Store the selected year to prevent duplicates
         } else {
-            console.log("Error Data: ", data);
+            
         }
 
         const categoryContainer = document.getElementById('categoryContainer');
@@ -131,7 +131,7 @@ async function populateFolders() {
         });
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data: ", data); 
+            
             data.school_years.forEach(school_year => {
                 selectedYears.push(school_year);
 
@@ -155,7 +155,7 @@ async function populateFolders() {
             });
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data: ", data);
+            
         }
     } catch (error) {
         console.error('Error fetching folders:', error);
@@ -213,10 +213,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

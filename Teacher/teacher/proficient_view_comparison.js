@@ -130,7 +130,7 @@ async function getIPCRF(){
         const result = await response.json();
         if (response.ok) {
             ipcrf_content = result['ipcrf']
-            console.log("Success Data : ", ipcrf_content);
+            
 
 
 
@@ -143,11 +143,11 @@ async function getIPCRF(){
             const e_con4 = content1["Community Linkages and Professional Engagement & Personal Growth and Professional Development"];
             const e_con5 = content1["PLUS FACTOR"];
 
-            // console.log("Content 1 : ", e_con1);
-            // console.log("Content 2 : ", e_con2);
-            // console.log("Content 3 : ", e_con3);
-            // console.log("Content 4 : ", e_con4);
-            // console.log("Content 5 : ", e_con5);
+            // 
+            // 
+            // 
+            // 
+            // 
 
             evaluatorEfficiency1.innerHTML = `<input type="radio"   value="5" checked disabled>  
             ${e_con1["1"]["EFFICIENCY"]["Rate"]} - ${e_con1["1"]["EFFICIENCY"][e_con1["1"]["EFFICIENCY"]["Rate"]]}`;
@@ -205,11 +205,11 @@ async function getIPCRF(){
             const t_con4 = content2["Community Linkages and Professional Engagement & Personal Growth and Professional Development"];
             const t_con5 = content2["PLUS FACTOR"];
 
-            console.log("Content 1 : ", t_con1);
-            console.log("Content 2 : ", t_con2);
-            console.log("Content 3 : ", t_con3);
-            console.log("Content 4 : ", t_con4);
-            console.log("Content 5 : ", t_con5);
+            
+            
+            
+            
+            
 
             efficiency1Self.innerHTML = `<input type="radio"   value="5" checked disabled>  
             ${t_con1["1"]["EFFICIENCY"]["Rate"]} - ${t_con1["1"]["EFFICIENCY"][t_con1["1"]["EFFICIENCY"]["Rate"]]}`;
@@ -268,7 +268,7 @@ async function getIPCRF(){
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", ipcrf_content);
+            
             // alert("Login Failed.")
         }
     } catch (error) {

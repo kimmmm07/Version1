@@ -61,9 +61,9 @@ const postButton = document.getElementById('post-button');
 
 
 const class_work_id = sessionStorage.getItem('kra_1_id');
-console.log(class_work_id);
+
 const teacher_id = sessionStorage.getItem('teacher_id');
-console.log(teacher_id);
+
 let teacher_name = undefined;
 
 
@@ -87,7 +87,7 @@ function closeMenu() {
 
 // Download File
 function downloadFile() {
-    console.log("Download button clicked");
+    
 }
 
 downloadBtn.addEventListener('click', downloadFile);
@@ -96,13 +96,13 @@ downloadBtn.addEventListener('click', downloadFile);
 // Dropdown
 
 // teacherDropdownSelect.addEventListener('change', function() {
-//     console.log("Selected teacher: " + teacherDropdownSelect.value);
+//     
 // });
 
 
 // postButton.addEventListener('click', function() {
 //     const comment = privateCommentsTextarea.value;
-//     console.log("Posted comment: " + comment);
+//     
 // });
 
 
@@ -139,10 +139,10 @@ yesButton.addEventListener('click', async function() {
 
       const data = await response.json();
       if (response.ok) {
-          console.log("Success Data : ", data); 
+          
           window.location.href = '../../get-started.html'; 
       } else {
-          console.log("Error Data : ", data);
+          
       }
   } catch (error) {
       console.error("Error during fetch:", error);
@@ -173,13 +173,13 @@ async function getTeacherAttachments() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            
             teacher = data.teacher;
             document.getElementById("teacher-name").textContent = teacher.fullname; 
             submitted = data.submitted;
             let content = submitted['0'].grade;
-            console.log(teacher);
-            console.log(submitted);
+            
+            
 
             const dateStr = String(submitted['0'].created_at); 
             const date = new Date(dateStr); 
@@ -221,7 +221,7 @@ async function getTeacherAttachments() {
             };
 
             const formattedDate = date.toLocaleString('en-US', options);
-            console.log(formattedDate);
+            
 
             document.getElementById("file-upload-time").textContent = "Turned in on " +formattedDate;
          
@@ -239,7 +239,7 @@ async function getTeacherAttachments() {
             }
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -254,8 +254,8 @@ getTeacherAttachments();
 returnBtn.addEventListener('click', async function(){
     const rpms_id = submitted['0'].attachment_id;
     let content = submitted['0'].grade;
-    console.log(rpms_id);
-    console.log(content);
+    
+    
     if(!parseInt(score1.value) || parseInt(score1.value) > 7){
         alert("Grade should not be 0 and is lower or equal to the max score.");
         return;
@@ -276,7 +276,7 @@ returnBtn.addEventListener('click', async function(){
     content['2'].Score = String(score2.value);
     content['3'].Score = String(score3.value);
     content['4'].Score = String(score4.value);
-    console.log(content);
+    
     score.value = String(parseInt(score1.value)+parseInt(score2.value)+parseInt(score3.value)+parseInt(score4.value));
     
 
@@ -299,10 +299,10 @@ returnBtn.addEventListener('click', async function(){
 
     const data = await response.json();
     if (response.ok) {
-        console.log("Success Data : ",data);
+        
         location.reload();
     } else {
-        console.log("Error Data : ",data);
+        
     }
 
 

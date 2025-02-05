@@ -29,10 +29,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -51,7 +51,7 @@ window.addEventListener('load', async function () {
 
     const data = await response.json();
     if (response.ok) {
-        console.log("Success Data:", data);
+        
 
         const schoolRowWrapper = document.querySelector('.school-row-wrapper');
 
@@ -75,7 +75,7 @@ window.addEventListener('load', async function () {
         });
     } else {
         window.location.href = '../../get-started.html'; 
-        console.log("Error Data:", data);
+        
     }
  
 });

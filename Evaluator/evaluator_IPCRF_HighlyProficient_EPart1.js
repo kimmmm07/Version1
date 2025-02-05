@@ -1467,7 +1467,7 @@ document.querySelectorAll('input[type="radio"]').forEach((input) => {
 
 // Function to handle rating selection
 function selectRating(button, questionId, rating) {
-    console.log(`Question ${questionId} rated: ${rating}`);
+    
     // Add your validation or processing logic here
 }
 
@@ -1625,10 +1625,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -1667,9 +1667,9 @@ async function getIPCRF() {
 
         ipcrf = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", ipcrf); 
+            
             employee_id = ipcrf.employee_id;
-            console.log("Success Data : ", employee_id);
+            
 
             if (employee_id){
                 employee_id = employee_id + '_evhp_';
@@ -1686,11 +1686,11 @@ async function getIPCRF() {
             const con4 = content["Community Linkages and Professional Engagement & Personal Growth and Professional Development"];
             const con5 = content["PLUS FACTOR"];
 
-            console.log("Content 1 : ", con1);
-            console.log("Content 2 : ", con2);
-            console.log("Content 3 : ", con3);
-            console.log("Content 4 : ", con4);
-            console.log("Content 5 : ", con5);
+            
+            
+            
+            
+            
  
             Efficiency1_5.innerHTML = `<input type="radio"   value="5" checked disabled>  
             ${con1["1"]["EFFICIENCY"]["Rate"]} - ${con1["1"]["EFFICIENCY"][con1["1"]["EFFICIENCY"]["Rate"]]}`;
@@ -1746,7 +1746,7 @@ async function getIPCRF() {
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", ipcrf);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -1814,7 +1814,7 @@ async function updateIPCRF() {
 
         const result = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", result);
+            
             alert("Form is submitted successfully");
             setTimeout(()=>{
                 location.href = 'ipcrf_mt1-4.html';
@@ -1822,7 +1822,7 @@ async function updateIPCRF() {
             },1000)
 
         } else {
-            console.log("Error Data : ", result);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

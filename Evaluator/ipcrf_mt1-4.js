@@ -59,10 +59,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -120,13 +120,12 @@ function clickToRate( teacher ){
 
 
 function addRecord(record) {
-    console.log(record)
     const teacher = record['teacher'];
     const ipcrf = record['ipcrf_form'];
 
-    console.log(teacher);
-    console.log(ipcrf);
-    console.log(teacher.employee_id);
+    
+    
+    
 
     const tbody = document.getElementById("records-tbody");
     const tr = document.createElement("tr");
@@ -201,7 +200,7 @@ async function getIPCRFTakers(){
 
         const data = await response.json();
         if(response.ok){
-            console.log("Success Data : ", data);
+            
             data.ipcrf_forms_data_highly_proficient.forEach(record => {
                 if(record?.teacher?.is_deactivated == false){
                     addRecord(record);
@@ -209,11 +208,11 @@ async function getIPCRFTakers(){
             });
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
 
     } catch(err){
-        console.log(err);
+        
     }
 }
 

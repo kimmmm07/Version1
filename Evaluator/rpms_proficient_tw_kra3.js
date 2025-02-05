@@ -27,11 +27,11 @@ const attachmentKra3 = document.getElementById("attachmentKra3");
 
 // Event listener examples for testing interactions
 // toggleContainer.addEventListener("click", () => {
-//     console.log("Toggle clicked!");
+//     
 // });
 
 // nameCheckbox.addEventListener("change", () => {
-//     console.log(`Checkbox for "Jessica Sanchez Ramirez" changed: ${nameCheckbox.checked}`);
+//     
 // });
 
 
@@ -109,10 +109,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -152,9 +152,9 @@ let submitted = undefined;
 
 
 const class_work_id = sessionStorage.getItem('kra_3_id');
-console.log(class_work_id);
+
 const teacher_id = sessionStorage.getItem('teacher_id');
-console.log(teacher_id);
+
 let teacher_name = undefined;
 
 async function getTeacherAttachments() {
@@ -177,7 +177,7 @@ async function getTeacherAttachments() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             teacher = data.teacher;
             submitted = data.submitted?.[0];
 
@@ -255,7 +255,7 @@ async function getTeacherAttachments() {
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

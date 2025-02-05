@@ -58,7 +58,7 @@ setInterval(function() {
 
 // Example usage
 // const selectedValues = getSelectedCheckboxValues();
-// console.log(selectedValues); // Logs an array of selected checkbox values
+// // Logs an array of selected checkbox values
 
 
 
@@ -85,7 +85,7 @@ function saveCompetencies() {
     updateIPCRF2(); // update IPCRF
     // Store data in localStorage
     localStorage.setItem('competencies', JSON.stringify(competencies));
-    // console.log( JSON.stringify(competencies) );
+    // 
     // Redirect to the next page
     // window.location.href = 'ipcrf_proficient_part3.html';
 }
@@ -109,13 +109,13 @@ async function getIPCRF(){
 
         ipcrf_content = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", ipcrf_content);
+            
             employee_id = ipcrf_content.ipcrf.employee_id;
 
             employee_id && autofill()
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", ipcrf_content);
+            
             // alert("Login Failed.")
         }
     } catch (error) {
@@ -152,13 +152,13 @@ async function updateIPCRF2(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            
             alert("Form submitted successfully!");
             setTimeout(() => {
                 location.href = 'teacher_choices_form.html';
             }, 2000);
         } else {
-            console.log("Error Data : ", data);
+            
             // alert("Login Failed.")
         }
     } catch (error) {
@@ -176,7 +176,6 @@ function autofill(){
     service_orientation_selected = JSON.parse(localStorage.getItem(employee_id + 'service_orientation_selected'));
     innovation_selected = JSON.parse(localStorage.getItem(employee_id + 'innovation_selected'));
 
-    console.log(self_management_selected)
     if(self_management_selected){
         self_management_selected.forEach(item => {
             checkTheBoxValues(obj1Checkboxes, item);

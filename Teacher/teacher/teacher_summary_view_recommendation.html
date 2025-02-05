@@ -204,10 +204,10 @@
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -228,7 +228,7 @@ window.addEventListener('load', async function () {
     
     const data = await response.json();
     if (response.ok) {
-        console.log("Success Data : ",data);
+        
         profile_teacher = data.user;
         const teacherData = data.user;
 
@@ -237,7 +237,7 @@ window.addEventListener('load', async function () {
 
 
     } else {
-        console.log("Error Data : ",data);
+        
     }
       
 });
@@ -264,7 +264,7 @@ async function getReport(){
 
         teacher_data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", teacher_data);
+            
             document.getElementById('performanceRating').textContent = teacher_data.performance_rating;
             document.getElementById('finalRating').textContent = teacher_data.rating ? teacher_data.rating.evaluator_rating.toFixed(2) : "N/A";
             document.getElementById('yearsOfExperience').textContent = teacher_data.job.years + " years and " + teacher_data.job.months + " months";
@@ -307,7 +307,7 @@ async function getReport(){
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", teacher_data);
+            
             // alert("Login Failed.")
         }
     } catch (error) {

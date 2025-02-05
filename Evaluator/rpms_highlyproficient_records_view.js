@@ -96,10 +96,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -115,10 +115,10 @@ yesButton.addEventListener('click', async function() {
 function populateKraList( data , element) {
     element.innerHTML = ''; // Clear existing list items
     data.forEach((item, index) => {
-        console.log(item); 
+        
         const filename = item.file.substring(item.file.lastIndexOf('/') + 1);
 
-        console.log(filename);  // Output: IPCRF_Summary_Sheet_8dFHmCw.pdf
+        // Output: IPCRF_Summary_Sheet_8dFHmCw.pdf
 
         const randomInteger = Math.floor(Math.random() * 10000) + 1;
 
@@ -150,10 +150,10 @@ function populateKraList( data , element) {
                     document.body.appendChild(a);
                     a.click();
                     a.remove();
-                    console.log("File downloaded successfully"); 
+                    
                 } else {
                     const errorData = await response.json();
-                    console.log("Error Data : ", errorData);
+                    
                 }
             } catch (error) {
                 console.error("Error during fetch:", error);
@@ -192,7 +192,7 @@ async function fetchRPMSList(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
  
             populateKraList(data['KRA 1: Content Knowledge and Pedagogy'] , kra1List); 
             populateKraList(data['KRA 2: Learning Environment and Diversity of Learners'] , kra2List); 
@@ -202,7 +202,7 @@ async function fetchRPMSList(){
 
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

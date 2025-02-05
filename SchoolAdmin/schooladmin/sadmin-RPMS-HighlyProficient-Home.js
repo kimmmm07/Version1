@@ -29,10 +29,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -336,13 +336,13 @@ async function getRPMSFolder() {
         });
         const folders = await response.json();
         if (response.ok) {
-            console.log("Success Data: ", folders);
+            
             folders.rpms_folders.forEach(folder => {
                 generateCard(folder);
             });
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data: ", folders);
+            
         }
     } catch (error) {
         console.error(error);
@@ -397,7 +397,7 @@ createBtn.addEventListener('click', async () => {
             const data = await response.json();
 
             if (response.ok) {
-                console.log('Folder created successfully:', data);
+                
             } else {
                 console.error('Error creating folder:', data.error);
             }

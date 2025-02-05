@@ -23,11 +23,11 @@ const dueDateReminders = document.getElementById("due-date-reminders");
 
 // Toggling notification settings
 emailNotifications.addEventListener("change", () => {
-    console.log(`Email notifications: ${emailNotifications.checked ? "Enabled" : "Disabled"}`);
+    
 });
 
 commentsPosts.addEventListener("change", () => {
-    console.log(`Comments on your posts: ${commentsPosts.checked ? "Enabled" : "Disabled"}`);
+    
 });
 
 
@@ -77,10 +77,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

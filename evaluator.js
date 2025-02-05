@@ -7,8 +7,8 @@ window.addEventListener('load', async function() {
         const employeeId = document.querySelector('input[name="employeeid').value;
         const password = document.querySelector('input[name="password"]').value;
     
-        console.log('Employee ID:', employeeId);
-        console.log('Password:', password);
+        
+        
     
         const formData = new FormData();
         formData.append('employee_id', employeeId); 
@@ -27,10 +27,10 @@ window.addEventListener('load', async function() {
     
             const data = await response.json();
             if (response.ok) {
-                console.log("Success Data : ", data); 
+                
                 window.location.href = 'Evaluator/evaluator_dashboard.html'; 
             } else {
-                console.log("Error Data : ", data);
+                
                 alert("Login Failed.")
             }
         } catch (error) {

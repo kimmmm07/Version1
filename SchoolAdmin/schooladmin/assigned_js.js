@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
                     // Move the faculty member to the deactivated list (if you have an array or state to track)
                     const facultyId = facultyRow.dataset.facultyId; // Get the ID of the faculty
-                    console.log(`Deactivating faculty ID: ${facultyId}`); // Log for verification
+                    // Log for verification
                     // You can use AJAX to send this ID to your server if needed
     
                     // For demo purposes, let's just remove it from the table for now

@@ -17,9 +17,9 @@ async function logout(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            
         } else {
-            console.log("Error Data : ", data);
+            
             // alert("Login Failed.")
         }
     } catch (error) {

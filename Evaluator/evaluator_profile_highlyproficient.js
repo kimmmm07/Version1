@@ -46,7 +46,7 @@ window.addEventListener('load', async function () {
     
     const data = await response.json();
     if (response.ok) {
-        console.log("Success Data : ",data);
+        
         const evaluatorData = data.evaluator;
 
         if (evaluatorData.profile) {
@@ -65,7 +65,7 @@ window.addEventListener('load', async function () {
         document.getElementById('job-started').textContent = new Date(evaluatorData.job_started).toLocaleDateString("en-US", { month: 'long', day: 'numeric', year: 'numeric' });
 
     } else {
-        console.log("Error Data : ",data);
+        
     }
      
 
@@ -103,10 +103,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

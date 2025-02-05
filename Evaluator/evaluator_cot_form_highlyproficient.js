@@ -116,7 +116,7 @@ const submitBtn = document.getElementById("SubmitBtn");
 
 // Function to handle rating selection
 function selectRating(button, questionId, rating) {
-    console.log(`Question ${questionId} rated: ${rating}`);
+    
     if (questionId === 'q1') {
         q1 = rating;
         // Save data to localStorage
@@ -200,10 +200,10 @@ async function getEvaluator() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             evaluator = data.evaluator;
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -236,7 +236,7 @@ async function getCot() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             cot = data.cot;
             teacher = data.teacher;
             cot_content = data.cot.content; 
@@ -245,7 +245,7 @@ async function getCot() {
             teacher && autoFill(teacher?.employee_id);
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -302,10 +302,10 @@ async function updateCot() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            
             window.location.href = 'cot_mt1-4.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
             alert("Something went wrong.");
         }
     } catch (error) {
@@ -344,9 +344,9 @@ submitBtn.addEventListener('click', async function(event) {
 
         const department = String(document.getElementById('department').value); //subject selected
         const comment = String(document.getElementById('comments').value);
-        console.log(department);
-        console.log(comment);
-        console.log(forms);  //display forms
+        
+        
+        //display forms
         updateCot();
         alert('Form submitted successfully!');
         setTimeout(()=>{
@@ -392,10 +392,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

@@ -31,10 +31,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -91,7 +91,7 @@ async function getrpmsSchoolYears() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);   
+            
 
             school_years = [...new Set([...data.school_years.proficient, ...data.school_years.highly_proficient])];
 
@@ -99,7 +99,7 @@ async function getrpmsSchoolYears() {
             populateYearDropdowns();
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -132,7 +132,7 @@ async function  getTeachers() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
 
             data.proficient.forEach(teacher => { 
 
@@ -152,7 +152,7 @@ async function  getTeachers() {
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -179,7 +179,7 @@ async function  getRecommendations(selectedName) {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             let result = data.result;
             
             document.getElementById('promotion').textContent = "Promotion : " + result.promotion_percentage.toFixed(2) + "%";
@@ -222,7 +222,7 @@ async function  getRecommendations(selectedName) {
                 }
             });
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -248,7 +248,7 @@ async function getPerformance(selectedName) {
     
             const data = await response.json();
             if (response.ok) {
-                console.log("Success Data : ", data);
+                
                 let result = data.result;
 
                 if (performanceChart) {
@@ -277,7 +277,7 @@ async function getPerformance(selectedName) {
                     }
                 });
             } else {
-                console.log("Error Data : ", data);
+                
             }
         } catch (error) {
             console.error("Error during fetch:", error);
@@ -304,7 +304,7 @@ async function getKRA(selectedName) {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            
 
             if (kraChart){
                 kraChart.destroy();
@@ -345,7 +345,7 @@ async function getKRA(selectedName) {
 
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -372,14 +372,14 @@ async function getSwot(selectedName) {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             strengths.textContent = data.strength;
             weaknesses.textContent = data.weakness;
             opportunities.textContent = data.opportunity;
             threats.textContent = data.threat;
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

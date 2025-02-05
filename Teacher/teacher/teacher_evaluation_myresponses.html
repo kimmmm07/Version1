@@ -114,10 +114,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -266,12 +266,11 @@ async function getKRASchoolYears() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             school_years = [...school_years , ...new Set([...data.school_years.proficient, ...data.school_years.highly_proficient])];
-            console.log(school_years)
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -293,13 +292,12 @@ async function getIPCRFSchoolYears() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             school_years = [ ...school_years , ...new Set([...data.school_years.proficient, ...data.school_years.highly_proficient]) ];
-            console.log(school_years)
  
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -323,7 +321,7 @@ async function getRPMS(){
 
         rpms_data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", rpms_data);
+            
             rpms_data.rpms_taker.forEach(rpms_taker => {
                 
                 if (rpms_taker.rpms_taker.employee_id == user.user.employee_id) {
@@ -339,7 +337,7 @@ async function getRPMS(){
                 }
             });
         } else {
-            console.log("Error Data : ", rpms_data);
+            
         }
     } catch(error){
         console.error("Error during fetch:", error);
@@ -364,7 +362,7 @@ async function getIPCRF(){
 
         ipcrf_data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", ipcrf_data);
+            
             ipcrf_data.ipcrf_taker.forEach(ipcrf_taker => {
                 
                 if (ipcrf_taker.ipcrf_taker.employee_id == user.user.employee_id) {
@@ -379,7 +377,7 @@ async function getIPCRF(){
                 }
             });
         } else {
-            console.log("Error Data : ", ipcrf_data);
+            
             
         }
     } catch(error){
@@ -426,7 +424,7 @@ async function getUser(){
 
         user = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", user);
+            
 
             if (school_years.length == 0) {
                 await getKRASchoolYears();
@@ -446,7 +444,7 @@ async function getUser(){
             getRPMS(); 
 
         } else {
-            console.log("Error Data : ", user);
+            
         }
     } catch(error){
         console.error("Error during fetch:", error);

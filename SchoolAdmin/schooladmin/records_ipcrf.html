@@ -119,10 +119,10 @@
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -161,7 +161,6 @@ function addOption(year) {
 function renderFacultyList(data) {
     const tbody = document.getElementById('faculty-list');
     tbody.innerHTML = '';  // Clear existing content
-    console.log(data[0])
     data.forEach(member => {
         const tr = document.createElement('tr');
         tr.classList.add('second-row');
@@ -227,13 +226,12 @@ async function fetchData() {
         
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
  
             quarter = data.quarter;
             takers = data.ipcrf_taker;
 
             if (!school_years){
-                console.log('School years : ', school_years)
                 school_years = [...new Set([...data.p_school_year, ...data.hp_school_year])];
                 schoolYearSelect.innerHTML = `<option value="all">All School Year</option> `;
                 school_years.forEach(year => {
@@ -249,10 +247,10 @@ async function fetchData() {
  
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
-        console.log("Error Data : ", error);
+        
     } 
 }
 
@@ -265,13 +263,13 @@ fetchData();
 document.getElementById("teacherTypeSelect").addEventListener("change", function() {
     const selectedValue = this.value;
     if (selectedValue) {
-        console.log("Selected value:", selectedValue);
+        
     }
 
 
     let new_data = [];
     takers.forEach(taker => { 
-        console.log("Result" , taker.ipcrf_taker.is_proficient && selectedValue == "Highly Proficient");
+        
         if (taker.ipcrf_taker.is_proficient && selectedValue == "Proficient") {
             new_data.push(taker);
         } else if ( !taker.ipcrf_taker.is_proficient && selectedValue == "Highly Proficient") {

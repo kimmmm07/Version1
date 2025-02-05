@@ -98,10 +98,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -128,10 +128,10 @@ async function getProfile() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             user = data;
         } else {
-            console.log("Error Data : ", data);
+            
         }
     }
     catch (error) {
@@ -168,13 +168,13 @@ async function updateProfile() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);                     
+            
             alert("Profile updated successfully.");
             setTimeout(() => {
                 window.location.href = "evaluator_profile.html";
             }, 500);
         } else {
-            console.log("Error Data : ", data);
+            
         }
 
 

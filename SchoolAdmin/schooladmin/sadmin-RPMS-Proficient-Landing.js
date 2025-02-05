@@ -27,7 +27,7 @@ async function getClassworks() {
         const data = await response.json();
 
         if (response.ok){
-            console.log("Success Data : ",data);
+            
             data.rpms_classworks.forEach(classwork => {
                 if (classwork.title == "PLUS FACTOR") {
                     plus_factor_id = classwork.class_work_id;
@@ -42,13 +42,13 @@ async function getClassworks() {
                 }
             })
 
-            console.log("KRA 1 ID: ", kra_1_id);
-            console.log("KRA 2 ID: ", kra_2_id);
-            console.log("KRA 3 ID: ", kra_3_id);
-            console.log("KRA 4 ID: ", kra_4_id);
-            console.log("PLUS FACTOR ID: ", plus_factor_id);
+            
+            
+            
+            
+            
         } else {
-            console.log("Error Data : ",data); 
+            
         }
 
     } catch (err){
@@ -146,10 +146,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

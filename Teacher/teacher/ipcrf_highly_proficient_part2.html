@@ -322,7 +322,7 @@
 
         // To access each checkbox within each section, you can loop over the NodeList:
         selfManagementCheckboxes.forEach((checkbox) => {
-            console.log(checkbox.value, checkbox.checked); // Example: Get the id and check status of each checkbox
+            // Example: Get the id and check status of each checkbox
             if (checkbox.checked) {
                 if (!selfManagementSelected.includes(checkbox.value)) {
                     selfManagementSelected.push(checkbox.value);
@@ -336,7 +336,7 @@
         });
 
         professionalismCheckboxes.forEach((checkbox) => {
-            console.log(checkbox.id, checkbox.checked);
+            
             if (checkbox.checked) {
                 if (!professionalismSelected.includes(checkbox.value)) {
                     professionalismSelected.push(checkbox.value);
@@ -351,7 +351,7 @@
         });
 
         resultsFocusCheckboxes.forEach((checkbox) => {
-            console.log(checkbox.id, checkbox.checked);
+            
             if (checkbox.checked) {
                 if (!resultsFocusSelected.includes(checkbox.value)) {
                     resultsFocusSelected.push(checkbox.value);
@@ -365,7 +365,7 @@
         });
 
         teamworkCheckboxes.forEach((checkbox) => {
-            console.log(checkbox.id, checkbox.checked);
+            
             if (checkbox.checked) {
                 if (!teamworkSelected.includes(checkbox.value)) {
                     teamworkSelected.push(checkbox.value);
@@ -379,7 +379,7 @@
         });
         
         serviceOrientationCheckboxes.forEach((checkbox) => {
-            console.log(checkbox.id, checkbox.checked);
+            
             if (checkbox.checked) {
                 if (!serviceOrientationSelected.includes(checkbox.value)) {
                     serviceOrientationSelected.push(checkbox.value);
@@ -393,7 +393,7 @@
         });
 
         innovationCheckboxes.forEach((checkbox) => {
-            console.log(checkbox.id, checkbox.checked);
+            
             if (checkbox.checked) {
                 if (!innovationSelected.includes(checkbox.value)) {
                     innovationSelected.push(checkbox.value);
@@ -443,10 +443,10 @@
 
                 const data = await response.json();
                 if (response.ok) {
-                    console.log("Success Data : ", data); 
+                    
                     window.location.href = '../../get-started.html'; 
                 } else {
-                    console.log("Error Data : ", data);
+                    
                 }
             } catch (error) {
                 console.error("Error during fetch:", error);
@@ -511,13 +511,13 @@ async function getIPCRF(){
 
         ipcrf_content = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", ipcrf_content);  
+            
             employee_id = ipcrf_content.ipcrf.employee_id;
 
             employee_id && autofill()
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", ipcrf_content);
+            
             // alert("Login Failed.")
         }
     } catch (error) {
@@ -554,13 +554,13 @@ async function updateIPCRF2(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            
             alert("Form submitted successfully!");
             setTimeout(() => {
                 location.href = 'teacher_choices_hp.html';
             }, 2000);
         } else {
-            console.log("Error Data : ", data);
+            
             
             // alert("Login Failed.")
         }
@@ -579,7 +579,6 @@ function autofill(){
     service_orientation_selected = JSON.parse(localStorage.getItem(employee_id + 'service_orientation_selected'));
     innovation_selected = JSON.parse(localStorage.getItem(employee_id + 'innovation_selected'));
 
-    console.log(self_management_selected)
     if(self_management_selected){
         self_management_selected.forEach(item => {
             checkTheBoxValues(selfManagementCheckboxes, item);

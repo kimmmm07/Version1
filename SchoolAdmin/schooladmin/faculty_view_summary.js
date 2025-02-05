@@ -160,10 +160,10 @@ yesButton.addEventListener('click', async function() {
 
     const data = await response.json();
     if (response.ok) {
-        console.log("Success Data : ", data); 
+        
         window.location.href = '../../get-started.html'; 
     } else {
-        console.log("Error Data : ", data);
+        
     }
     } catch (error) {
     console.error("Error during fetch:", error);
@@ -197,14 +197,14 @@ async function fetchSummary() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             
             totalTeacher.textContent = data.teacher_count;
             evaluationConducted.textContent = data.evaluated_teacher_count;
             totalPending.textContent = data.un_evaluated_teacher_count;
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -285,7 +285,7 @@ async function fetchTenure() {
         const data = await response.json();
 
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             // tenure_data[0] = data["0-3 years"];
             // tenure_data[1] = data["3-5 years"];
             // tenure_data[2] = data["5+ years"]; 
@@ -294,7 +294,7 @@ async function fetchTenure() {
             updateTenureChart(data.all)
             
         } else {
-            console.log("Error Data : ", data); 
+            
         }
 
         // Do something with the data
@@ -366,13 +366,13 @@ async function fetchRecommendation() {
         const data = await response.json();
 
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
 
             recommendation_data = data;
             updateRecommendationChart(data.all);
             
         } else {
-            console.log("Error Data : ", data); 
+            
         }
 
         // Do something with the data
@@ -436,13 +436,13 @@ async function fetchPerformance() {
         const data = await response.json();
 
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
 
             performance_data = data;
             updatePerformanceChart(data.all)
             
         } else {
-            console.log("Error Data : ", data); 
+            
         }
 
         // Do something with the data
@@ -507,10 +507,10 @@ async function fetchKRAs(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             updateKRAChart(data);
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

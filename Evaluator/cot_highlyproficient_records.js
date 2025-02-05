@@ -15,17 +15,17 @@ async function fixRedirections(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             user = data.evaluator;
             if (!data.evaluator.is_proficient){
                 window.location.href = 'cot_highlyproficient_records.html';
             } 
             //window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     }catch(error){
-        console.log(error);
+        
     }
 }
 setTimeout(fixRedirections, 0); 
@@ -46,16 +46,16 @@ async function fixRedirections(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             if (data.evaluator.is_proficient){
                 window.location.href = 'proficient_records.html';
             } 
             //window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     }catch(error){
-        console.log(error);
+        
     }
 }
 
@@ -126,7 +126,7 @@ const recordsTable = document.getElementById('recordsTable');
 
 //     // Handle school year selection
 //     schoolYearDropdown.addEventListener("change", function () {
-//         console.log("Selected School Year:", schoolYearDropdown.value);
+//         
 //         // Save the selected value to localStorage
 //         localStorage.setItem('selectedSchoolYear', schoolYearDropdown.value);
 //     });
@@ -175,10 +175,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -211,7 +211,7 @@ async function fetchData() {
         
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
 
             quarter = data.quarter;
             takers = data.cot_taker;
@@ -240,10 +240,10 @@ async function fetchData() {
  
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
-        console.log("Error Data : ", error);
+        
     } 
 }
 
@@ -363,7 +363,7 @@ document.getElementById("selectQuarter").addEventListener("change", async functi
 
     const selectedValue = document.getElementById("teacherTypeSelect").value;
     if (selectedValue) {
-        console.log("Selected Value:", selectedValue);
+        
     }
 
     let new_data = [];
@@ -377,12 +377,11 @@ document.getElementById("selectQuarter").addEventListener("change", async functi
 
     const selectedQuarter = this.value;
     if (selectedQuarter) {
-        console.log("Selected Quarter:", selectedQuarter);
+        
     }
 
     new_data.forEach(taker => { 
-        console.log("Result", taker.quarter == selectedQuarter, selectedQuarter != "all");
-        console.log("Result", taker.quarter)
+        
         if (taker.quarter == selectedQuarter) {
             filtered_data.push(taker);
         } else if ("all" == selectedQuarter) {
@@ -390,7 +389,7 @@ document.getElementById("selectQuarter").addEventListener("change", async functi
         }
     });
 
-    console.log(filtered_data);
+    
     tableBody = document.getElementById("teacherTableBody");
     tableBody.innerHTML = "";
     filtered_data.forEach( teacher =>{

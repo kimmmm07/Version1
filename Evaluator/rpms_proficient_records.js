@@ -46,10 +46,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -88,7 +88,7 @@ async function fetchData() {
         
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
 
             hp_school_year = data.hp_school_year;  
             takers = data.rpms_taker;
@@ -110,10 +110,10 @@ async function fetchData() {
  
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
-        console.log("Error Data : ", error);
+        
     } 
 }
 
@@ -233,12 +233,12 @@ function viewCOTForm(teacher_id ){
 teacherTypeSelect.addEventListener("change", function() {
     const selectedValue = this.value;
     if (selectedValue) {
-        console.log("Selected value:", selectedValue);
+        
     } 
 
     let new_data = []; 
     takers.forEach(taker => { 
-        console.log("Result" , taker.rpms_taker.is_proficient && selectedValue == "Highly Proficient");
+        
         if (taker.rpms_taker.is_proficient && selectedValue == "Proficient") {
             new_data.push(taker);
         } else if ( !taker.rpms_taker.is_proficient && selectedValue == "Highly Proficient") {

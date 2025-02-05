@@ -222,10 +222,10 @@
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -262,7 +262,7 @@ async function fetchData() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             let ipcrf = data.ipcrf;
             let ipcrf_3 = data.ipcrf_3;
             let teacher = data.teacher;
@@ -287,7 +287,6 @@ async function fetchData() {
 
 
             let content_A = ipcrf_3?.content_for_teacher['A'][0];
-            console.log(content_A)
             document.getElementById("functionalStrengths").value = content_A ? content_A['Strenghts'].join("\n") : "Not Answered Yet";
             document.getElementById("functionalDevelopmentNeeds").value = content_A ? content_A['Development Needs'].join("\n") : "Not Answered Yet";
             document.getElementById("functionalLearningObjectives").value = content_A ? content_A['Learning Objectives'] : "Not Answered Yet";
@@ -297,7 +296,6 @@ async function fetchData() {
 
 
             let content_B = ipcrf_3?.content_for_teacher.B;
-            console.log(content_B)
             document.getElementById("behavioralStrengths").value = content_B ? content_B['Strenghts'].join("\n") : "Not Answered Yet";
             document.getElementById("behavioralDevelopmentNeeds").value = content_B ? content_B['Development Needs'].join("\n") : "Not Answered Yet";
             document.getElementById("behavioralLearningObjectives").value = content_B ? content_B['Learning Objectives'] : "Not Answered Yet";
@@ -308,10 +306,10 @@ async function fetchData() {
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch(err){
-        console.log(err);
+        
     }
 
 }

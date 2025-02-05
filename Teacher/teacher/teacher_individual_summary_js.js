@@ -101,7 +101,7 @@ async function  getRecommendations() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             let result = data.result;
             
             document.getElementById('promotionLabel').textContent = "Promotion : " + result.promotion_percentage.toFixed(2) + "%";
@@ -145,7 +145,7 @@ async function  getRecommendations() {
             });
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -168,7 +168,7 @@ async function getPerformance() {
     
             const data = await response.json();
             if (response.ok) {
-                console.log("Success Data : ", data);
+                
                 let result = data.result;
 
                 if (performanceChart) {
@@ -198,7 +198,7 @@ async function getPerformance() {
                 });
             } else {
                 window.location.href = '../../get-started.html'; 
-                console.log("Error Data : ", data);
+                
             }
         } catch (error) {
             console.error("Error during fetch:", error);
@@ -223,14 +223,14 @@ async function getSwot() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             strengths.textContent = data.strength;
             weaknesses.textContent = data.weakness;
             opportunities.textContent = data.opportunity;
             threats.textContent = data.threat;
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -291,7 +291,7 @@ async function getKRASchoolYears() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             p_school_years = data.school_years.proficient;
             hp_school_years = data.school_years.high_proficient; 
 
@@ -299,7 +299,7 @@ async function getKRASchoolYears() {
             populateYearDropdowns();
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -335,11 +335,11 @@ async function getUser(){
 
         user = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", user); 
+            
             getKRASchoolYears();
 
         } else {
-            console.log("Error Data : ", user);
+            
         }
     } catch(error){
         console.error("Error during fetch:", error);
@@ -379,7 +379,7 @@ async function getKRA() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            
 
             if (kraChart){
                 kraChart.destroy();
@@ -420,7 +420,7 @@ async function getKRA() {
 
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

@@ -48,10 +48,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -86,7 +86,7 @@ async function fetchData() {
         
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             
             if (!p_school_year){
                 p_school_year = data.p_school_year; 
@@ -111,10 +111,10 @@ async function fetchData() {
  
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
-        console.log("Error Data : ", error);
+        
     } 
 }
 
@@ -244,7 +244,7 @@ function viewCOTForm(teacher_id , quarter){
 teacherTypeSelect.addEventListener("change", function() {
     const selectedValue = this.value;
     if (selectedValue) {
-        console.log("Selected value:", selectedValue);
+        
     } 
 
     let new_data = []; 

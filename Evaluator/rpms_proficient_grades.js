@@ -59,7 +59,7 @@ closeBtn.addEventListener('click', () => {
 
 // Example event listener for tab switch (Grades/Stream)
 gradesTab.addEventListener('click', () => {
-  console.log("Grades tab clicked");
+  
 });
 
 
@@ -90,7 +90,7 @@ async function getClassworksResult(){
         const result = await response.json();
 
         if (response.ok) {
-            console.log("Success Data : ", result);  
+            
             let overallScoreData = 0;
             result.scores.forEach(classwork => {
                 if (classwork.title == "PLUS FACTOR") {
@@ -118,7 +118,7 @@ async function getClassworksResult(){
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", result);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -172,10 +172,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

@@ -35,7 +35,7 @@ const submissionModalCloseBtn = document.getElementById('submissionModalCloseBtn
 const submissionModalTitle = document.getElementById('submissionModalTitle');
 
 const class_work_id = sessionStorage.getItem('plus_factor_id');
-console.log(class_work_id);
+
 
 // Stepper Item 1 Elements
 const stepItem = document.getElementById('step-item');
@@ -131,7 +131,7 @@ function renderFileList() {
     if (uploadedFiles.length > 0) {
         addCreateBtn.style.display = 'none';
     }
-    console.log(uploadedFiles);
+    
 
     uploadedFiles.forEach((file, index) => {
         const fileDiv = document.createElement('div');
@@ -280,7 +280,7 @@ async function getAttachments() {
 
         if (response.ok) {
             const responseData = await response.json();
-            console.log('Fetched attachments:', responseData);
+            
             mainfile = responseData.submitted?.[0];
 
             // Handle fetched submitted files
@@ -400,7 +400,7 @@ async function sendFilesToBackend() {
 
         if (response.ok) {
             const responseData = await response.json();
-            console.log('Files successfully uploaded:', responseData);
+            
             location.reload();
         } else {
             console.error('Failed to upload files:', response.statusText);
@@ -429,7 +429,7 @@ async function unSubmitAttachment() {
 
         if (response.ok) {
             const responseData = await response.json();
-            console.log('Files successfully unsubmitted:', responseData);
+            
             location.reload();
         } else {
             console.error('Failed to unsubmit files:', response.statusText);

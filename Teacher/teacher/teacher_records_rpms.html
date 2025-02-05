@@ -223,10 +223,10 @@
 
                         const data = await response.json();
                         if (response.ok) {
-                            console.log("Success Data : ", data); 
+                            
                             window.location.href = '../../get-started.html'; 
                         } else {
-                            console.log("Error Data : ", data);
+                            
                         }
                     } catch (error) {
                         console.error("Error during fetch:", error);
@@ -293,7 +293,7 @@ async function fetchProfile() {
 
     profile = await response.json();
     if (response.ok) {
-        console.log("Success Data : ", profile); 
+        
 
                     
 
@@ -302,10 +302,10 @@ async function fetchProfile() {
 
 
     } else {
-        console.log("Error Data : ", profile);
+        
     }
     } catch (error) {
-    console.log("Error Data : ", error);
+    
     } 
 }
 
@@ -328,7 +328,7 @@ async function fetchData() {
 
     const data = await response.json();
     if (response.ok) {
-        console.log("Success Data : ", data); 
+        
  
         takers = data.rpms_taker;
 
@@ -342,7 +342,7 @@ async function fetchData() {
         } 
         facultyList.innerHTML = '';
         takers.forEach(taker => {
-            console.log(taker);
+            
             if (taker?.rpms_taker?.employee_id == profile?.user?.employee_id ){
                 addTeacherRow(taker); 
             }
@@ -351,10 +351,10 @@ async function fetchData() {
 
     } else {
         window.location.href = '../../get-started.html'; 
-        console.log("Error Data : ", data);
+        
     }
     } catch (error) {
-    console.log("Error Data : ", error);
+    
     } 
 }
 

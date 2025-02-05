@@ -22,10 +22,10 @@ window.addEventListener('load', async function() {
     
             const data = await response.json();
             if (response.ok) {
-                console.log("Success Data : ", data); 
+                
                 window.location.href = 'HeadAdmin/admin-dashboard-home.html'; 
             } else {
-                console.log("Error Data : ", data);
+                
                 alert("Login Failed.")
             }
         } catch (error) {

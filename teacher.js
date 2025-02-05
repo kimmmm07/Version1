@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const data = await response.json();
             if (response.ok) {
-                console.log("Success Data: ", data);
+                
                 window.location.href = 'Teacher/teacher/teacher_home.html';
             } else {
-                console.log("Error Data: ", data);
+                
                 alert("Login Failed.");
             }
         } catch (error) {

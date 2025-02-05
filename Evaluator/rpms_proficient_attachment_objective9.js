@@ -81,9 +81,9 @@ const privateCommentsSection = document.getElementById('private-comments-section
 const privateCommentsTextarea = document.getElementById('private-comments-textarea'); 
 
 const class_work_id = sessionStorage.getItem('kra_3_id');
-console.log(class_work_id);
+
 const teacher_id = sessionStorage.getItem('teacher_id');
-console.log(teacher_id);
+
 let teacher_name = undefined;
 
 
@@ -136,10 +136,10 @@ yesButton.addEventListener('click', async function() {
 
       const data = await response.json();
       if (response.ok) {
-          console.log("Success Data : ", data); 
+          
           window.location.href = '../../get-started.html'; 
       } else {
-          console.log("Error Data : ", data);
+          
       }
   } catch (error) {
       console.error("Error during fetch:", error);
@@ -171,7 +171,7 @@ async function getTeacherAttachments() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            
             teacher = data.teacher;
             document.getElementById("teacher-name").textContent = teacher.fullname; 
             submitted = data.submitted;
@@ -220,14 +220,14 @@ async function getTeacherAttachments() {
 
 
 
-            console.log(teacher);
-            console.log(submitted);
+            
+            
 
             const dateStr = String(submitted['0'].created_at); 
             const date = new Date(dateStr); 
 
             const url = 'https://bnahs.pythonanywhere.com'+submitted['0']['file'];
-            console.log(url);
+            
             const pdfContainer = document.getElementById('pdf-container');
             document.getElementById('file-btn').addEventListener('click', function(){
                 window.open(url, '_blank');
@@ -264,7 +264,7 @@ async function getTeacherAttachments() {
             };
 
             const formattedDate = date.toLocaleString('en-US', options);
-            console.log(formattedDate);
+            
 
             document.getElementById("file-upload-time").textContent = "Turned in on " +formattedDate;
          
@@ -276,7 +276,7 @@ async function getTeacherAttachments() {
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -291,8 +291,8 @@ getTeacherAttachments();
 returnBtn.addEventListener('click', async function(){
     const rpms_id = submitted['0'].attachment_id;
     let content = submitted['0'].grade;
-    console.log(rpms_id);
-    console.log(content);
+    
+    
     if(!parseInt(score9.value) || parseInt(score9.value) > 7){
         alert("Grade should not be 0 and is lower or equal to the max score.");
         return;
@@ -321,12 +321,12 @@ returnBtn.addEventListener('click', async function(){
 
     const data = await response.json();
     if (response.ok) {
-        console.log("Success Data : ",data);
+        
         setTimeout(() => {
             window.location.href = 'rpms_proficient_tw_kra3.html';
         }, 1000);
     } else {
-        console.log("Error Data : ",data);
+        
     }
 
 

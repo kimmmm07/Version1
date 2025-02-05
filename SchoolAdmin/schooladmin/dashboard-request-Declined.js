@@ -9,7 +9,7 @@ window.addEventListener('load', async function () {
  
      const data = await response.json();
      if (response.ok) {
-         console.log("Success Data:", data);
+         
  
          const schoolRowWrapper = document.querySelector('.school-row-wrapper');
  
@@ -32,7 +32,7 @@ window.addEventListener('load', async function () {
          });
      } else {
         window.location.href = '../../get-started.html'; 
-         console.log("Error Data:", data);
+         
      }
   
  });

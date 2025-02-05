@@ -45,10 +45,10 @@ document.getElementById('menu-icon').addEventListener('click', function() {
     
             const data = await response.json();
             if (response.ok) {
-                console.log("Success Data : ", data); 
+                
                 window.location.href = '../../get-started.html'; 
             } else {
-                console.log("Error Data : ", data);
+                
             }
         } catch (error) {
             console.error("Error during fetch:", error);
@@ -237,13 +237,13 @@ async function getFolders(){
 
         folders = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", folders);
+            
             folders.rpms_folders.forEach(folder => {
                 generateCard(folder);
             })
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", folders);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

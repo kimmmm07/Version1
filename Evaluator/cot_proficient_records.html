@@ -114,9 +114,9 @@
                 const data = await response.json();
      
                 if (response.ok) {
-                    console.log("Success Data : ", data); 
+                    
                 } else {
-                    console.log("Error Data : ", data);
+                    
                 }
     
                 // Do something with the data
@@ -150,17 +150,17 @@
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('schoolYearSelect').addEventListener('change', function() {
                 const schoolYear = String(this.value);
-                console.log("Selected School Year:", schoolYear);
+                
             });
 
             document.getElementById('teacherTypeSelect').addEventListener('change', function() {  //proficient or highly proficient
                 const teacherType = String(this.value);
-                console.log("Selected Teacher Type:", teacherType);
+                
             });
 
             document.getElementById('selectQuarter').addEventListener('change', function() {  
                 const quarter = String(this.value);
-                console.log("Selected Quarter:", quarter);
+                
             });
         });
     </script> -->

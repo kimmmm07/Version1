@@ -159,10 +159,10 @@
 
                 const data = await response.json();
                 if (response.ok) {
-                    console.log("Success Data : ", data); 
+                    
                     window.location.href = '../../get-started.html'; 
                 } else {
-                    console.log("Error Data : ", data);
+                    
                 }
             } catch (error) {
                 console.error("Error during fetch:", error);
@@ -233,7 +233,7 @@ async function getIPCRF(){
         ipcrf_3 = await response.json();
 
         if (response.ok) {
-            console.log("Success Data : ", ipcrf_3);
+            
             employee_id = ipcrf_3['ipcrf']['employee_id'];
             const content = ipcrf_3['ipcrf']['content_for_teacher']; 
             const A = content['A'][0];
@@ -258,7 +258,7 @@ async function getIPCRF(){
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", ipcrf_3);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -273,7 +273,7 @@ async function saveIPCRF(){
     try { 
         
         let content = ipcrf_3['ipcrf']['content_for_teacher'];
-        console.log(content);
+        
         content['A'][0]['Learning Objectives'] = learningA.value;
         content['A'][0]['Intervention'] = interventionA.value;
         content['A'][0]['Timeline'] = timelinessA.value;
@@ -301,13 +301,13 @@ async function saveIPCRF(){
         const result = await response.json();
 
         if (response.ok) {
-            console.log("Success Data : ", result);  
+            
             alert("Form submitted successfully!");
             setTimeout(() => {
                 location.href = 'teacher_choices_hp.html';
             }, 2000);
         } else {
-            console.log("Error Data : ", result);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

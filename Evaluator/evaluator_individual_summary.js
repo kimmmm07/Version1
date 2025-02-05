@@ -208,10 +208,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -276,7 +276,7 @@ async function  getTeachers() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
 
             data.teachers.forEach(teacher => { 
                 if (teacher.is_proficient && user.evaluator.is_proficient){
@@ -293,7 +293,7 @@ async function  getTeachers() {
 
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -318,7 +318,7 @@ async function  getRecommendations(selectedName) {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             let result = data.result;
             
             document.getElementById('promotion').textContent = "Promotion : " + result.promotion_percentage.toFixed(2) + "%";
@@ -361,7 +361,7 @@ async function  getRecommendations(selectedName) {
                 }
             });
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -387,7 +387,7 @@ async function getPerformance(selectedName) {
     
             const data = await response.json();
             if (response.ok) {
-                console.log("Success Data : ", data);
+                
                 let result = data.result;
 
                 if (performanceChart) {
@@ -416,7 +416,7 @@ async function getPerformance(selectedName) {
                     }
                 });
             } else {
-                console.log("Error Data : ", data);
+                
             }
         } catch (error) {
             console.error("Error during fetch:", error);
@@ -443,7 +443,7 @@ async function getKRA(selectedName) {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            
 
             if (kraChart){
                 kraChart.destroy();
@@ -485,7 +485,7 @@ async function getKRA(selectedName) {
 
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -512,14 +512,14 @@ async function getSwot(selectedName) {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             strengths.textContent = data.strength;
             weaknesses.textContent = data.weakness;
             opportunities.textContent = data.opportunity;
             threats.textContent = data.threat;
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -589,7 +589,7 @@ async function getKRASchoolYears() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             p_school_years = data.school_years.proficient;
             hp_school_years = data.school_years.highly_proficient; 
 
@@ -597,7 +597,7 @@ async function getKRASchoolYears() {
             populateYearDropdowns();
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -640,7 +640,7 @@ async function getUser(){
 
         user = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", user); 
+            
             
             getTeachers();
 
@@ -648,7 +648,7 @@ async function getUser(){
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", user);
+            
         }
     } catch(error){
         console.error("Error during fetch:", error);

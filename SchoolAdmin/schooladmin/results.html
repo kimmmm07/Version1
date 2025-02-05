@@ -119,10 +119,10 @@
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -162,7 +162,7 @@ async function getIPCRFSchoolYears() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);   
+            
 
             if (school_years == undefined){
                 school_years = [...new Set([...data.school_years.proficient, ...data.school_years.highly_proficient])];
@@ -174,7 +174,7 @@ async function getIPCRFSchoolYears() {
             document.getElementById("teacher-status-filter").value = "all";
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -187,11 +187,11 @@ async function getIPCRFSchoolYears() {
 function renderFacultyList(data , conditon) {
     const tbody = document.getElementById('faculty-list');
     tbody.innerHTML = '';  // Clear existing content
-    console.log(data );
-    console.log(conditon);
+    
+    
     data.data.forEach(member => {
         if (conditon == "all"){
-            console.log("hello all");
+            
             const tr = document.createElement('tr');
             tr.classList.add('second-row'); 
     
@@ -209,7 +209,7 @@ function renderFacultyList(data , conditon) {
     
             tbody.appendChild(tr);
         } else if ( conditon == "hp" && !member.teacher.is_proficient ){
-            console.log("hello");
+            
             const tr = document.createElement('tr');
             tr.classList.add('second-row'); 
     
@@ -227,7 +227,7 @@ function renderFacultyList(data , conditon) {
     
             tbody.appendChild(tr);
         } else if ( conditon == "p" && member.teacher.is_proficient ) {
-            console.log("hello p");
+            
             const tr = document.createElement('tr');
             tr.classList.add('second-row'); 
     
@@ -276,13 +276,13 @@ async function fetchData(){
         
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             await getIPCRFSchoolYears();
             main_data = data;  
             renderFacultyList(data , "all"); 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -297,7 +297,7 @@ fetchData();
 
 document.getElementById("teacher-status-filter").addEventListener("change", function() {
     const selectedOption = this.value;
-    console.log(selectedOption);
+    
     renderFacultyList(main_data, selectedOption);
 });
 

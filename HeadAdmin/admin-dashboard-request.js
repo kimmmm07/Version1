@@ -29,10 +29,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -55,7 +55,7 @@ window.addEventListener('load', async function() {
     const data = await response.json();
 
     if (response.ok) {
-        console.log("Success Data:", data);
+        
         const baseURL = 'https://bnahs.pythonanywhere.com';
         // Create the userData object
         const userData = [];
@@ -76,7 +76,7 @@ window.addEventListener('load', async function() {
             }
         });
         
-        console.log("Formatted userData:", userData);
+        
         
         // Populate HTML with the data
         const schoolRowWrapper = document.querySelector('.school-row-wrapper');
@@ -107,7 +107,7 @@ window.addEventListener('load', async function() {
         
         // Add event listener for View icon click
         schoolRowWrapper.addEventListener('click', (e) => {
-            console.log("Clicked on View icon", e.target );
+            
             if (e.target.classList.contains('view-icon')) {
                 const row = e.target.closest('.school-row');
                 const data = row.schoolData;  // Access the row's attached school data
@@ -128,7 +128,7 @@ window.addEventListener('load', async function() {
         });
     } else {
         window.location.href = '../../get-started.html'; 
-        console.log("Error Data:", data);
+        
     }
     
     closeModal.addEventListener('click', () => {
@@ -159,11 +159,11 @@ window.addEventListener('load', async function() {
         const data = await response.json();
 
         if (response.ok) {
-            console.log("Success Data: ", data);
+            
             alert("Request succeeded");
             window.location.href = 'admin-dashboard-request.html';
         } else {
-            console.log("Error Data: ", data);
+            
             alert("Request denied.");
         }
     });
@@ -186,11 +186,11 @@ window.addEventListener('load', async function() {
     //     const data = await response.json();
 
     //     if (response.ok) {
-    //         console.log("Success Data: ", data);
+    //         
     //         alert("Request succeeded");
     //         window.location.href = 'admin-dashboard-request.html';
     //     } else {
-    //         console.log("Error Data: ", data);
+    //         
     //         alert("Request denied.");
     //     }
         

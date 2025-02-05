@@ -27,10 +27,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data: ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data: ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -82,7 +82,7 @@ async function createFolder() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data:", data);
+            
             selectedYears.push(selectedYear); // Add the new school year to prevent future duplicates
 
             // Create and add the new category HTML
@@ -109,7 +109,7 @@ async function createFolder() {
             alert('Form created successfully.');
             closeModal();
         } else {
-            console.log("Error Data:", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -133,7 +133,7 @@ async function populateFolders() {
         });
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data: ", data); 
+            
             data.school_years.forEach(school_year => {
                 selectedYears.push(school_year);
 
@@ -155,7 +155,7 @@ async function populateFolders() {
             });
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data: ", data);
+            
         }
     } catch (error) {
         console.error('Error fetching folders:', error);

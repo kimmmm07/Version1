@@ -50,10 +50,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -132,7 +132,7 @@ async function fetchTenure() {
         const data = await response.json();
 
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             // tenure_data[0] = data["0-3 years"];
             // tenure_data[1] = data["3-5 years"];
             // tenure_data[2] = data["5+ years"]; 
@@ -142,7 +142,7 @@ async function fetchTenure() {
             !user.evaluator.is_proficient && updateTenureChart(data.highly_proficient);
             
         } else {
-            console.log("Error Data : ", data); 
+            
         }
 
         // Do something with the data
@@ -214,14 +214,14 @@ async function fetchRecommendation() {
         const data = await response.json();
 
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
 
             recommendation_data = data;
             user.evaluator.is_proficient && updateRecommendationChart(data.proficient);
             !user.evaluator.is_proficient && updateRecommendationChart(data.highly_proficient);
             
         } else {
-            console.log("Error Data : ", data); 
+            
         }
 
         // Do something with the data
@@ -285,14 +285,14 @@ async function fetchPerformance() {
         const data = await response.json();
 
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
 
             performance_data = data;
             user.evaluator.is_proficient && updatePerformanceChart(data.proficient)
             !user.evaluator.is_proficient && updatePerformanceChart(data.highly_proficient)
             
         } else {
-            console.log("Error Data : ", data); 
+            
         }
 
         // Do something with the data
@@ -360,13 +360,13 @@ async function fetchAnnualRatings(){
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);
+            
             
             user.evaluator.is_proficient && updateAnnualRatingChart(data.proficient);
             !user.evaluator.is_proficient && updateAnnualRatingChart(data.highly_proficient);
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -417,7 +417,7 @@ async function getIPCRFSchoolYears() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             p_school_years = data.school_years.proficient;
             hp_school_years = data.school_years.highly_proficient; 
 
@@ -425,7 +425,7 @@ async function getIPCRFSchoolYears() {
             populateYearDropdowns();
 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -463,7 +463,7 @@ async function getUser(){
 
         user = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", user); 
+            
              
 
             await getIPCRFSchoolYears();
@@ -476,7 +476,7 @@ async function getUser(){
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", user);
+            
         }
     } catch(error){
         console.error("Error during fetch:", error);

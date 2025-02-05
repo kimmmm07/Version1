@@ -177,7 +177,7 @@
 
             const data = await response.json();
             if (response.ok) {
-                console.log("Success Data : ", data);
+                
                 let ipcrf = data.ipcrf;
                 let ipcrf_3 = data.ipcrf_3;
                 let teacher = data.teacher;
@@ -221,10 +221,10 @@
 
             } else {
                 window.location.href = '../../get-started.html'; 
-                console.log("Error Data : ", data);
+                
             }
         } catch(err){
-            console.log(err);
+            
         }
 
     }
@@ -263,10 +263,10 @@
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

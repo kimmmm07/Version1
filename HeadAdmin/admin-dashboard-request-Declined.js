@@ -27,10 +27,10 @@ yesButton.addEventListener('click', async function () {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data:", data);
+            
             window.location.href = '../../get-started.html';
         } else {
-            console.log("Error Data:", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -46,7 +46,7 @@ window.addEventListener('load', async function () {
 
     const data = await response.json();
     if (response.ok) {
-        console.log("Success Data:", data);
+        
 
         const schoolRowWrapper = document.querySelector('.school-row-wrapper');
 
@@ -92,7 +92,7 @@ window.addEventListener('load', async function () {
 
     } else {
         window.location.href = '../../get-started.html'; 
-        console.log("Error Data:", data);
+        
     }
 });
 
@@ -103,7 +103,7 @@ function handleDelete(event) {
     const schoolId = event.target.getAttribute('data-id');
     
     // Debug log to check if schoolId is correctly captured
-    console.log("Deleting school with ID:", schoolId);
+    
 
     Swal.fire({
         title: "Are you sure?",
@@ -131,13 +131,13 @@ function handleDelete(event) {
 
                 // Check if the deletion was successful
                 if (response.ok) {
-                    console.log("Delete successful:", data);
+                    
                     Swal.fire("Deleted!", "The school has been deleted.", "success");
                     
                     // Remove the row from the DOM
                     event.target.closest('.school-row').remove();
                 } else {
-                    console.log("Failed to delete:", data);
+                    
                     Swal.fire("Error!", "Failed to delete the school.", "error");
                 }
             } catch (error) {

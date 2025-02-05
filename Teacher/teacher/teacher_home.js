@@ -32,7 +32,7 @@ yesButton.addEventListener('click', async function() {
     if (response.ok) {
         window.location.href = '../../get-started.html'; 
     } else {
-        console.log("Error Data : ",data);
+        
     }
 });
 
@@ -92,7 +92,7 @@ const sendIcon = document.getElementById('send-icon');
 //     const commentText = commentInput.value.trim();
 
 //     if (commentText) {
-//         console.log(`Comment sent: ${commentText}`);
+//         
 //         commentInput.value = ""; // Clear the input field after sending
 //         alert("Your comment has been sent!");
 //     } else {
@@ -207,10 +207,10 @@ const sendIcon = document.getElementById('send-icon');
     
 //     feeds = await response.json();
 //     if (response.ok) {
-//         console.log("Success Data : ",feeds);
+//         
 
 //     } else {
-//         console.log("Error Data : ",feeds);
+//         
 //     }
       
 // });
@@ -263,7 +263,7 @@ async function getFeeds() {
         
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ",data); 
+            
             posts = [];
             Object.keys(data).forEach(key => { 
     
@@ -300,7 +300,7 @@ async function getFeeds() {
                     user: school_name,
                     date: formattedDate
                 }; 
-                // console.log(post);
+                // 
                 posts.push(post); // Add post to the beginning of the array
                 // data[key]?.post?.notifications?.map((notification)=>{
                 //     notifications.push(notification[1]);
@@ -313,7 +313,7 @@ async function getFeeds() {
     
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : Hehehe",data);
+            
         }
     } catch (e) {
         console.log(e)
@@ -334,7 +334,7 @@ async function getNotifications(){
         
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ",data); 
+            
             notifications = [];
             data?.notifications?.map((notification)=>{
                 notifications.push(notification[1]);
@@ -342,7 +342,7 @@ async function getNotifications(){
             renderNotifications();
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ",data);
+            
             
         }
     } catch (e) {
@@ -362,14 +362,14 @@ async function getFaculties(){
         
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ",data); 
+            
             notifications = [];
             data?.people?.map((person)=>{
                 faculties.push(person);
             }) 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ",data);
+            
         }
     } catch (e) {
         console.log(e)
@@ -393,10 +393,10 @@ async function getlDetailsByActionId(action_id) {
 
     const data1 = await response1.json();
     if (response1.ok) {
-        console.log("Success Data : ", data1); 
+        
     } else {
         window.location.href = '../../get-started.html'; 
-        console.log("Error Data : ", data1);
+        
     }
 }
 
@@ -413,14 +413,14 @@ async function getSchoolDetails(){
     
         const data = await response1.json();
         if (response1.ok) {
-            console.log("Success Data : ", data); 
+            
             school = data ;
             school_name = school.school_name
             school_image = school.school_logo ? 'https://bnahs.pythonanywhere.com' + school.school_logo : 'assets\User_Circle.png' ; // Update the school admin user icon with the retrieved image URL
  
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
 
     } catch (error) {
@@ -441,7 +441,7 @@ async function getFacultyDetails(){
     
         const data = await response1.json();
         if (response1.ok) {
-            console.log("Success Data : ", data); 
+            
             faculty = data?.faculty;
             
             
@@ -451,7 +451,7 @@ async function getFacultyDetails(){
             getFeeds();
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
 
     } catch (error) {
@@ -499,10 +499,10 @@ async function toggleLike(postId, btn, post) {
         });
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data: ", data);
+            
             getNotifications();
         } else {
-            console.log("Error Data: ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -542,10 +542,10 @@ async function toggleLikeComment(commentId, btn, comment , post) {
         });
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data: ", data);
+            
             getNotifications();
         } else {
-            console.log("Error Data: ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -603,10 +603,10 @@ async function submitCommentOnSend(postId, commentText , replied_to) {
         
             const data1 = await response1.json();
             if (response1.ok) {
-                console.log("Success Data : ", data1);  
+                
                 getFeeds();
             } else {
-                console.log("Error Data : ", data1);
+                
             }
         } catch (e){
             console.log(e)
@@ -619,9 +619,9 @@ async function submitCommentOnSend(postId, commentText , replied_to) {
 
 // Add a notification
 function addNotification(message) {
-    console.log(notifications);
+    
     notifications.unshift(message);
-    console.log(notifications);
+    
     renderNotifications();
 }
 

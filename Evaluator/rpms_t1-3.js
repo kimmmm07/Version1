@@ -56,14 +56,14 @@ async function fetchData() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data:", data);  
+            
             data.teachers.forEach(teacherData => {
                 if (teacherData.teacher.is_proficient && teacherData.teacher.is_accepted) {
                     addTeacherRow(teacherData);  
                 }
             });
         } else {
-            console.log("Error Data:", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -113,10 +113,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

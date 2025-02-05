@@ -256,7 +256,7 @@ async function getFORMS(){
 
         ipcrf_content = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", ipcrf_content);
+            
 
             conductedReviewsProficient.textContent = ipcrf_content.number_of_conducted_cot_proficient;
             fullResponseCountProficient.textContent = ipcrf_content.number_of_evaluated_cot_proficient;
@@ -294,7 +294,7 @@ async function getFORMS(){
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", ipcrf_content);
+            
             // alert("Login Failed.")
         }
     } catch (error) {

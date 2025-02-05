@@ -10,7 +10,7 @@ window.addEventListener('load', async function () {
 
     const data = await response.json();
     if (response.ok) {
-        console.log("Success Data : ", data);
+        
 
         // Extract the people array from the data
         const people = data.people;
@@ -34,7 +34,7 @@ window.addEventListener('load', async function () {
                 const jobStartedDate = person.job_started 
                     ? new Date(person.job_started).toLocaleDateString("en-US", { month: 'numeric', day: 'numeric', year: 'numeric' }) 
                     : 'N/A';
-                console.log("Profile ", person.profile);
+                
                 // Populate row with data
                 row.innerHTML = `
                     <th>
@@ -61,7 +61,7 @@ window.addEventListener('load', async function () {
                     const dropdown = this.nextElementSibling; // Get the dropdown that follows the button
                     if (dropdown) {
                         dropdown.classList.toggle('show');
-                        console.log("Dropdown: ", dropdown);
+                        
                     }
                 });
 
@@ -86,7 +86,7 @@ window.addEventListener('load', async function () {
                 
                     const data = await response.json();
                     if (!response.ok) {
-                        console.log("Error Deactivating faculty member : ", data);
+                        
                         alert('Error deactivating faculty member');
                         return;
                     }  else {
@@ -95,7 +95,7 @@ window.addEventListener('load', async function () {
 
                     // Move the faculty member to the deactivated list (if you have an array or state to track)
                     // Get the ID of the faculty
-                    console.log(`Deactivating faculty ID: ${facultyId}`); // Log for verification
+                    // Log for verification
                     // You can use AJAX to send this ID to your server if needed
 
                     // For demo purposes, let's just remove it from the table for now
@@ -119,7 +119,7 @@ window.addEventListener('load', async function () {
         });
     } else {
         window.location.href = '../../get-started.html'; 
-        console.log("Error Data : ", data);
+        
     }
 
     const filterButtons = document.querySelectorAll('.filter');

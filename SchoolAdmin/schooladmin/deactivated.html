@@ -128,10 +128,10 @@
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -164,7 +164,7 @@ async function fetchFacultyData() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data);  
+            
             const people = data.people;
 
         // Select the table body where rows will be appended
@@ -186,7 +186,7 @@ async function fetchFacultyData() {
                 const jobStartedDate = person.job_started 
                     ? new Date(person.job_started).toLocaleDateString("en-US", { month: 'numeric', day: 'numeric', year: 'numeric' }) 
                     : 'N/A';
-                console.log("Profile ", person.profile);
+                
                 // Populate row with data
                 row.innerHTML = `
                     <th>
@@ -205,7 +205,7 @@ async function fetchFacultyData() {
 
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);

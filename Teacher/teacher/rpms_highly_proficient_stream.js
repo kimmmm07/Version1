@@ -63,10 +63,10 @@ yesButton.addEventListener('click', async function() {
 
         const data = await response.json();
         if (response.ok) {
-            console.log("Success Data : ", data); 
+            
             window.location.href = '../../get-started.html'; 
         } else {
-            console.log("Error Data : ", data);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
@@ -92,7 +92,7 @@ let plus_factor_id = undefined;
 
 function onclickKRA1(){
     sessionStorage.setItem('kra_1_id', kra_1_id);
-    console.log(kra_1_id);
+    
     window.location.href = 'rpms_highly_proficient_content1.html';
 }
 
@@ -142,7 +142,7 @@ async function getClassworks(){
 
 
         if (response.ok) {
-            console.log("Success Data : ", folder);  
+            
             headerSubtitle.innerHTML = folder.rpms_folder.rpms_folder_school_year;
 
             folder.rpms_classworks.forEach(classwork => {
@@ -165,7 +165,7 @@ async function getClassworks(){
             })
         } else {
             window.location.href = '../../get-started.html'; 
-            console.log("Error Data : ", folder);
+            
         }
     } catch (error) {
         console.error("Error during fetch:", error);
